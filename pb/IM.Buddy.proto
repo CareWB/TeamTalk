@@ -157,3 +157,29 @@ message IMSignInfoChangedNotify {
     required uint32 changed_user_id = 1;     // 谁修改了个性签名
     required string sign_info = 2;
 }
+
+message TravelRouteReq{
+    //cmd id:		0x0251
+    required uint32 user_id         = 1;
+    required uint32 travel_type     = 2; // TravelType，按位与
+    required string lines           = 3; // "SZX-XMN-SZX"
+    required uint32 time_from       = 4; // 开始时间，与1970的秒差
+    required uint32 time_to         = 5; // 结束时间，与1970的秒差
+    optional bytes attach_data      = 20;
+}
+
+message TravelToolInfo{
+	required uint32 travel_type     = 1; // TravelType
+    required string place_from      = 2; // 出发地
+    required string place_to        = 3; // 目的地
+    required uint32 time_from       = 4; // 开始时间，与1970的秒差
+    required uint32 time_to         = 5; // 结束时间，与1970的秒差
+    required uint32 price           = 6; // 价格
+}
+
+message TravelRouteRsq{
+    //cmd id:		0x0252
+    required uint32 user_id                     = 1;
+    required uint32 result_code                 = 2;
+    repeated TravelToolInfo travel_tool_info    = 3;
+}
