@@ -1,4 +1,7 @@
 #!/bin/sh
+export PATH=$PATH:/home/wb/TeamTalk-master/server/src/protobuf/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/wb/TeamTalk-master/server/src/protobuf/lib
+
 SRC_DIR=./
 DST_DIR=./gen
 

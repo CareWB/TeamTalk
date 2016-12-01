@@ -155,6 +155,8 @@ bool BuddyListCmdID_IsValid(int value) {
     case 531:
     case 532:
     case 533:
+    case 593:
+    case 594:
       return true;
     default:
       return false;
@@ -429,6 +431,17 @@ bool DepartmentStatusType_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+bool TravelType_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
+    case 4:
       return true;
     default:
       return false;

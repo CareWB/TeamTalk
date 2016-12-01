@@ -55,6 +55,9 @@ class IMAvatarChangedNotify;
 class IMChangeSignInfoReq;
 class IMChangeSignInfoRsp;
 class IMSignInfoChangedNotify;
+class TravelRouteReq;
+class TravelToolInfo;
+class TravelRouteRsq;
 
 // ===================================================================
 
@@ -2524,6 +2527,422 @@ class IMSignInfoChangedNotify : public ::google::protobuf::MessageLite {
 
   void InitAsDefaultInstance();
   static IMSignInfoChangedNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TravelRouteReq : public ::google::protobuf::MessageLite {
+ public:
+  TravelRouteReq();
+  virtual ~TravelRouteReq();
+
+  TravelRouteReq(const TravelRouteReq& from);
+
+  inline TravelRouteReq& operator=(const TravelRouteReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::std::string& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::std::string* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const TravelRouteReq& default_instance();
+
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  // Returns the internal default instance pointer. This function can
+  // return NULL thus should not be used by the user. This is intended
+  // for Protobuf internal code. Please use default_instance() declared
+  // above instead.
+  static inline const TravelRouteReq* internal_default_instance() {
+    return default_instance_;
+  }
+  #endif
+
+  void Swap(TravelRouteReq* other);
+
+  // implements Message ----------------------------------------------
+
+  TravelRouteReq* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const TravelRouteReq& from);
+  void MergeFrom(const TravelRouteReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  void DiscardUnknownFields();
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::std::string GetTypeName() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 user_id = 1;
+  inline bool has_user_id() const;
+  inline void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 user_id() const;
+  inline void set_user_id(::google::protobuf::uint32 value);
+
+  // required uint32 travel_type = 2;
+  inline bool has_travel_type() const;
+  inline void clear_travel_type();
+  static const int kTravelTypeFieldNumber = 2;
+  inline ::google::protobuf::uint32 travel_type() const;
+  inline void set_travel_type(::google::protobuf::uint32 value);
+
+  // required string lines = 3;
+  inline bool has_lines() const;
+  inline void clear_lines();
+  static const int kLinesFieldNumber = 3;
+  inline const ::std::string& lines() const;
+  inline void set_lines(const ::std::string& value);
+  inline void set_lines(const char* value);
+  inline void set_lines(const char* value, size_t size);
+  inline ::std::string* mutable_lines();
+  inline ::std::string* release_lines();
+  inline void set_allocated_lines(::std::string* lines);
+
+  // required uint32 time_from = 4;
+  inline bool has_time_from() const;
+  inline void clear_time_from();
+  static const int kTimeFromFieldNumber = 4;
+  inline ::google::protobuf::uint32 time_from() const;
+  inline void set_time_from(::google::protobuf::uint32 value);
+
+  // required uint32 time_to = 5;
+  inline bool has_time_to() const;
+  inline void clear_time_to();
+  static const int kTimeToFieldNumber = 5;
+  inline ::google::protobuf::uint32 time_to() const;
+  inline void set_time_to(::google::protobuf::uint32 value);
+
+  // optional bytes attach_data = 20;
+  inline bool has_attach_data() const;
+  inline void clear_attach_data();
+  static const int kAttachDataFieldNumber = 20;
+  inline const ::std::string& attach_data() const;
+  inline void set_attach_data(const ::std::string& value);
+  inline void set_attach_data(const char* value);
+  inline void set_attach_data(const void* value, size_t size);
+  inline ::std::string* mutable_attach_data();
+  inline ::std::string* release_attach_data();
+  inline void set_allocated_attach_data(::std::string* attach_data);
+
+  // @@protoc_insertion_point(class_scope:IM.Buddy.TravelRouteReq)
+ private:
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
+  inline void set_has_travel_type();
+  inline void clear_has_travel_type();
+  inline void set_has_lines();
+  inline void clear_has_lines();
+  inline void set_has_time_from();
+  inline void clear_has_time_from();
+  inline void set_has_time_to();
+  inline void clear_has_time_to();
+  inline void set_has_attach_data();
+  inline void clear_has_attach_data();
+
+  ::std::string _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 user_id_;
+  ::google::protobuf::uint32 travel_type_;
+  ::std::string* lines_;
+  ::google::protobuf::uint32 time_from_;
+  ::google::protobuf::uint32 time_to_;
+  ::std::string* attach_data_;
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
+  #else
+  friend void  protobuf_AddDesc_IM_2eBuddy_2eproto();
+  #endif
+  friend void protobuf_AssignDesc_IM_2eBuddy_2eproto();
+  friend void protobuf_ShutdownFile_IM_2eBuddy_2eproto();
+
+  void InitAsDefaultInstance();
+  static TravelRouteReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TravelToolInfo : public ::google::protobuf::MessageLite {
+ public:
+  TravelToolInfo();
+  virtual ~TravelToolInfo();
+
+  TravelToolInfo(const TravelToolInfo& from);
+
+  inline TravelToolInfo& operator=(const TravelToolInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::std::string& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::std::string* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const TravelToolInfo& default_instance();
+
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  // Returns the internal default instance pointer. This function can
+  // return NULL thus should not be used by the user. This is intended
+  // for Protobuf internal code. Please use default_instance() declared
+  // above instead.
+  static inline const TravelToolInfo* internal_default_instance() {
+    return default_instance_;
+  }
+  #endif
+
+  void Swap(TravelToolInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  TravelToolInfo* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const TravelToolInfo& from);
+  void MergeFrom(const TravelToolInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  void DiscardUnknownFields();
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::std::string GetTypeName() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 travel_type = 1;
+  inline bool has_travel_type() const;
+  inline void clear_travel_type();
+  static const int kTravelTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 travel_type() const;
+  inline void set_travel_type(::google::protobuf::uint32 value);
+
+  // required string place_from = 2;
+  inline bool has_place_from() const;
+  inline void clear_place_from();
+  static const int kPlaceFromFieldNumber = 2;
+  inline const ::std::string& place_from() const;
+  inline void set_place_from(const ::std::string& value);
+  inline void set_place_from(const char* value);
+  inline void set_place_from(const char* value, size_t size);
+  inline ::std::string* mutable_place_from();
+  inline ::std::string* release_place_from();
+  inline void set_allocated_place_from(::std::string* place_from);
+
+  // required string place_to = 3;
+  inline bool has_place_to() const;
+  inline void clear_place_to();
+  static const int kPlaceToFieldNumber = 3;
+  inline const ::std::string& place_to() const;
+  inline void set_place_to(const ::std::string& value);
+  inline void set_place_to(const char* value);
+  inline void set_place_to(const char* value, size_t size);
+  inline ::std::string* mutable_place_to();
+  inline ::std::string* release_place_to();
+  inline void set_allocated_place_to(::std::string* place_to);
+
+  // required uint32 time_from = 4;
+  inline bool has_time_from() const;
+  inline void clear_time_from();
+  static const int kTimeFromFieldNumber = 4;
+  inline ::google::protobuf::uint32 time_from() const;
+  inline void set_time_from(::google::protobuf::uint32 value);
+
+  // required uint32 time_to = 5;
+  inline bool has_time_to() const;
+  inline void clear_time_to();
+  static const int kTimeToFieldNumber = 5;
+  inline ::google::protobuf::uint32 time_to() const;
+  inline void set_time_to(::google::protobuf::uint32 value);
+
+  // required uint32 price = 6;
+  inline bool has_price() const;
+  inline void clear_price();
+  static const int kPriceFieldNumber = 6;
+  inline ::google::protobuf::uint32 price() const;
+  inline void set_price(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:IM.Buddy.TravelToolInfo)
+ private:
+  inline void set_has_travel_type();
+  inline void clear_has_travel_type();
+  inline void set_has_place_from();
+  inline void clear_has_place_from();
+  inline void set_has_place_to();
+  inline void clear_has_place_to();
+  inline void set_has_time_from();
+  inline void clear_has_time_from();
+  inline void set_has_time_to();
+  inline void clear_has_time_to();
+  inline void set_has_price();
+  inline void clear_has_price();
+
+  ::std::string _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::std::string* place_from_;
+  ::google::protobuf::uint32 travel_type_;
+  ::google::protobuf::uint32 time_from_;
+  ::std::string* place_to_;
+  ::google::protobuf::uint32 time_to_;
+  ::google::protobuf::uint32 price_;
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
+  #else
+  friend void  protobuf_AddDesc_IM_2eBuddy_2eproto();
+  #endif
+  friend void protobuf_AssignDesc_IM_2eBuddy_2eproto();
+  friend void protobuf_ShutdownFile_IM_2eBuddy_2eproto();
+
+  void InitAsDefaultInstance();
+  static TravelToolInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TravelRouteRsq : public ::google::protobuf::MessageLite {
+ public:
+  TravelRouteRsq();
+  virtual ~TravelRouteRsq();
+
+  TravelRouteRsq(const TravelRouteRsq& from);
+
+  inline TravelRouteRsq& operator=(const TravelRouteRsq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::std::string& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::std::string* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const TravelRouteRsq& default_instance();
+
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  // Returns the internal default instance pointer. This function can
+  // return NULL thus should not be used by the user. This is intended
+  // for Protobuf internal code. Please use default_instance() declared
+  // above instead.
+  static inline const TravelRouteRsq* internal_default_instance() {
+    return default_instance_;
+  }
+  #endif
+
+  void Swap(TravelRouteRsq* other);
+
+  // implements Message ----------------------------------------------
+
+  TravelRouteRsq* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const TravelRouteRsq& from);
+  void MergeFrom(const TravelRouteRsq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  void DiscardUnknownFields();
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::std::string GetTypeName() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 user_id = 1;
+  inline bool has_user_id() const;
+  inline void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 user_id() const;
+  inline void set_user_id(::google::protobuf::uint32 value);
+
+  // required uint32 result_code = 2;
+  inline bool has_result_code() const;
+  inline void clear_result_code();
+  static const int kResultCodeFieldNumber = 2;
+  inline ::google::protobuf::uint32 result_code() const;
+  inline void set_result_code(::google::protobuf::uint32 value);
+
+  // repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
+  inline int travel_tool_info_size() const;
+  inline void clear_travel_tool_info();
+  static const int kTravelToolInfoFieldNumber = 3;
+  inline const ::IM::Buddy::TravelToolInfo& travel_tool_info(int index) const;
+  inline ::IM::Buddy::TravelToolInfo* mutable_travel_tool_info(int index);
+  inline ::IM::Buddy::TravelToolInfo* add_travel_tool_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelToolInfo >&
+      travel_tool_info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelToolInfo >*
+      mutable_travel_tool_info();
+
+  // @@protoc_insertion_point(class_scope:IM.Buddy.TravelRouteRsq)
+ private:
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
+  inline void set_has_result_code();
+  inline void clear_has_result_code();
+
+  ::std::string _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 user_id_;
+  ::google::protobuf::uint32 result_code_;
+  ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelToolInfo > travel_tool_info_;
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
+  #else
+  friend void  protobuf_AddDesc_IM_2eBuddy_2eproto();
+  #endif
+  friend void protobuf_AssignDesc_IM_2eBuddy_2eproto();
+  friend void protobuf_ShutdownFile_IM_2eBuddy_2eproto();
+
+  void InitAsDefaultInstance();
+  static TravelRouteRsq* default_instance_;
 };
 // ===================================================================
 
@@ -5305,6 +5724,592 @@ inline void IMSignInfoChangedNotify::set_allocated_sign_info(::std::string* sign
     sign_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   // @@protoc_insertion_point(field_set_allocated:IM.Buddy.IMSignInfoChangedNotify.sign_info)
+}
+
+// -------------------------------------------------------------------
+
+// TravelRouteReq
+
+// required uint32 user_id = 1;
+inline bool TravelRouteReq::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TravelRouteReq::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TravelRouteReq::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TravelRouteReq::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint32 TravelRouteReq::user_id() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteReq.user_id)
+  return user_id_;
+}
+inline void TravelRouteReq::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteReq.user_id)
+}
+
+// required uint32 travel_type = 2;
+inline bool TravelRouteReq::has_travel_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TravelRouteReq::set_has_travel_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TravelRouteReq::clear_has_travel_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TravelRouteReq::clear_travel_type() {
+  travel_type_ = 0u;
+  clear_has_travel_type();
+}
+inline ::google::protobuf::uint32 TravelRouteReq::travel_type() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteReq.travel_type)
+  return travel_type_;
+}
+inline void TravelRouteReq::set_travel_type(::google::protobuf::uint32 value) {
+  set_has_travel_type();
+  travel_type_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteReq.travel_type)
+}
+
+// required string lines = 3;
+inline bool TravelRouteReq::has_lines() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void TravelRouteReq::set_has_lines() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void TravelRouteReq::clear_has_lines() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void TravelRouteReq::clear_lines() {
+  if (lines_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    lines_->clear();
+  }
+  clear_has_lines();
+}
+inline const ::std::string& TravelRouteReq::lines() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteReq.lines)
+  return *lines_;
+}
+inline void TravelRouteReq::set_lines(const ::std::string& value) {
+  set_has_lines();
+  if (lines_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    lines_ = new ::std::string;
+  }
+  lines_->assign(value);
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteReq.lines)
+}
+inline void TravelRouteReq::set_lines(const char* value) {
+  set_has_lines();
+  if (lines_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    lines_ = new ::std::string;
+  }
+  lines_->assign(value);
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.TravelRouteReq.lines)
+}
+inline void TravelRouteReq::set_lines(const char* value, size_t size) {
+  set_has_lines();
+  if (lines_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    lines_ = new ::std::string;
+  }
+  lines_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.TravelRouteReq.lines)
+}
+inline ::std::string* TravelRouteReq::mutable_lines() {
+  set_has_lines();
+  if (lines_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    lines_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.TravelRouteReq.lines)
+  return lines_;
+}
+inline ::std::string* TravelRouteReq::release_lines() {
+  clear_has_lines();
+  if (lines_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = lines_;
+    lines_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void TravelRouteReq::set_allocated_lines(::std::string* lines) {
+  if (lines_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete lines_;
+  }
+  if (lines) {
+    set_has_lines();
+    lines_ = lines;
+  } else {
+    clear_has_lines();
+    lines_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.TravelRouteReq.lines)
+}
+
+// required uint32 time_from = 4;
+inline bool TravelRouteReq::has_time_from() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void TravelRouteReq::set_has_time_from() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void TravelRouteReq::clear_has_time_from() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void TravelRouteReq::clear_time_from() {
+  time_from_ = 0u;
+  clear_has_time_from();
+}
+inline ::google::protobuf::uint32 TravelRouteReq::time_from() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteReq.time_from)
+  return time_from_;
+}
+inline void TravelRouteReq::set_time_from(::google::protobuf::uint32 value) {
+  set_has_time_from();
+  time_from_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteReq.time_from)
+}
+
+// required uint32 time_to = 5;
+inline bool TravelRouteReq::has_time_to() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void TravelRouteReq::set_has_time_to() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void TravelRouteReq::clear_has_time_to() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void TravelRouteReq::clear_time_to() {
+  time_to_ = 0u;
+  clear_has_time_to();
+}
+inline ::google::protobuf::uint32 TravelRouteReq::time_to() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteReq.time_to)
+  return time_to_;
+}
+inline void TravelRouteReq::set_time_to(::google::protobuf::uint32 value) {
+  set_has_time_to();
+  time_to_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteReq.time_to)
+}
+
+// optional bytes attach_data = 20;
+inline bool TravelRouteReq::has_attach_data() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void TravelRouteReq::set_has_attach_data() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void TravelRouteReq::clear_has_attach_data() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void TravelRouteReq::clear_attach_data() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_->clear();
+  }
+  clear_has_attach_data();
+}
+inline const ::std::string& TravelRouteReq::attach_data() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteReq.attach_data)
+  return *attach_data_;
+}
+inline void TravelRouteReq::set_attach_data(const ::std::string& value) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(value);
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteReq.attach_data)
+}
+inline void TravelRouteReq::set_attach_data(const char* value) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(value);
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.TravelRouteReq.attach_data)
+}
+inline void TravelRouteReq::set_attach_data(const void* value, size_t size) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.TravelRouteReq.attach_data)
+}
+inline ::std::string* TravelRouteReq::mutable_attach_data() {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.TravelRouteReq.attach_data)
+  return attach_data_;
+}
+inline ::std::string* TravelRouteReq::release_attach_data() {
+  clear_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = attach_data_;
+    attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void TravelRouteReq::set_allocated_attach_data(::std::string* attach_data) {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  if (attach_data) {
+    set_has_attach_data();
+    attach_data_ = attach_data;
+  } else {
+    clear_has_attach_data();
+    attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.TravelRouteReq.attach_data)
+}
+
+// -------------------------------------------------------------------
+
+// TravelToolInfo
+
+// required uint32 travel_type = 1;
+inline bool TravelToolInfo::has_travel_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TravelToolInfo::set_has_travel_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TravelToolInfo::clear_has_travel_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TravelToolInfo::clear_travel_type() {
+  travel_type_ = 0u;
+  clear_has_travel_type();
+}
+inline ::google::protobuf::uint32 TravelToolInfo::travel_type() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelToolInfo.travel_type)
+  return travel_type_;
+}
+inline void TravelToolInfo::set_travel_type(::google::protobuf::uint32 value) {
+  set_has_travel_type();
+  travel_type_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelToolInfo.travel_type)
+}
+
+// required string place_from = 2;
+inline bool TravelToolInfo::has_place_from() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TravelToolInfo::set_has_place_from() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TravelToolInfo::clear_has_place_from() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TravelToolInfo::clear_place_from() {
+  if (place_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_from_->clear();
+  }
+  clear_has_place_from();
+}
+inline const ::std::string& TravelToolInfo::place_from() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelToolInfo.place_from)
+  return *place_from_;
+}
+inline void TravelToolInfo::set_place_from(const ::std::string& value) {
+  set_has_place_from();
+  if (place_from_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_from_ = new ::std::string;
+  }
+  place_from_->assign(value);
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelToolInfo.place_from)
+}
+inline void TravelToolInfo::set_place_from(const char* value) {
+  set_has_place_from();
+  if (place_from_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_from_ = new ::std::string;
+  }
+  place_from_->assign(value);
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.TravelToolInfo.place_from)
+}
+inline void TravelToolInfo::set_place_from(const char* value, size_t size) {
+  set_has_place_from();
+  if (place_from_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_from_ = new ::std::string;
+  }
+  place_from_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.TravelToolInfo.place_from)
+}
+inline ::std::string* TravelToolInfo::mutable_place_from() {
+  set_has_place_from();
+  if (place_from_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_from_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.TravelToolInfo.place_from)
+  return place_from_;
+}
+inline ::std::string* TravelToolInfo::release_place_from() {
+  clear_has_place_from();
+  if (place_from_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = place_from_;
+    place_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void TravelToolInfo::set_allocated_place_from(::std::string* place_from) {
+  if (place_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete place_from_;
+  }
+  if (place_from) {
+    set_has_place_from();
+    place_from_ = place_from;
+  } else {
+    clear_has_place_from();
+    place_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.TravelToolInfo.place_from)
+}
+
+// required string place_to = 3;
+inline bool TravelToolInfo::has_place_to() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void TravelToolInfo::set_has_place_to() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void TravelToolInfo::clear_has_place_to() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void TravelToolInfo::clear_place_to() {
+  if (place_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_to_->clear();
+  }
+  clear_has_place_to();
+}
+inline const ::std::string& TravelToolInfo::place_to() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelToolInfo.place_to)
+  return *place_to_;
+}
+inline void TravelToolInfo::set_place_to(const ::std::string& value) {
+  set_has_place_to();
+  if (place_to_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_to_ = new ::std::string;
+  }
+  place_to_->assign(value);
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelToolInfo.place_to)
+}
+inline void TravelToolInfo::set_place_to(const char* value) {
+  set_has_place_to();
+  if (place_to_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_to_ = new ::std::string;
+  }
+  place_to_->assign(value);
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.TravelToolInfo.place_to)
+}
+inline void TravelToolInfo::set_place_to(const char* value, size_t size) {
+  set_has_place_to();
+  if (place_to_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_to_ = new ::std::string;
+  }
+  place_to_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.TravelToolInfo.place_to)
+}
+inline ::std::string* TravelToolInfo::mutable_place_to() {
+  set_has_place_to();
+  if (place_to_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    place_to_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.TravelToolInfo.place_to)
+  return place_to_;
+}
+inline ::std::string* TravelToolInfo::release_place_to() {
+  clear_has_place_to();
+  if (place_to_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = place_to_;
+    place_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void TravelToolInfo::set_allocated_place_to(::std::string* place_to) {
+  if (place_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete place_to_;
+  }
+  if (place_to) {
+    set_has_place_to();
+    place_to_ = place_to;
+  } else {
+    clear_has_place_to();
+    place_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.TravelToolInfo.place_to)
+}
+
+// required uint32 time_from = 4;
+inline bool TravelToolInfo::has_time_from() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void TravelToolInfo::set_has_time_from() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void TravelToolInfo::clear_has_time_from() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void TravelToolInfo::clear_time_from() {
+  time_from_ = 0u;
+  clear_has_time_from();
+}
+inline ::google::protobuf::uint32 TravelToolInfo::time_from() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelToolInfo.time_from)
+  return time_from_;
+}
+inline void TravelToolInfo::set_time_from(::google::protobuf::uint32 value) {
+  set_has_time_from();
+  time_from_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelToolInfo.time_from)
+}
+
+// required uint32 time_to = 5;
+inline bool TravelToolInfo::has_time_to() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void TravelToolInfo::set_has_time_to() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void TravelToolInfo::clear_has_time_to() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void TravelToolInfo::clear_time_to() {
+  time_to_ = 0u;
+  clear_has_time_to();
+}
+inline ::google::protobuf::uint32 TravelToolInfo::time_to() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelToolInfo.time_to)
+  return time_to_;
+}
+inline void TravelToolInfo::set_time_to(::google::protobuf::uint32 value) {
+  set_has_time_to();
+  time_to_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelToolInfo.time_to)
+}
+
+// required uint32 price = 6;
+inline bool TravelToolInfo::has_price() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void TravelToolInfo::set_has_price() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void TravelToolInfo::clear_has_price() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void TravelToolInfo::clear_price() {
+  price_ = 0u;
+  clear_has_price();
+}
+inline ::google::protobuf::uint32 TravelToolInfo::price() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelToolInfo.price)
+  return price_;
+}
+inline void TravelToolInfo::set_price(::google::protobuf::uint32 value) {
+  set_has_price();
+  price_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelToolInfo.price)
+}
+
+// -------------------------------------------------------------------
+
+// TravelRouteRsq
+
+// required uint32 user_id = 1;
+inline bool TravelRouteRsq::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TravelRouteRsq::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TravelRouteRsq::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TravelRouteRsq::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint32 TravelRouteRsq::user_id() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteRsq.user_id)
+  return user_id_;
+}
+inline void TravelRouteRsq::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteRsq.user_id)
+}
+
+// required uint32 result_code = 2;
+inline bool TravelRouteRsq::has_result_code() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TravelRouteRsq::set_has_result_code() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TravelRouteRsq::clear_has_result_code() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TravelRouteRsq::clear_result_code() {
+  result_code_ = 0u;
+  clear_has_result_code();
+}
+inline ::google::protobuf::uint32 TravelRouteRsq::result_code() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteRsq.result_code)
+  return result_code_;
+}
+inline void TravelRouteRsq::set_result_code(::google::protobuf::uint32 value) {
+  set_has_result_code();
+  result_code_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelRouteRsq.result_code)
+}
+
+// repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
+inline int TravelRouteRsq::travel_tool_info_size() const {
+  return travel_tool_info_.size();
+}
+inline void TravelRouteRsq::clear_travel_tool_info() {
+  travel_tool_info_.Clear();
+}
+inline const ::IM::Buddy::TravelToolInfo& TravelRouteRsq::travel_tool_info(int index) const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelRouteRsq.travel_tool_info)
+  return travel_tool_info_.Get(index);
+}
+inline ::IM::Buddy::TravelToolInfo* TravelRouteRsq::mutable_travel_tool_info(int index) {
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.TravelRouteRsq.travel_tool_info)
+  return travel_tool_info_.Mutable(index);
+}
+inline ::IM::Buddy::TravelToolInfo* TravelRouteRsq::add_travel_tool_info() {
+  // @@protoc_insertion_point(field_add:IM.Buddy.TravelRouteRsq.travel_tool_info)
+  return travel_tool_info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelToolInfo >&
+TravelRouteRsq::travel_tool_info() const {
+  // @@protoc_insertion_point(field_list:IM.Buddy.TravelRouteRsq.travel_tool_info)
+  return travel_tool_info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelToolInfo >*
+TravelRouteRsq::mutable_travel_tool_info() {
+  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.TravelRouteRsq.travel_tool_info)
+  return &travel_tool_info_;
 }
 
 
