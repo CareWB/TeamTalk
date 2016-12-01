@@ -107,11 +107,13 @@ enum BuddyListCmdID {
   CID_BUDDY_LIST_AVATAR_CHANGED_NOTIFY = 530,
   CID_BUDDY_LIST_CHANGE_SIGN_INFO_REQUEST = 531,
   CID_BUDDY_LIST_CHANGE_SIGN_INFO_RESPONSE = 532,
-  CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY = 533
+  CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY = 533,
+  CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST = 593,
+  CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE = 594
 };
 bool BuddyListCmdID_IsValid(int value);
 const BuddyListCmdID BuddyListCmdID_MIN = CID_BUDDY_LIST_RECENT_CONTACT_SESSION_REQUEST;
-const BuddyListCmdID BuddyListCmdID_MAX = CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY;
+const BuddyListCmdID BuddyListCmdID_MAX = CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE;
 const int BuddyListCmdID_ARRAYSIZE = BuddyListCmdID_MAX + 1;
 
 enum MessageCmdID {
@@ -367,6 +369,16 @@ bool DepartmentStatusType_IsValid(int value);
 const DepartmentStatusType DepartmentStatusType_MIN = DEPT_STATUS_OK;
 const DepartmentStatusType DepartmentStatusType_MAX = DEPT_STATUS_DELETE;
 const int DepartmentStatusType_ARRAYSIZE = DepartmentStatusType_MAX + 1;
+
+enum TravelType {
+  TRAVEL_TYPE_TRAIN = 1,
+  TRAVEL_TYPE_AIRPLANE = 2,
+  TRAVEL_TYPE_BUS = 4
+};
+bool TravelType_IsValid(int value);
+const TravelType TravelType_MIN = TRAVEL_TYPE_TRAIN;
+const TravelType TravelType_MAX = TRAVEL_TYPE_BUS;
+const int TravelType_ARRAYSIZE = TravelType_MAX + 1;
 
 // ===================================================================
 
