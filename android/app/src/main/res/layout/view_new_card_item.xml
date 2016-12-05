@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="9dp"
+    app:cardMaxElevation="18dp"
+    app:cardUseCompatPadding="true">
+
+    <ImageView
+        android:id="@+id/iv_new_travel_destination_bk"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pic4"
+        tools:ignore="ContentDescription" />
+
+</android.support.v7.widget.CardView>

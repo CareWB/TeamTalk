@@ -13,13 +13,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.mogujie.tt.DB.entity.UserEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.SysConstant;
+import com.mogujie.tt.ui.activity.HomePageActivity;
 import com.mogujie.tt.utils.IMUIHelper;
 import com.mogujie.tt.imservice.event.UserInfoEvent;
 import com.mogujie.tt.imservice.manager.IMLoginManager;
@@ -173,7 +176,8 @@ public class MyFragment extends MainFragment {
             @Override
             public void onClick(View v) {
                 // 跳转到配置页面
-                startActivity(new Intent(MyFragment.this.getActivity(), SettingActivity.class));
+                //startActivity(new Intent(MyFragment.this.getActivity(), SettingActivity.class));
+                startActivity(new Intent(MyFragment.this.getActivity(), HomePageActivity.class));
             }
         });
 		hideContent();

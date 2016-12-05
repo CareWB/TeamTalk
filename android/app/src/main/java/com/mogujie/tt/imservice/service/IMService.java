@@ -23,6 +23,7 @@ import com.mogujie.tt.imservice.manager.IMNotificationManager;
 import com.mogujie.tt.imservice.manager.IMReconnectManager;
 import com.mogujie.tt.imservice.manager.IMSessionManager;
 import com.mogujie.tt.imservice.manager.IMSocketManager;
+import com.mogujie.tt.imservice.manager.IMTravelManager;
 import com.mogujie.tt.imservice.manager.IMUnreadMsgManager;
 import com.mogujie.tt.utils.ImageLoaderUtil;
 import com.mogujie.tt.utils.Logger;
@@ -61,6 +62,7 @@ public class IMService extends Service {
 	private IMSessionManager sessionMgr = IMSessionManager.instance();
 	private IMReconnectManager reconnectMgr = IMReconnectManager.instance();
 	private IMUnreadMsgManager unReadMsgMgr = IMUnreadMsgManager.instance();
+    private IMTravelManager travelManager = IMTravelManager.instance();
 	private IMNotificationManager notificationMgr = IMNotificationManager.instance();
     private IMHeartBeatManager heartBeatManager = IMHeartBeatManager.instance();
 
@@ -137,6 +139,7 @@ public class IMService extends Service {
         groupMgr.onStartIMManager(ctx);
         sessionMgr.onStartIMManager(ctx);
         unReadMsgMgr.onStartIMManager(ctx);
+        travelManager.onStartIMManager(ctx);
         notificationMgr.onStartIMManager(ctx);
         reconnectMgr.onStartIMManager(ctx);
         heartBeatManager.onStartIMManager(ctx);
@@ -162,6 +165,7 @@ public class IMService extends Service {
         sessionMgr.onNormalLoginOk();
         groupMgr.onNormalLoginOk();
         unReadMsgMgr.onNormalLoginOk();
+        travelManager.onNormalLoginOk();
 
         reconnectMgr.onNormalLoginOk();
         //依赖的状态比较特殊
@@ -205,6 +209,7 @@ public class IMService extends Service {
         groupMgr.onLocalNetOk();
         sessionMgr.onLocalNetOk();
         unReadMsgMgr.onLocalNetOk();
+        travelManager.onLocalNetOk();
         reconnectMgr.onLocalNetOk();
         heartBeatManager.onloginNetSuccess();
     }
@@ -220,6 +225,7 @@ public class IMService extends Service {
         groupMgr.reset();
         sessionMgr.reset();
         unReadMsgMgr.reset();
+        travelManager.reset();
         notificationMgr.reset();
         reconnectMgr.reset();
         heartBeatManager.reset();
@@ -263,6 +269,10 @@ public class IMService extends Service {
 
     public IMUnreadMsgManager getUnReadMsgManager() {
         return unReadMsgMgr;
+    }
+
+    public IMTravelManager getTravelManager() {
+        return travelManager;
     }
 
     public IMNotificationManager getNotificationManager() {

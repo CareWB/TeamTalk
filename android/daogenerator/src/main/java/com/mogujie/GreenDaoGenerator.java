@@ -28,9 +28,10 @@ public class GreenDaoGenerator {
         addGroupInfo(schema);
         addMessage(schema);
         addSessionInfo(schema);
+        addTravelInfo(schema);
 
         // todo 绝对路径,根据自己的路径设定， 例子如下
-        String path = "/Users/yingmu/software/IM/TT/ttandroidclientnew/app/src/main/java";
+        String path = "D:\\android\\dao";
         new DaoGenerator().generateAll(schema, path);
     }
 
@@ -156,5 +157,31 @@ public class GreenDaoGenerator {
         sessionInfo.addIntProperty("updated").notNull();
 
         sessionInfo.setHasKeepSections(true);
+    }
+
+    private static void addTravelInfo(Schema schema) {
+        Entity travelInfo = schema.addEntity("TravelEntity");
+        travelInfo.setTableName("TravelInfo");
+        travelInfo.setClassNameDao("TravelDao");
+        travelInfo.setJavaPackage(entityPath);
+
+        travelInfo.addIdProperty().autoincrement();
+        travelInfo.addIntProperty("peerId").unique().notNull();
+        travelInfo.addIntProperty("duration").notNull();
+        travelInfo.addStringProperty("startDate").notNull();
+        travelInfo.addStringProperty("endDate").notNull();
+        travelInfo.addStringProperty("destination").notNull();
+        travelInfo.addStringProperty("destinationBK").notNull();
+        travelInfo.addStringProperty("throughPoint").notNull();
+        travelInfo.addIntProperty("creatorId").notNull();
+        travelInfo.addIntProperty("userCnt").notNull();
+        travelInfo.addIntProperty("cost").notNull();
+        travelInfo.addIntProperty("type").notNull();
+        travelInfo.addIntProperty("version").notNull();
+        travelInfo.addIntProperty("status").notNull();
+        travelInfo.addIntProperty("created").notNull();
+        travelInfo.addIntProperty("updated").notNull();
+
+        travelInfo.setHasKeepSections(true);
     }
 }

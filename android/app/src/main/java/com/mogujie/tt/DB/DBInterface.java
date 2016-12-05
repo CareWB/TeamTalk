@@ -10,11 +10,13 @@ import com.mogujie.tt.DB.dao.DepartmentDao;
 import com.mogujie.tt.DB.dao.GroupDao;
 import com.mogujie.tt.DB.dao.MessageDao;
 import com.mogujie.tt.DB.dao.SessionDao;
+import com.mogujie.tt.DB.dao.TravelDao;
 import com.mogujie.tt.DB.dao.UserDao;
 import com.mogujie.tt.DB.entity.DepartmentEntity;
 import com.mogujie.tt.DB.entity.GroupEntity;
 import com.mogujie.tt.DB.entity.MessageEntity;
 import com.mogujie.tt.DB.entity.SessionEntity;
+import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.DB.entity.UserEntity;
 import com.mogujie.tt.config.DBConstant;
 import com.mogujie.tt.config.MessageConstant;
@@ -485,6 +487,44 @@ public class DBInterface {
             }
         }
         return newList;
+    }
+
+    /**-------------------------下面开始Travel 操作相关---------------------------------------*/
+    /**
+     * @return
+     *  toER_STATUS_LEAVE
+     */
+    public List<TravelEntity> loadAllTravel(){
+        TravelDao dao = openReadableDb().getTravelDao();
+        List<TravelEntity> result = dao.loadAll();
+        return result;
+    }
+
+    public void insertOrUpdateTravel(TravelEntity entity){
+        TravelDao travelDao = openWritableDb().getTravelDao();
+        long rowId = travelDao.insertOrReplace(entity);
+    }
+
+    public void  batchInsertOrUpdateTravel(List<TravelEntity> entityList){
+        if(entityList.size() <=0){
+            return ;
+        }
+        TravelDao travelDao = openWritableDb().getTravelDao();
+        travelDao.insertOrReplaceInTx(entityList);
+    }
+
+    /**update*/
+    public int getTravelLastTime(){
+        TravelDao travelDao =  openReadableDb().getTravelDao();
+        TravelEntity travelEntity = travelDao.queryBuilder()
+                .orderDesc(TravelDao.Properties.Updated)
+                .limit(1)
+                .unique();
+        if(travelEntity == null){
+            return 0;
+        }else{
+            return travelEntity.getUpdated();
+        }
     }
 
 }

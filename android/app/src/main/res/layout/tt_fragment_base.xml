@@ -2,23 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/travel_menu_bk"
+    android:paddingTop="30dp"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/topbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_default_height"
-        android:background="@drawable/tt_top_default_bk"
         android:paddingLeft="15dp"
-            android:paddingRight="15dp" >
+        android:paddingRight="15dp" >
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            
             android:id="@+id/top_left_container" >
 
             <ImageView
@@ -52,12 +51,11 @@
                 android:layout_gravity="center"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
-                android:singleLine="true"
-                android:textColor="@android:color/black"
+                android:maxLines="1"
+                android:textColor="@color/default_title_color"
                 android:textSize="@dimen/top_title_size"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textStyle="italic" />
+                android:paddingRight="5dp" />
 
             
 
@@ -111,11 +109,6 @@
 	        android:clickable="true" />
     </FrameLayout>	
     
-	<View
-           	android:layout_width="fill_parent"
-           	android:layout_height="0.5dp"
-           	android:background="@drawable/tt_divide_line" />
-    
     <FrameLayout
         android:id="@+id/searchbar"
         android:layout_width="match_parent"
@@ -135,14 +128,9 @@
             android:ellipsize="end"
             android:hint="@string/menu_search"
             android:gravity="center_vertical"
-            android:singleLine="true"
+            android:maxLines="1"
             android:textColorHint="#9a9b9c"
             android:textSize="14sp" />
         
     </FrameLayout>
-	<View
-           	android:layout_width="fill_parent"
-           	android:layout_height="0.5dp"
-           	android:paddingBottom="0dp"
-           	android:background="@drawable/tt_divide_line" />
 </LinearLayout>

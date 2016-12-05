@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dialog_semitransparent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/alert_dialog_bk"
+        android:layout_width="281dp"
+        android:layout_height="123dp"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="67dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/travel_alert_dialog_title"
+                android:id="@+id/alert_dialog_title"
+                android:layout_gravity="center_horizontal|center" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/imageView27"
+            android:background="@drawable/divider_line" />
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp" >
+
+            <Button
+                android:text="@string/tt_cancel"
+                android:textColor="@color/travel_alert_dialog_content_not_choose"
+                android:textSize="15sp"
+                android:layout_width="122dp"
+                android:layout_height="39dp"
+                android:id="@+id/bn_alert_dialog_cancel"
+                android:background="@drawable/bn_bk_white"
+                android:layout_alignParentLeft="true" />
+
+            <Button
+                android:text="@string/tt_ok"
+                android:textColor="@color/travel_alert_dialog_content_choose"
+                android:textSize="15sp"
+                android:layout_width="122dp"
+                android:layout_height="39dp"
+                android:id="@+id/bn_alert_dialog_confirm"
+                android:background="@drawable/bn_bk_blue"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

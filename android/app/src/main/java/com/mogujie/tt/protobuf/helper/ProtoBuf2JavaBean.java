@@ -2,6 +2,7 @@ package com.mogujie.tt.protobuf.helper;
 
 import com.google.protobuf.ByteString;
 import com.mogujie.tt.DB.entity.DepartmentEntity;
+import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.config.DBConstant;
 import com.mogujie.tt.DB.entity.GroupEntity;
 import com.mogujie.tt.DB.entity.MessageEntity;
@@ -14,6 +15,7 @@ import com.mogujie.tt.imservice.entity.UnreadEntity;
 import com.mogujie.tt.protobuf.IMBaseDefine;
 import com.mogujie.tt.protobuf.IMGroup;
 import com.mogujie.tt.protobuf.IMMessage;
+import com.mogujie.tt.protobuf.IMTravel;
 import com.mogujie.tt.utils.CommonUtil;
 import com.mogujie.tt.utils.FileUtil;
 import com.mogujie.tt.utils.pinyin.PinYin;
@@ -335,5 +337,26 @@ public class ProtoBuf2JavaBean {
                 throw new IllegalArgumentException("getDepartStatus is illegal,cause by " +statusType);
         }
 
+    }
+
+    public static TravelEntity getTravelEntity(IMTravel.TravelInfo travelInfo){
+        TravelEntity travelEntity = new TravelEntity();
+        int timeNow = (int) (System.currentTimeMillis()/1000);
+
+        travelEntity.setPeerId(travelInfo.getPeerId());
+        travelEntity.setDuration(travelInfo.getDuration());
+        travelEntity.setStartDate(travelInfo.getStartDate());
+        travelEntity.setEndDate(travelInfo.getEndDate());
+        travelEntity.setDestination(travelInfo.getDestination());
+        travelEntity.setThroughPoint(travelInfo.getThroughPoint());
+        travelEntity.setCreatorId(travelInfo.getCreatorId());
+        travelEntity.setUserCnt(travelInfo.getUserCnt());
+        travelEntity.setCost(travelInfo.getCost());
+        travelEntity.setType(travelInfo.getType().getNumber());
+        travelEntity.setVersion(travelInfo.getVersion());
+        travelEntity.setStatus(travelInfo.getStatus());
+        travelEntity.setCreated(timeNow);
+        travelEntity.setUpdated(timeNow);
+        return travelEntity;
     }
 }

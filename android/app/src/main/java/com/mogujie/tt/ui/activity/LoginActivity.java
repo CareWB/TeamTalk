@@ -390,7 +390,7 @@ public class LoginActivity extends TTBaseActivity {
     private void onLoginSuccess() {
         logger.i("login#onLoginSuccess");
         loginSuccess = true;
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
         startActivity(intent);
         LoginActivity.this.finish();
     }

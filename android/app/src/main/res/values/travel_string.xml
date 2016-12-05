@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="travel">行程</string>
+    <string name="local">当地</string>
+    <string name="other_trip">看看其他人怎么玩</string>
+    <string name="day">天</string>
+    <string name="person">人</string>
+    <string name="monetary_unit">元</string>
+    <string name="economical_efficiency">经济高效游</string>
+    <string name="economical_comfort">经济舒适游</string>
+    <string name="luxury_quality">豪华品质游</string>
+    <string name="travel_create">定制我的行程</string>
+    <string name="travel_share">分享行程</string>
+    <string name="travel_delete">删除行程</string>
+    <string name="select_destination">选择目的地</string>
+</resources>

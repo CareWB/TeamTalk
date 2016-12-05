@@ -1,12 +1,15 @@
 package com.mogujie.tt.utils;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -40,128 +43,137 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 public class IMUIHelper {
 
-    // 在视图中，长按用户信息条目弹出的对话框
-    public static void handleContactItemLongClick(final UserEntity contact, final Context ctx){
-        if(contact == null || ctx == null){
-            return;
-        }
-        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(ctx, android.R.style.Theme_Holo_Light_Dialog));
-        builder.setTitle(contact.getMainName());
-        String[] items = new String[]{ctx.getString(R.string.check_profile),
-                ctx.getString(R.string.start_session)};
+	// 在视图中，长按用户信息条目弹出的对话框
+	public static void handleContactItemLongClick(final UserEntity contact, final Context ctx) {
+		if (contact == null || ctx == null) {
+			return;
+		}
+		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(ctx, android.R.style.Theme_Holo_Light_Dialog));
+		builder.setTitle(contact.getMainName());
+		String[] items = new String[]{ctx.getString(R.string.check_profile),
+				ctx.getString(R.string.start_session)};
 
-        final int userId = contact.getPeerId();
-        builder.setItems(items, new DialogInterface.OnClickListener() {
+		final int userId = contact.getPeerId();
+		builder.setItems(items, new DialogInterface.OnClickListener() {
 
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0 :
-                        IMUIHelper.openUserProfileActivity(ctx, userId);
-                        break;
-                    case 1 :
-                        IMUIHelper.openChatActivity(ctx,contact.getSessionKey());
-                        break;
-                }
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.setCanceledOnTouchOutside(true);
-        alertDialog.show();
-    }
-
-
-    // 根据event 展示提醒文案
-    public static int getLoginErrorTip(LoginEvent event) {
-        switch (event) {
-            case LOGIN_AUTH_FAILED:
-                return R.string.login_error_general_failed;
-            case LOGIN_INNER_FAILED:
-                return R.string.login_error_unexpected;
-            default :
-                return  R.string.login_error_unexpected;
-        }
-    }
-
-    public static int getSocketErrorTip(SocketEvent event) {
-        switch (event) {
-            case CONNECT_MSG_SERVER_FAILED :
-                return R.string.connect_msg_server_failed;
-            case REQ_MSG_SERVER_ADDRS_FAILED :
-                return R.string.req_msg_server_addrs_failed;
-            default :
-                return  R.string.login_error_unexpected;
-        }
-    }
-
-    // 跳转到聊天页面
-    public static void openChatActivity(Context ctx, String sessionKey) {
-        Intent intent = new Intent(ctx, MessageActivity.class);
-        intent.putExtra(IntentConstant.KEY_SESSION_KEY, sessionKey);
-        ctx.startActivity(intent);
-    }
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				switch (which) {
+					case 0:
+						IMUIHelper.openUserProfileActivity(ctx, userId);
+						break;
+					case 1:
+						IMUIHelper.openChatActivity(ctx, contact.getSessionKey());
+						break;
+				}
+			}
+		});
+		AlertDialog alertDialog = builder.create();
+		alertDialog.setCanceledOnTouchOutside(true);
+		alertDialog.show();
+	}
 
 
-    //跳转到用户信息页面
-    public static void openUserProfileActivity(Context ctx, int contactId) {
-        Intent intent = new Intent(ctx, UserInfoActivity.class);
-        intent.putExtra(IntentConstant.KEY_PEERID, contactId);
-        ctx.startActivity(intent);
-    }
+	// 根据event 展示提醒文案
+	public static int getLoginErrorTip(LoginEvent event) {
+		switch (event) {
+			case LOGIN_AUTH_FAILED:
+				return R.string.login_error_general_failed;
+			case LOGIN_INNER_FAILED:
+				return R.string.login_error_unexpected;
+			default:
+				return R.string.login_error_unexpected;
+		}
+	}
 
-    public static void  openGroupMemberSelectActivity(Context ctx, String sessionKey) {
-        Intent intent = new Intent(ctx, GroupMemberSelectActivity.class);
-        intent.putExtra(IntentConstant.KEY_SESSION_KEY, sessionKey);
-        ctx.startActivity(intent);
-    }
+	public static int getSocketErrorTip(SocketEvent event) {
+		switch (event) {
+			case CONNECT_MSG_SERVER_FAILED:
+				return R.string.connect_msg_server_failed;
+			case REQ_MSG_SERVER_ADDRS_FAILED:
+				return R.string.req_msg_server_addrs_failed;
+			default:
+				return R.string.login_error_unexpected;
+		}
+	}
+
+	// 跳转到聊天页面
+	public static void openChatActivity(Context ctx, String sessionKey) {
+		Intent intent = new Intent(ctx, MessageActivity.class);
+		intent.putExtra(IntentConstant.KEY_SESSION_KEY, sessionKey);
+		ctx.startActivity(intent);
+	}
 
 
-    // 对话框回调函数
-    public interface dialogCallback{
-        public void callback();
-    }
+	//跳转到用户信息页面
+	public static void openUserProfileActivity(Context ctx, int contactId) {
+		Intent intent = new Intent(ctx, UserInfoActivity.class);
+		intent.putExtra(IntentConstant.KEY_PEERID, contactId);
+		ctx.startActivity(intent);
+	}
 
-    public static void showCustomDialog(Context context,int visibale,String title, final dialogCallback callback)
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(context, android.R.style.Theme_Holo_Light_Dialog));
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View dialog_view = inflater.inflate(R.layout.tt_custom_dialog, null);
-        final EditText editText = (EditText)dialog_view.findViewById(R.id.dialog_edit_content);
-        editText.setVisibility(visibale);
-        TextView textText = (TextView)dialog_view.findViewById(R.id.dialog_title);
-        textText.setText(title);
-        builder.setView(dialog_view);
+	public static void openGroupMemberSelectActivity(Context ctx, String sessionKey) {
+		Intent intent = new Intent(ctx, GroupMemberSelectActivity.class);
+		intent.putExtra(IntentConstant.KEY_SESSION_KEY, sessionKey);
+		ctx.startActivity(intent);
+	}
 
-        builder.setPositiveButton(context.getString(R.string.tt_ok), new DialogInterface.OnClickListener() {
 
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                callback.callback();
-                dialog.dismiss();
-            }
-        });
+	// 对话框回调函数
+	public interface dialogCallback {
+		public void callback();
+	}
 
-        builder.setNegativeButton(context.getString(R.string.tt_cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.show();
-    }
+	public static void showCustomDialog(Context context, int visibale, String title, final dialogCallback callback) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(context, android.R.style.Theme_Holo_Light_Dialog));
+		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View dialog_view = inflater.inflate(R.layout.tt_custom_dialog, null);
+		final EditText editText = (EditText) dialog_view.findViewById(R.id.dialog_edit_content);
+		editText.setVisibility(visibale);
+		TextView textText = (TextView) dialog_view.findViewById(R.id.dialog_title);
+		textText.setText(title);
+		builder.setView(dialog_view);
 
-    public static void callPhone(Context ctx, String phoneNumber) {
-        if (ctx == null) {
-            return;
-        }
-        if (phoneNumber == null || phoneNumber.isEmpty()) {
-            return;
-        }
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
-                + phoneNumber));
+		builder.setPositiveButton(context.getString(R.string.tt_ok), new DialogInterface.OnClickListener() {
 
-        ctx.startActivity(intent);
-    }
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				callback.callback();
+				dialog.dismiss();
+			}
+		});
+
+		builder.setNegativeButton(context.getString(R.string.tt_cancel), new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInterface, int i) {
+				dialogInterface.dismiss();
+			}
+		});
+		builder.show();
+	}
+
+	public static void callPhone(Context ctx, String phoneNumber) {
+		if (ctx == null) {
+			return;
+		}
+		if (phoneNumber == null || phoneNumber.isEmpty()) {
+			return;
+		}
+		Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
+				+ phoneNumber));
+
+		if (ActivityCompat.checkSelfPermission(ctx, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+			// TODO: Consider calling
+			//    ActivityCompat#requestPermissions
+			// here to request the missing permissions, and then overriding
+			//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+			//                                          int[] grantResults)
+			// to handle the case where the user grants the permission. See the documentation
+			// for ActivityCompat#requestPermissions for more details.
+			return;
+		}
+		ctx.startActivity(intent);
+	}
 
 
 

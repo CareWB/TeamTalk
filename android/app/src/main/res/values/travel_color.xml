@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="homepage_button">#333333</color>
+    <color name="travel_menu_bk">#ffffff</color>
+    <color name="travel_menu_text">#000000</color>
+    <color name="travel_alert_dialog_title">#5b6068</color>
+    <color name="travel_alert_dialog_content_not_choose">#5b6068</color>
+    <color name="travel_alert_dialog_content_choose">#ffffff</color>
+    <color name="dialog_semitransparent">#7f000000</color>
+    <color name="alertdialog_background">#f1f1f1</color>
+    <color name="title">#ffffff</color>
+</resources>
