@@ -1,0 +1,1 @@
+docker run -d -p 3306:3306 -e mysqld -e MYSQL_ROOT_PASSWORD=fishfish -e MYSQL_USER=teamtalk -e MYSQL_PASSWORD=test@123  -v /mysql_data:/var/lib/mysql --name teamtalk-mysql docker.io/mysql

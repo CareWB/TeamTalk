@@ -347,6 +347,9 @@ void CMsgConn::HandlePdu(CImPdu* pPdu)
         case CID_BUDDY_LIST_USERS_STATUS_REQUEST:
             _HandleClientUsersStatusRequest(pPdu);
             break;
+        case CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST:
+            _HandleGetTravelRouteRequest(pPdu);
+            break;
         case CID_BUDDY_LIST_DEPARTMENT_REQUEST:
             _HandleClientDepartmentRequest(pPdu);
             break;
@@ -874,6 +877,22 @@ void CMsgConn::_HandleClientDepartmentRequest(CImPdu *pPdu)
     IM::Buddy::IMDepartmentReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     log("HandleClientDepartmentRequest, user_id=%u, latest_update_time=%u.", GetUserId(), msg.latest_update_time());
+    CDBServConn* pDBConn = get_db_serv_conn();
+    if (pDBConn) {
+        CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
+        msg.set_user_id(GetUserId());
+        msg.set_attach_data(attach.GetBuffer(), attach.GetLength());
+        pPdu->SetPBMsg(&msg);
+        pDBConn->SendPdu(pPdu);
+    }
+}
+
+void CMsgConn::_HandleGetTravelRouteRequest(CImPdu *pPdu)
+{
+    IM::Buddy::TravelRouteReq msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    log("_HandleGetTravelRouteRequest, user_id=%u, travel_type=%d, lines=%s.", 
+        GetUserId(), msg.travel_type(), msg.lines());
     CDBServConn* pDBConn = get_db_serv_conn();
     if (pDBConn) {
         CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);

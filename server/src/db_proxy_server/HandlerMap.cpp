@@ -76,6 +76,7 @@ void CHandlerMap::Init()
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_ALL_USER_REQUEST), DB_PROXY::getChangedUser));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_DEPARTMENT_REQUEST), DB_PROXY::getChgedDepart));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_CHANGE_SIGN_INFO_REQUEST), DB_PROXY::changeUserSignInfo));
+	m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST), DB_PROXY::getTravelRoute));
 
     
     // message content
