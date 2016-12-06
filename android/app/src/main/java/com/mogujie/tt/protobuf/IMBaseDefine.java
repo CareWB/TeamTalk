@@ -517,6 +517,14 @@ public final class IMBaseDefine {
      * </pre>
      */
     CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY(20, 533),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST = 593;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST(21, 593),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE = 594;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE(22, 594),
     ;
 
     /**
@@ -624,6 +632,14 @@ public final class IMBaseDefine {
      * </pre>
      */
     public static final int CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY_VALUE = 533;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST = 593;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST_VALUE = 593;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE = 594;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE_VALUE = 594;
 
 
     public final int getNumber() { return value; }
@@ -651,6 +667,8 @@ public final class IMBaseDefine {
         case 531: return CID_BUDDY_LIST_CHANGE_SIGN_INFO_REQUEST;
         case 532: return CID_BUDDY_LIST_CHANGE_SIGN_INFO_RESPONSE;
         case 533: return CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY;
+        case 593: return CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST;
+        case 594: return CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE;
         default: return null;
       }
     }
@@ -2584,6 +2602,71 @@ public final class IMBaseDefine {
     }
 
     // @@protoc_insertion_point(enum_scope:IM.BaseDefine.DepartmentStatusType)
+  }
+
+  /**
+   * Protobuf enum {@code IM.BaseDefine.TravelType}
+   */
+  public enum TravelType
+      implements com.google.protobuf.Internal.EnumLite {
+    /**
+     * <code>TRAVEL_TYPE_TRAIN = 1;</code>
+     */
+    TRAVEL_TYPE_TRAIN(0, 1),
+    /**
+     * <code>TRAVEL_TYPE_AIRPLANE = 2;</code>
+     */
+    TRAVEL_TYPE_AIRPLANE(1, 2),
+    /**
+     * <code>TRAVEL_TYPE_BUS = 4;</code>
+     */
+    TRAVEL_TYPE_BUS(2, 4),
+    ;
+
+    /**
+     * <code>TRAVEL_TYPE_TRAIN = 1;</code>
+     */
+    public static final int TRAVEL_TYPE_TRAIN_VALUE = 1;
+    /**
+     * <code>TRAVEL_TYPE_AIRPLANE = 2;</code>
+     */
+    public static final int TRAVEL_TYPE_AIRPLANE_VALUE = 2;
+    /**
+     * <code>TRAVEL_TYPE_BUS = 4;</code>
+     */
+    public static final int TRAVEL_TYPE_BUS_VALUE = 4;
+
+
+    public final int getNumber() { return value; }
+
+    public static TravelType valueOf(int value) {
+      switch (value) {
+        case 1: return TRAVEL_TYPE_TRAIN;
+        case 2: return TRAVEL_TYPE_AIRPLANE;
+        case 4: return TRAVEL_TYPE_BUS;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<TravelType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<TravelType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<TravelType>() {
+            public TravelType findValueByNumber(int number) {
+              return TravelType.valueOf(number);
+            }
+          };
+
+    private final int value;
+
+    private TravelType(int index, int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:IM.BaseDefine.TravelType)
   }
 
   public interface IpAddrOrBuilder extends
