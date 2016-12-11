@@ -214,7 +214,7 @@ public class MainActivity extends FragmentActivity{
 		finish();
 		logger.d("mainactivity#login#kill self, and start login activity");
 		jumpToLoginPage();
-		
+
 	}
 
 	private void jumpToLoginPage() {

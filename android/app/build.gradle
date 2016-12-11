@@ -16,7 +16,7 @@ android {
         versionCode 5
         versionName "2.0.0"
 
-        //∆Ù”√renderscript
+        //ÂêØÁî®renderscript
         renderscriptTargetApi = 18
         renderscriptSupportModeEnabled = true
     }
@@ -47,6 +47,7 @@ android {
 
 dependencies {
     compile project(':mgimlibs')
+    compile project(':librarycalendar')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.google.protobuf:protobuf-java:2.6.1'

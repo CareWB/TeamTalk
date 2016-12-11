@@ -1,2 +1,2 @@
-include ':mgimlibs', ':daogenerator'
+include ':mgimlibs', ':daogenerator', ':librarycalendar'
 include ':app'

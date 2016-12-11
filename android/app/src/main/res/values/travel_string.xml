@@ -13,4 +13,5 @@
     <string name="travel_share">分享行程</string>
     <string name="travel_delete">删除行程</string>
     <string name="select_destination">选择目的地</string>
+    <string name="create_behavior">出行喜好</string>
 </resources>

@@ -234,5 +234,4 @@ public class UpdateDetection {
         i.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive");
         mContext.startActivity(i);
     }
-    
 }

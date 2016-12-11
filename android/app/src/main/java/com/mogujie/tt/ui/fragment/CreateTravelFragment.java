@@ -15,6 +15,8 @@ import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.activity.SelectCityActivity;
 import com.mogujie.tt.ui.activity.SelectPlaceActivity;
+import com.mogujie.tt.ui.activity.SelectTimeActivity;
+import com.mogujie.tt.ui.activity.TravelBehaviorActivity;
 import com.mogujie.tt.ui.base.TTBaseFragment;
 
 /**
@@ -31,6 +33,7 @@ public class CreateTravelFragment extends TTBaseFragment{
     private RelativeLayout place;
     private TextView startCity;
     private TextView endCity;
+    private ImageButton next;
 
     private final static int MAX_PER_SUM = 6;
     private final static int MIN_PER_SUM = 1;
@@ -125,6 +128,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         endCity = (TextView)curView.findViewById(R.id.create_travel_end);
         time = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_time);
         place = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_place);
+        next = (ImageButton)curView.findViewById(R.id.create_travel_next_step);
 	}
 
 	@Override
@@ -148,10 +152,15 @@ public class CreateTravelFragment extends TTBaseFragment{
                         break;
 
                     case R.id.rlcreate_travel_time:
+                        jump2TimeSelect();
                         break;
 
                     case R.id.rlcreate_travel_place:
                         jump2PlaceSelect();
+                        break;
+
+                    case R.id.create_travel_next_step:
+                        jump2TravelBehavior();
                         break;
                 }
             }
@@ -163,6 +172,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         bnEnd.setOnClickListener(createTravelListener);
         time.setOnClickListener(createTravelListener);
         place.setOnClickListener(createTravelListener);
+        next.setOnClickListener(createTravelListener);
     }
 
     private void clacPerNum(int opt) {
@@ -198,5 +208,15 @@ public class CreateTravelFragment extends TTBaseFragment{
     private void jump2PlaceSelect() {
         Intent placeSelect = new Intent(getActivity(), SelectPlaceActivity.class);
         startActivityForResult(placeSelect, Activity.RESULT_FIRST_USER);
+    }
+
+    private void jump2TimeSelect() {
+        Intent timeSelect = new Intent(getActivity(), SelectTimeActivity.class);
+        startActivityForResult(timeSelect, Activity.RESULT_FIRST_USER);
+    }
+
+    private void jump2TravelBehavior() {
+        Intent travelBehavior = new Intent(getActivity(), TravelBehaviorActivity.class);
+        startActivity(travelBehavior);
     }
 }

@@ -9,11 +9,11 @@ import de.greenrobot.daogenerator.Schema;
  * @author : yingmu on 14-12-31.
  * @email : yingmu@mogujie.com.
  *
- * ÆäÖĞUserEntity¡¢ GroupEntity ¼Ì³ĞPeerEntity
- * ÓÉÓÚ UserEntity¡¢ GroupEntityÊÇ×Ô¶¯Éú³É£¬PeerEntity»áÓĞÖØ¸´×Ö¶Î£¬ËùÒÔÃ¿´ÎÉú³ÉÖ®ºóÒª´¦ÀíÏÂ³ÉÔ±±äÁ¿¡£
- * PeerEntity³ÉÔ±±äÁ¿ÃûÓë×ÓÀàÍ³Ò»¡£
+ * å…¶ä¸­UserEntityã€ GroupEntity ç»§æ‰¿PeerEntity
+ * ç”±äº UserEntityã€ GroupEntityæ˜¯è‡ªåŠ¨ç”Ÿæˆï¼ŒPeerEntityä¼šæœ‰é‡å¤å­—æ®µï¼Œæ‰€ä»¥æ¯æ¬¡ç”Ÿæˆä¹‹åè¦å¤„ç†ä¸‹æˆå‘˜å˜é‡ã€‚
+ * PeerEntityæˆå‘˜å˜é‡åä¸å­ç±»ç»Ÿä¸€ã€‚
  *
- * ¡¾±¸×¢¡¿session±íÖĞµÄcreateÓëupdate×Ö¶ÎÃ»ÓĞÌØ±ğµÄÇø·Ö£¬Ö÷ÒªÊÇÖ®Ç°·şÎñ¶ËµÄÏ°¹ß¡£¡£¡£
+ * ã€å¤‡æ³¨ã€‘sessionè¡¨ä¸­çš„createä¸updateå­—æ®µæ²¡æœ‰ç‰¹åˆ«çš„åŒºåˆ†ï¼Œä¸»è¦æ˜¯ä¹‹å‰æœåŠ¡ç«¯çš„ä¹ æƒ¯ã€‚ã€‚ã€‚
  */
 public class GreenDaoGenerator {
     private static String entityPath = "com.mogujie.tt.DB.entity";
@@ -30,7 +30,7 @@ public class GreenDaoGenerator {
         addSessionInfo(schema);
         addTravelInfo(schema);
 
-        // todo ¾ø¶ÔÂ·¾¶,¸ù¾İ×Ô¼ºµÄÂ·¾¶Éè¶¨£¬ Àı×ÓÈçÏÂ
+        // todo ç»å¯¹è·¯å¾„,æ ¹æ®è‡ªå·±çš„è·¯å¾„è®¾å®šï¼Œ ä¾‹å­å¦‚ä¸‹
         String path = "D:\\android\\dao";
         new DaoGenerator().generateAll(schema, path);
     }
@@ -63,7 +63,7 @@ public class GreenDaoGenerator {
         userInfo.addIntProperty("peerId").unique().notNull().index();
         userInfo.addIntProperty("gender").notNull();
         userInfo.addStringProperty("mainName").notNull();
-        // Õâ¸ö¿ÉÒÔ×Ô¶¯Éú³Épinyin
+        // è¿™ä¸ªå¯ä»¥è‡ªåŠ¨ç”Ÿæˆpinyin
         userInfo.addStringProperty("pinyinName").notNull();
         userInfo.addStringProperty("realName").notNull();
         userInfo.addStringProperty("avatar").notNull();
@@ -77,9 +77,9 @@ public class GreenDaoGenerator {
 
         userInfo.setHasKeepSections(true);
 
-        //todo Ë÷Òı»¹Ã»ÓĞÉè¶¨
-        // Ò»¶ÔÒ» addToOne µÄÊ¹ÓÃ
-        // Ö§³Öprotobuf
+        //todo ç´¢å¼•è¿˜æ²¡æœ‰è®¾å®š
+        // ä¸€å¯¹ä¸€ addToOne çš„ä½¿ç”¨
+        // æ”¯æŒprotobuf
         // schema.addProtobufEntity();
     }
 
@@ -117,7 +117,7 @@ public class GreenDaoGenerator {
         Property msgProId = message.addIntProperty("msgId").notNull().getProperty();
         message.addIntProperty("fromId").notNull();
         message.addIntProperty("toId").notNull();
-        // ÊÇ²»ÊÇĞèÒªÌí¼ÓÒ»¸ösessionkey±êÊ¾Ò»ÏÂ£¬µÇÂ½µÄÓÃ»§ÔÚÇ°Ãæ
+        // æ˜¯ä¸æ˜¯éœ€è¦æ·»åŠ ä¸€ä¸ªsessionkeyæ ‡ç¤ºä¸€ä¸‹ï¼Œç™»é™†çš„ç”¨æˆ·åœ¨å‰é¢
         Property sessionPro  = message.addStringProperty("sessionKey").notNull().getProperty();
         message.addStringProperty("content").notNull();
         message.addIntProperty("msgType").notNull();
@@ -142,7 +142,7 @@ public class GreenDaoGenerator {
         sessionInfo.setClassNameDao("SessionDao");
         sessionInfo.setJavaPackage(entityPath);
 
-        //point to userId/groupId need sessionType Çø·Ö
+        //point to userId/groupId need sessionType åŒºåˆ†
         sessionInfo.addIdProperty().autoincrement();
         sessionInfo.addStringProperty("sessionKey").unique().notNull(); //.unique()
         sessionInfo.addIntProperty("peerId").notNull();
