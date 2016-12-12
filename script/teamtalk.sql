@@ -799,15 +799,17 @@ DROP TABLE IF EXISTS `IMTickets`;
 CREATE TABLE `IMTickets` (
   `id` mediumint(6) unsigned NOT NULL AUTO_INCREMENT,
   `type` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '票类型 1-机票，2-火车，3-汽车',
+  `no` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '编号',
   `place_from` varchar(5) NOT NULL COMMENT '出发地城市编码',
   `place_to` varchar(5) NOT NULL COMMENT '目的地城市编码',
   `time_start` varchar(6) NOT NULL COMMENT '起始时间´',
   `time_end` varchar(6) NOT NULL COMMENT '结束时间´',
   `class` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '等级',
   `price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '价格',
+  `comment` varchar(1024) COLLATE utf8mb4_bin COMMENT '编号',
   PRIMARY KEY (`id`),
-  KEY `idx_type_placefrom_placeto_timestart_timeend_class` (`type`,`place_from`,`place_to`,`time_start`,`time_end`,`class`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `idx_type_placefrom_placeto_timestart_timeend_class` (`type`,`no`,`place_from`,`place_to`,`time_start`,`time_end`,`class`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

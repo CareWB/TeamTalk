@@ -170,11 +170,12 @@ message TravelRouteReq{
 
 message TravelToolInfo{
     required uint32 travel_type     = 1; // TravelType
-    required string place_from      = 2; // 出发地
-    required string place_to        = 3; // 目的地
-    required string time_from       = 4; // 开始时间，08:32
-    required string time_to         = 5; // 结束时间，08:32
-    required uint32 price           = 6; // 价格
+    required string no              = 2; // 车次编号
+    required string place_from      = 3; // 出发地
+    required string place_to        = 4; // 目的地
+    required string time_from       = 5; // 开始时间，08:32
+    required string time_to         = 6; // 结束时间，08:32
+    required uint32 price           = 7; // 价格
 }
 
 message TravelRouteRsq{
