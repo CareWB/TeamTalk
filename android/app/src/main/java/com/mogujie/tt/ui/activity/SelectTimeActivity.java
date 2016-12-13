@@ -1,10 +1,13 @@
 package com.mogujie.tt.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.joybar.librarycalendar.data.CalendarDate;
@@ -27,6 +30,9 @@ public class SelectTimeActivity extends TTBaseFragmentActivity implements
     private TextView tvMonth;
     private CalendarDate start;
     private CalendarDate end;
+    private ImageView back;
+    private TextView title;
+    private Intent intent;
 
     static final int START = 1;
     static final int END = 2;
@@ -36,6 +42,7 @@ public class SelectTimeActivity extends TTBaseFragmentActivity implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.travel_fragment_activity_select_time);
+        intent = getIntent();
         initRes();
         initFragment();
     }
@@ -67,6 +74,26 @@ public class SelectTimeActivity extends TTBaseFragmentActivity implements
     }
 
     private void initRes() {
+        title = (TextView)findViewById(R.id.select_time_title);
+        title.setText("往返日期");
+
+        back = (ImageView)findViewById(R.id.left_btn);
+        back.setImageResource(R.drawable.back_x);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getFragmentManager().getBackStackEntryCount() == 0) {
+                    intent.putExtra("start", dateToString(start));
+                    intent.putExtra("end", dateToString(end));
+                    setResult(102, intent);
+                    finish();
+                    return;
+                }
+                getFragmentManager().popBackStack();
+            }
+        });
+
+
         tvStart = (TextView)findViewById(R.id.select_time_start);
         tvEnd = (TextView)findViewById(R.id.select_time_end);
         tvMonth = (TextView)findViewById(R.id.select_time_month);

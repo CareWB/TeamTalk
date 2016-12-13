@@ -124,7 +124,12 @@ public class SelectPlaceFragment extends TTBaseFragment{
 			@Override
 			public void onClick(View arg0) {
 				if (getFragmentManager().getBackStackEntryCount() == 0) {
-                    intent.putExtra("city", "厦门");
+                    if (citySelectedList.isEmpty()) {
+                        intent.putExtra("city", "");
+                    } else {
+                        intent.putExtra("city", citySelectedList.get(0));
+                    }
+
 					getActivity().setResult(101, intent);
 					getActivity().finish();
 					return;

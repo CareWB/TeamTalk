@@ -19,6 +19,10 @@ import com.mogujie.tt.ui.activity.SelectTimeActivity;
 import com.mogujie.tt.ui.activity.TravelBehaviorActivity;
 import com.mogujie.tt.ui.base.TTBaseFragment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 设置页面
  */
@@ -30,6 +34,8 @@ public class CreateTravelFragment extends TTBaseFragment{
     private RelativeLayout bnStart;
     private RelativeLayout bnEnd;
     private RelativeLayout time;
+    private TextView duration;
+    private TextView betweenTime;
     private RelativeLayout place;
     private TextView startCity;
     private TextView endCity;
@@ -39,6 +45,9 @@ public class CreateTravelFragment extends TTBaseFragment{
     private final static int MIN_PER_SUM = 1;
     private final static int START_CITY = 0;
     private final static int END_CITY = 1;
+
+    private Date startDate;
+    private Date endDate;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -99,7 +108,18 @@ public class CreateTravelFragment extends TTBaseFragment{
                     }
                     break;
                 case 101:
-                    data.getStringExtra("city");
+                    TextView place = (TextView)curView.findViewById(R.id.create_travel_place);
+                    place.setText(data.getStringExtra("city"));
+                    break;
+                case 102:
+                    java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd ");
+                    try {
+                        startDate =  formatter.parse(data.getStringExtra("start"));
+                        endDate =  formatter.parse(data.getStringExtra("end"));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    dateProcess();
                     break;
             }
         }
@@ -127,6 +147,8 @@ public class CreateTravelFragment extends TTBaseFragment{
         startCity = (TextView)curView.findViewById(R.id.create_travel_start);
         endCity = (TextView)curView.findViewById(R.id.create_travel_end);
         time = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_time);
+        duration = (TextView)curView.findViewById(R.id.tcreate_travel_time);
+        betweenTime = (TextView)curView.findViewById(R.id.create_travel_time);
         place = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_place);
         next = (ImageButton)curView.findViewById(R.id.create_travel_next_step);
 	}
@@ -218,5 +240,14 @@ public class CreateTravelFragment extends TTBaseFragment{
     private void jump2TravelBehavior() {
         Intent travelBehavior = new Intent(getActivity(), TravelBehaviorActivity.class);
         startActivity(travelBehavior);
+    }
+
+    private void dateProcess() {
+        long duration = (endDate.getTime()-startDate.getTime())/(1000*60*60*24);
+        duration ++;
+        java.text.SimpleDateFormat formatter = new SimpleDateFormat( "MM.dd");
+        String date = formatter.format(startDate)+"-"+formatter.format(endDate);//格式化数据
+        this.duration.setText(duration+"天");
+        this.betweenTime.setText(date);
     }
 }
