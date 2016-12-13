@@ -800,8 +800,10 @@ CREATE TABLE `IMTickets` (
   `id` mediumint(6) unsigned NOT NULL AUTO_INCREMENT,
   `type` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '票类型 1-机票，2-火车，3-汽车',
   `no` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '编号',
-  `place_from` varchar(5) NOT NULL COMMENT '出发地城市编码',
-  `place_to` varchar(5) NOT NULL COMMENT '目的地城市编码',
+  `place_from_code` varchar(5) NOT NULL COMMENT '出发地城市编码',
+  `place_from` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '出发地城市',
+  `place_to_code` varchar(5) NOT NULL COMMENT '目的地城市编码',
+  `place_to` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '目的地城市',
   `time_start` varchar(6) NOT NULL COMMENT '起始时间´',
   `time_end` varchar(6) NOT NULL COMMENT '结束时间´',
   `class` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '等级',
@@ -818,6 +820,90 @@ CREATE TABLE `IMTickets` (
 
 LOCK TABLES `IMTickets` WRITE;
 /*!40000 ALTER TABLE `IMTickets` DISABLE KEYS */;
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D936','SZX','深圳北','XMN','厦门北','20:15','23:26',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D942','SZX','深圳北','XMN','厦门北','20:20','23:31',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D3126','SZX','深圳北','XMN','厦门北','7:00','10:42',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2350','SZX','深圳北','XMN','厦门北','7:35','11:13',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D674','SZX','深圳北','XMN','厦门北','7:45','11:33',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2342','SZX','深圳北','XMN','厦门北','7:50','11:26',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2294','SZX','深圳北','XMN','厦门北','7:55','11:41',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2302','SZX','深圳北','XMN','厦门北','8:06','11:47',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D3108','SZX','深圳北','XMN','厦门北','8:11','11:54',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2344','SZX','深圳北','XMN','厦门北','8:16','12:14',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2308','SZX','深圳北','XMN','厦门北','8:32','12:25',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2346','SZX','深圳北','XMN','厦门北','8:42','12:34',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2284','SZX','深圳北','XMN','厦门北','8:47','12:39',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'G1602','SZX','深圳北','XMN','厦门北','8:52','12:50',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2282','SZX','深圳北','XMN','厦门北','9:13','13:07',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D682','SZX','深圳北','XMN','厦门北','9:24','13:15',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2310','SZX','深圳北','XMN','厦门北','9:45','13:34',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2286','SZX','深圳北','XMN','厦门北','9:55','13:47',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2334','SZX','深圳北','XMN','厦门北','10:11','14:09',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2316','SZX','深圳北','XMN','厦门北','10:25','14:16',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2288','SZX','深圳北','XMN','厦门北','10:40','14:31',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D3112','SZX','深圳北','XMN','厦门北','11:17','15:11',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2318','SZX','深圳北','XMN','厦门北','11:56','15:39',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D684','SZX','深圳北','XMN','厦门北','12:15','16:07',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2338','SZX','深圳北','XMN','厦门北','12:20','16:20',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2322','SZX','深圳北','XMN','厦门北','13:00','16:53',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2324','SZX','深圳北','XMN','厦门北','13:54','17:54',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2304','SZX','深圳北','XMN','厦门北','14:55','18:31',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2298','SZX','深圳北','XMN','厦门北','15:06','18:58',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2328','SZX','深圳北','XMN','厦门北','15:25','19:18',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2296','SZX','深圳北','XMN','厦门北','15:38','19:23',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2330','SZX','深圳北','XMN','厦门北','15:46','19:31',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2306','SZX','深圳北','XMN','厦门北','16:07','19:56',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D672','SZX','深圳北','XMN','厦门北','16:14','20:03',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2326','SZX','深圳北','XMN','厦门北','16:19','20:17',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2312','SZX','深圳北','XMN','厦门北','16:43','20:37',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2314','SZX','深圳北','XMN','厦门北','17:10','20:52',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2315','XMN','厦门北','SZX','深圳北','7:42','11:23',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2335','XMN','厦门北','SZX','深圳北','7:59','11:57',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D681','XMN','厦门北','SZX','深圳北','8:04','11:49',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2313','XMN','厦门北','SZX','深圳北','8:50','12:38',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2327','XMN','厦门北','SZX','深圳北','9:08','12:59',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2311','XMN','厦门北','SZX','深圳北','9:32','13:25',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2295','XMN','厦门北','SZX','深圳北','9:47','13:36',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2297','XMN','厦门北','SZX','深圳北','10:44','14:26',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2301','XMN','厦门北','SZX','深圳北','10:55','14:32',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2323','XMN','厦门北','SZX','深圳北','11:15','14:55',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D3337','XMN','厦门北','SZX','深圳北','11:26','15:24',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2329','XMN','厦门北','SZX','深圳北','11:37','15:29',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2341','XMN','厦门北','SZX','深圳北','11:47','15:39',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2303','XMN','厦门北','SZX','深圳北','11:54','15:34',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D673','XMN','厦门北','SZX','深圳北','11:57','15:50',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2325','XMN','厦门北','SZX','深圳北','12:17','15:59',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2349','XMN','厦门北','SZX','深圳北','12:28','16:15',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2321','XMN','厦门北','SZX','深圳北','13:00','16:49',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2345','XMN','厦门北','SZX','深圳北','13:27','17:08',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2343','XMN','厦门北','SZX','深圳北','13:40','17:20',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D683','XMN','厦门北','SZX','深圳北','13:41','17:40',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2331','XMN','厦门北','SZX','深圳北','14:19','17:57',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D3111','XMN','厦门北','SZX','深圳北','14:28','18:12',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2317','XMN','厦门北','SZX','深圳北','14:37','18:36',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2333','XMN','厦门北','SZX','深圳北','14:53','18:53',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2287','XMN','厦门北','SZX','深圳北','15:43','19:19',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'G1601','XMN','厦门北','SZX','深圳北','15:57','19:37',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2319','XMN','厦门北','SZX','深圳北','16:03','19:59',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2305','XMN','厦门北','SZX','深圳北','16:20','20:19',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2307','XMN','厦门北','SZX','深圳北','16:24','20:12',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2337','XMN','厦门北','SZX','深圳北','16:42','20:33',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D3125','XMN','厦门北','SZX','深圳北','16:57','20:39',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2285','XMN','厦门北','SZX','深圳北','17:03','20:45',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D685','XMN','厦门北','SZX','深圳北','17:12','21:10',0,15450);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2309','XMN','厦门北','SZX','深圳北','17:17','21:16',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D3107','XMN','厦门北','SZX','深圳北','17:56','21:24',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2281','XMN','厦门北','SZX','深圳北','18:15','22:09',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2353','XMN','厦门北','SZX','深圳北','18:45','22:39',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2283','XMN','厦门北','SZX','深圳北','19:08','22:51',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D2293','XMN','厦门北','SZX','深圳北','19:21','23:08',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'D671','XMN','厦门北','SZX','深圳北','20:00','23:38',0,15050);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'海南航空HU7065','SZX','宝安国际机场T3','XMN','高崎国际机场T4','07:45','08:55',0,38500);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'厦门航空MF8069','SZX','宝安国际机场T3','XMN','高崎国际机场T4','09:40','10:55',0,128400);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'河北航空NS8069','SZX','宝安国际机场T3','XMN','高崎国际机场T4','09:40','10:55',0,129500);
+INSERT INTO `IMTickets` (type,no,place_from_code,place_from,place_to_code,place_to,time_start,time_end,class,price) VALUES (2,'厦门航空MF846','SZX','宝安国际机场T3','XMN','高崎国际机场T4','20:15','21:25',0,129200);
+
+
 /*!40000 ALTER TABLE `IMTickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
