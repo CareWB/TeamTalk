@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.mogujie.tt.R;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
+import com.mogujie.tt.ui.activity.PlayBehaviorActivity;
 import com.mogujie.tt.ui.base.TTBaseFragment;
 
 /**
@@ -31,6 +33,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     private Button transit_times_through;
     private Button transit_times_once;
     private Button transit_times_more;
+    private ImageButton next;
     private int behavior = 0x4112;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
@@ -89,7 +92,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
 	 */
 	private void initRes() {
 		// 设置标题栏
-		setTopTitle(getActivity().getString(R.string.create_behavior));
+		setTopTitle(getActivity().getString(R.string.travel_behavior));
 		setTopLeftButton(R.drawable.tt_top_back);
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -110,6 +113,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
         transit_times_through = (Button)curView.findViewById(R.id.transit_times_through);
         transit_times_once = (Button)curView.findViewById(R.id.transit_times_once);
         transit_times_more = (Button)curView.findViewById(R.id.transit_times_more);
+        next = (ImageButton)curView.findViewById(R.id.travel_behavior_next_step);
 	}
 
 	@Override
@@ -145,6 +149,9 @@ public class TravelBehaviorFragment extends TTBaseFragment{
                     case R.id.transit_times_more:
                         transitTimes(id);
                         break;
+                    case R.id.travel_behavior_next_step:
+                        jump2PlayBehavior();
+                        break;
                 }
                 Log.e("LLTest", ""+behavior);
             }
@@ -162,6 +169,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
         transit_times_through.setOnClickListener(behaviorListener);
         transit_times_once.setOnClickListener(behaviorListener);
         transit_times_more.setOnClickListener(behaviorListener);
+        next.setOnClickListener(behaviorListener);
     }
 
     private void rideFeel(int id) {
@@ -303,6 +311,11 @@ public class TravelBehaviorFragment extends TTBaseFragment{
 
     private void showMsg(String msg) {
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void jump2PlayBehavior() {
+        Intent playBehavior = new Intent(getActivity(), PlayBehaviorActivity.class);
+        startActivity(playBehavior);
     }
 
 }

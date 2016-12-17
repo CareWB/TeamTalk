@@ -29,6 +29,7 @@ public class GreenDaoGenerator {
         addMessage(schema);
         addSessionInfo(schema);
         addTravelInfo(schema);
+        addSightInfo(schema);
 
         // todo 绝对路径,根据自己的路径设定， 例子如下
         String path = "D:\\android\\dao";
@@ -177,6 +178,30 @@ public class GreenDaoGenerator {
         travelInfo.addIntProperty("userCnt").notNull();
         travelInfo.addIntProperty("cost").notNull();
         travelInfo.addIntProperty("type").notNull();
+        travelInfo.addIntProperty("version").notNull();
+        travelInfo.addIntProperty("status").notNull();
+        travelInfo.addIntProperty("created").notNull();
+        travelInfo.addIntProperty("updated").notNull();
+
+        travelInfo.setHasKeepSections(true);
+    }
+
+    private static void addSightInfo(Schema schema) {
+        Entity travelInfo = schema.addEntity("SightEntity");
+        travelInfo.setTableName("SightInfo");
+        travelInfo.setClassNameDao("SightDao");
+        travelInfo.setJavaPackage(entityPath);
+
+        travelInfo.addIdProperty().autoincrement();
+        travelInfo.addIntProperty("peerId").unique().notNull();
+        travelInfo.addStringProperty("name").notNull();
+        travelInfo.addStringProperty("pic").notNull();
+        travelInfo.addIntProperty("star").notNull();
+        travelInfo.addStringProperty("tag").notNull();
+        travelInfo.addIntProperty("free").notNull();
+        travelInfo.addIntProperty("mustGo").notNull();
+        travelInfo.addIntProperty("select").notNull();
+        travelInfo.addIntProperty("focus").notNull();
         travelInfo.addIntProperty("version").notNull();
         travelInfo.addIntProperty("status").notNull();
         travelInfo.addIntProperty("created").notNull();
