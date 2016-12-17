@@ -59,6 +59,10 @@ enum BuddyListCmdID{
     CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY             = 0x0215; //签名修改通知
     CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST                 = 0x0251; 
     CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE                = 0x0252; 
+    CID_BUDDY_LIST_TRAVEL_LIST_REQUEST                  = 0x0253; 
+    CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE                 = 0x0254; 
+    CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST                = 0x0255; 
+    CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE               = 0x0256; 
 }
 
 // command id for msg
@@ -238,12 +242,6 @@ enum SessionStatusType{
 enum DepartmentStatusType{
     DEPT_STATUS_OK              = 0x00;
     DEPT_STATUS_DELETE          = 0x01;
-}
-
-enum TravelType{
-    TRAVEL_TYPE_TRAIN       = 0x01;
-    TRAVEL_TYPE_AIRPLANE    = 0x02;
-    TRAVEL_TYPE_BUS         = 0x04;
 }
 
 message IpAddr{
