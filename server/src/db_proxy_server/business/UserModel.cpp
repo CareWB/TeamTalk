@@ -434,3 +434,57 @@ bool CUserModel::getPushShield(uint32_t user_id, uint32_t* shield_status) {
     return rv;
 }
 
+uint32_t CUserModel::createTravelDetail(uint32_t user_id, ::google::protobuf::MessageLite* pb) {
+    bool bRet = false;
+    uint32_t idx = 0;
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    if (pDBConn)
+    {
+        string strSql = "insert into IMTravelDetail(`user_id`,`person_num`,`place_from`,`place_back`,`place_to`,`date_start`,`date_end`,`traffic_time_start`,`traffic_time_end`,`traffic_type`,`play_quality_type`,`play_time_start`,`play_time_end`,`city_traffic_type`,`room_num`,`hotel_position_type`,`cost`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        CPrepareStatement* stmt = new CPrepareStatement();
+        if (stmt->Init(pDBConn->GetMysql(), strSql))
+        {
+            IM::Buddy::CreateTravelReq* req = (IM::Buddy::CreateTravelReq*)pb;
+            stmt->SetParam(index++, cUser.nId);
+            stmt->SetParam(index++, req->person_num());
+            stmt->SetParam(index++, req->place_from().c_str());
+            stmt->SetParam(index++, req->place_back().c_str());
+            stmt->SetParam(index++, req->place_to().c_str());
+            stmt->SetParam(index++, req->date_start().c_str());
+            stmt->SetParam(index++, req->date_end().c_str());
+            stmt->SetParam(index++, req->traffic_time_start().c_str());
+            stmt->SetParam(index++, req->traffic_time_end().c_str());
+            stmt->SetParam(index++, req->traffic_type());
+            stmt->SetParam(index++, req->play_quality_type());
+            stmt->SetParam(index++, req->play_time_start().c_str());
+            stmt->SetParam(index++, req->play_time_end().c_str());
+            stmt->SetParam(index++, req->city_traffic_type());
+            stmt->SetParam(index++, req->room_num());
+            stmt->SetParam(index++, req->hotel_position_type());
+            stmt->SetParam(index++, req->cost());
+            bRet = stmt->ExecuteUpdate();
+            
+            if (!bRet)
+            {
+                log("insert IMTravelDetail failed: %s", strSql.c_str());
+            }
+
+            str_sql = "SELECT id from IMTickets order by id desc limit 0,1";
+            CResultSet* result_set = db_conn->ExecuteQuery(str_sql.c_str());
+            if(result_set) {
+                if (result_set->Next()) {
+                    idx = result_set->GetInt("id");
+                }
+                delete result_set;
+            }
+            delete stmt;
+            pDBManager->RelDBConn(pDBConn);
+    }
+    else
+    {
+        log("no db connection for teamtalk_master");
+    }
+    return idx;
+}
+

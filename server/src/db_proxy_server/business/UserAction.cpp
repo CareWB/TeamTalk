@@ -125,9 +125,6 @@ msgResp.set_user_id(from_user_id);
             log("parse pb failed");
         }
     }
-    
-    void getTravelRoute(CImPdu* pPdu, uint32_t conn_uuid) {
-    }
  
     void changeUserSignInfo(CImPdu* pPdu, uint32_t conn_uuid) {
                IM::Buddy::IMChangeSignInfoReq req;
@@ -221,6 +218,33 @@ msgResp.set_user_id(from_user_id);
             CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
         } else {
             log("doQueryPushShield: IMQueryPushShieldReq ParseFromArray failed!!!");
+        }
+    }
+
+    void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
+        IM::Buddy::CreateTravelReq req;
+        IM::Login::CreateTravelRsp resp;
+        if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
+            uint32_t user_id = req.user_id();
+            
+            uint32_t idx = CUserModel::getInstance()->createTravelDetail(user_id, &req);
+            resp.set_user_id(user_id);
+            resp.set_db_idx(idx);
+            resp.set_result_code(0 != idx ? 0 : 1);
+            if (0 == idx) {
+                log("createTravelDetail result user_id=%u, idx=%u", user_id, idx);
+            }
+            
+            CImPdu* pdu_resp = new CImPdu();
+            resp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&resp);
+            pdu_resp->SetSeqNum(pPdu->GetSeqNum());
+            pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE);
+            CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
+            
+        } else {
+            log("createTravelDetail: CreateTravelReq ParseFromArray failed!!!");
         }
     }
 };
