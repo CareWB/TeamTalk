@@ -17,6 +17,7 @@ import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar;
 import com.mogujie.tt.R;
+import com.mogujie.tt.imservice.manager.IMTravelManager;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.activity.SelectSightActivity;
@@ -36,6 +37,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
     private int trip_index;
     private int hotel_Position;
     private ImageButton next;
+    private IMTravelManager imTravelManager;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -43,7 +45,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-
+                imTravelManager = imService.getTravelManager();
             }
         }
 
@@ -280,6 +282,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
     }
 
     private void jump2SelectSight() {
+        imTravelManager.reqCreateTravel();
         Intent playBehavior = new Intent(getActivity(), SelectSightActivity.class);
         startActivity(playBehavior);
     }

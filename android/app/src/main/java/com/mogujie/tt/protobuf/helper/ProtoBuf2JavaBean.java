@@ -13,9 +13,9 @@ import com.mogujie.tt.imservice.entity.AudioMessage;
 import com.mogujie.tt.imservice.entity.MsgAnalyzeEngine;
 import com.mogujie.tt.imservice.entity.UnreadEntity;
 import com.mogujie.tt.protobuf.IMBaseDefine;
+import com.mogujie.tt.protobuf.IMBuddy;
 import com.mogujie.tt.protobuf.IMGroup;
 import com.mogujie.tt.protobuf.IMMessage;
-import com.mogujie.tt.protobuf.IMTravel;
 import com.mogujie.tt.utils.CommonUtil;
 import com.mogujie.tt.utils.FileUtil;
 import com.mogujie.tt.utils.pinyin.PinYin;
@@ -339,24 +339,24 @@ public class ProtoBuf2JavaBean {
 
     }
 
-    public static TravelEntity getTravelEntity(IMTravel.TravelInfo travelInfo){
+    public static TravelEntity getTravelEntity(IMBuddy.TravelDetail travelDetail){
         TravelEntity travelEntity = new TravelEntity();
-        int timeNow = (int) (System.currentTimeMillis()/1000);
-
-        travelEntity.setPeerId(travelInfo.getPeerId());
-        travelEntity.setDuration(travelInfo.getDuration());
-        travelEntity.setStartDate(travelInfo.getStartDate());
-        travelEntity.setEndDate(travelInfo.getEndDate());
-        travelEntity.setDestination(travelInfo.getDestination());
-        travelEntity.setThroughPoint(travelInfo.getThroughPoint());
-        travelEntity.setCreatorId(travelInfo.getCreatorId());
-        travelEntity.setUserCnt(travelInfo.getUserCnt());
-        travelEntity.setCost(travelInfo.getCost());
-        travelEntity.setType(travelInfo.getType().getNumber());
-        travelEntity.setVersion(travelInfo.getVersion());
-        travelEntity.setStatus(travelInfo.getStatus());
-        travelEntity.setCreated(timeNow);
-        travelEntity.setUpdated(timeNow);
+        travelEntity.setDbId(travelDetail.getDbIdx());
+        travelEntity.setStartDate(travelDetail.getTravelInfo().getDateFrom());
+        travelEntity.setEndDate(travelDetail.getTravelInfo().getDateTo());
+        travelEntity.setStartPlace(travelDetail.getTravelInfo().getPlaceFrom());
+        travelEntity.setEndPlace(travelDetail.getTravelInfo().getPlaceBack());
+        travelEntity.setDestination(travelDetail.getTravelInfo().getPlaceTo());
+        travelEntity.setPersonNum(travelDetail.getTravelInfo().getPersonNum());
+        travelEntity.setTrafficWay(travelDetail.getTrafficInfo().getTravelType());
+        travelEntity.setTrafficStartTime(travelDetail.getTrafficInfo().getTrafficTimeFrom());
+        travelEntity.setTrafficEndTime(travelDetail.getTrafficInfo().getTrafficTimeTo());
+        travelEntity.setPlayQuality(travelDetail.getPlayInfo().getPlayQuality().getNumber());
+        travelEntity.setPlayStartTime(travelDetail.getPlayInfo().getPlayTimeFrom());
+        travelEntity.setPlayEndTime(travelDetail.getPlayInfo().getPlayTimeTo());
+        travelEntity.setCityTraffic(travelDetail.getPlayInfo().getCityTraffic());
+        travelEntity.setHotelPosition(travelDetail.getPlayInfo().getHotelPosition().getNumber());
+        travelEntity.setCost(travelDetail.getCost());
         return travelEntity;
     }
 }

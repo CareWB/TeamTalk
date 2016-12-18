@@ -17,6 +17,9 @@ public class TravelEvent {
     }
 
     public enum Event {
-        TRAVEL_LIST_OK
+        TRAVEL_LIST_OK,
+        TRAVEL_LIST_FAIL,
+        CREATE_TRAVEL_OK,
+        CREATE_TRAVEL_FAIL,
     }
 }

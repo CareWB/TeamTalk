@@ -188,6 +188,7 @@ public class IMService extends Service {
 
         contactMgr.onLocalLoginOk();
         groupMgr.onLocalLoginOk();
+        travelManager.onLocalLoginOk();
         sessionMgr.onLocalLoginOk();
         reconnectMgr.onLocalLoginOk();
         notificationMgr.onLoginSuccess();
