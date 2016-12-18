@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.R;
-import com.mogujie.tt.protobuf.IMTravel;
+import com.mogujie.tt.protobuf.IMBuddy;
 import com.mogujie.tt.utils.GlideRoundTransform;
 import com.mogujie.tt.utils.TravelUIHelper;
 import com.view.jameson.library.CardAdapterHelper;
@@ -118,10 +118,10 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     .into(travelHolder.travelBk);
             travelHolder.travelDays.setText(travelEntity.getDuration()+ctx.getString(R.string.day));
             travelHolder.travelDuration.setText(travelEntity.getStartDate()+"-"+travelEntity.getEndDate());
-            travelHolder.travelPoints.setText(travelEntity.getThroughPoint());
-            travelHolder.personNum.setText(travelEntity.getUserCnt()+ctx.getString(R.string.person));
+            travelHolder.destination.setText("目的地:"+travelEntity.getDestination());
+            travelHolder.personNum.setText(travelEntity.getPersonNum()+ctx.getString(R.string.person));
             travelHolder.payNum.setText(travelEntity.getCost()+ctx.getString(R.string.monetary_unit));
-            travelHolder.travelType.setText(travelTypeStringMap.get(travelEntity.getType()));
+            travelHolder.travelType.setText(travelTypeStringMap.get(travelEntity.getPlayQuality()));
         } else if (holder instanceof NewTravelHolder){
             NewTravelHolder newTravelHolder = (NewTravelHolder)holder;
             newTravelHolder.newBk.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +144,7 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public final ImageView travelMenu;
         public final TextView travelDays;
         public final TextView travelDuration;
-        public final TextView travelPoints;
+        public final TextView destination;
         public final TextView personNum;
         public final TextView payNum;
         public final TextView travelType;
@@ -158,7 +158,7 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             travelMenu = (ImageView)itemView.findViewById(R.id.iv_travel_destination_menu);
             travelDays = (TextView)itemView.findViewById(R.id.travel_days);
             travelDuration = (TextView)itemView.findViewById(R.id.travel_duration);
-            travelPoints = (TextView)itemView.findViewById(R.id.travel_points);
+            destination = (TextView)itemView.findViewById(R.id.travel_points);
             personNum = (TextView)itemView.findViewById(R.id.t_person_num);
             payNum = (TextView)itemView.findViewById(R.id.t_pay_num);
             travelType = (TextView)itemView.findViewById(R.id.t_travel_type);
@@ -178,9 +178,9 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     private void initTravelTypeMap() {
-        travelTypeStringMap.put(IMTravel.TravelType.TRAVEL_TYPE_ECONOMICAL_EFFICIENCY_VALUE, ctx.getString(R.string.economical_efficiency));
-        travelTypeStringMap.put(IMTravel.TravelType.TRAVEL_TYPE_ECONOMICAL_COMFORT_VALUE, ctx.getString(R.string.economical_comfort));
-        travelTypeStringMap.put(IMTravel.TravelType.TRAVEL_TYPE_LUXURY_QUALITY_VALUE, ctx.getString(R.string.luxury_quality));
+        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_ECONOMIC_VALUE, ctx.getString(R.string.economical_efficiency));
+        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_COMFORTABLE_VALUE, ctx.getString(R.string.economical_comfort));
+        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_LUXURY_VALUE, ctx.getString(R.string.luxury_quality));
     }
 
 }

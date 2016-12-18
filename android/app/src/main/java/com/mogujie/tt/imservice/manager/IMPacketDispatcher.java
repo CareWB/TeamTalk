@@ -78,6 +78,14 @@ public class IMPacketDispatcher {
                 IMBuddy.IMDepartmentRsp departmentRsp = IMBuddy.IMDepartmentRsp.parseFrom(buffer);
                 IMContactManager.instance().onRepDepartment(departmentRsp);
                 return;
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE_VALUE:
+                IMBuddy.GetTravelTripListRsp getTravelTripListRsp = IMBuddy.GetTravelTripListRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspTravelList(getTravelTripListRsp);
+                return;
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE_VALUE:
+                IMBuddy.CreateTravelRsp createTravelRsp = IMBuddy.CreateTravelRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspCreateTravel(createTravelRsp);
+                return;
 
         }
         } catch (IOException e) {

@@ -195,7 +195,7 @@ message TravelRouteRsp{
 
 
 enum TrafficQualityType{
-    QLT_TYPE_ECONOMIC= 0x01;
+    QLT_TYPE_ECONOMIC = 0x01;
     QLT_TYPE_COMFORTABLE = 0x02;
     QLT_TYPE_LUXURY = 0x03;
 }
@@ -204,6 +204,12 @@ enum PlayQualityType{
     FEEL_TYPE_ECONOMIC= 0x01;
     FEEL_TYPE_GENERAL = 0x02;
     FEEL_TYPE_COMFORTABLE = 0x03;
+}
+
+enum CityTrafficType{
+    WALK = 0x01;
+    BUS  = 0x02;
+    TAXI = 0x03;
 }
 
 enum HotelPositionType{
@@ -223,23 +229,24 @@ message TravelInfo{
 
 message TrafficInfo{
     required string traffic_time_from = 1;
-    required string traffic_time_to = 2;
-    required uint32 travel_type = 3;
+    required string traffic_time_to   = 2;
+    required uint32 travel_type       = 3;
 }
 
 message PlayInfo{
     required PlayQualityType play_quality = 1;
-    required string play_time_from = 2;
-    required string play_time_to = 3;
-    required uint32 room_num = 4;
+    required string play_time_from        = 2;
+    required string play_time_to          = 3;
+    required uint32 city_traffic          = 4;
     required HotelPositionType hotel_position = 5;
 }
 
 message TravelDetail{
-    required TravelInfo travel_info = 1;
-    required TrafficInfo traffic_info = 2;
-    required PlayInfo play_info = 3;
-    required uint32 cost = 4;
+    required uint32 db_idx = 1;
+    required TravelInfo travel_info = 2;
+    required TrafficInfo traffic_info = 3;
+    required PlayInfo play_info = 4;
+    required uint32 cost = 5;
 }
 
 message GetTravelListReq{
@@ -266,7 +273,7 @@ message CreateTravelRsp{
     //cmd id:        0x0256
     required uint32 user_id = 1;
     required uint32 result_code = 2;
-    repeated TravelDetail travel_detail = 3;
+    required uint32 db_idx = 3;
 }
 
 

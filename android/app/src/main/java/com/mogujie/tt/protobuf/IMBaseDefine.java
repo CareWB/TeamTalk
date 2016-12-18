@@ -517,6 +517,30 @@ public final class IMBaseDefine {
      * </pre>
      */
     CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY(20, 533),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST = 593;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST(21, 593),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE = 594;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE(22, 594),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_LIST_REQUEST = 595;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_LIST_REQUEST(23, 595),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE = 596;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE(24, 596),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST = 597;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST(25, 597),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE = 598;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE(26, 598),
     ;
 
     /**
@@ -624,6 +648,30 @@ public final class IMBaseDefine {
      * </pre>
      */
     public static final int CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY_VALUE = 533;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST = 593;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST_VALUE = 593;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE = 594;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE_VALUE = 594;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_LIST_REQUEST = 595;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_LIST_REQUEST_VALUE = 595;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE = 596;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE_VALUE = 596;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST = 597;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST_VALUE = 597;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE = 598;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE_VALUE = 598;
 
 
     public final int getNumber() { return value; }
@@ -651,6 +699,12 @@ public final class IMBaseDefine {
         case 531: return CID_BUDDY_LIST_CHANGE_SIGN_INFO_REQUEST;
         case 532: return CID_BUDDY_LIST_CHANGE_SIGN_INFO_RESPONSE;
         case 533: return CID_BUDDY_LIST_SIGN_INFO_CHANGED_NOTIFY;
+        case 593: return CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST;
+        case 594: return CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE;
+        case 595: return CID_BUDDY_LIST_TRAVEL_LIST_REQUEST;
+        case 596: return CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE;
+        case 597: return CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST;
+        case 598: return CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE;
         default: return null;
       }
     }

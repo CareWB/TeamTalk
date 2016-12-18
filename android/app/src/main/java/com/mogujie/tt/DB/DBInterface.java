@@ -500,6 +500,11 @@ public class DBInterface {
         return result;
     }
 
+    public void delAllTravel(){
+        TravelDao dao = openReadableDb().getTravelDao();
+        dao.deleteAll();
+    }
+
     public void insertOrUpdateTravel(TravelEntity entity){
         TravelDao travelDao = openWritableDb().getTravelDao();
         long rowId = travelDao.insertOrReplace(entity);

@@ -3,7 +3,8 @@ package com.mogujie.tt.imservice.manager;
 import com.mogujie.tt.DB.DBInterface;
 import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.imservice.event.TravelEvent;
-import com.mogujie.tt.protobuf.IMTravel;
+import com.mogujie.tt.protobuf.IMBaseDefine;
+import com.mogujie.tt.protobuf.IMBuddy;
 import com.mogujie.tt.protobuf.helper.ProtoBuf2JavaBean;
 import com.mogujie.tt.utils.Logger;
 
@@ -20,12 +21,11 @@ public class IMTravelManager extends IMManager {
 	}
 
     private IMSocketManager imSocketManager = IMSocketManager.instance();
-    private IMLoginManager loginManager = IMLoginManager.instance();
-
     private DBInterface dbInterface = DBInterface.instance();
 
     /**key=> sessionKey*/
     private List<TravelEntity> travelEntityList = new ArrayList<>();
+    private TravelEntity mtTravel = new TravelEntity();
 
     @Override
     public void doOnStart() {}
@@ -33,13 +33,28 @@ public class IMTravelManager extends IMManager {
 
     // 未读消息控制器，本地是不存状态的
     public void onNormalLoginOk(){
-        travelEntityList.clear();
-        //reqTravelList();
+        onLocalLoginOk();
+        onLocalNetOk();
     }
 
     public void onLocalNetOk(){
-        travelEntityList.clear();
-        //reqTravelList();
+        reqTravelList();
+    }
+
+    public void onLocalLoginOk(){
+        logger.i("group#loadFromDb");
+
+        if(!EventBus.getDefault().isRegistered(inst)){
+            EventBus.getDefault().registerSticky(inst);
+        }
+
+        // 加载本地group
+        List<TravelEntity> localTravelDetailList = dbInterface.loadAllTravel();
+        for(TravelEntity travelEntity:localTravelDetailList){
+            travelEntityList.add(travelEntity);
+        }
+
+        triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
     }
 
     @Override
@@ -56,25 +71,38 @@ public class IMTravelManager extends IMManager {
     }
 
     /**-------------------------------分割线----------------------------------*/
-/*    private void reqTravelList() {
-        logger.i("unread#1reqTravelList");
+    private void reqTravelList() {
+        logger.i("1reqTravelList");
         int loginId = IMLoginManager.instance().getLoginId();
-        IMTravel.IMTravelInfoReq  travelInfoReq  = IMTravel.IMTravelInfoReq
+        IMBuddy.GetTravelListReq getTravelListReq = IMBuddy.GetTravelListReq
                 .newBuilder()
                 .setUserId(loginId)
                 .build();
-        int sid = IMBaseDefine.ServiceID.SID_TRAVEL_VALUE;
-        int cid = IMBaseDefine.TravelCmdID.CID_TRAVEL_REQ_TRAVEL_LIST_VALUE;
-        imSocketManager.sendRequest(travelInfoReq,sid,cid);
-    }*/
 
-    public void onRepTravelList(IMTravel.IMTravelInfoRsp travelInfoRsp) {
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_LIST_REQUEST_VALUE;
+        imSocketManager.sendRequest(getTravelListReq,sid,cid);
+    }
+
+    public void onRspTravelList(IMBuddy.GetTravelTripListRsp getTravelTripListRsp) {
         logger.i("onRepTravelList");
-        List<IMTravel.TravelInfo> travelInfoList =  travelInfoRsp.getTravelInfoList();
-        logger.i("onRepTravelList#travelCnt:%d",travelInfoList.size());
+        if (getTravelTripListRsp.getResultCode() != 0) {
+            logger.e("onRepTravelList fail %d", getTravelTripListRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_FAIL));
+            return;
+        }
+
+        clearTravelList();
+        List<IMBuddy.TravelDetail> travelDetailList =  getTravelTripListRsp.getTravelDetailList();
+        if (travelDetailList.size() == 0) {
+            logger.e("onRepTravelList#travelCnt:%d",travelDetailList.size());
+            triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
+            return;
+        }
+
         List<TravelEntity> needDb = new ArrayList<>();
-        for(IMTravel.TravelInfo travelInfo:travelInfoList){
-            TravelEntity travelEntity = ProtoBuf2JavaBean.getTravelEntity(travelInfo);
+        for(IMBuddy.TravelDetail travelDetail:travelDetailList){
+            TravelEntity travelEntity = ProtoBuf2JavaBean.getTravelEntity(travelDetail);
             travelEntityList.add(travelEntity);
             needDb.add(travelEntity);
         }
@@ -82,34 +110,102 @@ public class IMTravelManager extends IMManager {
         triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
     }
 
-/*    private void reqTrainList() {
-        logger.i("unread#reqTrainList");
+    public void reqCreateTravel() {
         int loginId = IMLoginManager.instance().getLoginId();
-        IMTravel.IMTravelTrainInfoReq  travelTrainInfoReq  = IMTravel.IMTravelTrainInfoReq
+
+        IMBuddy.TravelInfo travelInfo = IMBuddy.TravelInfo
+                .newBuilder()
+                .setPersonNum(mtTravel.getPersonNum())
+                .setPlaceFrom(mtTravel.getStartPlace())
+                .setPlaceBack(mtTravel.getEndPlace())
+                .setPlaceTo(mtTravel.getDestination())
+                .setDateFrom(mtTravel.getStartDate())
+                .setDateTo(mtTravel.getEndDate())
+                .build();
+
+        IMBuddy.TrafficInfo trafficInfo = IMBuddy.TrafficInfo
+                .newBuilder()
+                .setTravelType(mtTravel.getTrafficWay())
+                .setTrafficTimeFrom(mtTravel.getTrafficStartTime())
+                .setTrafficTimeTo(mtTravel.getTrafficEndTime())
+                .build();
+
+        IMBuddy.PlayInfo playInfo = IMBuddy.PlayInfo
+                .newBuilder()
+                .setPlayQuality(getPlayQuality(mtTravel.getPlayQuality()))
+                .setPlayTimeFrom(mtTravel.getPlayStartTime())
+                .setPlayTimeTo(mtTravel.getPlayEndTime())
+                .setCityTraffic(mtTravel.getCityTraffic())
+                .setHotelPosition(getHotelPosition(mtTravel.getHotelPosition()))
+                .build();
+
+        IMBuddy.TravelDetail travelDetail = IMBuddy.TravelDetail
+                .newBuilder()
+                .setDbIdx(52)
+                .setTravelInfo(travelInfo)
+                .setTrafficInfo(trafficInfo)
+                .setPlayInfo(playInfo)
+                .setCost(mtTravel.getCost())
+                .build();
+
+        IMBuddy.CreateTravelReq createTravelReq = IMBuddy.CreateTravelReq
                 .newBuilder()
                 .setUserId(loginId)
+                .setTravelDetail(travelDetail)
                 .build();
-        int sid = IMBaseDefine.ServiceID.SID_TRAVEL_VALUE;
-        int cid = IMBaseDefine.TravelCmdID.CID_TRAVEL_REQ_TRAIN_LIST_VALUE;
-        imSocketManager.sendRequest(travelTrainInfoReq,sid,cid);
-    }*/
 
-    public void onRepTrainList(IMTravel.IMTravelTrainInfoRsp trainInfoRsp) {
-        logger.i("onRepTrainList");
-        List<IMTravel.TrainInfo> trainInfoList =  trainInfoRsp.getTrainInfoList();
-        logger.i("onRepTrainList#trainCnt:%d",trainInfoList.size());
-        List<TravelEntity> needDb = new ArrayList<>();
-        for(IMTravel.TrainInfo trainInfo:trainInfoList){
-/*            TravelEntity travelEntity = ProtoBuf2JavaBean.getTravelEntity(travelInfo);
-            travelEntityList.add(travelEntity);
-            needDb.add(travelEntity);*/
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST_VALUE;
+        imSocketManager.sendRequest(createTravelReq,sid,cid);
+    }
+
+    public void onRspCreateTravel(IMBuddy.CreateTravelRsp createTravelRsp) {
+        logger.i("onRspCreateTravel");
+        if (createTravelRsp.getResultCode() != 0) {
+            logger.e("onRepTravelList fail %d", createTravelRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_TRAVEL_FAIL));
+        } else {
+            triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_TRAVEL_OK));
         }
-        dbInterface.batchInsertOrUpdateTravel(needDb);
-        triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
+    }
+
+    private IMBuddy.PlayQualityType getPlayQuality(int i) {
+        switch (i) {
+            case 0:
+                return IMBuddy.PlayQualityType.FEEL_TYPE_ECONOMIC;
+            case 1:
+                return IMBuddy.PlayQualityType.FEEL_TYPE_GENERAL;
+            case 2:
+                return IMBuddy.PlayQualityType.FEEL_TYPE_COMFORTABLE;
+            default:
+                return IMBuddy.PlayQualityType.FEEL_TYPE_GENERAL;
+        }
+    }
+
+    private IMBuddy.HotelPositionType getHotelPosition(int i) {
+        switch (i) {
+            case 0:
+                return IMBuddy.HotelPositionType.HOTEL_NEAR_CITY;
+            case 1:
+                return IMBuddy.HotelPositionType.HOTEL_NEAR_VIEW_SPOT;
+            case 2:
+                return IMBuddy.HotelPositionType.HOTEL_TRAFFIC_FIT;
+            default:
+                return IMBuddy.HotelPositionType.HOTEL_NEAR_CITY;
+        }
+    }
+
+    private void clearTravelList() {
+        travelEntityList.clear();
+        dbInterface.delAllTravel();
     }
 
     /**----------------实体set/get-------------------------------*/
     public List<TravelEntity> getTravelEntityList() {
         return travelEntityList;
+    }
+
+    public TravelEntity getMtTravel() {
+        return mtTravel;
     }
 }

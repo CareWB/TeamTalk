@@ -10,22 +10,36 @@ package com.mogujie.tt.DB.entity;
 public class TravelEntity {
 
     private Long id;
-    private int peerId;
+    private int dbId;
+    private int creatorId;
     private int duration;
     /** Not-null value. */
     private String startDate;
     /** Not-null value. */
     private String endDate;
     /** Not-null value. */
+    private String startPlace;
+    /** Not-null value. */
+    private String endPlace;
+    /** Not-null value. */
     private String destination;
     /** Not-null value. */
     private String destinationBK;
+    private int personNum;
+    private int trafficWay;
     /** Not-null value. */
-    private String throughPoint;
-    private int creatorId;
-    private int userCnt;
+    private String trafficStartTime;
+    /** Not-null value. */
+    private String trafficEndTime;
+    private int trafficQuality;
+    private int playQuality;
+    /** Not-null value. */
+    private String playStartTime;
+    /** Not-null value. */
+    private String playEndTime;
+    private int cityTraffic;
+    private int hotelPosition;
     private int cost;
-    private int type;
     private int version;
     private int status;
     private int created;
@@ -41,19 +55,28 @@ public class TravelEntity {
         this.id = id;
     }
 
-    public TravelEntity(Long id, int peerId, int duration, String startDate, String endDate, String destination, String destinationBK, String throughPoint, int creatorId, int userCnt, int cost, int type, int version, int status, int created, int updated) {
+    public TravelEntity(Long id, int dbId, int creatorId, int duration, String startDate, String endDate, String startPlace, String endPlace, String destination, String destinationBK, int personNum, int trafficWay, String trafficStartTime, String trafficEndTime, int trafficQuality, int playQuality, String playStartTime, String playEndTime, int cityTraffic, int hotelPosition, int cost, int version, int status, int created, int updated) {
         this.id = id;
-        this.peerId = peerId;
+        this.dbId = dbId;
+        this.creatorId = creatorId;
         this.duration = duration;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.startPlace = startPlace;
+        this.endPlace = endPlace;
         this.destination = destination;
         this.destinationBK = destinationBK;
-        this.throughPoint = throughPoint;
-        this.creatorId = creatorId;
-        this.userCnt = userCnt;
+        this.personNum = personNum;
+        this.trafficWay = trafficWay;
+        this.trafficStartTime = trafficStartTime;
+        this.trafficEndTime = trafficEndTime;
+        this.trafficQuality = trafficQuality;
+        this.playQuality = playQuality;
+        this.playStartTime = playStartTime;
+        this.playEndTime = playEndTime;
+        this.cityTraffic = cityTraffic;
+        this.hotelPosition = hotelPosition;
         this.cost = cost;
-        this.type = type;
         this.version = version;
         this.status = status;
         this.created = created;
@@ -68,12 +91,20 @@ public class TravelEntity {
         this.id = id;
     }
 
-    public int getPeerId() {
-        return peerId;
+    public int getDbId() {
+        return dbId;
     }
 
-    public void setPeerId(int peerId) {
-        this.peerId = peerId;
+    public void setDbId(int dbId) {
+        this.dbId = dbId;
+    }
+
+    public int getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(int creatorId) {
+        this.creatorId = creatorId;
     }
 
     public int getDuration() {
@@ -105,6 +136,26 @@ public class TravelEntity {
     }
 
     /** Not-null value. */
+    public String getStartPlace() {
+        return startPlace;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setStartPlace(String startPlace) {
+        this.startPlace = startPlace;
+    }
+
+    /** Not-null value. */
+    public String getEndPlace() {
+        return endPlace;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setEndPlace(String endPlace) {
+        this.endPlace = endPlace;
+    }
+
+    /** Not-null value. */
     public String getDestination() {
         return destination;
     }
@@ -124,30 +175,92 @@ public class TravelEntity {
         this.destinationBK = destinationBK;
     }
 
+    public int getPersonNum() {
+        return personNum;
+    }
+
+    public void setPersonNum(int personNum) {
+        this.personNum = personNum;
+    }
+
+    public int getTrafficWay() {
+        return trafficWay;
+    }
+
+    public void setTrafficWay(int trafficWay) {
+        this.trafficWay = trafficWay;
+    }
+
     /** Not-null value. */
-    public String getThroughPoint() {
-        return throughPoint;
+    public String getTrafficStartTime() {
+        return trafficStartTime;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setThroughPoint(String throughPoint) {
-        this.throughPoint = throughPoint;
+    public void setTrafficStartTime(String trafficStartTime) {
+        this.trafficStartTime = trafficStartTime;
     }
 
-    public int getCreatorId() {
-        return creatorId;
+    /** Not-null value. */
+    public String getTrafficEndTime() {
+        return trafficEndTime;
     }
 
-    public void setCreatorId(int creatorId) {
-        this.creatorId = creatorId;
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setTrafficEndTime(String trafficEndTime) {
+        this.trafficEndTime = trafficEndTime;
     }
 
-    public int getUserCnt() {
-        return userCnt;
+    public int getTrafficQuality() {
+        return trafficQuality;
     }
 
-    public void setUserCnt(int userCnt) {
-        this.userCnt = userCnt;
+    public void setTrafficQuality(int trafficQuality) {
+        this.trafficQuality = trafficQuality;
+    }
+
+    public int getPlayQuality() {
+        return playQuality;
+    }
+
+    public void setPlayQuality(int playQuality) {
+        this.playQuality = playQuality;
+    }
+
+    /** Not-null value. */
+    public String getPlayStartTime() {
+        return playStartTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setPlayStartTime(String playStartTime) {
+        this.playStartTime = playStartTime;
+    }
+
+    /** Not-null value. */
+    public String getPlayEndTime() {
+        return playEndTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setPlayEndTime(String playEndTime) {
+        this.playEndTime = playEndTime;
+    }
+
+    public int getCityTraffic() {
+        return cityTraffic;
+    }
+
+    public void setCityTraffic(int cityTraffic) {
+        this.cityTraffic = cityTraffic;
+    }
+
+    public int getHotelPosition() {
+        return hotelPosition;
+    }
+
+    public void setHotelPosition(int hotelPosition) {
+        this.hotelPosition = hotelPosition;
     }
 
     public int getCost() {
@@ -156,14 +269,6 @@ public class TravelEntity {
 
     public void setCost(int cost) {
         this.cost = cost;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 
     public int getVersion() {

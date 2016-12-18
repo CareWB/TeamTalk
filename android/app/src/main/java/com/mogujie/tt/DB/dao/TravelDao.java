@@ -24,21 +24,30 @@ public class TravelDao extends AbstractDao<TravelEntity, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property PeerId = new Property(1, int.class, "peerId", false, "PEER_ID");
-        public final static Property Duration = new Property(2, int.class, "duration", false, "DURATION");
-        public final static Property StartDate = new Property(3, String.class, "startDate", false, "START_DATE");
-        public final static Property EndDate = new Property(4, String.class, "endDate", false, "END_DATE");
-        public final static Property Destination = new Property(5, String.class, "destination", false, "DESTINATION");
-        public final static Property DestinationBK = new Property(6, String.class, "destinationBK", false, "DESTINATION_BK");
-        public final static Property ThroughPoint = new Property(7, String.class, "throughPoint", false, "THROUGH_POINT");
-        public final static Property CreatorId = new Property(8, int.class, "creatorId", false, "CREATOR_ID");
-        public final static Property UserCnt = new Property(9, int.class, "userCnt", false, "USER_CNT");
-        public final static Property Cost = new Property(10, int.class, "cost", false, "COST");
-        public final static Property Type = new Property(11, int.class, "type", false, "TYPE");
-        public final static Property Version = new Property(12, int.class, "version", false, "VERSION");
-        public final static Property Status = new Property(13, int.class, "status", false, "STATUS");
-        public final static Property Created = new Property(14, int.class, "created", false, "CREATED");
-        public final static Property Updated = new Property(15, int.class, "updated", false, "UPDATED");
+        public final static Property DbId = new Property(1, int.class, "dbId", false, "DB_ID");
+        public final static Property CreatorId = new Property(2, int.class, "creatorId", false, "CREATOR_ID");
+        public final static Property Duration = new Property(3, int.class, "duration", false, "DURATION");
+        public final static Property StartDate = new Property(4, String.class, "startDate", false, "START_DATE");
+        public final static Property EndDate = new Property(5, String.class, "endDate", false, "END_DATE");
+        public final static Property StartPlace = new Property(6, String.class, "startPlace", false, "START_PLACE");
+        public final static Property EndPlace = new Property(7, String.class, "endPlace", false, "END_PLACE");
+        public final static Property Destination = new Property(8, String.class, "destination", false, "DESTINATION");
+        public final static Property DestinationBK = new Property(9, String.class, "destinationBK", false, "DESTINATION_BK");
+        public final static Property PersonNum = new Property(10, int.class, "personNum", false, "PERSON_NUM");
+        public final static Property TrafficWay = new Property(11, int.class, "trafficWay", false, "TRAFFIC_WAY");
+        public final static Property TrafficStartTime = new Property(12, String.class, "trafficStartTime", false, "TRAFFIC_START_TIME");
+        public final static Property TrafficEndTime = new Property(13, String.class, "trafficEndTime", false, "TRAFFIC_END_TIME");
+        public final static Property TrafficQuality = new Property(14, int.class, "trafficQuality", false, "TRAFFIC_QUALITY");
+        public final static Property PlayQuality = new Property(15, int.class, "playQuality", false, "PLAY_QUALITY");
+        public final static Property PlayStartTime = new Property(16, String.class, "playStartTime", false, "PLAY_START_TIME");
+        public final static Property PlayEndTime = new Property(17, String.class, "playEndTime", false, "PLAY_END_TIME");
+        public final static Property CityTraffic = new Property(18, int.class, "cityTraffic", false, "CITY_TRAFFIC");
+        public final static Property HotelPosition = new Property(19, int.class, "hotelPosition", false, "HOTEL_POSITION");
+        public final static Property Cost = new Property(20, int.class, "cost", false, "COST");
+        public final static Property Version = new Property(21, int.class, "version", false, "VERSION");
+        public final static Property Status = new Property(22, int.class, "status", false, "STATUS");
+        public final static Property Created = new Property(23, int.class, "created", false, "CREATED");
+        public final static Property Updated = new Property(24, int.class, "updated", false, "UPDATED");
     };
 
 
@@ -55,21 +64,30 @@ public class TravelDao extends AbstractDao<TravelEntity, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'TravelInfo' (" + //
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "'PEER_ID' INTEGER NOT NULL UNIQUE ," + // 1: peerId
-                "'DURATION' INTEGER NOT NULL ," + // 2: duration
-                "'START_DATE' TEXT NOT NULL ," + // 3: startDate
-                "'END_DATE' TEXT NOT NULL ," + // 4: endDate
-                "'DESTINATION' TEXT NOT NULL ," + // 5: destination
-                "'DESTINATION_BK' TEXT NOT NULL ," + // 6: destinationBK
-                "'THROUGH_POINT' TEXT NOT NULL ," + // 7: throughPoint
-                "'CREATOR_ID' INTEGER NOT NULL ," + // 8: creatorId
-                "'USER_CNT' INTEGER NOT NULL ," + // 9: userCnt
-                "'COST' INTEGER NOT NULL ," + // 10: cost
-                "'TYPE' INTEGER NOT NULL ," + // 11: type
-                "'VERSION' INTEGER NOT NULL ," + // 12: version
-                "'STATUS' INTEGER NOT NULL ," + // 13: status
-                "'CREATED' INTEGER NOT NULL ," + // 14: created
-                "'UPDATED' INTEGER NOT NULL );"); // 15: updated
+                "'DB_ID' INTEGER NOT NULL UNIQUE ," + // 1: dbId
+                "'CREATOR_ID' INTEGER NOT NULL ," + // 2: creatorId
+                "'DURATION' INTEGER NOT NULL ," + // 3: duration
+                "'START_DATE' TEXT NOT NULL ," + // 4: startDate
+                "'END_DATE' TEXT NOT NULL ," + // 5: endDate
+                "'START_PLACE' TEXT NOT NULL ," + // 6: startPlace
+                "'END_PLACE' TEXT NOT NULL ," + // 7: endPlace
+                "'DESTINATION' TEXT NOT NULL ," + // 8: destination
+                "'DESTINATION_BK' TEXT NOT NULL ," + // 9: destinationBK
+                "'PERSON_NUM' INTEGER NOT NULL ," + // 10: personNum
+                "'TRAFFIC_WAY' INTEGER NOT NULL ," + // 11: trafficWay
+                "'TRAFFIC_START_TIME' TEXT NOT NULL ," + // 12: trafficStartTime
+                "'TRAFFIC_END_TIME' TEXT NOT NULL ," + // 13: trafficEndTime
+                "'TRAFFIC_QUALITY' INTEGER NOT NULL ," + // 14: trafficQuality
+                "'PLAY_QUALITY' INTEGER NOT NULL ," + // 15: playQuality
+                "'PLAY_START_TIME' TEXT NOT NULL ," + // 16: playStartTime
+                "'PLAY_END_TIME' TEXT NOT NULL ," + // 17: playEndTime
+                "'CITY_TRAFFIC' INTEGER NOT NULL ," + // 18: cityTraffic
+                "'HOTEL_POSITION' INTEGER NOT NULL ," + // 19: hotelPosition
+                "'COST' INTEGER NOT NULL ," + // 20: cost
+                "'VERSION' INTEGER NOT NULL ," + // 21: version
+                "'STATUS' INTEGER NOT NULL ," + // 22: status
+                "'CREATED' INTEGER NOT NULL ," + // 23: created
+                "'UPDATED' INTEGER NOT NULL );"); // 24: updated
     }
 
     /** Drops the underlying database table. */
@@ -87,21 +105,30 @@ public class TravelDao extends AbstractDao<TravelEntity, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindLong(2, entity.getPeerId());
-        stmt.bindLong(3, entity.getDuration());
-        stmt.bindString(4, entity.getStartDate());
-        stmt.bindString(5, entity.getEndDate());
-        stmt.bindString(6, entity.getDestination());
-        stmt.bindString(7, entity.getDestinationBK());
-        stmt.bindString(8, entity.getThroughPoint());
-        stmt.bindLong(9, entity.getCreatorId());
-        stmt.bindLong(10, entity.getUserCnt());
-        stmt.bindLong(11, entity.getCost());
-        stmt.bindLong(12, entity.getType());
-        stmt.bindLong(13, entity.getVersion());
-        stmt.bindLong(14, entity.getStatus());
-        stmt.bindLong(15, entity.getCreated());
-        stmt.bindLong(16, entity.getUpdated());
+        stmt.bindLong(2, entity.getDbId());
+        stmt.bindLong(3, entity.getCreatorId());
+        stmt.bindLong(4, entity.getDuration());
+        stmt.bindString(5, entity.getStartDate());
+        stmt.bindString(6, entity.getEndDate());
+        stmt.bindString(7, entity.getStartPlace());
+        stmt.bindString(8, entity.getEndPlace());
+        stmt.bindString(9, entity.getDestination());
+        stmt.bindString(10, entity.getDestinationBK());
+        stmt.bindLong(11, entity.getPersonNum());
+        stmt.bindLong(12, entity.getTrafficWay());
+        stmt.bindString(13, entity.getTrafficStartTime());
+        stmt.bindString(14, entity.getTrafficEndTime());
+        stmt.bindLong(15, entity.getTrafficQuality());
+        stmt.bindLong(16, entity.getPlayQuality());
+        stmt.bindString(17, entity.getPlayStartTime());
+        stmt.bindString(18, entity.getPlayEndTime());
+        stmt.bindLong(19, entity.getCityTraffic());
+        stmt.bindLong(20, entity.getHotelPosition());
+        stmt.bindLong(21, entity.getCost());
+        stmt.bindLong(22, entity.getVersion());
+        stmt.bindLong(23, entity.getStatus());
+        stmt.bindLong(24, entity.getCreated());
+        stmt.bindLong(25, entity.getUpdated());
     }
 
     /** @inheritdoc */
@@ -115,21 +142,30 @@ public class TravelDao extends AbstractDao<TravelEntity, Long> {
     public TravelEntity readEntity(Cursor cursor, int offset) {
         TravelEntity entity = new TravelEntity( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.getInt(offset + 1), // peerId
-            cursor.getInt(offset + 2), // duration
-            cursor.getString(offset + 3), // startDate
-            cursor.getString(offset + 4), // endDate
-            cursor.getString(offset + 5), // destination
-            cursor.getString(offset + 6), // destinationBK
-            cursor.getString(offset + 7), // throughPoint
-            cursor.getInt(offset + 8), // creatorId
-            cursor.getInt(offset + 9), // userCnt
-            cursor.getInt(offset + 10), // cost
-            cursor.getInt(offset + 11), // type
-            cursor.getInt(offset + 12), // version
-            cursor.getInt(offset + 13), // status
-            cursor.getInt(offset + 14), // created
-            cursor.getInt(offset + 15) // updated
+            cursor.getInt(offset + 1), // dbId
+            cursor.getInt(offset + 2), // creatorId
+            cursor.getInt(offset + 3), // duration
+            cursor.getString(offset + 4), // startDate
+            cursor.getString(offset + 5), // endDate
+            cursor.getString(offset + 6), // startPlace
+            cursor.getString(offset + 7), // endPlace
+            cursor.getString(offset + 8), // destination
+            cursor.getString(offset + 9), // destinationBK
+            cursor.getInt(offset + 10), // personNum
+            cursor.getInt(offset + 11), // trafficWay
+            cursor.getString(offset + 12), // trafficStartTime
+            cursor.getString(offset + 13), // trafficEndTime
+            cursor.getInt(offset + 14), // trafficQuality
+            cursor.getInt(offset + 15), // playQuality
+            cursor.getString(offset + 16), // playStartTime
+            cursor.getString(offset + 17), // playEndTime
+            cursor.getInt(offset + 18), // cityTraffic
+            cursor.getInt(offset + 19), // hotelPosition
+            cursor.getInt(offset + 20), // cost
+            cursor.getInt(offset + 21), // version
+            cursor.getInt(offset + 22), // status
+            cursor.getInt(offset + 23), // created
+            cursor.getInt(offset + 24) // updated
         );
         return entity;
     }
@@ -138,21 +174,30 @@ public class TravelDao extends AbstractDao<TravelEntity, Long> {
     @Override
     public void readEntity(Cursor cursor, TravelEntity entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setPeerId(cursor.getInt(offset + 1));
-        entity.setDuration(cursor.getInt(offset + 2));
-        entity.setStartDate(cursor.getString(offset + 3));
-        entity.setEndDate(cursor.getString(offset + 4));
-        entity.setDestination(cursor.getString(offset + 5));
-        entity.setDestinationBK(cursor.getString(offset + 6));
-        entity.setThroughPoint(cursor.getString(offset + 7));
-        entity.setCreatorId(cursor.getInt(offset + 8));
-        entity.setUserCnt(cursor.getInt(offset + 9));
-        entity.setCost(cursor.getInt(offset + 10));
-        entity.setType(cursor.getInt(offset + 11));
-        entity.setVersion(cursor.getInt(offset + 12));
-        entity.setStatus(cursor.getInt(offset + 13));
-        entity.setCreated(cursor.getInt(offset + 14));
-        entity.setUpdated(cursor.getInt(offset + 15));
+        entity.setDbId(cursor.getInt(offset + 1));
+        entity.setCreatorId(cursor.getInt(offset + 2));
+        entity.setDuration(cursor.getInt(offset + 3));
+        entity.setStartDate(cursor.getString(offset + 4));
+        entity.setEndDate(cursor.getString(offset + 5));
+        entity.setStartPlace(cursor.getString(offset + 6));
+        entity.setEndPlace(cursor.getString(offset + 7));
+        entity.setDestination(cursor.getString(offset + 8));
+        entity.setDestinationBK(cursor.getString(offset + 9));
+        entity.setPersonNum(cursor.getInt(offset + 10));
+        entity.setTrafficWay(cursor.getInt(offset + 11));
+        entity.setTrafficStartTime(cursor.getString(offset + 12));
+        entity.setTrafficEndTime(cursor.getString(offset + 13));
+        entity.setTrafficQuality(cursor.getInt(offset + 14));
+        entity.setPlayQuality(cursor.getInt(offset + 15));
+        entity.setPlayStartTime(cursor.getString(offset + 16));
+        entity.setPlayEndTime(cursor.getString(offset + 17));
+        entity.setCityTraffic(cursor.getInt(offset + 18));
+        entity.setHotelPosition(cursor.getInt(offset + 19));
+        entity.setCost(cursor.getInt(offset + 20));
+        entity.setVersion(cursor.getInt(offset + 21));
+        entity.setStatus(cursor.getInt(offset + 22));
+        entity.setCreated(cursor.getInt(offset + 23));
+        entity.setUpdated(cursor.getInt(offset + 24));
      }
     
     /** @inheritdoc */
