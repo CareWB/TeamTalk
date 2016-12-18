@@ -892,7 +892,7 @@ void CMsgConn::_HandleGetTravelRouteRequest(CImPdu *pPdu)
     IM::Buddy::TravelRouteReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     log("_HandleGetTravelRouteRequest, user_id=%u, travel_type=%d, lines=%s.", 
-        GetUserId(), msg.travel_type(), msg.lines());
+        GetUserId(), msg.travel_type(), msg.lines().c_str());
     CDBServConn* pDBConn = get_db_serv_conn();
     if (pDBConn) {
         CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);

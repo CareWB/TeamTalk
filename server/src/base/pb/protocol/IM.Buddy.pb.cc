@@ -178,6 +178,17 @@ bool PlayQualityType_IsValid(int value) {
   }
 }
 
+bool CityTrafficType_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
 bool HotelPositionType_IsValid(int value) {
   switch(value) {
     case 1:
@@ -7862,7 +7873,7 @@ void TrafficInfo::Swap(TrafficInfo* other) {
 const int PlayInfo::kPlayQualityFieldNumber;
 const int PlayInfo::kPlayTimeFromFieldNumber;
 const int PlayInfo::kPlayTimeToFieldNumber;
-const int PlayInfo::kRoomNumFieldNumber;
+const int PlayInfo::kCityTrafficFieldNumber;
 const int PlayInfo::kHotelPositionFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7888,7 +7899,7 @@ void PlayInfo::SharedCtor() {
   play_quality_ = 1;
   play_time_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   play_time_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  room_num_ = 0u;
+  city_traffic_ = 0u;
   hotel_position_ = 1;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -7946,7 +7957,7 @@ void PlayInfo::Clear() {
         play_time_to_->clear();
       }
     }
-    room_num_ = 0u;
+    city_traffic_ = 0u;
     hotel_position_ = 1;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -8009,18 +8020,18 @@ bool PlayInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_room_num;
+        if (input->ExpectTag(32)) goto parse_city_traffic;
         break;
       }
 
-      // required uint32 room_num = 4;
+      // required uint32 city_traffic = 4;
       case 4: {
         if (tag == 32) {
-         parse_room_num:
+         parse_city_traffic:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &room_num_)));
-          set_has_room_num();
+                 input, &city_traffic_)));
+          set_has_city_traffic();
         } else {
           goto handle_unusual;
         }
@@ -8092,9 +8103,9 @@ void PlayInfo::SerializeWithCachedSizes(
       3, this->play_time_to(), output);
   }
 
-  // required uint32 room_num = 4;
-  if (has_room_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->room_num(), output);
+  // required uint32 city_traffic = 4;
+  if (has_city_traffic()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->city_traffic(), output);
   }
 
   // required .IM.Buddy.HotelPositionType hotel_position = 5;
@@ -8132,11 +8143,11 @@ int PlayInfo::ByteSize() const {
           this->play_time_to());
     }
 
-    // required uint32 room_num = 4;
-    if (has_room_num()) {
+    // required uint32 city_traffic = 4;
+    if (has_city_traffic()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->room_num());
+          this->city_traffic());
     }
 
     // required .IM.Buddy.HotelPositionType hotel_position = 5;
@@ -8171,8 +8182,8 @@ void PlayInfo::MergeFrom(const PlayInfo& from) {
     if (from.has_play_time_to()) {
       set_play_time_to(from.play_time_to());
     }
-    if (from.has_room_num()) {
-      set_room_num(from.room_num());
+    if (from.has_city_traffic()) {
+      set_city_traffic(from.city_traffic());
     }
     if (from.has_hotel_position()) {
       set_hotel_position(from.hotel_position());
@@ -8198,7 +8209,7 @@ void PlayInfo::Swap(PlayInfo* other) {
     std::swap(play_quality_, other->play_quality_);
     std::swap(play_time_from_, other->play_time_from_);
     std::swap(play_time_to_, other->play_time_to_);
-    std::swap(room_num_, other->room_num_);
+    std::swap(city_traffic_, other->city_traffic_);
     std::swap(hotel_position_, other->hotel_position_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
@@ -8214,6 +8225,7 @@ void PlayInfo::Swap(PlayInfo* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int TravelDetail::kDbIdxFieldNumber;
 const int TravelDetail::kTravelInfoFieldNumber;
 const int TravelDetail::kTrafficInfoFieldNumber;
 const int TravelDetail::kPlayInfoFieldNumber;
@@ -8256,6 +8268,7 @@ TravelDetail::TravelDetail(const TravelDetail& from)
 
 void TravelDetail::SharedCtor() {
   _cached_size_ = 0;
+  db_idx_ = 0u;
   travel_info_ = NULL;
   traffic_info_ = NULL;
   play_info_ = NULL;
@@ -8301,7 +8314,18 @@ TravelDetail* TravelDetail::New() const {
 }
 
 void TravelDetail::Clear() {
-  if (_has_bits_[0 / 32] & 15) {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<TravelDetail*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 31) {
+    ZR_(db_idx_, cost_);
     if (has_travel_info()) {
       if (travel_info_ != NULL) travel_info_->::IM::Buddy::TravelInfo::Clear();
     }
@@ -8311,8 +8335,11 @@ void TravelDetail::Clear() {
     if (has_play_info()) {
       if (play_info_ != NULL) play_info_->::IM::Buddy::PlayInfo::Clear();
     }
-    cost_ = 0u;
   }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
@@ -8331,47 +8358,62 @@ bool TravelDetail::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .IM.Buddy.TravelInfo travel_info = 1;
+      // required uint32 db_idx = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &db_idx_)));
+          set_has_db_idx();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_travel_info;
+        break;
+      }
+
+      // required .IM.Buddy.TravelInfo travel_info = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_travel_info:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_travel_info()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_traffic_info;
+        if (input->ExpectTag(26)) goto parse_traffic_info;
         break;
       }
 
-      // required .IM.Buddy.TrafficInfo traffic_info = 2;
-      case 2: {
-        if (tag == 18) {
+      // required .IM.Buddy.TrafficInfo traffic_info = 3;
+      case 3: {
+        if (tag == 26) {
          parse_traffic_info:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_traffic_info()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_play_info;
+        if (input->ExpectTag(34)) goto parse_play_info;
         break;
       }
 
-      // required .IM.Buddy.PlayInfo play_info = 3;
-      case 3: {
-        if (tag == 26) {
+      // required .IM.Buddy.PlayInfo play_info = 4;
+      case 4: {
+        if (tag == 34) {
          parse_play_info:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_play_info()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_cost;
+        if (input->ExpectTag(40)) goto parse_cost;
         break;
       }
 
-      // required uint32 cost = 4;
-      case 4: {
-        if (tag == 32) {
+      // required uint32 cost = 5;
+      case 5: {
+        if (tag == 40) {
          parse_cost:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -8409,27 +8451,32 @@ failure:
 void TravelDetail::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:IM.Buddy.TravelDetail)
-  // required .IM.Buddy.TravelInfo travel_info = 1;
+  // required uint32 db_idx = 1;
+  if (has_db_idx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->db_idx(), output);
+  }
+
+  // required .IM.Buddy.TravelInfo travel_info = 2;
   if (has_travel_info()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      1, this->travel_info(), output);
+      2, this->travel_info(), output);
   }
 
-  // required .IM.Buddy.TrafficInfo traffic_info = 2;
+  // required .IM.Buddy.TrafficInfo traffic_info = 3;
   if (has_traffic_info()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      2, this->traffic_info(), output);
+      3, this->traffic_info(), output);
   }
 
-  // required .IM.Buddy.PlayInfo play_info = 3;
+  // required .IM.Buddy.PlayInfo play_info = 4;
   if (has_play_info()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      3, this->play_info(), output);
+      4, this->play_info(), output);
   }
 
-  // required uint32 cost = 4;
+  // required uint32 cost = 5;
   if (has_cost()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->cost(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->cost(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
@@ -8441,28 +8488,35 @@ int TravelDetail::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .IM.Buddy.TravelInfo travel_info = 1;
+    // required uint32 db_idx = 1;
+    if (has_db_idx()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->db_idx());
+    }
+
+    // required .IM.Buddy.TravelInfo travel_info = 2;
     if (has_travel_info()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->travel_info());
     }
 
-    // required .IM.Buddy.TrafficInfo traffic_info = 2;
+    // required .IM.Buddy.TrafficInfo traffic_info = 3;
     if (has_traffic_info()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->traffic_info());
     }
 
-    // required .IM.Buddy.PlayInfo play_info = 3;
+    // required .IM.Buddy.PlayInfo play_info = 4;
     if (has_play_info()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->play_info());
     }
 
-    // required uint32 cost = 4;
+    // required uint32 cost = 5;
     if (has_cost()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -8486,6 +8540,9 @@ void TravelDetail::CheckTypeAndMergeFrom(
 void TravelDetail::MergeFrom(const TravelDetail& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_db_idx()) {
+      set_db_idx(from.db_idx());
+    }
     if (from.has_travel_info()) {
       mutable_travel_info()->::IM::Buddy::TravelInfo::MergeFrom(from.travel_info());
     }
@@ -8509,7 +8566,7 @@ void TravelDetail::CopyFrom(const TravelDetail& from) {
 }
 
 bool TravelDetail::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
 
   if (has_travel_info()) {
     if (!this->travel_info().IsInitialized()) return false;
@@ -8525,6 +8582,7 @@ bool TravelDetail::IsInitialized() const {
 
 void TravelDetail::Swap(TravelDetail* other) {
   if (other != this) {
+    std::swap(db_idx_, other->db_idx_);
     std::swap(travel_info_, other->travel_info_);
     std::swap(traffic_info_, other->traffic_info_);
     std::swap(play_info_, other->play_info_);
@@ -8781,6 +8839,7 @@ void GetTravelListReq::Swap(GetTravelListReq* other) {
 const int GetTravelTripListRsp::kUserIdFieldNumber;
 const int GetTravelTripListRsp::kResultCodeFieldNumber;
 const int GetTravelTripListRsp::kTravelDetailFieldNumber;
+const int GetTravelTripListRsp::kAttachDataFieldNumber;
 #endif  // !_MSC_VER
 
 GetTravelTripListRsp::GetTravelTripListRsp()
@@ -8800,9 +8859,11 @@ GetTravelTripListRsp::GetTravelTripListRsp(const GetTravelTripListRsp& from)
 }
 
 void GetTravelTripListRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   user_id_ = 0u;
   result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -8812,6 +8873,9 @@ GetTravelTripListRsp::~GetTravelTripListRsp() {
 }
 
 void GetTravelTripListRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
   #else
@@ -8851,7 +8915,14 @@ void GetTravelTripListRsp::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  ZR_(user_id_, result_code_);
+  if (_has_bits_[0 / 32] & 11) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
 
 #undef OFFSET_OF_FIELD_
 #undef ZR_
@@ -8871,7 +8942,7 @@ bool GetTravelTripListRsp::MergePartialFromCodedStream(
       &unknown_fields_string);
   // @@protoc_insertion_point(parse_start:IM.Buddy.GetTravelTripListRsp)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -8914,6 +8985,19 @@ bool GetTravelTripListRsp::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(26)) goto parse_travel_detail;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -8959,6 +9043,12 @@ void GetTravelTripListRsp::SerializeWithCachedSizes(
       3, this->travel_detail(i), output);
   }
 
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
   // @@protoc_insertion_point(serialize_end:IM.Buddy.GetTravelTripListRsp)
@@ -8980,6 +9070,13 @@ int GetTravelTripListRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
     }
 
   }
@@ -9014,6 +9111,9 @@ void GetTravelTripListRsp::MergeFrom(const GetTravelTripListRsp& from) {
     if (from.has_result_code()) {
       set_result_code(from.result_code());
     }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
   }
   mutable_unknown_fields()->append(from.unknown_fields());
 }
@@ -9036,6 +9136,7 @@ void GetTravelTripListRsp::Swap(GetTravelTripListRsp* other) {
     std::swap(user_id_, other->user_id_);
     std::swap(result_code_, other->result_code_);
     travel_detail_.Swap(&other->travel_detail_);
+    std::swap(attach_data_, other->attach_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9332,7 +9433,8 @@ void CreateTravelReq::Swap(CreateTravelReq* other) {
 #ifndef _MSC_VER
 const int CreateTravelRsp::kUserIdFieldNumber;
 const int CreateTravelRsp::kResultCodeFieldNumber;
-const int CreateTravelRsp::kTravelDetailFieldNumber;
+const int CreateTravelRsp::kDbIdxFieldNumber;
+const int CreateTravelRsp::kAttachDataFieldNumber;
 #endif  // !_MSC_VER
 
 CreateTravelRsp::CreateTravelRsp()
@@ -9352,9 +9454,12 @@ CreateTravelRsp::CreateTravelRsp(const CreateTravelRsp& from)
 }
 
 void CreateTravelRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   user_id_ = 0u;
   result_code_ = 0u;
+  db_idx_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -9364,6 +9469,9 @@ CreateTravelRsp::~CreateTravelRsp() {
 }
 
 void CreateTravelRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
   #else
@@ -9403,12 +9511,19 @@ void CreateTravelRsp::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  ZR_(user_id_, result_code_);
+  if (_has_bits_[0 / 32] & 15) {
+    ZR_(user_id_, result_code_);
+    db_idx_ = 0u;
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
 
 #undef OFFSET_OF_FIELD_
 #undef ZR_
 
-  travel_detail_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
@@ -9423,7 +9538,7 @@ bool CreateTravelRsp::MergePartialFromCodedStream(
       &unknown_fields_string);
   // @@protoc_insertion_point(parse_start:IM.Buddy.CreateTravelRsp)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -9452,20 +9567,34 @@ bool CreateTravelRsp::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_travel_detail;
+        if (input->ExpectTag(24)) goto parse_db_idx;
         break;
       }
 
-      // repeated .IM.Buddy.TravelDetail travel_detail = 3;
+      // required uint32 db_idx = 3;
       case 3: {
-        if (tag == 26) {
-         parse_travel_detail:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_travel_detail()));
+        if (tag == 24) {
+         parse_db_idx:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &db_idx_)));
+          set_has_db_idx();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_travel_detail;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -9505,10 +9634,15 @@ void CreateTravelRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
   }
 
-  // repeated .IM.Buddy.TravelDetail travel_detail = 3;
-  for (int i = 0; i < this->travel_detail_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      3, this->travel_detail(i), output);
+  // required uint32 db_idx = 3;
+  if (has_db_idx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->db_idx(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
@@ -9534,15 +9668,21 @@ int CreateTravelRsp::ByteSize() const {
           this->result_code());
     }
 
-  }
-  // repeated .IM.Buddy.TravelDetail travel_detail = 3;
-  total_size += 1 * this->travel_detail_size();
-  for (int i = 0; i < this->travel_detail_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->travel_detail(i));
-  }
+    // required uint32 db_idx = 3;
+    if (has_db_idx()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->db_idx());
+    }
 
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
   total_size += unknown_fields().size();
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -9558,13 +9698,18 @@ void CreateTravelRsp::CheckTypeAndMergeFrom(
 
 void CreateTravelRsp::MergeFrom(const CreateTravelRsp& from) {
   GOOGLE_CHECK_NE(&from, this);
-  travel_detail_.MergeFrom(from.travel_detail_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_user_id()) {
       set_user_id(from.user_id());
     }
     if (from.has_result_code()) {
       set_result_code(from.result_code());
+    }
+    if (from.has_db_idx()) {
+      set_db_idx(from.db_idx());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
     }
   }
   mutable_unknown_fields()->append(from.unknown_fields());
@@ -9577,9 +9722,8 @@ void CreateTravelRsp::CopyFrom(const CreateTravelRsp& from) {
 }
 
 bool CreateTravelRsp::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->travel_detail())) return false;
   return true;
 }
 
@@ -9587,7 +9731,8 @@ void CreateTravelRsp::Swap(CreateTravelRsp* other) {
   if (other != this) {
     std::swap(user_id_, other->user_id_);
     std::swap(result_code_, other->result_code_);
-    travel_detail_.Swap(&other->travel_detail_);
+    std::swap(db_idx_, other->db_idx_);
+    std::swap(attach_data_, other->attach_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

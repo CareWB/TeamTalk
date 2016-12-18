@@ -97,6 +97,16 @@ const PlayQualityType PlayQualityType_MIN = FEEL_TYPE_ECONOMIC;
 const PlayQualityType PlayQualityType_MAX = FEEL_TYPE_COMFORTABLE;
 const int PlayQualityType_ARRAYSIZE = PlayQualityType_MAX + 1;
 
+enum CityTrafficType {
+  WALK = 1,
+  BUS = 2,
+  TAXI = 3
+};
+bool CityTrafficType_IsValid(int value);
+const CityTrafficType CityTrafficType_MIN = WALK;
+const CityTrafficType CityTrafficType_MAX = TAXI;
+const int CityTrafficType_ARRAYSIZE = CityTrafficType_MAX + 1;
+
 enum HotelPositionType {
   HOTEL_NEAR_CITY = 1,
   HOTEL_NEAR_VIEW_SPOT = 2,
@@ -3428,12 +3438,12 @@ class PlayInfo : public ::google::protobuf::MessageLite {
   inline ::std::string* release_play_time_to();
   inline void set_allocated_play_time_to(::std::string* play_time_to);
 
-  // required uint32 room_num = 4;
-  inline bool has_room_num() const;
-  inline void clear_room_num();
-  static const int kRoomNumFieldNumber = 4;
-  inline ::google::protobuf::uint32 room_num() const;
-  inline void set_room_num(::google::protobuf::uint32 value);
+  // required uint32 city_traffic = 4;
+  inline bool has_city_traffic() const;
+  inline void clear_city_traffic();
+  static const int kCityTrafficFieldNumber = 4;
+  inline ::google::protobuf::uint32 city_traffic() const;
+  inline void set_city_traffic(::google::protobuf::uint32 value);
 
   // required .IM.Buddy.HotelPositionType hotel_position = 5;
   inline bool has_hotel_position() const;
@@ -3450,8 +3460,8 @@ class PlayInfo : public ::google::protobuf::MessageLite {
   inline void clear_has_play_time_from();
   inline void set_has_play_time_to();
   inline void clear_has_play_time_to();
-  inline void set_has_room_num();
-  inline void clear_has_room_num();
+  inline void set_has_city_traffic();
+  inline void clear_has_city_traffic();
   inline void set_has_hotel_position();
   inline void clear_has_hotel_position();
 
@@ -3461,7 +3471,7 @@ class PlayInfo : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::std::string* play_time_from_;
   int play_quality_;
-  ::google::protobuf::uint32 room_num_;
+  ::google::protobuf::uint32 city_traffic_;
   ::std::string* play_time_to_;
   int hotel_position_;
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
@@ -3538,42 +3548,51 @@ class TravelDetail : public ::google::protobuf::MessageLite {
 
   // accessors -------------------------------------------------------
 
-  // required .IM.Buddy.TravelInfo travel_info = 1;
+  // required uint32 db_idx = 1;
+  inline bool has_db_idx() const;
+  inline void clear_db_idx();
+  static const int kDbIdxFieldNumber = 1;
+  inline ::google::protobuf::uint32 db_idx() const;
+  inline void set_db_idx(::google::protobuf::uint32 value);
+
+  // required .IM.Buddy.TravelInfo travel_info = 2;
   inline bool has_travel_info() const;
   inline void clear_travel_info();
-  static const int kTravelInfoFieldNumber = 1;
+  static const int kTravelInfoFieldNumber = 2;
   inline const ::IM::Buddy::TravelInfo& travel_info() const;
   inline ::IM::Buddy::TravelInfo* mutable_travel_info();
   inline ::IM::Buddy::TravelInfo* release_travel_info();
   inline void set_allocated_travel_info(::IM::Buddy::TravelInfo* travel_info);
 
-  // required .IM.Buddy.TrafficInfo traffic_info = 2;
+  // required .IM.Buddy.TrafficInfo traffic_info = 3;
   inline bool has_traffic_info() const;
   inline void clear_traffic_info();
-  static const int kTrafficInfoFieldNumber = 2;
+  static const int kTrafficInfoFieldNumber = 3;
   inline const ::IM::Buddy::TrafficInfo& traffic_info() const;
   inline ::IM::Buddy::TrafficInfo* mutable_traffic_info();
   inline ::IM::Buddy::TrafficInfo* release_traffic_info();
   inline void set_allocated_traffic_info(::IM::Buddy::TrafficInfo* traffic_info);
 
-  // required .IM.Buddy.PlayInfo play_info = 3;
+  // required .IM.Buddy.PlayInfo play_info = 4;
   inline bool has_play_info() const;
   inline void clear_play_info();
-  static const int kPlayInfoFieldNumber = 3;
+  static const int kPlayInfoFieldNumber = 4;
   inline const ::IM::Buddy::PlayInfo& play_info() const;
   inline ::IM::Buddy::PlayInfo* mutable_play_info();
   inline ::IM::Buddy::PlayInfo* release_play_info();
   inline void set_allocated_play_info(::IM::Buddy::PlayInfo* play_info);
 
-  // required uint32 cost = 4;
+  // required uint32 cost = 5;
   inline bool has_cost() const;
   inline void clear_cost();
-  static const int kCostFieldNumber = 4;
+  static const int kCostFieldNumber = 5;
   inline ::google::protobuf::uint32 cost() const;
   inline void set_cost(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:IM.Buddy.TravelDetail)
  private:
+  inline void set_has_db_idx();
+  inline void clear_has_db_idx();
   inline void set_has_travel_info();
   inline void clear_has_travel_info();
   inline void set_has_traffic_info();
@@ -3589,8 +3608,9 @@ class TravelDetail : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::IM::Buddy::TravelInfo* travel_info_;
   ::IM::Buddy::TrafficInfo* traffic_info_;
-  ::IM::Buddy::PlayInfo* play_info_;
+  ::google::protobuf::uint32 db_idx_;
   ::google::protobuf::uint32 cost_;
+  ::IM::Buddy::PlayInfo* play_info_;
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
   #else
@@ -3797,12 +3817,26 @@ class GetTravelTripListRsp : public ::google::protobuf::MessageLite {
   inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail >*
       mutable_travel_detail();
 
+  // optional bytes attach_data = 20;
+  inline bool has_attach_data() const;
+  inline void clear_attach_data();
+  static const int kAttachDataFieldNumber = 20;
+  inline const ::std::string& attach_data() const;
+  inline void set_attach_data(const ::std::string& value);
+  inline void set_attach_data(const char* value);
+  inline void set_attach_data(const void* value, size_t size);
+  inline ::std::string* mutable_attach_data();
+  inline ::std::string* release_attach_data();
+  inline void set_allocated_attach_data(::std::string* attach_data);
+
   // @@protoc_insertion_point(class_scope:IM.Buddy.GetTravelTripListRsp)
  private:
   inline void set_has_user_id();
   inline void clear_has_user_id();
   inline void set_has_result_code();
   inline void clear_has_result_code();
+  inline void set_has_attach_data();
+  inline void clear_has_attach_data();
 
   ::std::string _unknown_fields_;
 
@@ -3811,6 +3845,7 @@ class GetTravelTripListRsp : public ::google::protobuf::MessageLite {
   ::google::protobuf::uint32 user_id_;
   ::google::protobuf::uint32 result_code_;
   ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail > travel_detail_;
+  ::std::string* attach_data_;
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
   #else
@@ -4017,17 +4052,24 @@ class CreateTravelRsp : public ::google::protobuf::MessageLite {
   inline ::google::protobuf::uint32 result_code() const;
   inline void set_result_code(::google::protobuf::uint32 value);
 
-  // repeated .IM.Buddy.TravelDetail travel_detail = 3;
-  inline int travel_detail_size() const;
-  inline void clear_travel_detail();
-  static const int kTravelDetailFieldNumber = 3;
-  inline const ::IM::Buddy::TravelDetail& travel_detail(int index) const;
-  inline ::IM::Buddy::TravelDetail* mutable_travel_detail(int index);
-  inline ::IM::Buddy::TravelDetail* add_travel_detail();
-  inline const ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail >&
-      travel_detail() const;
-  inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail >*
-      mutable_travel_detail();
+  // required uint32 db_idx = 3;
+  inline bool has_db_idx() const;
+  inline void clear_db_idx();
+  static const int kDbIdxFieldNumber = 3;
+  inline ::google::protobuf::uint32 db_idx() const;
+  inline void set_db_idx(::google::protobuf::uint32 value);
+
+  // optional bytes attach_data = 20;
+  inline bool has_attach_data() const;
+  inline void clear_attach_data();
+  static const int kAttachDataFieldNumber = 20;
+  inline const ::std::string& attach_data() const;
+  inline void set_attach_data(const ::std::string& value);
+  inline void set_attach_data(const char* value);
+  inline void set_attach_data(const void* value, size_t size);
+  inline ::std::string* mutable_attach_data();
+  inline ::std::string* release_attach_data();
+  inline void set_allocated_attach_data(::std::string* attach_data);
 
   // @@protoc_insertion_point(class_scope:IM.Buddy.CreateTravelRsp)
  private:
@@ -4035,6 +4077,10 @@ class CreateTravelRsp : public ::google::protobuf::MessageLite {
   inline void clear_has_user_id();
   inline void set_has_result_code();
   inline void clear_has_result_code();
+  inline void set_has_db_idx();
+  inline void clear_has_db_idx();
+  inline void set_has_attach_data();
+  inline void clear_has_attach_data();
 
   ::std::string _unknown_fields_;
 
@@ -4042,7 +4088,8 @@ class CreateTravelRsp : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 user_id_;
   ::google::protobuf::uint32 result_code_;
-  ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail > travel_detail_;
+  ::std::string* attach_data_;
+  ::google::protobuf::uint32 db_idx_;
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
   #else
@@ -8523,28 +8570,28 @@ inline void PlayInfo::set_allocated_play_time_to(::std::string* play_time_to) {
   // @@protoc_insertion_point(field_set_allocated:IM.Buddy.PlayInfo.play_time_to)
 }
 
-// required uint32 room_num = 4;
-inline bool PlayInfo::has_room_num() const {
+// required uint32 city_traffic = 4;
+inline bool PlayInfo::has_city_traffic() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void PlayInfo::set_has_room_num() {
+inline void PlayInfo::set_has_city_traffic() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void PlayInfo::clear_has_room_num() {
+inline void PlayInfo::clear_has_city_traffic() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void PlayInfo::clear_room_num() {
-  room_num_ = 0u;
-  clear_has_room_num();
+inline void PlayInfo::clear_city_traffic() {
+  city_traffic_ = 0u;
+  clear_has_city_traffic();
 }
-inline ::google::protobuf::uint32 PlayInfo::room_num() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.PlayInfo.room_num)
-  return room_num_;
+inline ::google::protobuf::uint32 PlayInfo::city_traffic() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.PlayInfo.city_traffic)
+  return city_traffic_;
 }
-inline void PlayInfo::set_room_num(::google::protobuf::uint32 value) {
-  set_has_room_num();
-  room_num_ = value;
-  // @@protoc_insertion_point(field_set:IM.Buddy.PlayInfo.room_num)
+inline void PlayInfo::set_city_traffic(::google::protobuf::uint32 value) {
+  set_has_city_traffic();
+  city_traffic_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.PlayInfo.city_traffic)
 }
 
 // required .IM.Buddy.HotelPositionType hotel_position = 5;
@@ -8576,15 +8623,39 @@ inline void PlayInfo::set_hotel_position(::IM::Buddy::HotelPositionType value) {
 
 // TravelDetail
 
-// required .IM.Buddy.TravelInfo travel_info = 1;
-inline bool TravelDetail::has_travel_info() const {
+// required uint32 db_idx = 1;
+inline bool TravelDetail::has_db_idx() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void TravelDetail::set_has_travel_info() {
+inline void TravelDetail::set_has_db_idx() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void TravelDetail::clear_has_travel_info() {
+inline void TravelDetail::clear_has_db_idx() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void TravelDetail::clear_db_idx() {
+  db_idx_ = 0u;
+  clear_has_db_idx();
+}
+inline ::google::protobuf::uint32 TravelDetail::db_idx() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.TravelDetail.db_idx)
+  return db_idx_;
+}
+inline void TravelDetail::set_db_idx(::google::protobuf::uint32 value) {
+  set_has_db_idx();
+  db_idx_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.TravelDetail.db_idx)
+}
+
+// required .IM.Buddy.TravelInfo travel_info = 2;
+inline bool TravelDetail::has_travel_info() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TravelDetail::set_has_travel_info() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TravelDetail::clear_has_travel_info() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void TravelDetail::clear_travel_info() {
   if (travel_info_ != NULL) travel_info_->::IM::Buddy::TravelInfo::Clear();
@@ -8621,15 +8692,15 @@ inline void TravelDetail::set_allocated_travel_info(::IM::Buddy::TravelInfo* tra
   // @@protoc_insertion_point(field_set_allocated:IM.Buddy.TravelDetail.travel_info)
 }
 
-// required .IM.Buddy.TrafficInfo traffic_info = 2;
+// required .IM.Buddy.TrafficInfo traffic_info = 3;
 inline bool TravelDetail::has_traffic_info() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void TravelDetail::set_has_traffic_info() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void TravelDetail::clear_has_traffic_info() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void TravelDetail::clear_traffic_info() {
   if (traffic_info_ != NULL) traffic_info_->::IM::Buddy::TrafficInfo::Clear();
@@ -8666,15 +8737,15 @@ inline void TravelDetail::set_allocated_traffic_info(::IM::Buddy::TrafficInfo* t
   // @@protoc_insertion_point(field_set_allocated:IM.Buddy.TravelDetail.traffic_info)
 }
 
-// required .IM.Buddy.PlayInfo play_info = 3;
+// required .IM.Buddy.PlayInfo play_info = 4;
 inline bool TravelDetail::has_play_info() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void TravelDetail::set_has_play_info() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void TravelDetail::clear_has_play_info() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void TravelDetail::clear_play_info() {
   if (play_info_ != NULL) play_info_->::IM::Buddy::PlayInfo::Clear();
@@ -8711,15 +8782,15 @@ inline void TravelDetail::set_allocated_play_info(::IM::Buddy::PlayInfo* play_in
   // @@protoc_insertion_point(field_set_allocated:IM.Buddy.TravelDetail.play_info)
 }
 
-// required uint32 cost = 4;
+// required uint32 cost = 5;
 inline bool TravelDetail::has_cost() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void TravelDetail::set_has_cost() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void TravelDetail::clear_has_cost() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void TravelDetail::clear_cost() {
   cost_ = 0u;
@@ -8919,6 +8990,82 @@ inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail >*
 GetTravelTripListRsp::mutable_travel_detail() {
   // @@protoc_insertion_point(field_mutable_list:IM.Buddy.GetTravelTripListRsp.travel_detail)
   return &travel_detail_;
+}
+
+// optional bytes attach_data = 20;
+inline bool GetTravelTripListRsp::has_attach_data() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GetTravelTripListRsp::set_has_attach_data() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GetTravelTripListRsp::clear_has_attach_data() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GetTravelTripListRsp::clear_attach_data() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_->clear();
+  }
+  clear_has_attach_data();
+}
+inline const ::std::string& GetTravelTripListRsp::attach_data() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.GetTravelTripListRsp.attach_data)
+  return *attach_data_;
+}
+inline void GetTravelTripListRsp::set_attach_data(const ::std::string& value) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(value);
+  // @@protoc_insertion_point(field_set:IM.Buddy.GetTravelTripListRsp.attach_data)
+}
+inline void GetTravelTripListRsp::set_attach_data(const char* value) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(value);
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.GetTravelTripListRsp.attach_data)
+}
+inline void GetTravelTripListRsp::set_attach_data(const void* value, size_t size) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.GetTravelTripListRsp.attach_data)
+}
+inline ::std::string* GetTravelTripListRsp::mutable_attach_data() {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.GetTravelTripListRsp.attach_data)
+  return attach_data_;
+}
+inline ::std::string* GetTravelTripListRsp::release_attach_data() {
+  clear_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = attach_data_;
+    attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void GetTravelTripListRsp::set_allocated_attach_data(::std::string* attach_data) {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  if (attach_data) {
+    set_has_attach_data();
+    attach_data_ = attach_data;
+  } else {
+    clear_has_attach_data();
+    attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.GetTravelTripListRsp.attach_data)
 }
 
 // -------------------------------------------------------------------
@@ -9122,34 +9269,104 @@ inline void CreateTravelRsp::set_result_code(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:IM.Buddy.CreateTravelRsp.result_code)
 }
 
-// repeated .IM.Buddy.TravelDetail travel_detail = 3;
-inline int CreateTravelRsp::travel_detail_size() const {
-  return travel_detail_.size();
+// required uint32 db_idx = 3;
+inline bool CreateTravelRsp::has_db_idx() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void CreateTravelRsp::clear_travel_detail() {
-  travel_detail_.Clear();
+inline void CreateTravelRsp::set_has_db_idx() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline const ::IM::Buddy::TravelDetail& CreateTravelRsp::travel_detail(int index) const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.CreateTravelRsp.travel_detail)
-  return travel_detail_.Get(index);
+inline void CreateTravelRsp::clear_has_db_idx() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline ::IM::Buddy::TravelDetail* CreateTravelRsp::mutable_travel_detail(int index) {
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.CreateTravelRsp.travel_detail)
-  return travel_detail_.Mutable(index);
+inline void CreateTravelRsp::clear_db_idx() {
+  db_idx_ = 0u;
+  clear_has_db_idx();
 }
-inline ::IM::Buddy::TravelDetail* CreateTravelRsp::add_travel_detail() {
-  // @@protoc_insertion_point(field_add:IM.Buddy.CreateTravelRsp.travel_detail)
-  return travel_detail_.Add();
+inline ::google::protobuf::uint32 CreateTravelRsp::db_idx() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.CreateTravelRsp.db_idx)
+  return db_idx_;
 }
-inline const ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail >&
-CreateTravelRsp::travel_detail() const {
-  // @@protoc_insertion_point(field_list:IM.Buddy.CreateTravelRsp.travel_detail)
-  return travel_detail_;
+inline void CreateTravelRsp::set_db_idx(::google::protobuf::uint32 value) {
+  set_has_db_idx();
+  db_idx_ = value;
+  // @@protoc_insertion_point(field_set:IM.Buddy.CreateTravelRsp.db_idx)
 }
-inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::TravelDetail >*
-CreateTravelRsp::mutable_travel_detail() {
-  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.CreateTravelRsp.travel_detail)
-  return &travel_detail_;
+
+// optional bytes attach_data = 20;
+inline bool CreateTravelRsp::has_attach_data() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CreateTravelRsp::set_has_attach_data() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CreateTravelRsp::clear_has_attach_data() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CreateTravelRsp::clear_attach_data() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_->clear();
+  }
+  clear_has_attach_data();
+}
+inline const ::std::string& CreateTravelRsp::attach_data() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.CreateTravelRsp.attach_data)
+  return *attach_data_;
+}
+inline void CreateTravelRsp::set_attach_data(const ::std::string& value) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(value);
+  // @@protoc_insertion_point(field_set:IM.Buddy.CreateTravelRsp.attach_data)
+}
+inline void CreateTravelRsp::set_attach_data(const char* value) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(value);
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.CreateTravelRsp.attach_data)
+}
+inline void CreateTravelRsp::set_attach_data(const void* value, size_t size) {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  attach_data_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.CreateTravelRsp.attach_data)
+}
+inline ::std::string* CreateTravelRsp::mutable_attach_data() {
+  set_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    attach_data_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.CreateTravelRsp.attach_data)
+  return attach_data_;
+}
+inline ::std::string* CreateTravelRsp::release_attach_data() {
+  clear_has_attach_data();
+  if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = attach_data_;
+    attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void CreateTravelRsp::set_allocated_attach_data(::std::string* attach_data) {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  if (attach_data) {
+    set_has_attach_data();
+    attach_data_ = attach_data;
+  } else {
+    clear_has_attach_data();
+    attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.CreateTravelRsp.attach_data)
 }
 
 

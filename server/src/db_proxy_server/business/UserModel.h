@@ -13,10 +13,11 @@
 #define __USERMODEL_H__
 
 #include "IM.BaseDefine.pb.h"
+#include "IM.Buddy.pb.h"
 #include "ImPduBase.h"
 #include "public_define.h"
 class CUserModel
-{ß
+{
 public:
     static CUserModel* getInstance();
     ~CUserModel();
@@ -34,7 +35,7 @@ public:
     bool getUserSingInfo(uint32_t user_id, string* sign_info);
     bool updatePushShield(uint32_t user_id, uint32_t shield_status);
     bool getPushShield(uint32_t user_id, uint32_t* shield_status);
-    uint32_t createTravelDetail(uint32_t user_id, ::google::protobuf::MessageLite* pb); 
+    uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateTravelReq* pb); 
 
 private:
     CUserModel();

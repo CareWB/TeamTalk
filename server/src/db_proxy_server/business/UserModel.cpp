@@ -434,7 +434,7 @@ bool CUserModel::getPushShield(uint32_t user_id, uint32_t* shield_status) {
     return rv;
 }
 
-uint32_t CUserModel::createTravelDetail(uint32_t user_id, ::google::protobuf::MessageLite* pb) {
+uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateTravelReq* pb) {
     bool bRet = false;
     uint32_t idx = 0;
     CDBManager* pDBManager = CDBManager::getInstance();
@@ -445,24 +445,32 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, ::google::protobuf::Me
         CPrepareStatement* stmt = new CPrepareStatement();
         if (stmt->Init(pDBConn->GetMysql(), strSql))
         {
+            uint32_t index = 0;
             IM::Buddy::CreateTravelReq* req = (IM::Buddy::CreateTravelReq*)pb;
-            stmt->SetParam(index++, cUser.nId);
-            stmt->SetParam(index++, req->person_num());
-            stmt->SetParam(index++, req->place_from().c_str());
-            stmt->SetParam(index++, req->place_back().c_str());
-            stmt->SetParam(index++, req->place_to().c_str());
-            stmt->SetParam(index++, req->date_start().c_str());
-            stmt->SetParam(index++, req->date_end().c_str());
-            stmt->SetParam(index++, req->traffic_time_start().c_str());
-            stmt->SetParam(index++, req->traffic_time_end().c_str());
-            stmt->SetParam(index++, req->traffic_type());
-            stmt->SetParam(index++, req->play_quality_type());
-            stmt->SetParam(index++, req->play_time_start().c_str());
-            stmt->SetParam(index++, req->play_time_end().c_str());
-            stmt->SetParam(index++, req->city_traffic_type());
-            stmt->SetParam(index++, req->room_num());
-            stmt->SetParam(index++, req->hotel_position_type());
-            stmt->SetParam(index++, req->cost());
+            uint32_t person_num = req->travel_detail().travel_info().person_num();
+            uint32_t travel_type = req->travel_detail().traffic_info().travel_type();
+            uint32_t play_quality = req->travel_detail().play_info().play_quality();
+            uint32_t city_traffic = req->travel_detail().play_info().city_traffic();
+            uint32_t hotel_position = req->travel_detail().play_info().hotel_position();
+            uint32_t cost = req->travel_detail().cost();
+            
+            stmt->SetParam(index++, user_id);
+            stmt->SetParam(index++, person_num);
+            stmt->SetParam(index++, req->travel_detail().travel_info().place_from().c_str());
+            stmt->SetParam(index++, req->travel_detail().travel_info().place_back().c_str());
+            stmt->SetParam(index++, req->travel_detail().travel_info().place_to().c_str());
+            stmt->SetParam(index++, req->travel_detail().travel_info().date_from().c_str());
+            stmt->SetParam(index++, req->travel_detail().travel_info().date_to().c_str());
+            stmt->SetParam(index++, req->travel_detail().traffic_info().traffic_time_from().c_str());
+            stmt->SetParam(index++, req->travel_detail().traffic_info().traffic_time_to().c_str());
+            stmt->SetParam(index++, travel_type);
+            stmt->SetParam(index++, play_quality);
+            stmt->SetParam(index++, req->travel_detail().play_info().play_time_from().c_str());
+            stmt->SetParam(index++, req->travel_detail().play_info().play_time_to().c_str());
+            stmt->SetParam(index++, city_traffic);
+            stmt->SetParam(index++, 0);
+            stmt->SetParam(index++, hotel_position);
+            stmt->SetParam(index++, cost);
             bRet = stmt->ExecuteUpdate();
             
             if (!bRet)
@@ -470,8 +478,8 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, ::google::protobuf::Me
                 log("insert IMTravelDetail failed: %s", strSql.c_str());
             }
 
-            str_sql = "SELECT id from IMTickets order by id desc limit 0,1";
-            CResultSet* result_set = db_conn->ExecuteQuery(str_sql.c_str());
+            strSql = "SELECT id from IMTickets order by id desc limit 0,1";
+            CResultSet* result_set = pDBConn->ExecuteQuery(strSql.c_str());
             if(result_set) {
                 if (result_set->Next()) {
                     idx = result_set->GetInt("id");
@@ -480,6 +488,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, ::google::protobuf::Me
             }
             delete stmt;
             pDBManager->RelDBConn(pDBConn);
+        }
     }
     else
     {

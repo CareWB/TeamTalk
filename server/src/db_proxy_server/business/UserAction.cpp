@@ -221,9 +221,12 @@ msgResp.set_user_id(from_user_id);
         }
     }
 
+    void getTravelRoute(CImPdu* pPdu, uint32_t conn_uuid) {
+    }
+
     void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
         IM::Buddy::CreateTravelReq req;
-        IM::Login::CreateTravelRsp resp;
+        IM::Buddy::CreateTravelRsp resp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
             
