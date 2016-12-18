@@ -6,6 +6,86 @@
     android:orientation="vertical"
     android:background="@color/default_bk">
 
+    <TextView
+        android:text="交通工具"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/default_black_color"
+        android:id="@+id/title_vehicle" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:text="火车"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/vehicle_train"
+            android:drawableLeft="@drawable/train_white"
+            android:textColor="@color/travel_menu_bk"
+            android:background="@drawable/travel_behavior_click" />
+
+        <Button
+            android:text="飞机"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/vehicle_plane"
+            android:drawableLeft="@drawable/plane_white"
+            android:textColor="@color/travel_menu_bk"
+            android:background="@drawable/travel_behavior_click" />
+
+        <Button
+            android:text="大巴"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/vehicle_bus"
+            android:drawableLeft="@drawable/bus_black"
+            android:textColor="@color/default_black_color"
+            android:background="@drawable/travel_behavior_not_click" />
+    </TableRow>
+
+    <TextView
+        android:text="出行时间"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/default_black_color"
+        android:id="@+id/title_go_time" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/default_black_color"
+            android:background="@drawable/travel_behavior_not_click"
+            android:id="@+id/go_time_morning"
+            android:text="早上\n00:00-08:00" />
+
+        <Button
+            android:text="黄金时间\n08:00-16:00"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/travel_menu_bk"
+            android:background="@drawable/travel_behavior_click"
+            android:id="@+id/go_time_gold" />
+
+        <Button
+            android:text="晚上\n18:00-24:00"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/default_black_color"
+            android:background="@drawable/travel_behavior_not_click"
+            android:id="@+id/go_time_evening" />
+    </TableRow>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -33,7 +113,7 @@
                 android:background="@drawable/travel_behavior_not_click" />
 
             <Button
-                android:text="综合优先"
+                android:text="综合适中"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,87 +127,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/ride_feel_expensive"
-                android:textColor="@color/default_black_color"
-                android:background="@drawable/travel_behavior_not_click" />
-        </TableRow>
-
-        <TextView
-            android:text="出行时间"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/default_black_color"
-            android:id="@+id/title_go_time" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="100dp" >
-
-            <Button
-                android:text="黄金时间\n09:00-20:00"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/travel_menu_bk"
-                android:background="@drawable/travel_behavior_click"
-                android:id="@+id/go_time_gold" />
-
-            <Button
-                android:text="早晚\n20:00-00:00"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/default_black_color"
-                android:background="@drawable/travel_behavior_not_click"
-                android:id="@+id/go_time_early" />
-
-            <Button
-                android:text="自定义区间"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/default_black_color"
-                android:background="@drawable/travel_behavior_not_click"
-                android:id="@+id/go_time_custom" />
-        </TableRow>
-
-        <TextView
-            android:text="交通工具"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/default_black_color"
-            android:id="@+id/title_vehicle" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="100dp" >
-
-            <Button
-                android:text="火车"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/vehicle_train"
-                android:drawableLeft="@drawable/train_white"
-                android:textColor="@color/travel_menu_bk"
-                android:background="@drawable/travel_behavior_click" />
-
-            <Button
-                android:text="飞机"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/vehicle_plane"
-                android:drawableLeft="@drawable/plane_black"
-                android:textColor="@color/default_black_color"
-                android:background="@drawable/travel_behavior_not_click" />
-
-            <Button
-                android:text="大巴"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/vehicle_bus"
-                android:drawableLeft="@drawable/bus_black"
                 android:textColor="@color/default_black_color"
                 android:background="@drawable/travel_behavior_not_click" />
         </TableRow>

@@ -113,9 +113,10 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
             });
 
-            Glide.with(ctx).load(travelEntity.getDestinationBK())
+            /*Glide.with(ctx).load(travelEntity.getDestinationBK())
                     .transform(new GlideRoundTransform(ctx, 10))
-                    .into(travelHolder.travelBk);
+                    .into(travelHolder.travelBk);*/
+            travelHolder.travelBk.setBackgroundResource(R.drawable.xiamen);
             travelHolder.travelDays.setText(travelEntity.getDuration()+ctx.getString(R.string.day));
             travelHolder.travelDuration.setText(travelEntity.getStartDate()+"-"+travelEntity.getEndDate());
             travelHolder.destination.setText("目的地:"+travelEntity.getDestination());

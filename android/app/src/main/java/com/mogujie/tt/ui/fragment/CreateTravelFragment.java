@@ -48,15 +48,20 @@ public class CreateTravelFragment extends TTBaseFragment{
 
     private Date startDate;
     private Date endDate;
+    private int perNum = 1;
+    private String strStartPlace = "深圳";
+    private String strEndPlace = "深圳";;
+    private String strStartDate = "0.0";
+    private String strEndDate = "0.0";
+    private String destination = "厦门";
+    private int iduration = 0;
+    private IMService imService;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
         public void onIMServiceConnected() {
             logger.d("config#onIMServiceConnected");
-            IMService imService = imServiceConnector.getIMService();
-            if (imService != null) {
-
-            }
+            imService = imServiceConnector.getIMService();
         }
 
         @Override
@@ -103,13 +108,16 @@ public class CreateTravelFragment extends TTBaseFragment{
                 case 100:
                     if (data.getIntExtra("type", START_CITY) == START_CITY) {
                         startCity.setText(data.getStringExtra("city"));
+                        strStartPlace = data.getStringExtra("city");
                     } else {
                         endCity.setText(data.getStringExtra("city"));
+                        strEndPlace = data.getStringExtra("city");
                     }
                     break;
                 case 101:
                     TextView place = (TextView)curView.findViewById(R.id.create_travel_place);
                     place.setText(data.getStringExtra("city"));
+                    destination = data.getStringExtra("city");
                     break;
                 case 102:
                     java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd ");
@@ -182,6 +190,7 @@ public class CreateTravelFragment extends TTBaseFragment{
                         break;
 
                     case R.id.create_travel_next_step:
+                        storeTravelEntity();
                         jump2TravelBehavior();
                         break;
                 }
@@ -198,7 +207,7 @@ public class CreateTravelFragment extends TTBaseFragment{
     }
 
     private void clacPerNum(int opt) {
-        int perNum = Integer.parseInt(per_num.getText().toString());
+        perNum = Integer.parseInt(per_num.getText().toString());
 
         if (opt == R.id.create_travel_per_num_add) {
             perNum ++;
@@ -242,11 +251,28 @@ public class CreateTravelFragment extends TTBaseFragment{
         startActivity(travelBehavior);
     }
 
+    private void storeTravelEntity() {
+        if (imService != null) {
+            imService.getTravelManager().getMtTravel().setStartDate(strStartDate);
+            imService.getTravelManager().getMtTravel().setEndDate(strEndDate);
+            imService.getTravelManager().getMtTravel().setDuration(iduration);
+            imService.getTravelManager().getMtTravel().setStartPlace(strStartPlace);
+            imService.getTravelManager().getMtTravel().setEndPlace(strEndPlace);
+            imService.getTravelManager().getMtTravel().setDestination(destination);
+            imService.getTravelManager().getMtTravel().setPersonNum(perNum);
+        }
+    }
+
     private void dateProcess() {
         long duration = (endDate.getTime()-startDate.getTime())/(1000*60*60*24);
         duration ++;
         java.text.SimpleDateFormat formatter = new SimpleDateFormat( "MM.dd");
-        String date = formatter.format(startDate)+"-"+formatter.format(endDate);//格式化数据
+
+        strStartDate = formatter.format(startDate);
+        strEndDate = formatter.format(endDate);
+
+        String date = strStartDate+"-"+strEndDate;//格式化数据
+        iduration = (int)duration;
         this.duration.setText(duration+"天");
         this.betweenTime.setText(date);
     }

@@ -21502,6 +21502,15 @@ public final class IMBuddy {
      * <code>repeated .IM.Buddy.TravelDetail travel_detail = 3;</code>
      */
     int getTravelDetailCount();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
   }
   /**
    * Protobuf type {@code IM.Buddy.GetTravelTripListRsp}
@@ -21569,6 +21578,11 @@ public final class IMBuddy {
                 mutable_bitField0_ |= 0x00000004;
               }
               travelDetail_.add(input.readMessage(com.mogujie.tt.protobuf.IMBuddy.TravelDetail.PARSER, extensionRegistry));
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000004;
+              attachData_ = input.readBytes();
               break;
             }
           }
@@ -21681,10 +21695,26 @@ public final class IMBuddy {
       return travelDetail_.get(index);
     }
 
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
     private void initFields() {
       userId_ = 0;
       resultCode_ = 0;
       travelDetail_ = java.util.Collections.emptyList();
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -21722,6 +21752,9 @@ public final class IMBuddy {
       for (int i = 0; i < travelDetail_.size(); i++) {
         output.writeMessage(3, travelDetail_.get(i));
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(20, attachData_);
+      }
       output.writeRawBytes(unknownFields);
     }
 
@@ -21742,6 +21775,10 @@ public final class IMBuddy {
       for (int i = 0; i < travelDetail_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, travelDetail_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -21843,6 +21880,8 @@ public final class IMBuddy {
         bitField0_ = (bitField0_ & ~0x00000002);
         travelDetail_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -21879,6 +21918,10 @@ public final class IMBuddy {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.travelDetail_ = travelDetail_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.attachData_ = attachData_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -21900,6 +21943,9 @@ public final class IMBuddy {
             travelDetail_.addAll(other.travelDetail_);
           }
           
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
         }
         setUnknownFields(
             getUnknownFields().concat(other.unknownFields));
@@ -22145,6 +22191,41 @@ public final class IMBuddy {
         ensureTravelDetailIsMutable();
         travelDetail_.remove(index);
 
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = getDefaultInstance().getAttachData();
+        
         return this;
       }
 
@@ -22791,6 +22872,24 @@ public final class IMBuddy {
      * <code>required uint32 result_code = 2;</code>
      */
     int getResultCode();
+
+    /**
+     * <code>required uint32 db_idx = 3;</code>
+     */
+    boolean hasDbIdx();
+    /**
+     * <code>required uint32 db_idx = 3;</code>
+     */
+    int getDbIdx();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
   }
   /**
    * Protobuf type {@code IM.Buddy.CreateTravelRsp}
@@ -22850,6 +22949,16 @@ public final class IMBuddy {
             case 16: {
               bitField0_ |= 0x00000002;
               resultCode_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              dbIdx_ = input.readUInt32();
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000008;
+              attachData_ = input.readBytes();
               break;
             }
           }
@@ -22924,9 +23033,41 @@ public final class IMBuddy {
       return resultCode_;
     }
 
+    public static final int DB_IDX_FIELD_NUMBER = 3;
+    private int dbIdx_;
+    /**
+     * <code>required uint32 db_idx = 3;</code>
+     */
+    public boolean hasDbIdx() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required uint32 db_idx = 3;</code>
+     */
+    public int getDbIdx() {
+      return dbIdx_;
+    }
+
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
     private void initFields() {
       userId_ = 0;
       resultCode_ = 0;
+      dbIdx_ = 0;
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -22942,6 +23083,10 @@ public final class IMBuddy {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasDbIdx()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -22954,6 +23099,12 @@ public final class IMBuddy {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt32(2, resultCode_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt32(3, dbIdx_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(20, attachData_);
       }
       output.writeRawBytes(unknownFields);
     }
@@ -22971,6 +23122,14 @@ public final class IMBuddy {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, resultCode_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, dbIdx_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -23070,6 +23229,10 @@ public final class IMBuddy {
         bitField0_ = (bitField0_ & ~0x00000001);
         resultCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        dbIdx_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -23101,6 +23264,14 @@ public final class IMBuddy {
           to_bitField0_ |= 0x00000002;
         }
         result.resultCode_ = resultCode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.dbIdx_ = dbIdx_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.attachData_ = attachData_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -23113,6 +23284,12 @@ public final class IMBuddy {
         if (other.hasResultCode()) {
           setResultCode(other.getResultCode());
         }
+        if (other.hasDbIdx()) {
+          setDbIdx(other.getDbIdx());
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
+        }
         setUnknownFields(
             getUnknownFields().concat(other.unknownFields));
         return this;
@@ -23124,6 +23301,10 @@ public final class IMBuddy {
           return false;
         }
         if (!hasResultCode()) {
+          
+          return false;
+        }
+        if (!hasDbIdx()) {
           
           return false;
         }
@@ -23225,6 +23406,73 @@ public final class IMBuddy {
       public Builder clearResultCode() {
         bitField0_ = (bitField0_ & ~0x00000002);
         resultCode_ = 0;
+        
+        return this;
+      }
+
+      private int dbIdx_ ;
+      /**
+       * <code>required uint32 db_idx = 3;</code>
+       */
+      public boolean hasDbIdx() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required uint32 db_idx = 3;</code>
+       */
+      public int getDbIdx() {
+        return dbIdx_;
+      }
+      /**
+       * <code>required uint32 db_idx = 3;</code>
+       */
+      public Builder setDbIdx(int value) {
+        bitField0_ |= 0x00000004;
+        dbIdx_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 db_idx = 3;</code>
+       */
+      public Builder clearDbIdx() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        dbIdx_ = 0;
+        
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = getDefaultInstance().getAttachData();
         
         return this;
       }

@@ -86,7 +86,6 @@ public class IMPacketDispatcher {
                 IMBuddy.CreateTravelRsp createTravelRsp = IMBuddy.CreateTravelRsp.parseFrom(buffer);
                 IMTravelManager.instance().onRspCreateTravel(createTravelRsp);
                 return;
-
         }
         } catch (IOException e) {
             logger.e("buddyPacketDispatcher# error,cid:%d",commandId);

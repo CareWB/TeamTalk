@@ -24,9 +24,9 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     private Button ride_feel_cheap;
     private Button ride_feel_moderate;
     private Button ride_feel_expensive;
+    private Button go_time_morning;
     private Button go_time_gold;
-    private Button go_time_early;
-    private Button go_time_custom;
+    private Button go_time_evening;
     private Button vehicle_train;
     private Button vehicle_plane;
     private Button vehicle_bus;
@@ -34,16 +34,20 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     private Button transit_times_once;
     private Button transit_times_more;
     private ImageButton next;
-    private int behavior = 0x4112;
+    private IMService imService;
+
+    private String startTime;
+    private String endTime;
+    private int quality = 2;
+    private int go_time = 2;
+    private int way = 3;
+    private int transitTimes = 3;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
         public void onIMServiceConnected() {
             logger.d("config#onIMServiceConnected");
-            IMService imService = imServiceConnector.getIMService();
-            if (imService != null) {
-
-            }
+            imService = imServiceConnector.getIMService();
         }
 
         @Override
@@ -104,9 +108,9 @@ public class TravelBehaviorFragment extends TTBaseFragment{
         ride_feel_cheap = (Button)curView.findViewById(R.id.ride_feel_cheap);
         ride_feel_moderate = (Button)curView.findViewById(R.id.ride_feel_moderate);
         ride_feel_expensive = (Button)curView.findViewById(R.id.ride_feel_expensive);
+        go_time_morning = (Button)curView.findViewById(R.id.go_time_morning);
         go_time_gold = (Button)curView.findViewById(R.id.go_time_gold);
-        go_time_early = (Button)curView.findViewById(R.id.go_time_early);
-        go_time_custom = (Button)curView.findViewById(R.id.go_time_custom);
+        go_time_evening = (Button)curView.findViewById(R.id.go_time_evening);
         vehicle_train = (Button)curView.findViewById(R.id.vehicle_train);
         vehicle_plane = (Button)curView.findViewById(R.id.vehicle_plane);
         vehicle_bus = (Button)curView.findViewById(R.id.vehicle_bus);
@@ -132,9 +136,9 @@ public class TravelBehaviorFragment extends TTBaseFragment{
                         rideFeel(id);
                         break;
 
+                    case R.id.go_time_morning:
                     case R.id.go_time_gold:
-                    case R.id.go_time_early:
-                    case R.id.go_time_custom:
+                    case R.id.go_time_evening:
                         goTime(id);
                         break;
 
@@ -150,19 +154,21 @@ public class TravelBehaviorFragment extends TTBaseFragment{
                         transitTimes(id);
                         break;
                     case R.id.travel_behavior_next_step:
-                        jump2PlayBehavior();
+                        if (checkBehavior()) {
+                            storeTravelEntity();
+                            jump2PlayBehavior();
+                        }
                         break;
                 }
-                Log.e("LLTest", ""+behavior);
             }
         };
 
         ride_feel_cheap.setOnClickListener(behaviorListener);
         ride_feel_moderate.setOnClickListener(behaviorListener);
         ride_feel_expensive.setOnClickListener(behaviorListener);
+        go_time_morning.setOnClickListener(behaviorListener);
         go_time_gold.setOnClickListener(behaviorListener);
-        go_time_early.setOnClickListener(behaviorListener);
-        go_time_custom.setOnClickListener(behaviorListener);
+        go_time_evening.setOnClickListener(behaviorListener);
         vehicle_train.setOnClickListener(behaviorListener);
         vehicle_plane.setOnClickListener(behaviorListener);
         vehicle_bus.setOnClickListener(behaviorListener);
@@ -173,7 +179,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     }
 
     private void rideFeel(int id) {
-        behavior &= 0xfff0;
+        quality = 0;
         ride_feel_cheap.setTextColor(getResources().getColor(R.color.default_black_color));
         ride_feel_cheap.setBackgroundResource(R.drawable.travel_behavior_not_click);
         ride_feel_moderate.setTextColor(getResources().getColor(R.color.default_black_color));
@@ -183,17 +189,17 @@ public class TravelBehaviorFragment extends TTBaseFragment{
 
         switch (id) {
             case R.id.ride_feel_cheap:
-                behavior |= 0x0001;
+                quality = 1;
                 ride_feel_cheap.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 ride_feel_cheap.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.ride_feel_moderate:
-                behavior |= 0x0002;
+                quality = 2;
                 ride_feel_moderate.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 ride_feel_moderate.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.ride_feel_expensive:
-                behavior |= 0x0004;
+                quality = 3;
                 ride_feel_expensive.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 ride_feel_expensive.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
@@ -201,29 +207,29 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     }
 
     private void goTime(int id) {
-        behavior &= 0xff0f;
+        go_time = 0;
+        go_time_morning.setTextColor(getResources().getColor(R.color.default_black_color));
+        go_time_morning.setBackgroundResource(R.drawable.travel_behavior_not_click);
         go_time_gold.setTextColor(getResources().getColor(R.color.default_black_color));
         go_time_gold.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        go_time_early.setTextColor(getResources().getColor(R.color.default_black_color));
-        go_time_early.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        go_time_custom.setTextColor(getResources().getColor(R.color.default_black_color));
-        go_time_custom.setBackgroundResource(R.drawable.travel_behavior_not_click);
+        go_time_evening.setTextColor(getResources().getColor(R.color.default_black_color));
+        go_time_evening.setBackgroundResource(R.drawable.travel_behavior_not_click);
 
         switch (id) {
+            case R.id.go_time_morning:
+                go_time = 1;
+                go_time_morning.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                go_time_morning.setBackgroundResource(R.drawable.travel_behavior_click);
+                break;
             case R.id.go_time_gold:
-                behavior |= 0x0010;
+                go_time = 2;
                 go_time_gold.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 go_time_gold.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
-            case R.id.go_time_early:
-                behavior |= 0x0020;
-                go_time_early.setTextColor(getResources().getColor(R.color.travel_menu_bk));
-                go_time_early.setBackgroundResource(R.drawable.travel_behavior_click);
-                break;
-            case R.id.go_time_custom:
-                behavior |= 0x0040;
-                go_time_custom.setTextColor(getResources().getColor(R.color.travel_menu_bk));
-                go_time_custom.setBackgroundResource(R.drawable.travel_behavior_click);
+            case R.id.go_time_evening:
+                go_time = 3;
+                go_time_evening.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                go_time_evening.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
         }
     }
@@ -231,49 +237,49 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     private void vehicle(int id) {
         switch (id) {
             case R.id.vehicle_train:
-                if ((behavior&0x0100) != 0) {
-                    behavior^=0x0100;
+                if ((way&0x0001) != 0) {
+                    way^=0x0001;
                     vehicle_train.setTextColor(getResources().getColor(R.color.default_black_color));
                     vehicle_train.setBackgroundResource(R.drawable.travel_behavior_not_click);
                     vehicle_train.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.train_black), null, null, null);
                 } else {
-                    behavior|=0x0100;
+                    way|=0x0001;
                     vehicle_train.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                     vehicle_train.setBackgroundResource(R.drawable.travel_behavior_click);
                     vehicle_train.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.train_white), null, null, null);
                 }
                 break;
             case R.id.vehicle_plane:
-                if ((behavior&0x0200) != 0) {
-                    behavior^=0x0200;
+                if ((way&0x0002) != 0) {
+                    way^=0x0002;
                     vehicle_plane.setTextColor(getResources().getColor(R.color.default_black_color));
                     vehicle_plane.setBackgroundResource(R.drawable.travel_behavior_not_click);
                     vehicle_plane.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_black), null, null, null);
                 } else {
-                    behavior|=0x0200;
+                    way|=0x0002;
                     vehicle_plane.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                     vehicle_plane.setBackgroundResource(R.drawable.travel_behavior_click);
                     vehicle_plane.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_white), null, null, null);
                 }
                 break;
             case R.id.vehicle_bus:
-                if ((behavior&0x0400) != 0) {
-                    behavior^=0x0400;
+                if ((way&0x0004) != 0) {
+                    way^=0x0004;
                     vehicle_bus.setTextColor(getResources().getColor(R.color.default_black_color));
                     vehicle_bus.setBackgroundResource(R.drawable.travel_behavior_not_click);
-                    vehicle_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_black), null, null, null);
+                    vehicle_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.bus_black), null, null, null);
                 } else {
-                    behavior|=0x0400;
+                    way|=0x0004;
                     vehicle_bus.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                     vehicle_bus.setBackgroundResource(R.drawable.travel_behavior_click);
-                    vehicle_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_white), null, null, null);
+                    vehicle_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.bus_white), null, null, null);
                 }
                 break;
         }
     }
 
     private void transitTimes(int id) {
-        behavior &= 0x0fff;
+        transitTimes = 0;
         transit_times_through.setTextColor(getResources().getColor(R.color.default_black_color));
         transit_times_through.setBackgroundResource(R.drawable.travel_behavior_not_click);
         transit_times_once.setTextColor(getResources().getColor(R.color.default_black_color));
@@ -283,17 +289,17 @@ public class TravelBehaviorFragment extends TTBaseFragment{
 
         switch (id) {
             case R.id.transit_times_through:
-                behavior |= 0x1000;
+                transitTimes = 1;
                 transit_times_through.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 transit_times_through.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.transit_times_once:
-                behavior |= 0x2000;
+                transitTimes = 2;
                 transit_times_once.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 transit_times_once.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.transit_times_more:
-                behavior |= 0x4000;
+                transitTimes = 3;
                 transit_times_more.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 transit_times_more.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
@@ -301,7 +307,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     }
 
     private boolean checkBehavior() {
-        if ((behavior&0x0700) == 0) {
+        if ((way&0x0007) == 0) {
             showMsg("交通工具未选择");
             return false;
         }
@@ -313,9 +319,30 @@ public class TravelBehaviorFragment extends TTBaseFragment{
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
+    private void storeTravelEntity() {
+        if (imService != null) {
+            switch (go_time) {
+                case 1:
+                    imService.getTravelManager().getMtTravel().setTrafficStartTime("00:00");
+                    imService.getTravelManager().getMtTravel().setTrafficEndTime("08:00");
+                    break;
+                case 2:
+                    imService.getTravelManager().getMtTravel().setTrafficStartTime("08:00");
+                    imService.getTravelManager().getMtTravel().setTrafficEndTime("16:00");
+                    break;
+                case 3:
+                    imService.getTravelManager().getMtTravel().setTrafficStartTime("16:00");
+                    imService.getTravelManager().getMtTravel().setTrafficEndTime("24:00");
+                    break;
+
+            }
+            imService.getTravelManager().getMtTravel().setTrafficQuality((quality));
+            imService.getTravelManager().getMtTravel().setTrafficWay((way&0x0007));
+        }
+    }
+
     private void jump2PlayBehavior() {
         Intent playBehavior = new Intent(getActivity(), PlayBehaviorActivity.class);
         startActivity(playBehavior);
     }
-
 }

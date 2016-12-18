@@ -3,6 +3,7 @@ package com.mogujie.tt.ui.fragment;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,10 +35,17 @@ public class PlayBehaviorFragment extends TTBaseFragment{
     private Button near_downtown;
     private Button near_scenic_spot;
     private Button easy_communication;
-    private int trip_index;
-    private int hotel_Position;
+    private Button traffic_walk;
+    private Button traffic_bus;
+    private Button traffic_taxi;
     private ImageButton next;
     private IMTravelManager imTravelManager;
+
+    private String strStartTime = "9:00";
+    private String strEndTime = "20:00";;
+    private int play_quality = 2;
+    private int hotel_Position = 3;
+    private int city_traffic = 3;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -46,6 +54,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
                 imTravelManager = imService.getTravelManager();
+                setTopTitle(imTravelManager.getMtTravel().getDestination());
             }
         }
 
@@ -66,7 +75,6 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 		curView = inflater.inflate(R.layout.travel_fragment_play_behavior, topContentView);
 		initRes();
         initBtn();
-        setRoomNum();
         setGoTime();
 		return curView;
 	}
@@ -96,8 +104,6 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 	 * @Description 初始化资源
 	 */
 	private void initRes() {
-		// 设置标题栏
-		setTopTitle(getActivity().getString(R.string.play_behavior));
 		setTopLeftButton(R.drawable.tt_top_back);
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -112,6 +118,10 @@ public class PlayBehaviorFragment extends TTBaseFragment{
         near_downtown = (Button)curView.findViewById(R.id.near_downtown);
         near_scenic_spot = (Button)curView.findViewById(R.id.near_scenic_spot);
         easy_communication = (Button)curView.findViewById(R.id.easy_communication);
+        traffic_walk = (Button)curView.findViewById(R.id.traffic_walk);
+        traffic_walk.setClickable(false);
+        traffic_bus = (Button)curView.findViewById(R.id.traffic_bus);
+        traffic_taxi = (Button)curView.findViewById(R.id.traffic_taxi);
         next = (ImageButton)curView.findViewById(R.id.play_behavior_next_step);
 	}
 
@@ -128,7 +138,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
                     case R.id.economical_efficiency:
                     case R.id.economical_comfort:
                     case R.id.luxury_quality:
-                        tripIndex(id);
+                        playQuality(id);
                         break;
 
                     case R.id.near_downtown:
@@ -136,7 +146,15 @@ public class PlayBehaviorFragment extends TTBaseFragment{
                     case R.id.easy_communication:
                         hotelPosition(id);
                         break;
+
+                    case R.id.traffic_bus:
+                    case R.id.traffic_taxi:
+                        cityTraffic(id);
+                        break;
+
                     case R.id.play_behavior_next_step:
+                        storeTravelEntity();
+                        imTravelManager.reqCreateTravel();
                         jump2SelectSight();
                         break;
                 }
@@ -146,14 +164,16 @@ public class PlayBehaviorFragment extends TTBaseFragment{
         economical_efficiency.setOnClickListener(behaviorListener);
         economical_comfort.setOnClickListener(behaviorListener);
         luxury_quality.setOnClickListener(behaviorListener);
+        traffic_bus.setOnClickListener(behaviorListener);
+        traffic_taxi.setOnClickListener(behaviorListener);
         near_downtown.setOnClickListener(behaviorListener);
         near_scenic_spot.setOnClickListener(behaviorListener);
         easy_communication.setOnClickListener(behaviorListener);
         next.setOnClickListener(behaviorListener);
     }
 
-    private void tripIndex(int id) {
-        trip_index = 0;
+    private void playQuality(int id) {
+        play_quality = 0;
         economical_efficiency.setTextColor(getResources().getColor(R.color.default_black_color));
         economical_efficiency.setBackgroundResource(R.drawable.travel_behavior_not_click);
         economical_comfort.setTextColor(getResources().getColor(R.color.default_black_color));
@@ -163,19 +183,88 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 
         switch (id) {
             case R.id.economical_efficiency:
-                trip_index = 1;
+                play_quality = 1;
                 economical_efficiency.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 economical_efficiency.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.economical_comfort:
-                trip_index = 2;
+                play_quality = 2;
                 economical_comfort.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 economical_comfort.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.luxury_quality:
-                trip_index = 3;
+                play_quality = 3;
                 luxury_quality.setTextColor(getResources().getColor(R.color.travel_menu_bk));
                 luxury_quality.setBackgroundResource(R.drawable.travel_behavior_click);
+                break;
+        }
+    }
+
+    private void setGoTime(){
+
+        // get seekbar from view
+        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) curView.findViewById(R.id.play_time);
+
+        // get min and max text view
+        final TextView tvMin = (TextView)curView.findViewById(R.id.play_time_start);
+        final TextView tvMax = (TextView)curView.findViewById(R.id.play_time_end);
+
+        // set properties
+        rangeSeekbar
+                .setCornerRadius(10f)
+                .setBarColor(Color.parseColor("#93F9B5"))
+                .setBarHighlightColor(Color.parseColor("#16E059"))
+                .setMinValue(0)
+                .setMaxValue(24)
+                .setMinStartValue(9)
+                .setMaxStartValue(20)
+                .setSteps(1)
+                .setLeftThumbDrawable(R.drawable.play_time_min)
+                .setLeftThumbHighlightDrawable(R.drawable.play_time_min)
+                .setRightThumbDrawable(R.drawable.play_time_max)
+                .setRightThumbHighlightDrawable(R.drawable.play_time_max)
+                .setDataType(CrystalRangeSeekbar.DataType.INTEGER)
+                .apply();
+
+        // set listener
+        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                strStartTime = String.valueOf(minValue)+":00";
+                strEndTime = String.valueOf(maxValue)+":00";
+                tvMin.setText(strStartTime);
+                tvMax.setText(strEndTime);
+            }
+        });
+    }
+
+    private void cityTraffic(int id) {
+        switch (id) {
+            case R.id.traffic_bus:
+                if ((city_traffic&0x0002) != 0) {
+                    city_traffic^=0x0002;
+                    traffic_bus.setTextColor(getResources().getColor(R.color.default_black_color));
+                    traffic_bus.setBackgroundResource(R.drawable.travel_behavior_not_click);
+                    traffic_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_black), null, null, null);
+                } else {
+                    city_traffic|=0x0002;
+                    traffic_bus.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                    traffic_bus.setBackgroundResource(R.drawable.travel_behavior_click);
+                    traffic_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_white), null, null, null);
+                }
+                break;
+            case R.id.traffic_taxi:
+                if ((city_traffic&0x0004) != 0) {
+                    city_traffic^=0x0004;
+                    traffic_taxi.setTextColor(getResources().getColor(R.color.default_black_color));
+                    traffic_taxi.setBackgroundResource(R.drawable.travel_behavior_not_click);
+                    traffic_taxi.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_black), null, null, null);
+                } else {
+                    city_traffic|=0x0004;
+                    traffic_taxi.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                    traffic_taxi.setBackgroundResource(R.drawable.travel_behavior_click);
+                    traffic_taxi.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_white), null, null, null);
+                }
                 break;
         }
     }
@@ -216,73 +305,17 @@ public class PlayBehaviorFragment extends TTBaseFragment{
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void setRoomNum(){
-
-        // get seekbar from view
-        final CrystalSeekbar rangeSeekbar = (CrystalSeekbar)curView.findViewById(R.id.room_num);
-
-        // get min and max text view
-        final TextView tvMin = (TextView)curView.findViewById(R.id.room_min);
-        final TextView tvMax = (TextView)curView.findViewById(R.id.room_max);
-
-        // set properties
-        rangeSeekbar
-                .setCornerRadius(10f)
-                .setBarColor(Color.parseColor("#93F9B5"))
-                .setBarHighlightColor(Color.parseColor("#16E059"))
-                .setMinValue(1)
-                .setMaxValue(6)
-                .setSteps(1)
-                .setLeftThumbDrawable(R.drawable.room_num)
-                .setLeftThumbHighlightDrawable(R.drawable.room_num)
-                .setDataType(CrystalRangeSeekbar.DataType.INTEGER)
-                .apply();
-
-        // set listener
-        rangeSeekbar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
-            @Override
-            public void valueChanged(Number minValue) {
-                tvMin.setText(String.valueOf(minValue));
-            }
-        });
-    }
-
-    private void setGoTime(){
-
-        // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) curView.findViewById(R.id.play_time);
-
-        // get min and max text view
-        final TextView tvMin = (TextView)curView.findViewById(R.id.play_time_start);
-        final TextView tvMax = (TextView)curView.findViewById(R.id.play_time_end);
-
-        // set properties
-        rangeSeekbar
-                .setCornerRadius(10f)
-                .setBarColor(Color.parseColor("#93F9B5"))
-                .setBarHighlightColor(Color.parseColor("#16E059"))
-                .setMinValue(0)
-                .setMaxValue(24)
-                .setSteps(1)
-                .setLeftThumbDrawable(R.drawable.play_time_min)
-                .setLeftThumbHighlightDrawable(R.drawable.play_time_min)
-                .setRightThumbDrawable(R.drawable.play_time_max)
-                .setRightThumbHighlightDrawable(R.drawable.play_time_max)
-                .setDataType(CrystalRangeSeekbar.DataType.INTEGER)
-                .apply();
-
-        // set listener
-        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
-            @Override
-            public void valueChanged(Number minValue, Number maxValue) {
-                tvMin.setText(String.valueOf(minValue));
-                tvMax.setText(String.valueOf(maxValue));
-            }
-        });
+    private void storeTravelEntity() {
+        if (imTravelManager != null) {
+            imTravelManager.getMtTravel().setPlayQuality(play_quality);
+            imTravelManager.getMtTravel().setPlayStartTime(strStartTime);
+            imTravelManager.getMtTravel().setPlayEndTime(strEndTime);
+            imTravelManager.getMtTravel().setHotelPosition(hotel_Position);
+            imTravelManager.getMtTravel().setCityTraffic(city_traffic);
+        }
     }
 
     private void jump2SelectSight() {
-        imTravelManager.reqCreateTravel();
         Intent playBehavior = new Intent(getActivity(), SelectSightActivity.class);
         startActivity(playBehavior);
     }

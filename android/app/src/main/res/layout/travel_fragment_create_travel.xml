@@ -7,6 +7,89 @@
     android:background="@color/default_light_grey_color">
 
     <TextView
+        android:text="时间地点"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/create_travel_module_div"
+        android:drawableBottom="@drawable/create_travel_module_div"
+        android:id="@+id/create_travel_time_place" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:id="@+id/rlcreate_travel_time"
+        android:background="@drawable/create_travel_con_bk">
+
+
+        <TextView
+            android:text="时  间"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tcreate_travel_time" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bn_click_arrow"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/icreate_travel_time" />
+
+        <TextView
+            android:text="您的游玩时间 ？"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/icreate_travel_time"
+            android:id="@+id/create_travel_time" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_con_div" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:id="@+id/rlcreate_travel_place"
+        android:background="@drawable/create_travel_con_bk">
+
+        <TextView
+            android:text="目的地"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tcreate_travel_place" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bn_click_arrow"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/icreate_travel_place" />
+
+        <TextView
+            android:text="您的目的地 ？"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/icreate_travel_place"
+            android:id="@+id/create_travel_place" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_module_div" />
+    </RelativeLayout>
+
+    <TextView
         android:text="基本信息"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -124,89 +207,6 @@
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/icreate_travel_end"
             android:id="@+id/create_travel_end" />
-    </RelativeLayout>
-
-    <TextView
-        android:text="时间地点"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableTop="@drawable/create_travel_module_div"
-        android:drawableBottom="@drawable/create_travel_module_div"
-        android:id="@+id/create_travel_time_place" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:id="@+id/rlcreate_travel_time"
-        android:background="@drawable/create_travel_con_bk">
-
-
-        <TextView
-            android:text="时  间"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/tcreate_travel_time" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bn_click_arrow"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/icreate_travel_time" />
-
-        <TextView
-            android:text="您的游玩时间 ？"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/icreate_travel_time"
-            android:id="@+id/create_travel_time" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/create_travel_con_div" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:id="@+id/rlcreate_travel_place"
-        android:background="@drawable/create_travel_con_bk">
-
-        <TextView
-            android:text="目的地"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/tcreate_travel_place" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bn_click_arrow"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/icreate_travel_place" />
-
-        <TextView
-            android:text="您的目的地 ？"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/icreate_travel_place"
-            android:id="@+id/create_travel_place" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/create_travel_module_div" />
     </RelativeLayout>
 
     <LinearLayout

@@ -171,11 +171,11 @@ public class IMTravelManager extends IMManager {
 
     private IMBuddy.PlayQualityType getPlayQuality(int i) {
         switch (i) {
-            case 0:
-                return IMBuddy.PlayQualityType.FEEL_TYPE_ECONOMIC;
             case 1:
-                return IMBuddy.PlayQualityType.FEEL_TYPE_GENERAL;
+                return IMBuddy.PlayQualityType.FEEL_TYPE_ECONOMIC;
             case 2:
+                return IMBuddy.PlayQualityType.FEEL_TYPE_GENERAL;
+            case 3:
                 return IMBuddy.PlayQualityType.FEEL_TYPE_COMFORTABLE;
             default:
                 return IMBuddy.PlayQualityType.FEEL_TYPE_GENERAL;
@@ -184,11 +184,11 @@ public class IMTravelManager extends IMManager {
 
     private IMBuddy.HotelPositionType getHotelPosition(int i) {
         switch (i) {
-            case 0:
-                return IMBuddy.HotelPositionType.HOTEL_NEAR_CITY;
             case 1:
-                return IMBuddy.HotelPositionType.HOTEL_NEAR_VIEW_SPOT;
+                return IMBuddy.HotelPositionType.HOTEL_NEAR_CITY;
             case 2:
+                return IMBuddy.HotelPositionType.HOTEL_NEAR_VIEW_SPOT;
+            case 4:
                 return IMBuddy.HotelPositionType.HOTEL_TRAFFIC_FIT;
             default:
                 return IMBuddy.HotelPositionType.HOTEL_NEAR_CITY;
