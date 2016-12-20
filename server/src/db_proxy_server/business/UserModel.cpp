@@ -497,3 +497,51 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateTrave
     return idx;
 }
 
+bool CUserModel::getTravelDetail(uint32_t user_id, IM::Buddy::GetTravelTripListRsp& rsp) {
+    bool ret = false;
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    if (pDBConn)
+    {
+        string  strSql = "select * from IMTravelDetail where user_id=" + int2string(user_id) + ")";
+        CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+        if(pResultSet)
+        {
+            while (pResultSet->Next())
+            {
+                IM::Buddy::TravelDetail* pTravelDetail = rsp.add_travel_detail();
+                pTravelDetail->set_db_idx(pResultSet->GetInt("id"));
+                pTravelDetail->mutable_travel_info()->set_person_num(pResultSet->GetInt("person_num"));
+                pTravelDetail->mutable_travel_info()->set_place_from(pResultSet->GetString("place_from"));
+                pTravelDetail->mutable_travel_info()->set_place_back(pResultSet->GetString("place_back"));
+                pTravelDetail->mutable_travel_info()->set_place_to(pResultSet->GetString("place_to"));
+                pTravelDetail->mutable_travel_info()->set_date_from(pResultSet->GetString("date_start"));
+                pTravelDetail->mutable_travel_info()->set_date_to(pResultSet->GetString("date_end"));
+                pTravelDetail->mutable_traffic_info()->set_traffic_time_from(pResultSet->GetString("traffic_time_start"));
+                pTravelDetail->mutable_traffic_info()->set_traffic_time_to(pResultSet->GetString("traffic_time_end"));
+                pTravelDetail->mutable_traffic_info()->set_travel_type(pResultSet->GetInt("traffic_type"));
+                pTravelDetail->mutable_play_info()->set_play_quality((::IM::Buddy::PlayQualityType)pResultSet->GetInt("play_quality_type"));
+                pTravelDetail->mutable_play_info()->set_play_time_from(pResultSet->GetString("play_time_start"));
+                pTravelDetail->mutable_play_info()->set_play_time_to(pResultSet->GetString("play_time_end"));
+                pTravelDetail->mutable_play_info()->set_city_traffic(pResultSet->GetInt("city_traffic_type"));
+                pTravelDetail->mutable_play_info()->set_hotel_position((::IM::Buddy::HotelPositionType)pResultSet->GetInt("hotel_position_type"));
+                pTravelDetail->set_cost(pResultSet->GetInt("cost"));
+            }
+            delete pResultSet;
+        }
+        else
+        {
+            log(" no result set for sql:%s", strSql.c_str());
+        }
+        pDBManager->RelDBConn(pDBConn);
+        ret = true;
+    }
+    else
+    {
+        log("no db connection for teamtalk_master");
+    }
+
+    return ret;
+}
+
+

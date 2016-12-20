@@ -35,7 +35,8 @@ public:
     bool getUserSingInfo(uint32_t user_id, string* sign_info);
     bool updatePushShield(uint32_t user_id, uint32_t shield_status);
     bool getPushShield(uint32_t user_id, uint32_t* shield_status);
-    uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateTravelReq* pb); 
+    uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateTravelReq* pb);
+    bool getTravelDetail(uint32_t user_id, IM::Buddy::GetTravelTripListRsp& rsp);
 
 private:
     CUserModel();

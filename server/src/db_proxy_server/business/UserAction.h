@@ -23,6 +23,7 @@ namespace DB_PROXY {
     void doQueryPushShield(CImPdu* pPdu, uint32_t conn_uuid);
     void getTravelRoute(CImPdu* pPdu, uint32_t conn_uuid);
     void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
+    void getTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
 };
 
 
