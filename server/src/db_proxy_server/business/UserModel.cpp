@@ -435,6 +435,7 @@ bool CUserModel::getPushShield(uint32_t user_id, uint32_t* shield_status) {
 }
 
 uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateTravelReq* pb) {
+    log("CUserModel::createTravelDetail enter.");
     bool bRet = false;
     uint32_t idx = 0;
     CDBManager* pDBManager = CDBManager::getInstance();
@@ -503,7 +504,7 @@ bool CUserModel::getTravelDetail(uint32_t user_id, IM::Buddy::GetTravelTripListR
     CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
     if (pDBConn)
     {
-        string  strSql = "select * from IMTravelDetail where user_id=" + int2string(user_id) + ")";
+        string  strSql = "select * from IMTravelDetail where user_id=" + int2string(user_id);
         CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
         if(pResultSet)
         {

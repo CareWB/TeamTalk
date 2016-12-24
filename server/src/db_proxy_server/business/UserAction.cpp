@@ -224,7 +224,8 @@ msgResp.set_user_id(from_user_id);
     void getTravelRoute(CImPdu* pPdu, uint32_t conn_uuid) {
     }
 
-    void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
+    void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {log("createTravelDetail result user_id=%u, idx=%u", user_id, idx);
+        log("createTravelDetail enter.");
         IM::Buddy::CreateTravelReq req;
         IM::Buddy::CreateTravelRsp resp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
