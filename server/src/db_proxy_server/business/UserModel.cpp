@@ -455,6 +455,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateTrave
             uint32_t city_traffic = req->travel_detail().play_info().city_traffic();
             uint32_t hotel_position = req->travel_detail().play_info().hotel_position();
             uint32_t cost = req->travel_detail().cost();
+            uint32_t room_num = 0;
             
             stmt->SetParam(index++, user_id);
             stmt->SetParam(index++, person_num);
@@ -470,7 +471,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateTrave
             stmt->SetParam(index++, req->travel_detail().play_info().play_time_from().c_str());
             stmt->SetParam(index++, req->travel_detail().play_info().play_time_to().c_str());
             stmt->SetParam(index++, city_traffic);
-            stmt->SetParam(index++, 0);
+            stmt->SetParam(index++, room_num);
             stmt->SetParam(index++, hotel_position);
             stmt->SetParam(index++, cost);
             bRet = stmt->ExecuteUpdate();
