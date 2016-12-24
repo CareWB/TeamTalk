@@ -443,6 +443,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateTrave
     if (pDBConn)
     {
         string strSql = "insert into IMTravelDetail(`user_id`,`person_num`,`place_from`,`place_back`,`place_to`,`date_start`,`date_end`,`traffic_time_start`,`traffic_time_end`,`traffic_type`,`play_quality_type`,`play_time_start`,`play_time_end`,`city_traffic_type`,`room_num`,`hotel_position_type`,`cost`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        log("insert sql:%s", strSql.c_str());
         CPrepareStatement* stmt = new CPrepareStatement();
         if (stmt->Init(pDBConn->GetMysql(), strSql))
         {
@@ -479,7 +480,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateTrave
                 log("insert IMTravelDetail failed: %s", strSql.c_str());
             }
 
-            strSql = "SELECT id from IMTickets order by id desc limit 0,1";
+            strSql = "SELECT id from IMTravelDetail order by id desc limit 0,1";
             CResultSet* result_set = pDBConn->ExecuteQuery(strSql.c_str());
             if(result_set) {
                 if (result_set->Next()) {
