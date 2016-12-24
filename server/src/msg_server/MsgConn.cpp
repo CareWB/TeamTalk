@@ -913,8 +913,8 @@ void CMsgConn::_HandleGetTravelListRequest(CImPdu *pPdu)
 {
     IM::Buddy::GetTravelListReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
-    log("_HandleGetTravelListRequest, user_id=%u, travel_type=%d, lines=%s.", 
-        GetUserId(), msg.travel_type(), msg.lines().c_str());
+    log("_HandleGetTravelListRequest, user_id=%u.", 
+        GetUserId());
     CDBServConn* pDBConn = get_db_serv_conn();
     if (pDBConn) {
         CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
@@ -929,8 +929,8 @@ void CMsgConn::_HandleCreateTravelRequest(CImPdu *pPdu)
 {
     IM::Buddy::CreateTravelReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
-    log("_HandleGetTravelListRequest, user_id=%u, travel_type=%d, lines=%s.", 
-        GetUserId(), msg.travel_type(), msg.lines().c_str());
+    log("_HandleGetTravelListRequest, user_id=%u.", 
+        GetUserId());
     CDBServConn* pDBConn = get_db_serv_conn();
     if (pDBConn) {
         CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
