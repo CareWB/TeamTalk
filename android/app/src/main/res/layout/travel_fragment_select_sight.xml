@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layout_select_sight"
     android:orientation="vertical">
 
     <LinearLayout
@@ -32,6 +33,7 @@
             android:id="@+id/spinner_sight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/default_bk"
             android:spinnerMode="dropdown" />
 
         <TextView
@@ -82,14 +84,14 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:text="Button"
+            android:text="智能选择"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sight_smart_select"
+            android:id="@+id/sight_intelligence_select"
             android:layout_weight="1" />
 
         <Button
-            android:text="Button"
+            android:text="下一步"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sight_next"

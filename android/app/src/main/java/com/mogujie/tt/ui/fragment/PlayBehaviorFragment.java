@@ -1,15 +1,16 @@
 package com.mogujie.tt.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,9 @@ public class PlayBehaviorFragment extends TTBaseFragment{
     private int play_quality = 2;
     private int hotel_Position = 3;
     private int city_traffic = 3;
+
+    static final int MAX_TIME = 24;
+    static final int MIN_TIME = 0;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -214,8 +218,8 @@ public class PlayBehaviorFragment extends TTBaseFragment{
                 .setCornerRadius(10f)
                 .setBarColor(Color.parseColor("#93F9B5"))
                 .setBarHighlightColor(Color.parseColor("#16E059"))
-                .setMinValue(0)
-                .setMaxValue(24)
+                .setMinValue(MIN_TIME)
+                .setMaxValue(MAX_TIME)
                 .setMinStartValue(9)
                 .setMaxStartValue(20)
                 .setSteps(1)
@@ -226,12 +230,25 @@ public class PlayBehaviorFragment extends TTBaseFragment{
                 .setDataType(CrystalRangeSeekbar.DataType.INTEGER)
                 .apply();
 
+        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        final int step = (width-80)/(MAX_TIME - MIN_TIME);
+
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue, Number maxValue) {
                 strStartTime = String.valueOf(minValue)+":00";
                 strEndTime = String.valueOf(maxValue)+":00";
+
+                RelativeLayout.LayoutParams lpLeft = (RelativeLayout.LayoutParams)tvMin.getLayoutParams();
+                lpLeft.setMargins(step*(minValue.intValue()-MIN_TIME),0, 0, 0);
+                tvMin.setLayoutParams(lpLeft);
+
+                RelativeLayout.LayoutParams lpRight = (RelativeLayout.LayoutParams)tvMax.getLayoutParams();
+                lpRight.setMargins(0, 0, step*(MAX_TIME-maxValue.intValue()), 0);
+                tvMax.setLayoutParams(lpRight);
+
                 tvMin.setText(strStartTime);
                 tvMax.setText(strEndTime);
             }

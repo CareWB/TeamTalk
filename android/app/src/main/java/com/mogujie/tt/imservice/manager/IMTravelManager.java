@@ -1,5 +1,7 @@
 package com.mogujie.tt.imservice.manager;
 
+import android.util.Log;
+
 import com.mogujie.tt.DB.DBInterface;
 import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.imservice.event.TravelEvent;
@@ -44,9 +46,9 @@ public class IMTravelManager extends IMManager {
     public void onLocalLoginOk(){
         logger.i("group#loadFromDb");
 
-        if(!EventBus.getDefault().isRegistered(inst)){
+/*        if(!EventBus.getDefault().isRegistered(inst)){
             EventBus.getDefault().registerSticky(inst);
-        }
+        }*/
 
         // 加载本地group
         List<TravelEntity> localTravelDetailList = dbInterface.loadAllTravel();
@@ -103,6 +105,7 @@ public class IMTravelManager extends IMManager {
         List<TravelEntity> needDb = new ArrayList<>();
         for(IMBuddy.TravelDetail travelDetail:travelDetailList){
             TravelEntity travelEntity = ProtoBuf2JavaBean.getTravelEntity(travelDetail);
+            travelEntity.setDestinationBK("abc");
             travelEntityList.add(travelEntity);
             needDb.add(travelEntity);
         }
@@ -161,6 +164,7 @@ public class IMTravelManager extends IMManager {
 
     public void onRspCreateTravel(IMBuddy.CreateTravelRsp createTravelRsp) {
         logger.i("onRspCreateTravel");
+        Log.e("yuki", "onRspCreateTravel");
         if (createTravelRsp.getResultCode() != 0) {
             logger.e("onRepTravelList fail %d", createTravelRsp.getResultCode());
             triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_TRAVEL_FAIL));

@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/travel_menu_bk"
-    android:paddingTop="30dp"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/topbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_default_height"
+        android:layout_marginTop="30dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp" >
 

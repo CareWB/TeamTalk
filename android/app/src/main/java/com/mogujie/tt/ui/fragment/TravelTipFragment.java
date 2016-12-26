@@ -52,6 +52,7 @@ public class TravelTipFragment extends TTBaseFragment {
 	private int mLastPos = -1;
     private IMTravelManager imTravelManager;
     private List<TravelEntity> travelEntityList = new ArrayList<>();
+    private TravelTipAdapter travelTipAdapter;
 
 	private IMServiceConnector imServiceConnector = new IMServiceConnector(){
 		@Override
@@ -79,7 +80,8 @@ public class TravelTipFragment extends TTBaseFragment {
 		}
 		curView = inflater.inflate(R.layout.tt_fragment_travel_tip, container, false);
 		init();
-		test();
+		//test();
+        initTravel();
 		return curView;
 	}
 
@@ -139,13 +141,7 @@ public class TravelTipFragment extends TTBaseFragment {
 		mBlurRunnable = new Runnable() {
 			@Override
 			public void run() {
-/*				SimpleTarget<Bitmap> bitmap = Glide.with(getActivity()).load(url).asBitmap().into(new SimpleTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                        ViewSwitchUtils.startSwitchBackgroundAnim(mBlurView, BlurBitmapUtils.getBlurBitmap(mBlurView.getContext(), resource, 15));
-                    }
-                });*/
-                if (mCardScaleHelper.getCurrentItemPos() == travelEntityList.size() - 1) {
+  /*              if (mCardScaleHelper.getCurrentItemPos() == travelEntityList.size() - 1) {
                     Bitmap loadedImage= BitmapFactory.decodeResource(getResources(), R.drawable.pic4);
                     ViewSwitchUtils.startSwitchBackgroundAnim(mBlurView, BlurBitmapUtils.getBlurBitmap(mBlurView.getContext(), loadedImage, 15));
                 } else {
@@ -162,16 +158,15 @@ public class TravelTipFragment extends TTBaseFragment {
                                                     FailReason failReason) {
                         }
                     });
+                }*/
+                Bitmap bmp;
+                if (mLastPos == travelEntityList.size()-1) {
+                    bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic4);
+                } else {
+                    bmp = BitmapFactory.decodeResource(getResources(), R.drawable.xiamen);
                 }
 
-/*                try {
-                    Bitmap blurBK = Glide.with(getActivity()).load(url).asBitmap().centerCrop().into(500, 500).get();
-                    ViewSwitchUtils.startSwitchBackgroundAnim(mBlurView, BlurBitmapUtils.getBlurBitmap(mBlurView.getContext(), blurBK, 15));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }*/
+				ViewSwitchUtils.startSwitchBackgroundAnim(mBlurView, BlurBitmapUtils.getBlurBitmap(mBlurView.getContext(), bmp, 15));
             }
 		};
 
@@ -181,7 +176,7 @@ public class TravelTipFragment extends TTBaseFragment {
     public void onEventMainThread(TravelEvent event){
         switch (event.event){
             case TRAVEL_LIST_OK:
-                initTravel();
+                freshTravel();
                 break;
         }
     }
@@ -190,7 +185,9 @@ public class TravelTipFragment extends TTBaseFragment {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         //travelEntityList.addAll(imTravelManager.getTravelEntityList());
-        mRecyclerView.setAdapter(new TravelTipAdapter(getActivity(), travelEntityList));
+        travelEntityList.add(new TravelEntity());
+        travelTipAdapter = new TravelTipAdapter(getActivity(), travelEntityList);
+        mRecyclerView.setAdapter(travelTipAdapter);
         // mRecyclerView绑定scale效果
         mCardScaleHelper = new CardScaleHelper();
         mCardScaleHelper.setCurrentItemPos(0);
@@ -213,5 +210,12 @@ public class TravelTipFragment extends TTBaseFragment {
         TravelEntity newTravel = new TravelEntity();
         travelEntityList.add(newTravel);
         initTravel();
+    }
+
+   private void freshTravel() {
+        travelEntityList.clear();
+        travelEntityList.addAll(imTravelManager.getTravelEntityList());
+        travelEntityList.add(new TravelEntity());
+        travelTipAdapter.notifyDataSetChanged();
     }
 }

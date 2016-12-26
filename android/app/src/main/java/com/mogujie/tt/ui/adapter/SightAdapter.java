@@ -66,7 +66,9 @@ public class SightAdapter extends RecyclerView.Adapter {
         } else {
             holder.free.setBackgroundResource(R.drawable.ticket);
         }
-        if (mList.get(i).getMustGo() != 1) {
+        if (mList.get(i).getMustGo() == 1) {
+            holder.mustGo.setVisibility(View.VISIBLE);
+        } else {
             holder.mustGo.setVisibility(View.GONE);
         }
         if (mList.get(i).getSelect() == 1) {

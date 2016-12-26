@@ -6,8 +6,12 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.R;
+import com.mogujie.tt.config.IntentConstant;
 import com.mogujie.tt.ui.activity.CreateTravelActivity;
+import com.mogujie.tt.ui.activity.IntroduceSightActivity;
 
 public class TravelUIHelper {
 
@@ -46,5 +50,12 @@ public class TravelUIHelper {
         Intent intent = new Intent(ctx, CreateTravelActivity.class);
         ctx.startActivity(intent);
     }
+
+	//跳转到景点介绍页面
+	public static void openIntroduceSightActivity(Context ctx, int sightID) {
+        Intent intent = new Intent(ctx, IntroduceSightActivity.class);
+        intent.putExtra(IntentConstant.KEY_PEERID, sightID);
+        ctx.startActivity(intent);
+	}
 
 }
