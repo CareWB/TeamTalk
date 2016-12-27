@@ -63,6 +63,10 @@ enum BuddyListCmdID{
     CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE                 = 0x0254; 
     CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST                = 0x0255; 
     CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE               = 0x0256; 
+    CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST                = 0x0257; 
+    CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE               = 0x0258; 
+    CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST                = 0x0259; 
+    CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE               = 0x0260; 
 }
 
 // command id for msg

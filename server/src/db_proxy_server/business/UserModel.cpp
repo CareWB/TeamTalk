@@ -547,4 +547,43 @@ bool CUserModel::getTravelDetail(uint32_t user_id, IM::Buddy::GetTravelTripListR
     return ret;
 }
 
+bool CUserModel::deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_idx_list) {
+    log("CUserModel::deleteTravelDetail enter.");
+    if (0 == db_idx_list.size()) {
+        return true;
+    }
+    
+    bool bRet = true;
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    if (pDBConn)
+    {
+        string strClause;
+        bool bFirst = true;
+        for(auto it = db_idx_list.begin(); it != db_idx_list.end(); ++it) {
+            if (bFirst) {
+                bFirst = false;
+                strClause = int2string(*it);
+            }
+            else
+            {
+                strClause += ("," + int2string(*it));
+            }
+        }
+        
+        string strSql = "delete from IMTravelDetail where user_id=" + int2string(user_id) + " and id in (" + strClause + ")";
+        log("delete sql:%s", strSql.c_str());
+        bRet = pDBConn->ExecuteUpdate(strSql.c_str());
+        pDBManager->RelDBConn(pDBConn);
+    }
+    else
+    {
+        log("no db connection for teamtalk_master");
+        bRet = false;
+    }
+    
+    return bRet;
+}
+
+
 

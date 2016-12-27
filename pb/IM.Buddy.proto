@@ -278,4 +278,32 @@ message CreateTravelRsp{
     optional bytes attach_data = 20;
 }
 
+message DeleteTravelReq{
+    //cmd id:        0x0257
+    required uint32 user_id = 1;
+    repeated uint32 db_idx_list = 2;
+    optional bytes attach_data = 20;
+}
+
+message DeleteTravelRsp{
+    //cmd id:        0x0258
+    required uint32 user_id = 1;
+    required uint32 result_code = 2; // 0: full success, other: fail
+    optional bytes attach_data = 20;
+}
+
+message UpdateTravelReq{
+    //cmd id:        0x0259
+    required uint32 user_id = 1;
+    required TravelDetail travel_detail = 2;
+    optional bytes attach_data = 20;
+}
+
+message UpdateTravelRsp{
+    //cmd id:        0x0260
+    required uint32 user_id = 1;
+    required uint32 result_code = 2;
+    optional bytes attach_data = 20;
+}
+
 

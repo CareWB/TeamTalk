@@ -37,6 +37,8 @@ public:
     bool getPushShield(uint32_t user_id, uint32_t* shield_status);
     uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateTravelReq* pb);
     bool getTravelDetail(uint32_t user_id, IM::Buddy::GetTravelTripListRsp& rsp);
+    bool deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_idx_list);
+    bool updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateTravelReq* pb);
 
 private:
     CUserModel();
