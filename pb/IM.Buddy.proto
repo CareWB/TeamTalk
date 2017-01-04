@@ -169,8 +169,8 @@ message TravelRouteReq{
     required uint32 user_id         = 1;
     required uint32 travel_type     = 2; // TravelType，按位与
     required string lines           = 3; // "SZX-XMN-SZX"
-    required uint32 time_from       = 4; // 开始时间，与1970的秒差
-    required uint32 time_to         = 5; // 结束时间，与1970的秒差
+    required string time_from       = 4; // 开始时间，与1970的秒差
+    required string time_to         = 5; // 结束时间，与1970的秒差
     optional bytes attach_data      = 20;
 }
 
@@ -191,6 +191,7 @@ message TravelRouteRsp{
     required uint32 user_id                     = 1;
     required uint32 result_code                 = 2;
     repeated TravelToolInfo travel_tool_info    = 3;
+    optional bytes attach_data                  = 20;
 }
 
 

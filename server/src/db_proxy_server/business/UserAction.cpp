@@ -222,6 +222,30 @@ msgResp.set_user_id(from_user_id);
     }
 
     void getTravelRoute(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("getTravelRoute enter.");
+        IM::Buddy::TravelRouteReq req;
+        IM::Buddy::TravelRouteRsp resp;
+        if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
+            uint32_t user_id = req.user_id();
+
+            bool result = CUserModel::getInstance()->getTravelRoute(user_id, req, resp);
+            resp.set_user_id(user_id);
+            resp.set_result_code(result ? 0 : 1);
+            if ( ! result) {
+                log("getTravelDetail false, user_id=%u", user_id);
+            }
+            
+            CImPdu* pdu_resp = new CImPdu();
+            resp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&resp);
+            pdu_resp->SetSeqNum(pPdu->GetSeqNum());
+            pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE);
+            CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
+            
+        } else {
+            log("getTravelRoute: TravelRouteReq ParseFromArray failed!!!");
+        }
     }
 
     void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {

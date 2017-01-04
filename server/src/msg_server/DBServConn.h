@@ -49,6 +49,7 @@ private:
     
     void _HandlePushShieldResponse(CImPdu* pPdu);
     void _HandleQueryPushShieldResponse(CImPdu* pPdu);
+    void _HandleTravelRouteListResponse(CImPdu* pPdu);
     void _HandleCreateTravelResponse(CImPdu* pPdu);
     void _HandleDeleteTravelResponse(CImPdu* pPdu);
     void _HandleTravelListResponse(CImPdu* pPdu);
