@@ -3,6 +3,7 @@ package com.mogujie.tt.imservice.manager;
 import android.util.Log;
 
 import com.mogujie.tt.DB.DBInterface;
+import com.mogujie.tt.DB.entity.TrafficEntity;
 import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.imservice.event.TravelEvent;
 import com.mogujie.tt.protobuf.IMBaseDefine;
@@ -27,6 +28,7 @@ public class IMTravelManager extends IMManager {
 
     /**key=> sessionKey*/
     private List<TravelEntity> travelEntityList = new ArrayList<>();
+    private List<TrafficEntity> trafficEntityList = new ArrayList<>();
     private TravelEntity mtTravel = new TravelEntity();
 
     @Override
@@ -74,12 +76,10 @@ public class IMTravelManager extends IMManager {
 
     /**-------------------------------分割线----------------------------------*/
     private void reqTravelList() {
-        logger.i("1reqTravelList");
+        logger.i("reqTravelList");
         int loginId = IMLoginManager.instance().getLoginId();
-        IMBuddy.GetTravelListReq getTravelListReq = IMBuddy.GetTravelListReq
-                .newBuilder()
-                .setUserId(loginId)
-                .build();
+        IMBuddy.GetTravelListReq getTravelListReq = IMBuddy.GetTravelListReq.newBuilder()
+                .setUserId(loginId).build();
 
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_LIST_REQUEST_VALUE;
@@ -159,7 +159,7 @@ public class IMTravelManager extends IMManager {
 
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST_VALUE;
-        imSocketManager.sendRequest(createTravelReq,sid,cid);
+        //imSocketManager.sendRequest(createTravelReq,sid,cid);
     }
 
     public void onRspCreateTravel(IMBuddy.CreateTravelRsp createTravelRsp) {
@@ -170,6 +170,29 @@ public class IMTravelManager extends IMManager {
             triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_TRAVEL_FAIL));
         } else {
             triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_TRAVEL_OK));
+        }
+    }
+
+    public void reqDelTravel(List<Integer> travelList) {
+        logger.i("reqDelTravel");
+        int loginId = IMLoginManager.instance().getLoginId();
+        IMBuddy.DeleteTravelReq deleteTravelReq = IMBuddy.DeleteTravelReq.newBuilder()
+                .setUserId(loginId)
+                .addAllDbIdxList(travelList).build();
+
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST_VALUE;
+        imSocketManager.sendRequest(deleteTravelReq,sid,cid);
+    }
+
+    public void onRspDelTravel(IMBuddy.DeleteTravelRsp deleteTravelRsp) {
+        logger.i("onRspDelTravel");
+        Log.e("yuki", "onRspDelTravel");
+        if (deleteTravelRsp.getResultCode() != 0) {
+            logger.e("onRepTravelList fail %d", deleteTravelRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.DEL_TRAVEL_FAIL));
+        } else {
+            triggerEvent(new TravelEvent(TravelEvent.Event.DEL_TRAVEL_OK));
         }
     }
 
@@ -211,5 +234,24 @@ public class IMTravelManager extends IMManager {
 
     public TravelEntity getMtTravel() {
         return mtTravel;
+    }
+
+    public List<TrafficEntity> getTrafficEntityList() {
+        if (trafficEntityList.isEmpty()) {
+            TrafficEntity plane1 = new TrafficEntity();
+            plane1.setType(1);
+            plane1.setStartStation("深圳宝安T3");
+            plane1.setEndStation("厦门高崎T3");
+            plane1.setStartTime("12:03");
+            plane1.setEndTime("14:36");
+            plane1.setNo("厦航MF8069|波音738（中）");
+            plane1.setPrice(730);
+            plane1.setExtra("经济舱");
+            plane1.setAddFlag(0);
+
+            trafficEntityList.add(plane1);
+        }
+
+        return trafficEntityList;
     }
 }

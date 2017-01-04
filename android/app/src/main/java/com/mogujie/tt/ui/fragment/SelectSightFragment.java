@@ -27,6 +27,7 @@ import com.mogujie.tt.R;
 import com.mogujie.tt.config.UrlConstant;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
+import com.mogujie.tt.ui.activity.SelectHotelActivity;
 import com.mogujie.tt.ui.adapter.SelectSightIntellengenceAdapter;
 import com.mogujie.tt.ui.adapter.SightAdapter;
 import com.mogujie.tt.ui.adapter.TravelHotAdapter;
@@ -64,6 +65,8 @@ public class SelectSightFragment extends TTBaseFragment{
     private SelectSightIntellengenceAdapter selectSightIntellengenceAdapter;
     private Button popupOK;
     private Button popupCancel;
+
+    private Button next;
     
     private Map<Integer, String> selectFlag = new HashMap<>();
 
@@ -131,12 +134,16 @@ public class SelectSightFragment extends TTBaseFragment{
 	 */
 	private void initRes() {
 		// 设置标题栏
-		setTopTitle(getString(R.string.select_destination));
+		setTopTitle(getString(R.string.select_sight));
 		setTopLeftButton(R.drawable.tt_top_back);
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+                Intent intent = new Intent();
+                intent.putExtra("selectSight", 1);
+                getActivity().setResult(101, intent);
                 getActivity().finish();
+                return;
 			}
 		});
 
@@ -158,6 +165,15 @@ public class SelectSightFragment extends TTBaseFragment{
                 mPopupWindow.showAtLocation(curView.findViewById(R.id.layout_select_sight), Gravity.BOTTOM, 0, 0);
             }
         });
+
+        next = (Button)curView.findViewById(R.id.select_sight_next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump2SelectHotel();
+            }
+        });
+
 
         final String[] mItems = getResources().getStringArray(R.array.sight_menu);
         spinner = (Spinner)curView.findViewById(R.id.spinner_sight);
@@ -494,5 +510,10 @@ public class SelectSightFragment extends TTBaseFragment{
                 }
             }
         }
+    }
+
+    private void jump2SelectHotel() {
+        Intent selectHotel = new Intent(getActivity(), SelectHotelActivity.class);
+        startActivity(selectHotel);
     }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ly_hotel"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            android:id="@+id/hotel_pic" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="7天快捷酒店"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/travel_menu_text"
+                android:id="@+id/hotel_name" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/starRatingBar"
+                    android:id="@+id/hotel_star"
+                    android:maxHeight="12dp"
+                    android:minHeight="12dp"
+                    android:isIndicator="true" />
+
+                <TextView
+                    android:text="(2345)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/travel_menu_text"
+                    android:id="@+id/hotel_focus_num" />
+            </LinearLayout>
+
+            <TextView
+                android:text="经济型"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/travel_menu_text"
+                android:id="@+id/hotel_tag" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hotel_price"
+                android:text="￥300起(晚/间)" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sight_selected"
+            android:id="@+id/hotel_select" />
+
+    </LinearLayout>
+</LinearLayout>

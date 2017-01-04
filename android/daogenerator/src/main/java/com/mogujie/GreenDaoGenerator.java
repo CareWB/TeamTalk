@@ -30,6 +30,9 @@ public class GreenDaoGenerator {
         addSessionInfo(schema);
         addTravelInfo(schema);
         addSightInfo(schema);
+        addHotelInfo(schema);
+        addTrafficInfo(schema);
+        addDetailDispInfo(schema);
 
         // todo 绝对路径,根据自己的路径设定， 例子如下
         String path = "D:\\android\\dao";
@@ -186,6 +189,7 @@ public class GreenDaoGenerator {
         travelInfo.addStringProperty("playEndTime").notNull();
         travelInfo.addIntProperty("cityTraffic").notNull();
         travelInfo.addIntProperty("hotelPosition").notNull();
+        travelInfo.addIntProperty("sightSelect").notNull();
         travelInfo.addIntProperty("cost").notNull();
         travelInfo.addIntProperty("version").notNull();
         travelInfo.addIntProperty("status").notNull();
@@ -196,26 +200,94 @@ public class GreenDaoGenerator {
     }
 
     private static void addSightInfo(Schema schema) {
-        Entity travelInfo = schema.addEntity("SightEntity");
-        travelInfo.setTableName("SightInfo");
-        travelInfo.setClassNameDao("SightDao");
-        travelInfo.setJavaPackage(entityPath);
+        Entity sightlInfo = schema.addEntity("SightEntity");
+        sightlInfo.setTableName("SightInfo");
+        sightlInfo.setClassNameDao("SightDao");
+        sightlInfo.setJavaPackage(entityPath);
 
-        travelInfo.addIdProperty().autoincrement();
-        travelInfo.addIntProperty("peerId").unique().notNull();
-        travelInfo.addStringProperty("name").notNull();
-        travelInfo.addStringProperty("pic").notNull();
-        travelInfo.addIntProperty("star").notNull();
-        travelInfo.addStringProperty("tag").notNull();
-        travelInfo.addIntProperty("free").notNull();
-        travelInfo.addIntProperty("mustGo").notNull();
-        travelInfo.addIntProperty("select").notNull();
-        travelInfo.addIntProperty("focus").notNull();
-        travelInfo.addIntProperty("version").notNull();
-        travelInfo.addIntProperty("status").notNull();
-        travelInfo.addIntProperty("created").notNull();
-        travelInfo.addIntProperty("updated").notNull();
+        sightlInfo.addIdProperty().autoincrement();
+        sightlInfo.addIntProperty("peerId").unique().notNull();
+        sightlInfo.addStringProperty("name").notNull();
+        sightlInfo.addStringProperty("pic").notNull();
+        sightlInfo.addIntProperty("star").notNull();
+        sightlInfo.addStringProperty("tag").notNull();
+        sightlInfo.addIntProperty("free").notNull();
+        sightlInfo.addIntProperty("mustGo").notNull();
+        sightlInfo.addIntProperty("select").notNull();
+        sightlInfo.addIntProperty("focus").notNull();
+        sightlInfo.addIntProperty("version").notNull();
+        sightlInfo.addIntProperty("status").notNull();
+        sightlInfo.addIntProperty("created").notNull();
+        sightlInfo.addIntProperty("updated").notNull();
 
-        travelInfo.setHasKeepSections(true);
+        sightlInfo.setHasKeepSections(true);
+    }
+
+    private static void addHotelInfo(Schema schema) {
+        Entity hotelInfo = schema.addEntity("HotelEntity");
+        hotelInfo.setTableName("HotelInfo");
+        hotelInfo.setClassNameDao("HotelDao");
+        hotelInfo.setJavaPackage(entityPath);
+
+        hotelInfo.addIdProperty().autoincrement();
+        hotelInfo.addIntProperty("peerId").unique().notNull();
+        hotelInfo.addStringProperty("name").notNull();
+        hotelInfo.addStringProperty("pic").notNull();
+        hotelInfo.addIntProperty("star").notNull();
+        hotelInfo.addStringProperty("tag").notNull();
+        hotelInfo.addIntProperty("optimize").notNull();
+        hotelInfo.addIntProperty("price").notNull();
+        hotelInfo.addIntProperty("select").notNull();
+        hotelInfo.addIntProperty("focus").notNull();
+        hotelInfo.addIntProperty("version").notNull();
+        hotelInfo.addIntProperty("status").notNull();
+        hotelInfo.addIntProperty("created").notNull();
+        hotelInfo.addIntProperty("updated").notNull();
+
+        hotelInfo.setHasKeepSections(true);
+    }
+
+    private static void addTrafficInfo(Schema schema) {
+        Entity trafficInfo = schema.addEntity("TrafficEntity");
+        trafficInfo.setTableName("TrafficInfo");
+        trafficInfo.setClassNameDao("TrafficDao");
+        trafficInfo.setJavaPackage(entityPath);
+
+        trafficInfo.addIdProperty().autoincrement();
+        trafficInfo.addIntProperty("type").notNull();
+        trafficInfo.addStringProperty("no").notNull();
+        trafficInfo.addStringProperty("startStation").notNull();
+        trafficInfo.addStringProperty("endStation").notNull();
+        trafficInfo.addStringProperty("startTime").notNull();
+        trafficInfo.addStringProperty("endTime").notNull();
+        trafficInfo.addIntProperty("price").notNull();
+        trafficInfo.addStringProperty("extra").notNull();
+        trafficInfo.addIntProperty("addFlag").notNull();
+        trafficInfo.addIntProperty("version").notNull();
+        trafficInfo.addIntProperty("status").notNull();
+        trafficInfo.addIntProperty("created").notNull();
+        trafficInfo.addIntProperty("updated").notNull();
+
+        trafficInfo.setHasKeepSections(true);
+    }
+
+    private static void addDetailDispInfo(Schema schema) {
+        Entity detailDispInfo = schema.addEntity("DetailDispEntity");
+        detailDispInfo.setTableName("DetailDispInfo");
+        detailDispInfo.setClassNameDao("DetailDispDao");
+        detailDispInfo.setJavaPackage(entityPath);
+
+        detailDispInfo.addIdProperty().autoincrement();
+        detailDispInfo.addIntProperty("type").notNull();
+        detailDispInfo.addStringProperty("backgroud").notNull();
+        detailDispInfo.addStringProperty("title").notNull();
+        detailDispInfo.addStringProperty("content").notNull();
+        detailDispInfo.addStringProperty("time").notNull();
+        detailDispInfo.addIntProperty("version").notNull();
+        detailDispInfo.addIntProperty("status").notNull();
+        detailDispInfo.addIntProperty("created").notNull();
+        detailDispInfo.addIntProperty("updated").notNull();
+
+        detailDispInfo.setHasKeepSections(true);
     }
 }

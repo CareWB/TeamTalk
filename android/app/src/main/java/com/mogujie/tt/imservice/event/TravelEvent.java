@@ -21,5 +21,7 @@ public class TravelEvent {
         TRAVEL_LIST_FAIL,
         CREATE_TRAVEL_OK,
         CREATE_TRAVEL_FAIL,
+        DEL_TRAVEL_OK,
+        DEL_TRAVEL_FAIL,
     }
 }

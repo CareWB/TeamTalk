@@ -541,6 +541,22 @@ public final class IMBaseDefine {
      * <code>CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE = 598;</code>
      */
     CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE(26, 598),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST = 599;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST(27, 599),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE = 600;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE(28, 600),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST = 601;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST(29, 601),
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE = 608;</code>
+     */
+    CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE(30, 608),
     ;
 
     /**
@@ -672,6 +688,22 @@ public final class IMBaseDefine {
      * <code>CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE = 598;</code>
      */
     public static final int CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE_VALUE = 598;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST = 599;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST_VALUE = 599;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE = 600;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE_VALUE = 600;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST = 601;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST_VALUE = 601;
+    /**
+     * <code>CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE = 608;</code>
+     */
+    public static final int CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE_VALUE = 608;
 
 
     public final int getNumber() { return value; }
@@ -705,6 +737,10 @@ public final class IMBaseDefine {
         case 596: return CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE;
         case 597: return CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST;
         case 598: return CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE;
+        case 599: return CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST;
+        case 600: return CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE;
+        case 601: return CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST;
+        case 608: return CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE;
         default: return null;
       }
     }

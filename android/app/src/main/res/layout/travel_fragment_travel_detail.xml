@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/default_bk">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="2天"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/travel_menu_text"
+            android:id="@+id/travel_detail_time"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="3444元"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/travel_menu_text"
+            android:id="@+id/travel_detail_price"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="经济舒适游"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/travel_menu_text"
+            android:id="@+id/travel_detail_type"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/rv_travel_detail" />
+
+    <Button
+        android:text="费用清单"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pay_detail" />
+
+</LinearLayout>

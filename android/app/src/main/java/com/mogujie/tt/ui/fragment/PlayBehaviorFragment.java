@@ -333,8 +333,8 @@ public class PlayBehaviorFragment extends TTBaseFragment{
     }
 
     private void jump2SelectSight() {
-        Intent playBehavior = new Intent(getActivity(), SelectSightActivity.class);
-        startActivity(playBehavior);
+        Intent selectSight = new Intent(getActivity(), SelectSightActivity.class);
+        startActivity(selectSight);
     }
 
 }

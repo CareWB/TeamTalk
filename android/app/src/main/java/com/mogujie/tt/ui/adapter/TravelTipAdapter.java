@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.R;
+import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.protobuf.IMBuddy;
 import com.mogujie.tt.utils.GlideRoundTransform;
 import com.mogujie.tt.utils.TravelUIHelper;
@@ -32,7 +33,17 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private CardAdapterHelper mCardAdapterHelper = new CardAdapterHelper();
     private Map<Integer, String> travelTypeStringMap = new HashMap();
 
-    public TravelTipAdapter(Context ctx, List<TravelEntity> mList) {
+    public static interface OnRecyclerViewListener {
+        void onDeleteClick(int position);
+    }
+
+    private OnRecyclerViewListener onRecyclerViewListener;
+
+    public void setOnRecyclerViewListener(OnRecyclerViewListener onRecyclerViewListener) {
+        this.onRecyclerViewListener = onRecyclerViewListener;
+    }
+
+    public TravelTipAdapter(Context ctx, IMService imService, List<TravelEntity> mList) {
         this.ctx = ctx;
         this.mList = mList;
         initTravelTypeMap();
@@ -99,19 +110,20 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
             });
 
-            travelHolder.delete.setOnClickListener(new View.OnClickListener() {
+/*            travelHolder.delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     TravelUIHelper.showAlertDialog(ctx, ctx.getString(R.string.travel_delete), new TravelUIHelper.dialogCallback() {
                         @Override
                         public void callback() {
+
                             mList.remove(position);
                             notifyItemRemoved(position);
                             Toast.makeText(ctx,"delete ok",Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
-            });
+            });*/
 
             /*Glide.with(ctx).load(travelEntity.getDestinationBK())
                     .transform(new GlideRoundTransform(ctx, 10))
@@ -140,7 +152,7 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return mList.size();
     }
 
-    public class TravelHolder extends RecyclerView.ViewHolder {
+    public class TravelHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public final ImageView travelBk;
         public final ImageView travelMenu;
         public final TextView travelDays;
@@ -152,6 +164,8 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public final LinearLayout lyTravelMenu;
         public final TextView share;
         public final TextView delete;
+
+        public int position;
 
         public TravelHolder(final View itemView) {
             super(itemView);
@@ -166,6 +180,14 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             lyTravelMenu = (LinearLayout)itemView.findViewById(R.id.ly_travel_menu);
             share = (TextView)itemView.findViewById(R.id.travel_share);
             delete = (TextView)itemView.findViewById(R.id.travel_delete);
+            delete.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (null != onRecyclerViewListener) {
+                onRecyclerViewListener.onDeleteClick(position);
+            }
         }
     }
 

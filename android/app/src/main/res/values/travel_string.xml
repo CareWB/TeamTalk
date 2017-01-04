@@ -14,6 +14,8 @@
     <string name="travel_delete">删除行程</string>
     <string name="select_destination">选择目的地</string>
     <string name="travel_behavior">出行喜好</string>
+    <string name="travel_detail">详细行程</string>
     <string name="play_behavior">游玩喜好</string>
     <string name="select_sight">选择景点</string>
+    <string name="select_hotel">选择酒店</string>
 </resources>

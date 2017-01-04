@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout_select_sight"
+    android:id="@+id/layout_select_hotel"
     android:orientation="vertical">
 
     <LinearLayout
@@ -32,50 +32,50 @@
         android:layout_height="wrap_content">
 
         <Spinner
-            android:id="@+id/spinner_sight"
+            android:id="@+id/spinner_hotel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/default_bk"
             android:spinnerMode="dropdown" />
 
         <TextView
-            android:text="全部"
+            android:text="推荐"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/select_all"
+            android:id="@+id/select_recommend"
             android:layout_weight="1" />
 
         <TextView
-            android:text="自然"
+            android:text="经济型"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/select_nature"
+            android:id="@+id/select_economical"
             android:layout_weight="1" />
 
         <TextView
-            android:text="历史"
+            android:text="豪华型"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/select_history"
+            android:id="@+id/select_luxurious"
             android:layout_weight="1" />
 
         <TextView
-            android:text="文娱"
+            android:text="青旅"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/select_entertainment"
+            android:id="@+id/select_youth"
             android:layout_weight="1" />
 
         <TextView
-            android:text="建筑"
+            android:text="民宿"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/select_building"
+            android:id="@+id/select_home"
             android:layout_weight="1" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_sight"
+        android:id="@+id/rv_hotel"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
@@ -83,21 +83,14 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
         <Button
-            android:text="智能选择"
+            android:text="生成路线"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sight_intelligence_select"
-            android:layout_weight="1" />
-
-        <Button
-            android:text="下一步"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/select_sight_next"
-            android:layout_weight="1" />
+            android:id="@+id/hotel_next" />
     </LinearLayout>
 
 </LinearLayout>

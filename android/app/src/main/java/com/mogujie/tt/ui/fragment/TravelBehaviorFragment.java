@@ -15,6 +15,7 @@ import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.activity.PlayBehaviorActivity;
 import com.mogujie.tt.ui.base.TTBaseFragment;
+import com.mogujie.tt.utils.TravelUIHelper;
 
 /**
  * 设置页面
@@ -156,7 +157,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
                     case R.id.travel_behavior_next_step:
                         if (checkBehavior()) {
                             storeTravelEntity();
-                            jump2PlayBehavior();
+                            TravelUIHelper.openTravelDetailActivity(getActivity());
                         }
                         break;
                 }
@@ -341,8 +342,4 @@ public class TravelBehaviorFragment extends TTBaseFragment{
         }
     }
 
-    private void jump2PlayBehavior() {
-        Intent playBehavior = new Intent(getActivity(), PlayBehaviorActivity.class);
-        startActivity(playBehavior);
-    }
 }

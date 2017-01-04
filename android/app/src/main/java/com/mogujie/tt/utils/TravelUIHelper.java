@@ -7,11 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.IntentConstant;
 import com.mogujie.tt.ui.activity.CreateTravelActivity;
+import com.mogujie.tt.ui.activity.DetailDispActivity;
+import com.mogujie.tt.ui.activity.IntroduceHotelActivity;
 import com.mogujie.tt.ui.activity.IntroduceSightActivity;
+import com.mogujie.tt.ui.activity.SelectSightActivity;
+import com.mogujie.tt.ui.activity.TrafficListActivity;
+import com.mogujie.tt.ui.activity.TravelDetailActivity;
 
 public class TravelUIHelper {
 
@@ -58,4 +62,22 @@ public class TravelUIHelper {
         ctx.startActivity(intent);
 	}
 
+	//跳转到景点介绍页面
+	public static void openIntroduceHotelActivity(Context ctx, int hotelID) {
+		Intent intent = new Intent(ctx, IntroduceHotelActivity.class);
+		intent.putExtra(IntentConstant.KEY_PEERID, hotelID);
+		ctx.startActivity(intent);
+	}
+
+	//跳转到详细行程页面
+	public static void openTravelDetailActivity(Context ctx) {
+		Intent intent = new Intent(ctx, TravelDetailActivity.class);
+		ctx.startActivity(intent);
+	}
+
+	//跳转到细节展示页面
+	public static void openDetailDispActivity(Context ctx) {
+		Intent intent = new Intent(ctx, DetailDispActivity.class);
+		ctx.startActivity(intent);
+	}
 }

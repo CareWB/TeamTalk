@@ -39,6 +39,7 @@ public class TravelEntity {
     private String playEndTime;
     private int cityTraffic;
     private int hotelPosition;
+    private int sightSelect;
     private int cost;
     private int version;
     private int status;
@@ -55,7 +56,7 @@ public class TravelEntity {
         this.id = id;
     }
 
-    public TravelEntity(Long id, int dbId, int creatorId, int duration, String startDate, String endDate, String startPlace, String endPlace, String destination, String destinationBK, int personNum, int trafficWay, String trafficStartTime, String trafficEndTime, int trafficQuality, int playQuality, String playStartTime, String playEndTime, int cityTraffic, int hotelPosition, int cost, int version, int status, int created, int updated) {
+    public TravelEntity(Long id, int dbId, int creatorId, int duration, String startDate, String endDate, String startPlace, String endPlace, String destination, String destinationBK, int personNum, int trafficWay, String trafficStartTime, String trafficEndTime, int trafficQuality, int playQuality, String playStartTime, String playEndTime, int cityTraffic, int hotelPosition, int sightSelect, int cost, int version, int status, int created, int updated) {
         this.id = id;
         this.dbId = dbId;
         this.creatorId = creatorId;
@@ -76,6 +77,7 @@ public class TravelEntity {
         this.playEndTime = playEndTime;
         this.cityTraffic = cityTraffic;
         this.hotelPosition = hotelPosition;
+        this.sightSelect = sightSelect;
         this.cost = cost;
         this.version = version;
         this.status = status;
@@ -261,6 +263,14 @@ public class TravelEntity {
 
     public void setHotelPosition(int hotelPosition) {
         this.hotelPosition = hotelPosition;
+    }
+
+    public int getSightSelect() {
+        return sightSelect;
+    }
+
+    public void setSightSelect(int sightSelect) {
+        this.sightSelect = sightSelect;
     }
 
     public int getCost() {

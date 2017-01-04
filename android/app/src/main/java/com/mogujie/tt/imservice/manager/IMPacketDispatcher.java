@@ -86,7 +86,11 @@ public class IMPacketDispatcher {
                 IMBuddy.CreateTravelRsp createTravelRsp = IMBuddy.CreateTravelRsp.parseFrom(buffer);
                 IMTravelManager.instance().onRspCreateTravel(createTravelRsp);
                 return;
-        }
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE_VALUE:
+                IMBuddy.DeleteTravelRsp deleteTravelRsp = IMBuddy.DeleteTravelRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspDelTravel(deleteTravelRsp);
+                return;
+            }
         } catch (IOException e) {
             logger.e("buddyPacketDispatcher# error,cid:%d",commandId);
         }

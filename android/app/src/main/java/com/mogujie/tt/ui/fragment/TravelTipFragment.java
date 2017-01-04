@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -53,12 +54,13 @@ public class TravelTipFragment extends TTBaseFragment {
     private IMTravelManager imTravelManager;
     private List<TravelEntity> travelEntityList = new ArrayList<>();
     private TravelTipAdapter travelTipAdapter;
+	private IMService imService;
 
 	private IMServiceConnector imServiceConnector = new IMServiceConnector(){
 		@Override
 		public void onIMServiceConnected() {
 			logger.d("config#onIMServiceConnected");
-			IMService imService = imServiceConnector.getIMService();
+			imService = imServiceConnector.getIMService();
 			if (imService != null) {
                 imTravelManager = imService.getTravelManager();
 			}
@@ -186,7 +188,21 @@ public class TravelTipFragment extends TTBaseFragment {
         mRecyclerView.setLayoutManager(linearLayoutManager);
         //travelEntityList.addAll(imTravelManager.getTravelEntityList());
         travelEntityList.add(new TravelEntity());
-        travelTipAdapter = new TravelTipAdapter(getActivity(), travelEntityList);
+        travelTipAdapter = new TravelTipAdapter(getActivity(), imService, travelEntityList);
+        TravelTipAdapter.OnRecyclerViewListener travelTipRVListener = new TravelTipAdapter.OnRecyclerViewListener() {
+            @Override
+            public void onDeleteClick(int position) {
+                TravelEntity travelEntity = travelEntityList.get(position);
+                List<Integer> delIdList = new ArrayList<>();
+                delIdList.add(travelEntity.getDbId());
+                imTravelManager.reqDelTravel(delIdList);
+
+                travelEntityList.remove(position);
+                travelTipAdapter.notifyItemRemoved(position);
+                Toast.makeText(getActivity(),"delete ok",Toast.LENGTH_SHORT).show();
+            }
+        };
+        travelTipAdapter.setOnRecyclerViewListener(travelTipRVListener);
         mRecyclerView.setAdapter(travelTipAdapter);
         // mRecyclerView绑定scale效果
         mCardScaleHelper = new CardScaleHelper();
