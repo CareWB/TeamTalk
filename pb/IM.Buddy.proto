@@ -240,6 +240,8 @@ message PlayInfo{
     required string play_time_to          = 3;
     required uint32 city_traffic          = 4;
     required HotelPositionType hotel_position = 5;
+    required string hotel = 6;
+    repeated string ScenicSpot = 7;
 }
 
 message TravelDetail{
@@ -305,6 +307,47 @@ message UpdateTravelRsp{
     required uint32 user_id = 1;
     required uint32 result_code = 2;
     optional bytes attach_data = 20;
+}
+
+message GetScenicSpotReq{
+    //cmd id:        0x0261
+    required uint32 user_id         = 1;
+    required string city_code       = 2; // "XMN"
+    optional bytes attach_data      = 20;
+}
+
+message GetScenicSpotRsp{
+    //cmd id:        0x0262
+    required uint32 user_id         = 1;
+    required string city_code       = 2; // "XMN"
+    required string name            = 3; // 景点名
+    required string tags            = 4; // 景点标签 "文化-休闲"
+    required uint32 must_see        = 5; // 0为必去
+    required uint32 play_time       = 6; // 大概游玩时间
+    required uint32 score           = 7; // 评分
+    required uint32 price           = 8; // 价格
+    required string url             = 9; // 介绍网址
+    optional bytes attach_data      = 20;
+}
+
+message GetHotelReq{
+    //cmd id:        0x0263
+    required uint32 user_id         = 1;
+    required string city_code       = 2; // "XMN"
+    optional bytes attach_data      = 20;
+}
+
+message GetHotelRsp{
+    //cmd id:        0x0264
+    required uint32 user_id         = 1;
+    required string city_code       = 2; // "XMN"
+    required string name            = 3;
+    required string tags            = 4;
+    required uint32 must_see        = 5; 
+    required uint32 score           = 6; 
+    required uint32 price           = 7; 
+    required string url             = 8; 
+    optional bytes attach_data      = 20;
 }
 
 
