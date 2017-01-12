@@ -2,6 +2,7 @@ package com.mogujie.tt.protobuf.helper;
 
 import com.google.protobuf.ByteString;
 import com.mogujie.tt.DB.entity.DepartmentEntity;
+import com.mogujie.tt.DB.entity.TrafficEntity;
 import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.config.DBConstant;
 import com.mogujie.tt.DB.entity.GroupEntity;
@@ -358,5 +359,19 @@ public class ProtoBuf2JavaBean {
         travelEntity.setHotelPosition(travelDetail.getPlayInfo().getHotelPosition().getNumber());
         travelEntity.setCost(travelDetail.getCost());
         return travelEntity;
+    }
+
+    public static TrafficEntity getTrafficEntity(IMBuddy.TravelToolInfo travelToolInfo){
+        TrafficEntity trafficEntity = new TrafficEntity();
+        trafficEntity.setType(travelToolInfo.getTravelType());
+        trafficEntity.setStartStation(travelToolInfo.getPlaceFrom());
+        trafficEntity.setEndStation(travelToolInfo.getPlaceTo());
+        trafficEntity.setStartTime(travelToolInfo.getTimeFrom());
+        trafficEntity.setEndTime(travelToolInfo.getTimeTo());
+        trafficEntity.setNo(travelToolInfo.getNo());
+        trafficEntity.setPrice(travelToolInfo.getPrice());
+        trafficEntity.setExtra("经济舱");
+        trafficEntity.setAddFlag(0);
+        return trafficEntity;
     }
 }

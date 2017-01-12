@@ -13621,7 +13621,7 @@ public final class IMBuddy {
         getLinesBytes();
 
     /**
-     * <code>required uint32 time_from = 4;</code>
+     * <code>required string time_from = 4;</code>
      *
      * <pre>
      * 开始时间，与1970的秒差
@@ -13629,16 +13629,25 @@ public final class IMBuddy {
      */
     boolean hasTimeFrom();
     /**
-     * <code>required uint32 time_from = 4;</code>
+     * <code>required string time_from = 4;</code>
      *
      * <pre>
      * 开始时间，与1970的秒差
      * </pre>
      */
-    int getTimeFrom();
+    java.lang.String getTimeFrom();
+    /**
+     * <code>required string time_from = 4;</code>
+     *
+     * <pre>
+     * 开始时间，与1970的秒差
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTimeFromBytes();
 
     /**
-     * <code>required uint32 time_to = 5;</code>
+     * <code>required string time_to = 5;</code>
      *
      * <pre>
      * 结束时间，与1970的秒差
@@ -13646,13 +13655,22 @@ public final class IMBuddy {
      */
     boolean hasTimeTo();
     /**
-     * <code>required uint32 time_to = 5;</code>
+     * <code>required string time_to = 5;</code>
      *
      * <pre>
      * 结束时间，与1970的秒差
      * </pre>
      */
-    int getTimeTo();
+    java.lang.String getTimeTo();
+    /**
+     * <code>required string time_to = 5;</code>
+     *
+     * <pre>
+     * 结束时间，与1970的秒差
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTimeToBytes();
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -13729,14 +13747,16 @@ public final class IMBuddy {
               lines_ = bs;
               break;
             }
-            case 32: {
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              timeFrom_ = input.readUInt32();
+              timeFrom_ = bs;
               break;
             }
-            case 40: {
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              timeTo_ = input.readUInt32();
+              timeTo_ = bs;
               break;
             }
             case 162: {
@@ -13879,9 +13899,9 @@ public final class IMBuddy {
     }
 
     public static final int TIME_FROM_FIELD_NUMBER = 4;
-    private int timeFrom_;
+    private java.lang.Object timeFrom_;
     /**
-     * <code>required uint32 time_from = 4;</code>
+     * <code>required string time_from = 4;</code>
      *
      * <pre>
      * 开始时间，与1970的秒差
@@ -13891,20 +13911,51 @@ public final class IMBuddy {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required uint32 time_from = 4;</code>
+     * <code>required string time_from = 4;</code>
      *
      * <pre>
      * 开始时间，与1970的秒差
      * </pre>
      */
-    public int getTimeFrom() {
-      return timeFrom_;
+    public java.lang.String getTimeFrom() {
+      java.lang.Object ref = timeFrom_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          timeFrom_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string time_from = 4;</code>
+     *
+     * <pre>
+     * 开始时间，与1970的秒差
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTimeFromBytes() {
+      java.lang.Object ref = timeFrom_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeFrom_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int TIME_TO_FIELD_NUMBER = 5;
-    private int timeTo_;
+    private java.lang.Object timeTo_;
     /**
-     * <code>required uint32 time_to = 5;</code>
+     * <code>required string time_to = 5;</code>
      *
      * <pre>
      * 结束时间，与1970的秒差
@@ -13914,14 +13965,45 @@ public final class IMBuddy {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required uint32 time_to = 5;</code>
+     * <code>required string time_to = 5;</code>
      *
      * <pre>
      * 结束时间，与1970的秒差
      * </pre>
      */
-    public int getTimeTo() {
-      return timeTo_;
+    public java.lang.String getTimeTo() {
+      java.lang.Object ref = timeTo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          timeTo_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string time_to = 5;</code>
+     *
+     * <pre>
+     * 结束时间，与1970的秒差
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTimeToBytes() {
+      java.lang.Object ref = timeTo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeTo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int ATTACH_DATA_FIELD_NUMBER = 20;
@@ -13943,8 +14025,8 @@ public final class IMBuddy {
       userId_ = 0;
       travelType_ = 0;
       lines_ = "";
-      timeFrom_ = 0;
-      timeTo_ = 0;
+      timeFrom_ = "";
+      timeTo_ = "";
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
@@ -13990,10 +14072,10 @@ public final class IMBuddy {
         output.writeBytes(3, getLinesBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeUInt32(4, timeFrom_);
+        output.writeBytes(4, getTimeFromBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeUInt32(5, timeTo_);
+        output.writeBytes(5, getTimeToBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeBytes(20, attachData_);
@@ -14021,11 +14103,11 @@ public final class IMBuddy {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, timeFrom_);
+          .computeBytesSize(4, getTimeFromBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, timeTo_);
+          .computeBytesSize(5, getTimeToBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
@@ -14131,9 +14213,9 @@ public final class IMBuddy {
         bitField0_ = (bitField0_ & ~0x00000002);
         lines_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        timeFrom_ = 0;
+        timeFrom_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        timeTo_ = 0;
+        timeTo_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -14202,10 +14284,14 @@ public final class IMBuddy {
           
         }
         if (other.hasTimeFrom()) {
-          setTimeFrom(other.getTimeFrom());
+          bitField0_ |= 0x00000008;
+          timeFrom_ = other.timeFrom_;
+          
         }
         if (other.hasTimeTo()) {
-          setTimeTo(other.getTimeTo());
+          bitField0_ |= 0x00000010;
+          timeTo_ = other.timeTo_;
+          
         }
         if (other.hasAttachData()) {
           setAttachData(other.getAttachData());
@@ -14454,9 +14540,9 @@ public final class IMBuddy {
         return this;
       }
 
-      private int timeFrom_ ;
+      private java.lang.Object timeFrom_ = "";
       /**
-       * <code>required uint32 time_from = 4;</code>
+       * <code>required string time_from = 4;</code>
        *
        * <pre>
        * 开始时间，与1970的秒差
@@ -14466,30 +14552,65 @@ public final class IMBuddy {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required uint32 time_from = 4;</code>
+       * <code>required string time_from = 4;</code>
        *
        * <pre>
        * 开始时间，与1970的秒差
        * </pre>
        */
-      public int getTimeFrom() {
-        return timeFrom_;
+      public java.lang.String getTimeFrom() {
+        java.lang.Object ref = timeFrom_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            timeFrom_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required uint32 time_from = 4;</code>
+       * <code>required string time_from = 4;</code>
        *
        * <pre>
        * 开始时间，与1970的秒差
        * </pre>
        */
-      public Builder setTimeFrom(int value) {
-        bitField0_ |= 0x00000008;
+      public com.google.protobuf.ByteString
+          getTimeFromBytes() {
+        java.lang.Object ref = timeFrom_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timeFrom_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string time_from = 4;</code>
+       *
+       * <pre>
+       * 开始时间，与1970的秒差
+       * </pre>
+       */
+      public Builder setTimeFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
         timeFrom_ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 time_from = 4;</code>
+       * <code>required string time_from = 4;</code>
        *
        * <pre>
        * 开始时间，与1970的秒差
@@ -14497,14 +14618,31 @@ public final class IMBuddy {
        */
       public Builder clearTimeFrom() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        timeFrom_ = 0;
+        timeFrom_ = getDefaultInstance().getTimeFrom();
+        
+        return this;
+      }
+      /**
+       * <code>required string time_from = 4;</code>
+       *
+       * <pre>
+       * 开始时间，与1970的秒差
+       * </pre>
+       */
+      public Builder setTimeFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        timeFrom_ = value;
         
         return this;
       }
 
-      private int timeTo_ ;
+      private java.lang.Object timeTo_ = "";
       /**
-       * <code>required uint32 time_to = 5;</code>
+       * <code>required string time_to = 5;</code>
        *
        * <pre>
        * 结束时间，与1970的秒差
@@ -14514,30 +14652,65 @@ public final class IMBuddy {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required uint32 time_to = 5;</code>
+       * <code>required string time_to = 5;</code>
        *
        * <pre>
        * 结束时间，与1970的秒差
        * </pre>
        */
-      public int getTimeTo() {
-        return timeTo_;
+      public java.lang.String getTimeTo() {
+        java.lang.Object ref = timeTo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            timeTo_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required uint32 time_to = 5;</code>
+       * <code>required string time_to = 5;</code>
        *
        * <pre>
        * 结束时间，与1970的秒差
        * </pre>
        */
-      public Builder setTimeTo(int value) {
-        bitField0_ |= 0x00000010;
+      public com.google.protobuf.ByteString
+          getTimeToBytes() {
+        java.lang.Object ref = timeTo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timeTo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string time_to = 5;</code>
+       *
+       * <pre>
+       * 结束时间，与1970的秒差
+       * </pre>
+       */
+      public Builder setTimeTo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
         timeTo_ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 time_to = 5;</code>
+       * <code>required string time_to = 5;</code>
        *
        * <pre>
        * 结束时间，与1970的秒差
@@ -14545,7 +14718,24 @@ public final class IMBuddy {
        */
       public Builder clearTimeTo() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        timeTo_ = 0;
+        timeTo_ = getDefaultInstance().getTimeTo();
+        
+        return this;
+      }
+      /**
+       * <code>required string time_to = 5;</code>
+       *
+       * <pre>
+       * 结束时间，与1970的秒差
+       * </pre>
+       */
+      public Builder setTimeToBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        timeTo_ = value;
         
         return this;
       }
@@ -16640,6 +16830,15 @@ public final class IMBuddy {
      * <code>repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;</code>
      */
     int getTravelToolInfoCount();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
   }
   /**
    * Protobuf type {@code IM.Buddy.TravelRouteRsp}
@@ -16707,6 +16906,11 @@ public final class IMBuddy {
                 mutable_bitField0_ |= 0x00000004;
               }
               travelToolInfo_.add(input.readMessage(com.mogujie.tt.protobuf.IMBuddy.TravelToolInfo.PARSER, extensionRegistry));
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000004;
+              attachData_ = input.readBytes();
               break;
             }
           }
@@ -16819,10 +17023,26 @@ public final class IMBuddy {
       return travelToolInfo_.get(index);
     }
 
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
     private void initFields() {
       userId_ = 0;
       resultCode_ = 0;
       travelToolInfo_ = java.util.Collections.emptyList();
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -16860,6 +17080,9 @@ public final class IMBuddy {
       for (int i = 0; i < travelToolInfo_.size(); i++) {
         output.writeMessage(3, travelToolInfo_.get(i));
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(20, attachData_);
+      }
       output.writeRawBytes(unknownFields);
     }
 
@@ -16880,6 +17103,10 @@ public final class IMBuddy {
       for (int i = 0; i < travelToolInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, travelToolInfo_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -16981,6 +17208,8 @@ public final class IMBuddy {
         bitField0_ = (bitField0_ & ~0x00000002);
         travelToolInfo_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -17017,6 +17246,10 @@ public final class IMBuddy {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.travelToolInfo_ = travelToolInfo_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.attachData_ = attachData_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -17038,6 +17271,9 @@ public final class IMBuddy {
             travelToolInfo_.addAll(other.travelToolInfo_);
           }
           
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
         }
         setUnknownFields(
             getUnknownFields().concat(other.unknownFields));
@@ -17283,6 +17519,41 @@ public final class IMBuddy {
         ensureTravelToolInfoIsMutable();
         travelToolInfo_.remove(index);
 
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = getDefaultInstance().getAttachData();
+        
         return this;
       }
 

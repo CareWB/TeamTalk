@@ -23,5 +23,7 @@ public class TravelEvent {
         CREATE_TRAVEL_FAIL,
         DEL_TRAVEL_OK,
         DEL_TRAVEL_FAIL,
+        REQ_TRAVEL_ROUTE_OK,
+        REQ_TRAVEL_ROUTE_FAIL
     }
 }

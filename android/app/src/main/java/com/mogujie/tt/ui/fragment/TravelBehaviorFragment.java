@@ -2,18 +2,15 @@ package com.mogujie.tt.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.mogujie.tt.R;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
-import com.mogujie.tt.ui.activity.PlayBehaviorActivity;
 import com.mogujie.tt.ui.base.TTBaseFragment;
 import com.mogujie.tt.utils.TravelUIHelper;
 
@@ -34,7 +31,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
     private Button transit_times_through;
     private Button transit_times_once;
     private Button transit_times_more;
-    private ImageButton next;
+    private Button next;
     private IMService imService;
 
     private String startTime;
@@ -118,7 +115,7 @@ public class TravelBehaviorFragment extends TTBaseFragment{
         transit_times_through = (Button)curView.findViewById(R.id.transit_times_through);
         transit_times_once = (Button)curView.findViewById(R.id.transit_times_once);
         transit_times_more = (Button)curView.findViewById(R.id.transit_times_more);
-        next = (ImageButton)curView.findViewById(R.id.travel_behavior_next_step);
+        next = (Button)curView.findViewById(R.id.travel_behavior_next_step);
 	}
 
 	@Override
@@ -181,27 +178,27 @@ public class TravelBehaviorFragment extends TTBaseFragment{
 
     private void rideFeel(int id) {
         quality = 0;
-        ride_feel_cheap.setTextColor(getResources().getColor(R.color.default_black_color));
+        ride_feel_cheap.setTextColor(getResources().getColor(R.color.not_clicked));
         ride_feel_cheap.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        ride_feel_moderate.setTextColor(getResources().getColor(R.color.default_black_color));
+        ride_feel_moderate.setTextColor(getResources().getColor(R.color.not_clicked));
         ride_feel_moderate.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        ride_feel_expensive.setTextColor(getResources().getColor(R.color.default_black_color));
+        ride_feel_expensive.setTextColor(getResources().getColor(R.color.not_clicked));
         ride_feel_expensive.setBackgroundResource(R.drawable.travel_behavior_not_click);
 
         switch (id) {
             case R.id.ride_feel_cheap:
                 quality = 1;
-                ride_feel_cheap.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                ride_feel_cheap.setTextColor(getResources().getColor(R.color.clicked));
                 ride_feel_cheap.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.ride_feel_moderate:
                 quality = 2;
-                ride_feel_moderate.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                ride_feel_moderate.setTextColor(getResources().getColor(R.color.clicked));
                 ride_feel_moderate.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.ride_feel_expensive:
                 quality = 3;
-                ride_feel_expensive.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                ride_feel_expensive.setTextColor(getResources().getColor(R.color.clicked));
                 ride_feel_expensive.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
         }
@@ -209,27 +206,27 @@ public class TravelBehaviorFragment extends TTBaseFragment{
 
     private void goTime(int id) {
         go_time = 0;
-        go_time_morning.setTextColor(getResources().getColor(R.color.default_black_color));
+        go_time_morning.setTextColor(getResources().getColor(R.color.not_clicked));
         go_time_morning.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        go_time_gold.setTextColor(getResources().getColor(R.color.default_black_color));
+        go_time_gold.setTextColor(getResources().getColor(R.color.not_clicked));
         go_time_gold.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        go_time_evening.setTextColor(getResources().getColor(R.color.default_black_color));
+        go_time_evening.setTextColor(getResources().getColor(R.color.not_clicked));
         go_time_evening.setBackgroundResource(R.drawable.travel_behavior_not_click);
 
         switch (id) {
             case R.id.go_time_morning:
                 go_time = 1;
-                go_time_morning.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                go_time_morning.setTextColor(getResources().getColor(R.color.clicked));
                 go_time_morning.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.go_time_gold:
                 go_time = 2;
-                go_time_gold.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                go_time_gold.setTextColor(getResources().getColor(R.color.clicked));
                 go_time_gold.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.go_time_evening:
                 go_time = 3;
-                go_time_evening.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                go_time_evening.setTextColor(getResources().getColor(R.color.clicked));
                 go_time_evening.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
         }
@@ -240,12 +237,12 @@ public class TravelBehaviorFragment extends TTBaseFragment{
             case R.id.vehicle_train:
                 if ((way&0x0001) != 0) {
                     way^=0x0001;
-                    vehicle_train.setTextColor(getResources().getColor(R.color.default_black_color));
+                    vehicle_train.setTextColor(getResources().getColor(R.color.not_clicked));
                     vehicle_train.setBackgroundResource(R.drawable.travel_behavior_not_click);
                     vehicle_train.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.train_black), null, null, null);
                 } else {
                     way|=0x0001;
-                    vehicle_train.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                    vehicle_train.setTextColor(getResources().getColor(R.color.clicked));
                     vehicle_train.setBackgroundResource(R.drawable.travel_behavior_click);
                     vehicle_train.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.train_white), null, null, null);
                 }
@@ -253,12 +250,12 @@ public class TravelBehaviorFragment extends TTBaseFragment{
             case R.id.vehicle_plane:
                 if ((way&0x0002) != 0) {
                     way^=0x0002;
-                    vehicle_plane.setTextColor(getResources().getColor(R.color.default_black_color));
+                    vehicle_plane.setTextColor(getResources().getColor(R.color.not_clicked));
                     vehicle_plane.setBackgroundResource(R.drawable.travel_behavior_not_click);
                     vehicle_plane.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_black), null, null, null);
                 } else {
                     way|=0x0002;
-                    vehicle_plane.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                    vehicle_plane.setTextColor(getResources().getColor(R.color.clicked));
                     vehicle_plane.setBackgroundResource(R.drawable.travel_behavior_click);
                     vehicle_plane.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_white), null, null, null);
                 }
@@ -266,12 +263,12 @@ public class TravelBehaviorFragment extends TTBaseFragment{
             case R.id.vehicle_bus:
                 if ((way&0x0004) != 0) {
                     way^=0x0004;
-                    vehicle_bus.setTextColor(getResources().getColor(R.color.default_black_color));
+                    vehicle_bus.setTextColor(getResources().getColor(R.color.not_clicked));
                     vehicle_bus.setBackgroundResource(R.drawable.travel_behavior_not_click);
                     vehicle_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.bus_black), null, null, null);
                 } else {
                     way|=0x0004;
-                    vehicle_bus.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                    vehicle_bus.setTextColor(getResources().getColor(R.color.clicked));
                     vehicle_bus.setBackgroundResource(R.drawable.travel_behavior_click);
                     vehicle_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.bus_white), null, null, null);
                 }
@@ -281,27 +278,27 @@ public class TravelBehaviorFragment extends TTBaseFragment{
 
     private void transitTimes(int id) {
         transitTimes = 0;
-        transit_times_through.setTextColor(getResources().getColor(R.color.default_black_color));
+        transit_times_through.setTextColor(getResources().getColor(R.color.not_clicked));
         transit_times_through.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        transit_times_once.setTextColor(getResources().getColor(R.color.default_black_color));
+        transit_times_once.setTextColor(getResources().getColor(R.color.not_clicked));
         transit_times_once.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        transit_times_more.setTextColor(getResources().getColor(R.color.default_black_color));
+        transit_times_more.setTextColor(getResources().getColor(R.color.not_clicked));
         transit_times_more.setBackgroundResource(R.drawable.travel_behavior_not_click);
 
         switch (id) {
             case R.id.transit_times_through:
                 transitTimes = 1;
-                transit_times_through.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                transit_times_through.setTextColor(getResources().getColor(R.color.clicked));
                 transit_times_through.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.transit_times_once:
                 transitTimes = 2;
-                transit_times_once.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                transit_times_once.setTextColor(getResources().getColor(R.color.clicked));
                 transit_times_once.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.transit_times_more:
                 transitTimes = 3;
-                transit_times_more.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                transit_times_more.setTextColor(getResources().getColor(R.color.clicked));
                 transit_times_more.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
         }

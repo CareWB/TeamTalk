@@ -173,10 +173,11 @@
         android:layout_height="match_parent"
         android:gravity="bottom">
 
-        <ImageButton
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/next_step"
+            android:text="@string/next_step"
+            android:background="@drawable/next_step_click"
             android:id="@+id/play_behavior_next_step" />
     </LinearLayout>
 

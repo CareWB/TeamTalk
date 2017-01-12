@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/travel_menu_bk"
+    android:background="@color/base_bk"
     android:orientation="vertical">
 
     <FrameLayout
@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_default_height"
         android:layout_marginTop="30dp"
-        android:paddingLeft="15dp"
+        android:background="@color/base_title"
+        android:paddingLeft="@dimen/base_left_right_pad"
         android:paddingRight="15dp" >
 
         <RelativeLayout
@@ -52,12 +53,12 @@
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                android:textColor="@color/default_title_color"
-                android:textSize="@dimen/top_title_size"
+                android:textColor="@color/mian_title"
+                android:textSize="@dimen/mian_title_size"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp" />
 
-            
+
 
             <com.mogujie.tt.ui.widget.SearchEditText
                 android:id="@+id/chat_title_search"
@@ -83,7 +84,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="right|center_vertical"
-            android:scaleType="center" 
+            android:scaleType="center"
             android:visibility="gone"/>
 
         <TextView
@@ -94,12 +95,12 @@
             android:textColor="@color/default_title_color"
             android:textSize="14sp" />
     </FrameLayout>
-        
+
 	<FrameLayout
         android:id="@+id/contactTopBar"
         android:layout_width="match_parent"
         android:layout_height="39dp"
-        android:background="@drawable/tt_top_default_bk" 
+        android:background="@drawable/tt_top_default_bk"
         android:visibility="gone">
     	<com.mogujie.tt.ui.widget.TopTabButton
 	        android:id="@+id/contact_tile"
@@ -107,8 +108,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="top|center_horizontal"
 	        android:clickable="true" />
-    </FrameLayout>	
-    
+    </FrameLayout>
+
     <FrameLayout
         android:id="@+id/searchbar"
         android:layout_width="match_parent"
@@ -131,6 +132,6 @@
             android:maxLines="1"
             android:textColorHint="#9a9b9c"
             android:textSize="14sp" />
-        
+
     </FrameLayout>
 </LinearLayout>

@@ -33,6 +33,7 @@ public class GreenDaoGenerator {
         addHotelInfo(schema);
         addTrafficInfo(schema);
         addDetailDispInfo(schema);
+        addCityInfo(schema);
 
         // todo 绝对路径,根据自己的路径设定， 例子如下
         String path = "D:\\android\\dao";
@@ -289,5 +290,25 @@ public class GreenDaoGenerator {
         detailDispInfo.addIntProperty("updated").notNull();
 
         detailDispInfo.setHasKeepSections(true);
+    }
+
+    private static void addCityInfo(Schema schema) {
+        Entity cityInfo = schema.addEntity("CityEntity");
+        cityInfo.setTableName("cityInfo");
+        cityInfo.setClassNameDao("CityDao");
+        cityInfo.setJavaPackage(entityPath);
+
+        cityInfo.addIdProperty().autoincrement();
+        cityInfo.addStringProperty("code").notNull();
+        cityInfo.addStringProperty("name").notNull();
+        cityInfo.addStringProperty("icon").notNull();
+        cityInfo.addStringProperty("pic").notNull();
+        cityInfo.addIntProperty("select").notNull();
+        cityInfo.addIntProperty("version").notNull();
+        cityInfo.addIntProperty("status").notNull();
+        cityInfo.addIntProperty("created").notNull();
+        cityInfo.addIntProperty("updated").notNull();
+
+        cityInfo.setHasKeepSections(true);
     }
 }

@@ -38,13 +38,13 @@ public class HomePageActivity extends FragmentActivity {
             }
         });
 
-        TextView local = (TextView)findViewById(R.id.tbn_local);
+/*        TextView local = (TextView)findViewById(R.id.tbn_local);
         local.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setFragmentIndicator(1);
             }
-        });
+        });*/
 
     }
 

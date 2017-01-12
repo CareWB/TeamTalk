@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/ly_select_switch"
+        android:layout_marginTop="@dimen/select_place_top_bottom"
+        android:layout_marginBottom="@dimen/select_place_top_bottom"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/select_place_left">
 
@@ -18,6 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/select_place_hot"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/switch_on"
             android:gravity="center"
             android:layout_weight="1" />
 
@@ -26,6 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/select_place_nation"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/switch_off"
             android:gravity="center"
             android:layout_weight="1" />
     </LinearLayout>
@@ -43,14 +49,25 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_province"
-            android:layout_width="100dp"
+            android:layout_width="76dp"
             android:layout_height="match_parent"
             android:visibility="gone" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="@dimen/div_width"
+            android:layout_height="match_parent"
+            android:id="@+id/ly_select_place_divider"
+            android:background="@color/divder"
+            android:visibility="gone">
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_city"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/select_place_city_left_right"
+            android:layout_marginRight="@dimen/select_place_city_left_right"
             android:visibility="gone" />
     </LinearLayout>
 
@@ -58,18 +75,21 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:background="@drawable/select_city_result_bk">
+        android:paddingLeft="@dimen/base_left_right_pad"
+        android:paddingRight="@dimen/base_left_right_pad"
+        android:background="@drawable/select_place_ok_bk">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/rv_select_place_result"
-            android:layout_weight="1" />
+            android:layout_marginTop="23dp"
+            android:layout_weight="1"
+            android:id="@+id/rv_select_place_result" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/select_place_ok"
+            android:background="@drawable/select_place_ok_click"
             android:layout_gravity="center_vertical"
             android:id="@+id/ibn_select_place_ok" />
     </LinearLayout>

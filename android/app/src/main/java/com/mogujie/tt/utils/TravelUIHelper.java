@@ -71,7 +71,8 @@ public class TravelUIHelper {
 
 	//跳转到详细行程页面
 	public static void openTravelDetailActivity(Context ctx) {
-		Intent intent = new Intent(ctx, TravelDetailActivity.class);
+		//Intent intent = new Intent(ctx, TravelDetailActivity.class);
+		Intent intent = new Intent(ctx, SelectSightActivity.class);
 		ctx.startActivity(intent);
 	}
 

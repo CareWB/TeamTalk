@@ -1,13 +1,16 @@
 package com.mogujie.tt.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.mogujie.tt.DB.entity.CityEntity;
 import com.mogujie.tt.R;
 
 import java.util.List;
@@ -29,9 +32,11 @@ public class CityAdapter extends RecyclerView.Adapter {
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
-    private List<String> list;
+    private Context ctx;
+    private List<CityEntity> list;
 
-    public CityAdapter(List<String> list) {
+    public CityAdapter(Context ctx, List<CityEntity> list) {
+        this.ctx = ctx;
         this.list = list;
     }
 
@@ -46,8 +51,16 @@ public class CityAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+        CityEntity cityEntity = list.get(i);
         SelectCityResultViewHolder holder = (SelectCityResultViewHolder) viewHolder;
-        holder.name.setText(list.get(i));
+        holder.name.setText(cityEntity.getName());
+        if (cityEntity.getSelect() == 1) {
+            holder.lyCity.setBackgroundColor(ctx.getResources().getColor(R.color.city_selected));
+            holder.opt.setBackground(ctx.getResources().getDrawable(R.drawable.select_city_delete));
+        } else {
+            holder.lyCity.setBackgroundColor(ctx.getResources().getColor(R.color.base_bk));
+            holder.opt.setBackground(ctx.getResources().getDrawable(R.drawable.select_city_add));
+        }
     }
 
     @Override
@@ -59,11 +72,11 @@ public class CityAdapter extends RecyclerView.Adapter {
         public ImageView image;
         public TextView name;
         public ImageView opt;
-        private LinearLayout lyCity;
+        private RelativeLayout lyCity;
 
         public SelectCityResultViewHolder(View itemView) {
             super(itemView);
-            lyCity = (LinearLayout)  itemView.findViewById(R.id.ly_city);
+            lyCity = (RelativeLayout) itemView.findViewById(R.id.ly_city);
             image = (ImageView) itemView.findViewById(R.id.city_image);
             name = (TextView) itemView.findViewById(R.id.city_name);
             opt = (ImageView) itemView.findViewById(R.id.city_select);

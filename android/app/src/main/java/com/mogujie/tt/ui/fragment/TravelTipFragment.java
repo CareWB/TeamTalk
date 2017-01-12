@@ -12,9 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.imservice.event.TravelEvent;
@@ -24,15 +21,14 @@ import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.adapter.TravelTipAdapter;
 import com.mogujie.tt.ui.base.TTBaseFragment;
 import com.mogujie.tt.utils.BlurBitmapUtils;
+import com.mogujie.tt.utils.DateUtil;
 import com.mogujie.tt.utils.ViewSwitchUtils;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.view.jameson.library.CardScaleHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import de.greenrobot.event.EventBus;
 
@@ -47,6 +43,8 @@ public class TravelTipFragment extends TTBaseFragment {
 	private View curView = null;
 	private RecyclerView mRecyclerView;
 	private ImageView mBlurView;
+    private TextView tvToday;
+    private TextView tvWeekday;
 	private TextView mUp;
 	private CardScaleHelper mCardScaleHelper = null;
 	private Runnable mBlurRunnable;
@@ -120,6 +118,13 @@ public class TravelTipFragment extends TTBaseFragment {
                 }
             }
 		});
+        tvToday = (TextView)curView.findViewById(R.id.travel_tip_today);
+        SimpleDateFormat dateFormater = new SimpleDateFormat("MM-dd");
+        Date date=new Date();
+        tvToday.setText(dateFormater.format(date));
+
+        tvWeekday = (TextView)curView.findViewById(R.id.travel_tip_weekday);
+        tvWeekday.setText(DateUtil.getWeekOfDate(date));
 		initBtn();
 	}
 

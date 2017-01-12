@@ -11,38 +11,38 @@
 
         <TextView
             android:text="@string/travel"
-            android:textColor="@color/homepage_button"
+            android:textColor="@color/title"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="81dp"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="9dp"
             android:id="@+id/tbn_travel"
-            android:textSize="16sp"
-            android:paddingTop="20dp"
+            android:textSize="15sp"
+            android:paddingTop="21dp"
             android:drawableBottom="@drawable/content_choose_underline"
             android:gravity="center" />
 
-        <TextView
+<!--        <TextView
             android:text="@string/local"
-            android:textColor="@color/homepage_button"
+            android:textColor="@color/title"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="81dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/tbn_travel"
             android:id="@+id/tbn_local"
-            android:textSize="16sp"
-            android:paddingTop="20dp"
-            android:gravity="center" />
+            android:textSize="15sp"
+            android:paddingTop="21dp"
+            android:gravity="center" />-->
 
         <ImageView
             android:src="@drawable/avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="9dp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            android:paddingTop="20dp"
+            android:paddingTop="21dp"
             android:id="@+id/avatar" />
     </RelativeLayout>
 

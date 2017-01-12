@@ -1,5 +1,6 @@
 package com.mogujie.tt.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mogujie.tt.DB.entity.CityEntity;
 import com.mogujie.tt.R;
 
 import java.util.List;
@@ -28,9 +30,11 @@ public class SelectCityResultAdapter extends RecyclerView.Adapter {
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
-    private List<String> list;
+    private Context ctx;
+    private List<CityEntity> list;
 
-    public SelectCityResultAdapter(List<String> list) {
+    public SelectCityResultAdapter(Context ctx, List<CityEntity> list) {
+        this.ctx = ctx;
         this.list = list;
     }
 
@@ -46,7 +50,8 @@ public class SelectCityResultAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         SelectCityResultViewHolder holder = (SelectCityResultViewHolder) viewHolder;
-        holder.city.setText(list.get(i));
+        CityEntity cityEntity = list.get(i);
+        holder.city.setText(cityEntity.getName());
     }
 
     @Override

@@ -8,5 +8,19 @@
     <color name="travel_alert_dialog_content_choose">#ffffff</color>
     <color name="dialog_semitransparent">#7f000000</color>
     <color name="alertdialog_background">#f1f1f1</color>
-    <color name="title">#ffffff</color>
+
+    <color name="title">#333333</color>
+    <color name="base_bk">#f8f8f8</color>
+    <color name="base_title">#ffffff</color>
+    <color name="first_title_color">#666666</color>
+    <color name="hint_color">#999999</color>
+    <color name="next_step">#ffffff</color>
+    <color name="mian_title">#181818</color>
+    <color name="clicked">#ffffff</color>
+    <color name="not_clicked">#666666</color>
+    <color name="switch_on">#ffffff</color>
+    <color name="switch_off">#5e93bd</color>
+    <color name="divder">#dddddd</color>
+    <color name="city_selected">#eeeeee</color>
+    <color name="translucent">#7f000000</color>
 </resources>

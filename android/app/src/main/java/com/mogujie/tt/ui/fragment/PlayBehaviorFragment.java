@@ -39,7 +39,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
     private Button traffic_walk;
     private Button traffic_bus;
     private Button traffic_taxi;
-    private ImageButton next;
+    private Button next;
     private IMTravelManager imTravelManager;
 
     private String strStartTime = "9:00";
@@ -126,7 +126,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
         traffic_walk.setClickable(false);
         traffic_bus = (Button)curView.findViewById(R.id.traffic_bus);
         traffic_taxi = (Button)curView.findViewById(R.id.traffic_taxi);
-        next = (ImageButton)curView.findViewById(R.id.play_behavior_next_step);
+        next = (Button)curView.findViewById(R.id.play_behavior_next_step);
 	}
 
 	@Override

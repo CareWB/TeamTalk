@@ -1,5 +1,6 @@
 package com.mogujie.tt.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +29,12 @@ public class ProvinceAdapter extends RecyclerView.Adapter {
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
+    private Context ctx;
     private List<String> list;
     private int pos = 0;
 
-    public ProvinceAdapter(List<String> list) {
+    public ProvinceAdapter(Context ctx, List<String> list) {
+        this.ctx = ctx;
         this.list = list;
     }
 
@@ -55,9 +58,11 @@ public class ProvinceAdapter extends RecyclerView.Adapter {
         SelectCityResultViewHolder holder = (SelectCityResultViewHolder) viewHolder;
         holder.province.setText(list.get(i));
         if (i == pos) {
+            holder.province.setTextColor(ctx.getResources().getColor(R.color.clicked));
             holder.province.setBackgroundResource(R.drawable.city_bk_blue);
         } else {
-            holder.province.setBackgroundColor(123456);
+            holder.province.setTextColor(ctx.getResources().getColor(R.color.not_clicked));
+            holder.province.setBackgroundResource(R.drawable.city_bk_white);
         }
     }
 

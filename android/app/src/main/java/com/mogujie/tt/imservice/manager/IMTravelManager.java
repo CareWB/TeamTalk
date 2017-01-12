@@ -222,6 +222,36 @@ public class IMTravelManager extends IMManager {
         }
     }
 
+    public void reqTravelRoute() {
+        logger.i("reqDelTravel");
+        int loginId = IMLoginManager.instance().getLoginId();
+        IMBuddy.TravelRouteReq travelRouteReq = IMBuddy.TravelRouteReq.newBuilder()
+                .setUserId(loginId)
+                .setTravelType(mtTravel.getTrafficWay())
+                .setLines("SZX-XMN-SZX")
+                .setTimeFrom(mtTravel.getTrafficStartTime())
+                .setTimeTo(mtTravel.getTrafficStartTime())
+                .build();
+
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST_VALUE;
+        imSocketManager.sendRequest(travelRouteReq,sid,cid);
+    }
+
+    public void onRspTravelRoute(IMBuddy.TravelRouteRsp travelRouteRsp) {
+        logger.i("onRspDelTravel");
+        Log.e("yuki", "onRspDelTravel");
+        if (travelRouteRsp.getResultCode() != 0) {
+            logger.e("onRepTravelList fail %d", travelRouteRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.REQ_TRAVEL_ROUTE_FAIL));
+        } else {
+            for (IMBuddy.TravelToolInfo travelToolInfo:travelRouteRsp.getTravelToolInfoList()) {
+                trafficEntityList.add(ProtoBuf2JavaBean.getTrafficEntity(travelToolInfo));
+            }
+            triggerEvent(new TravelEvent(TravelEvent.Event.REQ_TRAVEL_ROUTE_OK));
+        }
+    }
+
     private void clearTravelList() {
         travelEntityList.clear();
         dbInterface.delAllTravel();
@@ -237,21 +267,6 @@ public class IMTravelManager extends IMManager {
     }
 
     public List<TrafficEntity> getTrafficEntityList() {
-        if (trafficEntityList.isEmpty()) {
-            TrafficEntity plane1 = new TrafficEntity();
-            plane1.setType(1);
-            plane1.setStartStation("深圳宝安T3");
-            plane1.setEndStation("厦门高崎T3");
-            plane1.setStartTime("12:03");
-            plane1.setEndTime("14:36");
-            plane1.setNo("厦航MF8069|波音738（中）");
-            plane1.setPrice(730);
-            plane1.setExtra("经济舱");
-            plane1.setAddFlag(0);
-
-            trafficEntityList.add(plane1);
-        }
-
         return trafficEntityList;
     }
 }

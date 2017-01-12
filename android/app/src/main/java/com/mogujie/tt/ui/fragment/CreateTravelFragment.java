@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,7 +40,7 @@ public class CreateTravelFragment extends TTBaseFragment{
     private RelativeLayout place;
     private TextView startCity;
     private TextView endCity;
-    private ImageButton next;
+    private Button next;
 
     private final static int MAX_PER_SUM = 6;
     private final static int MIN_PER_SUM = 1;
@@ -158,7 +159,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         duration = (TextView)curView.findViewById(R.id.tcreate_travel_time);
         betweenTime = (TextView)curView.findViewById(R.id.create_travel_time);
         place = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_place);
-        next = (ImageButton)curView.findViewById(R.id.create_travel_next_step);
+        next = (Button)curView.findViewById(R.id.create_travel_next_step);
 	}
 
 	@Override
@@ -219,6 +220,16 @@ public class CreateTravelFragment extends TTBaseFragment{
             if (perNum < MIN_PER_SUM) {
                 perNum = MIN_PER_SUM;
             }
+        }
+
+        per_num_add.setBackgroundResource(R.drawable.create_travel_add);
+        per_num_sub.setBackgroundResource(R.drawable.create_travel_sub);
+        if (perNum == MAX_PER_SUM) {
+            per_num_add.setBackgroundResource(R.drawable.create_travel_add_grey);
+        }
+
+        if (perNum == MIN_PER_SUM) {
+            per_num_sub.setBackgroundResource(R.drawable.create_travel_sub_grey);
         }
 
         per_num.setText(String.valueOf(perNum));

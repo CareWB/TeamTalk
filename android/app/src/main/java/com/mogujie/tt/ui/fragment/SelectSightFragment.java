@@ -17,11 +17,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.UrlConstant;
@@ -65,6 +69,7 @@ public class SelectSightFragment extends TTBaseFragment{
     private SelectSightIntellengenceAdapter selectSightIntellengenceAdapter;
     private Button popupOK;
     private Button popupCancel;
+    private ImageView intelligenceSelectGif;
 
     private Button next;
     
@@ -163,6 +168,9 @@ public class SelectSightFragment extends TTBaseFragment{
             @Override
             public void onClick(View v) {
                 mPopupWindow.showAtLocation(curView.findViewById(R.id.layout_select_sight), Gravity.BOTTOM, 0, 0);
+                Glide.with(getActivity()).load(R.drawable.calculating)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(new GlideDrawableImageViewTarget(intelligenceSelectGif, 2));
             }
         });
 
@@ -466,6 +474,8 @@ public class SelectSightFragment extends TTBaseFragment{
         };
         popupOK.setOnClickListener(popupListener);
         popupCancel.setOnClickListener(popupListener);
+
+        intelligenceSelectGif = (ImageView) popupView.findViewById(R.id.intelligence_select_gif);
     }
 
     private void popupSelectSightProcess() {

@@ -3,28 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/default_light_grey_color">
+    android:orientation="vertical">
 
     <TextView
-        android:text="时间地点"
+        android:text="@string/time_place"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/title_height"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/first_title_color"
+        android:paddingLeft="@dimen/base_left_right_pad"
         android:drawableTop="@drawable/create_travel_module_div"
         android:drawableBottom="@drawable/create_travel_module_div"
         android:id="@+id/create_travel_time_place" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="@dimen/text_height"
         android:id="@+id/rlcreate_travel_time"
         android:background="@drawable/create_travel_con_bk">
 
 
         <TextView
-            android:text="时  间"
+            android:text="@string/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:id="@+id/tcreate_travel_time" />
@@ -32,15 +38,19 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bn_click_arrow"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/icreate_travel_time" />
 
         <TextView
-            android:text="您的游玩时间 ？"
+            android:text="@string/ask_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/icreate_travel_time"
             android:id="@+id/create_travel_time" />
@@ -54,14 +64,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="@dimen/text_height"
         android:id="@+id/rlcreate_travel_place"
         android:background="@drawable/create_travel_con_bk">
 
         <TextView
-            android:text="目的地"
+            android:text="@string/destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:id="@+id/tcreate_travel_place" />
@@ -69,16 +82,20 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bn_click_arrow"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/icreate_travel_place" />
 
         <TextView
-            android:text="您的目的地 ？"
+            android:text="@string/ask_destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
             android:layout_toStartOf="@+id/icreate_travel_place"
             android:id="@+id/create_travel_place" />
 
@@ -90,16 +107,20 @@
     </RelativeLayout>
 
     <TextView
-        android:text="基本信息"
+        android:text="@string/basic_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/title_height"
+        android:paddingLeft="@dimen/base_left_right_pad"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/first_title_color"
         android:drawableTop="@drawable/create_travel_module_div"
         android:drawableBottom="@drawable/create_travel_module_div"
         android:id="@+id/create_travel_basic_info" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="@dimen/text_height"
         android:background="@drawable/create_travel_con_bk">
 
         <TextView
@@ -107,13 +128,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_icon_between_person_num"
+            android:layout_marginRight="@dimen/text_icon_between_person_num"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:layout_toStartOf="@+id/create_travel_per_num_add"
             android:id="@+id/create_travel_per_num" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/create_travel_sub"
+            android:background="@drawable/create_travel_sub_grey"
             android:id="@+id/create_travel_per_num_sub"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/create_travel_per_num" />
@@ -121,15 +146,19 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/base_left_right_pad"
             android:background="@drawable/create_travel_add"
             android:id="@+id/create_travel_per_num_add"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true" />
 
         <TextView
-            android:text="人  数"
+            android:text="@string/person_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:id="@+id/tcreate_travel_per_num"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
@@ -143,15 +172,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="@dimen/text_height"
         android:id="@+id/rlcreate_travel_start"
         android:background="@drawable/create_travel_con_bk">
 
 
         <TextView
-            android:text="出发地"
+            android:text="@string/start_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:id="@+id/tcreate_travel_start" />
@@ -159,7 +191,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bn_click_arrow"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginRight="@dimen/base_left_right_pad"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/icreate_travel_start" />
@@ -168,6 +201,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:layout_toStartOf="@+id/icreate_travel_start"
             android:id="@+id/create_travel_start" />
 
@@ -180,15 +215,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="@dimen/text_height"
         android:id="@+id/rlcreate_travel_end"
         android:background="@drawable/create_travel_con_bk">
 
 
         <TextView
-            android:text="返回地"
+            android:text="@string/end_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:id="@+id/tcreate_travel_end" />
@@ -196,7 +234,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bn_click_arrow"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginRight="@dimen/base_left_right_pad"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/icreate_travel_end" />
@@ -205,6 +244,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
             android:layout_toStartOf="@+id/icreate_travel_end"
             android:id="@+id/create_travel_end" />
     </RelativeLayout>
@@ -215,10 +256,13 @@
         android:layout_height="match_parent"
         android:gravity="bottom">
 
-        <ImageButton
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/next_step"
+            android:text="@string/next_step"
+            android:textColor="@color/next_step"
+            android:textSize="@dimen/next_step"
+            android:background="@drawable/next_step_click"
             android:id="@+id/create_travel_next_step" />
     </LinearLayout>
 
