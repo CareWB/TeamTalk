@@ -261,12 +261,17 @@ message HotelInfo{
     required uint32 distance        = 8;
 }
 
-message CreateMyTravelReq{
+message MyTravel{
     required uint32 db_idx                      = 1;
     required BasicInfo basic_info               = 2;
     required TravelDetail travel_detail         = 3;
     required TransportConfig transport_config   = 4;
     required TravelDetail tranvel_detail        = 5;
+}
+
+message CreateMyTravelReq{
+    required uint32 user_id                     = 1;
+    required MyTravel my_travel                 = 2;
     optional bytes attach_data                  = 20;
 }
 
@@ -274,6 +279,18 @@ message CreateMyTravelRsp{
     required uint32 user_id     = 1;
     required uint32 result_code = 2;
     required uint32 db_idx      = 3;
+    optional bytes attach_data  = 20;
+}
+
+message QueryMyTravelReq{
+    required uint32 user_id     = 1;
+    optional bytes attach_data  = 20;
+}
+
+message QueryMyTravelRsp{
+    required uint32 user_id     = 1;
+    required uint32 result_code = 2;
+    repeated MyTravel my_travel = 3;
     optional bytes attach_data  = 20;
 }
 
