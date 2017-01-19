@@ -232,7 +232,7 @@ message PlayConfig{
     required QualityType quality                    = 1;
     required string time_from                       = 2;
     required string time_to                         = 3;
-    required TransportToolType transport_tool_type  = 4;
+    required uint32 transport_tool_type             = 4;
     required PositionType position                  = 5;
 }
 
