@@ -281,6 +281,31 @@ message CreateMyTravelRsp{
     optional bytes attach_data  = 20;
 }
 
+message DeleteMyTravelReq{
+    required uint32 user_id     = 1;
+    repeated uint32 db_idx      = 2;
+    optional bytes attach_data  = 20;
+}
+
+message DeleteMyTravelRsp{
+    required uint32 user_id     = 1;
+    required uint32 result_code = 2;
+    optional bytes attach_data  = 20;
+}
+
+message UpdateMyTravelReq{
+    required uint32 user_id     = 1;
+    required uint32 db_idx      = 2;
+    required MyTravel my_travel = 3;
+    optional bytes attach_data  = 20;
+}
+
+message UpdateMyTravelRsp{
+    required uint32 user_id     = 1;
+    required uint32 result_code = 2;
+    optional bytes attach_data  = 20;
+}
+
 message QueryMyTravelReq{
     required uint32 user_id     = 1;
     optional bytes attach_data  = 20;
