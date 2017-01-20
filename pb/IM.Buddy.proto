@@ -263,9 +263,10 @@ message HotelInfo{
 
 message MyTravel{
     required uint32 db_idx                      = 1;
-    required BasicInfo basic_info               = 2;
-    required TravelDetail travel_detail         = 3;
-    required TransportConfig transport_config   = 4;
+    required uint32 cost                        = 2;
+    required BasicInfo basic_info               = 3;
+    required TravelDetail travel_detail         = 4;
+    required TransportConfig transport_config   = 5;
 }
 
 message CreateMyTravelReq{
