@@ -14,6 +14,7 @@ import com.mogujie.tt.DB.dao.GroupDao;
 import com.mogujie.tt.DB.dao.MessageDao;
 import com.mogujie.tt.DB.dao.SessionDao;
 import com.mogujie.tt.DB.dao.TravelDao;
+import com.mogujie.tt.DB.dao.PlayConfigDao;
 import com.mogujie.tt.DB.dao.SightDao;
 import com.mogujie.tt.DB.dao.HotelDao;
 import com.mogujie.tt.DB.dao.TrafficDao;
@@ -35,6 +36,7 @@ public class DaoMaster extends AbstractDaoMaster {
         MessageDao.createTable(db, ifNotExists);
         SessionDao.createTable(db, ifNotExists);
         TravelDao.createTable(db, ifNotExists);
+        PlayConfigDao.createTable(db, ifNotExists);
         SightDao.createTable(db, ifNotExists);
         HotelDao.createTable(db, ifNotExists);
         TrafficDao.createTable(db, ifNotExists);
@@ -50,6 +52,7 @@ public class DaoMaster extends AbstractDaoMaster {
         MessageDao.dropTable(db, ifExists);
         SessionDao.dropTable(db, ifExists);
         TravelDao.dropTable(db, ifExists);
+        PlayConfigDao.dropTable(db, ifExists);
         SightDao.dropTable(db, ifExists);
         HotelDao.dropTable(db, ifExists);
         TrafficDao.dropTable(db, ifExists);
@@ -92,6 +95,7 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(MessageDao.class);
         registerDaoClass(SessionDao.class);
         registerDaoClass(TravelDao.class);
+        registerDaoClass(PlayConfigDao.class);
         registerDaoClass(SightDao.class);
         registerDaoClass(HotelDao.class);
         registerDaoClass(TrafficDao.class);

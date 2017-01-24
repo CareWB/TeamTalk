@@ -70,13 +70,13 @@ public class TravelDetailAdapter extends RecyclerView.Adapter {
         holder.start.setText(trafficEntity.getStartStation()+"\n"+trafficEntity.getStartTime());
         holder.end.setText(trafficEntity.getEndStation()+"\n"+trafficEntity.getEndTime());
         holder.no.setText(trafficEntity.getNo());
-        holder.price.setText("￥"+trafficEntity.getPrice()+trafficEntity.getExtra());
+        holder.price.setText("￥"+trafficEntity.getPrice()+trafficEntity.getSeatClass());
 
-        if (travelEntity.getSightSelect() == 0) {
+/*        if (travelEntity.get() == 0) {
 
         } else {
             holder.addSight.setBackground(ctx.getResources().getDrawable(R.drawable.pic4));
-        }
+        }*/
     }
 
     @Override

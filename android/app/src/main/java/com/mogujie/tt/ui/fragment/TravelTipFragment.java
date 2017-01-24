@@ -220,7 +220,6 @@ public class TravelTipFragment extends TTBaseFragment {
         TravelEntity xianmen = new TravelEntity();
         xianmen.setDestination("厦门");
         xianmen.setDestinationBK("http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg");
-        xianmen.setPlayQuality(1);
         xianmen.setDuration(6);
         xianmen.setStartDate("10.18");
         xianmen.setEndDate("10.23");

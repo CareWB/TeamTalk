@@ -78,21 +78,21 @@ public class IMPacketDispatcher {
                 IMBuddy.IMDepartmentRsp departmentRsp = IMBuddy.IMDepartmentRsp.parseFrom(buffer);
                 IMContactManager.instance().onRepDepartment(departmentRsp);
                 return;
-            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE_VALUE:
-                IMBuddy.GetTravelTripListRsp getTravelTripListRsp = IMBuddy.GetTravelTripListRsp.parseFrom(buffer);
-                IMTravelManager.instance().onRspTravelList(getTravelTripListRsp);
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_QUERY_RESPONSE_VALUE:
+                IMBuddy.QueryMyTravelRsp queryMyTravelRsp = IMBuddy.QueryMyTravelRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspTravelList(queryMyTravelRsp);
                 return;
             case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE_VALUE:
-                IMBuddy.CreateTravelRsp createTravelRsp = IMBuddy.CreateTravelRsp.parseFrom(buffer);
-                IMTravelManager.instance().onRspCreateTravel(createTravelRsp);
+                IMBuddy.CreateMyTravelRsp createMyTravelRsp = IMBuddy.CreateMyTravelRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspCreateTravel(createMyTravelRsp);
                 return;
             case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE_VALUE:
-                IMBuddy.DeleteTravelRsp deleteTravelRsp = IMBuddy.DeleteTravelRsp.parseFrom(buffer);
-                IMTravelManager.instance().onRspDelTravel(deleteTravelRsp);
+                IMBuddy.DeleteMyTravelRsp deleteMyTravelRsp = IMBuddy.DeleteMyTravelRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspDelTravel(deleteMyTravelRsp);
                 return;
-            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE_VALUE:
-                IMBuddy.TravelRouteRsp travelRouteRsp = IMBuddy.TravelRouteRsp.parseFrom(buffer);
-                IMTravelManager.instance().onRspTravelRoute(travelRouteRsp);
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_RESPONSE_VALUE:
+                IMBuddy.GetTransportToolRsp getTransportToolRsp = IMBuddy.GetTransportToolRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspTravelRoute(getTransportToolRsp);
                 return;
             }
         } catch (IOException e) {

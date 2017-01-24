@@ -9,10 +9,12 @@ import android.widget.TextView;
 
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.IntentConstant;
+import com.mogujie.tt.ui.activity.Calculating;
 import com.mogujie.tt.ui.activity.CreateTravelActivity;
 import com.mogujie.tt.ui.activity.DetailDispActivity;
 import com.mogujie.tt.ui.activity.IntroduceHotelActivity;
 import com.mogujie.tt.ui.activity.IntroduceSightActivity;
+import com.mogujie.tt.ui.activity.PlayBehaviorActivity;
 import com.mogujie.tt.ui.activity.SelectSightActivity;
 import com.mogujie.tt.ui.activity.TrafficListActivity;
 import com.mogujie.tt.ui.activity.TravelDetailActivity;
@@ -71,8 +73,8 @@ public class TravelUIHelper {
 
 	//跳转到详细行程页面
 	public static void openTravelDetailActivity(Context ctx) {
-		//Intent intent = new Intent(ctx, TravelDetailActivity.class);
-		Intent intent = new Intent(ctx, SelectSightActivity.class);
+		Intent intent = new Intent(ctx, TravelDetailActivity.class);
+		//Intent intent = new Intent(ctx, Calculating.class);
 		ctx.startActivity(intent);
 	}
 
@@ -81,4 +83,10 @@ public class TravelUIHelper {
 		Intent intent = new Intent(ctx, DetailDispActivity.class);
 		ctx.startActivity(intent);
 	}
+
+    //跳转到游玩喜好页面
+    public static void openPlayBehaviorActivity(Context ctx) {
+        Intent intent = new Intent(ctx, PlayBehaviorActivity.class);
+        ctx.startActivity(intent);
+    }
 }

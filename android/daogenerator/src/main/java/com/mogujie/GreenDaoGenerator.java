@@ -29,6 +29,7 @@ public class GreenDaoGenerator {
         addMessage(schema);
         addSessionInfo(schema);
         addTravelInfo(schema);
+        addPlayConfigInfo(schema);
         addSightInfo(schema);
         addHotelInfo(schema);
         addTrafficInfo(schema);
@@ -185,12 +186,7 @@ public class GreenDaoGenerator {
         travelInfo.addStringProperty("trafficStartTime").notNull();
         travelInfo.addStringProperty("trafficEndTime").notNull();
         travelInfo.addIntProperty("trafficQuality").notNull();
-        travelInfo.addIntProperty("playQuality").notNull();
-        travelInfo.addStringProperty("playStartTime").notNull();
-        travelInfo.addStringProperty("playEndTime").notNull();
-        travelInfo.addIntProperty("cityTraffic").notNull();
-        travelInfo.addIntProperty("hotelPosition").notNull();
-        travelInfo.addIntProperty("sightSelect").notNull();
+        travelInfo.addIntProperty("transit").notNull();
         travelInfo.addIntProperty("cost").notNull();
         travelInfo.addIntProperty("version").notNull();
         travelInfo.addIntProperty("status").notNull();
@@ -198,6 +194,27 @@ public class GreenDaoGenerator {
         travelInfo.addIntProperty("updated").notNull();
 
         travelInfo.setHasKeepSections(true);
+    }
+
+    private static void addPlayConfigInfo(Schema schema) {
+        Entity playConfiglInfo = schema.addEntity("PlayConfigEntity");
+        playConfiglInfo.setTableName("PlayConfigInfo");
+        playConfiglInfo.setClassNameDao("PlayConfigDao");
+        playConfiglInfo.setJavaPackage(entityPath);
+
+        playConfiglInfo.addIdProperty().autoincrement();
+        playConfiglInfo.addStringProperty("cityName").notNull();
+        playConfiglInfo.addIntProperty("quality").notNull();
+        playConfiglInfo.addStringProperty("startTime").notNull();
+        playConfiglInfo.addStringProperty("endTime").notNull();
+        playConfiglInfo.addIntProperty("transportToolType").notNull();
+        playConfiglInfo.addIntProperty("position").notNull();
+        playConfiglInfo.addIntProperty("version").notNull();
+        playConfiglInfo.addIntProperty("status").notNull();
+        playConfiglInfo.addIntProperty("created").notNull();
+        playConfiglInfo.addIntProperty("updated").notNull();
+
+        playConfiglInfo.setHasKeepSections(true);
     }
 
     private static void addSightInfo(Schema schema) {
@@ -214,8 +231,12 @@ public class GreenDaoGenerator {
         sightlInfo.addStringProperty("tag").notNull();
         sightlInfo.addIntProperty("free").notNull();
         sightlInfo.addIntProperty("mustGo").notNull();
+        sightlInfo.addStringProperty("url").notNull();
+        sightlInfo.addIntProperty("playTime").notNull();
+        sightlInfo.addIntProperty("price").notNull();
+        sightlInfo.addStringProperty("bestStartTime").notNull();
+        sightlInfo.addStringProperty("bestEndTime").notNull();
         sightlInfo.addIntProperty("select").notNull();
-        sightlInfo.addIntProperty("focus").notNull();
         sightlInfo.addIntProperty("version").notNull();
         sightlInfo.addIntProperty("status").notNull();
         sightlInfo.addIntProperty("created").notNull();
@@ -236,10 +257,11 @@ public class GreenDaoGenerator {
         hotelInfo.addStringProperty("pic").notNull();
         hotelInfo.addIntProperty("star").notNull();
         hotelInfo.addStringProperty("tag").notNull();
-        hotelInfo.addIntProperty("optimize").notNull();
+        hotelInfo.addIntProperty("mustGo").notNull();
+        hotelInfo.addStringProperty("url").notNull();
         hotelInfo.addIntProperty("price").notNull();
+        hotelInfo.addIntProperty("distance").notNull();
         hotelInfo.addIntProperty("select").notNull();
-        hotelInfo.addIntProperty("focus").notNull();
         hotelInfo.addIntProperty("version").notNull();
         hotelInfo.addIntProperty("status").notNull();
         hotelInfo.addIntProperty("created").notNull();
@@ -257,13 +279,16 @@ public class GreenDaoGenerator {
         trafficInfo.addIdProperty().autoincrement();
         trafficInfo.addIntProperty("type").notNull();
         trafficInfo.addStringProperty("no").notNull();
+        trafficInfo.addStringProperty("startCityCode").notNull();
         trafficInfo.addStringProperty("startStation").notNull();
+        trafficInfo.addStringProperty("endCityCode").notNull();
         trafficInfo.addStringProperty("endStation").notNull();
         trafficInfo.addStringProperty("startTime").notNull();
         trafficInfo.addStringProperty("endTime").notNull();
+        trafficInfo.addStringProperty("duration").notNull();
         trafficInfo.addIntProperty("price").notNull();
-        trafficInfo.addStringProperty("extra").notNull();
-        trafficInfo.addIntProperty("addFlag").notNull();
+        trafficInfo.addStringProperty("seatClass").notNull();
+        trafficInfo.addIntProperty("select").notNull();
         trafficInfo.addIntProperty("version").notNull();
         trafficInfo.addIntProperty("status").notNull();
         trafficInfo.addIntProperty("created").notNull();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="sight_menu">
-        <item>推荐</item>
+        <item>全部</item>
         <item>免票</item>
     </string-array>
     <string-array name="hotel_menu">

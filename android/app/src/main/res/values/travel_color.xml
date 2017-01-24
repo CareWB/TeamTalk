@@ -23,4 +23,7 @@
     <color name="divder">#dddddd</color>
     <color name="city_selected">#eeeeee</color>
     <color name="translucent">#7f000000</color>
+    <color name="warning">#ff0011</color>
+    <color name="price">#ff7700</color>
+    <color name="traffic_head">#5274ba</color>
 </resources>

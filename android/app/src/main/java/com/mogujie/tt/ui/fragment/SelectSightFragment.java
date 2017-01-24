@@ -4,37 +4,29 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.UrlConstant;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.activity.SelectHotelActivity;
-import com.mogujie.tt.ui.adapter.SelectSightIntellengenceAdapter;
 import com.mogujie.tt.ui.adapter.SightAdapter;
-import com.mogujie.tt.ui.adapter.TravelHotAdapter;
 import com.mogujie.tt.ui.base.TTBaseFragment;
 import com.mogujie.tt.utils.TravelUIHelper;
 
@@ -49,8 +41,6 @@ import java.util.Map;
  */
 public class SelectSightFragment extends TTBaseFragment{
 	private View curView = null;
-    private Spinner spinner;
-    private int spinner_select = 0;
     private TextView total;
     private TextView nature;
     private TextView history;
@@ -63,13 +53,14 @@ public class SelectSightFragment extends TTBaseFragment{
     private List<SightEntity> tagSightEntityList = new ArrayList<>();
     String Tag = "全部";
     private PopupWindow mPopupWindow;
-    private Button sightIntelligenceSelect;
-
-    private RecyclerView rvSelectSightIntellengence;
-    private SelectSightIntellengenceAdapter selectSightIntellengenceAdapter;
-    private Button popupOK;
-    private Button popupCancel;
-    private ImageView intelligenceSelectGif;
+    private LinearLayout pop;
+    private TextView notScreen;
+    private TextView free;
+    private LinearLayout lyPop;
+    static final int ALL = 0;
+    static final int FREE = 1;
+    private int spinner_select = ALL;
+    private TextView selectSightDropText;
 
     private Button next;
     
@@ -103,8 +94,8 @@ public class SelectSightFragment extends TTBaseFragment{
 		initRes();
         initBtn();
         testCase();
-        initSight();
         initPopupWindow();
+        initSight();
 		return curView;
 	}
 
@@ -152,25 +143,22 @@ public class SelectSightFragment extends TTBaseFragment{
 			}
 		});
 
-        total = (TextView)curView.findViewById(R.id.select_all);
+        total = (TextView)curView.findViewById(R.id.select_total);
         nature = (TextView)curView.findViewById(R.id.select_nature);
         history = (TextView)curView.findViewById(R.id.select_history);
         entertainment = (TextView)curView.findViewById(R.id.select_entertainment);
         building = (TextView)curView.findViewById(R.id.select_building);
-        selectFlag.put(R.id.select_all, "全部");
+        selectFlag.put(R.id.select_total, "全部");
         selectFlag.put(R.id.select_nature, "自然");
         selectFlag.put(R.id.select_history, "历史");
-        selectFlag.put(R.id.select_entertainment, "文化");
+        selectFlag.put(R.id.select_entertainment, "文娱");
         selectFlag.put(R.id.select_building, "建筑");
 
-        sightIntelligenceSelect = (Button)curView.findViewById(R.id.sight_intelligence_select);
-        sightIntelligenceSelect.setOnClickListener(new View.OnClickListener() {
+        pop = (LinearLayout)curView.findViewById(R.id.select_sight_drop);
+        pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPopupWindow.showAtLocation(curView.findViewById(R.id.layout_select_sight), Gravity.BOTTOM, 0, 0);
-                Glide.with(getActivity()).load(R.drawable.calculating)
-                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                        .into(new GlideDrawableImageViewTarget(intelligenceSelectGif, 2));
+                mPopupWindow.showAsDropDown(curView.findViewById(R.id.select_sight_drop));
             }
         });
 
@@ -182,52 +170,9 @@ public class SelectSightFragment extends TTBaseFragment{
             }
         });
 
-
-        final String[] mItems = getResources().getStringArray(R.array.sight_menu);
-        spinner = (Spinner)curView.findViewById(R.id.spinner_sight);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                R.layout.spinner_checked_text, mItems) {
-
-            @Override
-            public View getDropDownView(int position, View convertView,
-                                        ViewGroup parent) {
-                View view = curView.inflate(getContext(), R.layout.spinner_item_layout,
-                        null);
-                TextView label = (TextView) view
-                        .findViewById(R.id.spinner_item_label);
-
-                label.setText(mItems[position]);
-                if (spinner.getSelectedItemPosition() == position) {
-                    view.setBackgroundColor(getResources().getColor(
-                            R.color.travel_alert_dialog_title));
-                } else {
-                    view.setBackgroundColor(getResources().getColor(
-                            R.color.travel_menu_bk));
-                }
-                return view;
-            }
-
-        };
-        adapter.setDropDownViewResource(R.layout.spinner_item_layout);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                spinner_select = pos;
-                tagProcess();
-                freeProcess();
-                sightAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Another interface callback
-            }
-        });
-
         rvSight = (RecyclerView)curView.findViewById(R.id.rv_sight);
-        
-	}
+        selectSightDropText = (TextView)curView.findViewById(R.id.select_sight_drop_text);
+    }
 
 	@Override
 	protected void initHandler() {
@@ -241,6 +186,7 @@ public class SelectSightFragment extends TTBaseFragment{
                 Tag = selectFlag.get(id);
                 tagProcess();
                 freeProcess();
+                buttonDisp(id);
                 sightAdapter.notifyDataSetChanged();
             }
         };
@@ -251,6 +197,42 @@ public class SelectSightFragment extends TTBaseFragment{
         building.setOnClickListener(listener);
     }
 
+    private void buttonDisp(int id) {
+        total.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        total.setTextColor(getResources().getColor(R.color.not_clicked));
+        nature.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        nature.setTextColor(getResources().getColor(R.color.not_clicked));
+        history.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        history.setTextColor(getResources().getColor(R.color.not_clicked));
+        entertainment.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        entertainment.setTextColor(getResources().getColor(R.color.not_clicked));
+        building.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        building.setTextColor(getResources().getColor(R.color.not_clicked));
+
+        switch (id) {
+            case R.id.select_total:
+                total.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                total.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_nature:
+                nature.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                nature.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_history:
+                history.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                history.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_entertainment:
+                entertainment.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                entertainment.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_building:
+                building.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                building.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+        }
+    }
+
     private void testCase() {
         String pre = UrlConstant.PIC_URL_PREFIX;
 
@@ -258,7 +240,6 @@ public class SelectSightFragment extends TTBaseFragment{
         gulangyu.setName("鼓浪屿");
         gulangyu.setPic(pre+"gulangyu.png");
         gulangyu.setStar(8);
-        gulangyu.setFocus(5678);
         gulangyu.setTag("自然");
         gulangyu.setFree(0);
         gulangyu.setMustGo(1);
@@ -268,8 +249,7 @@ public class SelectSightFragment extends TTBaseFragment{
         xiada.setName("厦门大学");
         xiada.setPic(pre+"xiamendaxue.png");
         xiada.setStar(9);
-        xiada.setFocus(2345);
-        xiada.setTag("建筑 文化");
+        xiada.setTag("建筑 文娱");
         xiada.setFree(1);
         xiada.setMustGo(1);
         xiada.setSelect(0);
@@ -278,8 +258,7 @@ public class SelectSightFragment extends TTBaseFragment{
         nanputuosi.setName("南普陀寺");
         nanputuosi.setPic(pre+"nanputuosi.png");
         nanputuosi.setStar(8);
-        nanputuosi.setFocus(5678);
-        nanputuosi.setTag("文化");
+        nanputuosi.setTag("文娱");
         nanputuosi.setFree(0);
         nanputuosi.setMustGo(0);
         nanputuosi.setSelect(0);
@@ -288,9 +267,8 @@ public class SelectSightFragment extends TTBaseFragment{
         huandaolu.setName("环岛路");
         huandaolu.setPic(pre+"huandaolu.png");
         huandaolu.setStar(8);
-        huandaolu.setFocus(5678);
         huandaolu.setTag("建筑");
-        huandaolu.setFree(0);
+        huandaolu.setFree(1);
         huandaolu.setMustGo(0);
         huandaolu.setSelect(0);
 
@@ -298,7 +276,6 @@ public class SelectSightFragment extends TTBaseFragment{
         riguangyan.setName("日光岩");
         riguangyan.setPic(pre+"riguangyan.png");
         riguangyan.setStar(8);
-        riguangyan.setFocus(5678);
         riguangyan.setTag("自然");
         riguangyan.setFree(0);
         riguangyan.setMustGo(1);
@@ -308,7 +285,6 @@ public class SelectSightFragment extends TTBaseFragment{
         zengcuoan.setName("曾厝垵");
         zengcuoan.setPic(pre+"zengcuoan.png");
         zengcuoan.setStar(8);
-        zengcuoan.setFocus(5678);
         zengcuoan.setTag("历史");
         zengcuoan.setFree(0);
         zengcuoan.setMustGo(0);
@@ -318,9 +294,8 @@ public class SelectSightFragment extends TTBaseFragment{
         zhongshanlu.setName("中山路");
         zhongshanlu.setPic(pre+"zhongshanlu.png");
         zhongshanlu.setStar(8);
-        zhongshanlu.setFocus(5678);
         zhongshanlu.setTag("建筑");
-        zhongshanlu.setFree(0);
+        zhongshanlu.setFree(1);
         zhongshanlu.setMustGo(1);
         zhongshanlu.setSelect(0);
 
@@ -328,7 +303,6 @@ public class SelectSightFragment extends TTBaseFragment{
         xiamenhaidishijie.setName("厦门海底世界");
         xiamenhaidishijie.setPic(pre+"xiamenhaidishijie.png");
         xiamenhaidishijie.setStar(8);
-        xiamenhaidishijie.setFocus(5678);
         xiamenhaidishijie.setTag("自然");
         xiamenhaidishijie.setFree(0);
         xiamenhaidishijie.setMustGo(0);
@@ -338,9 +312,8 @@ public class SelectSightFragment extends TTBaseFragment{
         shuzhuanghuayuan.setName("菽庄花园");
         shuzhuanghuayuan.setPic(pre+"shuzhuanghuayuan.png");
         shuzhuanghuayuan.setStar(8);
-        shuzhuanghuayuan.setFocus(5678);
-        shuzhuanghuayuan.setTag("文化");
-        shuzhuanghuayuan.setFree(0);
+        shuzhuanghuayuan.setTag("文娱");
+        shuzhuanghuayuan.setFree(1);
         shuzhuanghuayuan.setMustGo(0);
         shuzhuanghuayuan.setSelect(0);
 
@@ -348,8 +321,7 @@ public class SelectSightFragment extends TTBaseFragment{
         shadiaowenhuayuan.setName("沙雕文化园");
         shadiaowenhuayuan.setPic(pre+"shadiaowenhuayuan.png");
         shadiaowenhuayuan.setStar(8);
-        shadiaowenhuayuan.setFocus(5678);
-        shadiaowenhuayuan.setTag("文化");
+        shadiaowenhuayuan.setTag("文娱");
         shadiaowenhuayuan.setFree(0);
         shadiaowenhuayuan.setMustGo(1);
         shadiaowenhuayuan.setSelect(0);
@@ -405,101 +377,14 @@ public class SelectSightFragment extends TTBaseFragment{
         rvSight.setAdapter(sightAdapter);
     }
 
-    private void initPopupWindow() {
-        View popupView = curView.inflate(getActivity(), R.layout.select_sight_popup_window, null);
-        mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
-        mPopupWindow.setTouchable(true);
-        mPopupWindow.setOutsideTouchable(true);
-        mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
-        mPopupWindow.setAnimationStyle(R.style.anim_menu_bottombar);
-
-        mPopupWindow.getContentView().setFocusableInTouchMode(true);
-        mPopupWindow.getContentView().setFocusable(true);
-        mPopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_MENU && event.getRepeatCount() == 0
-                        && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    if (mPopupWindow != null && mPopupWindow.isShowing()) {
-                        mPopupWindow.dismiss();
-                    }
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        rvSelectSightIntellengence = (RecyclerView) popupView.findViewById(R.id.select_sight_intellengence);
-        rvSelectSightIntellengence.setHasFixedSize(true);
-        GridLayoutManager layoutManagerHot = new GridLayoutManager(getActivity(), 3);
-        layoutManagerHot.setOrientation(LinearLayoutManager.VERTICAL);
-        rvSelectSightIntellengence.setLayoutManager(layoutManagerHot);
-
-        SelectSightIntellengenceAdapter.OnRecyclerViewListener intellengenceRVListener = new SelectSightIntellengenceAdapter.OnRecyclerViewListener() {
-            @Override
-            public void onItemClick(int position) {
-                if (selectSightEntityList.get(position).getSelect() == 1) {
-                    selectSightEntityList.get(position).setSelect(0);
-                } else {
-                    selectSightEntityList.get(position).setSelect(1);
-                }
-
-                selectSightIntellengenceAdapter.notifyDataSetChanged();
-            }
-        };
-
-        for (SightEntity selectSight:selectSightEntityList) {
-            selectSight.setSelect(1);
-        }
-        selectSightIntellengenceAdapter = new SelectSightIntellengenceAdapter(getActivity(), selectSightEntityList);
-        selectSightIntellengenceAdapter.setOnRecyclerViewListener(intellengenceRVListener);
-        rvSelectSightIntellengence.setAdapter(selectSightIntellengenceAdapter);
-
-        popupOK = (Button) popupView.findViewById(R.id.select_sight_pop_ok);
-        popupCancel = (Button) popupView.findViewById(R.id.select_sight_pop_cancel);
-        View.OnClickListener popupListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.select_sight_pop_ok:
-                        popupSelectSightProcess();
-                        mPopupWindow.dismiss();
-                        break;
-
-                    case R.id.select_sight_pop_cancel:
-                        mPopupWindow.dismiss();
-                        break;
-                }
-            }
-        };
-        popupOK.setOnClickListener(popupListener);
-        popupCancel.setOnClickListener(popupListener);
-
-        intelligenceSelectGif = (ImageView) popupView.findViewById(R.id.intelligence_select_gif);
-    }
-
-    private void popupSelectSightProcess() {
-        for (SightEntity select:selectSightEntityList) {
-            for (SightEntity sight:sightEntityList) {
-                if (select.getName().equals(sight.getName())) {
-                    sight.setSelect(select.getSelect());
-                }
-            }
-            for (SightEntity tagSight:tagSightEntityList) {
-                if (select.getName().equals(tagSight.getName())) {
-                    tagSight.setSelect(select.getSelect());
-                }
-            }
-        }
-        sightAdapter.notifyDataSetChanged();
-    }
-
     private void freeProcess() {
-        if (spinner_select == 0) {
+        if (spinner_select == ALL) {
+            selectSightDropText.setText(getString(R.string.select_sight_not_screen));
             return;
         }
 
-        if (spinner_select == 1) {
+        if (spinner_select == FREE) {
+            selectSightDropText.setText(getString(R.string.select_sight_free));
             Iterator<SightEntity> iSightEntity = tagSightEntityList.iterator();
             while (iSightEntity.hasNext()) {
                 if (iSightEntity.next().getFree() == 0) {
@@ -521,6 +406,70 @@ public class SelectSightFragment extends TTBaseFragment{
             }
         }
     }
+
+    private void initPopupWindow() {
+        View popupView = curView.inflate(getActivity(), R.layout.select_sight_popup_window, null);
+        notScreen = (TextView) popupView.findViewById(R.id.select_sight_pop_not_screen);
+        free = (TextView) popupView.findViewById(R.id.select_sight_pop_free);
+        lyPop = (LinearLayout) popupView.findViewById(R.id.ly_select_sight_pop);
+        mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setOutsideTouchable(true);
+        mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        //mPopupWindow.setAnimationStyle(R.style.anim_menu_bottombar);
+
+        mPopupWindow.getContentView().setFocusableInTouchMode(true);
+        mPopupWindow.getContentView().setFocusable(true);
+        mPopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_MENU && event.getRepeatCount() == 0
+                        && event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                        mPopupWindow.dismiss();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        for (SightEntity selectSight:selectSightEntityList) {
+            selectSight.setSelect(1);
+        }
+
+        View.OnClickListener popupListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.select_sight_pop_not_screen:
+                        spinner_select = 0;
+                        tagProcess();
+                        freeProcess();
+                        sightAdapter.notifyDataSetChanged();
+                        mPopupWindow.dismiss();
+                        break;
+
+                    case R.id.select_sight_pop_free:
+                        spinner_select = 1;
+                        tagProcess();
+                        freeProcess();
+                        sightAdapter.notifyDataSetChanged();
+                        mPopupWindow.dismiss();
+                        break;
+
+                    case R.id.ly_select_sight_pop:
+                        mPopupWindow.dismiss();
+                        break;
+                }
+            }
+        };
+        lyPop.setOnClickListener(popupListener);
+        notScreen.setOnClickListener(popupListener);
+        free.setOnClickListener(popupListener);
+    }
+
 
     private void jump2SelectHotel() {
         Intent selectHotel = new Intent(getActivity(), SelectHotelActivity.class);

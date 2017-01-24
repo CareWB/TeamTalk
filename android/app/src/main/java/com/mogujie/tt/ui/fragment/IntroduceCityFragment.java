@@ -148,10 +148,8 @@ public class IntroduceCityFragment extends TTBaseFragment{
 
     private void dispCitySelect() {
         if (selectFlag) {
-            citySelect.setText("已添加");
             citySelect.setBackgroundResource(R.drawable.city_select);
         } else {
-            citySelect.setText("未添加");
             citySelect.setBackgroundResource(R.drawable.city_not_select);
         }
     }

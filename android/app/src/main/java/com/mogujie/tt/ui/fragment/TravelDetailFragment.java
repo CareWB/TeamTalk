@@ -19,6 +19,7 @@ import com.mogujie.tt.imservice.manager.IMTravelManager;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.protobuf.IMBuddy;
+import com.mogujie.tt.ui.activity.PlayBehaviorActivity;
 import com.mogujie.tt.ui.activity.SelectSightActivity;
 import com.mogujie.tt.ui.activity.TrafficListActivity;
 import com.mogujie.tt.ui.adapter.TravelDetailAdapter;
@@ -62,9 +63,10 @@ public class TravelDetailFragment extends TTBaseFragment{
                 travelEntity.setDestination(travelManager.getMtTravel().getDestination());
                 travelDetailAdapter.notifyDataSetChanged();
                 travelDetailTime.setText(String.valueOf(travelManager.getMtTravel().getDuration()+"天"));
-                travelDetailType.setText(travelTypeStringMap.get(travelManager.getMtTravel().getPlayQuality()));
+                travelDetailType.setText(travelTypeStringMap.get(1));
 
-
+                trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(1));//yuki 逼不得已
+                travelDetailAdapter.notifyDataSetChanged();
 /*                trafficEntityList.clear();
                 trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(0));
                 travelDetailAdapter.notifyDataSetChanged();*/
@@ -87,7 +89,7 @@ public class TravelDetailFragment extends TTBaseFragment{
                     travelDetailAdapter.notifyDataSetChanged();
                     break;
                 case 101:
-                    travelEntity.setSightSelect(data.getIntExtra("selectSight", 0));
+                    //travelEntity.setSightSelect(data.getIntExtra("selectSight", 0));
                     travelDetailAdapter.notifyDataSetChanged();
                     break;
             }
@@ -156,8 +158,8 @@ public class TravelDetailFragment extends TTBaseFragment{
         TravelDetailAdapter.OnRecyclerViewListener detailRVListener = new TravelDetailAdapter.OnRecyclerViewListener() {
             @Override
             public void onAddClick(int position, View v) {
-                Intent selectSightIntent = new Intent(getActivity(), SelectSightActivity.class);
-                startActivityForResult(selectSightIntent, Activity.RESULT_FIRST_USER);
+                Intent playBehaviorIntent = new Intent(getActivity(), PlayBehaviorActivity.class);
+                startActivityForResult(playBehaviorIntent, Activity.RESULT_FIRST_USER);
             }
 
             @Override
@@ -168,7 +170,6 @@ public class TravelDetailFragment extends TTBaseFragment{
         };
 
         travelEntity = new TravelEntity();
-
         travelDetailAdapter = new TravelDetailAdapter(getActivity(), travelEntity, trafficEntityList);
         travelDetailAdapter.setOnRecyclerViewListener(detailRVListener);
         rvTravelDetail.setAdapter(travelDetailAdapter);
@@ -191,16 +192,19 @@ public class TravelDetailFragment extends TTBaseFragment{
         switch (event.event){
             case REQ_TRAVEL_ROUTE_OK:
                 trafficEntityList.clear();
-                trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(0));
-                travelDetailAdapter.notifyDataSetChanged();
+                if (imService.getTravelManager().getTrafficEntityList().size()>1) {
+                    trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(1));
+                    travelDetailAdapter.notifyDataSetChanged();
+                }
+
                 break;
         }
     }
 
     private void initTravelTypeMap() {
-        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_ECONOMIC_VALUE, getString(R.string.economical_efficiency));
-        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_COMFORTABLE_VALUE, getString(R.string.economical_comfort));
-        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_LUXURY_VALUE, getString(R.string.luxury_quality));
+        travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_LOW_VALUE, getString(R.string.economical_efficiency));
+        travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_MID_VALUE, getString(R.string.economical_comfort));
+        travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_HIGH_VALUE, getString(R.string.luxury_quality));
     }
 
 }

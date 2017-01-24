@@ -26,17 +26,20 @@ public class TrafficDao extends AbstractDao<TrafficEntity, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Type = new Property(1, int.class, "type", false, "TYPE");
         public final static Property No = new Property(2, String.class, "no", false, "NO");
-        public final static Property StartStation = new Property(3, String.class, "startStation", false, "START_STATION");
-        public final static Property EndStation = new Property(4, String.class, "endStation", false, "END_STATION");
-        public final static Property StartTime = new Property(5, String.class, "startTime", false, "START_TIME");
-        public final static Property EndTime = new Property(6, String.class, "endTime", false, "END_TIME");
-        public final static Property Price = new Property(7, int.class, "price", false, "PRICE");
-        public final static Property Extra = new Property(8, String.class, "extra", false, "EXTRA");
-        public final static Property AddFlag = new Property(9, int.class, "addFlag", false, "ADD_FLAG");
-        public final static Property Version = new Property(10, int.class, "version", false, "VERSION");
-        public final static Property Status = new Property(11, int.class, "status", false, "STATUS");
-        public final static Property Created = new Property(12, int.class, "created", false, "CREATED");
-        public final static Property Updated = new Property(13, int.class, "updated", false, "UPDATED");
+        public final static Property StartCityCode = new Property(3, String.class, "startCityCode", false, "START_CITY_CODE");
+        public final static Property StartStation = new Property(4, String.class, "startStation", false, "START_STATION");
+        public final static Property EndCityCode = new Property(5, String.class, "endCityCode", false, "END_CITY_CODE");
+        public final static Property EndStation = new Property(6, String.class, "endStation", false, "END_STATION");
+        public final static Property StartTime = new Property(7, String.class, "startTime", false, "START_TIME");
+        public final static Property EndTime = new Property(8, String.class, "endTime", false, "END_TIME");
+        public final static Property Duration = new Property(9, String.class, "duration", false, "DURATION");
+        public final static Property Price = new Property(10, int.class, "price", false, "PRICE");
+        public final static Property SeatClass = new Property(11, String.class, "seatClass", false, "SEAT_CLASS");
+        public final static Property Select = new Property(12, int.class, "select", false, "SELECT");
+        public final static Property Version = new Property(13, int.class, "version", false, "VERSION");
+        public final static Property Status = new Property(14, int.class, "status", false, "STATUS");
+        public final static Property Created = new Property(15, int.class, "created", false, "CREATED");
+        public final static Property Updated = new Property(16, int.class, "updated", false, "UPDATED");
     };
 
 
@@ -55,17 +58,20 @@ public class TrafficDao extends AbstractDao<TrafficEntity, Long> {
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'TYPE' INTEGER NOT NULL ," + // 1: type
                 "'NO' TEXT NOT NULL ," + // 2: no
-                "'START_STATION' TEXT NOT NULL ," + // 3: startStation
-                "'END_STATION' TEXT NOT NULL ," + // 4: endStation
-                "'START_TIME' TEXT NOT NULL ," + // 5: startTime
-                "'END_TIME' TEXT NOT NULL ," + // 6: endTime
-                "'PRICE' INTEGER NOT NULL ," + // 7: price
-                "'EXTRA' TEXT NOT NULL ," + // 8: extra
-                "'ADD_FLAG' INTEGER NOT NULL ," + // 9: addFlag
-                "'VERSION' INTEGER NOT NULL ," + // 10: version
-                "'STATUS' INTEGER NOT NULL ," + // 11: status
-                "'CREATED' INTEGER NOT NULL ," + // 12: created
-                "'UPDATED' INTEGER NOT NULL );"); // 13: updated
+                "'START_CITY_CODE' TEXT NOT NULL ," + // 3: startCityCode
+                "'START_STATION' TEXT NOT NULL ," + // 4: startStation
+                "'END_CITY_CODE' TEXT NOT NULL ," + // 5: endCityCode
+                "'END_STATION' TEXT NOT NULL ," + // 6: endStation
+                "'START_TIME' TEXT NOT NULL ," + // 7: startTime
+                "'END_TIME' TEXT NOT NULL ," + // 8: endTime
+                "'DURATION' TEXT NOT NULL ," + // 9: duration
+                "'PRICE' INTEGER NOT NULL ," + // 10: price
+                "'SEAT_CLASS' TEXT NOT NULL ," + // 11: seatClass
+                "'SELECT' INTEGER NOT NULL ," + // 12: select
+                "'VERSION' INTEGER NOT NULL ," + // 13: version
+                "'STATUS' INTEGER NOT NULL ," + // 14: status
+                "'CREATED' INTEGER NOT NULL ," + // 15: created
+                "'UPDATED' INTEGER NOT NULL );"); // 16: updated
     }
 
     /** Drops the underlying database table. */
@@ -85,17 +91,20 @@ public class TrafficDao extends AbstractDao<TrafficEntity, Long> {
         }
         stmt.bindLong(2, entity.getType());
         stmt.bindString(3, entity.getNo());
-        stmt.bindString(4, entity.getStartStation());
-        stmt.bindString(5, entity.getEndStation());
-        stmt.bindString(6, entity.getStartTime());
-        stmt.bindString(7, entity.getEndTime());
-        stmt.bindLong(8, entity.getPrice());
-        stmt.bindString(9, entity.getExtra());
-        stmt.bindLong(10, entity.getAddFlag());
-        stmt.bindLong(11, entity.getVersion());
-        stmt.bindLong(12, entity.getStatus());
-        stmt.bindLong(13, entity.getCreated());
-        stmt.bindLong(14, entity.getUpdated());
+        stmt.bindString(4, entity.getStartCityCode());
+        stmt.bindString(5, entity.getStartStation());
+        stmt.bindString(6, entity.getEndCityCode());
+        stmt.bindString(7, entity.getEndStation());
+        stmt.bindString(8, entity.getStartTime());
+        stmt.bindString(9, entity.getEndTime());
+        stmt.bindString(10, entity.getDuration());
+        stmt.bindLong(11, entity.getPrice());
+        stmt.bindString(12, entity.getSeatClass());
+        stmt.bindLong(13, entity.getSelect());
+        stmt.bindLong(14, entity.getVersion());
+        stmt.bindLong(15, entity.getStatus());
+        stmt.bindLong(16, entity.getCreated());
+        stmt.bindLong(17, entity.getUpdated());
     }
 
     /** @inheritdoc */
@@ -111,17 +120,20 @@ public class TrafficDao extends AbstractDao<TrafficEntity, Long> {
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getInt(offset + 1), // type
             cursor.getString(offset + 2), // no
-            cursor.getString(offset + 3), // startStation
-            cursor.getString(offset + 4), // endStation
-            cursor.getString(offset + 5), // startTime
-            cursor.getString(offset + 6), // endTime
-            cursor.getInt(offset + 7), // price
-            cursor.getString(offset + 8), // extra
-            cursor.getInt(offset + 9), // addFlag
-            cursor.getInt(offset + 10), // version
-            cursor.getInt(offset + 11), // status
-            cursor.getInt(offset + 12), // created
-            cursor.getInt(offset + 13) // updated
+            cursor.getString(offset + 3), // startCityCode
+            cursor.getString(offset + 4), // startStation
+            cursor.getString(offset + 5), // endCityCode
+            cursor.getString(offset + 6), // endStation
+            cursor.getString(offset + 7), // startTime
+            cursor.getString(offset + 8), // endTime
+            cursor.getString(offset + 9), // duration
+            cursor.getInt(offset + 10), // price
+            cursor.getString(offset + 11), // seatClass
+            cursor.getInt(offset + 12), // select
+            cursor.getInt(offset + 13), // version
+            cursor.getInt(offset + 14), // status
+            cursor.getInt(offset + 15), // created
+            cursor.getInt(offset + 16) // updated
         );
         return entity;
     }
@@ -132,17 +144,20 @@ public class TrafficDao extends AbstractDao<TrafficEntity, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setType(cursor.getInt(offset + 1));
         entity.setNo(cursor.getString(offset + 2));
-        entity.setStartStation(cursor.getString(offset + 3));
-        entity.setEndStation(cursor.getString(offset + 4));
-        entity.setStartTime(cursor.getString(offset + 5));
-        entity.setEndTime(cursor.getString(offset + 6));
-        entity.setPrice(cursor.getInt(offset + 7));
-        entity.setExtra(cursor.getString(offset + 8));
-        entity.setAddFlag(cursor.getInt(offset + 9));
-        entity.setVersion(cursor.getInt(offset + 10));
-        entity.setStatus(cursor.getInt(offset + 11));
-        entity.setCreated(cursor.getInt(offset + 12));
-        entity.setUpdated(cursor.getInt(offset + 13));
+        entity.setStartCityCode(cursor.getString(offset + 3));
+        entity.setStartStation(cursor.getString(offset + 4));
+        entity.setEndCityCode(cursor.getString(offset + 5));
+        entity.setEndStation(cursor.getString(offset + 6));
+        entity.setStartTime(cursor.getString(offset + 7));
+        entity.setEndTime(cursor.getString(offset + 8));
+        entity.setDuration(cursor.getString(offset + 9));
+        entity.setPrice(cursor.getInt(offset + 10));
+        entity.setSeatClass(cursor.getString(offset + 11));
+        entity.setSelect(cursor.getInt(offset + 12));
+        entity.setVersion(cursor.getInt(offset + 13));
+        entity.setStatus(cursor.getInt(offset + 14));
+        entity.setCreated(cursor.getInt(offset + 15));
+        entity.setUpdated(cursor.getInt(offset + 16));
      }
     
     /** @inheritdoc */

@@ -340,38 +340,33 @@ public class ProtoBuf2JavaBean {
 
     }
 
-    public static TravelEntity getTravelEntity(IMBuddy.TravelDetail travelDetail){
+    public static TravelEntity getTravelEntity(IMBuddy.MyTravel myTravel){
         TravelEntity travelEntity = new TravelEntity();
-        travelEntity.setDbId(travelDetail.getDbIdx());
-        travelEntity.setStartDate(travelDetail.getTravelInfo().getDateFrom());
-        travelEntity.setEndDate(travelDetail.getTravelInfo().getDateTo());
-        travelEntity.setStartPlace(travelDetail.getTravelInfo().getPlaceFrom());
-        travelEntity.setEndPlace(travelDetail.getTravelInfo().getPlaceBack());
-        travelEntity.setDestination(travelDetail.getTravelInfo().getPlaceTo());
-        travelEntity.setPersonNum(travelDetail.getTravelInfo().getPersonNum());
-        travelEntity.setTrafficWay(travelDetail.getTrafficInfo().getTravelType());
-        travelEntity.setTrafficStartTime(travelDetail.getTrafficInfo().getTrafficTimeFrom());
-        travelEntity.setTrafficEndTime(travelDetail.getTrafficInfo().getTrafficTimeTo());
-        travelEntity.setPlayQuality(travelDetail.getPlayInfo().getPlayQuality().getNumber());
-        travelEntity.setPlayStartTime(travelDetail.getPlayInfo().getPlayTimeFrom());
-        travelEntity.setPlayEndTime(travelDetail.getPlayInfo().getPlayTimeTo());
-        travelEntity.setCityTraffic(travelDetail.getPlayInfo().getCityTraffic());
-        travelEntity.setHotelPosition(travelDetail.getPlayInfo().getHotelPosition().getNumber());
-        travelEntity.setCost(travelDetail.getCost());
+        travelEntity.setDbId(myTravel.getDbIdx());
+        travelEntity.setStartDate(myTravel.getBasicInfo().getDateFrom());
+        travelEntity.setEndDate(myTravel.getBasicInfo().getDateTo());
+        travelEntity.setStartPlace(myTravel.getBasicInfo().getPlaceFromCode());
+        travelEntity.setEndPlace(myTravel.getBasicInfo().getPlaceBackCode());
+        travelEntity.setDestination(myTravel.getBasicInfo().getPlaceToCode());
+        travelEntity.setPersonNum(myTravel.getBasicInfo().getPersonNum());
+        travelEntity.setTrafficWay(myTravel.getTransportConfig().getToolType());
+        travelEntity.setTrafficStartTime(myTravel.getTransportConfig().getTimeStart());
+        travelEntity.setTrafficEndTime(myTravel.getTransportConfig().getTimeEnd());
+        travelEntity.setTrafficQuality(myTravel.getTransportConfig().getQuality().getNumber());
+        travelEntity.setTransit(myTravel.getTransportConfig().getTransit());
         return travelEntity;
     }
 
     public static TrafficEntity getTrafficEntity(IMBuddy.TravelToolInfo travelToolInfo){
         TrafficEntity trafficEntity = new TrafficEntity();
-        trafficEntity.setType(travelToolInfo.getTravelType());
+        trafficEntity.setType(travelToolInfo.getTransportToolType());
         trafficEntity.setStartStation(travelToolInfo.getPlaceFrom());
         trafficEntity.setEndStation(travelToolInfo.getPlaceTo());
         trafficEntity.setStartTime(travelToolInfo.getTimeFrom());
         trafficEntity.setEndTime(travelToolInfo.getTimeTo());
         trafficEntity.setNo(travelToolInfo.getNo());
         trafficEntity.setPrice(travelToolInfo.getPrice());
-        trafficEntity.setExtra("经济舱");
-        trafficEntity.setAddFlag(0);
+        trafficEntity.setSeatClass(travelToolInfo.getClass_());
         return trafficEntity;
     }
 }

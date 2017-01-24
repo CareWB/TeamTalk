@@ -18,6 +18,7 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar;
+import com.mogujie.tt.DB.entity.PlayConfigEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.imservice.manager.IMTravelManager;
 import com.mogujie.tt.imservice.service.IMService;
@@ -158,7 +159,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 
                     case R.id.play_behavior_next_step:
                         storeTravelEntity();
-                        imTravelManager.reqCreateTravel();
+                        //imTravelManager.reqCreateTravel();
                         jump2SelectSight();
                         break;
                 }
@@ -178,27 +179,27 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 
     private void playQuality(int id) {
         play_quality = 0;
-        economical_efficiency.setTextColor(getResources().getColor(R.color.default_black_color));
+        economical_efficiency.setTextColor(getResources().getColor(R.color.not_clicked));
         economical_efficiency.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        economical_comfort.setTextColor(getResources().getColor(R.color.default_black_color));
+        economical_comfort.setTextColor(getResources().getColor(R.color.not_clicked));
         economical_comfort.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        luxury_quality.setTextColor(getResources().getColor(R.color.default_black_color));
+        luxury_quality.setTextColor(getResources().getColor(R.color.not_clicked));
         luxury_quality.setBackgroundResource(R.drawable.travel_behavior_not_click);
 
         switch (id) {
             case R.id.economical_efficiency:
                 play_quality = 1;
-                economical_efficiency.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                economical_efficiency.setTextColor(getResources().getColor(R.color.clicked));
                 economical_efficiency.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.economical_comfort:
                 play_quality = 2;
-                economical_comfort.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                economical_comfort.setTextColor(getResources().getColor(R.color.clicked));
                 economical_comfort.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.luxury_quality:
                 play_quality = 3;
-                luxury_quality.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                luxury_quality.setTextColor(getResources().getColor(R.color.clicked));
                 luxury_quality.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
         }
@@ -216,8 +217,8 @@ public class PlayBehaviorFragment extends TTBaseFragment{
         // set properties
         rangeSeekbar
                 .setCornerRadius(10f)
-                .setBarColor(Color.parseColor("#93F9B5"))
-                .setBarHighlightColor(Color.parseColor("#16E059"))
+                .setBarColor(Color.parseColor("#d6dadc"))
+                .setBarHighlightColor(Color.parseColor("#5e93bd"))
                 .setMinValue(MIN_TIME)
                 .setMaxValue(MAX_TIME)
                 .setMinStartValue(9)
@@ -232,7 +233,7 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 
         WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         int width = wm.getDefaultDisplay().getWidth();
-        final int step = (width-80)/(MAX_TIME - MIN_TIME);
+        final int step = (width-260)/(MAX_TIME - MIN_TIME);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -260,27 +261,23 @@ public class PlayBehaviorFragment extends TTBaseFragment{
             case R.id.traffic_bus:
                 if ((city_traffic&0x0002) != 0) {
                     city_traffic^=0x0002;
-                    traffic_bus.setTextColor(getResources().getColor(R.color.default_black_color));
+                    traffic_bus.setTextColor(getResources().getColor(R.color.not_clicked));
                     traffic_bus.setBackgroundResource(R.drawable.travel_behavior_not_click);
-                    traffic_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_black), null, null, null);
                 } else {
                     city_traffic|=0x0002;
-                    traffic_bus.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                    traffic_bus.setTextColor(getResources().getColor(R.color.clicked));
                     traffic_bus.setBackgroundResource(R.drawable.travel_behavior_click);
-                    traffic_bus.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_white), null, null, null);
                 }
                 break;
             case R.id.traffic_taxi:
                 if ((city_traffic&0x0004) != 0) {
                     city_traffic^=0x0004;
-                    traffic_taxi.setTextColor(getResources().getColor(R.color.default_black_color));
+                    traffic_taxi.setTextColor(getResources().getColor(R.color.not_clicked));
                     traffic_taxi.setBackgroundResource(R.drawable.travel_behavior_not_click);
-                    traffic_taxi.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_black), null, null, null);
                 } else {
                     city_traffic|=0x0004;
-                    traffic_taxi.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                    traffic_taxi.setTextColor(getResources().getColor(R.color.clicked));
                     traffic_taxi.setBackgroundResource(R.drawable.travel_behavior_click);
-                    traffic_taxi.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.plane_white), null, null, null);
                 }
                 break;
         }
@@ -288,27 +285,27 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 
     private void hotelPosition(int id) {
         hotel_Position = 0;
-        near_downtown.setTextColor(getResources().getColor(R.color.default_black_color));
+        near_downtown.setTextColor(getResources().getColor(R.color.not_clicked));
         near_downtown.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        near_scenic_spot.setTextColor(getResources().getColor(R.color.default_black_color));
+        near_scenic_spot.setTextColor(getResources().getColor(R.color.not_clicked));
         near_scenic_spot.setBackgroundResource(R.drawable.travel_behavior_not_click);
-        easy_communication.setTextColor(getResources().getColor(R.color.default_black_color));
+        easy_communication.setTextColor(getResources().getColor(R.color.not_clicked));
         easy_communication.setBackgroundResource(R.drawable.travel_behavior_not_click);
 
         switch (id) {
             case R.id.near_downtown:
                 hotel_Position = 1;
-                near_downtown.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                near_downtown.setTextColor(getResources().getColor(R.color.clicked));
                 near_downtown.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.near_scenic_spot:
                 hotel_Position = 2;
-                near_scenic_spot.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                near_scenic_spot.setTextColor(getResources().getColor(R.color.clicked));
                 near_scenic_spot.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
             case R.id.easy_communication:
                 hotel_Position = 3;
-                easy_communication.setTextColor(getResources().getColor(R.color.travel_menu_bk));
+                easy_communication.setTextColor(getResources().getColor(R.color.clicked));
                 easy_communication.setBackgroundResource(R.drawable.travel_behavior_click);
                 break;
         }
@@ -324,11 +321,13 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 
     private void storeTravelEntity() {
         if (imTravelManager != null) {
-            imTravelManager.getMtTravel().setPlayQuality(play_quality);
-            imTravelManager.getMtTravel().setPlayStartTime(strStartTime);
-            imTravelManager.getMtTravel().setPlayEndTime(strEndTime);
-            imTravelManager.getMtTravel().setHotelPosition(hotel_Position);
-            imTravelManager.getMtTravel().setCityTraffic(city_traffic);
+            PlayConfigEntity playConfigEntity = new PlayConfigEntity();
+            playConfigEntity.setQuality(play_quality);
+            playConfigEntity.setStartTime(strStartTime);
+            playConfigEntity.setEndTime(strEndTime);
+            playConfigEntity.setPosition(hotel_Position);
+            playConfigEntity.setTransportToolType(city_traffic);
+            imTravelManager.getMtCity().get(0).setPlayConfig(playConfigEntity);
         }
     }
 

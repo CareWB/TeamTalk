@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 //import com.bumptech.glide.Glide;
+import com.bumptech.glide.Glide;
 import com.mogujie.tt.DB.entity.HotelEntity;
 import com.mogujie.tt.R;
 
@@ -55,11 +56,11 @@ public class HotelAdapter extends RecyclerView.Adapter {
         HotelEntity hotelEntity = mList.get(i);
         HotelViewHolder holder = (HotelViewHolder) viewHolder;
         //Glide.with(ctx).load(hotelEntity.getPic()).into(holder.pic);
-        holder.name.setText(mList.get(i).getName());
-        holder.star.setRating((float)(mList.get(i).getStar())/2);
-        holder.focusNum.setText("("+mList.get(i).getFocus()+")");
-        holder.tag.setText(mList.get(i).getTag());
-        holder.price.setText("￥"+mList.get(i).getPrice()+"起(晚/间)");
+        Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
+        holder.name.setText(hotelEntity.getName());
+        holder.star.setRating((float)(hotelEntity.getStar())/2);
+        holder.tag.setText(hotelEntity.getTag());
+        holder.price.setText("￥"+hotelEntity.getPrice()+"起(晚/间)");
 
         if (mList.get(i).getSelect() == 1) {
             holder.select.setBackgroundResource(R.drawable.sight_selected);
@@ -78,7 +79,6 @@ public class HotelAdapter extends RecyclerView.Adapter {
         public ImageView pic;
         public TextView name;
         public RatingBar star;
-        public TextView focusNum;
         public TextView tag;
         public TextView price;
         public ImageView select;
@@ -89,7 +89,6 @@ public class HotelAdapter extends RecyclerView.Adapter {
             pic = (ImageView) itemView.findViewById(R.id.hotel_pic);
             name = (TextView) itemView.findViewById(R.id.hotel_name);
             star = (RatingBar) itemView.findViewById(R.id.hotel_star);
-            focusNum = (TextView) itemView.findViewById(R.id.hotel_focus_num);
             tag = (TextView) itemView.findViewById(R.id.hotel_tag);
             price = (TextView) itemView.findViewById(R.id.hotel_price);
             select = (ImageView) itemView.findViewById(R.id.hotel_select);

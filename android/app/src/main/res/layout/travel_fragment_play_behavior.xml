@@ -3,50 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/default_bk">
+    android:orientation="vertical">
 
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/base_left_right_pad"
+        android:paddingRight="@dimen/base_left_right_pad">
 
         <TextView
-            android:text="旅行指数-目的地"
+            android:text="游玩指数"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/default_black_color" />
+            android:layout_marginTop="@dimen/travel_behavior_top"
+            android:layout_marginBottom="@dimen/travel_behavior_bottom"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"/>
 
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="100dp" >
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/travel_behavior_button_bottom" >
 
             <Button
                 android:text="经济高效游"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/economical_efficiency"
-                android:textColor="@color/default_black_color"
+                android:textColor="@color/not_clicked"
+                android:textSize="@dimen/content_size"
                 android:background="@drawable/travel_behavior_not_click" />
 
             <Button
                 android:text="经济舒适游"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/economical_comfort"
-                android:textColor="@color/travel_menu_bk"
+                android:layout_marginLeft="@dimen/travel_behavior_button_between"
+                android:layout_marginRight="@dimen/travel_behavior_button_between"
+                android:textColor="@color/clicked"
+                android:textSize="@dimen/content_size"
                 android:background="@drawable/travel_behavior_click" />
 
             <Button
                 android:text="奢华品质游"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/luxury_quality"
-                android:textColor="@color/default_black_color"
+                android:textSize="@dimen/content_size"
+                android:textColor="@color/not_clicked"
                 android:background="@drawable/travel_behavior_not_click" />
         </TableRow>
 
@@ -54,16 +61,23 @@
             android:text="游玩时间段"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/default_black_color" />
+            android:layout_marginTop="@dimen/travel_behavior_top"
+            android:layout_marginBottom="@dimen/travel_behavior_bottom"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/play_time_height"
+            android:paddingBottom="@dimen/play_time_bottom_pad">
 
             <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
                 android:id="@+id/play_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/play_time_bottom"
+                android:layout_marginLeft="@dimen/play_time_duration_left_right"
+                android:layout_marginRight="@dimen/play_time_duration_left_right"
                 android:layout_alignParentBottom="true"
                 app:min_value="0"
                 app:max_value="24"/>
@@ -72,19 +86,23 @@
                 android:id="@+id/play_time_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/play_time_bk"
+                android:gravity="center_horizontal"
                 android:text="0"
                 android:layout_above="@id/play_time"
-                android:textSize="16dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/clicked"
+                android:textSize="@dimen/content_size"/>
 
             <TextView
                 android:id="@+id/play_time_end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/play_time_bk"
+                android:gravity="center_horizontal"
                 android:text="24"
                 android:layout_above="@id/play_time"
-                android:textSize="16dp"
-                android:textColor="#000000"
+                android:textColor="@color/clicked"
+                android:textSize="@dimen/content_size"
                 android:layout_alignParentRight="true"/>
 
         </RelativeLayout>
@@ -93,37 +111,43 @@
             android:text="市内交通（可多选）"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/default_black_color" />
+            android:layout_marginTop="@dimen/travel_behavior_top"
+            android:layout_marginBottom="@dimen/travel_behavior_bottom"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="100dp" >
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/travel_behavior_button_bottom">
 
             <Button
                 android:text="步行（必选）"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/traffic_walk"
-                android:textColor="@color/travel_menu_bk"
+                android:textColor="@color/clicked"
+                android:textSize="@dimen/content_size"
                 android:background="@drawable/travel_behavior_click" />
 
             <Button
                 android:text="公共交通"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/traffic_bus"
-                android:textColor="@color/travel_menu_bk"
+                android:layout_marginLeft="@dimen/travel_behavior_button_between"
+                android:layout_marginRight="@dimen/travel_behavior_button_between"
+                android:textColor="@color/clicked"
+                android:textSize="@dimen/content_size"
                 android:background="@drawable/travel_behavior_click" />
 
             <Button
                 android:text="打车"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/traffic_taxi"
-                android:textColor="@color/default_black_color"
+                android:textColor="@color/not_clicked"
+                android:textSize="@dimen/content_size"
                 android:background="@drawable/travel_behavior_not_click" />
         </TableRow>
 
@@ -131,7 +155,10 @@
             android:text="酒店位置需求"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/default_black_color" />
+            android:layout_marginTop="@dimen/travel_behavior_top"
+            android:layout_marginBottom="@dimen/travel_behavior_bottom"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -139,29 +166,31 @@
 
             <Button
                 android:text="靠近市中心"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/near_downtown"
-                android:textColor="@color/default_black_color"
+                android:textColor="@color/not_clicked"
+                android:textSize="@dimen/content_size"
                 android:background="@drawable/travel_behavior_not_click" />
 
             <Button
                 android:text="靠近景点群"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/near_scenic_spot"
-                android:textColor="@color/default_black_color"
-                android:background="@drawable/travel_behavior_not_click" />
+                android:layout_marginLeft="@dimen/travel_behavior_button_between"
+                android:layout_marginRight="@dimen/travel_behavior_button_between"
+                android:textColor="@color/not_clicked"
+                android:textSize="@dimen/content_size"
+                android:background="@drawable/travel_behavior_not_click"/>
 
             <Button
                 android:text="交通便利"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:id="@+id/easy_communication"
-                android:textColor="@color/travel_menu_bk"
+                android:textColor="@color/clicked"
+                android:textSize="@dimen/content_size"
                 android:background="@drawable/travel_behavior_click" />
         </TableRow>
 
@@ -177,6 +206,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/next_step"
+            android:textColor="@color/next_step"
+            android:textSize="@dimen/next_step"
             android:background="@drawable/next_step_click"
             android:id="@+id/play_behavior_next_step" />
     </LinearLayout>

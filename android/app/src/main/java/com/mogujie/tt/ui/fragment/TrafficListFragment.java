@@ -116,6 +116,11 @@ public class TrafficListFragment extends TTBaseFragment{
             public void onSelectClick(int position) {
                 trafficID = position;
             }
+
+            @Override
+            public void onPullClick(int position) {
+
+            }
         };
 
         trafficDetailAdapter = new TrafficDetailAdapter(getActivity(), trafficEntityList);

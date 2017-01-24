@@ -20,8 +20,15 @@ public class SightEntity {
     private String tag;
     private int free;
     private int mustGo;
+    /** Not-null value. */
+    private String url;
+    private int playTime;
+    private int price;
+    /** Not-null value. */
+    private String bestStartTime;
+    /** Not-null value. */
+    private String bestEndTime;
     private int select;
-    private int focus;
     private int version;
     private int status;
     private int created;
@@ -37,7 +44,7 @@ public class SightEntity {
         this.id = id;
     }
 
-    public SightEntity(Long id, int peerId, String name, String pic, int star, String tag, int free, int mustGo, int select, int focus, int version, int status, int created, int updated) {
+    public SightEntity(Long id, int peerId, String name, String pic, int star, String tag, int free, int mustGo, String url, int playTime, int price, String bestStartTime, String bestEndTime, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
         this.name = name;
@@ -46,8 +53,12 @@ public class SightEntity {
         this.tag = tag;
         this.free = free;
         this.mustGo = mustGo;
+        this.url = url;
+        this.playTime = playTime;
+        this.price = price;
+        this.bestStartTime = bestStartTime;
+        this.bestEndTime = bestEndTime;
         this.select = select;
-        this.focus = focus;
         this.version = version;
         this.status = status;
         this.created = created;
@@ -124,20 +135,58 @@ public class SightEntity {
         this.mustGo = mustGo;
     }
 
+    /** Not-null value. */
+    public String getUrl() {
+        return url;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getPlayTime() {
+        return playTime;
+    }
+
+    public void setPlayTime(int playTime) {
+        this.playTime = playTime;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    /** Not-null value. */
+    public String getBestStartTime() {
+        return bestStartTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setBestStartTime(String bestStartTime) {
+        this.bestStartTime = bestStartTime;
+    }
+
+    /** Not-null value. */
+    public String getBestEndTime() {
+        return bestEndTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setBestEndTime(String bestEndTime) {
+        this.bestEndTime = bestEndTime;
+    }
+
     public int getSelect() {
         return select;
     }
 
     public void setSelect(int select) {
         this.select = select;
-    }
-
-    public int getFocus() {
-        return focus;
-    }
-
-    public void setFocus(int focus) {
-        this.focus = focus;
     }
 
     public int getVersion() {

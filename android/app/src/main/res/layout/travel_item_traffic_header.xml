@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_traffic_header_divder"
+        android:background="@color/base_bk">
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/base_left_right_pad"
+        android:paddingRight="@dimen/base_left_right_pad"
+        android:background="@drawable/traffic_header_bk">
+
+        <TextView
+            android:text="飞机票"
+            android:layout_width="71dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/plane_blue"
+            android:textColor="@color/traffic_head"
+            android:textSize="@dimen/title_hint_size"
+            android:id="@+id/traffic_type"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:id="@+id/traffic_select"
+            android:background="@drawable/traffic_up_arrow"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    </LinearLayout>

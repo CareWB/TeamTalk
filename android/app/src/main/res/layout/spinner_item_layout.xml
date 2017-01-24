@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/travel_menu_bk"
-    android:padding="15dp" >
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/spinner_item_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_margin="15dp"
         android:layout_centerVertical="true"
-        android:textColor="@color/travel_menu_text"
-        android:textSize="17sp" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/not_clicked"
+        android:textSize="@dimen/spinner_sp" />
 </RelativeLayout>

@@ -56,22 +56,22 @@ public class SightAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         SightEntity sightEntity = mList.get(i);
         SightViewHolder holder = (SightViewHolder) viewHolder;
-        Glide.with(ctx).load(sightEntity.getPic()).into(holder.pic);
-        holder.name.setText(mList.get(i).getName());
-        holder.star.setRating((float)(mList.get(i).getStar())/2);
-        holder.focusNum.setText("("+mList.get(i).getFocus()+")");
-        holder.tag.setText(mList.get(i).getTag());
-        if (mList.get(i).getFree() == 1) {
+        //Glide.with(ctx).load(sightEntity.getPic()).into(holder.pic);
+        Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
+        holder.name.setText(sightEntity.getName());
+        holder.star.setRating((float)(sightEntity.getStar())/2);
+        holder.tag.setText(sightEntity.getTag());
+        if (sightEntity.getFree() == 1) {
             holder.free.setBackgroundResource(R.drawable.no_ticket);
         } else {
             holder.free.setBackgroundResource(R.drawable.ticket);
         }
-        if (mList.get(i).getMustGo() == 1) {
+        if (sightEntity.getMustGo() == 1) {
             holder.mustGo.setVisibility(View.VISIBLE);
         } else {
             holder.mustGo.setVisibility(View.GONE);
         }
-        if (mList.get(i).getSelect() == 1) {
+        if (sightEntity.getSelect() == 1) {
             holder.sightSelect.setBackgroundResource(R.drawable.sight_selected);
         } else {
             holder.sightSelect.setBackgroundResource(R.drawable.sight_not_selected);
@@ -88,7 +88,6 @@ public class SightAdapter extends RecyclerView.Adapter {
         public ImageView pic;
         public TextView name;
         public RatingBar star;
-        public TextView focusNum;
         public TextView tag;
         public ImageView free;
         public ImageView mustGo;
@@ -100,7 +99,6 @@ public class SightAdapter extends RecyclerView.Adapter {
             pic = (ImageView) itemView.findViewById(R.id.sight_pic);
             name = (TextView) itemView.findViewById(R.id.sight_name);
             star = (RatingBar) itemView.findViewById(R.id.sight_star);
-            focusNum = (TextView) itemView.findViewById(R.id.sight_focus_num);
             tag = (TextView) itemView.findViewById(R.id.sight_tag);
             free = (ImageView) itemView.findViewById(R.id.sight_free);
             mustGo = (ImageView) itemView.findViewById(R.id.must_go);

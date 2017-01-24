@@ -134,7 +134,7 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             travelHolder.destination.setText("目的地:"+travelEntity.getDestination());
             travelHolder.personNum.setText(travelEntity.getPersonNum()+ctx.getString(R.string.person));
             travelHolder.payNum.setText(travelEntity.getCost()+ctx.getString(R.string.monetary_unit));
-            travelHolder.travelType.setText(travelTypeStringMap.get(travelEntity.getPlayQuality()));
+            travelHolder.travelType.setText(travelTypeStringMap.get(travelEntity.getTrafficQuality()));
         } else if (holder instanceof NewTravelHolder){
             NewTravelHolder newTravelHolder = (NewTravelHolder)holder;
             newTravelHolder.newBk.setOnClickListener(new View.OnClickListener() {
@@ -201,9 +201,9 @@ public class TravelTipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     private void initTravelTypeMap() {
-        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_ECONOMIC_VALUE, ctx.getString(R.string.economical_efficiency));
-        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_COMFORTABLE_VALUE, ctx.getString(R.string.economical_comfort));
-        travelTypeStringMap.put(IMBuddy.TrafficQualityType.QLT_TYPE_LUXURY_VALUE, ctx.getString(R.string.luxury_quality));
+        travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_LOW_VALUE, ctx.getString(R.string.economical_efficiency));
+        travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_MID_VALUE, ctx.getString(R.string.economical_comfort));
+        travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_HIGH_VALUE, ctx.getString(R.string.luxury_quality));
     }
 
 }

@@ -61,7 +61,6 @@ public class IntroduceSightFragment extends TTBaseFragment{
 		sightEntity = new SightEntity();
 		sightEntity.setName("鼓浪屿");
 		sightEntity.setStar(9);
-        sightEntity.setFocus(2345);
 		initRes();
         initBtn();
 		return curView;
@@ -100,7 +99,6 @@ public class IntroduceSightFragment extends TTBaseFragment{
         star = (RatingBar)curView.findViewById(R.id.introduce_sight_star);
         focusNum = (TextView)curView.findViewById(R.id.introduce_sight_focus_num);
         star.setRating((float)(sightEntity.getStar())/2);
-        focusNum.setText("("+sightEntity.getFocus()+")");
 
         webView = (WebView)curView.findViewById(R.id.introduce_sight_web);
         webView.getSettings().setJavaScriptEnabled(true);

@@ -15,6 +15,7 @@ import com.mogujie.tt.DB.entity.GroupEntity;
 import com.mogujie.tt.DB.entity.MessageEntity;
 import com.mogujie.tt.DB.entity.SessionEntity;
 import com.mogujie.tt.DB.entity.TravelEntity;
+import com.mogujie.tt.DB.entity.PlayConfigEntity;
 import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.DB.entity.HotelEntity;
 import com.mogujie.tt.DB.entity.TrafficEntity;
@@ -27,6 +28,7 @@ import com.mogujie.tt.DB.dao.GroupDao;
 import com.mogujie.tt.DB.dao.MessageDao;
 import com.mogujie.tt.DB.dao.SessionDao;
 import com.mogujie.tt.DB.dao.TravelDao;
+import com.mogujie.tt.DB.dao.PlayConfigDao;
 import com.mogujie.tt.DB.dao.SightDao;
 import com.mogujie.tt.DB.dao.HotelDao;
 import com.mogujie.tt.DB.dao.TrafficDao;
@@ -48,6 +50,7 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig messageDaoConfig;
     private final DaoConfig sessionDaoConfig;
     private final DaoConfig travelDaoConfig;
+    private final DaoConfig playConfigDaoConfig;
     private final DaoConfig sightDaoConfig;
     private final DaoConfig hotelDaoConfig;
     private final DaoConfig trafficDaoConfig;
@@ -60,6 +63,7 @@ public class DaoSession extends AbstractDaoSession {
     private final MessageDao messageDao;
     private final SessionDao sessionDao;
     private final TravelDao travelDao;
+    private final PlayConfigDao playConfigDao;
     private final SightDao sightDao;
     private final HotelDao hotelDao;
     private final TrafficDao trafficDao;
@@ -88,6 +92,9 @@ public class DaoSession extends AbstractDaoSession {
         travelDaoConfig = daoConfigMap.get(TravelDao.class).clone();
         travelDaoConfig.initIdentityScope(type);
 
+        playConfigDaoConfig = daoConfigMap.get(PlayConfigDao.class).clone();
+        playConfigDaoConfig.initIdentityScope(type);
+
         sightDaoConfig = daoConfigMap.get(SightDao.class).clone();
         sightDaoConfig.initIdentityScope(type);
 
@@ -109,6 +116,7 @@ public class DaoSession extends AbstractDaoSession {
         messageDao = new MessageDao(messageDaoConfig, this);
         sessionDao = new SessionDao(sessionDaoConfig, this);
         travelDao = new TravelDao(travelDaoConfig, this);
+        playConfigDao = new PlayConfigDao(playConfigDaoConfig, this);
         sightDao = new SightDao(sightDaoConfig, this);
         hotelDao = new HotelDao(hotelDaoConfig, this);
         trafficDao = new TrafficDao(trafficDaoConfig, this);
@@ -121,6 +129,7 @@ public class DaoSession extends AbstractDaoSession {
         registerDao(MessageEntity.class, messageDao);
         registerDao(SessionEntity.class, sessionDao);
         registerDao(TravelEntity.class, travelDao);
+        registerDao(PlayConfigEntity.class, playConfigDao);
         registerDao(SightEntity.class, sightDao);
         registerDao(HotelEntity.class, hotelDao);
         registerDao(TrafficEntity.class, trafficDao);
@@ -135,6 +144,7 @@ public class DaoSession extends AbstractDaoSession {
         messageDaoConfig.getIdentityScope().clear();
         sessionDaoConfig.getIdentityScope().clear();
         travelDaoConfig.getIdentityScope().clear();
+        playConfigDaoConfig.getIdentityScope().clear();
         sightDaoConfig.getIdentityScope().clear();
         hotelDaoConfig.getIdentityScope().clear();
         trafficDaoConfig.getIdentityScope().clear();
@@ -164,6 +174,10 @@ public class DaoSession extends AbstractDaoSession {
 
     public TravelDao getTravelDao() {
         return travelDao;
+    }
+
+    public PlayConfigDao getPlayConfigDao() {
+        return playConfigDao;
     }
 
     public SightDao getSightDao() {

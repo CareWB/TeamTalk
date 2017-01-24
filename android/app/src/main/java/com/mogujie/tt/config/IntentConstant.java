@@ -29,5 +29,4 @@ public class IntentConstant {
 
     public static final String CUR_MESSAGE = "CUR_MESSAGE";
 
-
 }

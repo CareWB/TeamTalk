@@ -14,17 +14,23 @@ public class TrafficEntity {
     /** Not-null value. */
     private String no;
     /** Not-null value. */
+    private String startCityCode;
+    /** Not-null value. */
     private String startStation;
+    /** Not-null value. */
+    private String endCityCode;
     /** Not-null value. */
     private String endStation;
     /** Not-null value. */
     private String startTime;
     /** Not-null value. */
     private String endTime;
+    /** Not-null value. */
+    private String duration;
     private int price;
     /** Not-null value. */
-    private String extra;
-    private int addFlag;
+    private String seatClass;
+    private int select;
     private int version;
     private int status;
     private int created;
@@ -40,17 +46,20 @@ public class TrafficEntity {
         this.id = id;
     }
 
-    public TrafficEntity(Long id, int type, String no, String startStation, String endStation, String startTime, String endTime, int price, String extra, int addFlag, int version, int status, int created, int updated) {
+    public TrafficEntity(Long id, int type, String no, String startCityCode, String startStation, String endCityCode, String endStation, String startTime, String endTime, String duration, int price, String seatClass, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.type = type;
         this.no = no;
+        this.startCityCode = startCityCode;
         this.startStation = startStation;
+        this.endCityCode = endCityCode;
         this.endStation = endStation;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.duration = duration;
         this.price = price;
-        this.extra = extra;
-        this.addFlag = addFlag;
+        this.seatClass = seatClass;
+        this.select = select;
         this.version = version;
         this.status = status;
         this.created = created;
@@ -84,6 +93,16 @@ public class TrafficEntity {
     }
 
     /** Not-null value. */
+    public String getStartCityCode() {
+        return startCityCode;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setStartCityCode(String startCityCode) {
+        this.startCityCode = startCityCode;
+    }
+
+    /** Not-null value. */
     public String getStartStation() {
         return startStation;
     }
@@ -91,6 +110,16 @@ public class TrafficEntity {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setStartStation(String startStation) {
         this.startStation = startStation;
+    }
+
+    /** Not-null value. */
+    public String getEndCityCode() {
+        return endCityCode;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setEndCityCode(String endCityCode) {
+        this.endCityCode = endCityCode;
     }
 
     /** Not-null value. */
@@ -123,6 +152,16 @@ public class TrafficEntity {
         this.endTime = endTime;
     }
 
+    /** Not-null value. */
+    public String getDuration() {
+        return duration;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
     public int getPrice() {
         return price;
     }
@@ -132,21 +171,21 @@ public class TrafficEntity {
     }
 
     /** Not-null value. */
-    public String getExtra() {
-        return extra;
+    public String getSeatClass() {
+        return seatClass;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setExtra(String extra) {
-        this.extra = extra;
+    public void setSeatClass(String seatClass) {
+        this.seatClass = seatClass;
     }
 
-    public int getAddFlag() {
-        return addFlag;
+    public int getSelect() {
+        return select;
     }
 
-    public void setAddFlag(int addFlag) {
-        this.addFlag = addFlag;
+    public void setSelect(int select) {
+        this.select = select;
     }
 
     public int getVersion() {

@@ -30,4 +30,12 @@
     <string name="end_place">返回地</string>
     <string name="next_step">下一步</string>
     <string name="under_constracted">景点规划中，敬请期待</string>
+    <string name="select_sight_not_screen">不筛选</string>
+    <string name="select_sight_free">免票</string>
+    <string name="select_hotel_comprehensive">综合</string>
+    <string name="generating_route">生成路线</string>
+    <string name="distance">距离</string>
+    <string name="price">价格</string>
+    <string name="start_date_hint">出行日期</string>
+    <string name="end_date_hint">返回日期</string>
 </resources>

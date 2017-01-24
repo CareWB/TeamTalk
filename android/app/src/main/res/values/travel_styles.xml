@@ -5,8 +5,4 @@
         <item name="android:minHeight">48dip</item>
         <item name="android:maxHeight">48dip</item>
     </style>
-    <style name="anim_menu_bottombar">
-        <item name="android:windowEnterAnimation">@anim/menu_bottombar_in</item>
-        <item name="android:windowExitAnimation">@anim/menu_bottombar_out</item>
-    </style>
 </resources>

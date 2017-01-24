@@ -2,18 +2,25 @@ package com.mogujie.tt.ui.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mogujie.tt.DB.entity.HotelEntity;
+import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.UrlConstant;
 import com.mogujie.tt.imservice.service.IMService;
@@ -33,9 +40,7 @@ import java.util.Map;
  */
 public class SelectHotelFragment extends TTBaseFragment{
 	private View curView = null;
-    private Spinner spinner;
-    private int spinner_select = 0;
-    private TextView recommend;
+    private TextView total;
     private TextView economical;
     private TextView luxurious;
     private TextView youth;
@@ -44,7 +49,26 @@ public class SelectHotelFragment extends TTBaseFragment{
     private HotelAdapter hotelAdapter;
     private List<HotelEntity> hotelEntityArrayList = new ArrayList<>();
     private List<HotelEntity> selectHotelList = new ArrayList<>();
-    String Tag = "推荐";
+    String Tag = "全部";
+
+    private PopupWindow mPopupWindow;
+    private LinearLayout pop;
+    private TextView comprehensive;
+    private TextView distance;
+    private TextView price;
+    private LinearLayout lyPop;
+    static final int COMPREHENSIVE = 0;
+    static final int DISTANCE = 1;
+    static final int PRICE = 2;
+    private int spinner_select = COMPREHENSIVE;
+    private TextView selectHotelDropText;
+
+    private int roomNum = 1;
+    private final static int MAX_ROOM_SUM = 6;
+    private final static int MIN_ROOM_SUM = 1;
+    private ImageButton room_num_add;
+    private ImageButton room_num_sub;
+    private TextView room_num;
 
     private Map<Integer, String> selectFlag = new HashMap<>();
 
@@ -76,6 +100,7 @@ public class SelectHotelFragment extends TTBaseFragment{
 		initRes();
         initBtn();
         testCase();
+        initPopupWindow();
         initHotel();
 		return curView;
 	}
@@ -120,61 +145,30 @@ public class SelectHotelFragment extends TTBaseFragment{
 			}
 		});
 
-        recommend = (TextView)curView.findViewById(R.id.select_recommend);
+        total = (TextView)curView.findViewById(R.id.select_total);
         economical = (TextView)curView.findViewById(R.id.select_economical);
         luxurious = (TextView)curView.findViewById(R.id.select_luxurious);
         youth = (TextView)curView.findViewById(R.id.select_youth);
         home = (TextView)curView.findViewById(R.id.select_home);
-        selectFlag.put(R.id.select_recommend, "推荐");
+        selectFlag.put(R.id.select_total, "全部");
         selectFlag.put(R.id.select_economical, "经济型");
         selectFlag.put(R.id.select_luxurious, "豪华型");
         selectFlag.put(R.id.select_youth, "青旅");
         selectFlag.put(R.id.select_home, "民宿");
 
-        final String[] mItems = getResources().getStringArray(R.array.hotel_menu);
-        spinner = (Spinner)curView.findViewById(R.id.spinner_hotel);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                R.layout.spinner_checked_text, mItems) {
-
+        pop = (LinearLayout)curView.findViewById(R.id.select_hotel_drop);
+        pop.setOnClickListener(new View.OnClickListener() {
             @Override
-            public View getDropDownView(int position, View convertView,
-                                        ViewGroup parent) {
-                View view = curView.inflate(getContext(), R.layout.spinner_item_layout,
-                        null);
-                TextView label = (TextView) view
-                        .findViewById(R.id.spinner_item_label);
-
-                label.setText(mItems[position]);
-                if (spinner.getSelectedItemPosition() == position) {
-                    view.setBackgroundColor(getResources().getColor(
-                            R.color.travel_alert_dialog_title));
-                } else {
-                    view.setBackgroundColor(getResources().getColor(
-                            R.color.travel_menu_bk));
-                }
-                return view;
-            }
-
-        };
-        adapter.setDropDownViewResource(R.layout.spinner_item_layout);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                spinner_select = pos;
-                tagProcess();
-                menuProcess();
-                hotelAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Another interface callback
+            public void onClick(View v) {
+                mPopupWindow.showAsDropDown(curView.findViewById(R.id.select_hotel_drop));
             }
         });
 
         rvHotel = (RecyclerView)curView.findViewById(R.id.rv_hotel);
-        
+
+        room_num_add = (ImageButton)curView.findViewById(R.id.select_hotel_room_num_add);
+        room_num_sub = (ImageButton)curView.findViewById(R.id.select_hotel_room_num_sub);
+        room_num = (TextView)curView.findViewById(R.id.select_hotel_room_num);
 	}
 
 	@Override
@@ -189,14 +183,60 @@ public class SelectHotelFragment extends TTBaseFragment{
                 Tag = selectFlag.get(id);
                 tagProcess();
                 menuProcess();
+                buttonDisp(id);
                 hotelAdapter.notifyDataSetChanged();
             }
         };
-        recommend.setOnClickListener(listener);
+        total.setOnClickListener(listener);
         economical.setOnClickListener(listener);
         luxurious.setOnClickListener(listener);
         youth.setOnClickListener(listener);
         home.setOnClickListener(listener);
+
+        View.OnClickListener roomNumListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clacRoomNum(v.getId());
+            }
+        };
+        room_num_add.setOnClickListener(roomNumListener);
+        room_num_sub.setOnClickListener(roomNumListener);
+    }
+
+    private void buttonDisp(int id) {
+        total.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        total.setTextColor(getResources().getColor(R.color.not_clicked));
+        economical.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        economical.setTextColor(getResources().getColor(R.color.not_clicked));
+        luxurious.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        luxurious.setTextColor(getResources().getColor(R.color.not_clicked));
+        youth.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        youth.setTextColor(getResources().getColor(R.color.not_clicked));
+        home.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        home.setTextColor(getResources().getColor(R.color.not_clicked));
+
+        switch (id) {
+            case R.id.select_total:
+                total.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                total.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_economical:
+                economical.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                economical.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_luxurious:
+                luxurious.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                luxurious.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_youth:
+                youth.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                youth.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_home:
+                home.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                home.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+        }
     }
 
     private void testCase() {
@@ -206,19 +246,17 @@ public class SelectHotelFragment extends TTBaseFragment{
         qitian.setName("7天快捷酒店");
         qitian.setPic(pre+"qitiankuaijiejiudian.png");
         qitian.setStar(9);
-        qitian.setFocus(2345);
         qitian.setTag("经济型");
         qitian.setSelect(0);
-        qitian.setOptimize(0);
+        qitian.setDistance(123);
 
         HotelEntity rihang = new HotelEntity();
         rihang.setName("厦门日航酒店");
         rihang.setPic(pre+"rihangjiudian.png");
         rihang.setStar(10);
-        rihang.setFocus(5678);
         rihang.setTag("豪华型");
         rihang.setSelect(0);
-        qitian.setOptimize(1);
+        qitian.setDistance(456);
 
         hotelEntityArrayList.add(qitian);
         hotelEntityArrayList.add(rihang);
@@ -254,17 +292,21 @@ public class SelectHotelFragment extends TTBaseFragment{
     }
 
     private void menuProcess() {
+        if (spinner_select == 0) {
+            return;
+        }
+
         Iterator<HotelEntity> iHotelEntity = selectHotelList.iterator();
         while (iHotelEntity.hasNext()) {
-            if (iHotelEntity.next().getOptimize() != spinner_select) {
+/*            if (iHotelEntity.next().getOptimize() != spinner_select) {
                 iHotelEntity.remove();
-            }
+            }*/
         }
     }
 
     private void tagProcess() {
         selectHotelList.clear();
-        if (Tag.equals("推荐")) {
+        if (Tag.equals("全部")) {
             selectHotelList.addAll(hotelEntityArrayList);
         } else {
             for (HotelEntity hotelEntity:hotelEntityArrayList) {
@@ -274,4 +316,112 @@ public class SelectHotelFragment extends TTBaseFragment{
             }
         }
     }
+
+    private void initPopupWindow() {
+        View popupView = curView.inflate(getActivity(), R.layout.select_hotel_popup_window, null);
+        comprehensive = (TextView) popupView.findViewById(R.id.select_hotel_pop_comprehensive);
+        distance = (TextView) popupView.findViewById(R.id.select_hotel_pop_distance);
+        price = (TextView) popupView.findViewById(R.id.select_hotel_pop_price);
+        lyPop = (LinearLayout) popupView.findViewById(R.id.ly_select_hotel_pop);
+        mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setOutsideTouchable(true);
+        mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        //mPopupWindow.setAnimationStyle(R.style.anim_menu_bottombar);
+
+        mPopupWindow.getContentView().setFocusableInTouchMode(true);
+        mPopupWindow.getContentView().setFocusable(true);
+        mPopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_MENU && event.getRepeatCount() == 0
+                        && event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                        mPopupWindow.dismiss();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        for (HotelEntity selectSight:selectHotelList) {
+            selectSight.setSelect(1);
+        }
+
+        View.OnClickListener popupListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.select_hotel_pop_comprehensive:
+                        spinner_select = 0;
+                        tagProcess();
+                        menuProcess();
+                        hotelAdapter.notifyDataSetChanged();
+                        mPopupWindow.dismiss();
+                        break;
+
+                    case R.id.select_hotel_pop_distance:
+                        spinner_select = 1;
+                        tagProcess();
+                        menuProcess();
+                        hotelAdapter.notifyDataSetChanged();
+                        mPopupWindow.dismiss();
+                        break;
+
+                    case R.id.select_hotel_pop_price:
+                        spinner_select = 2;
+                        tagProcess();
+                        menuProcess();
+                        hotelAdapter.notifyDataSetChanged();
+                        mPopupWindow.dismiss();
+                        break;
+
+                    case R.id.ly_select_hotel_pop:
+                        mPopupWindow.dismiss();
+                        break;
+                }
+            }
+        };
+        lyPop.setOnClickListener(popupListener);
+        comprehensive.setOnClickListener(popupListener);
+        distance.setOnClickListener(popupListener);
+        price.setOnClickListener(popupListener);
+    }
+
+    private void clacRoomNum(int opt) {
+        roomNum = Integer.parseInt(room_num.getText().toString());
+
+        if (opt == R.id.select_hotel_room_num_add) {
+            roomNum ++;
+            if (roomNum > MAX_ROOM_SUM) {
+                roomNum = MAX_ROOM_SUM;
+            }
+        } else {
+            roomNum --;
+            if (roomNum < MIN_ROOM_SUM) {
+                roomNum = MIN_ROOM_SUM;
+            }
+        }
+
+        room_num_add.setBackgroundResource(R.drawable.create_travel_add);
+        room_num_sub.setBackgroundResource(R.drawable.create_travel_sub);
+        if (roomNum == MAX_ROOM_SUM) {
+            room_num_add.setBackgroundResource(R.drawable.create_travel_add_grey);
+            room_num_add.setClickable(false);
+        } else {
+            room_num_add.setClickable(true);
+        }
+
+        if (roomNum == MIN_ROOM_SUM) {
+            room_num_sub.setBackgroundResource(R.drawable.create_travel_sub_grey);
+            room_num_sub.setClickable(false);
+        } else {
+            room_num_sub.setClickable(true);
+        }
+
+        room_num.setText(String.valueOf(roomNum));
+    }
+
 }

@@ -29,14 +29,15 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
         public final static Property Pic = new Property(3, String.class, "pic", false, "PIC");
         public final static Property Star = new Property(4, int.class, "star", false, "STAR");
         public final static Property Tag = new Property(5, String.class, "tag", false, "TAG");
-        public final static Property Optimize = new Property(6, int.class, "optimize", false, "OPTIMIZE");
-        public final static Property Price = new Property(7, int.class, "price", false, "PRICE");
-        public final static Property Select = new Property(8, int.class, "select", false, "SELECT");
-        public final static Property Focus = new Property(9, int.class, "focus", false, "FOCUS");
-        public final static Property Version = new Property(10, int.class, "version", false, "VERSION");
-        public final static Property Status = new Property(11, int.class, "status", false, "STATUS");
-        public final static Property Created = new Property(12, int.class, "created", false, "CREATED");
-        public final static Property Updated = new Property(13, int.class, "updated", false, "UPDATED");
+        public final static Property MustGo = new Property(6, int.class, "mustGo", false, "MUST_GO");
+        public final static Property Url = new Property(7, String.class, "url", false, "URL");
+        public final static Property Price = new Property(8, int.class, "price", false, "PRICE");
+        public final static Property Distance = new Property(9, int.class, "distance", false, "DISTANCE");
+        public final static Property Select = new Property(10, int.class, "select", false, "SELECT");
+        public final static Property Version = new Property(11, int.class, "version", false, "VERSION");
+        public final static Property Status = new Property(12, int.class, "status", false, "STATUS");
+        public final static Property Created = new Property(13, int.class, "created", false, "CREATED");
+        public final static Property Updated = new Property(14, int.class, "updated", false, "UPDATED");
     };
 
 
@@ -58,14 +59,15 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
                 "'PIC' TEXT NOT NULL ," + // 3: pic
                 "'STAR' INTEGER NOT NULL ," + // 4: star
                 "'TAG' TEXT NOT NULL ," + // 5: tag
-                "'OPTIMIZE' INTEGER NOT NULL ," + // 6: optimize
-                "'PRICE' INTEGER NOT NULL ," + // 7: price
-                "'SELECT' INTEGER NOT NULL ," + // 8: select
-                "'FOCUS' INTEGER NOT NULL ," + // 9: focus
-                "'VERSION' INTEGER NOT NULL ," + // 10: version
-                "'STATUS' INTEGER NOT NULL ," + // 11: status
-                "'CREATED' INTEGER NOT NULL ," + // 12: created
-                "'UPDATED' INTEGER NOT NULL );"); // 13: updated
+                "'MUST_GO' INTEGER NOT NULL ," + // 6: mustGo
+                "'URL' TEXT NOT NULL ," + // 7: url
+                "'PRICE' INTEGER NOT NULL ," + // 8: price
+                "'DISTANCE' INTEGER NOT NULL ," + // 9: distance
+                "'SELECT' INTEGER NOT NULL ," + // 10: select
+                "'VERSION' INTEGER NOT NULL ," + // 11: version
+                "'STATUS' INTEGER NOT NULL ," + // 12: status
+                "'CREATED' INTEGER NOT NULL ," + // 13: created
+                "'UPDATED' INTEGER NOT NULL );"); // 14: updated
     }
 
     /** Drops the underlying database table. */
@@ -88,14 +90,15 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
         stmt.bindString(4, entity.getPic());
         stmt.bindLong(5, entity.getStar());
         stmt.bindString(6, entity.getTag());
-        stmt.bindLong(7, entity.getOptimize());
-        stmt.bindLong(8, entity.getPrice());
-        stmt.bindLong(9, entity.getSelect());
-        stmt.bindLong(10, entity.getFocus());
-        stmt.bindLong(11, entity.getVersion());
-        stmt.bindLong(12, entity.getStatus());
-        stmt.bindLong(13, entity.getCreated());
-        stmt.bindLong(14, entity.getUpdated());
+        stmt.bindLong(7, entity.getMustGo());
+        stmt.bindString(8, entity.getUrl());
+        stmt.bindLong(9, entity.getPrice());
+        stmt.bindLong(10, entity.getDistance());
+        stmt.bindLong(11, entity.getSelect());
+        stmt.bindLong(12, entity.getVersion());
+        stmt.bindLong(13, entity.getStatus());
+        stmt.bindLong(14, entity.getCreated());
+        stmt.bindLong(15, entity.getUpdated());
     }
 
     /** @inheritdoc */
@@ -114,14 +117,15 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
             cursor.getString(offset + 3), // pic
             cursor.getInt(offset + 4), // star
             cursor.getString(offset + 5), // tag
-            cursor.getInt(offset + 6), // optimize
-            cursor.getInt(offset + 7), // price
-            cursor.getInt(offset + 8), // select
-            cursor.getInt(offset + 9), // focus
-            cursor.getInt(offset + 10), // version
-            cursor.getInt(offset + 11), // status
-            cursor.getInt(offset + 12), // created
-            cursor.getInt(offset + 13) // updated
+            cursor.getInt(offset + 6), // mustGo
+            cursor.getString(offset + 7), // url
+            cursor.getInt(offset + 8), // price
+            cursor.getInt(offset + 9), // distance
+            cursor.getInt(offset + 10), // select
+            cursor.getInt(offset + 11), // version
+            cursor.getInt(offset + 12), // status
+            cursor.getInt(offset + 13), // created
+            cursor.getInt(offset + 14) // updated
         );
         return entity;
     }
@@ -135,14 +139,15 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
         entity.setPic(cursor.getString(offset + 3));
         entity.setStar(cursor.getInt(offset + 4));
         entity.setTag(cursor.getString(offset + 5));
-        entity.setOptimize(cursor.getInt(offset + 6));
-        entity.setPrice(cursor.getInt(offset + 7));
-        entity.setSelect(cursor.getInt(offset + 8));
-        entity.setFocus(cursor.getInt(offset + 9));
-        entity.setVersion(cursor.getInt(offset + 10));
-        entity.setStatus(cursor.getInt(offset + 11));
-        entity.setCreated(cursor.getInt(offset + 12));
-        entity.setUpdated(cursor.getInt(offset + 13));
+        entity.setMustGo(cursor.getInt(offset + 6));
+        entity.setUrl(cursor.getString(offset + 7));
+        entity.setPrice(cursor.getInt(offset + 8));
+        entity.setDistance(cursor.getInt(offset + 9));
+        entity.setSelect(cursor.getInt(offset + 10));
+        entity.setVersion(cursor.getInt(offset + 11));
+        entity.setStatus(cursor.getInt(offset + 12));
+        entity.setCreated(cursor.getInt(offset + 13));
+        entity.setUpdated(cursor.getInt(offset + 14));
      }
     
     /** @inheritdoc */

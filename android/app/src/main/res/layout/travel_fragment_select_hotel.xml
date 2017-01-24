@@ -9,46 +9,209 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:gravity="center_vertical"
+        android:layout_height="45dp">
 
-        <TextView
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/select_sight_top_disp_left"
+            android:paddingTop="@dimen/select_sight_top_disp_top_bottom"
+            android:paddingBottom="@dimen/select_sight_top_disp_top_bottom">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/select_sight_clock"
+                android:layout_marginRight="@dimen/select_sight_top_disp_icon_text"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/select_hotel_clock" />
+
+            <TextView
+                android:text="厦门停留时间："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/content_s"
+                android:textColor="@color/not_clicked"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/select_hotel_clock"
+                android:id="@+id/select_hotel_city_duration" />
+
+            <TextView
+                android:text="3天"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-2dp"
+                android:textSize="@dimen/content_size"
+                android:textColor="@color/not_clicked"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/select_hotel_city_duration"
+                android:id="@+id/select_hotel_duration" />
+
+            <TextView
+                android:text="01:09(18:23)-01:11(13:45)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/content_xs"
+                android:textColor="@color/title"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/select_hotel_clock"
+                android:id="@+id/select_hotel_city_date" />
+        </RelativeLayout>
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/specific_time"
-            android:layout_weight="1"
-            android:text="时间" />
+            android:background="@drawable/select_sight_divider"
+            android:id="@+id/select_hotel_divider" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/comfort_degree"
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="程度" />
+            android:paddingLeft="@dimen/select_sight_top_disp_left"
+            android:paddingTop="@dimen/select_sight_top_disp_top_bottom"
+            android:paddingBottom="@dimen/select_sight_top_disp_top_bottom">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/select_sight_sofa"
+                android:layout_marginRight="@dimen/select_sight_top_disp_icon_text"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/select_hotel_sofa" />
+
+            <TextView
+                android:text="经济高效游"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/content_s"
+                android:textColor="@color/not_clicked"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/select_hotel_sofa"
+                android:id="@+id/select_hotel_play_quality" />
+
+            <TextView
+                android:text="有限的时间和金钱玩更多的内容"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/content_xs"
+                android:textColor="@color/title"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/select_hotel_sofa"
+                android:id="@+id/select_hotel_play_quality_illustration" />
+        </RelativeLayout>
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_height"
+        android:background="@color/base_title">
+
+        <TextView
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_icon_between_person_num"
+            android:layout_marginRight="@dimen/text_icon_between_person_num"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_toStartOf="@+id/select_hotel_room_num_add"
+            android:id="@+id/select_hotel_room_num" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/create_travel_sub_grey"
+            android:id="@+id/select_hotel_room_num_sub"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/select_hotel_room_num" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:background="@drawable/create_travel_add"
+            android:id="@+id/select_hotel_room_num_add"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="根据您的需求，2人，2晚，选择房间数"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/warning"
+            android:id="@+id/tselect_hotel_room_num"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_con_div" />
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingRight="6dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/select_sight_tool_bar_bk">
 
-        <Spinner
-            android:id="@+id/spinner_hotel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/default_bk"
-            android:spinnerMode="dropdown" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="99dp"
+            android:layout_height="match_parent"
+            android:background="@color/base_title"
+            android:gravity="center"
+            android:id="@+id/select_hotel_drop"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp">
+
+            <TextView
+                android:text="@string/select_hotel_comprehensive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/item_select_sight_not_screen_left_right"
+                android:layout_marginRight="@dimen/item_select_sight_not_screen_left_right"
+                android:textColor="@color/not_clicked"
+                android:textSize="@dimen/title_hint_size"
+                android:id="@+id/select_hotel_drop_text"
+                android:drawableRight="@drawable/down_arrow"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <TextView
-            android:text="推荐"
+            android:text="全部"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/select_recommend"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_click"
+            android:textColor="@color/clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_total"
             android:layout_weight="1" />
 
         <TextView
             android:text="经济型"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
             android:id="@+id/select_economical"
             android:layout_weight="1" />
 
@@ -56,6 +219,11 @@
             android:text="豪华型"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
             android:id="@+id/select_luxurious"
             android:layout_weight="1" />
 
@@ -63,6 +231,11 @@
             android:text="青旅"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
             android:id="@+id/select_youth"
             android:layout_weight="1" />
 
@@ -70,6 +243,11 @@
             android:text="民宿"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
             android:id="@+id/select_home"
             android:layout_weight="1" />
     </LinearLayout>
@@ -80,17 +258,13 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <Button
-            android:text="生成路线"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/hotel_next" />
-    </LinearLayout>
+        android:text="@string/generating_route"
+        android:textColor="@color/next_step"
+        android:textSize="@dimen/next_step"
+        android:background="@drawable/next_step_click"
+        android:id="@+id/hotel_next" />
 
 </LinearLayout>

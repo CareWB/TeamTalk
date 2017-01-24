@@ -32,14 +32,7 @@ public class TravelEntity {
     /** Not-null value. */
     private String trafficEndTime;
     private int trafficQuality;
-    private int playQuality;
-    /** Not-null value. */
-    private String playStartTime;
-    /** Not-null value. */
-    private String playEndTime;
-    private int cityTraffic;
-    private int hotelPosition;
-    private int sightSelect;
+    private int transit;
     private int cost;
     private int version;
     private int status;
@@ -56,7 +49,7 @@ public class TravelEntity {
         this.id = id;
     }
 
-    public TravelEntity(Long id, int dbId, int creatorId, int duration, String startDate, String endDate, String startPlace, String endPlace, String destination, String destinationBK, int personNum, int trafficWay, String trafficStartTime, String trafficEndTime, int trafficQuality, int playQuality, String playStartTime, String playEndTime, int cityTraffic, int hotelPosition, int sightSelect, int cost, int version, int status, int created, int updated) {
+    public TravelEntity(Long id, int dbId, int creatorId, int duration, String startDate, String endDate, String startPlace, String endPlace, String destination, String destinationBK, int personNum, int trafficWay, String trafficStartTime, String trafficEndTime, int trafficQuality, int transit, int cost, int version, int status, int created, int updated) {
         this.id = id;
         this.dbId = dbId;
         this.creatorId = creatorId;
@@ -72,12 +65,7 @@ public class TravelEntity {
         this.trafficStartTime = trafficStartTime;
         this.trafficEndTime = trafficEndTime;
         this.trafficQuality = trafficQuality;
-        this.playQuality = playQuality;
-        this.playStartTime = playStartTime;
-        this.playEndTime = playEndTime;
-        this.cityTraffic = cityTraffic;
-        this.hotelPosition = hotelPosition;
-        this.sightSelect = sightSelect;
+        this.transit = transit;
         this.cost = cost;
         this.version = version;
         this.status = status;
@@ -221,56 +209,12 @@ public class TravelEntity {
         this.trafficQuality = trafficQuality;
     }
 
-    public int getPlayQuality() {
-        return playQuality;
+    public int getTransit() {
+        return transit;
     }
 
-    public void setPlayQuality(int playQuality) {
-        this.playQuality = playQuality;
-    }
-
-    /** Not-null value. */
-    public String getPlayStartTime() {
-        return playStartTime;
-    }
-
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setPlayStartTime(String playStartTime) {
-        this.playStartTime = playStartTime;
-    }
-
-    /** Not-null value. */
-    public String getPlayEndTime() {
-        return playEndTime;
-    }
-
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setPlayEndTime(String playEndTime) {
-        this.playEndTime = playEndTime;
-    }
-
-    public int getCityTraffic() {
-        return cityTraffic;
-    }
-
-    public void setCityTraffic(int cityTraffic) {
-        this.cityTraffic = cityTraffic;
-    }
-
-    public int getHotelPosition() {
-        return hotelPosition;
-    }
-
-    public void setHotelPosition(int hotelPosition) {
-        this.hotelPosition = hotelPosition;
-    }
-
-    public int getSightSelect() {
-        return sightSelect;
-    }
-
-    public void setSightSelect(int sightSelect) {
-        this.sightSelect = sightSelect;
+    public void setTransit(int transit) {
+        this.transit = transit;
     }
 
     public int getCost() {

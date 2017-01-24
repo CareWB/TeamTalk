@@ -15,6 +15,7 @@ import com.mogujie.tt.R;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.activity.SelectCityActivity;
+import com.mogujie.tt.ui.activity.SelectDateActivity;
 import com.mogujie.tt.ui.activity.SelectPlaceActivity;
 import com.mogujie.tt.ui.activity.SelectTimeActivity;
 import com.mogujie.tt.ui.activity.TravelBehaviorActivity;
@@ -121,10 +122,10 @@ public class CreateTravelFragment extends TTBaseFragment{
                     destination = data.getStringExtra("city");
                     break;
                 case 102:
-                    java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd ");
+                    java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd");
                     try {
-                        startDate =  formatter.parse(data.getStringExtra("start"));
-                        endDate =  formatter.parse(data.getStringExtra("end"));
+                        startDate =  formatter.parse(data.getStringExtra("startDate"));
+                        endDate =  formatter.parse(data.getStringExtra("endDate"));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -226,10 +227,16 @@ public class CreateTravelFragment extends TTBaseFragment{
         per_num_sub.setBackgroundResource(R.drawable.create_travel_sub);
         if (perNum == MAX_PER_SUM) {
             per_num_add.setBackgroundResource(R.drawable.create_travel_add_grey);
+            per_num_add.setClickable(false);
+        } else {
+            per_num_add.setClickable(true);
         }
 
         if (perNum == MIN_PER_SUM) {
             per_num_sub.setBackgroundResource(R.drawable.create_travel_sub_grey);
+            per_num_sub.setClickable(false);
+        } else {
+            per_num_sub.setClickable(true);
         }
 
         per_num.setText(String.valueOf(perNum));
@@ -253,8 +260,9 @@ public class CreateTravelFragment extends TTBaseFragment{
     }
 
     private void jump2TimeSelect() {
-        Intent timeSelect = new Intent(getActivity(), SelectTimeActivity.class);
-        startActivityForResult(timeSelect, Activity.RESULT_FIRST_USER);
+        //Intent timeSelect = new Intent(getActivity(), SelectTimeActivity.class);
+        Intent dateSelect = new Intent(getActivity(), SelectDateActivity.class);
+        startActivityForResult(dateSelect, Activity.RESULT_FIRST_USER);
     }
 
     private void jump2TravelBehavior() {
@@ -282,7 +290,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         strStartDate = formatter.format(startDate);
         strEndDate = formatter.format(endDate);
 
-        String date = strStartDate+"-"+strEndDate;//格式化数据
+        String date = strStartDate+" - "+strEndDate;//格式化数据
         iduration = (int)duration;
         this.duration.setText(duration+"天");
         this.betweenTime.setText(date);

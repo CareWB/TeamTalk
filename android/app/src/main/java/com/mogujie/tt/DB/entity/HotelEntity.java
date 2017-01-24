@@ -18,10 +18,12 @@ public class HotelEntity {
     private int star;
     /** Not-null value. */
     private String tag;
-    private int optimize;
+    private int mustGo;
+    /** Not-null value. */
+    private String url;
     private int price;
+    private int distance;
     private int select;
-    private int focus;
     private int version;
     private int status;
     private int created;
@@ -37,17 +39,18 @@ public class HotelEntity {
         this.id = id;
     }
 
-    public HotelEntity(Long id, int peerId, String name, String pic, int star, String tag, int optimize, int price, int select, int focus, int version, int status, int created, int updated) {
+    public HotelEntity(Long id, int peerId, String name, String pic, int star, String tag, int mustGo, String url, int price, int distance, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
         this.name = name;
         this.pic = pic;
         this.star = star;
         this.tag = tag;
-        this.optimize = optimize;
+        this.mustGo = mustGo;
+        this.url = url;
         this.price = price;
+        this.distance = distance;
         this.select = select;
-        this.focus = focus;
         this.version = version;
         this.status = status;
         this.created = created;
@@ -108,12 +111,22 @@ public class HotelEntity {
         this.tag = tag;
     }
 
-    public int getOptimize() {
-        return optimize;
+    public int getMustGo() {
+        return mustGo;
     }
 
-    public void setOptimize(int optimize) {
-        this.optimize = optimize;
+    public void setMustGo(int mustGo) {
+        this.mustGo = mustGo;
+    }
+
+    /** Not-null value. */
+    public String getUrl() {
+        return url;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public int getPrice() {
@@ -124,20 +137,20 @@ public class HotelEntity {
         this.price = price;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
     public int getSelect() {
         return select;
     }
 
     public void setSelect(int select) {
         this.select = select;
-    }
-
-    public int getFocus() {
-        return focus;
-    }
-
-    public void setFocus(int focus) {
-        this.focus = focus;
     }
 
     public int getVersion() {
