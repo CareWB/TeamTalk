@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mogujie.tt.DB.entity.DateEntity;
 import com.mogujie.tt.R;
@@ -121,6 +122,10 @@ public class SelectDateFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+                if (strEndDate.equals("")) {
+                    Toast.makeText(getActivity(), getString(R.string.warn_end_date_not_select), Toast.LENGTH_SHORT).show();
+                    return;
+                }
 				if (getFragmentManager().getBackStackEntryCount() == 0) {
                     intent.putExtra("startDate", strStartDate);
                     intent.putExtra("endDate", strEndDate);

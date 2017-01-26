@@ -17,7 +17,6 @@ import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.activity.SelectCityActivity;
 import com.mogujie.tt.ui.activity.SelectDateActivity;
 import com.mogujie.tt.ui.activity.SelectPlaceActivity;
-import com.mogujie.tt.ui.activity.SelectTimeActivity;
 import com.mogujie.tt.ui.activity.TravelBehaviorActivity;
 import com.mogujie.tt.ui.base.TTBaseFragment;
 
@@ -260,7 +259,6 @@ public class CreateTravelFragment extends TTBaseFragment{
     }
 
     private void jump2TimeSelect() {
-        //Intent timeSelect = new Intent(getActivity(), SelectTimeActivity.class);
         Intent dateSelect = new Intent(getActivity(), SelectDateActivity.class);
         startActivityForResult(dateSelect, Activity.RESULT_FIRST_USER);
     }
@@ -283,6 +281,9 @@ public class CreateTravelFragment extends TTBaseFragment{
     }
 
     private void dateProcess() {
+        if (endDate == null || startDate == null) {
+            return;
+        }
         long duration = (endDate.getTime()-startDate.getTime())/(1000*60*60*24);
         duration ++;
         java.text.SimpleDateFormat formatter = new SimpleDateFormat( "MM.dd");
