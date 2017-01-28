@@ -19,6 +19,7 @@ import com.mogujie.tt.ui.activity.SelectDateActivity;
 import com.mogujie.tt.ui.activity.SelectPlaceActivity;
 import com.mogujie.tt.ui.activity.TravelBehaviorActivity;
 import com.mogujie.tt.ui.base.TTBaseFragment;
+import com.mogujie.tt.ui.widget.city.CityActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -242,7 +243,7 @@ public class CreateTravelFragment extends TTBaseFragment{
     }
 
     private void jump2CitySelect(int opt) {
-        Intent citySelect = new Intent(getActivity(), SelectCityActivity.class);
+        Intent citySelect = new Intent(getActivity(), CityActivity.class);
         if (opt == R.id.rlcreate_travel_start) {
             citySelect.putExtra("title", "出发城市");
             citySelect.putExtra("type", START_CITY);

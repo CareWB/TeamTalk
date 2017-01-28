@@ -26,4 +26,12 @@
     <color name="warning">#ff0011</color>
     <color name="price">#ff7700</color>
     <color name="traffic_head">#5274ba</color>
+
+    <color name="color_ccc">#CCC</color>
+    <color name="white">#fff</color>
+    <color name="font_info">#999</color>
+    <color name="font_text">#666</color>
+    <color name="error_color">#FF4081</color>
+    <color name="red">#FF5C26</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>
