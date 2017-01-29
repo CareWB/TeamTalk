@@ -183,16 +183,17 @@ enum QualityType{
 }
 
 message TravelToolInfo{
-    required uint32 transport_tool_type = 1; // TransportToolType
-    required string no                  = 2; // 车次编号
-    required string place_from_code     = 3; // 出发地编码
-    required string place_from          = 4; // 出发地名称
-    required string place_to_code       = 5; // 目的地编码
-    required string place_to            = 6; // 目的地名称
-    required string time_from           = 7; // 开始时间，08:32
-    required string time_to             = 8; // 结束时间，08:32
-    required string class               = 9; // 座位等级
-    required uint32 price               = 10; // 价格
+    required uint32 id                  = 1; // id
+    required uint32 transport_tool_type = 2; // TransportToolType
+    required string no                  = 3; // 车次编号
+    required string place_from_code     = 4; // 出发地编码
+    required string place_from          = 5; // 出发地名称
+    required string place_to_code       = 6; // 目的地编码
+    required string place_to            = 7; // 目的地名称
+    required string time_from           = 8; // 开始时间，08:32
+    required string time_to             = 9; // 结束时间，08:32
+    required string class               = 10; // 座位等级
+    required uint32 price               = 11; // 价格
 }
 
 message BasicInfo{
@@ -205,11 +206,11 @@ message BasicInfo{
 }
 
 message TransportConfig{
-    required uint32 tool_type       = 1; // TransportToolType，按位与
-    required string time_start      = 2; // 起始时间
-    required string time_end        = 3; // 结束时间
-    required QualityType quality    = 4;
-    required uint32 transit         = 5; // 中转次数
+    required uint32 tool_type           = 1; // TransportToolType，按位与
+    required string time_from           = 2; // 起始时间
+    required string time_to             = 3; // 结束时间
+    required QualityType quality        = 4;
+    required uint32 transit             = 5; // 中转次数
 }
 
 message TravelDetail{
@@ -222,10 +223,22 @@ message TransportTool{
     required TravelToolInfo back_info = 2;
 }
 
+message DayScenic{
+    required string dayTimeFrom     = 1;
+    required string dayTimeTo       = 2;
+    required ScenicInfo scenic_info = 3;
+}
+
+message DayHotel{
+    required string dayTimeFrom     = 1;
+    required string dayTimeTo       = 2;
+    required HotelInfo hotel_info   = 3;
+}
+
 message PlayDetail{
     required PlayConfig play_config = 1;
-    required HotelInfo hotel_info   = 2;
-    repeated ScenicInfo scenic_info = 3;
+    repeated DayHotel   day_hotel   = 2;
+    repeated DayScenic  day_scenic  = 3;
 }
 
 message PlayConfig{
@@ -237,45 +250,51 @@ message PlayConfig{
 }
 
 message ScenicInfo{
-    required string city_code       = 1; // "XMN"
-    required string name            = 2; // 景点名
-    required uint32 score           = 3; // 评分
-    required string tags            = 4; // 景点标签 "文化 休闲"
-    required uint32 free            = 5; // 是否免费
-    required uint32 must_see        = 6; // 0为必去
-    required string url             = 7; // 介绍网址
-    required uint32 play_time       = 8; // 大概游玩时长（小时）
-    required uint32 price           = 9; // 价格
-    required string best_time_from  = 10; // 开始时间，08:32
-    required string best_time_to    = 11; // 结束时间，08:32
+    required uint32 id              = 1; // 景点id
+    required string city_code       = 2; // "XMN"
+    required string name            = 3; // 景点名
+    required uint32 score           = 4; // 评分
+    required string tags            = 5; // 景点标签 "文化 休闲"
+    required uint32 free            = 6; // 是否免费
+    required uint32 must_see        = 7; // 0为必去
+    required string url             = 8; // 介绍网址
+    required string class           = 9; // 座位等级
+    required uint32 play_time       = 10; // 大概游玩时长（小时）
+    required uint32 price           = 11; // 价格
+    required string best_time_from  = 12; // 开始时间，08:32
+    required string best_time_to    = 13; // 结束时间，08:32
 }
 
 message HotelInfo{
-    required string city_code       = 1; // "XMN"
-    required string name            = 2; // 景点名
-    required uint32 score           = 3; // 评分
-    required string tags            = 4; // 
-    required uint32 must_see        = 5; // 0为必去
-    required string url             = 6; // 介绍网址
-    required uint32 price           = 7; // 价格
-    required uint32 distance        = 8;
+    required uint32 id              = 1; // 酒店id
+    required string city_code       = 2; // "XMN"
+    required string name            = 3; // 景点名
+    required uint32 score           = 4; // 评分
+    required string tags            = 5; // 
+    required uint32 must_see        = 6; // 0为必去
+    required string url             = 7; // 介绍网址
+    required string class           = 8; // 座位等级
+    required uint32 price           = 9; // 价格
+    required uint32 distance        = 10;
 }
 
 message MyTravel{
     required uint32 db_idx                      = 1;
     required uint32 cost                        = 2;
     required BasicInfo basic_info               = 3;
-    required TravelDetail travel_detail         = 4;
-    required TransportConfig transport_config   = 5;
+    required TransportConfig transport_config   = 4;
+    required TravelDetail travel_detail         = 5;
 }
 
 message CreateMyTravelReq{
+    //cmd id:        0x0251
     required uint32 user_id                     = 1;
     required MyTravel my_travel                 = 2;
     optional bytes attach_data                  = 20;
 }
 
 message CreateMyTravelRsp{
+    //cmd id:        0x0252
     required uint32 user_id     = 1;
     required uint32 result_code = 2;
     required uint32 db_idx      = 3;
@@ -283,18 +302,21 @@ message CreateMyTravelRsp{
 }
 
 message DeleteMyTravelReq{
+    //cmd id:        0x0253
     required uint32 user_id     = 1;
     repeated uint32 db_idx      = 2;
     optional bytes attach_data  = 20;
 }
 
 message DeleteMyTravelRsp{
+    //cmd id:        0x0254
     required uint32 user_id     = 1;
     required uint32 result_code = 2;
     optional bytes attach_data  = 20;
 }
 
 message UpdateMyTravelReq{
+    //cmd id:        0x0255
     required uint32 user_id     = 1;
     required uint32 db_idx      = 2;
     required MyTravel my_travel = 3;
@@ -302,17 +324,20 @@ message UpdateMyTravelReq{
 }
 
 message UpdateMyTravelRsp{
+    //cmd id:        0x0256
     required uint32 user_id     = 1;
     required uint32 result_code = 2;
     optional bytes attach_data  = 20;
 }
 
 message QueryMyTravelReq{
+    //cmd id:        0x0257
     required uint32 user_id     = 1;
     optional bytes attach_data  = 20;
 }
 
 message QueryMyTravelRsp{
+    //cmd id:        0x0258
     required uint32 user_id     = 1;
     required uint32 result_code = 2;
     repeated MyTravel my_travel = 3;
@@ -320,7 +345,7 @@ message QueryMyTravelRsp{
 }
 
 message GetTransportToolReq{
-    //cmd id:        0x0251
+    //cmd id:        0x0259
     required uint32 user_id = 1;
     required BasicInfo basic_info = 2;
     required TransportConfig transport_config = 3;
@@ -328,7 +353,7 @@ message GetTransportToolReq{
 }
 
 message GetTransportToolRsp{
-    //cmd id:        0x0252
+    //cmd id:        0x025a
     required uint32 user_id                     = 1;
     required uint32 result_code                 = 2;
     repeated TravelToolInfo travel_tool_info    = 3;
@@ -336,14 +361,14 @@ message GetTransportToolRsp{
 }
 
 message GetScenicHotelReq{
-    //cmd id:        0x0261
+    //cmd id:        0x025b
     required uint32 user_id         = 1;
     required string city_code       = 2; // "XMN"
     optional bytes attach_data      = 20;
 }
 
-message GetScenicSpotRsp{
-    //cmd id:        0x0262
+message GetScenicHotelRsp{
+    //cmd id:        0x025c
     required uint32 user_id         = 1;
     required uint32 result_code     = 2;
     repeated ScenicInfo scenic_info = 3;

@@ -76,8 +76,9 @@ void CHandlerMap::Init()
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_ALL_USER_REQUEST), DB_PROXY::getChangedUser));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_DEPARTMENT_REQUEST), DB_PROXY::getChgedDepart));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_CHANGE_SIGN_INFO_REQUEST), DB_PROXY::changeUserSignInfo));
-	m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST), DB_PROXY::getTravelRoute));
-    m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_LIST_REQUEST), DB_PROXY::getTravelDetail));
+	m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_REQUEST), DB_PROXY::getTransportTool));
+    m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_REQUEST), DB_PROXY::getScenicHotel));
+    m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_QUERY_REQUEST), DB_PROXY::queryTravelDetail));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST), DB_PROXY::createTravelDetail));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST), DB_PROXY::deleteTravelDetail));
 

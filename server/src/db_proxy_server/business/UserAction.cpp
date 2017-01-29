@@ -221,110 +221,136 @@ msgResp.set_user_id(from_user_id);
         }
     }
 
-    void getTravelRoute(CImPdu* pPdu, uint32_t conn_uuid) {
-        log("getTravelRoute enter.");
-        IM::Buddy::TravelRouteReq req;
-        IM::Buddy::TravelRouteRsp resp;
+    void getTransportTool(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("enter.");
+        IM::Buddy::GetTransportToolReq req;
+        IM::Buddy::GetTransportToolRsp rsp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
 
-            bool result = CUserModel::getInstance()->getTravelRoute(user_id, req, resp);
-            resp.set_user_id(user_id);
-            resp.set_result_code(result ? 0 : 1);
+            bool result = CUserModel::getInstance()->getTransportTool(user_id, req, rsp);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(result ? 0 : 1);
             if ( ! result) {
-                log("getTravelDetail false, user_id=%u", user_id);
+                log("CUserModel::getInstance()->getTransportTool failed, user_id=%u", user_id);
             }
             
             CImPdu* pdu_resp = new CImPdu();
-            resp.set_attach_data(req.attach_data());
-            pdu_resp->SetPBMsg(&resp);
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
             pdu_resp->SetSeqNum(pPdu->GetSeqNum());
             pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
-            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_RESPONSE);
             CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
-            
         } else {
-            log("getTravelRoute: TravelRouteReq ParseFromArray failed!!!");
+            log("ParseFromArray failed!!!");
+        }
+    }
+
+    void getScenicHotel(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("enter.");
+        IM::Buddy::GetScenicHotelReq req;
+        IM::Buddy::GetScenicHotelRsp rsp;
+        if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
+            uint32_t user_id = req.user_id();
+
+            bool result = CUserModel::getInstance()->getScenicHotel(user_id, req, rsp);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(result ? 0 : 1);
+            if ( ! result) {
+                log("CUserModel::getInstance()->getScenicHotel failed, user_id=%u", user_id);
+            }
+            
+            CImPdu* pdu_resp = new CImPdu();
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
+            pdu_resp->SetSeqNum(pPdu->GetSeqNum());
+            pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE);
+            CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
+        } else {
+            log("ParseFromArray failed!!!");
         }
     }
 
     void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
-        log("createTravelDetail enter.");
-        IM::Buddy::CreateTravelReq req;
-        IM::Buddy::CreateTravelRsp resp;
+        log("enter.");
+        IM::Buddy::CreateMyTravelReq req;
+        IM::Buddy::CreateMyTravelRsp rsp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
             
             uint32_t idx = CUserModel::getInstance()->createTravelDetail(user_id, &req);
-            resp.set_user_id(user_id);
-            resp.set_db_idx(idx);
-            resp.set_result_code(0 != idx ? 0 : 1);
+            rsp.set_user_id(user_id);
+            rsp.set_db_idx(idx);
+            rsp.set_result_code(0 != idx ? 0 : 1);
             if (0 == idx) {
-                log("createTravelDetail result user_id=%u, idx=%u", user_id, idx);
+                log("result user_id=%u, idx=%u", user_id, idx);
             }
             
             CImPdu* pdu_resp = new CImPdu();
-            resp.set_attach_data(req.attach_data());
-            pdu_resp->SetPBMsg(&resp);
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
             pdu_resp->SetSeqNum(pPdu->GetSeqNum());
             pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
             pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE);
             CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
             
         } else {
-            log("createTravelDetail: CreateTravelReq ParseFromArray failed!!!");
+            log("ParseFromArray failed!!!");
         }
     }
 
-    void getTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
-        IM::Buddy::GetTravelListReq req;
-        IM::Buddy::GetTravelTripListRsp resp;
+    void queryTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("enter.");
+        IM::Buddy::QueryMyTravelReq req;
+        IM::Buddy::QueryMyTravelRsp rsp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
             
-            bool result = CUserModel::getInstance()->getTravelDetail(user_id, resp);
-            resp.set_user_id(user_id);
-            resp.set_result_code(result ? 0 : 1);
+            bool result = CUserModel::getInstance()->queryTravelDetail(user_id, rsp);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(result ? 0 : 1);
             if ( ! result) {
-                log("getTravelDetail false, user_id=%u", user_id);
+                log("queryTravelDetail false, user_id=%u", user_id);
             }
             
             CImPdu* pdu_resp = new CImPdu();
-            resp.set_attach_data(req.attach_data());
-            pdu_resp->SetPBMsg(&resp);
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
             pdu_resp->SetSeqNum(pPdu->GetSeqNum());
             pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
-            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_QUERY_RESPONSE);
             CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
             
         } else {
-            log("getTravelDetail: GetTravelListReq ParseFromArray failed!!!");
+            log("queryTravelDetail: GetTravelListReq ParseFromArray failed!!!");
         }
     }
 
     void deleteTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
-        log("delTravelDetail enter.");
-        IM::Buddy::DeleteTravelReq req;
-        IM::Buddy::DeleteTravelRsp resp;
+        log("enter.");
+        IM::Buddy::DeleteMyTravelReq req;
+        IM::Buddy::DeleteMyTravelRsp rsp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
             set<uint32_t> db_idx_list;
-            uint32_t nCnt = req.db_idx_list_size();
+            uint32_t nCnt = req.db_idx_size();
             for(uint32_t i = 0; i < nCnt; ++i)
             {
-                db_idx_list.insert(req.db_idx_list(i));
+                db_idx_list.insert(req.db_idx(i));
             }
             
             bool ret = CUserModel::getInstance()->deleteTravelDetail(user_id, db_idx_list);
-            resp.set_user_id(user_id);
-            resp.set_result_code(ret ? 0 : 1);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(ret ? 0 : 1);
             if ( ! ret) {
                 log("failed to deleteTravelDetail user_id=%u", user_id);
             }
             
             CImPdu* pdu_resp = new CImPdu();
-            resp.set_attach_data(req.attach_data());
-            pdu_resp->SetPBMsg(&resp);
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
             pdu_resp->SetSeqNum(pPdu->GetSeqNum());
             pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
             pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE);

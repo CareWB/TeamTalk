@@ -49,10 +49,11 @@ private:
     
     void _HandlePushShieldResponse(CImPdu* pPdu);
     void _HandleQueryPushShieldResponse(CImPdu* pPdu);
-    void _HandleTravelRouteListResponse(CImPdu* pPdu);
+    void _HandleTravelTransportToolResponse(CImPdu* pPdu);
+    void _HandleTravelScenicHotelResponse(CImPdu* pPdu);
     void _HandleCreateTravelResponse(CImPdu* pPdu);
     void _HandleDeleteTravelResponse(CImPdu* pPdu);
-    void _HandleTravelListResponse(CImPdu* pPdu);
+    void _HandleQueryTravelResponse(CImPdu* pPdu);
 private:
 	bool 		m_bOpen;
 	uint32_t	m_serv_idx;

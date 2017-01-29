@@ -21,9 +21,10 @@ namespace DB_PROXY {
     void changeUserSignInfo(CImPdu* pPdu, uint32_t conn_uuid);
     void doPushShield(CImPdu* pPdu, uint32_t conn_uuid);
     void doQueryPushShield(CImPdu* pPdu, uint32_t conn_uuid);
-    void getTravelRoute(CImPdu* pPdu, uint32_t conn_uuid);
+    void getTransportTool(CImPdu* pPdu, uint32_t conn_uuid);
+    void getScenicHotel(CImPdu* pPdu, uint32_t conn_uuid);
     void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
-    void getTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
+    void queryTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
     void deleteTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
     void updateTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
 };

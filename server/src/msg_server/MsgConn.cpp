@@ -1,4 +1,4 @@
-/*
+a/*
  * MsgConn.cpp
  *
  *  Created on: 2013-7-5
@@ -347,10 +347,13 @@ void CMsgConn::HandlePdu(CImPdu* pPdu)
         case CID_BUDDY_LIST_USERS_STATUS_REQUEST:
             _HandleClientUsersStatusRequest(pPdu);
             break;
-        case CID_BUDDY_LIST_TRAVEL_ROUTE_REQUEST:
-            _HandleGetTravelRouteRequest(pPdu);
+        case CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_REQUEST:
+            _HandleGetTravelTransportToolRequest(pPdu);
             break;
-        case CID_BUDDY_LIST_TRAVEL_LIST_REQUEST:
+        case CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_REQUEST:
+            _HandleGetScenicHotelRequest(pPdu);
+            break;
+        case CID_BUDDY_LIST_TRAVEL_QUERY_REQUEST:
             _HandleGetTravelListRequest(pPdu);
             break;
         case CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST:
@@ -896,12 +899,14 @@ void CMsgConn::_HandleClientDepartmentRequest(CImPdu *pPdu)
     }
 }
 
-void CMsgConn::_HandleGetTravelRouteRequest(CImPdu *pPdu)
+void CMsgConn::_HandleGetTravelTransportToolRequest(CImPdu *pPdu)
 {
-    IM::Buddy::TravelRouteReq msg;
+    IM::Buddy::GetTransportToolReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
-    log("_HandleGetTravelRouteRequest, user_id=%u, travel_type=%d, lines=%s.", 
-        GetUserId(), msg.travel_type(), msg.lines().c_str());
+    log("user_id=%u, travel_type=%d, from=%s to=%s.", 
+        GetUserId(), msg.transport_config().tool_type(), 
+        msg.basic_info().place_from_code().c_str(), 
+        msg.basic_info().place_to_code().c_str());
     CDBServConn* pDBConn = get_db_serv_conn();
     if (pDBConn) {
         CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
@@ -912,9 +917,25 @@ void CMsgConn::_HandleGetTravelRouteRequest(CImPdu *pPdu)
     }
 }
 
+void CMsgConn::_HandleGetScenicHotelRequest(CImPdu *pPdu)
+{
+    IM::Buddy::GetScenicHotelReq msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    log("user_id=%u", GetUserId());
+    CDBServConn* pDBConn = get_db_serv_conn();
+    if (pDBConn) {
+        CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
+        msg.set_user_id(GetUserId());
+        msg.set_attach_data(attach.GetBuffer(), attach.GetLength());
+        pPdu->SetPBMsg(&msg);
+        pDBConn->SendPdu(pPdu);
+    }
+}
+
+
 void CMsgConn::_HandleGetTravelListRequest(CImPdu *pPdu)
 {
-    IM::Buddy::GetTravelListReq msg;
+    IM::Buddy::QueryMyTravelReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     log("_HandleGetTravelListRequest, user_id=%u.", 
         GetUserId());
@@ -930,9 +951,9 @@ void CMsgConn::_HandleGetTravelListRequest(CImPdu *pPdu)
 
 void CMsgConn::_HandleCreateTravelRequest(CImPdu *pPdu)
 {
-    IM::Buddy::CreateTravelReq msg;
+    IM::Buddy::CreateMyTravelReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
-    log("_HandleCreateTravelRequest, user_id=%u.", 
+    log("user_id=%u.", 
         GetUserId());
     CDBServConn* pDBConn = get_db_serv_conn();
     if (pDBConn) {
@@ -946,7 +967,7 @@ void CMsgConn::_HandleCreateTravelRequest(CImPdu *pPdu)
 
 void CMsgConn::_HandleDeleteTravelRequest(CImPdu *pPdu)
 {
-    IM::Buddy::DeleteTravelReq msg;
+    IM::Buddy::DeleteMyTravelReq msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     log("_HandleDeleteTravelRequest, user_id=%u.", 
         GetUserId());

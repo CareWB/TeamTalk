@@ -244,11 +244,14 @@ void CDBServConn::HandlePdu(CImPdu* pPdu)
         case CID_BUDDY_LIST_CHANGE_SIGN_INFO_RESPONSE:
             _HandleChangeSignInfoResponse(pPdu);
             break;
-        case CID_BUDDY_LIST_TRAVEL_ROUTE_RESPONSE:
-            _HandleTravelRouteListResponse(pPdu);
+        case CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_RESPONSE:
+            _HandleTravelTransportToolResponse(pPdu);
             break;
-        case CID_BUDDY_LIST_TRAVEL_LIST_RESPONSE:
-            _HandleTravelListResponse(pPdu);
+        case CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE:
+            _HandleTravelScenicHotelResponse(pPdu);
+            break;
+        case CID_BUDDY_LIST_TRAVEL_QUERY_RESPONSE:
+            _HandleQueryTravelResponse(pPdu);
             break;
         case CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE:
             _HandleCreateTravelResponse(pPdu);
@@ -927,12 +930,12 @@ void CDBServConn::_HandleQueryPushShieldResponse(CImPdu* pPdu) {
 }
 
 void CDBServConn::_HandleCreateTravelResponse(CImPdu* pPdu) {
-    IM::Buddy::CreateTravelRsp msg;
+    IM::Buddy::CreateMyTravelRsp msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     
     uint32_t user_id = msg.user_id();
     uint32_t result = msg.result_code();    
-    log("_HandleCreateTravelResponse: user_id=%u, result=%u.", user_id, result);
+    log("user_id=%u, result=%u.", user_id, result);
     
     CDbAttachData attach_data((uchar_t*)msg.attach_data().c_str(), msg.attach_data().length());
     uint32_t handle = attach_data.GetHandle();
@@ -944,12 +947,12 @@ void CDBServConn::_HandleCreateTravelResponse(CImPdu* pPdu) {
         pPdu->SetPBMsg(&msg);
         pMsgConn->SendPdu(pPdu);
     } else {
-        log("_HandleCreateTravelResponse: can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
+        log("can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
     }
 }
 
 void CDBServConn::_HandleDeleteTravelResponse(CImPdu* pPdu) {
-    IM::Buddy::DeleteTravelRsp msg;
+    IM::Buddy::DeleteMyTravelRsp msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     
     uint32_t user_id = msg.user_id();
@@ -970,13 +973,13 @@ void CDBServConn::_HandleDeleteTravelResponse(CImPdu* pPdu) {
     }
 }
 
-void CDBServConn::_HandleTravelRouteListResponse(CImPdu* pPdu) {
-    IM::Buddy::TravelRouteRsp msg;
+void CDBServConn::_HandleTravelTransportToolResponse(CImPdu* pPdu) {
+    IM::Buddy::GetTransportToolRsp msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     
     uint32_t user_id = msg.user_id();
     uint32_t result = msg.result_code();    
-    log("_HandleTravelRouteListResponse: user_id=%u, result=%u.", user_id, result);
+    log("user_id=%u, result=%u.", user_id, result);
     
     CDbAttachData attach_data((uchar_t*)msg.attach_data().c_str(), msg.attach_data().length());
     uint32_t handle = attach_data.GetHandle();
@@ -988,19 +991,17 @@ void CDBServConn::_HandleTravelRouteListResponse(CImPdu* pPdu) {
         pPdu->SetPBMsg(&msg);
         pMsgConn->SendPdu(pPdu);
     } else {
-        log("_HandleTravelRouteListResponse: can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
+        log("can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
     }
 }
 
-
-
-void CDBServConn::_HandleTravelListResponse(CImPdu* pPdu) {
-    IM::Buddy::GetTravelTripListRsp msg;
+void CDBServConn::_HandleTravelScenicHotelResponse(CImPdu* pPdu) {
+    IM::Buddy::GetScenicHotelRsp msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     
     uint32_t user_id = msg.user_id();
     uint32_t result = msg.result_code();    
-    log("_HandleTravelListResponse: user_id=%u, result=%u.", user_id, result);
+    log("user_id=%u, result=%u.", user_id, result);
     
     CDbAttachData attach_data((uchar_t*)msg.attach_data().c_str(), msg.attach_data().length());
     uint32_t handle = attach_data.GetHandle();
@@ -1012,6 +1013,28 @@ void CDBServConn::_HandleTravelListResponse(CImPdu* pPdu) {
         pPdu->SetPBMsg(&msg);
         pMsgConn->SendPdu(pPdu);
     } else {
-        log("_HandleTravelListResponse: can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
+        log("can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
+    }
+}
+
+void CDBServConn::_HandleQueryTravelResponse(CImPdu* pPdu) {
+    IM::Buddy::QueryMyTravelRsp msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    
+    uint32_t user_id = msg.user_id();
+    uint32_t result = msg.result_code();    
+    log("user_id=%u, result=%u.", user_id, result);
+    
+    CDbAttachData attach_data((uchar_t*)msg.attach_data().c_str(), msg.attach_data().length());
+    uint32_t handle = attach_data.GetHandle();
+    
+    CMsgConn* pMsgConn = CImUserManager::GetInstance()->GetMsgConnByHandle(user_id, handle);
+    
+    if (pMsgConn && pMsgConn->IsOpen()) {
+        msg.clear_attach_data();
+        pPdu->SetPBMsg(&msg);
+        pMsgConn->SendPdu(pPdu);
+    } else {
+        log("can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
     }
 }

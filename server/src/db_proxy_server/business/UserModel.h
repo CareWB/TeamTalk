@@ -35,11 +35,12 @@ public:
     bool getUserSingInfo(uint32_t user_id, string* sign_info);
     bool updatePushShield(uint32_t user_id, uint32_t shield_status);
     bool getPushShield(uint32_t user_id, uint32_t* shield_status);
-    bool getTravelRoute(uint32_t user_id, IM::Buddy::TravelRouteReq& req, IM::Buddy::TravelRouteRsp& rsp);
-    uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateTravelReq* pb);
-    bool getTravelDetail(uint32_t user_id, IM::Buddy::GetTravelTripListRsp& rsp);
+    bool getTransportTool(uint32_t user_id, IM::Buddy::GetTransportToolReq& req, IM::Buddy::GetTransportToolRsp& rsp);
+    bool getScenicHotel(uint32_t user_id, IM::Buddy::GetScenicHotelReq& req, IM::Buddy::GetScenicHotelRsp& rsp);
+    uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTravelReq* pb);
+    bool queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp& rsp);
     bool deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_idx_list);
-    bool updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateTravelReq* pb);
+    bool updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb);
 
 private:
     CUserModel();

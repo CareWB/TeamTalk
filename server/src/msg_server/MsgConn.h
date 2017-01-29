@@ -81,7 +81,8 @@ private:
     void _SendFriendStatusNotify(uint32_t status);
     void _HandlePushShieldRequest(CImPdu* pPdu);
     void _HandleQueryPushShieldRequest(CImPdu* pPdu);
-    void _HandleGetTravelRouteRequest(CImPdu* pPdu);
+    void _HandleGetTravelTransportToolRequest(CImPdu* pPdu);
+    void _HandleGetScenicHotelRequest(CImPdu* pPdu);
     void _HandleGetTravelListRequest(CImPdu* pPdu);
     void _HandleCreateTravelRequest(CImPdu* pPdu);
     void _HandleDeleteTravelRequest(CImPdu* pPdu);
