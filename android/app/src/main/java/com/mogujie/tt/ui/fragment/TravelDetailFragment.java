@@ -41,7 +41,8 @@ public class TravelDetailFragment extends TTBaseFragment{
     private IMService imService;
 	private RecyclerView rvTravelDetail;
     private TravelDetailAdapter travelDetailAdapter;
-    private List<TrafficEntity> trafficEntityList = new ArrayList<>();
+    private List<TrafficEntity> goTrafficEntityList = new ArrayList<>();
+    private List<TrafficEntity> backTrafficEntityList = new ArrayList<>();
     private TravelEntity travelEntity;
     private Button payDetail;
     private IMTravelManager travelManager;
@@ -65,10 +66,11 @@ public class TravelDetailFragment extends TTBaseFragment{
                 travelDetailTime.setText(String.valueOf(travelManager.getMtTravel().getDuration()+"天"));
                 travelDetailType.setText(travelTypeStringMap.get(1));
 
-                trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(1));//yuki 逼不得已
+                goTrafficEntityList.add(imService.getTravelManager().getGoTrafficEntityList().get(1));//yuki 逼不得已
+                backTrafficEntityList.add(imService.getTravelManager().getBackTrafficEntityList().get(1));//yuki 逼不得已
                 travelDetailAdapter.notifyDataSetChanged();
-/*                trafficEntityList.clear();
-                trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(0));
+/*                goTrafficEntityList.clear();
+                goTrafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(0));
                 travelDetailAdapter.notifyDataSetChanged();*/
             }
         }
@@ -84,12 +86,17 @@ public class TravelDetailFragment extends TTBaseFragment{
         if(requestCode == Activity.RESULT_FIRST_USER){
             switch (resultCode) {
                 case 100:
-                    trafficEntityList.clear();
-                    trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(data.getIntExtra("trafficIndex", 0)));
+                    goTrafficEntityList.clear();
+                    goTrafficEntityList.add(imService.getTravelManager().getGoTrafficEntityList().get(data.getIntExtra("trafficIndex", 0)));
                     travelDetailAdapter.notifyDataSetChanged();
                     break;
                 case 101:
                     //travelEntity.setSightSelect(data.getIntExtra("selectSight", 0));
+                    travelDetailAdapter.notifyDataSetChanged();
+                    break;
+                case 102:
+                    backTrafficEntityList.clear();
+                    backTrafficEntityList.add(imService.getTravelManager().getBackTrafficEntityList().get(data.getIntExtra("trafficIndex", 0)));
                     travelDetailAdapter.notifyDataSetChanged();
                     break;
             }
@@ -163,14 +170,22 @@ public class TravelDetailFragment extends TTBaseFragment{
             }
 
             @Override
-            public void onSelectClick(int position) {
-                Intent trafficListIntent = new Intent(getActivity(), TrafficListActivity.class);
-                startActivityForResult(trafficListIntent, Activity.RESULT_FIRST_USER);
+            public void onSelectGo(int position) {
+                Intent goIntent = new Intent(getActivity(), TrafficListActivity.class);
+                goIntent.putExtra("direction", "go");
+                startActivityForResult(goIntent, Activity.RESULT_FIRST_USER);
+            }
+
+            @Override
+            public void onSelectBack(int position) {
+                Intent backIntent = new Intent(getActivity(), TrafficListActivity.class);
+                backIntent.putExtra("direction", "back");
+                startActivityForResult(backIntent, Activity.RESULT_FIRST_USER);
             }
         };
 
         travelEntity = new TravelEntity();
-        travelDetailAdapter = new TravelDetailAdapter(getActivity(), travelEntity, trafficEntityList);
+        travelDetailAdapter = new TravelDetailAdapter(getActivity(), travelEntity, goTrafficEntityList, backTrafficEntityList);
         travelDetailAdapter.setOnRecyclerViewListener(detailRVListener);
         rvTravelDetail.setAdapter(travelDetailAdapter);
     }
@@ -183,7 +198,7 @@ public class TravelDetailFragment extends TTBaseFragment{
         payDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TravelUIHelper.openDetailDispActivity(getActivity());
+
             }
         });
     }
@@ -191,12 +206,14 @@ public class TravelDetailFragment extends TTBaseFragment{
     public void onEventMainThread(TravelEvent event){
         switch (event.event){
             case REQ_TRAVEL_ROUTE_OK:
-                trafficEntityList.clear();
-                if (imService.getTravelManager().getTrafficEntityList().size()>1) {
-                    trafficEntityList.add(imService.getTravelManager().getTrafficEntityList().get(1));
+                goTrafficEntityList.clear();
+                backTrafficEntityList.clear();
+                if (imService.getTravelManager().getGoTrafficEntityList().size()>1 &&
+                        imService.getTravelManager().getBackTrafficEntityList().size()>1) {
+                    goTrafficEntityList.add(imService.getTravelManager().getGoTrafficEntityList().get(1));
+                    backTrafficEntityList.add(imService.getTravelManager().getBackTrafficEntityList().get(1));
                     travelDetailAdapter.notifyDataSetChanged();
                 }
-
                 break;
         }
     }

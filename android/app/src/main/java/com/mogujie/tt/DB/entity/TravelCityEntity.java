@@ -21,7 +21,7 @@ public class TravelCityEntity {
     private PlayConfigEntity playConfigEntity;
     private TrafficEntity go;
     private List<SightEntity> sightEntityList = new ArrayList<>();
-    private HotelEntity hotelEntity;
+    private List<HotelEntity> hotelEntityList = new ArrayList<>();
     private TrafficEntity back;
 
     // KEEP FIELDS - put your custom fields here
@@ -69,12 +69,12 @@ public class TravelCityEntity {
         this.sightEntityList.addAll(sightEntityList);
     }
 
-    public HotelEntity getHotelEntity() {
-        return hotelEntity;
+    public List<HotelEntity> getHotelList() {
+        return hotelEntityList;
     }
 
-    public void setHotelEntity(HotelEntity hotelEntity) {
-        this.hotelEntity = hotelEntity;
+    public void setHotelList(List<HotelEntity> hotelEntityList) {
+        this.hotelEntityList = hotelEntityList;
     }
 
     /** Not-null value. */

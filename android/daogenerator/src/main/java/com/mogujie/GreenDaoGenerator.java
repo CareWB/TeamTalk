@@ -236,6 +236,8 @@ public class GreenDaoGenerator {
         sightlInfo.addIntProperty("price").notNull();
         sightlInfo.addStringProperty("bestStartTime").notNull();
         sightlInfo.addStringProperty("bestEndTime").notNull();
+        sightlInfo.addStringProperty("startTime").notNull();
+        sightlInfo.addStringProperty("endTime").notNull();
         sightlInfo.addIntProperty("select").notNull();
         sightlInfo.addIntProperty("version").notNull();
         sightlInfo.addIntProperty("status").notNull();
@@ -260,6 +262,8 @@ public class GreenDaoGenerator {
         hotelInfo.addIntProperty("mustGo").notNull();
         hotelInfo.addStringProperty("url").notNull();
         hotelInfo.addIntProperty("price").notNull();
+        hotelInfo.addStringProperty("startTime").notNull();
+        hotelInfo.addStringProperty("endTime").notNull();
         hotelInfo.addIntProperty("distance").notNull();
         hotelInfo.addIntProperty("select").notNull();
         hotelInfo.addIntProperty("version").notNull();

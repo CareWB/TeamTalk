@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -30,6 +31,8 @@ import com.mogujie.tt.ui.base.TTBaseFragment;
 import com.mogujie.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -69,6 +72,8 @@ public class SelectHotelFragment extends TTBaseFragment{
     private ImageButton room_num_add;
     private ImageButton room_num_sub;
     private TextView room_num;
+
+    private Button createRoute;
 
     private Map<Integer, String> selectFlag = new HashMap<>();
 
@@ -145,6 +150,8 @@ public class SelectHotelFragment extends TTBaseFragment{
 			}
 		});
 
+        createRoute = (Button)curView.findViewById(R.id.create_route);
+
         total = (TextView)curView.findViewById(R.id.select_total);
         economical = (TextView)curView.findViewById(R.id.select_economical);
         luxurious = (TextView)curView.findViewById(R.id.select_luxurious);
@@ -201,6 +208,13 @@ public class SelectHotelFragment extends TTBaseFragment{
         };
         room_num_add.setOnClickListener(roomNumListener);
         room_num_sub.setOnClickListener(roomNumListener);
+
+        createRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TravelUIHelper.openDetailDispActivity(getActivity());
+            }
+        });
     }
 
     private void buttonDisp(int id) {
@@ -247,7 +261,8 @@ public class SelectHotelFragment extends TTBaseFragment{
         qitian.setPic(pre+"qitiankuaijiejiudian.png");
         qitian.setStar(9);
         qitian.setTag("经济型");
-        qitian.setSelect(0);
+        qitian.setMustGo(1);
+        qitian.setPrice(654);
         qitian.setDistance(123);
 
         HotelEntity rihang = new HotelEntity();
@@ -255,13 +270,18 @@ public class SelectHotelFragment extends TTBaseFragment{
         rihang.setPic(pre+"rihangjiudian.png");
         rihang.setStar(10);
         rihang.setTag("豪华型");
-        rihang.setSelect(0);
-        qitian.setDistance(456);
+        rihang.setPrice(321);
+        rihang.setDistance(456);
 
         hotelEntityArrayList.add(qitian);
         hotelEntityArrayList.add(rihang);
 
         selectHotelList.addAll(hotelEntityArrayList);
+        for (HotelEntity hotelEntity:selectHotelList) {
+            if (hotelEntity.getMustGo() == 1) {
+                hotelEntity.setSelect(1);
+            }
+        }
     }
 
     private void initHotel() {
@@ -292,15 +312,17 @@ public class SelectHotelFragment extends TTBaseFragment{
     }
 
     private void menuProcess() {
-        if (spinner_select == 0) {
-            return;
-        }
-
-        Iterator<HotelEntity> iHotelEntity = selectHotelList.iterator();
-        while (iHotelEntity.hasNext()) {
-/*            if (iHotelEntity.next().getOptimize() != spinner_select) {
-                iHotelEntity.remove();
-            }*/
+        switch (spinner_select) {
+            case COMPREHENSIVE:
+                break;
+            case DISTANCE:
+                ComparatorDistance distance = new ComparatorDistance();
+                Collections.sort(selectHotelList, distance);
+                break;
+            case PRICE:
+                ComparatorPrice price = new ComparatorPrice();
+                Collections.sort(selectHotelList, price);
+                break;
         }
     }
 
@@ -345,17 +367,12 @@ public class SelectHotelFragment extends TTBaseFragment{
             }
         });
 
-
-        for (HotelEntity selectSight:selectHotelList) {
-            selectSight.setSelect(1);
-        }
-
         View.OnClickListener popupListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.select_hotel_pop_comprehensive:
-                        spinner_select = 0;
+                        spinner_select = COMPREHENSIVE;
                         tagProcess();
                         menuProcess();
                         hotelAdapter.notifyDataSetChanged();
@@ -363,7 +380,7 @@ public class SelectHotelFragment extends TTBaseFragment{
                         break;
 
                     case R.id.select_hotel_pop_distance:
-                        spinner_select = 1;
+                        spinner_select = DISTANCE;
                         tagProcess();
                         menuProcess();
                         hotelAdapter.notifyDataSetChanged();
@@ -371,7 +388,7 @@ public class SelectHotelFragment extends TTBaseFragment{
                         break;
 
                     case R.id.select_hotel_pop_price:
-                        spinner_select = 2;
+                        spinner_select = PRICE;
                         tagProcess();
                         menuProcess();
                         hotelAdapter.notifyDataSetChanged();
@@ -422,6 +439,42 @@ public class SelectHotelFragment extends TTBaseFragment{
         }
 
         room_num.setText(String.valueOf(roomNum));
+    }
+
+    public class ComparatorDistance implements Comparator {
+        public int compare(Object arg0, Object arg1) {
+
+            HotelEntity left = (HotelEntity)arg0;
+            HotelEntity right = (HotelEntity)arg1;
+
+            //首先比较出现次数，如果相同，则比较名字
+            Integer num = left.getDistance();
+            Integer num2 = right.getDistance();
+            int flag = num.compareTo(num2);
+            if(flag == 0){
+                return (left.getName()).compareTo(right.getName());
+            }else{
+                return flag;
+            }
+        }
+    }
+
+    public class ComparatorPrice implements Comparator {
+        public int compare(Object arg0, Object arg1) {
+
+            HotelEntity left = (HotelEntity)arg0;
+            HotelEntity right = (HotelEntity)arg1;
+
+            //首先比较出现次数，如果相同，则比较名字
+            Integer num = left.getPrice();
+            Integer num2 = right.getPrice();
+            int flag = num.compareTo(num2);
+            if(flag == 0){
+                return (left.getName()).compareTo(right.getName());
+            }else{
+                return flag;
+            }
+        }
     }
 
 }

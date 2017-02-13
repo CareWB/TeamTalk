@@ -36,11 +36,13 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         public final static Property Price = new Property(10, int.class, "price", false, "PRICE");
         public final static Property BestStartTime = new Property(11, String.class, "bestStartTime", false, "BEST_START_TIME");
         public final static Property BestEndTime = new Property(12, String.class, "bestEndTime", false, "BEST_END_TIME");
-        public final static Property Select = new Property(13, int.class, "select", false, "SELECT");
-        public final static Property Version = new Property(14, int.class, "version", false, "VERSION");
-        public final static Property Status = new Property(15, int.class, "status", false, "STATUS");
-        public final static Property Created = new Property(16, int.class, "created", false, "CREATED");
-        public final static Property Updated = new Property(17, int.class, "updated", false, "UPDATED");
+        public final static Property StartTime = new Property(13, String.class, "startTime", false, "START_TIME");
+        public final static Property EndTime = new Property(14, String.class, "endTime", false, "END_TIME");
+        public final static Property Select = new Property(15, int.class, "select", false, "SELECT");
+        public final static Property Version = new Property(16, int.class, "version", false, "VERSION");
+        public final static Property Status = new Property(17, int.class, "status", false, "STATUS");
+        public final static Property Created = new Property(18, int.class, "created", false, "CREATED");
+        public final static Property Updated = new Property(19, int.class, "updated", false, "UPDATED");
     };
 
 
@@ -69,11 +71,13 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
                 "'PRICE' INTEGER NOT NULL ," + // 10: price
                 "'BEST_START_TIME' TEXT NOT NULL ," + // 11: bestStartTime
                 "'BEST_END_TIME' TEXT NOT NULL ," + // 12: bestEndTime
-                "'SELECT' INTEGER NOT NULL ," + // 13: select
-                "'VERSION' INTEGER NOT NULL ," + // 14: version
-                "'STATUS' INTEGER NOT NULL ," + // 15: status
-                "'CREATED' INTEGER NOT NULL ," + // 16: created
-                "'UPDATED' INTEGER NOT NULL );"); // 17: updated
+                "'START_TIME' TEXT NOT NULL ," + // 13: startTime
+                "'END_TIME' TEXT NOT NULL ," + // 14: endTime
+                "'SELECT' INTEGER NOT NULL ," + // 15: select
+                "'VERSION' INTEGER NOT NULL ," + // 16: version
+                "'STATUS' INTEGER NOT NULL ," + // 17: status
+                "'CREATED' INTEGER NOT NULL ," + // 18: created
+                "'UPDATED' INTEGER NOT NULL );"); // 19: updated
     }
 
     /** Drops the underlying database table. */
@@ -103,11 +107,13 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         stmt.bindLong(11, entity.getPrice());
         stmt.bindString(12, entity.getBestStartTime());
         stmt.bindString(13, entity.getBestEndTime());
-        stmt.bindLong(14, entity.getSelect());
-        stmt.bindLong(15, entity.getVersion());
-        stmt.bindLong(16, entity.getStatus());
-        stmt.bindLong(17, entity.getCreated());
-        stmt.bindLong(18, entity.getUpdated());
+        stmt.bindString(14, entity.getStartTime());
+        stmt.bindString(15, entity.getEndTime());
+        stmt.bindLong(16, entity.getSelect());
+        stmt.bindLong(17, entity.getVersion());
+        stmt.bindLong(18, entity.getStatus());
+        stmt.bindLong(19, entity.getCreated());
+        stmt.bindLong(20, entity.getUpdated());
     }
 
     /** @inheritdoc */
@@ -133,11 +139,13 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
             cursor.getInt(offset + 10), // price
             cursor.getString(offset + 11), // bestStartTime
             cursor.getString(offset + 12), // bestEndTime
-            cursor.getInt(offset + 13), // select
-            cursor.getInt(offset + 14), // version
-            cursor.getInt(offset + 15), // status
-            cursor.getInt(offset + 16), // created
-            cursor.getInt(offset + 17) // updated
+            cursor.getString(offset + 13), // startTime
+            cursor.getString(offset + 14), // endTime
+            cursor.getInt(offset + 15), // select
+            cursor.getInt(offset + 16), // version
+            cursor.getInt(offset + 17), // status
+            cursor.getInt(offset + 18), // created
+            cursor.getInt(offset + 19) // updated
         );
         return entity;
     }
@@ -158,11 +166,13 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         entity.setPrice(cursor.getInt(offset + 10));
         entity.setBestStartTime(cursor.getString(offset + 11));
         entity.setBestEndTime(cursor.getString(offset + 12));
-        entity.setSelect(cursor.getInt(offset + 13));
-        entity.setVersion(cursor.getInt(offset + 14));
-        entity.setStatus(cursor.getInt(offset + 15));
-        entity.setCreated(cursor.getInt(offset + 16));
-        entity.setUpdated(cursor.getInt(offset + 17));
+        entity.setStartTime(cursor.getString(offset + 13));
+        entity.setEndTime(cursor.getString(offset + 14));
+        entity.setSelect(cursor.getInt(offset + 15));
+        entity.setVersion(cursor.getInt(offset + 16));
+        entity.setStatus(cursor.getInt(offset + 17));
+        entity.setCreated(cursor.getInt(offset + 18));
+        entity.setUpdated(cursor.getInt(offset + 19));
      }
     
     /** @inheritdoc */

@@ -265,6 +265,6 @@
         android:textColor="@color/next_step"
         android:textSize="@dimen/next_step"
         android:background="@drawable/next_step_click"
-        android:id="@+id/hotel_next" />
+        android:id="@+id/create_route" />
 
 </LinearLayout>

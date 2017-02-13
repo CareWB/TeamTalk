@@ -10,11 +10,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mogujie.tt.R;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
-import com.mogujie.tt.ui.activity.SelectCityActivity;
 import com.mogujie.tt.ui.activity.SelectDateActivity;
 import com.mogujie.tt.ui.activity.SelectPlaceActivity;
 import com.mogujie.tt.ui.activity.TravelBehaviorActivity;
@@ -51,11 +51,11 @@ public class CreateTravelFragment extends TTBaseFragment{
     private Date startDate;
     private Date endDate;
     private int perNum = 1;
-    private String strStartPlace = "深圳";
-    private String strEndPlace = "深圳";;
-    private String strStartDate = "0.0";
-    private String strEndDate = "0.0";
-    private String destination = "厦门";
+    private String strStartPlace = "";
+    private String strEndPlace = "";;
+    private String strStartDate = "";
+    private String strEndDate = "";
+    private String destination = "";
     private int iduration = 0;
     private IMService imService;
 
@@ -115,11 +115,18 @@ public class CreateTravelFragment extends TTBaseFragment{
                         endCity.setText(data.getStringExtra("city"));
                         strEndPlace = data.getStringExtra("city");
                     }
+                    if (imService != null) {
+                        imService.getTravelManager().getMtTravel().setStartPlace(strStartPlace);
+                        imService.getTravelManager().getMtTravel().setEndPlace(strEndPlace);
+                    }
                     break;
                 case 101:
                     TextView place = (TextView)curView.findViewById(R.id.create_travel_place);
                     place.setText(data.getStringExtra("city"));
                     destination = data.getStringExtra("city");
+                    if (imService != null) {
+                        imService.getTravelManager().getMtTravel().setDestination(destination);
+                    }
                     break;
                 case 102:
                     java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd");
@@ -130,6 +137,11 @@ public class CreateTravelFragment extends TTBaseFragment{
                         e.printStackTrace();
                     }
                     dateProcess();
+                    if (imService != null) {
+                        imService.getTravelManager().getMtTravel().setStartDate(strStartDate);
+                        imService.getTravelManager().getMtTravel().setEndDate(strEndDate);
+                        imService.getTravelManager().getMtTravel().setDuration(iduration);
+                    }
                     break;
             }
         }
@@ -192,8 +204,9 @@ public class CreateTravelFragment extends TTBaseFragment{
                         break;
 
                     case R.id.create_travel_next_step:
-                        storeTravelEntity();
-                        jump2TravelBehavior();
+                        if (checkResult()) {
+                            jump2TravelBehavior();
+                        }
                         break;
                 }
             }
@@ -206,6 +219,39 @@ public class CreateTravelFragment extends TTBaseFragment{
         time.setOnClickListener(createTravelListener);
         place.setOnClickListener(createTravelListener);
         next.setOnClickListener(createTravelListener);
+    }
+
+    private boolean checkResult() {
+        if (strStartDate.equals("")) {
+            errorHint(getString(R.string.create_travel_not_select_start_date));
+            return false;
+        }
+
+        if (strEndDate.equals("")) {
+            errorHint(getString(R.string.create_travel_not_select_end_date));
+            return false;
+        }
+
+        if (destination.equals("")) {
+            errorHint(getString(R.string.create_travel_not_select_destination));
+            return false;
+        }
+
+        if (strStartPlace.equals("")) {
+            errorHint(getString(R.string.create_travel_not_select_start_place));
+            return false;
+        }
+
+        if (strEndPlace.equals("")) {
+            errorHint(getString(R.string.create_travel_not_select_end_place));
+            return false;
+        }
+
+        return true;
+    }
+
+    private void errorHint(String hint) {
+        Toast.makeText(getActivity(), hint, Toast.LENGTH_SHORT).show();
     }
 
     private void clacPerNum(int opt) {
@@ -240,6 +286,9 @@ public class CreateTravelFragment extends TTBaseFragment{
         }
 
         per_num.setText(String.valueOf(perNum));
+        if (imService != null) {
+            imService.getTravelManager().getMtTravel().setPersonNum(perNum);
+        }
     }
 
     private void jump2CitySelect(int opt) {
@@ -267,18 +316,6 @@ public class CreateTravelFragment extends TTBaseFragment{
     private void jump2TravelBehavior() {
         Intent travelBehavior = new Intent(getActivity(), TravelBehaviorActivity.class);
         startActivity(travelBehavior);
-    }
-
-    private void storeTravelEntity() {
-        if (imService != null) {
-            imService.getTravelManager().getMtTravel().setStartDate(strStartDate);
-            imService.getTravelManager().getMtTravel().setEndDate(strEndDate);
-            imService.getTravelManager().getMtTravel().setDuration(iduration);
-            imService.getTravelManager().getMtTravel().setStartPlace(strStartPlace);
-            imService.getTravelManager().getMtTravel().setEndPlace(strEndPlace);
-            imService.getTravelManager().getMtTravel().setDestination(destination);
-            imService.getTravelManager().getMtTravel().setPersonNum(perNum);
-        }
     }
 
     private void dateProcess() {

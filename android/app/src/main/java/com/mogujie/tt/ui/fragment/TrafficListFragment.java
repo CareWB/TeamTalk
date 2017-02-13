@@ -28,6 +28,9 @@ public class TrafficListFragment extends TTBaseFragment{
     private RecyclerView rvTrafficList;
     private List<TrafficEntity> trafficEntityList = new ArrayList<>();
     private TrafficDetailAdapter trafficDetailAdapter;
+    private static final int GO = 1;
+    private static final int BACK = 0;
+    private int direction = GO;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -37,7 +40,11 @@ public class TrafficListFragment extends TTBaseFragment{
             if (imService != null) {
                 setTopTitle("深圳-厦门");
                 trafficEntityList.clear();
-                trafficEntityList.addAll(imService.getTravelManager().getTrafficEntityList());
+                if (direction == GO) {
+                    trafficEntityList.addAll(imService.getTravelManager().getGoTrafficEntityList());
+                } else {
+                    trafficEntityList.addAll(imService.getTravelManager().getBackTrafficEntityList());
+                }
                 trafficDetailAdapter.notifyDataSetChanged();
             }
         }
@@ -56,6 +63,12 @@ public class TrafficListFragment extends TTBaseFragment{
 			return curView;
 		}
 		curView = inflater.inflate(R.layout.travel_fragment_traffic_list, topContentView);
+        intent = getActivity().getIntent();
+        if (intent.getStringExtra("direction").equals("go")) {
+            direction = GO;
+        } else {
+            direction = BACK;
+        }
 		initRes();
         initBtn();
         initTrafficList();
@@ -89,7 +102,12 @@ public class TrafficListFragment extends TTBaseFragment{
             public void onClick(View arg0) {
                 intent = new Intent();
                 intent.putExtra("trafficIndex", trafficID);
-                getActivity().setResult(100, intent);
+                if (direction == GO) {
+                    getActivity().setResult(100, intent);
+                } else {
+                    getActivity().setResult(102, intent);
+                }
+
                 getActivity().finish();
                 return;
             }

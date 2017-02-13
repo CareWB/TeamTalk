@@ -350,8 +350,8 @@ public class ProtoBuf2JavaBean {
         travelEntity.setDestination(myTravel.getBasicInfo().getPlaceToCode());
         travelEntity.setPersonNum(myTravel.getBasicInfo().getPersonNum());
         travelEntity.setTrafficWay(myTravel.getTransportConfig().getToolType());
-        travelEntity.setTrafficStartTime(myTravel.getTransportConfig().getTimeStart());
-        travelEntity.setTrafficEndTime(myTravel.getTransportConfig().getTimeEnd());
+        travelEntity.setTrafficStartTime(myTravel.getTransportConfig().getTimeFrom());
+        travelEntity.setTrafficEndTime(myTravel.getTransportConfig().getTimeTo());
         travelEntity.setTrafficQuality(myTravel.getTransportConfig().getQuality().getNumber());
         travelEntity.setTransit(myTravel.getTransportConfig().getTransit());
         return travelEntity;

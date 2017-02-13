@@ -122,8 +122,13 @@ public class SelectDateFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+                if (strStartDate.equals("")) {
+                    Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_start_date), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (strEndDate.equals("")) {
-                    Toast.makeText(getActivity(), getString(R.string.warn_end_date_not_select), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_end_date), Toast.LENGTH_SHORT).show();
                     return;
                 }
 				if (getFragmentManager().getBackStackEntryCount() == 0) {
@@ -200,9 +205,10 @@ public class SelectDateFragment extends TTBaseFragment{
             dateEntity.setType(DateType.cannot_select);
         }
 
-        if (dateEqual(today, dateEntity.getDate())){
+        if (dateEntity.getType() != DateType.blank && dateEqual(today, dateEntity.getDate())) {
             dateEntity.setType(DateType.today);
         }
+
         return dateEntity;
     }
 

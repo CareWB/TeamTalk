@@ -8,12 +8,12 @@
         android:text="10.18起飞"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/travel_detail_title" />
+        android:id="@+id/go_travel_detail_title" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/travel_detail_traffic_list">
+        android:id="@+id/go_travel_detail_traffic_list">
 
         <LinearLayout
             android:orientation="vertical"
@@ -30,7 +30,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/travel_detail_traffic_logo"
+                    android:id="@+id/go_travel_detail_traffic_logo"
                     android:background="@drawable/plane_black" />
 
                 <TextView
@@ -38,20 +38,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:id="@+id/travel_detail_start" />
+                    android:id="@+id/go_travel_detail_start" />
                 <TextView
                     android:text="厦门高崎T3\n14:36"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:id="@+id/travel_detail_end" />
+                    android:id="@+id/go_travel_detail_end" />
             </LinearLayout>
 
             <TextView
                 android:text="厦航MF8069|波音738（中）"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/travel_detail_no" />
+                android:id="@+id/go_travel_detail_no" />
         </LinearLayout>
 
         <TextView
@@ -59,13 +59,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:id="@+id/travel_detail_price" />
+            android:id="@+id/go_travel_detail_price" />
 
         <TextView
             android:text="更多票"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/travel_detail_price"
+            android:layout_below="@+id/go_travel_detail_price"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
@@ -87,4 +87,69 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <TextView
+        android:text="10.18起飞"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_travel_detail_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_travel_detail_traffic_list">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/back_travel_detail_traffic_logo"
+                    android:background="@drawable/plane_black" />
+
+                <TextView
+                    android:text="深圳宝安T3\n12:03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/back_travel_detail_start" />
+                <TextView
+                    android:text="厦门高崎T3\n14:36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/back_travel_detail_end" />
+            </LinearLayout>
+
+            <TextView
+                android:text="厦航MF8069|波音738（中）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/back_travel_detail_no" />
+        </LinearLayout>
+
+        <TextView
+            android:text="￥730经济舱"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/back_travel_detail_price" />
+
+        <TextView
+            android:text="更多票"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back_travel_detail_price"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 </LinearLayout>
