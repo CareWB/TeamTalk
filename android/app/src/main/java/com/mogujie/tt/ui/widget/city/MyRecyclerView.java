@@ -1,4 +1,4 @@
-package com.mogujie.tt.ui.widget;
+package com.mogujie.tt.ui.widget.city;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;

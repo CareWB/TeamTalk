@@ -1,34 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/base_bk"
     tools:context="com.mogujie.tt.ui.widget.city.CityActivity">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="选择城市"
-        android:textSize="20sp" />
+        android:layout_height="@dimen/top_bar_default_height"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/base_left_right_pad"
+            android:background="@drawable/back_x"
+            android:layout_centerVertical="true"
+            android:id="@+id/select_city_back"
+            android:scaleType="center" />
+
+        <TextView
+            android:text="@string/select_city_title"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/select_city_title"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/mian_title"
+            android:textSize="@dimen/mian_title_size" />
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/color_ccc"></View>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_city_locating"
+        android:gravity="center"
+        android:id="@+id/select_city_result"
+        android:textColor="@color/mian_title"
+        android:textSize="@dimen/mian_title_size"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <com.mogujie.tt.ui.widget.city.MySlideView
             android:id="@+id/my_slide_view"
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true" />
-
 
         <FrameLayout
             android:layout_width="match_parent"

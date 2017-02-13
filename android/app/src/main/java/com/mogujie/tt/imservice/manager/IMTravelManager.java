@@ -32,8 +32,10 @@ public class IMTravelManager extends IMManager {
 
     /**key=> sessionKey*/
     private List<TravelEntity> travelEntityList = new ArrayList<>();
-    private List<TrafficEntity> trafficEntityRspList = new ArrayList<>();
-    private List<TrafficEntity> trafficEntityList = new ArrayList<>();
+    private List<TrafficEntity> goTrafficEntityRspList = new ArrayList<>();
+    private List<TrafficEntity> backTrafficEntityRspList = new ArrayList<>();
+    private List<TrafficEntity> goTrafficEntityList = new ArrayList<>();
+    private List<TrafficEntity> backTrafficEntityList = new ArrayList<>();
     private TravelEntity mtTravel = new TravelEntity();
     private List <TravelCityEntity> mtCity = new ArrayList<>();
     private static final int TRAFFIC_CITY_DIVDER = 0xf1;
@@ -137,8 +139,8 @@ public class IMTravelManager extends IMManager {
         IMBuddy.TransportConfig transportConfig = IMBuddy.TransportConfig
                 .newBuilder()
                 .setToolType(mtTravel.getTrafficWay())
-                .setTimeStart(mtTravel.getTrafficStartTime())
-                .setTimeEnd(mtTravel.getTrafficEndTime())
+                .setTimeFrom(mtTravel.getTrafficStartTime())
+                .setTimeTo(mtTravel.getTrafficEndTime())
                 .setQuality(getQuality(mtTravel.getTrafficWay()))
                 .setTransit(mtTravel.getTransit())
                 .build();
@@ -154,23 +156,34 @@ public class IMTravelManager extends IMManager {
                 .setPosition(getPosition(playConfigEntity.getPosition()))
                 .build();
 
-        HotelEntity hotelEntity = travelCityEntity.getHotelEntity();
-        IMBuddy.HotelInfo hotelInfo = IMBuddy.HotelInfo
-                .newBuilder()
-                .setCityCode(travelCityEntity.getCityName())
-                .setName(hotelEntity.getName())
-                .setScore(hotelEntity.getStar())
-                .setTags(hotelEntity.getTag())
-                .setMustSee(hotelEntity.getMustGo())
-                .setUrl(hotelEntity.getUrl())
-                .setPrice(hotelEntity.getPrice())
-                .setDistance(hotelEntity.getDistance())
-                .build();
+        List<IMBuddy.DayHotel> dayHotelList = new ArrayList<>();
+        for (HotelEntity hotelEntity : travelCityEntity.getHotelList()) {
+            IMBuddy.HotelInfo hotelInfo = IMBuddy.HotelInfo
+                    .newBuilder()
+                    .setId(hotelEntity.getPeerId())
+                    .setCityCode(travelCityEntity.getCityName())
+                    .setName(hotelEntity.getName())
+                    .setScore(hotelEntity.getStar())
+                    .setTags(hotelEntity.getTag())
+                    .setMustSee(hotelEntity.getMustGo())
+                    .setUrl(hotelEntity.getUrl())
+                    .setPrice(hotelEntity.getPrice())
+                    .setDistance(hotelEntity.getDistance())
+                    .build();
+            IMBuddy.DayHotel dayHotel = IMBuddy.DayHotel
+                    .newBuilder()
+                    .setDayTimeFrom(hotelEntity.getStartTime())
+                    .setDayTimeTo(hotelEntity.getEndTime())
+                    .setHotelInfo(hotelInfo)
+                    .build();
+            dayHotelList.add(dayHotel);
+        }
 
-        List<IMBuddy.ScenicInfo> scenicInfoList = new ArrayList<>();
+        List<IMBuddy.DayScenic> dayScenicList = new ArrayList<>();
         for (SightEntity sightEntity : travelCityEntity.getSightList()) {
             IMBuddy.ScenicInfo scenicInfo = IMBuddy.ScenicInfo
                     .newBuilder()
+                    .setId(sightEntity.getPeerId())
                     .setCityCode(travelCityEntity.getCityName())
                     .setName(sightEntity.getName())
                     .setScore(sightEntity.getStar())
@@ -182,14 +195,20 @@ public class IMTravelManager extends IMManager {
                     .setBestTimeFrom(sightEntity.getBestStartTime())
                     .setBestTimeTo(sightEntity.getBestEndTime())
                     .build();
-            scenicInfoList.add(scenicInfo);
+            IMBuddy.DayScenic dayScenic = IMBuddy.DayScenic
+                    .newBuilder()
+                    .setDayTimeFrom(sightEntity.getStartTime())
+                    .setDayTimeTo(sightEntity.getEndTime())
+                    .setScenicInfo(scenicInfo)
+                    .build();
+            dayScenicList.add(dayScenic);
         }
 
         IMBuddy.PlayDetail playDetail = IMBuddy.PlayDetail
                 .newBuilder()
                 .setPlayConfig(playConfig)
-                .setHotelInfo(hotelInfo)
-                .addAllScenicInfo(scenicInfoList)
+                .addAllDayHotel(dayHotelList)
+                .addAllDayScenic(dayScenicList)
                 .build();
 
         TrafficEntity cityGo = travelCityEntity.getGo();
@@ -331,8 +350,8 @@ public class IMTravelManager extends IMManager {
         IMBuddy.TransportConfig transportConfig = IMBuddy.TransportConfig
                 .newBuilder()
                 .setToolType(mtTravel.getTrafficWay())
-                .setTimeStart(mtTravel.getTrafficStartTime())
-                .setTimeEnd(mtTravel.getTrafficEndTime())
+                .setTimeFrom(mtTravel.getTrafficStartTime())
+                .setTimeTo(mtTravel.getTrafficEndTime())
                 .setQuality(getQuality(mtTravel.getTrafficWay()))
                 .setTransit(mtTravel.getTransit())
                 .build();
@@ -351,33 +370,45 @@ public class IMTravelManager extends IMManager {
     public void onRspTravelRoute(IMBuddy.GetTransportToolRsp getTransportToolRsp) {
         logger.i("onRspDelTravel");
         Log.e("yuki", "onRspDelTravel");
+        List<TrafficEntity> trafficEntitiesRsp = new ArrayList<>();
         if (getTransportToolRsp.getResultCode() != 0) {
             logger.e("onRepTravelList fail %d", getTransportToolRsp.getResultCode());
             triggerEvent(new TravelEvent(TravelEvent.Event.REQ_TRAVEL_ROUTE_FAIL));
         } else {
             for (IMBuddy.TravelToolInfo travelToolInfo:getTransportToolRsp.getTravelToolInfoList()) {
-                trafficEntityList.add(ProtoBuf2JavaBean.getTrafficEntity(travelToolInfo));
+                trafficEntitiesRsp.add(ProtoBuf2JavaBean.getTrafficEntity(travelToolInfo));
             }
-            trafficTypePreProcess();
-
+            GoORBack(trafficEntitiesRsp, mtTravel.getDestination());
             triggerEvent(new TravelEvent(TravelEvent.Event.REQ_TRAVEL_ROUTE_OK));
         }
     }
 
-    private void trafficTypePreProcess() {
+    private void GoORBack(List<TrafficEntity> trafficEntities, String city) {
+        for (TrafficEntity index:trafficEntities) {
+            if (index.getEndCityCode().equals(city)) {
+                goTrafficEntityList.add(index);
+            }
+
+            if (index.getStartCityCode().equals(city)) {
+                backTrafficEntityList.add(index);
+            }
+        }
+    }
+
+    private void trafficTypePreProcess(List<TrafficEntity> trafficEntities, List<TrafficEntity> result) {
         String start;
         int type = 0;
-
-        for (TrafficEntity trafficEntity:trafficEntityRspList) {
+        result.clear();
+        for (TrafficEntity trafficEntity:trafficEntities) {
             int tt = trafficEntity.getType();
             if (tt != type) {
                 type = tt;
                 TrafficEntity typeIndex = new TrafficEntity();
                 typeIndex.setType(tt+0xf0);
-                trafficEntityList.add(typeIndex);
+                result.add(typeIndex);
             }
 
-            trafficEntityList.add(trafficEntity);
+            result.add(trafficEntity);
         }
     }
 
@@ -395,8 +426,8 @@ public class IMTravelManager extends IMManager {
         return mtTravel;
     }
 
-    public List<TrafficEntity> getTrafficEntityList() {
-        if (trafficEntityRspList.isEmpty()) {
+    public List<TrafficEntity> getGoTrafficEntityList() {
+        if (goTrafficEntityRspList.isEmpty()) {
             TrafficEntity plane1 = new TrafficEntity();
             plane1.setType(1);
             plane1.setStartTime("07:45");
@@ -417,8 +448,8 @@ public class IMTravelManager extends IMManager {
             plane2.setNo("海航HU7065");
             plane2.setSeatClass("头等舱");
             plane2.setPrice(800);
-            trafficEntityRspList.add(plane1);
-            trafficEntityRspList.add(plane2);
+            goTrafficEntityRspList.add(plane1);
+            goTrafficEntityRspList.add(plane2);
 
             TrafficEntity train1 = new TrafficEntity();
             train1.setType(2);
@@ -439,8 +470,8 @@ public class IMTravelManager extends IMManager {
             train2.setNo("K845");
             train2.setSeatClass("无座");
             train2.setPrice(88);
-            trafficEntityRspList.add(train1);
-            trafficEntityRspList.add(train2);
+            goTrafficEntityRspList.add(train1);
+            goTrafficEntityRspList.add(train2);
 
             TrafficEntity bus = new TrafficEntity();
             bus.setType(3);
@@ -451,10 +482,72 @@ public class IMTravelManager extends IMManager {
             bus.setNo("K845");
             bus.setSeatClass("无座");
             bus.setPrice(88);
-            trafficEntityRspList.add(bus);
+            goTrafficEntityRspList.add(bus);
         }
-        trafficTypePreProcess();
-        return trafficEntityList;
+        trafficTypePreProcess(goTrafficEntityRspList, goTrafficEntityList);
+        return goTrafficEntityList;
+    }
+
+    public List<TrafficEntity> getBackTrafficEntityList() {
+        if (backTrafficEntityRspList.isEmpty()) {
+            TrafficEntity plane1 = new TrafficEntity();
+            plane1.setType(1);
+            plane1.setStartTime("07:45");
+            plane1.setEndTime("08:55");
+            plane1.setStartStation("宝安T3");
+            plane1.setEndStation("高崎T4");
+            plane1.setNo("海航HU7065");
+            plane1.setSeatClass("经济舱");
+            plane1.setPrice(800);
+            plane1.setSelect(1);
+
+            TrafficEntity plane2 = new TrafficEntity();
+            plane2.setType(1);
+            plane2.setStartTime("07:45");
+            plane2.setEndTime("08:55");
+            plane2.setStartStation("宝安T3");
+            plane2.setEndStation("高崎T4");
+            plane2.setNo("海航HU7065");
+            plane2.setSeatClass("头等舱");
+            plane2.setPrice(800);
+            backTrafficEntityRspList.add(plane1);
+            backTrafficEntityRspList.add(plane2);
+
+            TrafficEntity train1 = new TrafficEntity();
+            train1.setType(2);
+            train1.setStartTime("07:45");
+            train1.setEndTime("08:55");
+            train1.setStartStation("深圳北站");
+            train1.setEndStation("厦门东站");
+            train1.setNo("D4354");
+            train1.setSeatClass("二等座");
+            train1.setPrice(199);
+
+            TrafficEntity train2 = new TrafficEntity();
+            train2.setType(2);
+            train2.setStartTime("07:45");
+            train2.setEndTime("08:55");
+            train2.setStartStation("深圳北站");
+            train2.setEndStation("厦门东站");
+            train2.setNo("K845");
+            train2.setSeatClass("无座");
+            train2.setPrice(88);
+            backTrafficEntityRspList.add(train1);
+            backTrafficEntityRspList.add(train2);
+
+            TrafficEntity bus = new TrafficEntity();
+            bus.setType(3);
+            bus.setStartTime("07:45");
+            bus.setEndTime("08:55");
+            bus.setStartStation("深圳客运站");
+            bus.setEndStation("厦门客运站");
+            bus.setNo("K845");
+            bus.setSeatClass("无座");
+            bus.setPrice(88);
+            backTrafficEntityRspList.add(bus);
+        }
+        trafficTypePreProcess(backTrafficEntityRspList, backTrafficEntityList);
+        return backTrafficEntityList;
     }
 
     public List <TravelCityEntity> getMtCity() {

@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.UrlConstant;
+import com.mogujie.tt.imservice.manager.IMTravelManager;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.activity.SelectHotelActivity;
@@ -41,6 +42,7 @@ import java.util.Map;
  */
 public class SelectSightFragment extends TTBaseFragment{
 	private View curView = null;
+    private IMTravelManager travelManager;
     private TextView total;
     private TextView nature;
     private TextView history;
@@ -49,7 +51,6 @@ public class SelectSightFragment extends TTBaseFragment{
     private RecyclerView rvSight;
     private SightAdapter sightAdapter;
     private List<SightEntity> sightEntityList = new ArrayList<>();
-    private List<SightEntity> selectSightEntityList = new ArrayList<>();
     private List<SightEntity> tagSightEntityList = new ArrayList<>();
     String Tag = "全部";
     private PopupWindow mPopupWindow;
@@ -72,7 +73,7 @@ public class SelectSightFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-
+                travelManager = imService.getTravelManager();
             }
         }
 
@@ -166,6 +167,7 @@ public class SelectSightFragment extends TTBaseFragment{
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                storageSight();
                 jump2SelectHotel();
             }
         });
@@ -243,7 +245,6 @@ public class SelectSightFragment extends TTBaseFragment{
         gulangyu.setTag("自然");
         gulangyu.setFree(0);
         gulangyu.setMustGo(1);
-        gulangyu.setSelect(0);
 
         SightEntity xiada = new SightEntity();
         xiada.setName("厦门大学");
@@ -252,7 +253,6 @@ public class SelectSightFragment extends TTBaseFragment{
         xiada.setTag("建筑 文娱");
         xiada.setFree(1);
         xiada.setMustGo(1);
-        xiada.setSelect(0);
 
         SightEntity nanputuosi = new SightEntity();
         nanputuosi.setName("南普陀寺");
@@ -261,7 +261,6 @@ public class SelectSightFragment extends TTBaseFragment{
         nanputuosi.setTag("文娱");
         nanputuosi.setFree(0);
         nanputuosi.setMustGo(0);
-        nanputuosi.setSelect(0);
 
         SightEntity huandaolu = new SightEntity();
         huandaolu.setName("环岛路");
@@ -270,7 +269,6 @@ public class SelectSightFragment extends TTBaseFragment{
         huandaolu.setTag("建筑");
         huandaolu.setFree(1);
         huandaolu.setMustGo(0);
-        huandaolu.setSelect(0);
 
         SightEntity riguangyan = new SightEntity();
         riguangyan.setName("日光岩");
@@ -279,7 +277,6 @@ public class SelectSightFragment extends TTBaseFragment{
         riguangyan.setTag("自然");
         riguangyan.setFree(0);
         riguangyan.setMustGo(1);
-        riguangyan.setSelect(0);
 
         SightEntity zengcuoan = new SightEntity();
         zengcuoan.setName("曾厝垵");
@@ -288,7 +285,6 @@ public class SelectSightFragment extends TTBaseFragment{
         zengcuoan.setTag("历史");
         zengcuoan.setFree(0);
         zengcuoan.setMustGo(0);
-        zengcuoan.setSelect(0);
 
         SightEntity zhongshanlu = new SightEntity();
         zhongshanlu.setName("中山路");
@@ -297,7 +293,6 @@ public class SelectSightFragment extends TTBaseFragment{
         zhongshanlu.setTag("建筑");
         zhongshanlu.setFree(1);
         zhongshanlu.setMustGo(1);
-        zhongshanlu.setSelect(0);
 
         SightEntity xiamenhaidishijie = new SightEntity();
         xiamenhaidishijie.setName("厦门海底世界");
@@ -306,7 +301,6 @@ public class SelectSightFragment extends TTBaseFragment{
         xiamenhaidishijie.setTag("自然");
         xiamenhaidishijie.setFree(0);
         xiamenhaidishijie.setMustGo(0);
-        xiamenhaidishijie.setSelect(0);
 
         SightEntity shuzhuanghuayuan = new SightEntity();
         shuzhuanghuayuan.setName("菽庄花园");
@@ -315,7 +309,6 @@ public class SelectSightFragment extends TTBaseFragment{
         shuzhuanghuayuan.setTag("文娱");
         shuzhuanghuayuan.setFree(1);
         shuzhuanghuayuan.setMustGo(0);
-        shuzhuanghuayuan.setSelect(0);
 
         SightEntity shadiaowenhuayuan = new SightEntity();
         shadiaowenhuayuan.setName("沙雕文化园");
@@ -324,7 +317,6 @@ public class SelectSightFragment extends TTBaseFragment{
         shadiaowenhuayuan.setTag("文娱");
         shadiaowenhuayuan.setFree(0);
         shadiaowenhuayuan.setMustGo(1);
-        shadiaowenhuayuan.setSelect(0);
 
         sightEntityList.add(gulangyu);
         sightEntityList.add(xiada);
@@ -339,11 +331,7 @@ public class SelectSightFragment extends TTBaseFragment{
 
         for (SightEntity sightEntity:sightEntityList) {
             if (sightEntity.getMustGo() == 1) {
-                SightEntity sightTemp = new SightEntity();
-                sightTemp.setName(sightEntity.getName());
-                sightTemp.setPic(sightEntity.getPic());
-                sightTemp.setSelect(1);
-                selectSightEntityList.add(sightTemp);
+                sightEntity.setSelect(1);
             }
         }
 
@@ -434,11 +422,6 @@ public class SelectSightFragment extends TTBaseFragment{
             }
         });
 
-
-        for (SightEntity selectSight:selectSightEntityList) {
-            selectSight.setSelect(1);
-        }
-
         View.OnClickListener popupListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -470,9 +453,21 @@ public class SelectSightFragment extends TTBaseFragment{
         free.setOnClickListener(popupListener);
     }
 
-
     private void jump2SelectHotel() {
         Intent selectHotel = new Intent(getActivity(), SelectHotelActivity.class);
         startActivity(selectHotel);
+    }
+
+    private void storageSight() {
+        if (travelManager != null) {
+            List<SightEntity> sightEntityList = travelManager.getMtCity().get(0).getSightList();
+            sightEntityList.clear();
+            for (SightEntity sightEntity:tagSightEntityList) {
+                if (sightEntity.getSelect() == 0) {
+                    continue;
+                }
+                sightEntityList.add(sightEntity);
+            }
+        }
     }
 }

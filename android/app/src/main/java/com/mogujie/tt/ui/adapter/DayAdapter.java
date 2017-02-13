@@ -60,6 +60,7 @@ public class DayAdapter extends RecyclerView.Adapter {
         DateEntity dateEntity = mList.get(i);
         DayViewHolder holder = (DayViewHolder) viewHolder;
         holder.day.setTextColor(ctx.getResources().getColor(R.color.not_clicked));
+        holder.day.setBackground(null);
         switch (dateEntity.getType()) {
             case DateType.today:
                 holder.day.setBackground(ctx.getResources().getDrawable(R.drawable.select_date_today));
@@ -80,6 +81,7 @@ public class DayAdapter extends RecyclerView.Adapter {
                 holder.day.setTextColor(ctx.getResources().getColor(R.color.clicked));
                 break;
             case DateType.cannot_select:
+                holder.day.setTextColor(ctx.getResources().getColor(R.color.hint_color));
                 holder.day.setClickable(false);
                 break;
             case DateType.blank:

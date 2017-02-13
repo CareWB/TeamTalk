@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import com.mogujie.tt.ui.adapter.ProvinceAdapter;
 import com.mogujie.tt.ui.adapter.SelectCityResultAdapter;
 import com.mogujie.tt.ui.adapter.TravelHotAdapter;
 import com.mogujie.tt.ui.base.TTBaseFragment;
+import com.mogujie.tt.ui.widget.city.City;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,7 @@ public class SelectPlaceFragment extends TTBaseFragment{
     private LinearLayout selectPlaceDivider;
     private TextView selectHot;
     private TextView selectNation;
+    private ImageView ibnSelectPlaceOk;
 
     private RecyclerView rvHot;
     private TravelHotAdapter travelHotAdapter;
@@ -61,7 +65,16 @@ public class SelectPlaceFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-
+                if (imService.getTravelManager().getMtTravel().getDestination() != null &&
+                        !imService.getTravelManager().getMtTravel().getDestination().equals("")) {
+                    CityEntity cityEntity = new CityEntity();
+                    cityEntity.setName(imService.getTravelManager().getMtTravel().getDestination());
+                    cityEntity.setSelect(1);
+                    citySelectedList.add(cityEntity);
+                    selectCityResultAdapter.notifyDataSetChanged();
+                    ibnSelectPlaceOk.setBackground(getActivity().getResources().getDrawable(R.drawable.select_place_ok_click));
+                    ibnSelectPlaceOk.setClickable(true);
+                }
             }
         }
 
@@ -133,23 +146,33 @@ public class SelectPlaceFragment extends TTBaseFragment{
 		// 设置标题栏
 		setTopTitle(getString(R.string.select_destination));
 		setTopLeftButton(R.drawable.back_x);
-		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				if (getFragmentManager().getBackStackEntryCount() == 0) {
+        View.OnClickListener chooseListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                if (citySelectedList.isEmpty()) {
+                    Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_destination), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (getFragmentManager().getBackStackEntryCount() == 0) {
                     if (citySelectedList.isEmpty()) {
                         intent.putExtra("city", "");
                     } else {
                         intent.putExtra("city", citySelectedList.get(0).getName());
                     }
 
-					getActivity().setResult(101, intent);
-					getActivity().finish();
-					return;
-				}
-				getFragmentManager().popBackStack();
-			}
-		});
+                    getActivity().setResult(101, intent);
+                    getActivity().finish();
+                    return;
+                }
+                getFragmentManager().popBackStack();
+            }
+        };
+		topLeftContainerLayout.setOnClickListener(chooseListener);
+
+        ibnSelectPlaceOk = (ImageView)curView.findViewById(R.id.ibn_select_place_ok);
+        ibnSelectPlaceOk.setOnClickListener(chooseListener);
+        ibnSelectPlaceOk.setClickable(false);
 
         selectSwitch = (LinearLayout)curView.findViewById(R.id.ly_select_switch);
         selectPlaceDivider = (LinearLayout)curView.findViewById(R.id.ly_select_place_divider);
@@ -180,7 +203,11 @@ public class SelectPlaceFragment extends TTBaseFragment{
     private void jump2CityIntroduction(CityEntity city) {
         Intent citySelect = new Intent(getActivity(), IntroduceCityActivity.class);
         citySelect.putExtra("city", city.getName());
-        citySelect.putExtra("selectFlag", city.getSelect()==1?true:false);
+        if (hasSelected(city)) {
+            citySelect.putExtra("selectFlag", true);
+        } else {
+            citySelect.putExtra("selectFlag", false);
+        }
         startActivityForResult(citySelect, Activity.RESULT_FIRST_USER);
     }
 
@@ -252,6 +279,7 @@ public class SelectPlaceFragment extends TTBaseFragment{
                 Toast.makeText(getActivity(), "pos"+position, Toast.LENGTH_SHORT).show();
             }
         };
+
         selectCityResultAdapter = new SelectCityResultAdapter(getActivity(), citySelectedList);
         selectCityResultAdapter.setOnRecyclerViewListener(resultRVListener);
         rvSelectCityResult.setAdapter(selectCityResultAdapter);
@@ -316,16 +344,31 @@ public class SelectPlaceFragment extends TTBaseFragment{
 
     private void cityResultDisp(CityEntity city, int opt) {
         if (opt == ADD) {
-            if (false == citySelectedList.contains(city)) {
+            if (false == hasSelected(city)) {
                 citySelectedList.add(city);
                 selectCityResultAdapter.notifyDataSetChanged();
             }
         } else {
-            if (true == citySelectedList.contains(city)) {
+            if (true == hasSelected(city)) {
                 citySelectedList.remove(city);
                 selectCityResultAdapter.notifyDataSetChanged();
             }
         }
+        if (citySelectedList.isEmpty()) {
+            ibnSelectPlaceOk.setBackground(getActivity().getResources().getDrawable(R.drawable.select_place_ok_click_not));
+            ibnSelectPlaceOk.setClickable(false);
+        } else {
+            ibnSelectPlaceOk.setBackground(getActivity().getResources().getDrawable(R.drawable.select_place_ok_click));
+            ibnSelectPlaceOk.setClickable(true);
+        }
+    }
 
+    private boolean hasSelected(CityEntity cityEntity) {
+        for (CityEntity index : citySelectedList) {
+            if (cityEntity.getName().equals(index.getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

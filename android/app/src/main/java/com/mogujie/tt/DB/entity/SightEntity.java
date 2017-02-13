@@ -28,6 +28,10 @@ public class SightEntity {
     private String bestStartTime;
     /** Not-null value. */
     private String bestEndTime;
+    /** Not-null value. */
+    private String startTime;
+    /** Not-null value. */
+    private String endTime;
     private int select;
     private int version;
     private int status;
@@ -44,7 +48,7 @@ public class SightEntity {
         this.id = id;
     }
 
-    public SightEntity(Long id, int peerId, String name, String pic, int star, String tag, int free, int mustGo, String url, int playTime, int price, String bestStartTime, String bestEndTime, int select, int version, int status, int created, int updated) {
+    public SightEntity(Long id, int peerId, String name, String pic, int star, String tag, int free, int mustGo, String url, int playTime, int price, String bestStartTime, String bestEndTime, String startTime, String endTime, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
         this.name = name;
@@ -58,6 +62,8 @@ public class SightEntity {
         this.price = price;
         this.bestStartTime = bestStartTime;
         this.bestEndTime = bestEndTime;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.select = select;
         this.version = version;
         this.status = status;
@@ -179,6 +185,26 @@ public class SightEntity {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setBestEndTime(String bestEndTime) {
         this.bestEndTime = bestEndTime;
+    }
+
+    /** Not-null value. */
+    public String getStartTime() {
+        return startTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    /** Not-null value. */
+    public String getEndTime() {
+        return endTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public int getSelect() {

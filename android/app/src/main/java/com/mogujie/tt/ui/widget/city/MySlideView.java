@@ -156,6 +156,9 @@ public class MySlideView extends View {
         }
         mWidth = width;
         mHeight = height;
+        if (CityActivity.pinyinList.size() == 0) {
+            return;
+        }
         mTextHeight = mHeight / CityActivity.pinyinList.size();
         setMeasuredDimension(width, height);
     }

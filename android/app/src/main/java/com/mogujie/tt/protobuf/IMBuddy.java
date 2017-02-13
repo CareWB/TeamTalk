@@ -13453,7 +13453,24 @@ public final class IMBuddy {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>required uint32 transport_tool_type = 1;</code>
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * id
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * id
+     * </pre>
+     */
+    int getId();
+
+    /**
+     * <code>required uint32 transport_tool_type = 2;</code>
      *
      * <pre>
      * TransportToolType
@@ -13461,7 +13478,7 @@ public final class IMBuddy {
      */
     boolean hasTransportToolType();
     /**
-     * <code>required uint32 transport_tool_type = 1;</code>
+     * <code>required uint32 transport_tool_type = 2;</code>
      *
      * <pre>
      * TransportToolType
@@ -13470,7 +13487,7 @@ public final class IMBuddy {
     int getTransportToolType();
 
     /**
-     * <code>required string no = 2;</code>
+     * <code>required string no = 3;</code>
      *
      * <pre>
      * 车次编号
@@ -13478,7 +13495,7 @@ public final class IMBuddy {
      */
     boolean hasNo();
     /**
-     * <code>required string no = 2;</code>
+     * <code>required string no = 3;</code>
      *
      * <pre>
      * 车次编号
@@ -13486,7 +13503,7 @@ public final class IMBuddy {
      */
     java.lang.String getNo();
     /**
-     * <code>required string no = 2;</code>
+     * <code>required string no = 3;</code>
      *
      * <pre>
      * 车次编号
@@ -13496,7 +13513,7 @@ public final class IMBuddy {
         getNoBytes();
 
     /**
-     * <code>required string place_from_code = 3;</code>
+     * <code>required string place_from_code = 4;</code>
      *
      * <pre>
      * 出发地编码
@@ -13504,7 +13521,7 @@ public final class IMBuddy {
      */
     boolean hasPlaceFromCode();
     /**
-     * <code>required string place_from_code = 3;</code>
+     * <code>required string place_from_code = 4;</code>
      *
      * <pre>
      * 出发地编码
@@ -13512,7 +13529,7 @@ public final class IMBuddy {
      */
     java.lang.String getPlaceFromCode();
     /**
-     * <code>required string place_from_code = 3;</code>
+     * <code>required string place_from_code = 4;</code>
      *
      * <pre>
      * 出发地编码
@@ -13522,7 +13539,7 @@ public final class IMBuddy {
         getPlaceFromCodeBytes();
 
     /**
-     * <code>required string place_from = 4;</code>
+     * <code>required string place_from = 5;</code>
      *
      * <pre>
      * 出发地名称
@@ -13530,7 +13547,7 @@ public final class IMBuddy {
      */
     boolean hasPlaceFrom();
     /**
-     * <code>required string place_from = 4;</code>
+     * <code>required string place_from = 5;</code>
      *
      * <pre>
      * 出发地名称
@@ -13538,7 +13555,7 @@ public final class IMBuddy {
      */
     java.lang.String getPlaceFrom();
     /**
-     * <code>required string place_from = 4;</code>
+     * <code>required string place_from = 5;</code>
      *
      * <pre>
      * 出发地名称
@@ -13548,7 +13565,7 @@ public final class IMBuddy {
         getPlaceFromBytes();
 
     /**
-     * <code>required string place_to_code = 5;</code>
+     * <code>required string place_to_code = 6;</code>
      *
      * <pre>
      * 目的地编码
@@ -13556,7 +13573,7 @@ public final class IMBuddy {
      */
     boolean hasPlaceToCode();
     /**
-     * <code>required string place_to_code = 5;</code>
+     * <code>required string place_to_code = 6;</code>
      *
      * <pre>
      * 目的地编码
@@ -13564,7 +13581,7 @@ public final class IMBuddy {
      */
     java.lang.String getPlaceToCode();
     /**
-     * <code>required string place_to_code = 5;</code>
+     * <code>required string place_to_code = 6;</code>
      *
      * <pre>
      * 目的地编码
@@ -13574,7 +13591,7 @@ public final class IMBuddy {
         getPlaceToCodeBytes();
 
     /**
-     * <code>required string place_to = 6;</code>
+     * <code>required string place_to = 7;</code>
      *
      * <pre>
      * 目的地名称
@@ -13582,7 +13599,7 @@ public final class IMBuddy {
      */
     boolean hasPlaceTo();
     /**
-     * <code>required string place_to = 6;</code>
+     * <code>required string place_to = 7;</code>
      *
      * <pre>
      * 目的地名称
@@ -13590,7 +13607,7 @@ public final class IMBuddy {
      */
     java.lang.String getPlaceTo();
     /**
-     * <code>required string place_to = 6;</code>
+     * <code>required string place_to = 7;</code>
      *
      * <pre>
      * 目的地名称
@@ -13600,7 +13617,7 @@ public final class IMBuddy {
         getPlaceToBytes();
 
     /**
-     * <code>required string time_from = 7;</code>
+     * <code>required string time_from = 8;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -13608,7 +13625,7 @@ public final class IMBuddy {
      */
     boolean hasTimeFrom();
     /**
-     * <code>required string time_from = 7;</code>
+     * <code>required string time_from = 8;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -13616,7 +13633,7 @@ public final class IMBuddy {
      */
     java.lang.String getTimeFrom();
     /**
-     * <code>required string time_from = 7;</code>
+     * <code>required string time_from = 8;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -13626,7 +13643,7 @@ public final class IMBuddy {
         getTimeFromBytes();
 
     /**
-     * <code>required string time_to = 8;</code>
+     * <code>required string time_to = 9;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -13634,7 +13651,7 @@ public final class IMBuddy {
      */
     boolean hasTimeTo();
     /**
-     * <code>required string time_to = 8;</code>
+     * <code>required string time_to = 9;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -13642,7 +13659,7 @@ public final class IMBuddy {
      */
     java.lang.String getTimeTo();
     /**
-     * <code>required string time_to = 8;</code>
+     * <code>required string time_to = 9;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -13652,7 +13669,7 @@ public final class IMBuddy {
         getTimeToBytes();
 
     /**
-     * <code>required string class = 9;</code>
+     * <code>required string class = 10;</code>
      *
      * <pre>
      * 座位等级
@@ -13660,7 +13677,7 @@ public final class IMBuddy {
      */
     boolean hasClass_();
     /**
-     * <code>required string class = 9;</code>
+     * <code>required string class = 10;</code>
      *
      * <pre>
      * 座位等级
@@ -13668,7 +13685,7 @@ public final class IMBuddy {
      */
     java.lang.String getClass_();
     /**
-     * <code>required string class = 9;</code>
+     * <code>required string class = 10;</code>
      *
      * <pre>
      * 座位等级
@@ -13678,7 +13695,7 @@ public final class IMBuddy {
         getClass_Bytes();
 
     /**
-     * <code>required uint32 price = 10;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
@@ -13686,7 +13703,7 @@ public final class IMBuddy {
      */
     boolean hasPrice();
     /**
-     * <code>required uint32 price = 10;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
@@ -13746,59 +13763,64 @@ public final class IMBuddy {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              transportToolType_ = input.readUInt32();
+              id_ = input.readUInt32();
               break;
             }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 16: {
               bitField0_ |= 0x00000002;
-              no_ = bs;
+              transportToolType_ = input.readUInt32();
               break;
             }
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              placeFromCode_ = bs;
+              no_ = bs;
               break;
             }
             case 34: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              placeFrom_ = bs;
+              placeFromCode_ = bs;
               break;
             }
             case 42: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              placeToCode_ = bs;
+              placeFrom_ = bs;
               break;
             }
             case 50: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              placeTo_ = bs;
+              placeToCode_ = bs;
               break;
             }
             case 58: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
-              timeFrom_ = bs;
+              placeTo_ = bs;
               break;
             }
             case 66: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000080;
-              timeTo_ = bs;
+              timeFrom_ = bs;
               break;
             }
             case 74: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000100;
+              timeTo_ = bs;
+              break;
+            }
+            case 82: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
               class__ = bs;
               break;
             }
-            case 80: {
-              bitField0_ |= 0x00000200;
+            case 88: {
+              bitField0_ |= 0x00000400;
               price_ = input.readUInt32();
               break;
             }
@@ -13836,20 +13858,43 @@ public final class IMBuddy {
     }
 
     private int bitField0_;
-    public static final int TRANSPORT_TOOL_TYPE_FIELD_NUMBER = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * id
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * id
+     * </pre>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int TRANSPORT_TOOL_TYPE_FIELD_NUMBER = 2;
     private int transportToolType_;
     /**
-     * <code>required uint32 transport_tool_type = 1;</code>
+     * <code>required uint32 transport_tool_type = 2;</code>
      *
      * <pre>
      * TransportToolType
      * </pre>
      */
     public boolean hasTransportToolType() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required uint32 transport_tool_type = 1;</code>
+     * <code>required uint32 transport_tool_type = 2;</code>
      *
      * <pre>
      * TransportToolType
@@ -13859,20 +13904,20 @@ public final class IMBuddy {
       return transportToolType_;
     }
 
-    public static final int NO_FIELD_NUMBER = 2;
+    public static final int NO_FIELD_NUMBER = 3;
     private java.lang.Object no_;
     /**
-     * <code>required string no = 2;</code>
+     * <code>required string no = 3;</code>
      *
      * <pre>
      * 车次编号
      * </pre>
      */
     public boolean hasNo() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string no = 2;</code>
+     * <code>required string no = 3;</code>
      *
      * <pre>
      * 车次编号
@@ -13893,7 +13938,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string no = 2;</code>
+     * <code>required string no = 3;</code>
      *
      * <pre>
      * 车次编号
@@ -13913,20 +13958,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int PLACE_FROM_CODE_FIELD_NUMBER = 3;
+    public static final int PLACE_FROM_CODE_FIELD_NUMBER = 4;
     private java.lang.Object placeFromCode_;
     /**
-     * <code>required string place_from_code = 3;</code>
+     * <code>required string place_from_code = 4;</code>
      *
      * <pre>
      * 出发地编码
      * </pre>
      */
     public boolean hasPlaceFromCode() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required string place_from_code = 3;</code>
+     * <code>required string place_from_code = 4;</code>
      *
      * <pre>
      * 出发地编码
@@ -13947,7 +13992,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string place_from_code = 3;</code>
+     * <code>required string place_from_code = 4;</code>
      *
      * <pre>
      * 出发地编码
@@ -13967,20 +14012,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int PLACE_FROM_FIELD_NUMBER = 4;
+    public static final int PLACE_FROM_FIELD_NUMBER = 5;
     private java.lang.Object placeFrom_;
     /**
-     * <code>required string place_from = 4;</code>
+     * <code>required string place_from = 5;</code>
      *
      * <pre>
      * 出发地名称
      * </pre>
      */
     public boolean hasPlaceFrom() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required string place_from = 4;</code>
+     * <code>required string place_from = 5;</code>
      *
      * <pre>
      * 出发地名称
@@ -14001,7 +14046,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string place_from = 4;</code>
+     * <code>required string place_from = 5;</code>
      *
      * <pre>
      * 出发地名称
@@ -14021,20 +14066,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int PLACE_TO_CODE_FIELD_NUMBER = 5;
+    public static final int PLACE_TO_CODE_FIELD_NUMBER = 6;
     private java.lang.Object placeToCode_;
     /**
-     * <code>required string place_to_code = 5;</code>
+     * <code>required string place_to_code = 6;</code>
      *
      * <pre>
      * 目的地编码
      * </pre>
      */
     public boolean hasPlaceToCode() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required string place_to_code = 5;</code>
+     * <code>required string place_to_code = 6;</code>
      *
      * <pre>
      * 目的地编码
@@ -14055,7 +14100,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string place_to_code = 5;</code>
+     * <code>required string place_to_code = 6;</code>
      *
      * <pre>
      * 目的地编码
@@ -14075,20 +14120,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int PLACE_TO_FIELD_NUMBER = 6;
+    public static final int PLACE_TO_FIELD_NUMBER = 7;
     private java.lang.Object placeTo_;
     /**
-     * <code>required string place_to = 6;</code>
+     * <code>required string place_to = 7;</code>
      *
      * <pre>
      * 目的地名称
      * </pre>
      */
     public boolean hasPlaceTo() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>required string place_to = 6;</code>
+     * <code>required string place_to = 7;</code>
      *
      * <pre>
      * 目的地名称
@@ -14109,7 +14154,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string place_to = 6;</code>
+     * <code>required string place_to = 7;</code>
      *
      * <pre>
      * 目的地名称
@@ -14129,20 +14174,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int TIME_FROM_FIELD_NUMBER = 7;
+    public static final int TIME_FROM_FIELD_NUMBER = 8;
     private java.lang.Object timeFrom_;
     /**
-     * <code>required string time_from = 7;</code>
+     * <code>required string time_from = 8;</code>
      *
      * <pre>
      * 开始时间，08:32
      * </pre>
      */
     public boolean hasTimeFrom() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>required string time_from = 7;</code>
+     * <code>required string time_from = 8;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -14163,7 +14208,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string time_from = 7;</code>
+     * <code>required string time_from = 8;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -14183,20 +14228,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int TIME_TO_FIELD_NUMBER = 8;
+    public static final int TIME_TO_FIELD_NUMBER = 9;
     private java.lang.Object timeTo_;
     /**
-     * <code>required string time_to = 8;</code>
+     * <code>required string time_to = 9;</code>
      *
      * <pre>
      * 结束时间，08:32
      * </pre>
      */
     public boolean hasTimeTo() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>required string time_to = 8;</code>
+     * <code>required string time_to = 9;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -14217,7 +14262,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string time_to = 8;</code>
+     * <code>required string time_to = 9;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -14237,20 +14282,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int CLASS_FIELD_NUMBER = 9;
+    public static final int CLASS_FIELD_NUMBER = 10;
     private java.lang.Object class__;
     /**
-     * <code>required string class = 9;</code>
+     * <code>required string class = 10;</code>
      *
      * <pre>
      * 座位等级
      * </pre>
      */
     public boolean hasClass_() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>required string class = 9;</code>
+     * <code>required string class = 10;</code>
      *
      * <pre>
      * 座位等级
@@ -14271,7 +14316,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string class = 9;</code>
+     * <code>required string class = 10;</code>
      *
      * <pre>
      * 座位等级
@@ -14291,20 +14336,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int PRICE_FIELD_NUMBER = 10;
+    public static final int PRICE_FIELD_NUMBER = 11;
     private int price_;
     /**
-     * <code>required uint32 price = 10;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
      * </pre>
      */
     public boolean hasPrice() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>required uint32 price = 10;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
@@ -14315,6 +14360,7 @@ public final class IMBuddy {
     }
 
     private void initFields() {
+      id_ = 0;
       transportToolType_ = 0;
       no_ = "";
       placeFromCode_ = "";
@@ -14332,6 +14378,10 @@ public final class IMBuddy {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasTransportToolType()) {
         memoizedIsInitialized = 0;
         return false;
@@ -14380,34 +14430,37 @@ public final class IMBuddy {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeUInt32(1, transportToolType_);
+        output.writeUInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getNoBytes());
+        output.writeUInt32(2, transportToolType_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getPlaceFromCodeBytes());
+        output.writeBytes(3, getNoBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getPlaceFromBytes());
+        output.writeBytes(4, getPlaceFromCodeBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getPlaceToCodeBytes());
+        output.writeBytes(5, getPlaceFromBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getPlaceToBytes());
+        output.writeBytes(6, getPlaceToCodeBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getTimeFromBytes());
+        output.writeBytes(7, getPlaceToBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(8, getTimeToBytes());
+        output.writeBytes(8, getTimeFromBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(9, getClass_Bytes());
+        output.writeBytes(9, getTimeToBytes());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeUInt32(10, price_);
+        output.writeBytes(10, getClass_Bytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeUInt32(11, price_);
       }
       output.writeRawBytes(unknownFields);
     }
@@ -14420,43 +14473,47 @@ public final class IMBuddy {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, transportToolType_);
+          .computeUInt32Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getNoBytes());
+          .computeUInt32Size(2, transportToolType_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getPlaceFromCodeBytes());
+          .computeBytesSize(3, getNoBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getPlaceFromBytes());
+          .computeBytesSize(4, getPlaceFromCodeBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getPlaceToCodeBytes());
+          .computeBytesSize(5, getPlaceFromBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getPlaceToBytes());
+          .computeBytesSize(6, getPlaceToCodeBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getTimeFromBytes());
+          .computeBytesSize(7, getPlaceToBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getTimeToBytes());
+          .computeBytesSize(8, getTimeFromBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getClass_Bytes());
+          .computeBytesSize(9, getTimeToBytes());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(10, price_);
+          .computeBytesSize(10, getClass_Bytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(11, price_);
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -14552,26 +14609,28 @@ public final class IMBuddy {
 
       public Builder clear() {
         super.clear();
-        transportToolType_ = 0;
+        id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        no_ = "";
+        transportToolType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        placeFromCode_ = "";
+        no_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        placeFrom_ = "";
+        placeFromCode_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        placeToCode_ = "";
+        placeFrom_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        placeTo_ = "";
+        placeToCode_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
-        timeFrom_ = "";
+        placeTo_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        timeTo_ = "";
+        timeFrom_ = "";
         bitField0_ = (bitField0_ & ~0x00000080);
-        class__ = "";
+        timeTo_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        price_ = 0;
+        class__ = "";
         bitField0_ = (bitField0_ & ~0x00000200);
+        price_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -14598,41 +14657,45 @@ public final class IMBuddy {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.transportToolType_ = transportToolType_;
+        result.id_ = id_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.no_ = no_;
+        result.transportToolType_ = transportToolType_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.placeFromCode_ = placeFromCode_;
+        result.no_ = no_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.placeFrom_ = placeFrom_;
+        result.placeFromCode_ = placeFromCode_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.placeToCode_ = placeToCode_;
+        result.placeFrom_ = placeFrom_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.placeTo_ = placeTo_;
+        result.placeToCode_ = placeToCode_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.timeFrom_ = timeFrom_;
+        result.placeTo_ = placeTo_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.timeTo_ = timeTo_;
+        result.timeFrom_ = timeFrom_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.class__ = class__;
+        result.timeTo_ = timeTo_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
+        }
+        result.class__ = class__;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
         }
         result.price_ = price_;
         result.bitField0_ = to_bitField0_;
@@ -14641,46 +14704,49 @@ public final class IMBuddy {
 
       public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.TravelToolInfo other) {
         if (other == com.mogujie.tt.protobuf.IMBuddy.TravelToolInfo.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
         if (other.hasTransportToolType()) {
           setTransportToolType(other.getTransportToolType());
         }
         if (other.hasNo()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           no_ = other.no_;
           
         }
         if (other.hasPlaceFromCode()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           placeFromCode_ = other.placeFromCode_;
           
         }
         if (other.hasPlaceFrom()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           placeFrom_ = other.placeFrom_;
           
         }
         if (other.hasPlaceToCode()) {
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
           placeToCode_ = other.placeToCode_;
           
         }
         if (other.hasPlaceTo()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000040;
           placeTo_ = other.placeTo_;
           
         }
         if (other.hasTimeFrom()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000080;
           timeFrom_ = other.timeFrom_;
           
         }
         if (other.hasTimeTo()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000100;
           timeTo_ = other.timeTo_;
           
         }
         if (other.hasClass_()) {
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000200;
           class__ = other.class__;
           
         }
@@ -14693,6 +14759,10 @@ public final class IMBuddy {
       }
 
       public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
         if (!hasTransportToolType()) {
           
           return false;
@@ -14755,19 +14825,67 @@ public final class IMBuddy {
       }
       private int bitField0_;
 
+      private int id_ ;
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * id
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * id
+       * </pre>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * id
+       * </pre>
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * id
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0;
+        
+        return this;
+      }
+
       private int transportToolType_ ;
       /**
-       * <code>required uint32 transport_tool_type = 1;</code>
+       * <code>required uint32 transport_tool_type = 2;</code>
        *
        * <pre>
        * TransportToolType
        * </pre>
        */
       public boolean hasTransportToolType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required uint32 transport_tool_type = 1;</code>
+       * <code>required uint32 transport_tool_type = 2;</code>
        *
        * <pre>
        * TransportToolType
@@ -14777,27 +14895,27 @@ public final class IMBuddy {
         return transportToolType_;
       }
       /**
-       * <code>required uint32 transport_tool_type = 1;</code>
+       * <code>required uint32 transport_tool_type = 2;</code>
        *
        * <pre>
        * TransportToolType
        * </pre>
        */
       public Builder setTransportToolType(int value) {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         transportToolType_ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 transport_tool_type = 1;</code>
+       * <code>required uint32 transport_tool_type = 2;</code>
        *
        * <pre>
        * TransportToolType
        * </pre>
        */
       public Builder clearTransportToolType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         transportToolType_ = 0;
         
         return this;
@@ -14805,17 +14923,17 @@ public final class IMBuddy {
 
       private java.lang.Object no_ = "";
       /**
-       * <code>required string no = 2;</code>
+       * <code>required string no = 3;</code>
        *
        * <pre>
        * 车次编号
        * </pre>
        */
       public boolean hasNo() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string no = 2;</code>
+       * <code>required string no = 3;</code>
        *
        * <pre>
        * 车次编号
@@ -14836,7 +14954,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string no = 2;</code>
+       * <code>required string no = 3;</code>
        *
        * <pre>
        * 车次编号
@@ -14856,7 +14974,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string no = 2;</code>
+       * <code>required string no = 3;</code>
        *
        * <pre>
        * 车次编号
@@ -14867,26 +14985,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         no_ = value;
         
         return this;
       }
       /**
-       * <code>required string no = 2;</code>
+       * <code>required string no = 3;</code>
        *
        * <pre>
        * 车次编号
        * </pre>
        */
       public Builder clearNo() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         no_ = getDefaultInstance().getNo();
         
         return this;
       }
       /**
-       * <code>required string no = 2;</code>
+       * <code>required string no = 3;</code>
        *
        * <pre>
        * 车次编号
@@ -14897,7 +15015,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         no_ = value;
         
         return this;
@@ -14905,17 +15023,17 @@ public final class IMBuddy {
 
       private java.lang.Object placeFromCode_ = "";
       /**
-       * <code>required string place_from_code = 3;</code>
+       * <code>required string place_from_code = 4;</code>
        *
        * <pre>
        * 出发地编码
        * </pre>
        */
       public boolean hasPlaceFromCode() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required string place_from_code = 3;</code>
+       * <code>required string place_from_code = 4;</code>
        *
        * <pre>
        * 出发地编码
@@ -14936,7 +15054,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_from_code = 3;</code>
+       * <code>required string place_from_code = 4;</code>
        *
        * <pre>
        * 出发地编码
@@ -14956,7 +15074,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_from_code = 3;</code>
+       * <code>required string place_from_code = 4;</code>
        *
        * <pre>
        * 出发地编码
@@ -14967,26 +15085,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         placeFromCode_ = value;
         
         return this;
       }
       /**
-       * <code>required string place_from_code = 3;</code>
+       * <code>required string place_from_code = 4;</code>
        *
        * <pre>
        * 出发地编码
        * </pre>
        */
       public Builder clearPlaceFromCode() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         placeFromCode_ = getDefaultInstance().getPlaceFromCode();
         
         return this;
       }
       /**
-       * <code>required string place_from_code = 3;</code>
+       * <code>required string place_from_code = 4;</code>
        *
        * <pre>
        * 出发地编码
@@ -14997,7 +15115,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         placeFromCode_ = value;
         
         return this;
@@ -15005,17 +15123,17 @@ public final class IMBuddy {
 
       private java.lang.Object placeFrom_ = "";
       /**
-       * <code>required string place_from = 4;</code>
+       * <code>required string place_from = 5;</code>
        *
        * <pre>
        * 出发地名称
        * </pre>
        */
       public boolean hasPlaceFrom() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required string place_from = 4;</code>
+       * <code>required string place_from = 5;</code>
        *
        * <pre>
        * 出发地名称
@@ -15036,7 +15154,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_from = 4;</code>
+       * <code>required string place_from = 5;</code>
        *
        * <pre>
        * 出发地名称
@@ -15056,7 +15174,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_from = 4;</code>
+       * <code>required string place_from = 5;</code>
        *
        * <pre>
        * 出发地名称
@@ -15067,26 +15185,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         placeFrom_ = value;
         
         return this;
       }
       /**
-       * <code>required string place_from = 4;</code>
+       * <code>required string place_from = 5;</code>
        *
        * <pre>
        * 出发地名称
        * </pre>
        */
       public Builder clearPlaceFrom() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         placeFrom_ = getDefaultInstance().getPlaceFrom();
         
         return this;
       }
       /**
-       * <code>required string place_from = 4;</code>
+       * <code>required string place_from = 5;</code>
        *
        * <pre>
        * 出发地名称
@@ -15097,7 +15215,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         placeFrom_ = value;
         
         return this;
@@ -15105,17 +15223,17 @@ public final class IMBuddy {
 
       private java.lang.Object placeToCode_ = "";
       /**
-       * <code>required string place_to_code = 5;</code>
+       * <code>required string place_to_code = 6;</code>
        *
        * <pre>
        * 目的地编码
        * </pre>
        */
       public boolean hasPlaceToCode() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>required string place_to_code = 5;</code>
+       * <code>required string place_to_code = 6;</code>
        *
        * <pre>
        * 目的地编码
@@ -15136,7 +15254,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_to_code = 5;</code>
+       * <code>required string place_to_code = 6;</code>
        *
        * <pre>
        * 目的地编码
@@ -15156,7 +15274,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_to_code = 5;</code>
+       * <code>required string place_to_code = 6;</code>
        *
        * <pre>
        * 目的地编码
@@ -15167,26 +15285,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         placeToCode_ = value;
         
         return this;
       }
       /**
-       * <code>required string place_to_code = 5;</code>
+       * <code>required string place_to_code = 6;</code>
        *
        * <pre>
        * 目的地编码
        * </pre>
        */
       public Builder clearPlaceToCode() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         placeToCode_ = getDefaultInstance().getPlaceToCode();
         
         return this;
       }
       /**
-       * <code>required string place_to_code = 5;</code>
+       * <code>required string place_to_code = 6;</code>
        *
        * <pre>
        * 目的地编码
@@ -15197,7 +15315,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         placeToCode_ = value;
         
         return this;
@@ -15205,17 +15323,17 @@ public final class IMBuddy {
 
       private java.lang.Object placeTo_ = "";
       /**
-       * <code>required string place_to = 6;</code>
+       * <code>required string place_to = 7;</code>
        *
        * <pre>
        * 目的地名称
        * </pre>
        */
       public boolean hasPlaceTo() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>required string place_to = 6;</code>
+       * <code>required string place_to = 7;</code>
        *
        * <pre>
        * 目的地名称
@@ -15236,7 +15354,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_to = 6;</code>
+       * <code>required string place_to = 7;</code>
        *
        * <pre>
        * 目的地名称
@@ -15256,7 +15374,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string place_to = 6;</code>
+       * <code>required string place_to = 7;</code>
        *
        * <pre>
        * 目的地名称
@@ -15267,26 +15385,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         placeTo_ = value;
         
         return this;
       }
       /**
-       * <code>required string place_to = 6;</code>
+       * <code>required string place_to = 7;</code>
        *
        * <pre>
        * 目的地名称
        * </pre>
        */
       public Builder clearPlaceTo() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         placeTo_ = getDefaultInstance().getPlaceTo();
         
         return this;
       }
       /**
-       * <code>required string place_to = 6;</code>
+       * <code>required string place_to = 7;</code>
        *
        * <pre>
        * 目的地名称
@@ -15297,7 +15415,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         placeTo_ = value;
         
         return this;
@@ -15305,17 +15423,17 @@ public final class IMBuddy {
 
       private java.lang.Object timeFrom_ = "";
       /**
-       * <code>required string time_from = 7;</code>
+       * <code>required string time_from = 8;</code>
        *
        * <pre>
        * 开始时间，08:32
        * </pre>
        */
       public boolean hasTimeFrom() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>required string time_from = 7;</code>
+       * <code>required string time_from = 8;</code>
        *
        * <pre>
        * 开始时间，08:32
@@ -15336,7 +15454,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string time_from = 7;</code>
+       * <code>required string time_from = 8;</code>
        *
        * <pre>
        * 开始时间，08:32
@@ -15356,7 +15474,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string time_from = 7;</code>
+       * <code>required string time_from = 8;</code>
        *
        * <pre>
        * 开始时间，08:32
@@ -15367,26 +15485,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000080;
         timeFrom_ = value;
         
         return this;
       }
       /**
-       * <code>required string time_from = 7;</code>
+       * <code>required string time_from = 8;</code>
        *
        * <pre>
        * 开始时间，08:32
        * </pre>
        */
       public Builder clearTimeFrom() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         timeFrom_ = getDefaultInstance().getTimeFrom();
         
         return this;
       }
       /**
-       * <code>required string time_from = 7;</code>
+       * <code>required string time_from = 8;</code>
        *
        * <pre>
        * 开始时间，08:32
@@ -15397,7 +15515,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000080;
         timeFrom_ = value;
         
         return this;
@@ -15405,17 +15523,17 @@ public final class IMBuddy {
 
       private java.lang.Object timeTo_ = "";
       /**
-       * <code>required string time_to = 8;</code>
+       * <code>required string time_to = 9;</code>
        *
        * <pre>
        * 结束时间，08:32
        * </pre>
        */
       public boolean hasTimeTo() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>required string time_to = 8;</code>
+       * <code>required string time_to = 9;</code>
        *
        * <pre>
        * 结束时间，08:32
@@ -15436,7 +15554,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string time_to = 8;</code>
+       * <code>required string time_to = 9;</code>
        *
        * <pre>
        * 结束时间，08:32
@@ -15456,7 +15574,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string time_to = 8;</code>
+       * <code>required string time_to = 9;</code>
        *
        * <pre>
        * 结束时间，08:32
@@ -15467,26 +15585,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         timeTo_ = value;
         
         return this;
       }
       /**
-       * <code>required string time_to = 8;</code>
+       * <code>required string time_to = 9;</code>
        *
        * <pre>
        * 结束时间，08:32
        * </pre>
        */
       public Builder clearTimeTo() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         timeTo_ = getDefaultInstance().getTimeTo();
         
         return this;
       }
       /**
-       * <code>required string time_to = 8;</code>
+       * <code>required string time_to = 9;</code>
        *
        * <pre>
        * 结束时间，08:32
@@ -15497,7 +15615,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         timeTo_ = value;
         
         return this;
@@ -15505,17 +15623,17 @@ public final class IMBuddy {
 
       private java.lang.Object class__ = "";
       /**
-       * <code>required string class = 9;</code>
+       * <code>required string class = 10;</code>
        *
        * <pre>
        * 座位等级
        * </pre>
        */
       public boolean hasClass_() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>required string class = 9;</code>
+       * <code>required string class = 10;</code>
        *
        * <pre>
        * 座位等级
@@ -15536,7 +15654,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string class = 9;</code>
+       * <code>required string class = 10;</code>
        *
        * <pre>
        * 座位等级
@@ -15556,7 +15674,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string class = 9;</code>
+       * <code>required string class = 10;</code>
        *
        * <pre>
        * 座位等级
@@ -15567,26 +15685,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000200;
         class__ = value;
         
         return this;
       }
       /**
-       * <code>required string class = 9;</code>
+       * <code>required string class = 10;</code>
        *
        * <pre>
        * 座位等级
        * </pre>
        */
       public Builder clearClass_() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         class__ = getDefaultInstance().getClass_();
         
         return this;
       }
       /**
-       * <code>required string class = 9;</code>
+       * <code>required string class = 10;</code>
        *
        * <pre>
        * 座位等级
@@ -15597,7 +15715,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000200;
         class__ = value;
         
         return this;
@@ -15605,17 +15723,17 @@ public final class IMBuddy {
 
       private int price_ ;
       /**
-       * <code>required uint32 price = 10;</code>
+       * <code>required uint32 price = 11;</code>
        *
        * <pre>
        * 价格
        * </pre>
        */
       public boolean hasPrice() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>required uint32 price = 10;</code>
+       * <code>required uint32 price = 11;</code>
        *
        * <pre>
        * 价格
@@ -15625,27 +15743,27 @@ public final class IMBuddy {
         return price_;
       }
       /**
-       * <code>required uint32 price = 10;</code>
+       * <code>required uint32 price = 11;</code>
        *
        * <pre>
        * 价格
        * </pre>
        */
       public Builder setPrice(int value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         price_ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 price = 10;</code>
+       * <code>required uint32 price = 11;</code>
        *
        * <pre>
        * 价格
        * </pre>
        */
       public Builder clearPrice() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         price_ = 0;
         
         return this;
@@ -17013,56 +17131,56 @@ public final class IMBuddy {
     int getToolType();
 
     /**
-     * <code>required string time_start = 2;</code>
+     * <code>required string time_from = 2;</code>
      *
      * <pre>
      * 起始时间
      * </pre>
      */
-    boolean hasTimeStart();
+    boolean hasTimeFrom();
     /**
-     * <code>required string time_start = 2;</code>
+     * <code>required string time_from = 2;</code>
      *
      * <pre>
      * 起始时间
      * </pre>
      */
-    java.lang.String getTimeStart();
+    java.lang.String getTimeFrom();
     /**
-     * <code>required string time_start = 2;</code>
+     * <code>required string time_from = 2;</code>
      *
      * <pre>
      * 起始时间
      * </pre>
      */
     com.google.protobuf.ByteString
-        getTimeStartBytes();
+        getTimeFromBytes();
 
     /**
-     * <code>required string time_end = 3;</code>
+     * <code>required string time_to = 3;</code>
      *
      * <pre>
      * 结束时间
      * </pre>
      */
-    boolean hasTimeEnd();
+    boolean hasTimeTo();
     /**
-     * <code>required string time_end = 3;</code>
+     * <code>required string time_to = 3;</code>
      *
      * <pre>
      * 结束时间
      * </pre>
      */
-    java.lang.String getTimeEnd();
+    java.lang.String getTimeTo();
     /**
-     * <code>required string time_end = 3;</code>
+     * <code>required string time_to = 3;</code>
      *
      * <pre>
      * 结束时间
      * </pre>
      */
     com.google.protobuf.ByteString
-        getTimeEndBytes();
+        getTimeToBytes();
 
     /**
      * <code>required .IM.Buddy.QualityType quality = 4;</code>
@@ -17148,13 +17266,13 @@ public final class IMBuddy {
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              timeStart_ = bs;
+              timeFrom_ = bs;
               break;
             }
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              timeEnd_ = bs;
+              timeTo_ = bs;
               break;
             }
             case 32: {
@@ -17231,27 +17349,27 @@ public final class IMBuddy {
       return toolType_;
     }
 
-    public static final int TIME_START_FIELD_NUMBER = 2;
-    private java.lang.Object timeStart_;
+    public static final int TIME_FROM_FIELD_NUMBER = 2;
+    private java.lang.Object timeFrom_;
     /**
-     * <code>required string time_start = 2;</code>
+     * <code>required string time_from = 2;</code>
      *
      * <pre>
      * 起始时间
      * </pre>
      */
-    public boolean hasTimeStart() {
+    public boolean hasTimeFrom() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string time_start = 2;</code>
+     * <code>required string time_from = 2;</code>
      *
      * <pre>
      * 起始时间
      * </pre>
      */
-    public java.lang.String getTimeStart() {
-      java.lang.Object ref = timeStart_;
+    public java.lang.String getTimeFrom() {
+      java.lang.Object ref = timeFrom_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -17259,53 +17377,53 @@ public final class IMBuddy {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          timeStart_ = s;
+          timeFrom_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string time_start = 2;</code>
+     * <code>required string time_from = 2;</code>
      *
      * <pre>
      * 起始时间
      * </pre>
      */
     public com.google.protobuf.ByteString
-        getTimeStartBytes() {
-      java.lang.Object ref = timeStart_;
+        getTimeFromBytes() {
+      java.lang.Object ref = timeFrom_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        timeStart_ = b;
+        timeFrom_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int TIME_END_FIELD_NUMBER = 3;
-    private java.lang.Object timeEnd_;
+    public static final int TIME_TO_FIELD_NUMBER = 3;
+    private java.lang.Object timeTo_;
     /**
-     * <code>required string time_end = 3;</code>
+     * <code>required string time_to = 3;</code>
      *
      * <pre>
      * 结束时间
      * </pre>
      */
-    public boolean hasTimeEnd() {
+    public boolean hasTimeTo() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string time_end = 3;</code>
+     * <code>required string time_to = 3;</code>
      *
      * <pre>
      * 结束时间
      * </pre>
      */
-    public java.lang.String getTimeEnd() {
-      java.lang.Object ref = timeEnd_;
+    public java.lang.String getTimeTo() {
+      java.lang.Object ref = timeTo_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -17313,26 +17431,26 @@ public final class IMBuddy {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          timeEnd_ = s;
+          timeTo_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string time_end = 3;</code>
+     * <code>required string time_to = 3;</code>
      *
      * <pre>
      * 结束时间
      * </pre>
      */
     public com.google.protobuf.ByteString
-        getTimeEndBytes() {
-      java.lang.Object ref = timeEnd_;
+        getTimeToBytes() {
+      java.lang.Object ref = timeTo_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        timeEnd_ = b;
+        timeTo_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -17379,8 +17497,8 @@ public final class IMBuddy {
 
     private void initFields() {
       toolType_ = 0;
-      timeStart_ = "";
-      timeEnd_ = "";
+      timeFrom_ = "";
+      timeTo_ = "";
       quality_ = com.mogujie.tt.protobuf.IMBuddy.QualityType.QUALITY_LOW;
       transit_ = 0;
     }
@@ -17394,11 +17512,11 @@ public final class IMBuddy {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTimeStart()) {
+      if (!hasTimeFrom()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTimeEnd()) {
+      if (!hasTimeTo()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -17421,10 +17539,10 @@ public final class IMBuddy {
         output.writeUInt32(1, toolType_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getTimeStartBytes());
+        output.writeBytes(2, getTimeFromBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getTimeEndBytes());
+        output.writeBytes(3, getTimeToBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeEnum(4, quality_.getNumber());
@@ -17447,11 +17565,11 @@ public final class IMBuddy {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getTimeStartBytes());
+          .computeBytesSize(2, getTimeFromBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getTimeEndBytes());
+          .computeBytesSize(3, getTimeToBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -17557,9 +17675,9 @@ public final class IMBuddy {
         super.clear();
         toolType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        timeStart_ = "";
+        timeFrom_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        timeEnd_ = "";
+        timeTo_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         quality_ = com.mogujie.tt.protobuf.IMBuddy.QualityType.QUALITY_LOW;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -17595,11 +17713,11 @@ public final class IMBuddy {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.timeStart_ = timeStart_;
+        result.timeFrom_ = timeFrom_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.timeEnd_ = timeEnd_;
+        result.timeTo_ = timeTo_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -17617,14 +17735,14 @@ public final class IMBuddy {
         if (other.hasToolType()) {
           setToolType(other.getToolType());
         }
-        if (other.hasTimeStart()) {
+        if (other.hasTimeFrom()) {
           bitField0_ |= 0x00000002;
-          timeStart_ = other.timeStart_;
+          timeFrom_ = other.timeFrom_;
           
         }
-        if (other.hasTimeEnd()) {
+        if (other.hasTimeTo()) {
           bitField0_ |= 0x00000004;
-          timeEnd_ = other.timeEnd_;
+          timeTo_ = other.timeTo_;
           
         }
         if (other.hasQuality()) {
@@ -17643,11 +17761,11 @@ public final class IMBuddy {
           
           return false;
         }
-        if (!hasTimeStart()) {
+        if (!hasTimeFrom()) {
           
           return false;
         }
-        if (!hasTimeEnd()) {
+        if (!hasTimeTo()) {
           
           return false;
         }
@@ -17729,32 +17847,32 @@ public final class IMBuddy {
         return this;
       }
 
-      private java.lang.Object timeStart_ = "";
+      private java.lang.Object timeFrom_ = "";
       /**
-       * <code>required string time_start = 2;</code>
+       * <code>required string time_from = 2;</code>
        *
        * <pre>
        * 起始时间
        * </pre>
        */
-      public boolean hasTimeStart() {
+      public boolean hasTimeFrom() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string time_start = 2;</code>
+       * <code>required string time_from = 2;</code>
        *
        * <pre>
        * 起始时间
        * </pre>
        */
-      public java.lang.String getTimeStart() {
-        java.lang.Object ref = timeStart_;
+      public java.lang.String getTimeFrom() {
+        java.lang.Object ref = timeFrom_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            timeStart_ = s;
+            timeFrom_ = s;
           }
           return s;
         } else {
@@ -17762,99 +17880,99 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string time_start = 2;</code>
+       * <code>required string time_from = 2;</code>
        *
        * <pre>
        * 起始时间
        * </pre>
        */
       public com.google.protobuf.ByteString
-          getTimeStartBytes() {
-        java.lang.Object ref = timeStart_;
+          getTimeFromBytes() {
+        java.lang.Object ref = timeFrom_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          timeStart_ = b;
+          timeFrom_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string time_start = 2;</code>
+       * <code>required string time_from = 2;</code>
        *
        * <pre>
        * 起始时间
        * </pre>
        */
-      public Builder setTimeStart(
+      public Builder setTimeFrom(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        timeStart_ = value;
+        timeFrom_ = value;
         
         return this;
       }
       /**
-       * <code>required string time_start = 2;</code>
+       * <code>required string time_from = 2;</code>
        *
        * <pre>
        * 起始时间
        * </pre>
        */
-      public Builder clearTimeStart() {
+      public Builder clearTimeFrom() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        timeStart_ = getDefaultInstance().getTimeStart();
+        timeFrom_ = getDefaultInstance().getTimeFrom();
         
         return this;
       }
       /**
-       * <code>required string time_start = 2;</code>
+       * <code>required string time_from = 2;</code>
        *
        * <pre>
        * 起始时间
        * </pre>
        */
-      public Builder setTimeStartBytes(
+      public Builder setTimeFromBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        timeStart_ = value;
+        timeFrom_ = value;
         
         return this;
       }
 
-      private java.lang.Object timeEnd_ = "";
+      private java.lang.Object timeTo_ = "";
       /**
-       * <code>required string time_end = 3;</code>
+       * <code>required string time_to = 3;</code>
        *
        * <pre>
        * 结束时间
        * </pre>
        */
-      public boolean hasTimeEnd() {
+      public boolean hasTimeTo() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string time_end = 3;</code>
+       * <code>required string time_to = 3;</code>
        *
        * <pre>
        * 结束时间
        * </pre>
        */
-      public java.lang.String getTimeEnd() {
-        java.lang.Object ref = timeEnd_;
+      public java.lang.String getTimeTo() {
+        java.lang.Object ref = timeTo_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            timeEnd_ = s;
+            timeTo_ = s;
           }
           return s;
         } else {
@@ -17862,69 +17980,69 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string time_end = 3;</code>
+       * <code>required string time_to = 3;</code>
        *
        * <pre>
        * 结束时间
        * </pre>
        */
       public com.google.protobuf.ByteString
-          getTimeEndBytes() {
-        java.lang.Object ref = timeEnd_;
+          getTimeToBytes() {
+        java.lang.Object ref = timeTo_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          timeEnd_ = b;
+          timeTo_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string time_end = 3;</code>
+       * <code>required string time_to = 3;</code>
        *
        * <pre>
        * 结束时间
        * </pre>
        */
-      public Builder setTimeEnd(
+      public Builder setTimeTo(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        timeEnd_ = value;
+        timeTo_ = value;
         
         return this;
       }
       /**
-       * <code>required string time_end = 3;</code>
+       * <code>required string time_to = 3;</code>
        *
        * <pre>
        * 结束时间
        * </pre>
        */
-      public Builder clearTimeEnd() {
+      public Builder clearTimeTo() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        timeEnd_ = getDefaultInstance().getTimeEnd();
+        timeTo_ = getDefaultInstance().getTimeTo();
         
         return this;
       }
       /**
-       * <code>required string time_end = 3;</code>
+       * <code>required string time_to = 3;</code>
        *
        * <pre>
        * 结束时间
        * </pre>
        */
-      public Builder setTimeEndBytes(
+      public Builder setTimeToBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        timeEnd_ = value;
+        timeTo_ = value;
         
         return this;
       }
@@ -19091,6 +19209,1474 @@ public final class IMBuddy {
     // @@protoc_insertion_point(class_scope:IM.Buddy.TransportTool)
   }
 
+  public interface DayScenicOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.DayScenic)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    boolean hasDayTimeFrom();
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    java.lang.String getDayTimeFrom();
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDayTimeFromBytes();
+
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    boolean hasDayTimeTo();
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    java.lang.String getDayTimeTo();
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDayTimeToBytes();
+
+    /**
+     * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     */
+    boolean hasScenicInfo();
+    /**
+     * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     */
+    com.mogujie.tt.protobuf.IMBuddy.ScenicInfo getScenicInfo();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.DayScenic}
+   */
+  public static final class DayScenic extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.DayScenic)
+      DayScenicOrBuilder {
+    // Use DayScenic.newBuilder() to construct.
+    private DayScenic(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DayScenic(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final DayScenic defaultInstance;
+    public static DayScenic getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DayScenic getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private DayScenic(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              dayTimeFrom_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              dayTimeTo_ = bs;
+              break;
+            }
+            case 26: {
+              com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = scenicInfo_.toBuilder();
+              }
+              scenicInfo_ = input.readMessage(com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scenicInfo_);
+                scenicInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<DayScenic> PARSER =
+        new com.google.protobuf.AbstractParser<DayScenic>() {
+      public DayScenic parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DayScenic(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DayScenic> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int DAYTIMEFROM_FIELD_NUMBER = 1;
+    private java.lang.Object dayTimeFrom_;
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    public boolean hasDayTimeFrom() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    public java.lang.String getDayTimeFrom() {
+      java.lang.Object ref = dayTimeFrom_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          dayTimeFrom_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDayTimeFromBytes() {
+      java.lang.Object ref = dayTimeFrom_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dayTimeFrom_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DAYTIMETO_FIELD_NUMBER = 2;
+    private java.lang.Object dayTimeTo_;
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    public boolean hasDayTimeTo() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    public java.lang.String getDayTimeTo() {
+      java.lang.Object ref = dayTimeTo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          dayTimeTo_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDayTimeToBytes() {
+      java.lang.Object ref = dayTimeTo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dayTimeTo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCENIC_INFO_FIELD_NUMBER = 3;
+    private com.mogujie.tt.protobuf.IMBuddy.ScenicInfo scenicInfo_;
+    /**
+     * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     */
+    public boolean hasScenicInfo() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     */
+    public com.mogujie.tt.protobuf.IMBuddy.ScenicInfo getScenicInfo() {
+      return scenicInfo_;
+    }
+
+    private void initFields() {
+      dayTimeFrom_ = "";
+      dayTimeTo_ = "";
+      scenicInfo_ = com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasDayTimeFrom()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDayTimeTo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasScenicInfo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getScenicInfo().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getDayTimeFromBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getDayTimeToBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, scenicInfo_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getDayTimeFromBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getDayTimeToBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, scenicInfo_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayScenic parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.mogujie.tt.protobuf.IMBuddy.DayScenic prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.DayScenic}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.mogujie.tt.protobuf.IMBuddy.DayScenic, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.DayScenic)
+        com.mogujie.tt.protobuf.IMBuddy.DayScenicOrBuilder {
+      // Construct using com.mogujie.tt.protobuf.IMBuddy.DayScenic.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        dayTimeFrom_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dayTimeTo_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        scenicInfo_ = com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.getDefaultInstance();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.DayScenic getDefaultInstanceForType() {
+        return com.mogujie.tt.protobuf.IMBuddy.DayScenic.getDefaultInstance();
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.DayScenic build() {
+        com.mogujie.tt.protobuf.IMBuddy.DayScenic result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.DayScenic buildPartial() {
+        com.mogujie.tt.protobuf.IMBuddy.DayScenic result = new com.mogujie.tt.protobuf.IMBuddy.DayScenic(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.dayTimeFrom_ = dayTimeFrom_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.dayTimeTo_ = dayTimeTo_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.scenicInfo_ = scenicInfo_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.DayScenic other) {
+        if (other == com.mogujie.tt.protobuf.IMBuddy.DayScenic.getDefaultInstance()) return this;
+        if (other.hasDayTimeFrom()) {
+          bitField0_ |= 0x00000001;
+          dayTimeFrom_ = other.dayTimeFrom_;
+          
+        }
+        if (other.hasDayTimeTo()) {
+          bitField0_ |= 0x00000002;
+          dayTimeTo_ = other.dayTimeTo_;
+          
+        }
+        if (other.hasScenicInfo()) {
+          mergeScenicInfo(other.getScenicInfo());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasDayTimeFrom()) {
+          
+          return false;
+        }
+        if (!hasDayTimeTo()) {
+          
+          return false;
+        }
+        if (!hasScenicInfo()) {
+          
+          return false;
+        }
+        if (!getScenicInfo().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.mogujie.tt.protobuf.IMBuddy.DayScenic parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.mogujie.tt.protobuf.IMBuddy.DayScenic) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object dayTimeFrom_ = "";
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public boolean hasDayTimeFrom() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public java.lang.String getDayTimeFrom() {
+        java.lang.Object ref = dayTimeFrom_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            dayTimeFrom_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDayTimeFromBytes() {
+        java.lang.Object ref = dayTimeFrom_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dayTimeFrom_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public Builder setDayTimeFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        dayTimeFrom_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public Builder clearDayTimeFrom() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dayTimeFrom_ = getDefaultInstance().getDayTimeFrom();
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public Builder setDayTimeFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        dayTimeFrom_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object dayTimeTo_ = "";
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public boolean hasDayTimeTo() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public java.lang.String getDayTimeTo() {
+        java.lang.Object ref = dayTimeTo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            dayTimeTo_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDayTimeToBytes() {
+        java.lang.Object ref = dayTimeTo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dayTimeTo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public Builder setDayTimeTo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        dayTimeTo_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public Builder clearDayTimeTo() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dayTimeTo_ = getDefaultInstance().getDayTimeTo();
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public Builder setDayTimeToBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        dayTimeTo_ = value;
+        
+        return this;
+      }
+
+      private com.mogujie.tt.protobuf.IMBuddy.ScenicInfo scenicInfo_ = com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.getDefaultInstance();
+      /**
+       * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       */
+      public boolean hasScenicInfo() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       */
+      public com.mogujie.tt.protobuf.IMBuddy.ScenicInfo getScenicInfo() {
+        return scenicInfo_;
+      }
+      /**
+       * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       */
+      public Builder setScenicInfo(com.mogujie.tt.protobuf.IMBuddy.ScenicInfo value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        scenicInfo_ = value;
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       */
+      public Builder setScenicInfo(
+          com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.Builder builderForValue) {
+        scenicInfo_ = builderForValue.build();
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       */
+      public Builder mergeScenicInfo(com.mogujie.tt.protobuf.IMBuddy.ScenicInfo value) {
+        if (((bitField0_ & 0x00000004) == 0x00000004) &&
+            scenicInfo_ != com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.getDefaultInstance()) {
+          scenicInfo_ =
+            com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.newBuilder(scenicInfo_).mergeFrom(value).buildPartial();
+        } else {
+          scenicInfo_ = value;
+        }
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       */
+      public Builder clearScenicInfo() {
+        scenicInfo_ = com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.getDefaultInstance();
+
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.DayScenic)
+    }
+
+    static {
+      defaultInstance = new DayScenic(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.DayScenic)
+  }
+
+  public interface DayHotelOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.DayHotel)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    boolean hasDayTimeFrom();
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    java.lang.String getDayTimeFrom();
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDayTimeFromBytes();
+
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    boolean hasDayTimeTo();
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    java.lang.String getDayTimeTo();
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDayTimeToBytes();
+
+    /**
+     * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+     */
+    boolean hasHotelInfo();
+    /**
+     * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+     */
+    com.mogujie.tt.protobuf.IMBuddy.HotelInfo getHotelInfo();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.DayHotel}
+   */
+  public static final class DayHotel extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.DayHotel)
+      DayHotelOrBuilder {
+    // Use DayHotel.newBuilder() to construct.
+    private DayHotel(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DayHotel(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final DayHotel defaultInstance;
+    public static DayHotel getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DayHotel getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private DayHotel(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              dayTimeFrom_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              dayTimeTo_ = bs;
+              break;
+            }
+            case 26: {
+              com.mogujie.tt.protobuf.IMBuddy.HotelInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = hotelInfo_.toBuilder();
+              }
+              hotelInfo_ = input.readMessage(com.mogujie.tt.protobuf.IMBuddy.HotelInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(hotelInfo_);
+                hotelInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<DayHotel> PARSER =
+        new com.google.protobuf.AbstractParser<DayHotel>() {
+      public DayHotel parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DayHotel(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DayHotel> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int DAYTIMEFROM_FIELD_NUMBER = 1;
+    private java.lang.Object dayTimeFrom_;
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    public boolean hasDayTimeFrom() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    public java.lang.String getDayTimeFrom() {
+      java.lang.Object ref = dayTimeFrom_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          dayTimeFrom_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string dayTimeFrom = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDayTimeFromBytes() {
+      java.lang.Object ref = dayTimeFrom_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dayTimeFrom_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DAYTIMETO_FIELD_NUMBER = 2;
+    private java.lang.Object dayTimeTo_;
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    public boolean hasDayTimeTo() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    public java.lang.String getDayTimeTo() {
+      java.lang.Object ref = dayTimeTo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          dayTimeTo_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string dayTimeTo = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDayTimeToBytes() {
+      java.lang.Object ref = dayTimeTo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dayTimeTo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int HOTEL_INFO_FIELD_NUMBER = 3;
+    private com.mogujie.tt.protobuf.IMBuddy.HotelInfo hotelInfo_;
+    /**
+     * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+     */
+    public boolean hasHotelInfo() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+     */
+    public com.mogujie.tt.protobuf.IMBuddy.HotelInfo getHotelInfo() {
+      return hotelInfo_;
+    }
+
+    private void initFields() {
+      dayTimeFrom_ = "";
+      dayTimeTo_ = "";
+      hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasDayTimeFrom()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDayTimeTo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasHotelInfo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getHotelInfo().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getDayTimeFromBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getDayTimeToBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, hotelInfo_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getDayTimeFromBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getDayTimeToBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, hotelInfo_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.DayHotel parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.mogujie.tt.protobuf.IMBuddy.DayHotel prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.DayHotel}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.mogujie.tt.protobuf.IMBuddy.DayHotel, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.DayHotel)
+        com.mogujie.tt.protobuf.IMBuddy.DayHotelOrBuilder {
+      // Construct using com.mogujie.tt.protobuf.IMBuddy.DayHotel.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        dayTimeFrom_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dayTimeTo_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.DayHotel getDefaultInstanceForType() {
+        return com.mogujie.tt.protobuf.IMBuddy.DayHotel.getDefaultInstance();
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.DayHotel build() {
+        com.mogujie.tt.protobuf.IMBuddy.DayHotel result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.DayHotel buildPartial() {
+        com.mogujie.tt.protobuf.IMBuddy.DayHotel result = new com.mogujie.tt.protobuf.IMBuddy.DayHotel(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.dayTimeFrom_ = dayTimeFrom_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.dayTimeTo_ = dayTimeTo_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.hotelInfo_ = hotelInfo_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.DayHotel other) {
+        if (other == com.mogujie.tt.protobuf.IMBuddy.DayHotel.getDefaultInstance()) return this;
+        if (other.hasDayTimeFrom()) {
+          bitField0_ |= 0x00000001;
+          dayTimeFrom_ = other.dayTimeFrom_;
+          
+        }
+        if (other.hasDayTimeTo()) {
+          bitField0_ |= 0x00000002;
+          dayTimeTo_ = other.dayTimeTo_;
+          
+        }
+        if (other.hasHotelInfo()) {
+          mergeHotelInfo(other.getHotelInfo());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasDayTimeFrom()) {
+          
+          return false;
+        }
+        if (!hasDayTimeTo()) {
+          
+          return false;
+        }
+        if (!hasHotelInfo()) {
+          
+          return false;
+        }
+        if (!getHotelInfo().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.mogujie.tt.protobuf.IMBuddy.DayHotel parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.mogujie.tt.protobuf.IMBuddy.DayHotel) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object dayTimeFrom_ = "";
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public boolean hasDayTimeFrom() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public java.lang.String getDayTimeFrom() {
+        java.lang.Object ref = dayTimeFrom_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            dayTimeFrom_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDayTimeFromBytes() {
+        java.lang.Object ref = dayTimeFrom_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dayTimeFrom_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public Builder setDayTimeFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        dayTimeFrom_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public Builder clearDayTimeFrom() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dayTimeFrom_ = getDefaultInstance().getDayTimeFrom();
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeFrom = 1;</code>
+       */
+      public Builder setDayTimeFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        dayTimeFrom_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object dayTimeTo_ = "";
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public boolean hasDayTimeTo() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public java.lang.String getDayTimeTo() {
+        java.lang.Object ref = dayTimeTo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            dayTimeTo_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDayTimeToBytes() {
+        java.lang.Object ref = dayTimeTo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dayTimeTo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public Builder setDayTimeTo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        dayTimeTo_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public Builder clearDayTimeTo() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dayTimeTo_ = getDefaultInstance().getDayTimeTo();
+        
+        return this;
+      }
+      /**
+       * <code>required string dayTimeTo = 2;</code>
+       */
+      public Builder setDayTimeToBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        dayTimeTo_ = value;
+        
+        return this;
+      }
+
+      private com.mogujie.tt.protobuf.IMBuddy.HotelInfo hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+      /**
+       * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+       */
+      public boolean hasHotelInfo() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+       */
+      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo getHotelInfo() {
+        return hotelInfo_;
+      }
+      /**
+       * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+       */
+      public Builder setHotelInfo(com.mogujie.tt.protobuf.IMBuddy.HotelInfo value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        hotelInfo_ = value;
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+       */
+      public Builder setHotelInfo(
+          com.mogujie.tt.protobuf.IMBuddy.HotelInfo.Builder builderForValue) {
+        hotelInfo_ = builderForValue.build();
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+       */
+      public Builder mergeHotelInfo(com.mogujie.tt.protobuf.IMBuddy.HotelInfo value) {
+        if (((bitField0_ & 0x00000004) == 0x00000004) &&
+            hotelInfo_ != com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance()) {
+          hotelInfo_ =
+            com.mogujie.tt.protobuf.IMBuddy.HotelInfo.newBuilder(hotelInfo_).mergeFrom(value).buildPartial();
+        } else {
+          hotelInfo_ = value;
+        }
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.HotelInfo hotel_info = 3;</code>
+       */
+      public Builder clearHotelInfo() {
+        hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.DayHotel)
+    }
+
+    static {
+      defaultInstance = new DayHotel(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.DayHotel)
+  }
+
   public interface PlayDetailOrBuilder extends
       // @@protoc_insertion_point(interface_extends:IM.Buddy.PlayDetail)
       com.google.protobuf.MessageLiteOrBuilder {
@@ -19105,27 +20691,32 @@ public final class IMBuddy {
     com.mogujie.tt.protobuf.IMBuddy.PlayConfig getPlayConfig();
 
     /**
-     * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
      */
-    boolean hasHotelInfo();
+    java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayHotel> 
+        getDayHotelList();
     /**
-     * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
      */
-    com.mogujie.tt.protobuf.IMBuddy.HotelInfo getHotelInfo();
+    com.mogujie.tt.protobuf.IMBuddy.DayHotel getDayHotel(int index);
+    /**
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+     */
+    int getDayHotelCount();
 
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    java.util.List<com.mogujie.tt.protobuf.IMBuddy.ScenicInfo> 
-        getScenicInfoList();
+    java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayScenic> 
+        getDayScenicList();
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    com.mogujie.tt.protobuf.IMBuddy.ScenicInfo getScenicInfo(int index);
+    com.mogujie.tt.protobuf.IMBuddy.DayScenic getDayScenic(int index);
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    int getScenicInfoCount();
+    int getDayScenicCount();
   }
   /**
    * Protobuf type {@code IM.Buddy.PlayDetail}
@@ -19191,24 +20782,19 @@ public final class IMBuddy {
               break;
             }
             case 18: {
-              com.mogujie.tt.protobuf.IMBuddy.HotelInfo.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = hotelInfo_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                dayHotel_ = new java.util.ArrayList<com.mogujie.tt.protobuf.IMBuddy.DayHotel>();
+                mutable_bitField0_ |= 0x00000002;
               }
-              hotelInfo_ = input.readMessage(com.mogujie.tt.protobuf.IMBuddy.HotelInfo.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(hotelInfo_);
-                hotelInfo_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
+              dayHotel_.add(input.readMessage(com.mogujie.tt.protobuf.IMBuddy.DayHotel.PARSER, extensionRegistry));
               break;
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                scenicInfo_ = new java.util.ArrayList<com.mogujie.tt.protobuf.IMBuddy.ScenicInfo>();
+                dayScenic_ = new java.util.ArrayList<com.mogujie.tt.protobuf.IMBuddy.DayScenic>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              scenicInfo_.add(input.readMessage(com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.PARSER, extensionRegistry));
+              dayScenic_.add(input.readMessage(com.mogujie.tt.protobuf.IMBuddy.DayScenic.PARSER, extensionRegistry));
               break;
             }
           }
@@ -19219,8 +20805,11 @@ public final class IMBuddy {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          dayHotel_ = java.util.Collections.unmodifiableList(dayHotel_);
+        }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          scenicInfo_ = java.util.Collections.unmodifiableList(scenicInfo_);
+          dayScenic_ = java.util.Collections.unmodifiableList(dayScenic_);
         }
         try {
           unknownFieldsCodedOutput.flush();
@@ -19263,60 +20852,80 @@ public final class IMBuddy {
       return playConfig_;
     }
 
-    public static final int HOTEL_INFO_FIELD_NUMBER = 2;
-    private com.mogujie.tt.protobuf.IMBuddy.HotelInfo hotelInfo_;
+    public static final int DAY_HOTEL_FIELD_NUMBER = 2;
+    private java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayHotel> dayHotel_;
     /**
-     * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
      */
-    public boolean hasHotelInfo() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+    public java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayHotel> getDayHotelList() {
+      return dayHotel_;
     }
     /**
-     * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
      */
-    public com.mogujie.tt.protobuf.IMBuddy.HotelInfo getHotelInfo() {
-      return hotelInfo_;
+    public java.util.List<? extends com.mogujie.tt.protobuf.IMBuddy.DayHotelOrBuilder> 
+        getDayHotelOrBuilderList() {
+      return dayHotel_;
+    }
+    /**
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+     */
+    public int getDayHotelCount() {
+      return dayHotel_.size();
+    }
+    /**
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+     */
+    public com.mogujie.tt.protobuf.IMBuddy.DayHotel getDayHotel(int index) {
+      return dayHotel_.get(index);
+    }
+    /**
+     * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+     */
+    public com.mogujie.tt.protobuf.IMBuddy.DayHotelOrBuilder getDayHotelOrBuilder(
+        int index) {
+      return dayHotel_.get(index);
     }
 
-    public static final int SCENIC_INFO_FIELD_NUMBER = 3;
-    private java.util.List<com.mogujie.tt.protobuf.IMBuddy.ScenicInfo> scenicInfo_;
+    public static final int DAY_SCENIC_FIELD_NUMBER = 3;
+    private java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayScenic> dayScenic_;
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    public java.util.List<com.mogujie.tt.protobuf.IMBuddy.ScenicInfo> getScenicInfoList() {
-      return scenicInfo_;
+    public java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayScenic> getDayScenicList() {
+      return dayScenic_;
     }
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    public java.util.List<? extends com.mogujie.tt.protobuf.IMBuddy.ScenicInfoOrBuilder> 
-        getScenicInfoOrBuilderList() {
-      return scenicInfo_;
+    public java.util.List<? extends com.mogujie.tt.protobuf.IMBuddy.DayScenicOrBuilder> 
+        getDayScenicOrBuilderList() {
+      return dayScenic_;
     }
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    public int getScenicInfoCount() {
-      return scenicInfo_.size();
+    public int getDayScenicCount() {
+      return dayScenic_.size();
     }
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    public com.mogujie.tt.protobuf.IMBuddy.ScenicInfo getScenicInfo(int index) {
-      return scenicInfo_.get(index);
+    public com.mogujie.tt.protobuf.IMBuddy.DayScenic getDayScenic(int index) {
+      return dayScenic_.get(index);
     }
     /**
-     * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+     * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    public com.mogujie.tt.protobuf.IMBuddy.ScenicInfoOrBuilder getScenicInfoOrBuilder(
+    public com.mogujie.tt.protobuf.IMBuddy.DayScenicOrBuilder getDayScenicOrBuilder(
         int index) {
-      return scenicInfo_.get(index);
+      return dayScenic_.get(index);
     }
 
     private void initFields() {
       playConfig_ = com.mogujie.tt.protobuf.IMBuddy.PlayConfig.getDefaultInstance();
-      hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
-      scenicInfo_ = java.util.Collections.emptyList();
+      dayHotel_ = java.util.Collections.emptyList();
+      dayScenic_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -19328,20 +20937,18 @@ public final class IMBuddy {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasHotelInfo()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (!getPlayConfig().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getHotelInfo().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
+      for (int i = 0; i < getDayHotelCount(); i++) {
+        if (!getDayHotel(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
-      for (int i = 0; i < getScenicInfoCount(); i++) {
-        if (!getScenicInfo(i).isInitialized()) {
+      for (int i = 0; i < getDayScenicCount(); i++) {
+        if (!getDayScenic(i).isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -19356,11 +20963,11 @@ public final class IMBuddy {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, playConfig_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, hotelInfo_);
+      for (int i = 0; i < dayHotel_.size(); i++) {
+        output.writeMessage(2, dayHotel_.get(i));
       }
-      for (int i = 0; i < scenicInfo_.size(); i++) {
-        output.writeMessage(3, scenicInfo_.get(i));
+      for (int i = 0; i < dayScenic_.size(); i++) {
+        output.writeMessage(3, dayScenic_.get(i));
       }
       output.writeRawBytes(unknownFields);
     }
@@ -19375,13 +20982,13 @@ public final class IMBuddy {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, playConfig_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      for (int i = 0; i < dayHotel_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, hotelInfo_);
+          .computeMessageSize(2, dayHotel_.get(i));
       }
-      for (int i = 0; i < scenicInfo_.size(); i++) {
+      for (int i = 0; i < dayScenic_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, scenicInfo_.get(i));
+          .computeMessageSize(3, dayScenic_.get(i));
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -19479,9 +21086,9 @@ public final class IMBuddy {
         super.clear();
         playConfig_ = com.mogujie.tt.protobuf.IMBuddy.PlayConfig.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00000001);
-        hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+        dayHotel_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
-        scenicInfo_ = java.util.Collections.emptyList();
+        dayScenic_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -19510,15 +21117,16 @@ public final class IMBuddy {
           to_bitField0_ |= 0x00000001;
         }
         result.playConfig_ = playConfig_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          dayHotel_ = java.util.Collections.unmodifiableList(dayHotel_);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
-        result.hotelInfo_ = hotelInfo_;
+        result.dayHotel_ = dayHotel_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          scenicInfo_ = java.util.Collections.unmodifiableList(scenicInfo_);
+          dayScenic_ = java.util.Collections.unmodifiableList(dayScenic_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
-        result.scenicInfo_ = scenicInfo_;
+        result.dayScenic_ = dayScenic_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -19528,16 +21136,23 @@ public final class IMBuddy {
         if (other.hasPlayConfig()) {
           mergePlayConfig(other.getPlayConfig());
         }
-        if (other.hasHotelInfo()) {
-          mergeHotelInfo(other.getHotelInfo());
+        if (!other.dayHotel_.isEmpty()) {
+          if (dayHotel_.isEmpty()) {
+            dayHotel_ = other.dayHotel_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureDayHotelIsMutable();
+            dayHotel_.addAll(other.dayHotel_);
+          }
+          
         }
-        if (!other.scenicInfo_.isEmpty()) {
-          if (scenicInfo_.isEmpty()) {
-            scenicInfo_ = other.scenicInfo_;
+        if (!other.dayScenic_.isEmpty()) {
+          if (dayScenic_.isEmpty()) {
+            dayScenic_ = other.dayScenic_;
             bitField0_ = (bitField0_ & ~0x00000004);
           } else {
-            ensureScenicInfoIsMutable();
-            scenicInfo_.addAll(other.scenicInfo_);
+            ensureDayScenicIsMutable();
+            dayScenic_.addAll(other.dayScenic_);
           }
           
         }
@@ -19551,20 +21166,18 @@ public final class IMBuddy {
           
           return false;
         }
-        if (!hasHotelInfo()) {
-          
-          return false;
-        }
         if (!getPlayConfig().isInitialized()) {
           
           return false;
         }
-        if (!getHotelInfo().isInitialized()) {
-          
-          return false;
+        for (int i = 0; i < getDayHotelCount(); i++) {
+          if (!getDayHotel(i).isInitialized()) {
+            
+            return false;
+          }
         }
-        for (int i = 0; i < getScenicInfoCount(); i++) {
-          if (!getScenicInfo(i).isInitialized()) {
+        for (int i = 0; i < getDayScenicCount(); i++) {
+          if (!getDayScenic(i).isInitialized()) {
             
             return false;
           }
@@ -19651,187 +21264,252 @@ public final class IMBuddy {
         return this;
       }
 
-      private com.mogujie.tt.protobuf.IMBuddy.HotelInfo hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+      private java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayHotel> dayHotel_ =
+        java.util.Collections.emptyList();
+      private void ensureDayHotelIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          dayHotel_ = new java.util.ArrayList<com.mogujie.tt.protobuf.IMBuddy.DayHotel>(dayHotel_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
       /**
-       * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
        */
-      public boolean hasHotelInfo() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+      public java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayHotel> getDayHotelList() {
+        return java.util.Collections.unmodifiableList(dayHotel_);
       }
       /**
-       * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
        */
-      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo getHotelInfo() {
-        return hotelInfo_;
+      public int getDayHotelCount() {
+        return dayHotel_.size();
       }
       /**
-       * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
        */
-      public Builder setHotelInfo(com.mogujie.tt.protobuf.IMBuddy.HotelInfo value) {
+      public com.mogujie.tt.protobuf.IMBuddy.DayHotel getDayHotel(int index) {
+        return dayHotel_.get(index);
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+       */
+      public Builder setDayHotel(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayHotel value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        hotelInfo_ = value;
+        ensureDayHotelIsMutable();
+        dayHotel_.set(index, value);
 
-        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
        */
-      public Builder setHotelInfo(
-          com.mogujie.tt.protobuf.IMBuddy.HotelInfo.Builder builderForValue) {
-        hotelInfo_ = builderForValue.build();
+      public Builder setDayHotel(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayHotel.Builder builderForValue) {
+        ensureDayHotelIsMutable();
+        dayHotel_.set(index, builderForValue.build());
 
-        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
        */
-      public Builder mergeHotelInfo(com.mogujie.tt.protobuf.IMBuddy.HotelInfo value) {
-        if (((bitField0_ & 0x00000002) == 0x00000002) &&
-            hotelInfo_ != com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance()) {
-          hotelInfo_ =
-            com.mogujie.tt.protobuf.IMBuddy.HotelInfo.newBuilder(hotelInfo_).mergeFrom(value).buildPartial();
-        } else {
-          hotelInfo_ = value;
+      public Builder addDayHotel(com.mogujie.tt.protobuf.IMBuddy.DayHotel value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
+        ensureDayHotelIsMutable();
+        dayHotel_.add(value);
 
-        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .IM.Buddy.HotelInfo hotel_info = 2;</code>
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
        */
-      public Builder clearHotelInfo() {
-        hotelInfo_ = com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+      public Builder addDayHotel(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayHotel value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureDayHotelIsMutable();
+        dayHotel_.add(index, value);
 
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+       */
+      public Builder addDayHotel(
+          com.mogujie.tt.protobuf.IMBuddy.DayHotel.Builder builderForValue) {
+        ensureDayHotelIsMutable();
+        dayHotel_.add(builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+       */
+      public Builder addDayHotel(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayHotel.Builder builderForValue) {
+        ensureDayHotelIsMutable();
+        dayHotel_.add(index, builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+       */
+      public Builder addAllDayHotel(
+          java.lang.Iterable<? extends com.mogujie.tt.protobuf.IMBuddy.DayHotel> values) {
+        ensureDayHotelIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, dayHotel_);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+       */
+      public Builder clearDayHotel() {
+        dayHotel_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
+       */
+      public Builder removeDayHotel(int index) {
+        ensureDayHotelIsMutable();
+        dayHotel_.remove(index);
+
         return this;
       }
 
-      private java.util.List<com.mogujie.tt.protobuf.IMBuddy.ScenicInfo> scenicInfo_ =
+      private java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayScenic> dayScenic_ =
         java.util.Collections.emptyList();
-      private void ensureScenicInfoIsMutable() {
+      private void ensureDayScenicIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          scenicInfo_ = new java.util.ArrayList<com.mogujie.tt.protobuf.IMBuddy.ScenicInfo>(scenicInfo_);
+          dayScenic_ = new java.util.ArrayList<com.mogujie.tt.protobuf.IMBuddy.DayScenic>(dayScenic_);
           bitField0_ |= 0x00000004;
          }
       }
 
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public java.util.List<com.mogujie.tt.protobuf.IMBuddy.ScenicInfo> getScenicInfoList() {
-        return java.util.Collections.unmodifiableList(scenicInfo_);
+      public java.util.List<com.mogujie.tt.protobuf.IMBuddy.DayScenic> getDayScenicList() {
+        return java.util.Collections.unmodifiableList(dayScenic_);
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public int getScenicInfoCount() {
-        return scenicInfo_.size();
+      public int getDayScenicCount() {
+        return dayScenic_.size();
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public com.mogujie.tt.protobuf.IMBuddy.ScenicInfo getScenicInfo(int index) {
-        return scenicInfo_.get(index);
+      public com.mogujie.tt.protobuf.IMBuddy.DayScenic getDayScenic(int index) {
+        return dayScenic_.get(index);
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder setScenicInfo(
-          int index, com.mogujie.tt.protobuf.IMBuddy.ScenicInfo value) {
+      public Builder setDayScenic(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayScenic value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureScenicInfoIsMutable();
-        scenicInfo_.set(index, value);
+        ensureDayScenicIsMutable();
+        dayScenic_.set(index, value);
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder setScenicInfo(
-          int index, com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.Builder builderForValue) {
-        ensureScenicInfoIsMutable();
-        scenicInfo_.set(index, builderForValue.build());
+      public Builder setDayScenic(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayScenic.Builder builderForValue) {
+        ensureDayScenicIsMutable();
+        dayScenic_.set(index, builderForValue.build());
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder addScenicInfo(com.mogujie.tt.protobuf.IMBuddy.ScenicInfo value) {
+      public Builder addDayScenic(com.mogujie.tt.protobuf.IMBuddy.DayScenic value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureScenicInfoIsMutable();
-        scenicInfo_.add(value);
+        ensureDayScenicIsMutable();
+        dayScenic_.add(value);
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder addScenicInfo(
-          int index, com.mogujie.tt.protobuf.IMBuddy.ScenicInfo value) {
+      public Builder addDayScenic(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayScenic value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureScenicInfoIsMutable();
-        scenicInfo_.add(index, value);
+        ensureDayScenicIsMutable();
+        dayScenic_.add(index, value);
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder addScenicInfo(
-          com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.Builder builderForValue) {
-        ensureScenicInfoIsMutable();
-        scenicInfo_.add(builderForValue.build());
+      public Builder addDayScenic(
+          com.mogujie.tt.protobuf.IMBuddy.DayScenic.Builder builderForValue) {
+        ensureDayScenicIsMutable();
+        dayScenic_.add(builderForValue.build());
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder addScenicInfo(
-          int index, com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.Builder builderForValue) {
-        ensureScenicInfoIsMutable();
-        scenicInfo_.add(index, builderForValue.build());
+      public Builder addDayScenic(
+          int index, com.mogujie.tt.protobuf.IMBuddy.DayScenic.Builder builderForValue) {
+        ensureDayScenicIsMutable();
+        dayScenic_.add(index, builderForValue.build());
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder addAllScenicInfo(
-          java.lang.Iterable<? extends com.mogujie.tt.protobuf.IMBuddy.ScenicInfo> values) {
-        ensureScenicInfoIsMutable();
+      public Builder addAllDayScenic(
+          java.lang.Iterable<? extends com.mogujie.tt.protobuf.IMBuddy.DayScenic> values) {
+        ensureDayScenicIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, scenicInfo_);
+            values, dayScenic_);
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder clearScenicInfo() {
-        scenicInfo_ = java.util.Collections.emptyList();
+      public Builder clearDayScenic() {
+        dayScenic_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
 
         return this;
       }
       /**
-       * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
+       * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
        */
-      public Builder removeScenicInfo(int index) {
-        ensureScenicInfoIsMutable();
-        scenicInfo_.remove(index);
+      public Builder removeDayScenic(int index) {
+        ensureDayScenicIsMutable();
+        dayScenic_.remove(index);
 
         return this;
       }
@@ -20734,7 +22412,24 @@ public final class IMBuddy {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>required string city_code = 1;</code>
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 景点id
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 景点id
+     * </pre>
+     */
+    int getId();
+
+    /**
+     * <code>required string city_code = 2;</code>
      *
      * <pre>
      * "XMN"
@@ -20742,7 +22437,7 @@ public final class IMBuddy {
      */
     boolean hasCityCode();
     /**
-     * <code>required string city_code = 1;</code>
+     * <code>required string city_code = 2;</code>
      *
      * <pre>
      * "XMN"
@@ -20750,7 +22445,7 @@ public final class IMBuddy {
      */
     java.lang.String getCityCode();
     /**
-     * <code>required string city_code = 1;</code>
+     * <code>required string city_code = 2;</code>
      *
      * <pre>
      * "XMN"
@@ -20760,7 +22455,7 @@ public final class IMBuddy {
         getCityCodeBytes();
 
     /**
-     * <code>required string name = 2;</code>
+     * <code>required string name = 3;</code>
      *
      * <pre>
      * 景点名
@@ -20768,7 +22463,7 @@ public final class IMBuddy {
      */
     boolean hasName();
     /**
-     * <code>required string name = 2;</code>
+     * <code>required string name = 3;</code>
      *
      * <pre>
      * 景点名
@@ -20776,7 +22471,7 @@ public final class IMBuddy {
      */
     java.lang.String getName();
     /**
-     * <code>required string name = 2;</code>
+     * <code>required string name = 3;</code>
      *
      * <pre>
      * 景点名
@@ -20786,7 +22481,7 @@ public final class IMBuddy {
         getNameBytes();
 
     /**
-     * <code>required uint32 score = 3;</code>
+     * <code>required uint32 score = 4;</code>
      *
      * <pre>
      * 评分
@@ -20794,7 +22489,7 @@ public final class IMBuddy {
      */
     boolean hasScore();
     /**
-     * <code>required uint32 score = 3;</code>
+     * <code>required uint32 score = 4;</code>
      *
      * <pre>
      * 评分
@@ -20803,7 +22498,7 @@ public final class IMBuddy {
     int getScore();
 
     /**
-     * <code>required string tags = 4;</code>
+     * <code>required string tags = 5;</code>
      *
      * <pre>
      * 景点标签 "文化 休闲"
@@ -20811,7 +22506,7 @@ public final class IMBuddy {
      */
     boolean hasTags();
     /**
-     * <code>required string tags = 4;</code>
+     * <code>required string tags = 5;</code>
      *
      * <pre>
      * 景点标签 "文化 休闲"
@@ -20819,7 +22514,7 @@ public final class IMBuddy {
      */
     java.lang.String getTags();
     /**
-     * <code>required string tags = 4;</code>
+     * <code>required string tags = 5;</code>
      *
      * <pre>
      * 景点标签 "文化 休闲"
@@ -20829,7 +22524,7 @@ public final class IMBuddy {
         getTagsBytes();
 
     /**
-     * <code>required uint32 free = 5;</code>
+     * <code>required uint32 free = 6;</code>
      *
      * <pre>
      * 是否免费
@@ -20837,7 +22532,7 @@ public final class IMBuddy {
      */
     boolean hasFree();
     /**
-     * <code>required uint32 free = 5;</code>
+     * <code>required uint32 free = 6;</code>
      *
      * <pre>
      * 是否免费
@@ -20846,7 +22541,7 @@ public final class IMBuddy {
     int getFree();
 
     /**
-     * <code>required uint32 must_see = 6;</code>
+     * <code>required uint32 must_see = 7;</code>
      *
      * <pre>
      * 0为必去
@@ -20854,7 +22549,7 @@ public final class IMBuddy {
      */
     boolean hasMustSee();
     /**
-     * <code>required uint32 must_see = 6;</code>
+     * <code>required uint32 must_see = 7;</code>
      *
      * <pre>
      * 0为必去
@@ -20863,7 +22558,7 @@ public final class IMBuddy {
     int getMustSee();
 
     /**
-     * <code>required string url = 7;</code>
+     * <code>required string url = 8;</code>
      *
      * <pre>
      * 介绍网址
@@ -20871,7 +22566,7 @@ public final class IMBuddy {
      */
     boolean hasUrl();
     /**
-     * <code>required string url = 7;</code>
+     * <code>required string url = 8;</code>
      *
      * <pre>
      * 介绍网址
@@ -20879,7 +22574,7 @@ public final class IMBuddy {
      */
     java.lang.String getUrl();
     /**
-     * <code>required string url = 7;</code>
+     * <code>required string url = 8;</code>
      *
      * <pre>
      * 介绍网址
@@ -20889,7 +22584,33 @@ public final class IMBuddy {
         getUrlBytes();
 
     /**
-     * <code>required uint32 play_time = 8;</code>
+     * <code>required string class = 9;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    boolean hasClass_();
+    /**
+     * <code>required string class = 9;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    java.lang.String getClass_();
+    /**
+     * <code>required string class = 9;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getClass_Bytes();
+
+    /**
+     * <code>required uint32 play_time = 10;</code>
      *
      * <pre>
      * 大概游玩时长（小时）
@@ -20897,7 +22618,7 @@ public final class IMBuddy {
      */
     boolean hasPlayTime();
     /**
-     * <code>required uint32 play_time = 8;</code>
+     * <code>required uint32 play_time = 10;</code>
      *
      * <pre>
      * 大概游玩时长（小时）
@@ -20906,7 +22627,7 @@ public final class IMBuddy {
     int getPlayTime();
 
     /**
-     * <code>required uint32 price = 9;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
@@ -20914,7 +22635,7 @@ public final class IMBuddy {
      */
     boolean hasPrice();
     /**
-     * <code>required uint32 price = 9;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
@@ -20923,7 +22644,7 @@ public final class IMBuddy {
     int getPrice();
 
     /**
-     * <code>required string best_time_from = 10;</code>
+     * <code>required string best_time_from = 12;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -20931,7 +22652,7 @@ public final class IMBuddy {
      */
     boolean hasBestTimeFrom();
     /**
-     * <code>required string best_time_from = 10;</code>
+     * <code>required string best_time_from = 12;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -20939,7 +22660,7 @@ public final class IMBuddy {
      */
     java.lang.String getBestTimeFrom();
     /**
-     * <code>required string best_time_from = 10;</code>
+     * <code>required string best_time_from = 12;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -20949,7 +22670,7 @@ public final class IMBuddy {
         getBestTimeFromBytes();
 
     /**
-     * <code>required string best_time_to = 11;</code>
+     * <code>required string best_time_to = 13;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -20957,7 +22678,7 @@ public final class IMBuddy {
      */
     boolean hasBestTimeTo();
     /**
-     * <code>required string best_time_to = 11;</code>
+     * <code>required string best_time_to = 13;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -20965,7 +22686,7 @@ public final class IMBuddy {
      */
     java.lang.String getBestTimeTo();
     /**
-     * <code>required string best_time_to = 11;</code>
+     * <code>required string best_time_to = 13;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -21024,64 +22745,75 @@ public final class IMBuddy {
               }
               break;
             }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 8: {
               bitField0_ |= 0x00000001;
-              cityCode_ = bs;
+              id_ = input.readUInt32();
               break;
             }
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
+              cityCode_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
               name_ = bs;
               break;
             }
-            case 24: {
-              bitField0_ |= 0x00000004;
+            case 32: {
+              bitField0_ |= 0x00000008;
               score_ = input.readUInt32();
               break;
             }
-            case 34: {
+            case 42: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
-              tags_ = bs;
-              break;
-            }
-            case 40: {
               bitField0_ |= 0x00000010;
-              free_ = input.readUInt32();
+              tags_ = bs;
               break;
             }
             case 48: {
               bitField0_ |= 0x00000020;
+              free_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
               mustSee_ = input.readUInt32();
               break;
             }
-            case 58: {
+            case 66: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               url_ = bs;
               break;
             }
-            case 64: {
-              bitField0_ |= 0x00000080;
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000100;
+              class__ = bs;
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
               playTime_ = input.readUInt32();
               break;
             }
-            case 72: {
-              bitField0_ |= 0x00000100;
+            case 88: {
+              bitField0_ |= 0x00000400;
               price_ = input.readUInt32();
               break;
             }
-            case 82: {
+            case 98: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000800;
               bestTimeFrom_ = bs;
               break;
             }
-            case 90: {
+            case 106: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00001000;
               bestTimeTo_ = bs;
               break;
             }
@@ -21119,20 +22851,43 @@ public final class IMBuddy {
     }
 
     private int bitField0_;
-    public static final int CITY_CODE_FIELD_NUMBER = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 景点id
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 景点id
+     * </pre>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int CITY_CODE_FIELD_NUMBER = 2;
     private java.lang.Object cityCode_;
     /**
-     * <code>required string city_code = 1;</code>
+     * <code>required string city_code = 2;</code>
      *
      * <pre>
      * "XMN"
      * </pre>
      */
     public boolean hasCityCode() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string city_code = 1;</code>
+     * <code>required string city_code = 2;</code>
      *
      * <pre>
      * "XMN"
@@ -21153,7 +22908,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string city_code = 1;</code>
+     * <code>required string city_code = 2;</code>
      *
      * <pre>
      * "XMN"
@@ -21173,20 +22928,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
+    public static final int NAME_FIELD_NUMBER = 3;
     private java.lang.Object name_;
     /**
-     * <code>required string name = 2;</code>
+     * <code>required string name = 3;</code>
      *
      * <pre>
      * 景点名
      * </pre>
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string name = 2;</code>
+     * <code>required string name = 3;</code>
      *
      * <pre>
      * 景点名
@@ -21207,7 +22962,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string name = 2;</code>
+     * <code>required string name = 3;</code>
      *
      * <pre>
      * 景点名
@@ -21227,20 +22982,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int SCORE_FIELD_NUMBER = 3;
+    public static final int SCORE_FIELD_NUMBER = 4;
     private int score_;
     /**
-     * <code>required uint32 score = 3;</code>
+     * <code>required uint32 score = 4;</code>
      *
      * <pre>
      * 评分
      * </pre>
      */
     public boolean hasScore() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required uint32 score = 3;</code>
+     * <code>required uint32 score = 4;</code>
      *
      * <pre>
      * 评分
@@ -21250,20 +23005,20 @@ public final class IMBuddy {
       return score_;
     }
 
-    public static final int TAGS_FIELD_NUMBER = 4;
+    public static final int TAGS_FIELD_NUMBER = 5;
     private java.lang.Object tags_;
     /**
-     * <code>required string tags = 4;</code>
+     * <code>required string tags = 5;</code>
      *
      * <pre>
      * 景点标签 "文化 休闲"
      * </pre>
      */
     public boolean hasTags() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required string tags = 4;</code>
+     * <code>required string tags = 5;</code>
      *
      * <pre>
      * 景点标签 "文化 休闲"
@@ -21284,7 +23039,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string tags = 4;</code>
+     * <code>required string tags = 5;</code>
      *
      * <pre>
      * 景点标签 "文化 休闲"
@@ -21304,20 +23059,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int FREE_FIELD_NUMBER = 5;
+    public static final int FREE_FIELD_NUMBER = 6;
     private int free_;
     /**
-     * <code>required uint32 free = 5;</code>
+     * <code>required uint32 free = 6;</code>
      *
      * <pre>
      * 是否免费
      * </pre>
      */
     public boolean hasFree() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required uint32 free = 5;</code>
+     * <code>required uint32 free = 6;</code>
      *
      * <pre>
      * 是否免费
@@ -21327,20 +23082,20 @@ public final class IMBuddy {
       return free_;
     }
 
-    public static final int MUST_SEE_FIELD_NUMBER = 6;
+    public static final int MUST_SEE_FIELD_NUMBER = 7;
     private int mustSee_;
     /**
-     * <code>required uint32 must_see = 6;</code>
+     * <code>required uint32 must_see = 7;</code>
      *
      * <pre>
      * 0为必去
      * </pre>
      */
     public boolean hasMustSee() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>required uint32 must_see = 6;</code>
+     * <code>required uint32 must_see = 7;</code>
      *
      * <pre>
      * 0为必去
@@ -21350,20 +23105,20 @@ public final class IMBuddy {
       return mustSee_;
     }
 
-    public static final int URL_FIELD_NUMBER = 7;
+    public static final int URL_FIELD_NUMBER = 8;
     private java.lang.Object url_;
     /**
-     * <code>required string url = 7;</code>
+     * <code>required string url = 8;</code>
      *
      * <pre>
      * 介绍网址
      * </pre>
      */
     public boolean hasUrl() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>required string url = 7;</code>
+     * <code>required string url = 8;</code>
      *
      * <pre>
      * 介绍网址
@@ -21384,7 +23139,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string url = 7;</code>
+     * <code>required string url = 8;</code>
      *
      * <pre>
      * 介绍网址
@@ -21404,20 +23159,74 @@ public final class IMBuddy {
       }
     }
 
-    public static final int PLAY_TIME_FIELD_NUMBER = 8;
+    public static final int CLASS_FIELD_NUMBER = 9;
+    private java.lang.Object class__;
+    /**
+     * <code>required string class = 9;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    public boolean hasClass_() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>required string class = 9;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    public java.lang.String getClass_() {
+      java.lang.Object ref = class__;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          class__ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string class = 9;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getClass_Bytes() {
+      java.lang.Object ref = class__;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        class__ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PLAY_TIME_FIELD_NUMBER = 10;
     private int playTime_;
     /**
-     * <code>required uint32 play_time = 8;</code>
+     * <code>required uint32 play_time = 10;</code>
      *
      * <pre>
      * 大概游玩时长（小时）
      * </pre>
      */
     public boolean hasPlayTime() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>required uint32 play_time = 8;</code>
+     * <code>required uint32 play_time = 10;</code>
      *
      * <pre>
      * 大概游玩时长（小时）
@@ -21427,20 +23236,20 @@ public final class IMBuddy {
       return playTime_;
     }
 
-    public static final int PRICE_FIELD_NUMBER = 9;
+    public static final int PRICE_FIELD_NUMBER = 11;
     private int price_;
     /**
-     * <code>required uint32 price = 9;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
      * </pre>
      */
     public boolean hasPrice() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>required uint32 price = 9;</code>
+     * <code>required uint32 price = 11;</code>
      *
      * <pre>
      * 价格
@@ -21450,20 +23259,20 @@ public final class IMBuddy {
       return price_;
     }
 
-    public static final int BEST_TIME_FROM_FIELD_NUMBER = 10;
+    public static final int BEST_TIME_FROM_FIELD_NUMBER = 12;
     private java.lang.Object bestTimeFrom_;
     /**
-     * <code>required string best_time_from = 10;</code>
+     * <code>required string best_time_from = 12;</code>
      *
      * <pre>
      * 开始时间，08:32
      * </pre>
      */
     public boolean hasBestTimeFrom() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>required string best_time_from = 10;</code>
+     * <code>required string best_time_from = 12;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -21484,7 +23293,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string best_time_from = 10;</code>
+     * <code>required string best_time_from = 12;</code>
      *
      * <pre>
      * 开始时间，08:32
@@ -21504,20 +23313,20 @@ public final class IMBuddy {
       }
     }
 
-    public static final int BEST_TIME_TO_FIELD_NUMBER = 11;
+    public static final int BEST_TIME_TO_FIELD_NUMBER = 13;
     private java.lang.Object bestTimeTo_;
     /**
-     * <code>required string best_time_to = 11;</code>
+     * <code>required string best_time_to = 13;</code>
      *
      * <pre>
      * 结束时间，08:32
      * </pre>
      */
     public boolean hasBestTimeTo() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>required string best_time_to = 11;</code>
+     * <code>required string best_time_to = 13;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -21538,7 +23347,7 @@ public final class IMBuddy {
       }
     }
     /**
-     * <code>required string best_time_to = 11;</code>
+     * <code>required string best_time_to = 13;</code>
      *
      * <pre>
      * 结束时间，08:32
@@ -21559,6 +23368,7 @@ public final class IMBuddy {
     }
 
     private void initFields() {
+      id_ = 0;
       cityCode_ = "";
       name_ = "";
       score_ = 0;
@@ -21566,6 +23376,7 @@ public final class IMBuddy {
       free_ = 0;
       mustSee_ = 0;
       url_ = "";
+      class__ = "";
       playTime_ = 0;
       price_ = 0;
       bestTimeFrom_ = "";
@@ -21577,6 +23388,10 @@ public final class IMBuddy {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasCityCode()) {
         memoizedIsInitialized = 0;
         return false;
@@ -21605,6 +23420,10 @@ public final class IMBuddy {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasClass_()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasPlayTime()) {
         memoizedIsInitialized = 0;
         return false;
@@ -21629,37 +23448,43 @@ public final class IMBuddy {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getCityCodeBytes());
+        output.writeUInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getNameBytes());
+        output.writeBytes(2, getCityCodeBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt32(3, score_);
+        output.writeBytes(3, getNameBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getTagsBytes());
+        output.writeUInt32(4, score_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeUInt32(5, free_);
+        output.writeBytes(5, getTagsBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeUInt32(6, mustSee_);
+        output.writeUInt32(6, free_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getUrlBytes());
+        output.writeUInt32(7, mustSee_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeUInt32(8, playTime_);
+        output.writeBytes(8, getUrlBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeUInt32(9, price_);
+        output.writeBytes(9, getClass_Bytes());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(10, getBestTimeFromBytes());
+        output.writeUInt32(10, playTime_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBytes(11, getBestTimeToBytes());
+        output.writeUInt32(11, price_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeBytes(12, getBestTimeFromBytes());
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeBytes(13, getBestTimeToBytes());
       }
       output.writeRawBytes(unknownFields);
     }
@@ -21672,47 +23497,55 @@ public final class IMBuddy {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getCityCodeBytes());
+          .computeUInt32Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getNameBytes());
+          .computeBytesSize(2, getCityCodeBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, score_);
+          .computeBytesSize(3, getNameBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getTagsBytes());
+          .computeUInt32Size(4, score_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, free_);
+          .computeBytesSize(5, getTagsBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, mustSee_);
+          .computeUInt32Size(6, free_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getUrlBytes());
+          .computeUInt32Size(7, mustSee_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, playTime_);
+          .computeBytesSize(8, getUrlBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(9, price_);
+          .computeBytesSize(9, getClass_Bytes());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, getBestTimeFromBytes());
+          .computeUInt32Size(10, playTime_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(11, getBestTimeToBytes());
+          .computeUInt32Size(11, price_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(12, getBestTimeFromBytes());
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(13, getBestTimeToBytes());
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -21808,28 +23641,32 @@ public final class IMBuddy {
 
       public Builder clear() {
         super.clear();
-        cityCode_ = "";
+        id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = "";
+        cityCode_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        score_ = 0;
+        name_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        tags_ = "";
+        score_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        free_ = 0;
+        tags_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        mustSee_ = 0;
+        free_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
-        url_ = "";
+        mustSee_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
-        playTime_ = 0;
+        url_ = "";
         bitField0_ = (bitField0_ & ~0x00000080);
-        price_ = 0;
+        class__ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        bestTimeFrom_ = "";
+        playTime_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
-        bestTimeTo_ = "";
+        price_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
+        bestTimeFrom_ = "";
+        bitField0_ = (bitField0_ & ~0x00000800);
+        bestTimeTo_ = "";
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
 
@@ -21856,45 +23693,53 @@ public final class IMBuddy {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.cityCode_ = cityCode_;
+        result.id_ = id_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.name_ = name_;
+        result.cityCode_ = cityCode_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.score_ = score_;
+        result.name_ = name_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.tags_ = tags_;
+        result.score_ = score_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.free_ = free_;
+        result.tags_ = tags_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.mustSee_ = mustSee_;
+        result.free_ = free_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.url_ = url_;
+        result.mustSee_ = mustSee_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.playTime_ = playTime_;
+        result.url_ = url_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.price_ = price_;
+        result.class__ = class__;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.bestTimeFrom_ = bestTimeFrom_;
+        result.playTime_ = playTime_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
+        }
+        result.price_ = price_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.bestTimeFrom_ = bestTimeFrom_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
         }
         result.bestTimeTo_ = bestTimeTo_;
         result.bitField0_ = to_bitField0_;
@@ -21903,13 +23748,16 @@ public final class IMBuddy {
 
       public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.ScenicInfo other) {
         if (other == com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
         if (other.hasCityCode()) {
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
           cityCode_ = other.cityCode_;
           
         }
         if (other.hasName()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           name_ = other.name_;
           
         }
@@ -21917,7 +23765,7 @@ public final class IMBuddy {
           setScore(other.getScore());
         }
         if (other.hasTags()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           tags_ = other.tags_;
           
         }
@@ -21928,8 +23776,13 @@ public final class IMBuddy {
           setMustSee(other.getMustSee());
         }
         if (other.hasUrl()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000080;
           url_ = other.url_;
+          
+        }
+        if (other.hasClass_()) {
+          bitField0_ |= 0x00000100;
+          class__ = other.class__;
           
         }
         if (other.hasPlayTime()) {
@@ -21939,12 +23792,12 @@ public final class IMBuddy {
           setPrice(other.getPrice());
         }
         if (other.hasBestTimeFrom()) {
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000800;
           bestTimeFrom_ = other.bestTimeFrom_;
           
         }
         if (other.hasBestTimeTo()) {
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00001000;
           bestTimeTo_ = other.bestTimeTo_;
           
         }
@@ -21954,6 +23807,10 @@ public final class IMBuddy {
       }
 
       public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
         if (!hasCityCode()) {
           
           return false;
@@ -21979,6 +23836,10 @@ public final class IMBuddy {
           return false;
         }
         if (!hasUrl()) {
+          
+          return false;
+        }
+        if (!hasClass_()) {
           
           return false;
         }
@@ -22020,19 +23881,67 @@ public final class IMBuddy {
       }
       private int bitField0_;
 
+      private int id_ ;
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 景点id
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 景点id
+       * </pre>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 景点id
+       * </pre>
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 景点id
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0;
+        
+        return this;
+      }
+
       private java.lang.Object cityCode_ = "";
       /**
-       * <code>required string city_code = 1;</code>
+       * <code>required string city_code = 2;</code>
        *
        * <pre>
        * "XMN"
        * </pre>
        */
       public boolean hasCityCode() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string city_code = 1;</code>
+       * <code>required string city_code = 2;</code>
        *
        * <pre>
        * "XMN"
@@ -22053,7 +23962,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string city_code = 1;</code>
+       * <code>required string city_code = 2;</code>
        *
        * <pre>
        * "XMN"
@@ -22073,7 +23982,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string city_code = 1;</code>
+       * <code>required string city_code = 2;</code>
        *
        * <pre>
        * "XMN"
@@ -22084,26 +23993,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000002;
         cityCode_ = value;
         
         return this;
       }
       /**
-       * <code>required string city_code = 1;</code>
+       * <code>required string city_code = 2;</code>
        *
        * <pre>
        * "XMN"
        * </pre>
        */
       public Builder clearCityCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         cityCode_ = getDefaultInstance().getCityCode();
         
         return this;
       }
       /**
-       * <code>required string city_code = 1;</code>
+       * <code>required string city_code = 2;</code>
        *
        * <pre>
        * "XMN"
@@ -22114,7 +24023,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  bitField0_ |= 0x00000002;
         cityCode_ = value;
         
         return this;
@@ -22122,17 +24031,17 @@ public final class IMBuddy {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>required string name = 2;</code>
+       * <code>required string name = 3;</code>
        *
        * <pre>
        * 景点名
        * </pre>
        */
       public boolean hasName() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>required string name = 3;</code>
        *
        * <pre>
        * 景点名
@@ -22153,7 +24062,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>required string name = 3;</code>
        *
        * <pre>
        * 景点名
@@ -22173,7 +24082,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>required string name = 3;</code>
        *
        * <pre>
        * 景点名
@@ -22184,26 +24093,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         name_ = value;
         
         return this;
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>required string name = 3;</code>
        *
        * <pre>
        * 景点名
        * </pre>
        */
       public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         name_ = getDefaultInstance().getName();
         
         return this;
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>required string name = 3;</code>
        *
        * <pre>
        * 景点名
@@ -22214,7 +24123,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         name_ = value;
         
         return this;
@@ -22222,17 +24131,17 @@ public final class IMBuddy {
 
       private int score_ ;
       /**
-       * <code>required uint32 score = 3;</code>
+       * <code>required uint32 score = 4;</code>
        *
        * <pre>
        * 评分
        * </pre>
        */
       public boolean hasScore() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required uint32 score = 3;</code>
+       * <code>required uint32 score = 4;</code>
        *
        * <pre>
        * 评分
@@ -22242,27 +24151,27 @@ public final class IMBuddy {
         return score_;
       }
       /**
-       * <code>required uint32 score = 3;</code>
+       * <code>required uint32 score = 4;</code>
        *
        * <pre>
        * 评分
        * </pre>
        */
       public Builder setScore(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         score_ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 score = 3;</code>
+       * <code>required uint32 score = 4;</code>
        *
        * <pre>
        * 评分
        * </pre>
        */
       public Builder clearScore() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         score_ = 0;
         
         return this;
@@ -22270,17 +24179,17 @@ public final class IMBuddy {
 
       private java.lang.Object tags_ = "";
       /**
-       * <code>required string tags = 4;</code>
+       * <code>required string tags = 5;</code>
        *
        * <pre>
        * 景点标签 "文化 休闲"
        * </pre>
        */
       public boolean hasTags() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required string tags = 4;</code>
+       * <code>required string tags = 5;</code>
        *
        * <pre>
        * 景点标签 "文化 休闲"
@@ -22301,7 +24210,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string tags = 4;</code>
+       * <code>required string tags = 5;</code>
        *
        * <pre>
        * 景点标签 "文化 休闲"
@@ -22321,7 +24230,7 @@ public final class IMBuddy {
         }
       }
       /**
-       * <code>required string tags = 4;</code>
+       * <code>required string tags = 5;</code>
        *
        * <pre>
        * 景点标签 "文化 休闲"
@@ -22332,26 +24241,26 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         tags_ = value;
         
         return this;
       }
       /**
-       * <code>required string tags = 4;</code>
+       * <code>required string tags = 5;</code>
        *
        * <pre>
        * 景点标签 "文化 休闲"
        * </pre>
        */
       public Builder clearTags() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         tags_ = getDefaultInstance().getTags();
         
         return this;
       }
       /**
-       * <code>required string tags = 4;</code>
+       * <code>required string tags = 5;</code>
        *
        * <pre>
        * 景点标签 "文化 休闲"
@@ -22362,7 +24271,7 @@ public final class IMBuddy {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         tags_ = value;
         
         return this;
@@ -22370,17 +24279,17 @@ public final class IMBuddy {
 
       private int free_ ;
       /**
-       * <code>required uint32 free = 5;</code>
+       * <code>required uint32 free = 6;</code>
        *
        * <pre>
        * 是否免费
        * </pre>
        */
       public boolean hasFree() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>required uint32 free = 5;</code>
+       * <code>required uint32 free = 6;</code>
        *
        * <pre>
        * 是否免费
@@ -22390,28 +24299,2141 @@ public final class IMBuddy {
         return free_;
       }
       /**
-       * <code>required uint32 free = 5;</code>
+       * <code>required uint32 free = 6;</code>
        *
        * <pre>
        * 是否免费
        * </pre>
        */
       public Builder setFree(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         free_ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 free = 5;</code>
+       * <code>required uint32 free = 6;</code>
        *
        * <pre>
        * 是否免费
        * </pre>
        */
       public Builder clearFree() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         free_ = 0;
+        
+        return this;
+      }
+
+      private int mustSee_ ;
+      /**
+       * <code>required uint32 must_see = 7;</code>
+       *
+       * <pre>
+       * 0为必去
+       * </pre>
+       */
+      public boolean hasMustSee() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required uint32 must_see = 7;</code>
+       *
+       * <pre>
+       * 0为必去
+       * </pre>
+       */
+      public int getMustSee() {
+        return mustSee_;
+      }
+      /**
+       * <code>required uint32 must_see = 7;</code>
+       *
+       * <pre>
+       * 0为必去
+       * </pre>
+       */
+      public Builder setMustSee(int value) {
+        bitField0_ |= 0x00000040;
+        mustSee_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 must_see = 7;</code>
+       *
+       * <pre>
+       * 0为必去
+       * </pre>
+       */
+      public Builder clearMustSee() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        mustSee_ = 0;
+        
+        return this;
+      }
+
+      private java.lang.Object url_ = "";
+      /**
+       * <code>required string url = 8;</code>
+       *
+       * <pre>
+       * 介绍网址
+       * </pre>
+       */
+      public boolean hasUrl() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>required string url = 8;</code>
+       *
+       * <pre>
+       * 介绍网址
+       * </pre>
+       */
+      public java.lang.String getUrl() {
+        java.lang.Object ref = url_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            url_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string url = 8;</code>
+       *
+       * <pre>
+       * 介绍网址
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        java.lang.Object ref = url_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          url_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string url = 8;</code>
+       *
+       * <pre>
+       * 介绍网址
+       * </pre>
+       */
+      public Builder setUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        url_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string url = 8;</code>
+       *
+       * <pre>
+       * 介绍网址
+       * </pre>
+       */
+      public Builder clearUrl() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        url_ = getDefaultInstance().getUrl();
+        
+        return this;
+      }
+      /**
+       * <code>required string url = 8;</code>
+       *
+       * <pre>
+       * 介绍网址
+       * </pre>
+       */
+      public Builder setUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        url_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object class__ = "";
+      /**
+       * <code>required string class = 9;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public boolean hasClass_() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>required string class = 9;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public java.lang.String getClass_() {
+        java.lang.Object ref = class__;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            class__ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string class = 9;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getClass_Bytes() {
+        java.lang.Object ref = class__;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          class__ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string class = 9;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public Builder setClass_(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        class__ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string class = 9;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public Builder clearClass_() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        class__ = getDefaultInstance().getClass_();
+        
+        return this;
+      }
+      /**
+       * <code>required string class = 9;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public Builder setClass_Bytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        class__ = value;
+        
+        return this;
+      }
+
+      private int playTime_ ;
+      /**
+       * <code>required uint32 play_time = 10;</code>
+       *
+       * <pre>
+       * 大概游玩时长（小时）
+       * </pre>
+       */
+      public boolean hasPlayTime() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>required uint32 play_time = 10;</code>
+       *
+       * <pre>
+       * 大概游玩时长（小时）
+       * </pre>
+       */
+      public int getPlayTime() {
+        return playTime_;
+      }
+      /**
+       * <code>required uint32 play_time = 10;</code>
+       *
+       * <pre>
+       * 大概游玩时长（小时）
+       * </pre>
+       */
+      public Builder setPlayTime(int value) {
+        bitField0_ |= 0x00000200;
+        playTime_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 play_time = 10;</code>
+       *
+       * <pre>
+       * 大概游玩时长（小时）
+       * </pre>
+       */
+      public Builder clearPlayTime() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        playTime_ = 0;
+        
+        return this;
+      }
+
+      private int price_ ;
+      /**
+       * <code>required uint32 price = 11;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public boolean hasPrice() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>required uint32 price = 11;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public int getPrice() {
+        return price_;
+      }
+      /**
+       * <code>required uint32 price = 11;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public Builder setPrice(int value) {
+        bitField0_ |= 0x00000400;
+        price_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 price = 11;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public Builder clearPrice() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        price_ = 0;
+        
+        return this;
+      }
+
+      private java.lang.Object bestTimeFrom_ = "";
+      /**
+       * <code>required string best_time_from = 12;</code>
+       *
+       * <pre>
+       * 开始时间，08:32
+       * </pre>
+       */
+      public boolean hasBestTimeFrom() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>required string best_time_from = 12;</code>
+       *
+       * <pre>
+       * 开始时间，08:32
+       * </pre>
+       */
+      public java.lang.String getBestTimeFrom() {
+        java.lang.Object ref = bestTimeFrom_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            bestTimeFrom_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string best_time_from = 12;</code>
+       *
+       * <pre>
+       * 开始时间，08:32
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getBestTimeFromBytes() {
+        java.lang.Object ref = bestTimeFrom_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bestTimeFrom_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string best_time_from = 12;</code>
+       *
+       * <pre>
+       * 开始时间，08:32
+       * </pre>
+       */
+      public Builder setBestTimeFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        bestTimeFrom_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string best_time_from = 12;</code>
+       *
+       * <pre>
+       * 开始时间，08:32
+       * </pre>
+       */
+      public Builder clearBestTimeFrom() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        bestTimeFrom_ = getDefaultInstance().getBestTimeFrom();
+        
+        return this;
+      }
+      /**
+       * <code>required string best_time_from = 12;</code>
+       *
+       * <pre>
+       * 开始时间，08:32
+       * </pre>
+       */
+      public Builder setBestTimeFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        bestTimeFrom_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object bestTimeTo_ = "";
+      /**
+       * <code>required string best_time_to = 13;</code>
+       *
+       * <pre>
+       * 结束时间，08:32
+       * </pre>
+       */
+      public boolean hasBestTimeTo() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      /**
+       * <code>required string best_time_to = 13;</code>
+       *
+       * <pre>
+       * 结束时间，08:32
+       * </pre>
+       */
+      public java.lang.String getBestTimeTo() {
+        java.lang.Object ref = bestTimeTo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            bestTimeTo_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string best_time_to = 13;</code>
+       *
+       * <pre>
+       * 结束时间，08:32
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getBestTimeToBytes() {
+        java.lang.Object ref = bestTimeTo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bestTimeTo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string best_time_to = 13;</code>
+       *
+       * <pre>
+       * 结束时间，08:32
+       * </pre>
+       */
+      public Builder setBestTimeTo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
+        bestTimeTo_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string best_time_to = 13;</code>
+       *
+       * <pre>
+       * 结束时间，08:32
+       * </pre>
+       */
+      public Builder clearBestTimeTo() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        bestTimeTo_ = getDefaultInstance().getBestTimeTo();
+        
+        return this;
+      }
+      /**
+       * <code>required string best_time_to = 13;</code>
+       *
+       * <pre>
+       * 结束时间，08:32
+       * </pre>
+       */
+      public Builder setBestTimeToBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
+        bestTimeTo_ = value;
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.ScenicInfo)
+    }
+
+    static {
+      defaultInstance = new ScenicInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.ScenicInfo)
+  }
+
+  public interface HotelInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.HotelInfo)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 酒店id
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 酒店id
+     * </pre>
+     */
+    int getId();
+
+    /**
+     * <code>required string city_code = 2;</code>
+     *
+     * <pre>
+     * "XMN"
+     * </pre>
+     */
+    boolean hasCityCode();
+    /**
+     * <code>required string city_code = 2;</code>
+     *
+     * <pre>
+     * "XMN"
+     * </pre>
+     */
+    java.lang.String getCityCode();
+    /**
+     * <code>required string city_code = 2;</code>
+     *
+     * <pre>
+     * "XMN"
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getCityCodeBytes();
+
+    /**
+     * <code>required string name = 3;</code>
+     *
+     * <pre>
+     * 景点名
+     * </pre>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 3;</code>
+     *
+     * <pre>
+     * 景点名
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 3;</code>
+     *
+     * <pre>
+     * 景点名
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required uint32 score = 4;</code>
+     *
+     * <pre>
+     * 评分
+     * </pre>
+     */
+    boolean hasScore();
+    /**
+     * <code>required uint32 score = 4;</code>
+     *
+     * <pre>
+     * 评分
+     * </pre>
+     */
+    int getScore();
+
+    /**
+     * <code>required string tags = 5;</code>
+     *
+     * <pre>
+     * 
+     * </pre>
+     */
+    boolean hasTags();
+    /**
+     * <code>required string tags = 5;</code>
+     *
+     * <pre>
+     * 
+     * </pre>
+     */
+    java.lang.String getTags();
+    /**
+     * <code>required string tags = 5;</code>
+     *
+     * <pre>
+     * 
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTagsBytes();
+
+    /**
+     * <code>required uint32 must_see = 6;</code>
+     *
+     * <pre>
+     * 0为必去
+     * </pre>
+     */
+    boolean hasMustSee();
+    /**
+     * <code>required uint32 must_see = 6;</code>
+     *
+     * <pre>
+     * 0为必去
+     * </pre>
+     */
+    int getMustSee();
+
+    /**
+     * <code>required string url = 7;</code>
+     *
+     * <pre>
+     * 介绍网址
+     * </pre>
+     */
+    boolean hasUrl();
+    /**
+     * <code>required string url = 7;</code>
+     *
+     * <pre>
+     * 介绍网址
+     * </pre>
+     */
+    java.lang.String getUrl();
+    /**
+     * <code>required string url = 7;</code>
+     *
+     * <pre>
+     * 介绍网址
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getUrlBytes();
+
+    /**
+     * <code>required string class = 8;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    boolean hasClass_();
+    /**
+     * <code>required string class = 8;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    java.lang.String getClass_();
+    /**
+     * <code>required string class = 8;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getClass_Bytes();
+
+    /**
+     * <code>required uint32 price = 9;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    boolean hasPrice();
+    /**
+     * <code>required uint32 price = 9;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    int getPrice();
+
+    /**
+     * <code>required uint32 distance = 10;</code>
+     */
+    boolean hasDistance();
+    /**
+     * <code>required uint32 distance = 10;</code>
+     */
+    int getDistance();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.HotelInfo}
+   */
+  public static final class HotelInfo extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.HotelInfo)
+      HotelInfoOrBuilder {
+    // Use HotelInfo.newBuilder() to construct.
+    private HotelInfo(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private HotelInfo(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final HotelInfo defaultInstance;
+    public static HotelInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public HotelInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private HotelInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              cityCode_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              name_ = bs;
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              score_ = input.readUInt32();
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              tags_ = bs;
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              mustSee_ = input.readUInt32();
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              url_ = bs;
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000080;
+              class__ = bs;
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              price_ = input.readUInt32();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              distance_ = input.readUInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<HotelInfo> PARSER =
+        new com.google.protobuf.AbstractParser<HotelInfo>() {
+      public HotelInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HotelInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HotelInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 酒店id
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * 酒店id
+     * </pre>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int CITY_CODE_FIELD_NUMBER = 2;
+    private java.lang.Object cityCode_;
+    /**
+     * <code>required string city_code = 2;</code>
+     *
+     * <pre>
+     * "XMN"
+     * </pre>
+     */
+    public boolean hasCityCode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string city_code = 2;</code>
+     *
+     * <pre>
+     * "XMN"
+     * </pre>
+     */
+    public java.lang.String getCityCode() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          cityCode_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string city_code = 2;</code>
+     *
+     * <pre>
+     * "XMN"
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getCityCodeBytes() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cityCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 3;
+    private java.lang.Object name_;
+    /**
+     * <code>required string name = 3;</code>
+     *
+     * <pre>
+     * 景点名
+     * </pre>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string name = 3;</code>
+     *
+     * <pre>
+     * 景点名
+     * </pre>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 3;</code>
+     *
+     * <pre>
+     * 景点名
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCORE_FIELD_NUMBER = 4;
+    private int score_;
+    /**
+     * <code>required uint32 score = 4;</code>
+     *
+     * <pre>
+     * 评分
+     * </pre>
+     */
+    public boolean hasScore() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required uint32 score = 4;</code>
+     *
+     * <pre>
+     * 评分
+     * </pre>
+     */
+    public int getScore() {
+      return score_;
+    }
+
+    public static final int TAGS_FIELD_NUMBER = 5;
+    private java.lang.Object tags_;
+    /**
+     * <code>required string tags = 5;</code>
+     *
+     * <pre>
+     * 
+     * </pre>
+     */
+    public boolean hasTags() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required string tags = 5;</code>
+     *
+     * <pre>
+     * 
+     * </pre>
+     */
+    public java.lang.String getTags() {
+      java.lang.Object ref = tags_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          tags_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string tags = 5;</code>
+     *
+     * <pre>
+     * 
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTagsBytes() {
+      java.lang.Object ref = tags_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tags_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MUST_SEE_FIELD_NUMBER = 6;
+    private int mustSee_;
+    /**
+     * <code>required uint32 must_see = 6;</code>
+     *
+     * <pre>
+     * 0为必去
+     * </pre>
+     */
+    public boolean hasMustSee() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required uint32 must_see = 6;</code>
+     *
+     * <pre>
+     * 0为必去
+     * </pre>
+     */
+    public int getMustSee() {
+      return mustSee_;
+    }
+
+    public static final int URL_FIELD_NUMBER = 7;
+    private java.lang.Object url_;
+    /**
+     * <code>required string url = 7;</code>
+     *
+     * <pre>
+     * 介绍网址
+     * </pre>
+     */
+    public boolean hasUrl() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required string url = 7;</code>
+     *
+     * <pre>
+     * 介绍网址
+     * </pre>
+     */
+    public java.lang.String getUrl() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          url_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string url = 7;</code>
+     *
+     * <pre>
+     * 介绍网址
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        url_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CLASS_FIELD_NUMBER = 8;
+    private java.lang.Object class__;
+    /**
+     * <code>required string class = 8;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    public boolean hasClass_() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>required string class = 8;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    public java.lang.String getClass_() {
+      java.lang.Object ref = class__;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          class__ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string class = 8;</code>
+     *
+     * <pre>
+     * 座位等级
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getClass_Bytes() {
+      java.lang.Object ref = class__;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        class__ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PRICE_FIELD_NUMBER = 9;
+    private int price_;
+    /**
+     * <code>required uint32 price = 9;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    public boolean hasPrice() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>required uint32 price = 9;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    public int getPrice() {
+      return price_;
+    }
+
+    public static final int DISTANCE_FIELD_NUMBER = 10;
+    private int distance_;
+    /**
+     * <code>required uint32 distance = 10;</code>
+     */
+    public boolean hasDistance() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <code>required uint32 distance = 10;</code>
+     */
+    public int getDistance() {
+      return distance_;
+    }
+
+    private void initFields() {
+      id_ = 0;
+      cityCode_ = "";
+      name_ = "";
+      score_ = 0;
+      tags_ = "";
+      mustSee_ = 0;
+      url_ = "";
+      class__ = "";
+      price_ = 0;
+      distance_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCityCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasScore()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTags()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMustSee()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUrl()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasClass_()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPrice()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDistance()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getCityCodeBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeUInt32(4, score_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, getTagsBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeUInt32(6, mustSee_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(7, getUrlBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBytes(8, getClass_Bytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeUInt32(9, price_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeUInt32(10, distance_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getCityCodeBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, score_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getTagsBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, mustSee_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getUrlBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(8, getClass_Bytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(9, price_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(10, distance_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.mogujie.tt.protobuf.IMBuddy.HotelInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.HotelInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.mogujie.tt.protobuf.IMBuddy.HotelInfo, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.HotelInfo)
+        com.mogujie.tt.protobuf.IMBuddy.HotelInfoOrBuilder {
+      // Construct using com.mogujie.tt.protobuf.IMBuddy.HotelInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        cityCode_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        score_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        tags_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        mustSee_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        url_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        class__ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        price_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        distance_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo getDefaultInstanceForType() {
+        return com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo build() {
+        com.mogujie.tt.protobuf.IMBuddy.HotelInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo buildPartial() {
+        com.mogujie.tt.protobuf.IMBuddy.HotelInfo result = new com.mogujie.tt.protobuf.IMBuddy.HotelInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.cityCode_ = cityCode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.score_ = score_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.tags_ = tags_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.mustSee_ = mustSee_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.url_ = url_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.class__ = class__;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.price_ = price_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.distance_ = distance_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.HotelInfo other) {
+        if (other == com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasCityCode()) {
+          bitField0_ |= 0x00000002;
+          cityCode_ = other.cityCode_;
+          
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000004;
+          name_ = other.name_;
+          
+        }
+        if (other.hasScore()) {
+          setScore(other.getScore());
+        }
+        if (other.hasTags()) {
+          bitField0_ |= 0x00000010;
+          tags_ = other.tags_;
+          
+        }
+        if (other.hasMustSee()) {
+          setMustSee(other.getMustSee());
+        }
+        if (other.hasUrl()) {
+          bitField0_ |= 0x00000040;
+          url_ = other.url_;
+          
+        }
+        if (other.hasClass_()) {
+          bitField0_ |= 0x00000080;
+          class__ = other.class__;
+          
+        }
+        if (other.hasPrice()) {
+          setPrice(other.getPrice());
+        }
+        if (other.hasDistance()) {
+          setDistance(other.getDistance());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
+        if (!hasCityCode()) {
+          
+          return false;
+        }
+        if (!hasName()) {
+          
+          return false;
+        }
+        if (!hasScore()) {
+          
+          return false;
+        }
+        if (!hasTags()) {
+          
+          return false;
+        }
+        if (!hasMustSee()) {
+          
+          return false;
+        }
+        if (!hasUrl()) {
+          
+          return false;
+        }
+        if (!hasClass_()) {
+          
+          return false;
+        }
+        if (!hasPrice()) {
+          
+          return false;
+        }
+        if (!hasDistance()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.mogujie.tt.protobuf.IMBuddy.HotelInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.mogujie.tt.protobuf.IMBuddy.HotelInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int id_ ;
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 酒店id
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 酒店id
+       * </pre>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 酒店id
+       * </pre>
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * 酒店id
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0;
+        
+        return this;
+      }
+
+      private java.lang.Object cityCode_ = "";
+      /**
+       * <code>required string city_code = 2;</code>
+       *
+       * <pre>
+       * "XMN"
+       * </pre>
+       */
+      public boolean hasCityCode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       *
+       * <pre>
+       * "XMN"
+       * </pre>
+       */
+      public java.lang.String getCityCode() {
+        java.lang.Object ref = cityCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            cityCode_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       *
+       * <pre>
+       * "XMN"
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getCityCodeBytes() {
+        java.lang.Object ref = cityCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cityCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       *
+       * <pre>
+       * "XMN"
+       * </pre>
+       */
+      public Builder setCityCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        cityCode_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       *
+       * <pre>
+       * "XMN"
+       * </pre>
+       */
+      public Builder clearCityCode() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cityCode_ = getDefaultInstance().getCityCode();
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       *
+       * <pre>
+       * "XMN"
+       * </pre>
+       */
+      public Builder setCityCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        cityCode_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 3;</code>
+       *
+       * <pre>
+       * 景点名
+       * </pre>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string name = 3;</code>
+       *
+       * <pre>
+       * 景点名
+       * </pre>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 3;</code>
+       *
+       * <pre>
+       * 景点名
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 3;</code>
+       *
+       * <pre>
+       * 景点名
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string name = 3;</code>
+       *
+       * <pre>
+       * 景点名
+       * </pre>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        name_ = getDefaultInstance().getName();
+        
+        return this;
+      }
+      /**
+       * <code>required string name = 3;</code>
+       *
+       * <pre>
+       * 景点名
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        
+        return this;
+      }
+
+      private int score_ ;
+      /**
+       * <code>required uint32 score = 4;</code>
+       *
+       * <pre>
+       * 评分
+       * </pre>
+       */
+      public boolean hasScore() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required uint32 score = 4;</code>
+       *
+       * <pre>
+       * 评分
+       * </pre>
+       */
+      public int getScore() {
+        return score_;
+      }
+      /**
+       * <code>required uint32 score = 4;</code>
+       *
+       * <pre>
+       * 评分
+       * </pre>
+       */
+      public Builder setScore(int value) {
+        bitField0_ |= 0x00000008;
+        score_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 score = 4;</code>
+       *
+       * <pre>
+       * 评分
+       * </pre>
+       */
+      public Builder clearScore() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        score_ = 0;
+        
+        return this;
+      }
+
+      private java.lang.Object tags_ = "";
+      /**
+       * <code>required string tags = 5;</code>
+       *
+       * <pre>
+       * 
+       * </pre>
+       */
+      public boolean hasTags() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required string tags = 5;</code>
+       *
+       * <pre>
+       * 
+       * </pre>
+       */
+      public java.lang.String getTags() {
+        java.lang.Object ref = tags_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            tags_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string tags = 5;</code>
+       *
+       * <pre>
+       * 
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getTagsBytes() {
+        java.lang.Object ref = tags_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tags_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string tags = 5;</code>
+       *
+       * <pre>
+       * 
+       * </pre>
+       */
+      public Builder setTags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        tags_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string tags = 5;</code>
+       *
+       * <pre>
+       * 
+       * </pre>
+       */
+      public Builder clearTags() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        tags_ = getDefaultInstance().getTags();
+        
+        return this;
+      }
+      /**
+       * <code>required string tags = 5;</code>
+       *
+       * <pre>
+       * 
+       * </pre>
+       */
+      public Builder setTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        tags_ = value;
         
         return this;
       }
@@ -22564,50 +26586,102 @@ public final class IMBuddy {
         return this;
       }
 
-      private int playTime_ ;
+      private java.lang.Object class__ = "";
       /**
-       * <code>required uint32 play_time = 8;</code>
+       * <code>required string class = 8;</code>
        *
        * <pre>
-       * 大概游玩时长（小时）
+       * 座位等级
        * </pre>
        */
-      public boolean hasPlayTime() {
+      public boolean hasClass_() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>required uint32 play_time = 8;</code>
+       * <code>required string class = 8;</code>
        *
        * <pre>
-       * 大概游玩时长（小时）
+       * 座位等级
        * </pre>
        */
-      public int getPlayTime() {
-        return playTime_;
+      public java.lang.String getClass_() {
+        java.lang.Object ref = class__;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            class__ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required uint32 play_time = 8;</code>
+       * <code>required string class = 8;</code>
        *
        * <pre>
-       * 大概游玩时长（小时）
+       * 座位等级
        * </pre>
        */
-      public Builder setPlayTime(int value) {
-        bitField0_ |= 0x00000080;
-        playTime_ = value;
+      public com.google.protobuf.ByteString
+          getClass_Bytes() {
+        java.lang.Object ref = class__;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          class__ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string class = 8;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public Builder setClass_(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        class__ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 play_time = 8;</code>
+       * <code>required string class = 8;</code>
        *
        * <pre>
-       * 大概游玩时长（小时）
+       * 座位等级
        * </pre>
        */
-      public Builder clearPlayTime() {
+      public Builder clearClass_() {
         bitField0_ = (bitField0_ & ~0x00000080);
-        playTime_ = 0;
+        class__ = getDefaultInstance().getClass_();
+        
+        return this;
+      }
+      /**
+       * <code>required string class = 8;</code>
+       *
+       * <pre>
+       * 座位等级
+       * </pre>
+       */
+      public Builder setClass_Bytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        class__ = value;
         
         return this;
       }
@@ -22660,1767 +26734,33 @@ public final class IMBuddy {
         return this;
       }
 
-      private java.lang.Object bestTimeFrom_ = "";
+      private int distance_ ;
       /**
-       * <code>required string best_time_from = 10;</code>
-       *
-       * <pre>
-       * 开始时间，08:32
-       * </pre>
+       * <code>required uint32 distance = 10;</code>
        */
-      public boolean hasBestTimeFrom() {
+      public boolean hasDistance() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>required string best_time_from = 10;</code>
-       *
-       * <pre>
-       * 开始时间，08:32
-       * </pre>
-       */
-      public java.lang.String getBestTimeFrom() {
-        java.lang.Object ref = bestTimeFrom_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            bestTimeFrom_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string best_time_from = 10;</code>
-       *
-       * <pre>
-       * 开始时间，08:32
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getBestTimeFromBytes() {
-        java.lang.Object ref = bestTimeFrom_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          bestTimeFrom_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string best_time_from = 10;</code>
-       *
-       * <pre>
-       * 开始时间，08:32
-       * </pre>
-       */
-      public Builder setBestTimeFrom(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
-        bestTimeFrom_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required string best_time_from = 10;</code>
-       *
-       * <pre>
-       * 开始时间，08:32
-       * </pre>
-       */
-      public Builder clearBestTimeFrom() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        bestTimeFrom_ = getDefaultInstance().getBestTimeFrom();
-        
-        return this;
-      }
-      /**
-       * <code>required string best_time_from = 10;</code>
-       *
-       * <pre>
-       * 开始时间，08:32
-       * </pre>
-       */
-      public Builder setBestTimeFromBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
-        bestTimeFrom_ = value;
-        
-        return this;
-      }
-
-      private java.lang.Object bestTimeTo_ = "";
-      /**
-       * <code>required string best_time_to = 11;</code>
-       *
-       * <pre>
-       * 结束时间，08:32
-       * </pre>
-       */
-      public boolean hasBestTimeTo() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
-      }
-      /**
-       * <code>required string best_time_to = 11;</code>
-       *
-       * <pre>
-       * 结束时间，08:32
-       * </pre>
-       */
-      public java.lang.String getBestTimeTo() {
-        java.lang.Object ref = bestTimeTo_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            bestTimeTo_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string best_time_to = 11;</code>
-       *
-       * <pre>
-       * 结束时间，08:32
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getBestTimeToBytes() {
-        java.lang.Object ref = bestTimeTo_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          bestTimeTo_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string best_time_to = 11;</code>
-       *
-       * <pre>
-       * 结束时间，08:32
-       * </pre>
-       */
-      public Builder setBestTimeTo(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
-        bestTimeTo_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required string best_time_to = 11;</code>
-       *
-       * <pre>
-       * 结束时间，08:32
-       * </pre>
-       */
-      public Builder clearBestTimeTo() {
-        bitField0_ = (bitField0_ & ~0x00000400);
-        bestTimeTo_ = getDefaultInstance().getBestTimeTo();
-        
-        return this;
-      }
-      /**
-       * <code>required string best_time_to = 11;</code>
-       *
-       * <pre>
-       * 结束时间，08:32
-       * </pre>
-       */
-      public Builder setBestTimeToBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
-        bestTimeTo_ = value;
-        
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:IM.Buddy.ScenicInfo)
-    }
-
-    static {
-      defaultInstance = new ScenicInfo(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:IM.Buddy.ScenicInfo)
-  }
-
-  public interface HotelInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:IM.Buddy.HotelInfo)
-      com.google.protobuf.MessageLiteOrBuilder {
-
-    /**
-     * <code>required string city_code = 1;</code>
-     *
-     * <pre>
-     * "XMN"
-     * </pre>
-     */
-    boolean hasCityCode();
-    /**
-     * <code>required string city_code = 1;</code>
-     *
-     * <pre>
-     * "XMN"
-     * </pre>
-     */
-    java.lang.String getCityCode();
-    /**
-     * <code>required string city_code = 1;</code>
-     *
-     * <pre>
-     * "XMN"
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getCityCodeBytes();
-
-    /**
-     * <code>required string name = 2;</code>
-     *
-     * <pre>
-     * 景点名
-     * </pre>
-     */
-    boolean hasName();
-    /**
-     * <code>required string name = 2;</code>
-     *
-     * <pre>
-     * 景点名
-     * </pre>
-     */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 2;</code>
-     *
-     * <pre>
-     * 景点名
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>required uint32 score = 3;</code>
-     *
-     * <pre>
-     * 评分
-     * </pre>
-     */
-    boolean hasScore();
-    /**
-     * <code>required uint32 score = 3;</code>
-     *
-     * <pre>
-     * 评分
-     * </pre>
-     */
-    int getScore();
-
-    /**
-     * <code>required string tags = 4;</code>
-     *
-     * <pre>
-     * 
-     * </pre>
-     */
-    boolean hasTags();
-    /**
-     * <code>required string tags = 4;</code>
-     *
-     * <pre>
-     * 
-     * </pre>
-     */
-    java.lang.String getTags();
-    /**
-     * <code>required string tags = 4;</code>
-     *
-     * <pre>
-     * 
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getTagsBytes();
-
-    /**
-     * <code>required uint32 must_see = 5;</code>
-     *
-     * <pre>
-     * 0为必去
-     * </pre>
-     */
-    boolean hasMustSee();
-    /**
-     * <code>required uint32 must_see = 5;</code>
-     *
-     * <pre>
-     * 0为必去
-     * </pre>
-     */
-    int getMustSee();
-
-    /**
-     * <code>required string url = 6;</code>
-     *
-     * <pre>
-     * 介绍网址
-     * </pre>
-     */
-    boolean hasUrl();
-    /**
-     * <code>required string url = 6;</code>
-     *
-     * <pre>
-     * 介绍网址
-     * </pre>
-     */
-    java.lang.String getUrl();
-    /**
-     * <code>required string url = 6;</code>
-     *
-     * <pre>
-     * 介绍网址
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getUrlBytes();
-
-    /**
-     * <code>required uint32 price = 7;</code>
-     *
-     * <pre>
-     * 价格
-     * </pre>
-     */
-    boolean hasPrice();
-    /**
-     * <code>required uint32 price = 7;</code>
-     *
-     * <pre>
-     * 价格
-     * </pre>
-     */
-    int getPrice();
-
-    /**
-     * <code>required uint32 distance = 8;</code>
-     */
-    boolean hasDistance();
-    /**
-     * <code>required uint32 distance = 8;</code>
-     */
-    int getDistance();
-  }
-  /**
-   * Protobuf type {@code IM.Buddy.HotelInfo}
-   */
-  public static final class HotelInfo extends
-      com.google.protobuf.GeneratedMessageLite implements
-      // @@protoc_insertion_point(message_implements:IM.Buddy.HotelInfo)
-      HotelInfoOrBuilder {
-    // Use HotelInfo.newBuilder() to construct.
-    private HotelInfo(com.google.protobuf.GeneratedMessageLite.Builder builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private HotelInfo(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
-
-    private static final HotelInfo defaultInstance;
-    public static HotelInfo getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public HotelInfo getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.ByteString unknownFields;
-    private HotelInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.ByteString.Output unknownFieldsOutput =
-          com.google.protobuf.ByteString.newOutput();
-      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
-          com.google.protobuf.CodedOutputStream.newInstance(
-              unknownFieldsOutput);
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFieldsCodedOutput,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              cityCode_ = bs;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              name_ = bs;
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              score_ = input.readUInt32();
-              break;
-            }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
-              tags_ = bs;
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              mustSee_ = input.readUInt32();
-              break;
-            }
-            case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000020;
-              url_ = bs;
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000040;
-              price_ = input.readUInt32();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000080;
-              distance_ = input.readUInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        try {
-          unknownFieldsCodedOutput.flush();
-        } catch (java.io.IOException e) {
-        // Should not happen
-        } finally {
-          unknownFields = unknownFieldsOutput.toByteString();
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static com.google.protobuf.Parser<HotelInfo> PARSER =
-        new com.google.protobuf.AbstractParser<HotelInfo>() {
-      public HotelInfo parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HotelInfo(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<HotelInfo> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    public static final int CITY_CODE_FIELD_NUMBER = 1;
-    private java.lang.Object cityCode_;
-    /**
-     * <code>required string city_code = 1;</code>
-     *
-     * <pre>
-     * "XMN"
-     * </pre>
-     */
-    public boolean hasCityCode() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required string city_code = 1;</code>
-     *
-     * <pre>
-     * "XMN"
-     * </pre>
-     */
-    public java.lang.String getCityCode() {
-      java.lang.Object ref = cityCode_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          cityCode_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string city_code = 1;</code>
-     *
-     * <pre>
-     * "XMN"
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getCityCodeBytes() {
-      java.lang.Object ref = cityCode_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cityCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int NAME_FIELD_NUMBER = 2;
-    private java.lang.Object name_;
-    /**
-     * <code>required string name = 2;</code>
-     *
-     * <pre>
-     * 景点名
-     * </pre>
-     */
-    public boolean hasName() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required string name = 2;</code>
-     *
-     * <pre>
-     * 景点名
-     * </pre>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string name = 2;</code>
-     *
-     * <pre>
-     * 景点名
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SCORE_FIELD_NUMBER = 3;
-    private int score_;
-    /**
-     * <code>required uint32 score = 3;</code>
-     *
-     * <pre>
-     * 评分
-     * </pre>
-     */
-    public boolean hasScore() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required uint32 score = 3;</code>
-     *
-     * <pre>
-     * 评分
-     * </pre>
-     */
-    public int getScore() {
-      return score_;
-    }
-
-    public static final int TAGS_FIELD_NUMBER = 4;
-    private java.lang.Object tags_;
-    /**
-     * <code>required string tags = 4;</code>
-     *
-     * <pre>
-     * 
-     * </pre>
-     */
-    public boolean hasTags() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>required string tags = 4;</code>
-     *
-     * <pre>
-     * 
-     * </pre>
-     */
-    public java.lang.String getTags() {
-      java.lang.Object ref = tags_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          tags_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string tags = 4;</code>
-     *
-     * <pre>
-     * 
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getTagsBytes() {
-      java.lang.Object ref = tags_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tags_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int MUST_SEE_FIELD_NUMBER = 5;
-    private int mustSee_;
-    /**
-     * <code>required uint32 must_see = 5;</code>
-     *
-     * <pre>
-     * 0为必去
-     * </pre>
-     */
-    public boolean hasMustSee() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>required uint32 must_see = 5;</code>
-     *
-     * <pre>
-     * 0为必去
-     * </pre>
-     */
-    public int getMustSee() {
-      return mustSee_;
-    }
-
-    public static final int URL_FIELD_NUMBER = 6;
-    private java.lang.Object url_;
-    /**
-     * <code>required string url = 6;</code>
-     *
-     * <pre>
-     * 介绍网址
-     * </pre>
-     */
-    public boolean hasUrl() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
-    }
-    /**
-     * <code>required string url = 6;</code>
-     *
-     * <pre>
-     * 介绍网址
-     * </pre>
-     */
-    public java.lang.String getUrl() {
-      java.lang.Object ref = url_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          url_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string url = 6;</code>
-     *
-     * <pre>
-     * 介绍网址
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getUrlBytes() {
-      java.lang.Object ref = url_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        url_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PRICE_FIELD_NUMBER = 7;
-    private int price_;
-    /**
-     * <code>required uint32 price = 7;</code>
-     *
-     * <pre>
-     * 价格
-     * </pre>
-     */
-    public boolean hasPrice() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
-    }
-    /**
-     * <code>required uint32 price = 7;</code>
-     *
-     * <pre>
-     * 价格
-     * </pre>
-     */
-    public int getPrice() {
-      return price_;
-    }
-
-    public static final int DISTANCE_FIELD_NUMBER = 8;
-    private int distance_;
-    /**
-     * <code>required uint32 distance = 8;</code>
-     */
-    public boolean hasDistance() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    /**
-     * <code>required uint32 distance = 8;</code>
-     */
-    public int getDistance() {
-      return distance_;
-    }
-
-    private void initFields() {
-      cityCode_ = "";
-      name_ = "";
-      score_ = 0;
-      tags_ = "";
-      mustSee_ = 0;
-      url_ = "";
-      price_ = 0;
-      distance_ = 0;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      if (!hasCityCode()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasScore()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasTags()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasMustSee()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasUrl()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasPrice()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasDistance()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getCityCodeBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getNameBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt32(3, score_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getTagsBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeUInt32(5, mustSee_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getUrlBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeUInt32(7, price_);
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeUInt32(8, distance_);
-      }
-      output.writeRawBytes(unknownFields);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getCityCodeBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getNameBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, score_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getTagsBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, mustSee_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getUrlBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(7, price_);
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, distance_);
-      }
-      size += unknownFields.size();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.mogujie.tt.protobuf.IMBuddy.HotelInfo parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.mogujie.tt.protobuf.IMBuddy.HotelInfo prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    /**
-     * Protobuf type {@code IM.Buddy.HotelInfo}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          com.mogujie.tt.protobuf.IMBuddy.HotelInfo, Builder>
-        implements
-        // @@protoc_insertion_point(builder_implements:IM.Buddy.HotelInfo)
-        com.mogujie.tt.protobuf.IMBuddy.HotelInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.HotelInfo.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private void maybeForceBuilderInitialization() {
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        cityCode_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        score_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        tags_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
-        mustSee_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        url_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
-        price_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
-        distance_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo getDefaultInstanceForType() {
-        return com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance();
-      }
-
-      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo build() {
-        com.mogujie.tt.protobuf.IMBuddy.HotelInfo result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.mogujie.tt.protobuf.IMBuddy.HotelInfo buildPartial() {
-        com.mogujie.tt.protobuf.IMBuddy.HotelInfo result = new com.mogujie.tt.protobuf.IMBuddy.HotelInfo(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.cityCode_ = cityCode_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.score_ = score_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.tags_ = tags_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.mustSee_ = mustSee_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.url_ = url_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.price_ = price_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000080;
-        }
-        result.distance_ = distance_;
-        result.bitField0_ = to_bitField0_;
-        return result;
-      }
-
-      public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.HotelInfo other) {
-        if (other == com.mogujie.tt.protobuf.IMBuddy.HotelInfo.getDefaultInstance()) return this;
-        if (other.hasCityCode()) {
-          bitField0_ |= 0x00000001;
-          cityCode_ = other.cityCode_;
-          
-        }
-        if (other.hasName()) {
-          bitField0_ |= 0x00000002;
-          name_ = other.name_;
-          
-        }
-        if (other.hasScore()) {
-          setScore(other.getScore());
-        }
-        if (other.hasTags()) {
-          bitField0_ |= 0x00000008;
-          tags_ = other.tags_;
-          
-        }
-        if (other.hasMustSee()) {
-          setMustSee(other.getMustSee());
-        }
-        if (other.hasUrl()) {
-          bitField0_ |= 0x00000020;
-          url_ = other.url_;
-          
-        }
-        if (other.hasPrice()) {
-          setPrice(other.getPrice());
-        }
-        if (other.hasDistance()) {
-          setDistance(other.getDistance());
-        }
-        setUnknownFields(
-            getUnknownFields().concat(other.unknownFields));
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasCityCode()) {
-          
-          return false;
-        }
-        if (!hasName()) {
-          
-          return false;
-        }
-        if (!hasScore()) {
-          
-          return false;
-        }
-        if (!hasTags()) {
-          
-          return false;
-        }
-        if (!hasMustSee()) {
-          
-          return false;
-        }
-        if (!hasUrl()) {
-          
-          return false;
-        }
-        if (!hasPrice()) {
-          
-          return false;
-        }
-        if (!hasDistance()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.mogujie.tt.protobuf.IMBuddy.HotelInfo parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.mogujie.tt.protobuf.IMBuddy.HotelInfo) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.lang.Object cityCode_ = "";
-      /**
-       * <code>required string city_code = 1;</code>
-       *
-       * <pre>
-       * "XMN"
-       * </pre>
-       */
-      public boolean hasCityCode() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string city_code = 1;</code>
-       *
-       * <pre>
-       * "XMN"
-       * </pre>
-       */
-      public java.lang.String getCityCode() {
-        java.lang.Object ref = cityCode_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            cityCode_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string city_code = 1;</code>
-       *
-       * <pre>
-       * "XMN"
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getCityCodeBytes() {
-        java.lang.Object ref = cityCode_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          cityCode_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string city_code = 1;</code>
-       *
-       * <pre>
-       * "XMN"
-       * </pre>
-       */
-      public Builder setCityCode(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        cityCode_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required string city_code = 1;</code>
-       *
-       * <pre>
-       * "XMN"
-       * </pre>
-       */
-      public Builder clearCityCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        cityCode_ = getDefaultInstance().getCityCode();
-        
-        return this;
-      }
-      /**
-       * <code>required string city_code = 1;</code>
-       *
-       * <pre>
-       * "XMN"
-       * </pre>
-       */
-      public Builder setCityCodeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        cityCode_ = value;
-        
-        return this;
-      }
-
-      private java.lang.Object name_ = "";
-      /**
-       * <code>required string name = 2;</code>
-       *
-       * <pre>
-       * 景点名
-       * </pre>
-       */
-      public boolean hasName() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required string name = 2;</code>
-       *
-       * <pre>
-       * 景点名
-       * </pre>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string name = 2;</code>
-       *
-       * <pre>
-       * 景点名
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string name = 2;</code>
-       *
-       * <pre>
-       * 景点名
-       * </pre>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        name_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required string name = 2;</code>
-       *
-       * <pre>
-       * 景点名
-       * </pre>
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        name_ = getDefaultInstance().getName();
-        
-        return this;
-      }
-      /**
-       * <code>required string name = 2;</code>
-       *
-       * <pre>
-       * 景点名
-       * </pre>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        name_ = value;
-        
-        return this;
-      }
-
-      private int score_ ;
-      /**
-       * <code>required uint32 score = 3;</code>
-       *
-       * <pre>
-       * 评分
-       * </pre>
-       */
-      public boolean hasScore() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required uint32 score = 3;</code>
-       *
-       * <pre>
-       * 评分
-       * </pre>
-       */
-      public int getScore() {
-        return score_;
-      }
-      /**
-       * <code>required uint32 score = 3;</code>
-       *
-       * <pre>
-       * 评分
-       * </pre>
-       */
-      public Builder setScore(int value) {
-        bitField0_ |= 0x00000004;
-        score_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required uint32 score = 3;</code>
-       *
-       * <pre>
-       * 评分
-       * </pre>
-       */
-      public Builder clearScore() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        score_ = 0;
-        
-        return this;
-      }
-
-      private java.lang.Object tags_ = "";
-      /**
-       * <code>required string tags = 4;</code>
-       *
-       * <pre>
-       * 
-       * </pre>
-       */
-      public boolean hasTags() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>required string tags = 4;</code>
-       *
-       * <pre>
-       * 
-       * </pre>
-       */
-      public java.lang.String getTags() {
-        java.lang.Object ref = tags_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            tags_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string tags = 4;</code>
-       *
-       * <pre>
-       * 
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getTagsBytes() {
-        java.lang.Object ref = tags_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tags_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string tags = 4;</code>
-       *
-       * <pre>
-       * 
-       * </pre>
-       */
-      public Builder setTags(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        tags_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required string tags = 4;</code>
-       *
-       * <pre>
-       * 
-       * </pre>
-       */
-      public Builder clearTags() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        tags_ = getDefaultInstance().getTags();
-        
-        return this;
-      }
-      /**
-       * <code>required string tags = 4;</code>
-       *
-       * <pre>
-       * 
-       * </pre>
-       */
-      public Builder setTagsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        tags_ = value;
-        
-        return this;
-      }
-
-      private int mustSee_ ;
-      /**
-       * <code>required uint32 must_see = 5;</code>
-       *
-       * <pre>
-       * 0为必去
-       * </pre>
-       */
-      public boolean hasMustSee() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>required uint32 must_see = 5;</code>
-       *
-       * <pre>
-       * 0为必去
-       * </pre>
-       */
-      public int getMustSee() {
-        return mustSee_;
-      }
-      /**
-       * <code>required uint32 must_see = 5;</code>
-       *
-       * <pre>
-       * 0为必去
-       * </pre>
-       */
-      public Builder setMustSee(int value) {
-        bitField0_ |= 0x00000010;
-        mustSee_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required uint32 must_see = 5;</code>
-       *
-       * <pre>
-       * 0为必去
-       * </pre>
-       */
-      public Builder clearMustSee() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        mustSee_ = 0;
-        
-        return this;
-      }
-
-      private java.lang.Object url_ = "";
-      /**
-       * <code>required string url = 6;</code>
-       *
-       * <pre>
-       * 介绍网址
-       * </pre>
-       */
-      public boolean hasUrl() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      /**
-       * <code>required string url = 6;</code>
-       *
-       * <pre>
-       * 介绍网址
-       * </pre>
-       */
-      public java.lang.String getUrl() {
-        java.lang.Object ref = url_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            url_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string url = 6;</code>
-       *
-       * <pre>
-       * 介绍网址
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getUrlBytes() {
-        java.lang.Object ref = url_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          url_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string url = 6;</code>
-       *
-       * <pre>
-       * 介绍网址
-       * </pre>
-       */
-      public Builder setUrl(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        url_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required string url = 6;</code>
-       *
-       * <pre>
-       * 介绍网址
-       * </pre>
-       */
-      public Builder clearUrl() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        url_ = getDefaultInstance().getUrl();
-        
-        return this;
-      }
-      /**
-       * <code>required string url = 6;</code>
-       *
-       * <pre>
-       * 介绍网址
-       * </pre>
-       */
-      public Builder setUrlBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        url_ = value;
-        
-        return this;
-      }
-
-      private int price_ ;
-      /**
-       * <code>required uint32 price = 7;</code>
-       *
-       * <pre>
-       * 价格
-       * </pre>
-       */
-      public boolean hasPrice() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      /**
-       * <code>required uint32 price = 7;</code>
-       *
-       * <pre>
-       * 价格
-       * </pre>
-       */
-      public int getPrice() {
-        return price_;
-      }
-      /**
-       * <code>required uint32 price = 7;</code>
-       *
-       * <pre>
-       * 价格
-       * </pre>
-       */
-      public Builder setPrice(int value) {
-        bitField0_ |= 0x00000040;
-        price_ = value;
-        
-        return this;
-      }
-      /**
-       * <code>required uint32 price = 7;</code>
-       *
-       * <pre>
-       * 价格
-       * </pre>
-       */
-      public Builder clearPrice() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        price_ = 0;
-        
-        return this;
-      }
-
-      private int distance_ ;
-      /**
-       * <code>required uint32 distance = 8;</code>
-       */
-      public boolean hasDistance() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      /**
-       * <code>required uint32 distance = 8;</code>
+       * <code>required uint32 distance = 10;</code>
        */
       public int getDistance() {
         return distance_;
       }
       /**
-       * <code>required uint32 distance = 8;</code>
+       * <code>required uint32 distance = 10;</code>
        */
       public Builder setDistance(int value) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000200;
         distance_ = value;
         
         return this;
       }
       /**
-       * <code>required uint32 distance = 8;</code>
+       * <code>required uint32 distance = 10;</code>
        */
       public Builder clearDistance() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000200);
         distance_ = 0;
         
         return this;
@@ -24469,22 +26809,22 @@ public final class IMBuddy {
     com.mogujie.tt.protobuf.IMBuddy.BasicInfo getBasicInfo();
 
     /**
-     * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-     */
-    boolean hasTravelDetail();
-    /**
-     * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-     */
-    com.mogujie.tt.protobuf.IMBuddy.TravelDetail getTravelDetail();
-
-    /**
-     * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+     * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
      */
     boolean hasTransportConfig();
     /**
-     * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+     * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
      */
     com.mogujie.tt.protobuf.IMBuddy.TransportConfig getTransportConfig();
+
+    /**
+     * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+     */
+    boolean hasTravelDetail();
+    /**
+     * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+     */
+    com.mogujie.tt.protobuf.IMBuddy.TravelDetail getTravelDetail();
   }
   /**
    * Protobuf type {@code IM.Buddy.MyTravel}
@@ -24560,27 +26900,27 @@ public final class IMBuddy {
               break;
             }
             case 34: {
-              com.mogujie.tt.protobuf.IMBuddy.TravelDetail.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                subBuilder = travelDetail_.toBuilder();
-              }
-              travelDetail_ = input.readMessage(com.mogujie.tt.protobuf.IMBuddy.TravelDetail.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(travelDetail_);
-                travelDetail_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000008;
-              break;
-            }
-            case 42: {
               com.mogujie.tt.protobuf.IMBuddy.TransportConfig.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = transportConfig_.toBuilder();
               }
               transportConfig_ = input.readMessage(com.mogujie.tt.protobuf.IMBuddy.TransportConfig.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(transportConfig_);
                 transportConfig_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              com.mogujie.tt.protobuf.IMBuddy.TravelDetail.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = travelDetail_.toBuilder();
+              }
+              travelDetail_ = input.readMessage(com.mogujie.tt.protobuf.IMBuddy.TravelDetail.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(travelDetail_);
+                travelDetail_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000010;
               break;
@@ -24664,42 +27004,42 @@ public final class IMBuddy {
       return basicInfo_;
     }
 
-    public static final int TRAVEL_DETAIL_FIELD_NUMBER = 4;
-    private com.mogujie.tt.protobuf.IMBuddy.TravelDetail travelDetail_;
+    public static final int TRANSPORT_CONFIG_FIELD_NUMBER = 4;
+    private com.mogujie.tt.protobuf.IMBuddy.TransportConfig transportConfig_;
     /**
-     * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
+     * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
      */
-    public boolean hasTravelDetail() {
+    public boolean hasTransportConfig() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-     */
-    public com.mogujie.tt.protobuf.IMBuddy.TravelDetail getTravelDetail() {
-      return travelDetail_;
-    }
-
-    public static final int TRANSPORT_CONFIG_FIELD_NUMBER = 5;
-    private com.mogujie.tt.protobuf.IMBuddy.TransportConfig transportConfig_;
-    /**
-     * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
-     */
-    public boolean hasTransportConfig() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+     * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
      */
     public com.mogujie.tt.protobuf.IMBuddy.TransportConfig getTransportConfig() {
       return transportConfig_;
+    }
+
+    public static final int TRAVEL_DETAIL_FIELD_NUMBER = 5;
+    private com.mogujie.tt.protobuf.IMBuddy.TravelDetail travelDetail_;
+    /**
+     * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+     */
+    public boolean hasTravelDetail() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+     */
+    public com.mogujie.tt.protobuf.IMBuddy.TravelDetail getTravelDetail() {
+      return travelDetail_;
     }
 
     private void initFields() {
       dbIdx_ = 0;
       cost_ = 0;
       basicInfo_ = com.mogujie.tt.protobuf.IMBuddy.BasicInfo.getDefaultInstance();
-      travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
       transportConfig_ = com.mogujie.tt.protobuf.IMBuddy.TransportConfig.getDefaultInstance();
+      travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -24719,11 +27059,11 @@ public final class IMBuddy {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTravelDetail()) {
+      if (!hasTransportConfig()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasTransportConfig()) {
+      if (!hasTravelDetail()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -24731,11 +27071,11 @@ public final class IMBuddy {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getTravelDetail().isInitialized()) {
+      if (!getTransportConfig().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getTransportConfig().isInitialized()) {
+      if (!getTravelDetail().isInitialized()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -24756,10 +27096,10 @@ public final class IMBuddy {
         output.writeMessage(3, basicInfo_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, travelDetail_);
+        output.writeMessage(4, transportConfig_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeMessage(5, transportConfig_);
+        output.writeMessage(5, travelDetail_);
       }
       output.writeRawBytes(unknownFields);
     }
@@ -24784,11 +27124,11 @@ public final class IMBuddy {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, travelDetail_);
+          .computeMessageSize(4, transportConfig_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, transportConfig_);
+          .computeMessageSize(5, travelDetail_);
       }
       size += unknownFields.size();
       memoizedSerializedSize = size;
@@ -24890,9 +27230,9 @@ public final class IMBuddy {
         bitField0_ = (bitField0_ & ~0x00000002);
         basicInfo_ = com.mogujie.tt.protobuf.IMBuddy.BasicInfo.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00000004);
-        travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
-        bitField0_ = (bitField0_ & ~0x00000008);
         transportConfig_ = com.mogujie.tt.protobuf.IMBuddy.TransportConfig.getDefaultInstance();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -24932,11 +27272,11 @@ public final class IMBuddy {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.travelDetail_ = travelDetail_;
+        result.transportConfig_ = transportConfig_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.transportConfig_ = transportConfig_;
+        result.travelDetail_ = travelDetail_;
         result.bitField0_ = to_bitField0_;
         return result;
       }
@@ -24952,11 +27292,11 @@ public final class IMBuddy {
         if (other.hasBasicInfo()) {
           mergeBasicInfo(other.getBasicInfo());
         }
-        if (other.hasTravelDetail()) {
-          mergeTravelDetail(other.getTravelDetail());
-        }
         if (other.hasTransportConfig()) {
           mergeTransportConfig(other.getTransportConfig());
+        }
+        if (other.hasTravelDetail()) {
+          mergeTravelDetail(other.getTravelDetail());
         }
         setUnknownFields(
             getUnknownFields().concat(other.unknownFields));
@@ -24976,11 +27316,11 @@ public final class IMBuddy {
           
           return false;
         }
-        if (!hasTravelDetail()) {
+        if (!hasTransportConfig()) {
           
           return false;
         }
-        if (!hasTransportConfig()) {
+        if (!hasTravelDetail()) {
           
           return false;
         }
@@ -24988,11 +27328,11 @@ public final class IMBuddy {
           
           return false;
         }
-        if (!getTravelDetail().isInitialized()) {
+        if (!getTransportConfig().isInitialized()) {
           
           return false;
         }
-        if (!getTransportConfig().isInitialized()) {
+        if (!getTravelDetail().isInitialized()) {
           
           return false;
         }
@@ -25142,81 +27482,21 @@ public final class IMBuddy {
         return this;
       }
 
-      private com.mogujie.tt.protobuf.IMBuddy.TravelDetail travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
+      private com.mogujie.tt.protobuf.IMBuddy.TransportConfig transportConfig_ = com.mogujie.tt.protobuf.IMBuddy.TransportConfig.getDefaultInstance();
       /**
-       * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
+       * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
        */
-      public boolean hasTravelDetail() {
+      public boolean hasTransportConfig() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-       */
-      public com.mogujie.tt.protobuf.IMBuddy.TravelDetail getTravelDetail() {
-        return travelDetail_;
-      }
-      /**
-       * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-       */
-      public Builder setTravelDetail(com.mogujie.tt.protobuf.IMBuddy.TravelDetail value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        travelDetail_ = value;
-
-        bitField0_ |= 0x00000008;
-        return this;
-      }
-      /**
-       * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-       */
-      public Builder setTravelDetail(
-          com.mogujie.tt.protobuf.IMBuddy.TravelDetail.Builder builderForValue) {
-        travelDetail_ = builderForValue.build();
-
-        bitField0_ |= 0x00000008;
-        return this;
-      }
-      /**
-       * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-       */
-      public Builder mergeTravelDetail(com.mogujie.tt.protobuf.IMBuddy.TravelDetail value) {
-        if (((bitField0_ & 0x00000008) == 0x00000008) &&
-            travelDetail_ != com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance()) {
-          travelDetail_ =
-            com.mogujie.tt.protobuf.IMBuddy.TravelDetail.newBuilder(travelDetail_).mergeFrom(value).buildPartial();
-        } else {
-          travelDetail_ = value;
-        }
-
-        bitField0_ |= 0x00000008;
-        return this;
-      }
-      /**
-       * <code>required .IM.Buddy.TravelDetail travel_detail = 4;</code>
-       */
-      public Builder clearTravelDetail() {
-        travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
-
-        bitField0_ = (bitField0_ & ~0x00000008);
-        return this;
-      }
-
-      private com.mogujie.tt.protobuf.IMBuddy.TransportConfig transportConfig_ = com.mogujie.tt.protobuf.IMBuddy.TransportConfig.getDefaultInstance();
-      /**
-       * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
-       */
-      public boolean hasTransportConfig() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+       * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
        */
       public com.mogujie.tt.protobuf.IMBuddy.TransportConfig getTransportConfig() {
         return transportConfig_;
       }
       /**
-       * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+       * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
        */
       public Builder setTransportConfig(com.mogujie.tt.protobuf.IMBuddy.TransportConfig value) {
         if (value == null) {
@@ -25224,24 +27504,24 @@ public final class IMBuddy {
         }
         transportConfig_ = value;
 
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+       * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
        */
       public Builder setTransportConfig(
           com.mogujie.tt.protobuf.IMBuddy.TransportConfig.Builder builderForValue) {
         transportConfig_ = builderForValue.build();
 
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+       * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
        */
       public Builder mergeTransportConfig(com.mogujie.tt.protobuf.IMBuddy.TransportConfig value) {
-        if (((bitField0_ & 0x00000010) == 0x00000010) &&
+        if (((bitField0_ & 0x00000008) == 0x00000008) &&
             transportConfig_ != com.mogujie.tt.protobuf.IMBuddy.TransportConfig.getDefaultInstance()) {
           transportConfig_ =
             com.mogujie.tt.protobuf.IMBuddy.TransportConfig.newBuilder(transportConfig_).mergeFrom(value).buildPartial();
@@ -25249,14 +27529,74 @@ public final class IMBuddy {
           transportConfig_ = value;
         }
 
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportConfig transport_config = 4;</code>
+       */
+      public Builder clearTransportConfig() {
+        transportConfig_ = com.mogujie.tt.protobuf.IMBuddy.TransportConfig.getDefaultInstance();
+
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      private com.mogujie.tt.protobuf.IMBuddy.TravelDetail travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
+      /**
+       * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+       */
+      public boolean hasTravelDetail() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+       */
+      public com.mogujie.tt.protobuf.IMBuddy.TravelDetail getTravelDetail() {
+        return travelDetail_;
+      }
+      /**
+       * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+       */
+      public Builder setTravelDetail(com.mogujie.tt.protobuf.IMBuddy.TravelDetail value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        travelDetail_ = value;
+
         bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>required .IM.Buddy.TransportConfig transport_config = 5;</code>
+       * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
        */
-      public Builder clearTransportConfig() {
-        transportConfig_ = com.mogujie.tt.protobuf.IMBuddy.TransportConfig.getDefaultInstance();
+      public Builder setTravelDetail(
+          com.mogujie.tt.protobuf.IMBuddy.TravelDetail.Builder builderForValue) {
+        travelDetail_ = builderForValue.build();
+
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+       */
+      public Builder mergeTravelDetail(com.mogujie.tt.protobuf.IMBuddy.TravelDetail value) {
+        if (((bitField0_ & 0x00000010) == 0x00000010) &&
+            travelDetail_ != com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance()) {
+          travelDetail_ =
+            com.mogujie.tt.protobuf.IMBuddy.TravelDetail.newBuilder(travelDetail_).mergeFrom(value).buildPartial();
+        } else {
+          travelDetail_ = value;
+        }
+
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.TravelDetail travel_detail = 5;</code>
+       */
+      public Builder clearTravelDetail() {
+        travelDetail_ = com.mogujie.tt.protobuf.IMBuddy.TravelDetail.getDefaultInstance();
 
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
@@ -25279,10 +27619,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
      */
     int getUserId();
 
@@ -25415,12 +27763,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -25709,18 +28065,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -25730,6 +28098,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -25850,10 +28222,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0252
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0252
+     * </pre>
      */
     int getUserId();
 
@@ -25992,12 +28372,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0252
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0252
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -26318,18 +28706,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0252
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0252
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0252
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -26339,6 +28739,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0252
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -26463,10 +28867,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0253
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0253
+     * </pre>
      */
     int getUserId();
 
@@ -26614,12 +29026,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0253
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0253
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -26912,18 +29332,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0253
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0253
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0253
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -26933,6 +29365,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0253
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -27059,10 +29495,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0254
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0254
+     * </pre>
      */
     int getUserId();
 
@@ -27187,12 +29631,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0254
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0254
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -27473,18 +29925,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0254
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0254
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0254
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -27494,6 +29958,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0254
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -27586,10 +30054,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0255
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0255
+     * </pre>
      */
     int getUserId();
 
@@ -27736,12 +30212,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0255
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0255
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -28070,18 +30554,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0255
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0255
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0255
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -28091,6 +30587,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0255
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -28243,10 +30743,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0256
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0256
+     * </pre>
      */
     int getUserId();
 
@@ -28371,12 +30879,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0256
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0256
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -28657,18 +31173,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0256
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0256
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0256
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -28678,6 +31206,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0256
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -28770,10 +31302,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0257
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0257
+     * </pre>
      */
     int getUserId();
 
@@ -28884,12 +31424,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0257
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0257
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -29130,18 +31678,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0257
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0257
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0257
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -29151,6 +31711,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0257
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -29211,10 +31775,18 @@ public final class IMBuddy {
 
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0258
+     * </pre>
      */
     boolean hasUserId();
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0258
+     * </pre>
      */
     int getUserId();
 
@@ -29364,12 +31936,20 @@ public final class IMBuddy {
     private int userId_;
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0258
+     * </pre>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0258
+     * </pre>
      */
     public int getUserId() {
       return userId_;
@@ -29722,18 +32302,30 @@ public final class IMBuddy {
       private int userId_ ;
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0258
+       * </pre>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0258
+       * </pre>
        */
       public int getUserId() {
         return userId_;
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0258
+       * </pre>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -29743,6 +32335,10 @@ public final class IMBuddy {
       }
       /**
        * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0258
+       * </pre>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -29962,7 +32558,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0251
+     *cmd id:        0x0259
      * </pre>
      */
     boolean hasUserId();
@@ -29970,7 +32566,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0251
+     *cmd id:        0x0259
      * </pre>
      */
     int getUserId();
@@ -30128,7 +32724,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0251
+     *cmd id:        0x0259
      * </pre>
      */
     public boolean hasUserId() {
@@ -30138,7 +32734,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0251
+     *cmd id:        0x0259
      * </pre>
      */
     public int getUserId() {
@@ -30478,7 +33074,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0251
+       *cmd id:        0x0259
        * </pre>
        */
       public boolean hasUserId() {
@@ -30488,7 +33084,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0251
+       *cmd id:        0x0259
        * </pre>
        */
       public int getUserId() {
@@ -30498,7 +33094,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0251
+       *cmd id:        0x0259
        * </pre>
        */
       public Builder setUserId(int value) {
@@ -30511,7 +33107,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0251
+       *cmd id:        0x0259
        * </pre>
        */
       public Builder clearUserId() {
@@ -30695,7 +33291,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0252
+     *cmd id:        0x025a
      * </pre>
      */
     boolean hasUserId();
@@ -30703,7 +33299,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0252
+     *cmd id:        0x025a
      * </pre>
      */
     int getUserId();
@@ -30856,7 +33452,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0252
+     *cmd id:        0x025a
      * </pre>
      */
     public boolean hasUserId() {
@@ -30866,7 +33462,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0252
+     *cmd id:        0x025a
      * </pre>
      */
     public int getUserId() {
@@ -31222,7 +33818,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0252
+       *cmd id:        0x025a
        * </pre>
        */
       public boolean hasUserId() {
@@ -31232,7 +33828,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0252
+       *cmd id:        0x025a
        * </pre>
        */
       public int getUserId() {
@@ -31242,7 +33838,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0252
+       *cmd id:        0x025a
        * </pre>
        */
       public Builder setUserId(int value) {
@@ -31255,7 +33851,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0252
+       *cmd id:        0x025a
        * </pre>
        */
       public Builder clearUserId() {
@@ -31476,7 +34072,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0261
+     *cmd id:        0x025b
      * </pre>
      */
     boolean hasUserId();
@@ -31484,7 +34080,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0261
+     *cmd id:        0x025b
      * </pre>
      */
     int getUserId();
@@ -31630,7 +34226,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0261
+     *cmd id:        0x025b
      * </pre>
      */
     public boolean hasUserId() {
@@ -31640,7 +34236,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0261
+     *cmd id:        0x025b
      * </pre>
      */
     public int getUserId() {
@@ -31965,7 +34561,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0261
+       *cmd id:        0x025b
        * </pre>
        */
       public boolean hasUserId() {
@@ -31975,7 +34571,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0261
+       *cmd id:        0x025b
        * </pre>
        */
       public int getUserId() {
@@ -31985,7 +34581,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0261
+       *cmd id:        0x025b
        * </pre>
        */
       public Builder setUserId(int value) {
@@ -31998,7 +34594,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0261
+       *cmd id:        0x025b
        * </pre>
        */
       public Builder clearUserId() {
@@ -32154,15 +34750,15 @@ public final class IMBuddy {
     // @@protoc_insertion_point(class_scope:IM.Buddy.GetScenicHotelReq)
   }
 
-  public interface GetScenicSpotRspOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:IM.Buddy.GetScenicSpotRsp)
+  public interface GetScenicHotelRspOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.GetScenicHotelRsp)
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0262
+     *cmd id:        0x025c
      * </pre>
      */
     boolean hasUserId();
@@ -32170,7 +34766,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0262
+     *cmd id:        0x025c
      * </pre>
      */
     int getUserId();
@@ -32222,30 +34818,30 @@ public final class IMBuddy {
     com.google.protobuf.ByteString getAttachData();
   }
   /**
-   * Protobuf type {@code IM.Buddy.GetScenicSpotRsp}
+   * Protobuf type {@code IM.Buddy.GetScenicHotelRsp}
    */
-  public static final class GetScenicSpotRsp extends
+  public static final class GetScenicHotelRsp extends
       com.google.protobuf.GeneratedMessageLite implements
-      // @@protoc_insertion_point(message_implements:IM.Buddy.GetScenicSpotRsp)
-      GetScenicSpotRspOrBuilder {
-    // Use GetScenicSpotRsp.newBuilder() to construct.
-    private GetScenicSpotRsp(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      // @@protoc_insertion_point(message_implements:IM.Buddy.GetScenicHotelRsp)
+      GetScenicHotelRspOrBuilder {
+    // Use GetScenicHotelRsp.newBuilder() to construct.
+    private GetScenicHotelRsp(com.google.protobuf.GeneratedMessageLite.Builder builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private GetScenicSpotRsp(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+    private GetScenicHotelRsp(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
 
-    private static final GetScenicSpotRsp defaultInstance;
-    public static GetScenicSpotRsp getDefaultInstance() {
+    private static final GetScenicHotelRsp defaultInstance;
+    public static GetScenicHotelRsp getDefaultInstance() {
       return defaultInstance;
     }
 
-    public GetScenicSpotRsp getDefaultInstanceForType() {
+    public GetScenicHotelRsp getDefaultInstanceForType() {
       return defaultInstance;
     }
 
     private final com.google.protobuf.ByteString unknownFields;
-    private GetScenicSpotRsp(
+    private GetScenicHotelRsp(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -32326,18 +34922,18 @@ public final class IMBuddy {
         makeExtensionsImmutable();
       }
     }
-    public static com.google.protobuf.Parser<GetScenicSpotRsp> PARSER =
-        new com.google.protobuf.AbstractParser<GetScenicSpotRsp>() {
-      public GetScenicSpotRsp parsePartialFrom(
+    public static com.google.protobuf.Parser<GetScenicHotelRsp> PARSER =
+        new com.google.protobuf.AbstractParser<GetScenicHotelRsp>() {
+      public GetScenicHotelRsp parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetScenicSpotRsp(input, extensionRegistry);
+        return new GetScenicHotelRsp(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetScenicSpotRsp> getParserForType() {
+    public com.google.protobuf.Parser<GetScenicHotelRsp> getParserForType() {
       return PARSER;
     }
 
@@ -32348,7 +34944,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0262
+     *cmd id:        0x025c
      * </pre>
      */
     public boolean hasUserId() {
@@ -32358,7 +34954,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0262
+     *cmd id:        0x025c
      * </pre>
      */
     public int getUserId() {
@@ -32561,53 +35157,53 @@ public final class IMBuddy {
       return super.writeReplace();
     }
 
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(byte[] data)
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(java.io.InputStream input)
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseDelimitedFrom(java.io.InputStream input)
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseDelimitedFrom(
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parseFrom(
+    public static com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -32616,21 +35212,21 @@ public final class IMBuddy {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp prototype) {
+    public static Builder newBuilder(com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
 
     /**
-     * Protobuf type {@code IM.Buddy.GetScenicSpotRsp}
+     * Protobuf type {@code IM.Buddy.GetScenicHotelRsp}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
-          com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp, Builder>
+          com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp, Builder>
         implements
-        // @@protoc_insertion_point(builder_implements:IM.Buddy.GetScenicSpotRsp)
-        com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp.newBuilder()
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.GetScenicHotelRsp)
+        com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRspOrBuilder {
+      // Construct using com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -32660,20 +35256,20 @@ public final class IMBuddy {
         return create().mergeFrom(buildPartial());
       }
 
-      public com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp getDefaultInstanceForType() {
-        return com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp.getDefaultInstance();
+      public com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp getDefaultInstanceForType() {
+        return com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp.getDefaultInstance();
       }
 
-      public com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp build() {
-        com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp result = buildPartial();
+      public com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp build() {
+        com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp buildPartial() {
-        com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp result = new com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp(this);
+      public com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp buildPartial() {
+        com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp result = new com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -32702,8 +35298,8 @@ public final class IMBuddy {
         return result;
       }
 
-      public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp other) {
-        if (other == com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp other) {
+        if (other == com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp.getDefaultInstance()) return this;
         if (other.hasUserId()) {
           setUserId(other.getUserId());
         }
@@ -32766,11 +35362,11 @@ public final class IMBuddy {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp parsedMessage = null;
+        com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.mogujie.tt.protobuf.IMBuddy.GetScenicSpotRsp) e.getUnfinishedMessage();
+          parsedMessage = (com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -32786,7 +35382,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0262
+       *cmd id:        0x025c
        * </pre>
        */
       public boolean hasUserId() {
@@ -32796,7 +35392,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0262
+       *cmd id:        0x025c
        * </pre>
        */
       public int getUserId() {
@@ -32806,7 +35402,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0262
+       *cmd id:        0x025c
        * </pre>
        */
       public Builder setUserId(int value) {
@@ -32819,7 +35415,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0262
+       *cmd id:        0x025c
        * </pre>
        */
       public Builder clearUserId() {
@@ -33146,15 +35742,15 @@ public final class IMBuddy {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:IM.Buddy.GetScenicSpotRsp)
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.GetScenicHotelRsp)
     }
 
     static {
-      defaultInstance = new GetScenicSpotRsp(true);
+      defaultInstance = new GetScenicHotelRsp(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:IM.Buddy.GetScenicSpotRsp)
+    // @@protoc_insertion_point(class_scope:IM.Buddy.GetScenicHotelRsp)
   }
 
 

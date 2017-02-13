@@ -22,6 +22,10 @@ public class HotelEntity {
     /** Not-null value. */
     private String url;
     private int price;
+    /** Not-null value. */
+    private String startTime;
+    /** Not-null value. */
+    private String endTime;
     private int distance;
     private int select;
     private int version;
@@ -39,7 +43,7 @@ public class HotelEntity {
         this.id = id;
     }
 
-    public HotelEntity(Long id, int peerId, String name, String pic, int star, String tag, int mustGo, String url, int price, int distance, int select, int version, int status, int created, int updated) {
+    public HotelEntity(Long id, int peerId, String name, String pic, int star, String tag, int mustGo, String url, int price, String startTime, String endTime, int distance, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
         this.name = name;
@@ -49,6 +53,8 @@ public class HotelEntity {
         this.mustGo = mustGo;
         this.url = url;
         this.price = price;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.distance = distance;
         this.select = select;
         this.version = version;
@@ -135,6 +141,26 @@ public class HotelEntity {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    /** Not-null value. */
+    public String getStartTime() {
+        return startTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    /** Not-null value. */
+    public String getEndTime() {
+        return endTime;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public int getDistance() {
