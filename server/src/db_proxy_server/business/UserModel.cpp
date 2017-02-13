@@ -816,7 +816,7 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
                 pMyTravel->mutable_travel_detail()->mutable_transport_tool()->set_allocated_from_info(&travelToolMap[pResultSet->GetInt("transToolToId")]);
                 pMyTravel->mutable_travel_detail()->mutable_transport_tool()->set_allocated_back_info(&travelToolMap[pResultSet->GetInt("transToolBackId")]);
             
-                strIds += int2string(pMyTravel->id()) + ","
+                strIds += int2string(pMyTravel->db_idx()) + ",";
             }
             delete pResultSet;
         }
@@ -825,7 +825,7 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
             log(" no result set for sql:%s", strSql.c_str());
         }
 
-        strIds += "0"
+        strIds += "0";
         strSql = "SELECT * FROM IMPlayDetail where status=0 and travelBasicId in (" + strIds + ") order by id, dayTimeFrom";
         pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
         if (pResultSet)
@@ -842,12 +842,12 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
                     for (; i < count; ++i)
                     {
                         pMyTravel = rsp.mutable_my_travel(i);
-                        if (myTravel->id() == id)
+                        if (pMyTravel->db_idx() == id)
                         {
                             break;
                         }
                     }
-                    if (i == count) {myTravel = NUll;}
+                    if (i == count) {pMyTravel = NULL;}
 
                     if (pMyTravel != NULL) 
                     {
@@ -856,14 +856,14 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
                             IM::Buddy::DayScenic* pDayScenic = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_scenic();
                             pDayScenic->set_daytimefrom(pResultSet->GetString("dayTimeFrom"));
                             pDayScenic->set_daytimeto(pResultSet->GetString("dayTimeTo"));
-                            pDayScenic->set_allocated_scenic_info(scenicMap[pResultSet->GetString("itemId")]);
+                            pDayScenic->set_allocated_scenic_info(&scenicMap[pResultSet->GetInt("itemId")]);
                         }
                         else if (pResultSet->GetInt("type") == 2)
                         {
-                            IM::Buddy::HotelInfo* pDayHotel = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_hotel();
+                            IM::Buddy::DayHotel* pDayHotel = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_hotel();
                             pDayHotel->set_daytimefrom(pResultSet->GetString("dayTimeFrom"));
                             pDayHotel->set_daytimeto(pResultSet->GetString("dayTimeTo"));
-                            pDayHotel->set_allocated_hotel_info(hotelMap[pResultSet->GetString("itemId")]);
+                            pDayHotel->set_allocated_hotel_info(&hotelMap[pResultSet->GetInt("itemId")]);
                         }
                         else {}
                         
@@ -879,17 +879,16 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
                             IM::Buddy::DayScenic* pDayScenic = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_scenic();
                             pDayScenic->set_daytimefrom(pResultSet->GetString("dayTimeFrom"));
                             pDayScenic->set_daytimeto(pResultSet->GetString("dayTimeTo"));
-                            pDayScenic->set_allocated_scenic_info(scenicMap[pResultSet->GetString("itemId")]);
+                            pDayScenic->set_allocated_scenic_info(&scenicMap[pResultSet->GetInt("itemId")]);
                         }
                         else if (pResultSet->GetInt("type") == 2)
                         {
-                            IM::Buddy::HotelInfo* pDayHotel = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_hotel();
+                            IM::Buddy::DayHotel* pDayHotel = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_hotel();
                             pDayHotel->set_daytimefrom(pResultSet->GetString("dayTimeFrom"));
                             pDayHotel->set_daytimeto(pResultSet->GetString("dayTimeTo"));
-                            pDayHotel->set_allocated_hotel_info(hotelMap[pResultSet->GetString("itemId")]);
+                            pDayHotel->set_allocated_hotel_info(&hotelMap[pResultSet->GetInt("itemId")]);
                         }
                         else {}
-                        
                     }
                 }
             }
