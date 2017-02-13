@@ -465,7 +465,7 @@ CREATE TABLE `IMHotel` (
   `name` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '名称',
   `score` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评分',
   `tags` varchar(256) COLLATE utf8mb4_bin NOT NULL COMMENT '标签',
-  `mustsee` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '是否必去',
+  `mustSee` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '是否必去',
   `url` varchar(256) COLLATE utf8mb4_bin NOT NULL COMMENT '介绍网址',
   `class` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '等级',
   `price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '价格',
@@ -482,6 +482,7 @@ CREATE TABLE `IMHotel` (
 
 LOCK TABLES `IMHotel` WRITE;
 /*!40000 ALTER TABLE `IMHotel` DISABLE KEYS */;
+INSERT INTO `IMHotel` VALUES (1,'XMN','厦门鼓浪屿嫣然小屋旅馆',100,'奢华',1,'http://www.163.com','50',45700,784,0),(2,'XMN','厦门温柔心度假屋',100,'经济',1,'http://www.baidu.com','50',62000,300,0);
 /*!40000 ALTER TABLE `IMHotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -767,9 +768,10 @@ DROP TABLE IF EXISTS `IMPlayDetail`;
 CREATE TABLE `IMPlayDetail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `travelBasicId` int(11) unsigned NOT NULL COMMENT 'IMTravelBasicInfo id',
-  `day` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '第几天',
-  `hotelId` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '酒店id',
-  `scenicIds` varchar(50) COLLATE utf8mb4_bin NOT NULL COMMENT '游玩景点列表 1-2-3',
+  `type` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '1-景点 2-酒店',
+  `itemId` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'id',
+  `dayTimeFrom` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '2017-02-07 18:00',
+  `dayTimeTo` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '2017-02-08 12:00',
   `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '0 is ok',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -851,18 +853,18 @@ DROP TABLE IF EXISTS `IMScenic`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `IMScenic` (
   `id` int(11) unsigned NOT NULL DEFAULT '1' COMMENT 'id',
-  `cityCode` varchar(5) COLLATE utf8mb4_bin NOT NULL COMMENT '所属城市编码',
+  `cityCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '所属城市编码',
   `name` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '名称',
   `score` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评分',
   `tags` varchar(256) COLLATE utf8mb4_bin NOT NULL COMMENT '标签',
   `free` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '是否免费',
-  `mustsee` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '是否必去',
+  `mustSee` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '是否必去',
   `url` varchar(256) COLLATE utf8mb4_bin NOT NULL COMMENT '介绍网址',
   `class` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '等级',
-  `playtime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '游玩时长',
+  `playTime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '游玩时长',
   `price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '价格',
-  `besttimefrom` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '最佳游戏开始时间',
-  `besttimeto` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '最佳游戏结束时间',
+  `bestTimeFrom` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '最佳游戏开始时间',
+  `bestTimeTo` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '最佳游戏结束时间',
   `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '0 is ok',
   PRIMARY KEY (`id`),
   KEY `idx_cityCode_name_class` (`cityCode`,`name`,`class`)
@@ -875,6 +877,7 @@ CREATE TABLE `IMScenic` (
 
 LOCK TABLES `IMScenic` WRITE;
 /*!40000 ALTER TABLE `IMScenic` DISABLE KEYS */;
+INSERT INTO `IMScenic` VALUES (1,'XMN','鼓浪屿',83,'文娱 自然',0,1,'http://www.baidu.com','50',8,100,'09:00','17:00',0);
 /*!40000 ALTER TABLE `IMScenic` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -890,21 +893,21 @@ CREATE TABLE `IMTravelBasicInfo` (
   `userId` int(11) unsigned NOT NULL COMMENT '用户id',
   `cost` int(11) unsigned NOT NULL,
   `personNum` int(11) unsigned NOT NULL COMMENT '游玩人数',
-  `placeFromCode` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '出发地城市',
-  `placeBackCode` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '回程城市',
-  `placeToCode` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '目的地城市',
-  `dateFrom` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '起始日期',
-  `dateTo` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '结束日期',
+  `placeFromCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '出发地城市',
+  `placeBackCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '回程城市',
+  `placeToCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '目的地城市',
+  `dateFrom` varchar(16) COLLATE utf8mb4_bin NOT NULL COMMENT '起始日期',
+  `dateTo` varchar(16) COLLATE utf8mb4_bin NOT NULL COMMENT '结束日期',
   `toolType` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '交通类型 pb:TransportToolType',
-  `timeFrom` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '起始时间',
-  `timeTo` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '结束时间',
+  `timeFrom` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '起始时间',
+  `timeTo` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '结束时间',
   `qualityType` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'pb:QualityType',
   `transit` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '中转次数',
   `transToolToId` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '去程交通工具',
   `transToolBackId` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '去程交通工具',
   `playQualityType` int(11) unsigned NOT NULL COMMENT 'pb:QualityType',
-  `playTimeFrom` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '起始时间',
-  `playTimeTo` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '结束时间',
+  `playTimeFrom` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '起始时间',
+  `playTimeTo` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '结束时间',
   `playToolType` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '交通类型 pb:TransportToolType',
   `positionType` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'pb:PositionType',
   `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '0 is ok',
@@ -932,13 +935,13 @@ CREATE TABLE `IMTravelTool` (
   `id` int(11) unsigned NOT NULL COMMENT 'id',
   `type` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '票类型 1-机票，2-火车，3-汽车',
   `no` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '编号',
-  `placeFromCode` varchar(5) COLLATE utf8mb4_bin NOT NULL COMMENT '出发地编码',
+  `placeFromCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '出发地编码',
   `placeFrom` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '出发地名称',
-  `placeToCode` varchar(5) COLLATE utf8mb4_bin NOT NULL COMMENT '目的地编码',
+  `placeToCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '目的地编码',
   `placeTo` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '目的地名称',
-  `timeFrom` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '起始时间´',
-  `timeTo` varchar(6) COLLATE utf8mb4_bin NOT NULL COMMENT '结束时间´',
-  `class` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '等级',
+  `timeFrom` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '起始时间´',
+  `timeTo` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '结束时间´',
+  `class` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '等级',
   `price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '价格',
   `comment` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '说明',
   `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '0 is ok',
@@ -953,7 +956,7 @@ CREATE TABLE `IMTravelTool` (
 
 LOCK TABLES `IMTravelTool` WRITE;
 /*!40000 ALTER TABLE `IMTravelTool` DISABLE KEYS */;
-INSERT INTO `IMTravelTool` VALUES (1,1,'D936','SZX','深圳北','XMN','厦门北','20:15','23:26',0,15050,NULL,0),(2,1,'D942','SZX','深圳北','XMN','厦门北','20:20','23:31',0,15050,NULL,0),(3,1,'D3126','SZX','深圳北','XMN','厦门北','07:00','10:42',0,15050,NULL,0),(4,1,'D2350','SZX','深圳北','XMN','厦门北','07:35','11:13',0,15050,NULL,0),(5,1,'D674','SZX','深圳北','XMN','厦门北','07:45','11:33',0,15450,NULL,0),(6,1,'D2342','SZX','深圳北','XMN','厦门北','07:50','11:26',0,15050,NULL,0),(7,1,'D2294','SZX','深圳北','XMN','厦门北','07:55','11:41',0,15050,NULL,0),(8,1,'D2302','SZX','深圳北','XMN','厦门北','08:06','11:47',0,15450,NULL,0),(9,1,'D3108','SZX','深圳北','XMN','厦门北','08:11','11:54',0,15050,NULL,0),(10,1,'D2344','SZX','深圳北','XMN','厦门北','08:16','12:14',0,15050,NULL,0),(11,1,'D2308','SZX','深圳北','XMN','厦门北','08:32','12:25',0,15050,NULL,0),(12,1,'D2346','SZX','深圳北','XMN','厦门北','08:42','12:34',0,15050,NULL,0),(13,1,'D2284','SZX','深圳北','XMN','厦门北','08:47','12:39',0,15050,NULL,0),(14,1,'G1602','SZX','深圳北','XMN','厦门北','08:52','12:50',0,15050,NULL,0),(15,1,'D2282','SZX','深圳北','XMN','厦门北','09:13','13:07',0,15050,NULL,0),(16,1,'D682','SZX','深圳北','XMN','厦门北','09:24','13:15',0,15450,NULL,0),(17,1,'D2310','SZX','深圳北','XMN','厦门北','09:45','13:34',0,15050,NULL,0),(18,1,'D2286','SZX','深圳北','XMN','厦门北','09:55','13:47',0,15050,NULL,0),(19,1,'D2334','SZX','深圳北','XMN','厦门北','10:11','14:09',0,15450,NULL,0),(20,1,'D2316','SZX','深圳北','XMN','厦门北','10:25','14:16',0,15450,NULL,0),(21,1,'D2288','SZX','深圳北','XMN','厦门北','10:40','14:31',0,15050,NULL,0),(22,1,'D3112','SZX','深圳北','XMN','厦门北','11:17','15:11',0,15050,NULL,0),(23,1,'D2318','SZX','深圳北','XMN','厦门北','11:56','15:39',0,15050,NULL,0),(24,1,'D684','SZX','深圳北','XMN','厦门北','12:15','16:07',0,15450,NULL,0),(25,1,'D2338','SZX','深圳北','XMN','厦门北','12:20','16:20',0,15450,NULL,0),(26,1,'D2322','SZX','深圳北','XMN','厦门北','13:00','16:53',0,15050,NULL,0),(27,1,'D2324','SZX','深圳北','XMN','厦门北','13:54','17:54',0,15050,NULL,0),(28,1,'D2304','SZX','深圳北','XMN','厦门北','14:55','18:31',0,15050,NULL,0),(29,1,'D2298','SZX','深圳北','XMN','厦门北','15:06','18:58',0,15050,NULL,0),(30,1,'D2328','SZX','深圳北','XMN','厦门北','15:25','19:18',0,15050,NULL,0),(31,1,'D2296','SZX','深圳北','XMN','厦门北','15:38','19:23',0,15050,NULL,0),(32,1,'D2330','SZX','深圳北','XMN','厦门北','15:46','19:31',0,15050,NULL,0),(33,1,'D2306','SZX','深圳北','XMN','厦门北','16:07','19:56',0,15050,NULL,0),(34,1,'D672','SZX','深圳北','XMN','厦门北','16:14','20:03',0,15050,NULL,0),(35,1,'D2326','SZX','深圳北','XMN','厦门北','16:19','20:17',0,15050,NULL,0),(36,1,'D2312','SZX','深圳北','XMN','厦门北','16:43','20:37',0,15050,NULL,0),(37,1,'D2314','SZX','深圳北','XMN','厦门北','17:10','20:52',0,15050,NULL,0),(38,1,'D2315','XMN','厦门北','SZX','深圳北','07:42','11:23',0,15050,NULL,0),(39,1,'D2335','XMN','厦门北','SZX','深圳北','07:59','11:57',0,15450,NULL,0),(40,1,'D681','XMN','厦门北','SZX','深圳北','08:04','11:49',0,15050,NULL,0),(41,1,'D2313','XMN','厦门北','SZX','深圳北','08:50','12:38',0,15050,NULL,0),(42,1,'D2327','XMN','厦门北','SZX','深圳北','09:08','12:59',0,15050,NULL,0),(43,1,'D2311','XMN','厦门北','SZX','深圳北','09:32','13:25',0,15050,NULL,0),(44,1,'D2295','XMN','厦门北','SZX','深圳北','09:47','13:36',0,15050,NULL,0),(45,1,'D2297','XMN','厦门北','SZX','深圳北','10:44','14:26',0,15050,NULL,0),(46,1,'D2301','XMN','厦门北','SZX','深圳北','10:55','14:32',0,15050,NULL,0),(47,1,'D2323','XMN','厦门北','SZX','深圳北','11:15','14:55',0,15050,NULL,0),(48,1,'D3337','XMN','厦门北','SZX','深圳北','11:26','15:24',0,15050,NULL,0),(49,1,'D2329','XMN','厦门北','SZX','深圳北','11:37','15:29',0,15050,NULL,0),(50,1,'D2341','XMN','厦门北','SZX','深圳北','11:47','15:39',0,15050,NULL,0),(51,1,'D2303','XMN','厦门北','SZX','深圳北','11:54','15:34',0,15050,NULL,0),(52,1,'D673','XMN','厦门北','SZX','深圳北','11:57','15:50',0,15450,NULL,0),(53,1,'D2325','XMN','厦门北','SZX','深圳北','12:17','15:59',0,15050,NULL,0),(54,1,'D2349','XMN','厦门北','SZX','深圳北','12:28','16:15',0,15050,NULL,0),(55,1,'D2321','XMN','厦门北','SZX','深圳北','13:00','16:49',0,15050,NULL,0),(56,1,'D2345','XMN','厦门北','SZX','深圳北','13:27','17:08',0,15050,NULL,0),(57,1,'D2343','XMN','厦门北','SZX','深圳北','13:40','17:20',0,15050,NULL,0),(58,1,'D683','XMN','厦门北','SZX','深圳北','13:41','17:40',0,15450,NULL,0),(59,1,'D2331','XMN','厦门北','SZX','深圳北','14:19','17:57',0,15050,NULL,0),(60,1,'D3111','XMN','厦门北','SZX','深圳北','14:28','18:12',0,15050,NULL,0),(61,1,'D2317','XMN','厦门北','SZX','深圳北','14:37','18:36',0,15450,NULL,0),(62,1,'D2333','XMN','厦门北','SZX','深圳北','14:53','18:53',0,15450,NULL,0),(63,1,'D2287','XMN','厦门北','SZX','深圳北','15:43','19:19',0,15050,NULL,0),(64,1,'G1601','XMN','厦门北','SZX','深圳北','15:57','19:37',0,15050,NULL,0),(65,1,'D2319','XMN','厦门北','SZX','深圳北','16:03','19:59',0,15050,NULL,0),(66,1,'D2305','XMN','厦门北','SZX','深圳北','16:20','20:19',0,15450,NULL,0),(67,1,'D2307','XMN','厦门北','SZX','深圳北','16:24','20:12',0,15050,NULL,0),(68,1,'D2337','XMN','厦门北','SZX','深圳北','16:42','20:33',0,15450,NULL,0),(69,1,'D3125','XMN','厦门北','SZX','深圳北','16:57','20:39',0,15050,NULL,0),(70,1,'D2285','XMN','厦门北','SZX','深圳北','17:03','20:45',0,15050,NULL,0),(71,1,'D685','XMN','厦门北','SZX','深圳北','17:12','21:10',0,15450,NULL,0),(72,1,'D2309','XMN','厦门北','SZX','深圳北','17:17','21:16',0,15050,NULL,0),(73,1,'D3107','XMN','厦门北','SZX','深圳北','17:56','21:24',0,15050,NULL,0),(74,1,'D2281','XMN','厦门北','SZX','深圳北','18:15','22:09',0,15050,NULL,0),(75,1,'D2353','XMN','厦门北','SZX','深圳北','18:45','22:39',0,15050,NULL,0),(76,1,'D2283','XMN','厦门北','SZX','深圳北','19:08','22:51',0,15050,NULL,0),(77,1,'D2293','XMN','厦门北','SZX','深圳北','19:21','23:08',0,15050,NULL,0),(78,1,'D671','XMN','厦门北','SZX','深圳北','20:00','23:38',0,15050,NULL,0),(79,2,'海南航空HU7065','SZX','宝安国际机场T3','XMN','高崎国际机场T4','07:45','08:55',0,38500,NULL,0),(80,2,'厦门航空MF8069','SZX','宝安国际机场T3','XMN','高崎国际机场T4','09:40','10:55',0,128400,NULL,0),(81,2,'河北航空NS8069','SZX','宝安国际机场T3','XMN','高崎国际机场T4','09:40','10:55',0,129500,NULL,0),(82,2,'厦门航空MF846','SZX','宝安国际机场T3','XMN','高崎国际机场T4','20:15','21:25',0,129200,NULL,0);
+INSERT INTO `IMTravelTool` VALUES (1,1,'D936','SZX','深圳北','XMN','厦门北','20:15','23:26','二等座',15050,NULL,0),(2,1,'D942','SZX','深圳北','XMN','厦门北','20:20','23:31','二等座',15050,NULL,0),(3,1,'D3126','SZX','深圳北','XMN','厦门北','07:00','10:42','二等座',15050,NULL,0),(4,1,'D2350','SZX','深圳北','XMN','厦门北','07:35','11:13','二等座',15050,NULL,0),(5,1,'D674','SZX','深圳北','XMN','厦门北','07:45','11:33','二等座',15450,NULL,0),(6,1,'D2342','SZX','深圳北','XMN','厦门北','07:50','11:26','二等座',15050,NULL,0),(7,1,'D2294','SZX','深圳北','XMN','厦门北','07:55','11:41','二等座',15050,NULL,0),(8,1,'D2302','SZX','深圳北','XMN','厦门北','08:06','11:47','二等座',15450,NULL,0),(9,1,'D3108','SZX','深圳北','XMN','厦门北','08:11','11:54','二等座',15050,NULL,0),(10,1,'D2344','SZX','深圳北','XMN','厦门北','08:16','12:14','二等座',15050,NULL,0),(11,1,'D2308','SZX','深圳北','XMN','厦门北','08:32','12:25','二等座',15050,NULL,0),(12,1,'D2346','SZX','深圳北','XMN','厦门北','08:42','12:34','二等座',15050,NULL,0),(13,1,'D2284','SZX','深圳北','XMN','厦门北','08:47','12:39','二等座',15050,NULL,0),(14,1,'G1602','SZX','深圳北','XMN','厦门北','08:52','12:50','二等座',15050,NULL,0),(15,1,'D2282','SZX','深圳北','XMN','厦门北','09:13','13:07','二等座',15050,NULL,0),(16,1,'D682','SZX','深圳北','XMN','厦门北','09:24','13:15','二等座',15450,NULL,0),(17,1,'D2310','SZX','深圳北','XMN','厦门北','09:45','13:34','二等座',15050,NULL,0),(18,1,'D2286','SZX','深圳北','XMN','厦门北','09:55','13:47','二等座',15050,NULL,0),(19,1,'D2334','SZX','深圳北','XMN','厦门北','10:11','14:09','二等座',15450,NULL,0),(20,1,'D2316','SZX','深圳北','XMN','厦门北','10:25','14:16','二等座',15450,NULL,0),(21,1,'D2288','SZX','深圳北','XMN','厦门北','10:40','14:31','二等座',15050,NULL,0),(22,1,'D3112','SZX','深圳北','XMN','厦门北','11:17','15:11','二等座',15050,NULL,0),(23,1,'D2318','SZX','深圳北','XMN','厦门北','11:56','15:39','二等座',15050,NULL,0),(24,1,'D684','SZX','深圳北','XMN','厦门北','12:15','16:07','二等座',15450,NULL,0),(25,1,'D2338','SZX','深圳北','XMN','厦门北','12:20','16:20','二等座',15450,NULL,0),(26,1,'D2322','SZX','深圳北','XMN','厦门北','13:00','16:53','二等座',15050,NULL,0),(27,1,'D2324','SZX','深圳北','XMN','厦门北','13:54','17:54','二等座',15050,NULL,0),(28,1,'D2304','SZX','深圳北','XMN','厦门北','14:55','18:31','二等座',15050,NULL,0),(29,1,'D2298','SZX','深圳北','XMN','厦门北','15:06','18:58','二等座',15050,NULL,0),(30,1,'D2328','SZX','深圳北','XMN','厦门北','15:25','19:18','二等座',15050,NULL,0),(31,1,'D2296','SZX','深圳北','XMN','厦门北','15:38','19:23','二等座',15050,NULL,0),(32,1,'D2330','SZX','深圳北','XMN','厦门北','15:46','19:31','二等座',15050,NULL,0),(33,1,'D2306','SZX','深圳北','XMN','厦门北','16:07','19:56','二等座',15050,NULL,0),(34,1,'D672','SZX','深圳北','XMN','厦门北','16:14','20:03','二等座',15050,NULL,0),(35,1,'D2326','SZX','深圳北','XMN','厦门北','16:19','20:17','二等座',15050,NULL,0),(36,1,'D2312','SZX','深圳北','XMN','厦门北','16:43','20:37','二等座',15050,NULL,0),(37,1,'D2314','SZX','深圳北','XMN','厦门北','17:10','20:52','二等座',15050,NULL,0),(38,1,'D2315','XMN','厦门北','SZX','深圳北','07:42','11:23','二等座',15050,NULL,0),(39,1,'D2335','XMN','厦门北','SZX','深圳北','07:59','11:57','二等座',15450,NULL,0),(40,1,'D681','XMN','厦门北','SZX','深圳北','08:04','11:49','二等座',15050,NULL,0),(41,1,'D2313','XMN','厦门北','SZX','深圳北','08:50','12:38','二等座',15050,NULL,0),(42,1,'D2327','XMN','厦门北','SZX','深圳北','09:08','12:59','二等座',15050,NULL,0),(43,1,'D2311','XMN','厦门北','SZX','深圳北','09:32','13:25','二等座',15050,NULL,0),(44,1,'D2295','XMN','厦门北','SZX','深圳北','09:47','13:36','二等座',15050,NULL,0),(45,1,'D2297','XMN','厦门北','SZX','深圳北','10:44','14:26','二等座',15050,NULL,0),(46,1,'D2301','XMN','厦门北','SZX','深圳北','10:55','14:32','二等座',15050,NULL,0),(47,1,'D2323','XMN','厦门北','SZX','深圳北','11:15','14:55','二等座',15050,NULL,0),(48,1,'D3337','XMN','厦门北','SZX','深圳北','11:26','15:24','二等座',15050,NULL,0),(49,1,'D2329','XMN','厦门北','SZX','深圳北','11:37','15:29','二等座',15050,NULL,0),(50,1,'D2341','XMN','厦门北','SZX','深圳北','11:47','15:39','二等座',15050,NULL,0),(51,1,'D2303','XMN','厦门北','SZX','深圳北','11:54','15:34','二等座',15050,NULL,0),(52,1,'D673','XMN','厦门北','SZX','深圳北','11:57','15:50','二等座',15450,NULL,0),(53,1,'D2325','XMN','厦门北','SZX','深圳北','12:17','15:59','二等座',15050,NULL,0),(54,1,'D2349','XMN','厦门北','SZX','深圳北','12:28','16:15','二等座',15050,NULL,0),(55,1,'D2321','XMN','厦门北','SZX','深圳北','13:00','16:49','二等座',15050,NULL,0),(56,1,'D2345','XMN','厦门北','SZX','深圳北','13:27','17:08','二等座',15050,NULL,0),(57,1,'D2343','XMN','厦门北','SZX','深圳北','13:40','17:20','二等座',15050,NULL,0),(58,1,'D683','XMN','厦门北','SZX','深圳北','13:41','17:40','二等座',15450,NULL,0),(59,1,'D2331','XMN','厦门北','SZX','深圳北','14:19','17:57','二等座',15050,NULL,0),(60,1,'D3111','XMN','厦门北','SZX','深圳北','14:28','18:12','二等座',15050,NULL,0),(61,1,'D2317','XMN','厦门北','SZX','深圳北','14:37','18:36','二等座',15450,NULL,0),(62,1,'D2333','XMN','厦门北','SZX','深圳北','14:53','18:53','二等座',15450,NULL,0),(63,1,'D2287','XMN','厦门北','SZX','深圳北','15:43','19:19','二等座',15050,NULL,0),(64,1,'G1601','XMN','厦门北','SZX','深圳北','15:57','19:37','二等座',15050,NULL,0),(65,1,'D2319','XMN','厦门北','SZX','深圳北','16:03','19:59','二等座',15050,NULL,0),(66,1,'D2305','XMN','厦门北','SZX','深圳北','16:20','20:19','二等座',15450,NULL,0),(67,1,'D2307','XMN','厦门北','SZX','深圳北','16:24','20:12','二等座',15050,NULL,0),(68,1,'D2337','XMN','厦门北','SZX','深圳北','16:42','20:33','二等座',15450,NULL,0),(69,1,'D3125','XMN','厦门北','SZX','深圳北','16:57','20:39','二等座',15050,NULL,0),(70,1,'D2285','XMN','厦门北','SZX','深圳北','17:03','20:45','二等座',15050,NULL,0),(71,1,'D685','XMN','厦门北','SZX','深圳北','17:12','21:10','二等座',15450,NULL,0),(72,1,'D2309','XMN','厦门北','SZX','深圳北','17:17','21:16','二等座',15050,NULL,0),(73,1,'D3107','XMN','厦门北','SZX','深圳北','17:56','21:24','二等座',15050,NULL,0),(74,1,'D2281','XMN','厦门北','SZX','深圳北','18:15','22:09','二等座',15050,NULL,0),(75,1,'D2353','XMN','厦门北','SZX','深圳北','18:45','22:39','二等座',15050,NULL,0),(76,1,'D2283','XMN','厦门北','SZX','深圳北','19:08','22:51','二等座',15050,NULL,0),(77,1,'D2293','XMN','厦门北','SZX','深圳北','19:21','23:08','二等座',15050,NULL,0),(78,1,'D671','XMN','厦门北','SZX','深圳北','20:00','23:38','二等座',15050,NULL,0),(79,2,'海南航空HU7065','SZX','宝安国际机场T3','XMN','高崎国际机场T4','07:45','08:55','二等座',38500,NULL,0),(80,2,'厦门航空MF8069','SZX','宝安国际机场T3','XMN','高崎国际机场T4','09:40','10:55','二等座',128400,NULL,0),(81,2,'河北航空NS8069','SZX','宝安国际机场T3','XMN','高崎国际机场T4','09:40','10:55','二等座',129500,NULL,0),(82,2,'厦门航空MF846','SZX','宝安国际机场T3','XMN','高崎国际机场T4','20:15','21:25','二等座',129200,NULL,0);
 /*!40000 ALTER TABLE `IMTravelTool` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1008,50 +1011,135 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
-DROP PROCEDURE IF EXISTS insert_or_update_my_travel;
-DELIMITER ;;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS insert_or_update_my_travel$$
 CREATE PROCEDURE insert_or_update_my_travel(
 IN userId INT,
-IN idx INT,
+IN dbidx INT,
 IN cost INT,
-IN dateFrom VARCHAR(6),
-IN dateTo VARCHAR(6),
-IN placeToCode VARCHAR(32),
+IN dateFrom VARCHAR(16),
+IN dateTo VARCHAR(16),
+IN placeToCode VARCHAR(8),
 IN personNum INT,
-IN placeFromCode VARCHAR(32),
-IN placeBackCode VARCHAR(32),
+IN placeFromCode VARCHAR(8),
+IN placeBackCode VARCHAR(8),
 IN travelToolType INT,
-IN travelTimeFrom VARCHAR(6),
-IN travelTimeTo VARCHAR(6),
+IN travelTimeFrom VARCHAR(8),
+IN travelTimeTo VARCHAR(8),
 IN travelQualityType INT,
 IN transit INT,
 IN transToolToId INT,
 IN transToolBackId INT,
 
 IN playQualityType INT,
-IN playTimeFrom VARCHAR(6),
-IN playTimeTo VARCHAR(6),
+IN playTimeFrom VARCHAR(8),
+IN playTimeTo VARCHAR(8),
 IN playToolType INT,
 IN positionType INT,
-IN hotelId INT,
-IN scenicIds VARCHAR(64)
+IN placeInfos VARCHAR(1024),
+
+OUT ret INT,
+OUT newId INT
 )
+
 BEGIN
+    DECLARE idx INTEGER DEFAULT 1;
+    DECLARE itemCount INTEGER DEFAULT 0;
+    DECLARE item VARCHAR(1024);
+    DECLARE i_type VARCHAR(1024);
+    DECLARE i_id VARCHAR(1024);
+    DECLARE i_timeFrom VARCHAR(1024);
+    DECLARE i_timeTo VARCHAR(1024);
     DECLARE t_error INTEGER DEFAULT 0;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET t_error=1;
+    
+    SET ret = 1;
    
     START TRANSACTION;
-        INSERT INTO IMHotel VALUES(1,'XMN','好地方',98, '人文 历史',1,'http://www.baidu.com',108,99);
-
+        IF dbidx=0 THEN
+            INSERT INTO IMTravelBasicInfo (userId, cost, personNum, placeFromCode, placeBackCode, placeToCode, dateFrom, dateTo, toolType, timeFrom, timeTo, qualityType, transit, transToolToId, transToolBackId, playQualityType, playTimeFrom, playTimeTo, playToolType, positionType, status) VALUES(userId, cost, personNum, placeFromCode, placeBackCode, placeToCode, dateFrom, dateTo, travelToolType, travelTimeFrom, travelTimeTo, travelQualityType, transit, transToolToId, transToolBackId, playQualityType, playTimeFrom, playTimeTo, playToolType, positionType, 0); 
+            SET newId=last_insert_id();
+        ELSE
+            SET newId=dbidx;
+            DELETE FROM IMPlayDetail WHERE travelBasicId=newId;
+            UPDATE IMTravelBasicInfo SET 
+            cost=cost, 
+            personNum=personNum, 
+            placeFromCode=placeFromCode, 
+            placeBackCode=placeBackCode,
+            placeToCode=placeToCode,
+            dateFrom=dateFrom,
+            dateTo=dateTo,
+            toolType=travelToolType,
+            timeFrom=travelTimeFrom,
+            timeTo=travelTimeTo,
+            qualityType=travelQualityType,
+            transit=transit,
+            transToolToId=transToolToId,
+            transToolBackId=transToolBackId,
+            playQualityType=playQualityType,
+            playTimeFrom=playTimeFrom,
+            playTimeTo=playTimeTo,
+            playToolType=playToolType,
+            positionType=positionType
+            WHERE id=newId AND userId=userId;
+        END IF;
+        
+        
+        SET itemCount = split_count(placeInfos, '|');
+        
+        WHILE(idx <= itemCount) DO
+        BEGIN
+            SET item = split(placeInfos, '|', idx);
+            IF split_count(item, '&')=4 THEN
+                SET i_type      = split(item, '&', 1);
+                SET i_id        = split(item, '&', 2);
+                SET i_timeFrom  = split(item, '&', 3);
+                SET i_timeTo    = split(item, '&', 4);
+                INSERT INTO IMPlayDetail (travelBasicId, type, itemId, dayTimeFrom, dayTimeTo) VALUES(newId, CONVERT(i_type, SIGNED), CONVERT(i_id, SIGNED), i_timeFrom, i_timeTo);
+            END IF;
+            
+            SET idx = idx + 1;
+        END;
+        END WHILE;
 
     IF t_error=1 THEN
         ROLLBACK;
     ELSE
         COMMIT;
+        SET ret = 0;
     END IF;
+    
+    SELECT ret, newId;
+END $$
 
-    select t_error;
-END ;;
+SET GLOBAL log_bin_trust_function_creators = 1$$
+DROP FUNCTION IF EXISTS split_count$$
+CREATE FUNCTION split_count(
+f_string varchar(1024),
+f_delimiter varchar(100)
+) RETURNS int(11)
+BEGIN
+    IF length(f_string) = length(replace(f_string,f_delimiter,'')) THEN
+        return 0;
+    ELSE
+        return 1+(length(f_string) - length(replace(f_string,f_delimiter,''))) / length(f_delimiter);
+    END IF;
+END$$
+
+DROP FUNCTION IF EXISTS split$$
+CREATE FUNCTION split(
+f_string varchar(1024),
+f_delimiter varchar(100),
+f_order int) RETURNS varchar(1024) CHARSET utf8
+BEGIN
+    declare result varchar(1024) default '';
+    set result = reverse(substring_index(reverse(substring_index(f_string,f_delimiter,f_order)),reverse(f_delimiter),1));
+    return result;
+END$$
+
 DELIMITER ;
 
 -- Dump completed on 2016-12-18 20:21:02

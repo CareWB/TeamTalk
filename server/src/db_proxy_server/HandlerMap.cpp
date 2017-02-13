@@ -81,6 +81,7 @@ void CHandlerMap::Init()
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_QUERY_REQUEST), DB_PROXY::queryTravelDetail));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST), DB_PROXY::createTravelDetail));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST), DB_PROXY::deleteTravelDetail));
+    m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST), DB_PROXY::updateTravelDetail));
 
     
     // message content

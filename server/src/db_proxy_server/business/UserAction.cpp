@@ -301,6 +301,33 @@ msgResp.set_user_id(from_user_id);
         }
     }
 
+    void updateTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("enter.");
+        IM::Buddy::UpdateMyTravelReq req;
+        IM::Buddy::UpdateMyTravelRsp rsp;
+        if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
+            uint32_t user_id = req.user_id();
+            
+            uint32_t idx = CUserModel::getInstance()->updateTravelDetail(user_id, &req);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(0 != idx ? 0 : 1);
+            if (0 == idx) {
+                log("result user_id=%u, idx=%u", user_id, idx);
+            }
+            
+            CImPdu* pdu_resp = new CImPdu();
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
+            pdu_resp->SetSeqNum(pPdu->GetSeqNum());
+            pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE);
+            CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
+            
+        } else {
+            log("ParseFromArray failed!!!");
+        }
+    }
+
     void queryTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
         log("enter.");
         IM::Buddy::QueryMyTravelReq req;

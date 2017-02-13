@@ -83,9 +83,10 @@ private:
     void _HandleQueryPushShieldRequest(CImPdu* pPdu);
     void _HandleGetTravelTransportToolRequest(CImPdu* pPdu);
     void _HandleGetScenicHotelRequest(CImPdu* pPdu);
-    void _HandleGetTravelListRequest(CImPdu* pPdu);
+    void _HandleQueryTravelRequest(CImPdu* pPdu);
     void _HandleCreateTravelRequest(CImPdu* pPdu);
     void _HandleDeleteTravelRequest(CImPdu* pPdu);
+    void _HandleUpdateTravelRequest(CImPdu* pPdu);
 private:
     string          m_login_name;        //登录名拼音
     uint32_t        m_user_id;

@@ -14,6 +14,9 @@
 #include "Common.h"
 #include "SyncCenter.h"
 
+extern map<int, IM::Buddy::TravelToolInfo> travelToolMap;
+extern map<int, IM::Buddy::ScenicInfo> scenicMap;
+extern map<int, IM::Buddy::HotelInfo> hotelMap;
 
 CUserModel* CUserModel::m_pInstance = NULL;
 
@@ -469,6 +472,7 @@ bool CUserModel::getTransportTool(uint32_t user_id, IM::Buddy::GetTransportToolR
                 IM::Buddy::TravelToolInfo* pTravelToolInfo = rsp.add_travel_tool_info();
                 if (nullptr == pTravelToolInfo) { continue; }
 
+                pTravelToolInfo->set_id(pResultSet->GetInt("id"));
                 pTravelToolInfo->set_transport_tool_type(pResultSet->GetInt("type"));
                 pTravelToolInfo->set_no(pResultSet->GetString("no"));
                 pTravelToolInfo->set_place_from_code(pResultSet->GetString("place_from_code"));
@@ -477,7 +481,7 @@ bool CUserModel::getTransportTool(uint32_t user_id, IM::Buddy::GetTransportToolR
                 pTravelToolInfo->set_place_to(pResultSet->GetString("place_to"));
                 pTravelToolInfo->set_time_from(pResultSet->GetString("time_start"));
                 pTravelToolInfo->set_time_to(pResultSet->GetString("time_end"));
-                pTravelToolInfo->set_class_(int2string(pResultSet->GetInt("class")));
+                pTravelToolInfo->set_class_(pResultSet->GetString("class"));
                 pTravelToolInfo->set_price(pResultSet->GetInt("price"));
             }
             delete pResultSet;
@@ -504,7 +508,7 @@ bool CUserModel::getScenicHotel(uint32_t user_id, IM::Buddy::GetScenicHotelReq& 
     CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
     if (pDBConn)
     {
-        string  strSql = "select * from IMScenic where cityCode='" + req.city_code() + "' order by mustsee desc, score desc, besttimefrom";
+        string  strSql = "select * from IMScenic where cityCode='" + req.city_code() + "' order by mustSee desc, score desc, bestTimeFrom";
         log("sql:%s", strSql.c_str());
         
         CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
@@ -515,17 +519,19 @@ bool CUserModel::getScenicHotel(uint32_t user_id, IM::Buddy::GetScenicHotelReq& 
                 IM::Buddy::ScenicInfo* pScenicInfo = rsp.add_scenic_info();
                 if (nullptr == pScenicInfo) { continue; }
 
+                pScenicInfo->set_id(pResultSet->GetInt("id"));
                 pScenicInfo->set_city_code(pResultSet->GetString("cityCode"));
                 pScenicInfo->set_name(pResultSet->GetString("name"));
                 pScenicInfo->set_score(pResultSet->GetInt("score"));
                 pScenicInfo->set_tags(pResultSet->GetString("tags"));
                 pScenicInfo->set_free(pResultSet->GetInt("free"));
-                pScenicInfo->set_must_see(pResultSet->GetInt("mustsee"));
+                pScenicInfo->set_must_see(pResultSet->GetInt("mustSee"));
                 pScenicInfo->set_url(pResultSet->GetString("url"));
-                pScenicInfo->set_play_time(pResultSet->GetInt("playtime"));
+                pScenicInfo->set_class_(pResultSet->GetString("class"));
+                pScenicInfo->set_play_time(pResultSet->GetInt("playTime"));
                 pScenicInfo->set_price(pResultSet->GetInt("price"));
-                pScenicInfo->set_best_time_from(pResultSet->GetString("besttimefrom"));
-                pScenicInfo->set_best_time_to(pResultSet->GetString("besttimeto"));
+                pScenicInfo->set_best_time_from(pResultSet->GetString("bestTimeFrom"));
+                pScenicInfo->set_best_time_to(pResultSet->GetString("bestTimeTo"));
             }
             delete pResultSet;
         }
@@ -534,7 +540,7 @@ bool CUserModel::getScenicHotel(uint32_t user_id, IM::Buddy::GetScenicHotelReq& 
             log(" no result set for sql:%s", strSql.c_str());
         }
 
-        strSql = "select * from IMHotel where cityCode='" + req.city_code() + "' order by mustsee desc, score desc";
+        strSql = "select * from IMHotel where cityCode='" + req.city_code() + "' order by mustSee desc, score desc";
         log("sql:%s", strSql.c_str());
         pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
         if(pResultSet)
@@ -544,11 +550,12 @@ bool CUserModel::getScenicHotel(uint32_t user_id, IM::Buddy::GetScenicHotelReq& 
                 IM::Buddy::HotelInfo* pHotelInfo = rsp.add_hotel_info();
                 if (nullptr == pHotelInfo) { continue; }
 
+                pHotelInfo->set_id(pResultSet->GetInt("id"));
                 pHotelInfo->set_city_code(pResultSet->GetString("cityCode"));
                 pHotelInfo->set_name(pResultSet->GetString("name"));
                 pHotelInfo->set_score(pResultSet->GetInt("score"));
                 pHotelInfo->set_tags(pResultSet->GetString("tags"));
-                pHotelInfo->set_must_see(pResultSet->GetInt("mustsee"));
+                pHotelInfo->set_must_see(pResultSet->GetInt("mustSee"));
                 pHotelInfo->set_url(pResultSet->GetString("url"));
                 pHotelInfo->set_price(pResultSet->GetInt("price"));
                 pHotelInfo->set_distance(pResultSet->GetInt("distance"));
@@ -572,11 +579,20 @@ bool CUserModel::getScenicHotel(uint32_t user_id, IM::Buddy::GetScenicHotelReq& 
     return ret;
 }
 
+namespace{
+    string string_fmt(const string& str, const char* format, ...) {
+        char szBuffer[20480] = {0};
+        va_list args;
+        va_start(args, format);
+        vsnprintf(szBuffer, sizeof(szBuffer), format, args);
+        va_end(args);
+        return szBuffer;
+    }
+}
+
 
 
 uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTravelReq* pb) {
-    return 0;
-#if 0    
     log("enter.");
     bool bRet = false;
     uint32_t idx = 0;
@@ -584,96 +600,76 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
     CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
     if (pDBConn)
     {
-        string strSql = "insert into IMTravelDetail(`user_id`,`person_num`,`place_from`,`place_back`,`place_to`,`date_start`,`date_end`,`traffic_time_start`,`traffic_time_end`,`traffic_type`,`play_quality_type`,`play_time_start`,`play_time_end`,`city_traffic_type`,`room_num`,`hotel_position_type`,`cost`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        log("insert sql:%s", strSql.c_str());
-        CPrepareStatement* stmt = new CPrepareStatement();
-        if (stmt->Init(pDBConn->GetMysql(), strSql))
-        {
-            uint32_t index = 0;
-            IM::Buddy::CreateMyTravelReq* req = (IM::Buddy::CreateMyTravelReq*)pb;
-            uint32_t person_num = req->travel_detail().travel_info().person_num();
-            uint32_t travel_type = req->travel_detail().traffic_info().travel_type();
-            uint32_t play_quality = req->travel_detail().play_info().play_quality();
-            uint32_t city_traffic = req->travel_detail().play_info().city_traffic();
-            uint32_t hotel_position = req->travel_detail().play_info().hotel_position();
-            uint32_t cost = req->travel_detail().cost();
-            uint32_t room_num = 0;
-            
-            stmt->SetParam(index++, user_id);
-            stmt->SetParam(index++, person_num);
-            stmt->SetParam(index++, req->travel_detail().travel_info().place_from().c_str());
-            stmt->SetParam(index++, req->travel_detail().travel_info().place_back().c_str());
-            stmt->SetParam(index++, req->travel_detail().travel_info().place_to().c_str());
-            stmt->SetParam(index++, req->travel_detail().travel_info().date_from().c_str());
-            stmt->SetParam(index++, req->travel_detail().travel_info().date_to().c_str());
-            stmt->SetParam(index++, req->travel_detail().traffic_info().traffic_time_from().c_str());
-            stmt->SetParam(index++, req->travel_detail().traffic_info().traffic_time_to().c_str());
-            stmt->SetParam(index++, travel_type);
-            stmt->SetParam(index++, play_quality);
-            stmt->SetParam(index++, req->travel_detail().play_info().play_time_from().c_str());
-            stmt->SetParam(index++, req->travel_detail().play_info().play_time_to().c_str());
-            stmt->SetParam(index++, city_traffic);
-            stmt->SetParam(index++, room_num);
-            stmt->SetParam(index++, hotel_position);
-            stmt->SetParam(index++, cost);
-            bRet = stmt->ExecuteUpdate();
-            
-            if (!bRet)
-            {
-                log("insert IMTravelDetail failed: %s", strSql.c_str());
-            }
+        IM::Buddy::CreateMyTravelReq* req = (IM::Buddy::CreateMyTravelReq*)pb;
+        string places;
+        int size = req->my_travel().travel_detail().play_detail().day_hotel_size();
+    	for (int n = 0; n < size; ++n) {            
+            const IM::Buddy::DayHotel& hotel = req->my_travel().travel_detail().play_detail().day_hotel(n);
+            string tmp;
+            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, hotel.hotel_info().id(), hotel.daytimefrom().c_str(), hotel.daytimeto().c_str());
 
-            strSql = "SELECT id from IMTravelDetail order by id desc limit 0,1";
-            CResultSet* result_set = pDBConn->ExecuteQuery(strSql.c_str());
-            if(result_set) {
-                if (result_set->Next()) {
-                    idx = result_set->GetInt("id");
-                }
-                delete result_set;
+            if (n == size - 1) {
+                places = places + tmp;
             }
-            delete stmt;
-            pDBManager->RelDBConn(pDBConn);
-        }
-    }
-    else
-    {
-        log("no db connection for teamtalk_master");
-    }
-    return idx;
-#endif
-}
+            else {
+                places = places + tmp + "|";
+            }
+    	}
 
-bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp& rsp) {
-    return false;
-#if 0
-    bool ret = false;
-    CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
-    if (pDBConn)
-    {
-        string  strSql = "select * from IMTravelDetail where user_id=" + int2string(user_id);
+        size = req->my_travel().travel_detail().play_detail().day_scenic_size();
+    	for (int n = 0; n < size; ++n) {            
+            const IM::Buddy::DayScenic& scenic = req->my_travel().travel_detail().play_detail().day_scenic(n);
+            string tmp;
+            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, scenic.scenic_info().id(), scenic.daytimefrom().c_str(), scenic.daytimeto().c_str());
+
+            if ((n == 0) && (!places.empty())) {
+                places += "|";
+            }
+            
+            if (n == size - 1) {
+                places = places + tmp;
+            }
+            else {
+                places = places + tmp + "|";
+            }
+    	}
+        
+        
+        string strSql;
+        strSql = string_fmt(strSql, "call insert_or_update_my_travel(%lu, %lu, %lu, '%s', '%s', '%s', %lu, '%s', '%s', %lu, '%s', '%s', %lu, %lu, %lu, %lu, %lu, '%s', '%s', %lu, %lu, '%s', @ret, @idx)", 
+            req->user_id(),
+            req->my_travel().db_idx(),
+            req->my_travel().cost(),
+            req->my_travel().basic_info().date_from().c_str(),
+            req->my_travel().basic_info().date_to().c_str(),
+            req->my_travel().basic_info().place_to_code().c_str(),
+            req->my_travel().basic_info().person_num(),
+            req->my_travel().basic_info().place_from_code().c_str(),
+            req->my_travel().basic_info().place_back_code().c_str(),
+            req->my_travel().transport_config().tool_type(),
+            req->my_travel().transport_config().time_from().c_str(),
+            req->my_travel().transport_config().time_to().c_str(),
+            req->my_travel().transport_config().quality(),
+            req->my_travel().transport_config().transit(),
+            req->my_travel().travel_detail().transport_tool().from_info().id(),
+            req->my_travel().travel_detail().transport_tool().back_info().id(),
+            req->my_travel().travel_detail().play_detail().play_config().quality(),
+            req->my_travel().travel_detail().play_detail().play_config().time_from().c_str(),
+            req->my_travel().travel_detail().play_detail().play_config().time_to().c_str(),
+            req->my_travel().travel_detail().play_detail().play_config().transport_tool_type(),
+            req->my_travel().travel_detail().play_detail().play_config().position(),
+            places.c_str()
+            );
+        log("sql:%s", strSql.c_str());
         CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
-        if(pResultSet)
+        if (pResultSet)
         {
             while (pResultSet->Next())
             {
-                IM::Buddy::TravelDetail* pTravelDetail = rsp.add_travel_detail();
-                pTravelDetail->set_db_idx(pResultSet->GetInt("id"));
-                pTravelDetail->mutable_travel_info()->set_person_num(pResultSet->GetInt("person_num"));
-                pTravelDetail->mutable_travel_info()->set_place_from(pResultSet->GetString("place_from"));
-                pTravelDetail->mutable_travel_info()->set_place_back(pResultSet->GetString("place_back"));
-                pTravelDetail->mutable_travel_info()->set_place_to(pResultSet->GetString("place_to"));
-                pTravelDetail->mutable_travel_info()->set_date_from(pResultSet->GetString("date_start"));
-                pTravelDetail->mutable_travel_info()->set_date_to(pResultSet->GetString("date_end"));
-                pTravelDetail->mutable_traffic_info()->set_traffic_time_from(pResultSet->GetString("traffic_time_start"));
-                pTravelDetail->mutable_traffic_info()->set_traffic_time_to(pResultSet->GetString("traffic_time_end"));
-                pTravelDetail->mutable_traffic_info()->set_travel_type(pResultSet->GetInt("traffic_type"));
-                pTravelDetail->mutable_play_info()->set_play_quality((::IM::Buddy::PlayQualityType)pResultSet->GetInt("play_quality_type"));
-                pTravelDetail->mutable_play_info()->set_play_time_from(pResultSet->GetString("play_time_start"));
-                pTravelDetail->mutable_play_info()->set_play_time_to(pResultSet->GetString("play_time_end"));
-                pTravelDetail->mutable_play_info()->set_city_traffic(pResultSet->GetInt("city_traffic_type"));
-                pTravelDetail->mutable_play_info()->set_hotel_position((::IM::Buddy::HotelPositionType)pResultSet->GetInt("hotel_position_type"));
-                pTravelDetail->set_cost(pResultSet->GetInt("cost"));
+                int ret = pResultSet->GetInt("ret");
+                if (0 == ret) {
+                    idx = pResultSet->GetInt("newId");
+                }
             }
             delete pResultSet;
         }
@@ -681,6 +677,190 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
         {
             log(" no result set for sql:%s", strSql.c_str());
         }
+        
+    }
+    else
+    {
+        log("no db connection for teamtalk_master");
+    }
+    return idx;
+}
+
+uint32_t CUserModel::updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb) {
+    log("enter.");
+    bool bRet = false;
+    uint32_t idx = 0;
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    if (pDBConn)
+    {
+        IM::Buddy::UpdateMyTravelReq* req = (IM::Buddy::UpdateMyTravelReq*)pb;
+        string places;
+        int size = req->my_travel().travel_detail().play_detail().day_hotel_size();
+    	for (int n = 0; n < size; ++n) {            
+            const IM::Buddy::DayHotel& hotel = req->my_travel().travel_detail().play_detail().day_hotel(n);
+            string tmp;
+            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, hotel.hotel_info().id(), hotel.daytimefrom().c_str(), hotel.daytimeto().c_str());
+
+            if (n == size - 1) {
+                places = places + tmp;
+            }
+            else {
+                places = places + tmp + "|";
+            }
+    	}
+
+        size = req->my_travel().travel_detail().play_detail().day_scenic_size();
+    	for (int n = 0; n < size; ++n) {            
+            const IM::Buddy::DayScenic& scenic = req->my_travel().travel_detail().play_detail().day_scenic(n);
+            string tmp;
+            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, scenic.scenic_info().id(), scenic.daytimefrom().c_str(), scenic.daytimeto().c_str());
+
+            if ((n == 0) && (!places.empty())) {
+                places += "|";
+            }
+            
+            if (n == size - 1) {
+                places = places + tmp;
+            }
+            else {
+                places = places + tmp + "|";
+            }
+    	}
+        
+        
+        string strSql;
+        strSql = string_fmt(strSql, "call insert_or_update_my_travel(%lu, %lu, %lu, '%s', '%s', '%s', %lu, '%s', '%s', %lu, '%s', '%s', %lu, %lu, %lu, %lu, %lu, '%s', '%s', %lu, %lu, '%s', @ret, @idx)", 
+            req->user_id(),
+            req->my_travel().db_idx(),
+            req->my_travel().cost(),
+            req->my_travel().basic_info().date_from().c_str(),
+            req->my_travel().basic_info().date_to().c_str(),
+            req->my_travel().basic_info().place_to_code().c_str(),
+            req->my_travel().basic_info().person_num(),
+            req->my_travel().basic_info().place_from_code().c_str(),
+            req->my_travel().basic_info().place_back_code().c_str(),
+            req->my_travel().transport_config().tool_type(),
+            req->my_travel().transport_config().time_from().c_str(),
+            req->my_travel().transport_config().time_to().c_str(),
+            req->my_travel().transport_config().quality(),
+            req->my_travel().transport_config().transit(),
+            req->my_travel().travel_detail().transport_tool().from_info().id(),
+            req->my_travel().travel_detail().transport_tool().back_info().id(),
+            req->my_travel().travel_detail().play_detail().play_config().quality(),
+            req->my_travel().travel_detail().play_detail().play_config().time_from().c_str(),
+            req->my_travel().travel_detail().play_detail().play_config().time_to().c_str(),
+            req->my_travel().travel_detail().play_detail().play_config().transport_tool_type(),
+            req->my_travel().travel_detail().play_detail().play_config().position(),
+            places.c_str()
+            );
+        log("sql:%s", strSql.c_str());
+        CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+        if (pResultSet)
+        {
+            while (pResultSet->Next())
+            {
+                int ret = pResultSet->GetInt("ret");
+                if (0 == ret) {
+                    idx = pResultSet->GetInt("newId");
+                }
+            }
+            delete pResultSet;
+        }
+        else
+        {
+            log(" no result set for sql:%s", strSql.c_str());
+        }
+        
+    }
+    else
+    {
+        log("no db connection for teamtalk_master");
+    }
+    return idx;
+}
+
+
+bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp& rsp) {
+    bool ret = false;
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    if (pDBConn)
+    {
+        string  strSql = "SELECT * FROM IMTravelBasicInfo where status=0 and userId=" + int2string(user_id) + "order by id desc";
+        CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+        if(pResultSet)
+        {
+            while (pResultSet->Next())
+            {
+                IM::Buddy::MyTravel* pMyTravel = rsp.add_my_travel();
+                pMyTravel->set_db_idx(pResultSet->GetInt("id"));
+                pMyTravel->set_cost(pResultSet->GetInt("cost"));
+                pMyTravel->mutable_basic_info()->set_date_from(pResultSet->GetString("dateFrom"));
+                pMyTravel->mutable_basic_info()->set_date_to(pResultSet->GetString("dateTo"));
+                pMyTravel->mutable_basic_info()->set_place_to_code(pResultSet->GetString("placeToCode"));
+                pMyTravel->mutable_basic_info()->set_person_num(pResultSet->GetInt("personNum"));
+                pMyTravel->mutable_basic_info()->set_place_from_code(pResultSet->GetString("placeFromCode"));
+                pMyTravel->mutable_basic_info()->set_place_back_code(pResultSet->GetString("placeBackCode"));
+                pMyTravel->mutable_transport_config()->set_tool_type(pResultSet->GetInt("toolType"));
+                pMyTravel->mutable_transport_config()->set_time_from(pResultSet->GetString("timeFrom"));
+                pMyTravel->mutable_transport_config()->set_time_to(pResultSet->GetString("timeTo"));
+                pMyTravel->mutable_transport_config()->set_quality((::IM::Buddy::QualityType)pResultSet->GetInt("qualityType"));
+                pMyTravel->mutable_transport_config()->set_transit(pResultSet->GetInt("transit"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_quality((::IM::Buddy::QualityType)pResultSet->GetInt("playQualityType"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_time_from(pResultSet->GetString("playTimeFrom"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_time_to(pResultSet->GetString("playTimeTo"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_transport_tool_type(pResultSet->GetInt("playToolType"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_position((::IM::Buddy::PositionType)pResultSet->GetInt("positionType"));
+                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->set_allocated_from_info(&travelToolMap[pResultSet->GetInt("transToolToId")]);
+                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->set_allocated_back_info(&travelToolMap[pResultSet->GetInt("transToolBackId")]);
+            }
+            delete pResultSet;
+        }
+        else
+        {
+            log(" no result set for sql:%s", strSql.c_str());
+        }
+
+        
+        strSql = "SELECT * FROM IMPlayDetail where status=0 and travelBasicId=" + int2string(user_id) + "order by dayTimeFrom";
+        CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+        if(pResultSet)
+        {
+            while (pResultSet->Next())
+            {
+                IM::Buddy::MyTravel* pMyTravel = rsp.add_my_travel();
+                pMyTravel->set_db_idx(pResultSet->GetInt("id"));
+                pMyTravel->set_cost(pResultSet->GetInt("cost"));
+                pMyTravel->mutable_basic_info()->set_date_from(pResultSet->GetString("dateFrom"));
+                pMyTravel->mutable_basic_info()->set_date_to(pResultSet->GetString("dateTo"));
+                pMyTravel->mutable_basic_info()->set_place_to_code(pResultSet->GetString("placeToCode"));
+                pMyTravel->mutable_basic_info()->set_person_num(pResultSet->GetInt("personNum"));
+                pMyTravel->mutable_basic_info()->set_place_from_code(pResultSet->GetString("placeFromCode"));
+                pMyTravel->mutable_basic_info()->set_place_back_code(pResultSet->GetString("placeBackCode"));
+                pMyTravel->mutable_transport_config()->set_tool_type(pResultSet->GetInt("toolType"));
+                pMyTravel->mutable_transport_config()->set_time_from(pResultSet->GetString("timeFrom"));
+                pMyTravel->mutable_transport_config()->set_time_to(pResultSet->GetString("timeTo"));
+                pMyTravel->mutable_transport_config()->set_quality((::IM::Buddy::QualityType)pResultSet->GetInt("qualityType"));
+                pMyTravel->mutable_transport_config()->set_transit(pResultSet->GetInt("transit"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_quality((::IM::Buddy::QualityType)pResultSet->GetInt("playQualityType"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_time_from(pResultSet->GetString("playTimeFrom"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_time_to(pResultSet->GetString("playTimeTo"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_transport_tool_type(pResultSet->GetInt("playToolType"));
+                pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_position((::IM::Buddy::PositionType)pResultSet->GetInt("positionType"));
+                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->set_allocated_from_info(&travelToolMap[pResultSet->GetInt("transToolToId")]);
+                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->set_allocated_back_info(&travelToolMap[pResultSet->GetInt("transToolBackId")]);
+            }
+            delete pResultSet;
+        }
+        else
+        {
+            log(" no result set for sql:%s", strSql.c_str());
+        }
+
+
+
+        
         pDBManager->RelDBConn(pDBConn);
         ret = true;
     }
@@ -690,7 +870,6 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
     }
 
     return ret;
-#endif
 }
 
 bool CUserModel::deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_idx_list) {

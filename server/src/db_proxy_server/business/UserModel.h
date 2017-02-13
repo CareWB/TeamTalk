@@ -40,7 +40,7 @@ public:
     uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTravelReq* pb);
     bool queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp& rsp);
     bool deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_idx_list);
-    bool updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb);
+    uint32_t updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb);
 
 private:
     CUserModel();
