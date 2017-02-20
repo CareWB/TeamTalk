@@ -937,8 +937,8 @@ bool CUserModel::deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_id
             }
         }
         
-        string strSql = "delete from IMTravelDetail where user_id=" + int2string(user_id) + " and id in (" + strClause + ")";
-        log("delete sql:%s", strSql.c_str());
+        string strSql = "update IMTravelBasicInfo set status=1 where user_id=" + int2string(user_id) + " and id in (" + strClause + ")";
+        log("sql:%s", strSql.c_str());
         bRet = pDBConn->ExecuteUpdate(strSql.c_str());
         pDBManager->RelDBConn(pDBConn);
     }
