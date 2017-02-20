@@ -606,7 +606,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
     	for (int n = 0; n < size; ++n) {            
             const IM::Buddy::DayHotel& hotel = req->my_travel().travel_detail().play_detail().day_hotel(n);
             string tmp;
-            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, hotel.hotel_info().id(), hotel.daytimefrom().c_str(), hotel.daytimeto().c_str());
+            tmp = string_fmt(tmp, "%d&%d&%s&%s", 1, hotel.hotel_info().id(), hotel.daytimefrom().c_str(), hotel.daytimeto().c_str());
 
             if (n == size - 1) {
                 places = places + tmp;
@@ -620,7 +620,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
     	for (int n = 0; n < size; ++n) {            
             const IM::Buddy::DayScenic& scenic = req->my_travel().travel_detail().play_detail().day_scenic(n);
             string tmp;
-            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, scenic.scenic_info().id(), scenic.daytimefrom().c_str(), scenic.daytimeto().c_str());
+            tmp = string_fmt(tmp, "%d&%d&%s&%s", 1, scenic.scenic_info().id(), scenic.daytimefrom().c_str(), scenic.daytimeto().c_str());
 
             if ((n == 0) && (!places.empty())) {
                 places += "|";
@@ -636,7 +636,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
         
         
         string strSql;
-        strSql = string_fmt(strSql, "call insert_or_update_my_travel(%lu, %lu, %lu, '%s', '%s', '%s', %lu, '%s', '%s', %lu, '%s', '%s', %lu, %lu, %lu, %lu, %lu, '%s', '%s', %lu, %lu, '%s', @ret, @idx)", 
+        strSql = string_fmt(strSql, "call insert_or_update_my_travel(%d, %d, %d, '%s', '%s', '%s', %d, '%s', '%s', %d, '%s', '%s', %d, %d, %d, %d, %d, '%s', '%s', %d, %d, '%s', @ret, @idx)", 
             req->user_id(),
             req->my_travel().db_idx(),
             req->my_travel().cost(),
@@ -700,7 +700,7 @@ uint32_t CUserModel::updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTra
     	for (int n = 0; n < size; ++n) {            
             const IM::Buddy::DayHotel& hotel = req->my_travel().travel_detail().play_detail().day_hotel(n);
             string tmp;
-            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, hotel.hotel_info().id(), hotel.daytimefrom().c_str(), hotel.daytimeto().c_str());
+            tmp = string_fmt(tmp, "%d&%d&%s&%s", 1, hotel.hotel_info().id(), hotel.daytimefrom().c_str(), hotel.daytimeto().c_str());
 
             if (n == size - 1) {
                 places = places + tmp;
@@ -714,7 +714,7 @@ uint32_t CUserModel::updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTra
     	for (int n = 0; n < size; ++n) {            
             const IM::Buddy::DayScenic& scenic = req->my_travel().travel_detail().play_detail().day_scenic(n);
             string tmp;
-            tmp = string_fmt(tmp, "%lu&%lu&%s&%s", 1, scenic.scenic_info().id(), scenic.daytimefrom().c_str(), scenic.daytimeto().c_str());
+            tmp = string_fmt(tmp, "%d&%d&%s&%s", 1, scenic.scenic_info().id(), scenic.daytimefrom().c_str(), scenic.daytimeto().c_str());
 
             if ((n == 0) && (!places.empty())) {
                 places += "|";
@@ -730,7 +730,7 @@ uint32_t CUserModel::updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTra
         
         
         string strSql;
-        strSql = string_fmt(strSql, "call insert_or_update_my_travel(%lu, %lu, %lu, '%s', '%s', '%s', %lu, '%s', '%s', %lu, '%s', '%s', %lu, %lu, %lu, %lu, %lu, '%s', '%s', %lu, %lu, '%s', @ret, @idx)", 
+        strSql = string_fmt(strSql, "call insert_or_update_my_travel(%d, %d, %d, '%s', '%s', '%s', %d, '%s', '%s', %d, '%s', '%s', %d, %d, %d, %d, %d, '%s', '%s', %d, %d, '%s', @ret, @idx)", 
             req->user_id(),
             req->my_travel().db_idx(),
             req->my_travel().cost(),
@@ -788,7 +788,7 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
     if (pDBConn)
     {
         string strIds;
-        string strSql = "SELECT * FROM IMTravelBasicInfo where status=0 and userId=" + int2string(user_id) + "order by id desc";
+        string strSql = "SELECT * FROM IMTravelBasicInfo where status=0 and userId=" + int2string(user_id) + " order by id desc";
         CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
         if(pResultSet)
         {
