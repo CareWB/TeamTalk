@@ -37,12 +37,12 @@ bool getTravelToolInfo() {
                 travelToolInfo.set_id(pResultSet->GetInt("id"));
                 travelToolInfo.set_transport_tool_type(pResultSet->GetInt("type"));
                 travelToolInfo.set_no(pResultSet->GetString("no"));
-                travelToolInfo.set_place_from_code(pResultSet->GetString("place_from_code"));
-                travelToolInfo.set_place_from(pResultSet->GetString("place_from"));
-                travelToolInfo.set_place_to_code(pResultSet->GetString("place_to_code"));
-                travelToolInfo.set_place_to(pResultSet->GetString("place_to"));
-                travelToolInfo.set_time_from(pResultSet->GetString("time_start"));
-                travelToolInfo.set_time_to(pResultSet->GetString("time_end"));
+                travelToolInfo.set_place_from_code(pResultSet->GetString("placeFromCode"));
+                travelToolInfo.set_place_from(pResultSet->GetString("placeFrom"));
+                travelToolInfo.set_place_to_code(pResultSet->GetString("placeToCode"));
+                travelToolInfo.set_place_to(pResultSet->GetString("placeTo"));
+                travelToolInfo.set_time_from(pResultSet->GetString("timeFrom"));
+                travelToolInfo.set_time_to(pResultSet->GetString("timeTo"));
                 travelToolInfo.set_class_(pResultSet->GetString("class"));
                 travelToolInfo.set_price(pResultSet->GetInt("price"));
 
