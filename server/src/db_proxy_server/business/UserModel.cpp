@@ -457,9 +457,9 @@ bool CUserModel::getTransportTool(uint32_t user_id, IM::Buddy::GetTransportToolR
         string  strSql = "select * from IMTravelTool where type in(" + type 
             + ") and ((placeFromCode='" + req.basic_info().place_from_code() 
             + "' and placeToCode='" + req.basic_info().place_to_code() 
-            + ") or (placeFromCode='" + req.basic_info().place_to_code() 
+            + "') or (placeFromCode='" + req.basic_info().place_to_code() 
             + "' and placeToCode='" + req.basic_info().place_back_code()
-            + "))' and timeStart>'" + req.transport_config().time_from() 
+            + "')) and timeStart>'" + req.transport_config().time_from() 
             + "' and timeEnd<'" + req.transport_config().time_to() 
             + "' order by placeFromCode, placeToCode, type, timeStart, price";
         log("sql:%s", strSql.c_str());
