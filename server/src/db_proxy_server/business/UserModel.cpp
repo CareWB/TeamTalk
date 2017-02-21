@@ -879,14 +879,14 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
                             IM::Buddy::DayScenic* pDayScenic = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_scenic();
                             pDayScenic->set_daytimefrom(pResultSet->GetString("dayTimeFrom"));
                             pDayScenic->set_daytimeto(pResultSet->GetString("dayTimeTo"));
-                            pDayScenic->set_allocated_scenic_info(&scenicMap[pResultSet->GetInt("itemId")]);
+                            pDayScenic->mutable_scenic_info()->CopyFrom(scenicMap[pResultSet->GetInt("itemId")]);
                         }
                         else if (pResultSet->GetInt("type") == 2)
                         {
                             IM::Buddy::DayHotel* pDayHotel = pMyTravel->mutable_travel_detail()->mutable_play_detail()->add_day_hotel();
                             pDayHotel->set_daytimefrom(pResultSet->GetString("dayTimeFrom"));
                             pDayHotel->set_daytimeto(pResultSet->GetString("dayTimeTo"));
-                            pDayHotel->set_allocated_hotel_info(&hotelMap[pResultSet->GetInt("itemId")]);
+                            pDayHotel->mutable_hotel_info()->CopyFrom(hotelMap[pResultSet->GetInt("itemId")]);
                         }
                         else {}
                     }
