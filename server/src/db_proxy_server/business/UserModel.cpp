@@ -813,8 +813,8 @@ bool CUserModel::queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp
                 pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_time_to(pResultSet->GetString("playTimeTo"));
                 pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_transport_tool_type(pResultSet->GetInt("playToolType"));
                 pMyTravel->mutable_travel_detail()->mutable_play_detail()->mutable_play_config()->set_position((::IM::Buddy::PositionType)pResultSet->GetInt("positionType"));
-                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->mutable_from_info->CopyFrom(travelToolMap[pResultSet->GetInt("transToolToId")]);
-                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->mutable_back_info->CopyFrom(travelToolMap[pResultSet->GetInt("transToolBackId")]);
+                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->mutable_from_info()->CopyFrom(travelToolMap[pResultSet->GetInt("transToolToId")]);
+                pMyTravel->mutable_travel_detail()->mutable_transport_tool()->mutable_back_info()->CopyFrom(travelToolMap[pResultSet->GetInt("transToolBackId")]);
             
                 strIds += int2string(pMyTravel->db_idx()) + ",";
             }
