@@ -167,6 +167,7 @@ public class IMTravelManager extends IMManager {
                     .setTags(hotelEntity.getTag())
                     .setMustSee(hotelEntity.getMustGo())
                     .setUrl(hotelEntity.getUrl())
+                    .setClass_("aaa")
                     .setPrice(hotelEntity.getPrice())
                     .setDistance(hotelEntity.getDistance())
                     .build();
@@ -188,8 +189,10 @@ public class IMTravelManager extends IMManager {
                     .setName(sightEntity.getName())
                     .setScore(sightEntity.getStar())
                     .setTags(sightEntity.getTag())
+                    .setFree(sightEntity.getFree())
                     .setMustSee(sightEntity.getMustGo())
                     .setUrl(sightEntity.getUrl())
+                    .setClass_("abc")
                     .setPlayTime(sightEntity.getPlayTime())
                     .setPrice(sightEntity.getPrice())
                     .setBestTimeFrom(sightEntity.getBestStartTime())
@@ -214,6 +217,7 @@ public class IMTravelManager extends IMManager {
         TrafficEntity cityGo = travelCityEntity.getGo();
         IMBuddy.TravelToolInfo go = IMBuddy.TravelToolInfo
                 .newBuilder()
+                .setId(cityGo.getPeerId())
                 .setTransportToolType(cityGo.getType())
                 .setNo(cityGo.getNo())
                 .setPlaceFromCode(cityGo.getStartCityCode())
@@ -229,6 +233,7 @@ public class IMTravelManager extends IMManager {
         TrafficEntity cityBack = travelCityEntity.getBack();
         IMBuddy.TravelToolInfo back = IMBuddy.TravelToolInfo
                 .newBuilder()
+                .setId(cityBack.getPeerId())
                 .setTransportToolType(cityBack.getType())
                 .setNo(cityBack.getNo())
                 .setPlaceFromCode(cityBack.getStartCityCode())
@@ -256,11 +261,11 @@ public class IMTravelManager extends IMManager {
         IMBuddy.MyTravel myTravel = IMBuddy.MyTravel
                 .newBuilder()
                 .setDbIdx(0)
+                .setCost(mtTravel.getCost())
                 .setBasicInfo(basicInfo)
                 .setTravelDetail(travelDetail)
                 .setTransportConfig(transportConfig)
                 .build();
-
 
         IMBuddy.CreateMyTravelReq createMyTravelReq = IMBuddy.CreateMyTravelReq
                 .newBuilder()
@@ -270,7 +275,7 @@ public class IMTravelManager extends IMManager {
 
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_CREATE_REQUEST_VALUE;
-        //imSocketManager.sendRequest(createTravelReq,sid,cid);
+        imSocketManager.sendRequest(createMyTravelReq, sid, cid);
     }
 
     public void onRspCreateTravel(IMBuddy.CreateMyTravelRsp createMyTravelRsp) {
@@ -405,6 +410,7 @@ public class IMTravelManager extends IMManager {
                 type = tt;
                 TrafficEntity typeIndex = new TrafficEntity();
                 typeIndex.setType(tt+0xf0);
+                typeIndex.setStatus(1);
                 result.add(typeIndex);
             }
 
@@ -434,6 +440,8 @@ public class IMTravelManager extends IMManager {
             plane1.setEndTime("08:55");
             plane1.setStartStation("宝安T3");
             plane1.setEndStation("高崎T4");
+            plane1.setStartCityCode("baoan");
+            plane1.setEndCityCode("gaoqi");
             plane1.setNo("海航HU7065");
             plane1.setSeatClass("经济舱");
             plane1.setPrice(800);
@@ -445,6 +453,8 @@ public class IMTravelManager extends IMManager {
             plane2.setEndTime("08:55");
             plane2.setStartStation("宝安T3");
             plane2.setEndStation("高崎T4");
+            plane2.setStartCityCode("baoan");
+            plane2.setEndCityCode("gaoqi");
             plane2.setNo("海航HU7065");
             plane2.setSeatClass("头等舱");
             plane2.setPrice(800);
@@ -457,6 +467,8 @@ public class IMTravelManager extends IMManager {
             train1.setEndTime("08:55");
             train1.setStartStation("深圳北站");
             train1.setEndStation("厦门东站");
+            train1.setStartCityCode("shenzhebei");
+            train1.setEndCityCode("xiamendong");
             train1.setNo("D4354");
             train1.setSeatClass("二等座");
             train1.setPrice(199);
@@ -467,6 +479,8 @@ public class IMTravelManager extends IMManager {
             train2.setEndTime("08:55");
             train2.setStartStation("深圳北站");
             train2.setEndStation("厦门东站");
+            train2.setStartCityCode("shenzhebei");
+            train2.setEndCityCode("xiamendong");
             train2.setNo("K845");
             train2.setSeatClass("无座");
             train2.setPrice(88);
@@ -479,6 +493,8 @@ public class IMTravelManager extends IMManager {
             bus.setEndTime("08:55");
             bus.setStartStation("深圳客运站");
             bus.setEndStation("厦门客运站");
+            bus.setStartCityCode("shenzhekeyunzhan");
+            bus.setEndCityCode("xiamenkeyunzhan");
             bus.setNo("K845");
             bus.setSeatClass("无座");
             bus.setPrice(88);
@@ -496,6 +512,8 @@ public class IMTravelManager extends IMManager {
             plane1.setEndTime("08:55");
             plane1.setStartStation("宝安T3");
             plane1.setEndStation("高崎T4");
+            plane1.setStartCityCode("baoan");
+            plane1.setEndCityCode("gaoqi");
             plane1.setNo("海航HU7065");
             plane1.setSeatClass("经济舱");
             plane1.setPrice(800);
@@ -507,6 +525,8 @@ public class IMTravelManager extends IMManager {
             plane2.setEndTime("08:55");
             plane2.setStartStation("宝安T3");
             plane2.setEndStation("高崎T4");
+            plane2.setStartCityCode("baoan");
+            plane2.setEndCityCode("gaoqi");
             plane2.setNo("海航HU7065");
             plane2.setSeatClass("头等舱");
             plane2.setPrice(800);
@@ -519,6 +539,8 @@ public class IMTravelManager extends IMManager {
             train1.setEndTime("08:55");
             train1.setStartStation("深圳北站");
             train1.setEndStation("厦门东站");
+            train1.setStartCityCode("shenzhebei");
+            train1.setEndCityCode("xiamendong");
             train1.setNo("D4354");
             train1.setSeatClass("二等座");
             train1.setPrice(199);
@@ -529,6 +551,8 @@ public class IMTravelManager extends IMManager {
             train2.setEndTime("08:55");
             train2.setStartStation("深圳北站");
             train2.setEndStation("厦门东站");
+            train2.setStartCityCode("shenzhebei");
+            train2.setEndCityCode("xiamendong");
             train2.setNo("K845");
             train2.setSeatClass("无座");
             train2.setPrice(88);
@@ -541,6 +565,8 @@ public class IMTravelManager extends IMManager {
             bus.setEndTime("08:55");
             bus.setStartStation("深圳客运站");
             bus.setEndStation("厦门客运站");
+            bus.setStartCityCode("shenzhekeyunzhan");
+            bus.setEndCityCode("xiamenkeyunzhan");
             bus.setNo("K845");
             bus.setSeatClass("无座");
             bus.setPrice(88);

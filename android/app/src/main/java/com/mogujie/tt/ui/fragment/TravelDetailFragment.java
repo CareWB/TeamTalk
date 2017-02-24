@@ -44,7 +44,7 @@ public class TravelDetailFragment extends TTBaseFragment{
     private List<TrafficEntity> goTrafficEntityList = new ArrayList<>();
     private List<TrafficEntity> backTrafficEntityList = new ArrayList<>();
     private TravelEntity travelEntity;
-    private Button payDetail;
+    private Button expenseDetail;
     private IMTravelManager travelManager;
     private TextView travelDetailTime;
     private TextView travelDetailType;
@@ -61,9 +61,11 @@ public class TravelDetailFragment extends TTBaseFragment{
 
                 travelEntity.setStartDate(travelManager.getMtTravel().getStartDate());
                 travelEntity.setEndDate(travelManager.getMtTravel().getEndDate());
+                travelEntity.setStartPlace(travelManager.getMtTravel().getStartPlace());
+                travelEntity.setEndPlace(travelManager.getMtTravel().getEndPlace());
                 travelEntity.setDestination(travelManager.getMtTravel().getDestination());
                 travelDetailAdapter.notifyDataSetChanged();
-                travelDetailTime.setText(String.valueOf(travelManager.getMtTravel().getDuration()+"天"));
+                travelDetailTime.setText(String.valueOf(travelManager.getMtTravel().getPersonNum()+"人"));
                 travelDetailType.setText(travelTypeStringMap.get(1));
 
                 goTrafficEntityList.add(imService.getTravelManager().getGoTrafficEntityList().get(1));//yuki 逼不得已
@@ -151,7 +153,7 @@ public class TravelDetailFragment extends TTBaseFragment{
 		});
 
         rvTravelDetail = (RecyclerView)curView.findViewById(R.id.rv_travel_detail);
-        payDetail = (Button)curView.findViewById(R.id.pay_detail);
+        expenseDetail = (Button)curView.findViewById(R.id.pay_detail);
 
         travelDetailTime = (TextView)curView.findViewById(R.id.travel_detail_time);
         travelDetailType = (TextView)curView.findViewById(R.id.travel_detail_type);
@@ -165,6 +167,7 @@ public class TravelDetailFragment extends TTBaseFragment{
         TravelDetailAdapter.OnRecyclerViewListener detailRVListener = new TravelDetailAdapter.OnRecyclerViewListener() {
             @Override
             public void onAddClick(int position, View v) {
+                storeTraffic();
                 Intent playBehaviorIntent = new Intent(getActivity(), PlayBehaviorActivity.class);
                 startActivityForResult(playBehaviorIntent, Activity.RESULT_FIRST_USER);
             }
@@ -195,10 +198,10 @@ public class TravelDetailFragment extends TTBaseFragment{
 	}
 
     private void initBtn() {
-        payDetail.setOnClickListener(new View.OnClickListener() {
+        expenseDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                TravelUIHelper.openExpenseDetailActivity(getActivity());
             }
         });
     }
@@ -222,6 +225,13 @@ public class TravelDetailFragment extends TTBaseFragment{
         travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_LOW_VALUE, getString(R.string.economical_efficiency));
         travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_MID_VALUE, getString(R.string.economical_comfort));
         travelTypeStringMap.put(IMBuddy.QualityType.QUALITY_HIGH_VALUE, getString(R.string.luxury_quality));
+    }
+
+    private void storeTraffic() {
+        if (imService != null) {
+            imService.getTravelManager().getMtCity().get(0).setGo(goTrafficEntityList.get(0));
+            imService.getTravelManager().getMtCity().get(0).setBack(backTrafficEntityList.get(0));
+        }
     }
 
 }

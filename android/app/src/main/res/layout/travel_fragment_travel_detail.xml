@@ -10,32 +10,52 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:gravity="center_vertical"
+        android:layout_height="45dp">
 
         <TextView
-            android:text="2天"
-            android:layout_width="wrap_content"
+            android:text="2人"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/travel_menu_text"
+            android:drawableLeft="@drawable/travel_detail_icon_person"
+            android:drawablePadding="@dimen/select_place_city_pic_left"
+            android:textSize="@dimen/content_size"
+            android:textColor="@color/not_clicked"
             android:id="@+id/travel_detail_time"
             android:layout_weight="1" />
 
-        <TextView
-            android:text="3444元"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/select_sight_divider" />
+
+        <TextView
+            android:text="3444元"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/travel_menu_text"
+            android:drawableLeft="@drawable/travel_detail_icon_pay"
+            android:drawablePadding="@dimen/select_place_city_pic_left"
+            android:textSize="@dimen/content_size"
+            android:textColor="@color/not_clicked"
             android:id="@+id/travel_detail_price"
             android:layout_weight="1" />
 
-        <TextView
-            android:text="经济舒适游"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/select_sight_divider" />
+
+        <TextView
+            android:text="经济舒适游"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/travel_menu_text"
+            android:drawableLeft="@drawable/travel_detail_icon_status"
+            android:drawablePadding="@dimen/select_place_city_pic_left"
+            android:textSize="@dimen/content_size"
+            android:textColor="@color/not_clicked"
             android:id="@+id/travel_detail_type"
             android:layout_weight="1" />
     </LinearLayout>

@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,7 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mogujie.tt.DB.entity.TrafficEntity;
-import com.mogujie.tt.DB.entity.TravelEntity;
 import com.mogujie.tt.R;
 
 import java.util.List;
@@ -39,11 +37,13 @@ public class TrafficDetailAdapter extends RecyclerView.Adapter {
 
     private List<TrafficEntity> mList;
     private Context ctx;
+    private String date;
     private static final int HEADER = 0;
     private static final int BODAY = 1;
 
-    public TrafficDetailAdapter(Context ctx, List<TrafficEntity> mList) {
+    public TrafficDetailAdapter(Context ctx, String date, List<TrafficEntity> mList) {
         this.ctx = ctx;
+        this.date = date;
         this.mList = mList;
     }
 
@@ -90,19 +90,22 @@ public class TrafficDetailAdapter extends RecyclerView.Adapter {
                 switch (trafficEntity.getType()-0xf0) {
                     case 1:
                         header.trafficType.setText("飞机票");
-                        header.trafficType.setCompoundDrawablesWithIntrinsicBounds(ctx.getResources().getDrawable(R.drawable.plane_blue), null, null, null);
                         break;
 
                     case 2:
                         header.trafficType.setText("火车票");
-                        header.trafficType.setCompoundDrawablesWithIntrinsicBounds(ctx.getResources().getDrawable(R.drawable.train_blue), null, null, null);
                         break;
 
                     case 3:
                         header.trafficType.setText("汽车票");
-                        header.trafficType.setCompoundDrawablesWithIntrinsicBounds(ctx.getResources().getDrawable(R.drawable.bus_blue), null, null, null);
                         break;
                 }
+                if (trafficEntity.getStatus() == 1) {
+                    header.pull.setBackground(ctx.getResources().getDrawable(R.drawable.traffic_header_up));
+                } else {
+                    header.pull.setBackground(ctx.getResources().getDrawable(R.drawable.traffic_header_down));
+                }
+                header.date.setText("("+date+")");
                 break;
             case BODAY:
                 TrafficViewHolder holder = (TrafficViewHolder) viewHolder;
@@ -113,6 +116,11 @@ public class TrafficDetailAdapter extends RecyclerView.Adapter {
                 holder.no.setText(trafficEntity.getNo());
                 holder.price.setText("￥"+trafficEntity.getPrice());
                 holder.seatType.setText(trafficEntity.getSeatClass());
+                if (trafficEntity.getSelect() == 1) {
+                    holder.select.setBackground(ctx.getResources().getDrawable(R.drawable.traffic_detail_select_true));
+                } else {
+                    holder.select.setBackground(ctx.getResources().getDrawable(R.drawable.traffic_detail_select_false));
+                }
                 break;
         }
     }
@@ -131,6 +139,7 @@ public class TrafficDetailAdapter extends RecyclerView.Adapter {
         public TextView no;
         public TextView price;
         public TextView seatType;
+        public ImageButton select;
 
         public TrafficViewHolder(View itemView) {
             super(itemView);
@@ -142,6 +151,7 @@ public class TrafficDetailAdapter extends RecyclerView.Adapter {
             no = (TextView) itemView.findViewById(R.id.traffic_list_no);
             price = (TextView) itemView.findViewById(R.id.traffic_detail_price);
             seatType = (TextView) itemView.findViewById(R.id.traffic_detail_seat_type);
+            select = (ImageButton) itemView.findViewById(R.id.traffic_detail_select);
 
             trafficList.setOnClickListener(this);
         }
@@ -155,11 +165,13 @@ public class TrafficDetailAdapter extends RecyclerView.Adapter {
     class HeadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView trafficType;
         public ImageButton pull;
+        public TextView date;
 
         public HeadViewHolder(View itemView) {
             super(itemView);
             trafficType = (TextView) itemView.findViewById(R.id.traffic_type);
             pull = (ImageButton) itemView.findViewById(R.id.traffic_select);
+            date = (TextView) itemView.findViewById(R.id.traffic_header_date);
             pull.setOnClickListener(this);
         }
 

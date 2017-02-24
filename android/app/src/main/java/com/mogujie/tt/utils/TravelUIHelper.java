@@ -12,6 +12,7 @@ import com.mogujie.tt.config.IntentConstant;
 import com.mogujie.tt.ui.activity.Calculating;
 import com.mogujie.tt.ui.activity.CreateTravelActivity;
 import com.mogujie.tt.ui.activity.DetailDispActivity;
+import com.mogujie.tt.ui.activity.ExpenseDetailActivity;
 import com.mogujie.tt.ui.activity.IntroduceHotelActivity;
 import com.mogujie.tt.ui.activity.IntroduceSightActivity;
 import com.mogujie.tt.ui.activity.PlayBehaviorActivity;
@@ -89,4 +90,10 @@ public class TravelUIHelper {
         Intent intent = new Intent(ctx, PlayBehaviorActivity.class);
         ctx.startActivity(intent);
     }
+
+	//跳转到游玩喜好页面
+	public static void openExpenseDetailActivity(Context ctx) {
+		Intent intent = new Intent(ctx, ExpenseDetailActivity.class);
+		ctx.startActivity(intent);
+	}
 }

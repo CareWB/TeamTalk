@@ -242,7 +242,12 @@ public class SelectSightFragment extends TTBaseFragment{
         gulangyu.setName("鼓浪屿");
         gulangyu.setPic(pre+"gulangyu.png");
         gulangyu.setStar(8);
+        gulangyu.setUrl("http://www.baidu.com");
         gulangyu.setTag("自然");
+        gulangyu.setBestStartTime("08:00");
+        gulangyu.setBestEndTime("20:00");
+        gulangyu.setStartTime("12:00");
+        gulangyu.setEndTime("15:00");
         gulangyu.setFree(0);
         gulangyu.setMustGo(1);
 
@@ -250,7 +255,12 @@ public class SelectSightFragment extends TTBaseFragment{
         xiada.setName("厦门大学");
         xiada.setPic(pre+"xiamendaxue.png");
         xiada.setStar(9);
+        xiada.setUrl("http://www.baidu.com");
         xiada.setTag("建筑 文娱");
+        xiada.setBestStartTime("08:00");
+        xiada.setBestEndTime("20:00");
+        xiada.setStartTime("12:00");
+        xiada.setEndTime("15:00");
         xiada.setFree(1);
         xiada.setMustGo(1);
 
@@ -258,7 +268,12 @@ public class SelectSightFragment extends TTBaseFragment{
         nanputuosi.setName("南普陀寺");
         nanputuosi.setPic(pre+"nanputuosi.png");
         nanputuosi.setStar(8);
+        nanputuosi.setUrl("http://www.baidu.com");
         nanputuosi.setTag("文娱");
+        nanputuosi.setBestStartTime("08:00");
+        nanputuosi.setBestEndTime("20:00");
+        nanputuosi.setStartTime("12:00");
+        nanputuosi.setEndTime("15:00");
         nanputuosi.setFree(0);
         nanputuosi.setMustGo(0);
 
@@ -266,7 +281,12 @@ public class SelectSightFragment extends TTBaseFragment{
         huandaolu.setName("环岛路");
         huandaolu.setPic(pre+"huandaolu.png");
         huandaolu.setStar(8);
+        huandaolu.setUrl("http://www.baidu.com");
         huandaolu.setTag("建筑");
+        huandaolu.setBestStartTime("08:00");
+        huandaolu.setBestEndTime("20:00");
+        huandaolu.setStartTime("12:00");
+        huandaolu.setEndTime("15:00");
         huandaolu.setFree(1);
         huandaolu.setMustGo(0);
 
@@ -274,7 +294,12 @@ public class SelectSightFragment extends TTBaseFragment{
         riguangyan.setName("日光岩");
         riguangyan.setPic(pre+"riguangyan.png");
         riguangyan.setStar(8);
+        riguangyan.setUrl("http://www.baidu.com");
         riguangyan.setTag("自然");
+        riguangyan.setBestStartTime("08:00");
+        riguangyan.setBestEndTime("20:00");
+        riguangyan.setStartTime("12:00");
+        riguangyan.setEndTime("15:00");
         riguangyan.setFree(0);
         riguangyan.setMustGo(1);
 
@@ -282,7 +307,12 @@ public class SelectSightFragment extends TTBaseFragment{
         zengcuoan.setName("曾厝垵");
         zengcuoan.setPic(pre+"zengcuoan.png");
         zengcuoan.setStar(8);
+        zengcuoan.setUrl("http://www.baidu.com");
         zengcuoan.setTag("历史");
+        zengcuoan.setBestStartTime("08:00");
+        zengcuoan.setBestEndTime("20:00");
+        zengcuoan.setStartTime("12:00");
+        zengcuoan.setEndTime("15:00");
         zengcuoan.setFree(0);
         zengcuoan.setMustGo(0);
 
@@ -290,7 +320,12 @@ public class SelectSightFragment extends TTBaseFragment{
         zhongshanlu.setName("中山路");
         zhongshanlu.setPic(pre+"zhongshanlu.png");
         zhongshanlu.setStar(8);
+        zhongshanlu.setUrl("http://www.baidu.com");
         zhongshanlu.setTag("建筑");
+        zhongshanlu.setBestStartTime("08:00");
+        zhongshanlu.setBestEndTime("20:00");
+        zhongshanlu.setStartTime("12:00");
+        zhongshanlu.setEndTime("15:00");
         zhongshanlu.setFree(1);
         zhongshanlu.setMustGo(1);
 
@@ -298,7 +333,12 @@ public class SelectSightFragment extends TTBaseFragment{
         xiamenhaidishijie.setName("厦门海底世界");
         xiamenhaidishijie.setPic(pre+"xiamenhaidishijie.png");
         xiamenhaidishijie.setStar(8);
+        xiamenhaidishijie.setUrl("http://www.baidu.com");
         xiamenhaidishijie.setTag("自然");
+        xiamenhaidishijie.setBestStartTime("08:00");
+        xiamenhaidishijie.setBestEndTime("20:00");
+        xiamenhaidishijie.setStartTime("12:00");
+        xiamenhaidishijie.setEndTime("15:00");
         xiamenhaidishijie.setFree(0);
         xiamenhaidishijie.setMustGo(0);
 
@@ -306,7 +346,12 @@ public class SelectSightFragment extends TTBaseFragment{
         shuzhuanghuayuan.setName("菽庄花园");
         shuzhuanghuayuan.setPic(pre+"shuzhuanghuayuan.png");
         shuzhuanghuayuan.setStar(8);
+        shuzhuanghuayuan.setUrl("http://www.baidu.com");
         shuzhuanghuayuan.setTag("文娱");
+        shuzhuanghuayuan.setBestStartTime("08:00");
+        shuzhuanghuayuan.setBestEndTime("20:00");
+        shuzhuanghuayuan.setStartTime("12:00");
+        shuzhuanghuayuan.setEndTime("15:00");
         shuzhuanghuayuan.setFree(1);
         shuzhuanghuayuan.setMustGo(0);
 
@@ -314,7 +359,12 @@ public class SelectSightFragment extends TTBaseFragment{
         shadiaowenhuayuan.setName("沙雕文化园");
         shadiaowenhuayuan.setPic(pre+"shadiaowenhuayuan.png");
         shadiaowenhuayuan.setStar(8);
+        shadiaowenhuayuan.setUrl("http://www.baidu.com");
         shadiaowenhuayuan.setTag("文娱");
+        shadiaowenhuayuan.setBestStartTime("08:00");
+        shadiaowenhuayuan.setBestEndTime("20:00");
+        shadiaowenhuayuan.setStartTime("12:00");
+        shadiaowenhuayuan.setEndTime("15:00");
         shadiaowenhuayuan.setFree(0);
         shadiaowenhuayuan.setMustGo(1);
 

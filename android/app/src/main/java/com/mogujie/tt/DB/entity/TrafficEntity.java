@@ -10,6 +10,7 @@ package com.mogujie.tt.DB.entity;
 public class TrafficEntity {
 
     private Long id;
+    private int peerId;
     private int type;
     /** Not-null value. */
     private String no;
@@ -46,8 +47,9 @@ public class TrafficEntity {
         this.id = id;
     }
 
-    public TrafficEntity(Long id, int type, String no, String startCityCode, String startStation, String endCityCode, String endStation, String startTime, String endTime, String duration, int price, String seatClass, int select, int version, int status, int created, int updated) {
+    public TrafficEntity(Long id, int peerId, int type, String no, String startCityCode, String startStation, String endCityCode, String endStation, String startTime, String endTime, String duration, int price, String seatClass, int select, int version, int status, int created, int updated) {
         this.id = id;
+        this.peerId = peerId;
         this.type = type;
         this.no = no;
         this.startCityCode = startCityCode;
@@ -72,6 +74,14 @@ public class TrafficEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getPeerId() {
+        return peerId;
+    }
+
+    public void setPeerId(int peerId) {
+        this.peerId = peerId;
     }
 
     public int getType() {

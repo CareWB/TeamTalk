@@ -15,9 +15,12 @@
     <string name="select_destination">选择目的地</string>
     <string name="travel_behavior">出行喜好</string>
     <string name="travel_detail">详细行程</string>
+    <string name="detail_disp">行程预览</string>
+    <string name="detail_disp_menu">行程目录</string>
     <string name="play_behavior">游玩喜好</string>
     <string name="select_sight">选择景点</string>
     <string name="select_hotel">选择酒店</string>
+    <string name="expense_detail">费用清单</string>
 
     <string name="time_place">时间地点</string>
     <string name="time">时&#160;&#160;&#160;&#160;间</string>
@@ -40,4 +43,5 @@
     <string name="end_date_hint">返回日期</string>
     <string name="select_city_title">选择城市</string>
     <string name="select_city_locating">定位中...</string>
+    <string name="local_city_hint">当前定位 :&#160;</string>
 </resources>

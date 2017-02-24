@@ -126,6 +126,7 @@ public class CreateTravelFragment extends TTBaseFragment{
                     destination = data.getStringExtra("city");
                     if (imService != null) {
                         imService.getTravelManager().getMtTravel().setDestination(destination);
+                        imService.getTravelManager().getMtCity().get(0).setCityName(destination);
                     }
                     break;
                 case 102:

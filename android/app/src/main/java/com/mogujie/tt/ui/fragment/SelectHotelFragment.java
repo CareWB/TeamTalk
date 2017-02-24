@@ -11,19 +11,16 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mogujie.tt.DB.entity.HotelEntity;
-import com.mogujie.tt.DB.entity.SightEntity;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.UrlConstant;
+import com.mogujie.tt.imservice.manager.IMTravelManager;
 import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
 import com.mogujie.tt.ui.adapter.HotelAdapter;
@@ -34,7 +31,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +39,8 @@ import java.util.Map;
  */
 public class SelectHotelFragment extends TTBaseFragment{
 	private View curView = null;
+    private IMService imService;
+    private IMTravelManager travelManager;
     private TextView total;
     private TextView economical;
     private TextView luxurious;
@@ -81,9 +79,9 @@ public class SelectHotelFragment extends TTBaseFragment{
         @Override
         public void onIMServiceConnected() {
             logger.d("config#onIMServiceConnected");
-            IMService imService = imServiceConnector.getIMService();
+            imService = imServiceConnector.getIMService();
             if (imService != null) {
-
+                travelManager = imService.getTravelManager();
             }
         }
 
@@ -212,6 +210,8 @@ public class SelectHotelFragment extends TTBaseFragment{
         createRoute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                storageHotel();
+                travelManager.reqCreateTravel();
                 TravelUIHelper.openDetailDispActivity(getActivity());
             }
         });
@@ -260,18 +260,24 @@ public class SelectHotelFragment extends TTBaseFragment{
         qitian.setName("7天快捷酒店");
         qitian.setPic(pre+"qitiankuaijiejiudian.png");
         qitian.setStar(9);
+        qitian.setUrl("http://www.baidu.com");
         qitian.setTag("经济型");
         qitian.setMustGo(1);
         qitian.setPrice(654);
         qitian.setDistance(123);
+        qitian.setStartTime("12:00");
+        qitian.setEndTime("14:00");
 
         HotelEntity rihang = new HotelEntity();
         rihang.setName("厦门日航酒店");
         rihang.setPic(pre+"rihangjiudian.png");
         rihang.setStar(10);
+        rihang.setUrl("http://www.baidu.com");
         rihang.setTag("豪华型");
         rihang.setPrice(321);
         rihang.setDistance(456);
+        rihang.setStartTime("12:00");
+        rihang.setEndTime("14:00");
 
         hotelEntityArrayList.add(qitian);
         hotelEntityArrayList.add(rihang);
@@ -439,6 +445,19 @@ public class SelectHotelFragment extends TTBaseFragment{
         }
 
         room_num.setText(String.valueOf(roomNum));
+    }
+
+    private void storageHotel() {
+        if (travelManager != null) {
+            List<HotelEntity> hotelEntityList = travelManager.getMtCity().get(0).getHotelList();
+            hotelEntityList.clear();
+            for (HotelEntity hotelEntity:selectHotelList) {
+                if (hotelEntity.getSelect() == 0) {
+                    continue;
+                }
+                hotelEntityList.add(hotelEntity);
+            }
+        }
     }
 
     public class ComparatorDistance implements Comparator {

@@ -12,13 +12,18 @@ public class DetailDispEntity {
     private Long id;
     private int type;
     /** Not-null value. */
-    private String backgroud;
+    private String image;
     /** Not-null value. */
     private String title;
     /** Not-null value. */
     private String content;
+    private int trafficType;
     /** Not-null value. */
     private String time;
+    /** Not-null value. */
+    private String start;
+    /** Not-null value. */
+    private String end;
     private int version;
     private int status;
     private int created;
@@ -34,13 +39,16 @@ public class DetailDispEntity {
         this.id = id;
     }
 
-    public DetailDispEntity(Long id, int type, String backgroud, String title, String content, String time, int version, int status, int created, int updated) {
+    public DetailDispEntity(Long id, int type, String image, String title, String content, int trafficType, String time, String start, String end, int version, int status, int created, int updated) {
         this.id = id;
         this.type = type;
-        this.backgroud = backgroud;
+        this.image = image;
         this.title = title;
         this.content = content;
+        this.trafficType = trafficType;
         this.time = time;
+        this.start = start;
+        this.end = end;
         this.version = version;
         this.status = status;
         this.created = created;
@@ -64,13 +72,13 @@ public class DetailDispEntity {
     }
 
     /** Not-null value. */
-    public String getBackgroud() {
-        return backgroud;
+    public String getImage() {
+        return image;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setBackgroud(String backgroud) {
-        this.backgroud = backgroud;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     /** Not-null value. */
@@ -93,6 +101,14 @@ public class DetailDispEntity {
         this.content = content;
     }
 
+    public int getTrafficType() {
+        return trafficType;
+    }
+
+    public void setTrafficType(int trafficType) {
+        this.trafficType = trafficType;
+    }
+
     /** Not-null value. */
     public String getTime() {
         return time;
@@ -101,6 +117,26 @@ public class DetailDispEntity {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setTime(String time) {
         this.time = time;
+    }
+
+    /** Not-null value. */
+    public String getStart() {
+        return start;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    /** Not-null value. */
+    public String getEnd() {
+        return end;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setEnd(String end) {
+        this.end = end;
     }
 
     public int getVersion() {

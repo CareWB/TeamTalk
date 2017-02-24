@@ -9,13 +9,70 @@
 
     <View
         android:layout_marginStart="12dp"
-        android:layout_width="1dp"
+        android:layout_width="4dp"
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
-        android:background="#b3b3b3" />
+        android:background="@color/travel_menu_bk" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rv_detail_disp" />
+        android:id="@+id/rv_detail_disp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="right"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="@color/translucent"
+        android:id="@+id/ly_detail_disp_sight_disp">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="@dimen/detail_disp_sight_disp_rv_height"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/detail_disp_sight_disp_pad"
+            android:background="@color/base_title"
+            android:id="@+id/rv_detail_disp_sight_disp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/detail_disp_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/base_title"
+        android:textSize="@dimen/title_size"
+        android:clickable="true"
+        android:background="@drawable/detail_disp_menu"
+        android:layout_marginLeft="@dimen/select_sight_tag_between"
+        android:layout_marginBottom="@dimen/select_sight_tag_between"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/detail_disp_menu" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/detail_disp_menu_width"
+        android:layout_height="@dimen/detail_disp_menu_height"
+        android:layout_alignLeft="@+id/detail_disp_menu"
+        android:background="@drawable/detail_disp_menu_content"
+        android:layout_marginBottom="@dimen/detail_disp_menu_bottom"
+        android:paddingBottom="@dimen/detail_disp_menu_bottom_triangle"
+        android:layout_above="@+id/detail_disp_menu"
+        android:id="@+id/ly_detail_disp_menu"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_detail_disp_menu"/>
+    </LinearLayout>
+
 </RelativeLayout>

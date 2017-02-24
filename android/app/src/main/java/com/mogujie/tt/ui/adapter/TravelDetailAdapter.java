@@ -63,31 +63,27 @@ public class TravelDetailAdapter extends RecyclerView.Adapter {
         TrafficEntity back = mBackList.get(i);
         TrafficViewHolder holder = (TrafficViewHolder) viewHolder;
 
-        if (go.getType() == 1) {
-            holder.goLogo.setBackgroundResource(R.drawable.plane_black);
-            holder.goTitle.setText(travelEntity.getStartDate()+"起飞");
-        } else {
-            holder.goLogo.setBackgroundResource(R.drawable.train_black);
-            holder.goTitle.setText(travelEntity.getStartDate()+"开车");
-        }
+        holder.tvTravel.setText(travelEntity.getDestination()+" : "+travelEntity.getStartDate()+"-"+travelEntity.getEndDate());
 
-        holder.goStart.setText(go.getStartStation()+"\n"+go.getStartTime());
-        holder.goEnd.setText(go.getEndStation()+"\n"+go.getEndTime());
+        holder.goTitle.setText(travelEntity.getStartPlace()+"-"+travelEntity.getDestination());
+        holder.goTitleDate.setText(travelEntity.getStartDate());
+        holder.backTitle.setText(travelEntity.getDestination()+"-"+travelEntity.getEndPlace());
+        holder.backTitleDate.setText(travelEntity.getEndDate());
+        holder.goStartTime.setText(go.getStartTime());
+        holder.goEndTime.setText(go.getEndTime());
+        holder.goStartStation.setText(go.getStartStation());
+        holder.goEndStation.setText(go.getEndStation());
         holder.goNo.setText(go.getNo());
-        holder.goPrice.setText("￥"+go.getPrice()+go.getSeatClass());
+        holder.goPrice.setText("￥"+go.getPrice());
+        holder.goSeatType.setText(go.getSeatClass());
 
-        if (back.getType() == 1) {
-            holder.backLogo.setBackgroundResource(R.drawable.plane_black);
-            holder.backTitle.setText(travelEntity.getStartDate()+"起飞");
-        } else {
-            holder.backLogo.setBackgroundResource(R.drawable.train_black);
-            holder.backTitle.setText(travelEntity.getStartDate()+"开车");
-        }
-
-        holder.backStart.setText(back.getStartStation()+"\n"+back.getStartTime());
-        holder.backEnd.setText(back.getEndStation()+"\n"+back.getEndTime());
+        holder.backStartTime.setText(back.getStartTime());
+        holder.backEndTime.setText(back.getEndTime());
+        holder.backStartStation.setText(back.getStartStation());
+        holder.backEndStation.setText(back.getEndStation());
         holder.backNo.setText(back.getNo());
-        holder.backPrice.setText("￥"+back.getPrice()+back.getSeatClass());
+        holder.backPrice.setText("￥"+back.getPrice());
+        holder.backSeatType.setText(back.getSeatClass());
 
 /*        if (travelEntity.get() == 0) {
 
@@ -105,39 +101,52 @@ public class TravelDetailAdapter extends RecyclerView.Adapter {
         public LinearLayout addSight;
         public RelativeLayout goTrafficList;
         public RelativeLayout backTrafficList;
+        public TextView tvTravel;
         public TextView goTitle;
-        public ImageView goLogo;
-        public TextView goStart;
-        public TextView goEnd;
+        public TextView goTitleDate;
+        public TextView goStartTime;
+        public TextView goEndTime;
+        public TextView goStartStation;
+        public TextView goEndStation;
         public TextView goNo;
         public TextView goPrice;
-        public TextView tvAddSight;
+        public TextView goSeatType;
         public TextView backTitle;
-        public ImageView backLogo;
-        public TextView backStart;
-        public TextView backEnd;
+        public TextView backTitleDate;
+        public TextView backStartTime;
+        public TextView backEndTime;
+        public TextView backStartStation;
+        public TextView backEndStation;
         public TextView backNo;
         public TextView backPrice;
+        public TextView backSeatType;
 
         public TrafficViewHolder(View itemView) {
             super(itemView);
             addSight = (LinearLayout) itemView.findViewById(R.id.travel_detail_add_sight);
+            tvTravel = (TextView) itemView.findViewById(R.id.tv_travel);
+
             goTrafficList = (RelativeLayout) itemView.findViewById(R.id.go_travel_detail_traffic_list);
             goTitle = (TextView) itemView.findViewById(R.id.go_travel_detail_title);
-            goLogo = (ImageView) itemView.findViewById(R.id.go_travel_detail_traffic_logo);
-            goStart = (TextView) itemView.findViewById(R.id.go_travel_detail_start);
-            goEnd = (TextView) itemView.findViewById(R.id.go_travel_detail_end);
-            goNo = (TextView) itemView.findViewById(R.id.go_travel_detail_no);
-            goPrice = (TextView) itemView.findViewById(R.id.go_travel_detail_price);
-            tvAddSight = (TextView) itemView.findViewById(R.id.tv_add_sight);
+            goTitleDate = (TextView) itemView.findViewById(R.id.go_travel_detail_title_date);
+            goStartTime = (TextView) itemView.findViewById(R.id.go_traffic_detail_start_time);
+            goEndTime = (TextView) itemView.findViewById(R.id.go_traffic_detail_end_time);
+            goStartStation = (TextView) itemView.findViewById(R.id.go_traffic_detail_start_station);
+            goEndStation = (TextView) itemView.findViewById(R.id.go_traffic_detail_end_station);
+            goNo = (TextView) itemView.findViewById(R.id.go_traffic_list_no);
+            goPrice = (TextView) itemView.findViewById(R.id.go_traffic_detail_price);
+            goSeatType = (TextView) itemView.findViewById(R.id.go_traffic_detail_seat_type);
 
             backTrafficList = (RelativeLayout) itemView.findViewById(R.id.back_travel_detail_traffic_list);
             backTitle = (TextView) itemView.findViewById(R.id.back_travel_detail_title);
-            backLogo = (ImageView) itemView.findViewById(R.id.back_travel_detail_traffic_logo);
-            backStart = (TextView) itemView.findViewById(R.id.back_travel_detail_start);
-            backEnd = (TextView) itemView.findViewById(R.id.back_travel_detail_end);
-            backNo = (TextView) itemView.findViewById(R.id.back_travel_detail_no);
-            backPrice = (TextView) itemView.findViewById(R.id.back_travel_detail_price);
+            backTitleDate = (TextView) itemView.findViewById(R.id.back_travel_detail_title_date);
+            backStartTime = (TextView) itemView.findViewById(R.id.back_traffic_detail_start_time);
+            backEndTime = (TextView) itemView.findViewById(R.id.back_traffic_detail_end_time);
+            backStartStation = (TextView) itemView.findViewById(R.id.back_traffic_detail_start_station);
+            backEndStation = (TextView) itemView.findViewById(R.id.back_traffic_detail_end_station);
+            backNo = (TextView) itemView.findViewById(R.id.back_traffic_list_no);
+            backPrice = (TextView) itemView.findViewById(R.id.back_traffic_detail_price);
+            backSeatType = (TextView) itemView.findViewById(R.id.back_traffic_detail_seat_type);
 
             addSight.setOnClickListener(this);
             goTrafficList.setOnClickListener(this);

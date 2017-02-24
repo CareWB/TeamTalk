@@ -25,7 +25,9 @@ public class TrafficListFragment extends TTBaseFragment{
 	private View curView = null;
     private Intent intent;
     private int trafficID = 0;
+    private String date;
     private RecyclerView rvTrafficList;
+    private List<TrafficEntity> trafficEntityListDB = new ArrayList<>();
     private List<TrafficEntity> trafficEntityList = new ArrayList<>();
     private TrafficDetailAdapter trafficDetailAdapter;
     private static final int GO = 1;
@@ -38,14 +40,21 @@ public class TrafficListFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-                setTopTitle("深圳-厦门");
-                trafficEntityList.clear();
+                trafficEntityListDB.clear();
                 if (direction == GO) {
-                    trafficEntityList.addAll(imService.getTravelManager().getGoTrafficEntityList());
+                    setTopTitle(imService.getTravelManager().getMtTravel().getStartPlace()+"-"+
+                            imService.getTravelManager().getMtTravel().getDestination());
+                    trafficEntityListDB.addAll(imService.getTravelManager().getGoTrafficEntityList());
+                    date = imService.getTravelManager().getMtTravel().getStartDate();
                 } else {
-                    trafficEntityList.addAll(imService.getTravelManager().getBackTrafficEntityList());
+                    setTopTitle(imService.getTravelManager().getMtTravel().getDestination()+"-"+
+                            imService.getTravelManager().getMtTravel().getEndPlace());
+                    trafficEntityListDB.addAll(imService.getTravelManager().getBackTrafficEntityList());
+                    date = imService.getTravelManager().getMtTravel().getEndDate();
                 }
-                trafficDetailAdapter.notifyDataSetChanged();
+                trafficEntityList.addAll(trafficEntityListDB);
+                initTrafficList();
+                //trafficDetailAdapter.notifyDataSetChanged();
             }
         }
 
@@ -133,16 +142,45 @@ public class TrafficListFragment extends TTBaseFragment{
             @Override
             public void onSelectClick(int position) {
                 trafficID = position;
+                for (TrafficEntity trafficEntity : trafficEntityList) {
+                    trafficEntity.setSelect(0);
+                }
+                trafficEntityList.get(position).setSelect(1);
             }
 
             @Override
             public void onPullClick(int position) {
-
+                if (trafficEntityList.get(position).getStatus() == 0) {
+                    trafficEntityList.get(position).setStatus(1);
+                } else {
+                    trafficEntityList.get(position).setStatus(0);
+                }
+                pullProcess();
             }
         };
 
-        trafficDetailAdapter = new TrafficDetailAdapter(getActivity(), trafficEntityList);
+        trafficDetailAdapter = new TrafficDetailAdapter(getActivity(), date, trafficEntityList);
         trafficDetailAdapter.setOnRecyclerViewListener(detailRVListener);
         rvTrafficList.setAdapter(trafficDetailAdapter);
+    }
+
+    private void pullProcess() {
+        trafficEntityList.clear();
+        int type = 0;
+        int status = 0;
+        for (TrafficEntity trafficEntity : trafficEntityListDB) {
+            if (trafficEntity.getType() > 0xf0) {
+                type = trafficEntity.getType()-0xf0;
+                status = trafficEntity.getStatus();
+                trafficEntityList.add(trafficEntity);
+            }
+
+            if (type == trafficEntity.getType()) {
+                if (status == 1) {
+                    trafficEntityList.add(trafficEntity);
+                }
+            }
+        }
+        trafficDetailAdapter.notifyDataSetChanged();
     }
 }

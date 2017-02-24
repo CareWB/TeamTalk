@@ -25,14 +25,17 @@ public class DetailDispDao extends AbstractDao<DetailDispEntity, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Type = new Property(1, int.class, "type", false, "TYPE");
-        public final static Property Backgroud = new Property(2, String.class, "backgroud", false, "BACKGROUD");
+        public final static Property Image = new Property(2, String.class, "image", false, "IMAGE");
         public final static Property Title = new Property(3, String.class, "title", false, "TITLE");
         public final static Property Content = new Property(4, String.class, "content", false, "CONTENT");
-        public final static Property Time = new Property(5, String.class, "time", false, "TIME");
-        public final static Property Version = new Property(6, int.class, "version", false, "VERSION");
-        public final static Property Status = new Property(7, int.class, "status", false, "STATUS");
-        public final static Property Created = new Property(8, int.class, "created", false, "CREATED");
-        public final static Property Updated = new Property(9, int.class, "updated", false, "UPDATED");
+        public final static Property TrafficType = new Property(5, int.class, "trafficType", false, "TRAFFIC_TYPE");
+        public final static Property Time = new Property(6, String.class, "time", false, "TIME");
+        public final static Property Start = new Property(7, String.class, "start", false, "START");
+        public final static Property End = new Property(8, String.class, "end", false, "END");
+        public final static Property Version = new Property(9, int.class, "version", false, "VERSION");
+        public final static Property Status = new Property(10, int.class, "status", false, "STATUS");
+        public final static Property Created = new Property(11, int.class, "created", false, "CREATED");
+        public final static Property Updated = new Property(12, int.class, "updated", false, "UPDATED");
     };
 
 
@@ -50,14 +53,17 @@ public class DetailDispDao extends AbstractDao<DetailDispEntity, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'DetailDispInfo' (" + //
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'TYPE' INTEGER NOT NULL ," + // 1: type
-                "'BACKGROUD' TEXT NOT NULL ," + // 2: backgroud
+                "'IMAGE' TEXT NOT NULL ," + // 2: image
                 "'TITLE' TEXT NOT NULL ," + // 3: title
                 "'CONTENT' TEXT NOT NULL ," + // 4: content
-                "'TIME' TEXT NOT NULL ," + // 5: time
-                "'VERSION' INTEGER NOT NULL ," + // 6: version
-                "'STATUS' INTEGER NOT NULL ," + // 7: status
-                "'CREATED' INTEGER NOT NULL ," + // 8: created
-                "'UPDATED' INTEGER NOT NULL );"); // 9: updated
+                "'TRAFFIC_TYPE' INTEGER NOT NULL ," + // 5: trafficType
+                "'TIME' TEXT NOT NULL ," + // 6: time
+                "'START' TEXT NOT NULL ," + // 7: start
+                "'END' TEXT NOT NULL ," + // 8: end
+                "'VERSION' INTEGER NOT NULL ," + // 9: version
+                "'STATUS' INTEGER NOT NULL ," + // 10: status
+                "'CREATED' INTEGER NOT NULL ," + // 11: created
+                "'UPDATED' INTEGER NOT NULL );"); // 12: updated
     }
 
     /** Drops the underlying database table. */
@@ -76,14 +82,17 @@ public class DetailDispDao extends AbstractDao<DetailDispEntity, Long> {
             stmt.bindLong(1, id);
         }
         stmt.bindLong(2, entity.getType());
-        stmt.bindString(3, entity.getBackgroud());
+        stmt.bindString(3, entity.getImage());
         stmt.bindString(4, entity.getTitle());
         stmt.bindString(5, entity.getContent());
-        stmt.bindString(6, entity.getTime());
-        stmt.bindLong(7, entity.getVersion());
-        stmt.bindLong(8, entity.getStatus());
-        stmt.bindLong(9, entity.getCreated());
-        stmt.bindLong(10, entity.getUpdated());
+        stmt.bindLong(6, entity.getTrafficType());
+        stmt.bindString(7, entity.getTime());
+        stmt.bindString(8, entity.getStart());
+        stmt.bindString(9, entity.getEnd());
+        stmt.bindLong(10, entity.getVersion());
+        stmt.bindLong(11, entity.getStatus());
+        stmt.bindLong(12, entity.getCreated());
+        stmt.bindLong(13, entity.getUpdated());
     }
 
     /** @inheritdoc */
@@ -98,14 +107,17 @@ public class DetailDispDao extends AbstractDao<DetailDispEntity, Long> {
         DetailDispEntity entity = new DetailDispEntity( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getInt(offset + 1), // type
-            cursor.getString(offset + 2), // backgroud
+            cursor.getString(offset + 2), // image
             cursor.getString(offset + 3), // title
             cursor.getString(offset + 4), // content
-            cursor.getString(offset + 5), // time
-            cursor.getInt(offset + 6), // version
-            cursor.getInt(offset + 7), // status
-            cursor.getInt(offset + 8), // created
-            cursor.getInt(offset + 9) // updated
+            cursor.getInt(offset + 5), // trafficType
+            cursor.getString(offset + 6), // time
+            cursor.getString(offset + 7), // start
+            cursor.getString(offset + 8), // end
+            cursor.getInt(offset + 9), // version
+            cursor.getInt(offset + 10), // status
+            cursor.getInt(offset + 11), // created
+            cursor.getInt(offset + 12) // updated
         );
         return entity;
     }
@@ -115,14 +127,17 @@ public class DetailDispDao extends AbstractDao<DetailDispEntity, Long> {
     public void readEntity(Cursor cursor, DetailDispEntity entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setType(cursor.getInt(offset + 1));
-        entity.setBackgroud(cursor.getString(offset + 2));
+        entity.setImage(cursor.getString(offset + 2));
         entity.setTitle(cursor.getString(offset + 3));
         entity.setContent(cursor.getString(offset + 4));
-        entity.setTime(cursor.getString(offset + 5));
-        entity.setVersion(cursor.getInt(offset + 6));
-        entity.setStatus(cursor.getInt(offset + 7));
-        entity.setCreated(cursor.getInt(offset + 8));
-        entity.setUpdated(cursor.getInt(offset + 9));
+        entity.setTrafficType(cursor.getInt(offset + 5));
+        entity.setTime(cursor.getString(offset + 6));
+        entity.setStart(cursor.getString(offset + 7));
+        entity.setEnd(cursor.getString(offset + 8));
+        entity.setVersion(cursor.getInt(offset + 9));
+        entity.setStatus(cursor.getInt(offset + 10));
+        entity.setCreated(cursor.getInt(offset + 11));
+        entity.setUpdated(cursor.getInt(offset + 12));
      }
     
     /** @inheritdoc */

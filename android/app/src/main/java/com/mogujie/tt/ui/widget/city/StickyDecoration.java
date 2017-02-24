@@ -28,11 +28,11 @@ public class StickyDecoration extends RecyclerView.ItemDecoration {
         Resources res = context.getResources();
 
         paint = new Paint();
-        paint.setColor(res.getColor(R.color.colorAccent));
+        paint.setColor(Color.WHITE);
         textPaint = new TextPaint();
         textPaint.setAntiAlias(true);
         textPaint.setTextSize(60);
-        textPaint.setColor(Color.WHITE);
+        textPaint.setColor(res.getColor(R.color.city_alpha));
         topHeight = res.getDimensionPixelSize(R.dimen.top);
     }
 

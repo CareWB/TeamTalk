@@ -14,8 +14,7 @@
         android:id="@+id/iv_new_travel_destination_bk"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/home_page_create_travel"
+        android:background="@drawable/home_page_create_travel"
         tools:ignore="ContentDescription" />
 
 </android.support.v7.widget.CardView>

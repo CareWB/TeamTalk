@@ -281,6 +281,7 @@ public class GreenDaoGenerator {
         trafficInfo.setJavaPackage(entityPath);
 
         trafficInfo.addIdProperty().autoincrement();
+        trafficInfo.addIntProperty("peerId").notNull();
         trafficInfo.addIntProperty("type").notNull();
         trafficInfo.addStringProperty("no").notNull();
         trafficInfo.addStringProperty("startCityCode").notNull();
@@ -309,10 +310,13 @@ public class GreenDaoGenerator {
 
         detailDispInfo.addIdProperty().autoincrement();
         detailDispInfo.addIntProperty("type").notNull();
-        detailDispInfo.addStringProperty("backgroud").notNull();
+        detailDispInfo.addStringProperty("image").notNull();
         detailDispInfo.addStringProperty("title").notNull();
         detailDispInfo.addStringProperty("content").notNull();
+        detailDispInfo.addIntProperty("trafficType").notNull();
         detailDispInfo.addStringProperty("time").notNull();
+        detailDispInfo.addStringProperty("start").notNull();
+        detailDispInfo.addStringProperty("end").notNull();
         detailDispInfo.addIntProperty("version").notNull();
         detailDispInfo.addIntProperty("status").notNull();
         detailDispInfo.addIntProperty("created").notNull();

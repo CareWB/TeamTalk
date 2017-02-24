@@ -159,7 +159,6 @@ public class PlayBehaviorFragment extends TTBaseFragment{
 
                     case R.id.play_behavior_next_step:
                         storeTravelEntity();
-                        //imTravelManager.reqCreateTravel();
                         jump2SelectSight();
                         break;
                 }

@@ -44,11 +44,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/start_end_city"
         android:text="@string/select_city_locating"
         android:gravity="center"
         android:id="@+id/select_city_result"
-        android:textColor="@color/mian_title"
-        android:textSize="@dimen/mian_title_size"/>
+        android:textColor="@color/switch_off"
+        android:textSize="@dimen/content_size"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

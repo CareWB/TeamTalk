@@ -168,7 +168,7 @@ public class TravelTipFragment extends TTBaseFragment {
                 }*/
                 Bitmap bmp;
                 if (mLastPos == travelEntityList.size()-1) {
-                    bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic4);
+                    bmp = BitmapFactory.decodeResource(getResources(), R.drawable.new_travel_bk);
                 } else {
                     bmp = BitmapFactory.decodeResource(getResources(), R.drawable.xiamen);
                 }

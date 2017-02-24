@@ -4,8 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Window;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
+import com.mogujie.tt.DB.sp.SystemConfigSp;
 import com.mogujie.tt.R;
 import com.mogujie.tt.config.IntentConstant;
 import com.mogujie.tt.imservice.event.LoginEvent;
@@ -14,17 +20,23 @@ import com.mogujie.tt.imservice.service.IMService;
 import com.mogujie.tt.ui.fragment.ChatFragment;
 import com.mogujie.tt.ui.fragment.ContactFragment;
 import com.mogujie.tt.imservice.support.IMServiceConnector;
+import com.mogujie.tt.ui.widget.city.MyCityAdapter;
+import com.mogujie.tt.ui.widget.city.MySlideView;
 import com.mogujie.tt.utils.Logger;
 import com.mogujie.tt.ui.widget.NaviTabButton;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import de.greenrobot.event.EventBus;
 
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity {
 	private Fragment[] mFragments;
 	private NaviTabButton[] mTabButtons;
 	private Logger logger = Logger.getLogger(MainActivity.class);
     private IMService imService;
+
 	private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
         public void onIMServiceConnected() {
@@ -222,4 +234,6 @@ public class MainActivity extends FragmentActivity{
 		intent.putExtra(IntentConstant.KEY_LOGIN_NOT_AUTO, true);
 		startActivity(intent);
 	}
+
+
 }
