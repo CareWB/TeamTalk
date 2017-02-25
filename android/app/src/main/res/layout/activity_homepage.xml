@@ -2,61 +2,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/home_page"
     android:orientation="vertical" >
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/toolbar_bk">
-
-        <TextView
-            android:text="@string/travel"
-            android:textColor="@color/title"
-            android:layout_width="wrap_content"
-            android:layout_height="81dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="9dp"
-            android:id="@+id/tbn_travel"
-            android:textSize="15sp"
-            android:paddingTop="21dp"
-            android:drawableBottom="@drawable/content_choose_underline"
-            android:gravity="center" />
-
-<!--        <TextView
-            android:text="@string/local"
-            android:textColor="@color/title"
-            android:layout_width="wrap_content"
-            android:layout_height="81dp"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/tbn_travel"
-            android:id="@+id/tbn_local"
-            android:textSize="15sp"
-            android:paddingTop="21dp"
-            android:gravity="center" />-->
 
         <ImageView
             android:src="@drawable/avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="9dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="9dp"
+            android:layout_gravity="center_vertical"
             android:paddingTop="21dp"
             android:id="@+id/avatar" />
-    </RelativeLayout>
+
+    </LinearLayout>
 
     <fragment
-        android:id="@+id/fragment_travel_tip"
+        android:id="@+id/travel_tip"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        class="com.mogujie.tt.ui.fragment.TravelTipFragment" />
-
-    <fragment
-        android:id="@+id/fragment_local"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        class="com.mogujie.tt.ui.fragment.ContactFragment" />
+        class="com.mogujie.tt.ui.fragment.TravelTipFragment"
+        tools:layout="@layout/tt_fragment_travel_tip" />
 </LinearLayout>

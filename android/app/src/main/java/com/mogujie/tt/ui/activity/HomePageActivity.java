@@ -1,13 +1,20 @@
 package com.mogujie.tt.ui.activity;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -20,7 +27,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class HomePageActivity extends FragmentActivity implements AMapLocationListener {
-    private Fragment[] mFragments;
+    private ImageView avatar;
+    private Context context = null;
+    private PopupWindow popupWindow;
     private AMapLocationClient mlocationClient;
     //声明mLocationOption对象
     public AMapLocationClientOption mLocationOption = null;
@@ -30,8 +39,6 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         init();
-        initFragment();
-        setFragmentIndicator(0);
         initLocation();
     }
 
@@ -42,34 +49,93 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
             //透明导航栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
-
-        TextView travel = (TextView)findViewById(R.id.tbn_travel);
-        travel.setOnClickListener(new View.OnClickListener() {
+        avatar = (ImageView)findViewById(R.id.avatar);
+        avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setFragmentIndicator(0);
+                initPopupWindow();
+            }
+        });
+    }
+
+    class popupDismissListener implements PopupWindow.OnDismissListener{
+
+        @Override
+        public void onDismiss() {
+            backgroundAlpha(1f);
+        }
+
+    }
+
+    protected void initPopupWindow(){
+        View popupWindowView = getLayoutInflater().inflate(R.layout.mine, null);
+        //内容，高度，宽度
+        popupWindow = new PopupWindow(popupWindowView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.FILL_PARENT, true);
+        //动画效果
+        popupWindow.setAnimationStyle(R.style.AnimationLeftFade);
+        //菜单背景色
+        ColorDrawable dw = new ColorDrawable(0xffffffff);
+        popupWindow.setBackgroundDrawable(dw);
+        //显示位置
+        popupWindow.showAtLocation(avatar, Gravity.LEFT, 0, 500);
+        //设置背景半透明
+        backgroundAlpha(0.5f);
+        //关闭事件
+        popupWindow.setOnDismissListener(new popupDismissListener());
+
+        popupWindowView.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                /*if( popupWindow!=null && popupWindow.isShowing()){
+                    popupWindow.dismiss();
+                    popupWindow=null;
+                }*/
+                // 这里如果返回true的话，touch事件将被拦截
+                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+                return false;
             }
         });
 
-/*        TextView local = (TextView)findViewById(R.id.tbn_local);
-        local.setOnClickListener(new View.OnClickListener() {
+/*        open.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                setFragmentIndicator(1);
+                Toast.makeText(context, "Open", Toast.LENGTH_LONG).show();
+                popupWindow.dismiss();
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Open", Toast.LENGTH_LONG).show();
+                popupWindow.dismiss();
+            }
+        });
+
+        close.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Open", Toast.LENGTH_LONG).show();
+                popupWindow.dismiss();
             }
         });*/
-
     }
 
-    private void initFragment() {
-        mFragments = new Fragment[2];
-        mFragments[0] = getSupportFragmentManager().findFragmentById(R.id.fragment_travel_tip);
-        mFragments[1] = getSupportFragmentManager().findFragmentById(R.id.fragment_local);
+    /**
+     * 设置添加屏幕的背景透明度
+     * @param bgAlpha
+     */
+    public void backgroundAlpha(float bgAlpha)
+    {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = bgAlpha; //0.0-1.0
+        getWindow().setAttributes(lp);
     }
 
-    public void setFragmentIndicator(int which) {
-        getSupportFragmentManager().beginTransaction().hide(mFragments[0]).hide(mFragments[1]).show(mFragments[which]).commit();
-    }
 
     private void initLocation() {
         mlocationClient = new AMapLocationClient(this);

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mogujie.tt.DB.entity.TrafficEntity;
@@ -44,7 +45,7 @@ public class TravelDetailFragment extends TTBaseFragment{
     private List<TrafficEntity> goTrafficEntityList = new ArrayList<>();
     private List<TrafficEntity> backTrafficEntityList = new ArrayList<>();
     private TravelEntity travelEntity;
-    private Button expenseDetail;
+    private ImageView expenseDetail;
     private IMTravelManager travelManager;
     private TextView travelDetailTime;
     private TextView travelDetailType;
@@ -153,7 +154,7 @@ public class TravelDetailFragment extends TTBaseFragment{
 		});
 
         rvTravelDetail = (RecyclerView)curView.findViewById(R.id.rv_travel_detail);
-        expenseDetail = (Button)curView.findViewById(R.id.pay_detail);
+        expenseDetail = (ImageView)curView.findViewById(R.id.pay_detail);
 
         travelDetailTime = (TextView)curView.findViewById(R.id.travel_detail_time);
         travelDetailType = (TextView)curView.findViewById(R.id.travel_detail_type);

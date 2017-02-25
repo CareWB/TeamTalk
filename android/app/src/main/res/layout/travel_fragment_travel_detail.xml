@@ -66,10 +66,10 @@
         android:layout_weight="1"
         android:id="@+id/rv_travel_detail" />
 
-    <Button
-        android:text="费用清单"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/pay_detail"
         android:id="@+id/pay_detail" />
 
 </LinearLayout>
