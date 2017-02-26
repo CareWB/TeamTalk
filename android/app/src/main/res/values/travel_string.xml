@@ -44,4 +44,16 @@
     <string name="select_city_title">选择城市</string>
     <string name="select_city_locating">定位中...</string>
     <string name="local_city_hint">当前定位 :&#160;</string>
+    <string name="mine_info">个人信息</string>
+    <string name="mine_common_info">常用信息</string>
+    <string name="mine_order">我的订单</string>
+    <string name="mine_about_us">关于我们</string>
+    <string name="mine_clear_cache">清理缓存</string>
+    <string name="avatar">头像</string>
+    <string name="nick_name">昵称</string>
+    <string name="sex">性别</string>
+    <string name="marital">情感</string>
+    <string name="homeland">家乡</string>
+    <string name="personalized_signature">个性签名</string>
+    <string name="exit_zhizulx_tip">退出登录</string>
 </resources>

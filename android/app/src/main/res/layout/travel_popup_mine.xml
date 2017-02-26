@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_black_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mine_info">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mine_avatar"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="36dp"
+            android:id="@+id/mine_avatar" />
+
+        <TextView
+            android:text="张三"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/mine_avatar"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="16dp"
+            android:id="@+id/mine_name" />
+
+        <TextView
+            android:text="帅哥"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mine_name"
+            android:layout_alignStart="@+id/mine_name"
+            android:id="@+id/mine_sex" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mine_arrow"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mine_divider"/>
+
+    <TextView
+        android:text="@string/mine_common_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/mine_info"
+        android:id="@+id/mine_common_info" />
+
+    <TextView
+        android:text="@string/mine_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/mine_order"
+        android:id="@+id/mine_order" />
+
+    <TextView
+        android:text="@string/mine_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/mine_about_us"
+        android:id="@+id/mine_about_us" />
+
+    <TextView
+        android:text="@string/mine_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/mine_clear_cache"
+        android:id="@+id/mine_clear_cache" />
+</LinearLayout>

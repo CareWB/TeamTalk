@@ -1,6 +1,7 @@
 package com.mogujie.tt.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
@@ -22,14 +25,19 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.mogujie.tt.DB.sp.SystemConfigSp;
 import com.mogujie.tt.R;
+import com.mogujie.tt.utils.TravelUIHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class HomePageActivity extends FragmentActivity implements AMapLocationListener {
     private ImageView avatar;
-    private Context context = null;
     private PopupWindow popupWindow;
+    private RelativeLayout mine;
+    private TextView commonInfo;
+    private TextView order;
+    private TextView aboutUs;
+    private TextView clearCache;
     private AMapLocationClient mlocationClient;
     //声明mLocationOption对象
     public AMapLocationClientOption mLocationOption = null;
@@ -38,11 +46,12 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        init();
+        initView();
+        initButton();
         initLocation();
     }
 
-    private void init() {
+    private void initView() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -50,12 +59,20 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         avatar = (ImageView)findViewById(R.id.avatar);
-        avatar.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private void initButton() {
+        View.OnClickListener homePageListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initPopupWindow();
+                switch (v.getId()) {
+                    case R.id.avatar:
+                        initPopupWindow();
+                        break;
+                }
             }
-        });
+        };
+        avatar.setOnClickListener(homePageListener);
     }
 
     class popupDismissListener implements PopupWindow.OnDismissListener{
@@ -68,7 +85,7 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
     }
 
     protected void initPopupWindow(){
-        View popupWindowView = getLayoutInflater().inflate(R.layout.mine, null);
+        View popupWindowView = getLayoutInflater().inflate(R.layout.travel_popup_mine, null);
         //内容，高度，宽度
         popupWindow = new PopupWindow(popupWindowView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.FILL_PARENT, true);
         //动画效果
@@ -97,32 +114,49 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
             }
         });
 
-/*        open.setOnClickListener(new View.OnClickListener() {
+        mine = (RelativeLayout)popupWindowView.findViewById(R.id.mine_info);
+        commonInfo = (TextView)popupWindowView.findViewById(R.id.mine_common_info);
+        order = (TextView)popupWindowView.findViewById(R.id.mine_order);
+        aboutUs = (TextView)popupWindowView.findViewById(R.id.mine_about_us);
+        clearCache = (TextView)popupWindowView.findViewById(R.id.mine_clear_cache);
 
+        View.OnClickListener popListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Open", Toast.LENGTH_LONG).show();
-                popupWindow.dismiss();
+                switch (v.getId()) {
+                    case R.id.mine_info:
+                        Intent intentMine = new Intent(HomePageActivity.this, MineInfoActivity.class);
+                        startActivity(intentMine);
+                        popupWindow.dismiss();
+                        break;
+                    case R.id.mine_common_info:
+                        Intent intentMineCommon = new Intent(HomePageActivity.this, MineCommonActivity.class);
+                        startActivity(intentMineCommon);
+                        popupWindow.dismiss();
+                        break;
+                    case R.id.mine_order:
+                        Intent intentMineOrder = new Intent(HomePageActivity.this, MineOrderActivity.class);
+                        startActivity(intentMineOrder);
+                        popupWindow.dismiss();
+                        break;
+                    case R.id.mine_about_us:
+                        Intent intentMineAboutUs = new Intent(HomePageActivity.this, MineAboutUsActivity.class);
+                        startActivity(intentMineAboutUs);
+                        popupWindow.dismiss();
+                        break;
+                    case R.id.mine_clear_cache:
+                        Intent intentMineClearCache = new Intent(HomePageActivity.this, MineClearCacheActivity.class);
+                        startActivity(intentMineClearCache);
+                        popupWindow.dismiss();
+                        break;
+                }
             }
-        });
-
-        save.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Open", Toast.LENGTH_LONG).show();
-                popupWindow.dismiss();
-            }
-        });
-
-        close.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Open", Toast.LENGTH_LONG).show();
-                popupWindow.dismiss();
-            }
-        });*/
+        };
+        mine.setOnClickListener(popListener);
+        commonInfo.setOnClickListener(popListener);
+        order.setOnClickListener(popListener);
+        aboutUs.setOnClickListener(popListener);
+        clearCache.setOnClickListener(popListener);
     }
 
     /**
@@ -139,30 +173,29 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
 
     private void initLocation() {
         mlocationClient = new AMapLocationClient(this);
-//初始化定位参数
+        //初始化定位参数
         mLocationOption = new AMapLocationClientOption();
-//设置定位监听
+        //设置定位监听
         mlocationClient.setLocationListener(this);
-//设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
+        //设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
         mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-/*//设置定位间隔,单位毫秒,默认为2000ms
+        /*//设置定位间隔,单位毫秒,默认为2000ms
         mLocationOption.setInterval(2000);*/
 
-//获取一次定位结果：
-//该方法默认为false。
+        //获取一次定位结果：
+        // 该方法默认为false。
         mLocationOption.setOnceLocation(true);
-
-//获取最近3s内精度最高的一次定位结果：
-//设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
+        //获取最近3s内精度最高的一次定位结果：
+        // 设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
         mLocationOption.setOnceLocationLatest(true);
 
-//设置定位参数
+        //设置定位参数
         mlocationClient.setLocationOption(mLocationOption);
-// 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
-// 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
-// 在定位结束后，在合适的生命周期调用onDestroy()方法
-// 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
-//启动定位
+        // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
+        // 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
+        // 在定位结束后，在合适的生命周期调用onDestroy()方法
+        // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
+        // 启动定位
         mlocationClient.startLocation();
     }
 

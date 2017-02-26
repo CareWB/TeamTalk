@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_avatar_arrow" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/avatar"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/mine_info_avatar_arrow"
+            android:id="@+id/mine_info_avatar" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="旧时光"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_name" />
+
+        <TextView
+            android:text="@string/sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/mine_info_sex"
+            android:layout_alignBottom="@+id/mine_info_sex"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="你猜"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:layout_below="@+id/mine_info_name"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_sex" />
+
+        <TextView
+            android:text="@string/marital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/mine_info_marital"
+            android:layout_alignBottom="@+id/mine_info_marital"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="你猜"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:layout_below="@+id/mine_info_sex"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_marital" />
+
+        <TextView
+            android:text="@string/homeland"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/mine_info_homeland"
+            android:layout_alignBottom="@+id/mine_info_homeland"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="你猜"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:layout_below="@+id/mine_info_marital"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_homeland" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_personalized_signature">
+
+        <TextView
+            android:text="@string/personalized_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:id="@+id/logout"
+            android:background="@drawable/next_step_click"/>
+    </LinearLayout>
+</LinearLayout>

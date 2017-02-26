@@ -64,6 +64,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         public void onIMServiceConnected() {
             logger.d("config#onIMServiceConnected");
             imService = imServiceConnector.getIMService();
+            imService.getTravelManager().getMtTravel().setPersonNum(perNum);
         }
 
         @Override

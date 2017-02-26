@@ -368,7 +368,6 @@ public class MessageAdapter extends BaseAdapter {
 
     /**
      * 1.头像事件
-     * mine:事件 other事件
      * 图片的状态  消息收到，没收到，图片展示成功，没有成功
      * 触发图片的事件  【长按】
      * <p/>
