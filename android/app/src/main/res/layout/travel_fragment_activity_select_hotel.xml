@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_select_hotel"
-        android:name="com.mogujie.tt.ui.fragment.SelectHotelFragment"
+        android:name="com.zhizulx.tt.ui.fragment.SelectHotelFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

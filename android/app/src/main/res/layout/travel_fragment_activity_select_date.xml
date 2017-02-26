@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_select_city"
-        android:name="com.mogujie.tt.ui.fragment.SelectDateFragment"
+        android:name="com.zhizulx.tt.ui.fragment.SelectDateFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -33,7 +33,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.mogujie.im.libs.R;
+import com.zhizulx.im.libs.R;
 
 @SuppressLint("ViewConstructor")
 public class IndicatorLayout extends FrameLayout implements AnimationListener {

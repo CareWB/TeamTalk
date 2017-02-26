@@ -23,7 +23,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 
-import com.mogujie.im.libs.R;
+import com.zhizulx.im.libs.R;
 
 public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
 

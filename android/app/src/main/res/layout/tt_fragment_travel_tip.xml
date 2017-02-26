@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.mogujie.tt.ui.fragment.TravelTipFragment">
+    tools:context="com.zhizulx.tt.ui.fragment.TravelTipFragment">
 
     <ImageView
         android:id="@+id/blurView"

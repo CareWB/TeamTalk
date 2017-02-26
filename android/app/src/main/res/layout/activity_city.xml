@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/base_bk"
-    tools:context="com.mogujie.tt.ui.widget.city.CityActivity">
+    tools:context="com.zhizulx.tt.ui.widget.city.CityActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mogujie.tt.ui.widget.city.MySlideView
+        <com.zhizulx.tt.ui.widget.city.MySlideView
             android:id="@+id/my_slide_view"
             android:layout_width="30dp"
             android:layout_height="match_parent"
@@ -74,7 +74,7 @@
 
         </FrameLayout>
 
-        <com.mogujie.tt.ui.widget.city.CircleTextView
+        <com.zhizulx.tt.ui.widget.city.CircleTextView
             android:id="@+id/my_circle_view"
             android:layout_width="50dp"
             android:layout_height="50dp"

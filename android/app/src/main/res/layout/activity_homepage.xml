@@ -25,6 +25,6 @@
         android:id="@+id/travel_tip"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.mogujie.tt.ui.fragment.TravelTipFragment"
+        class="com.zhizulx.tt.ui.fragment.TravelTipFragment"
         tools:layout="@layout/tt_fragment_travel_tip" />
 </LinearLayout>

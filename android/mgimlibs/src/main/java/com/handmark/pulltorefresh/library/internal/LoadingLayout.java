@@ -36,7 +36,7 @@ import android.widget.TextView;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Orientation;
-import com.mogujie.im.libs.R;
+import com.zhizulx.im.libs.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

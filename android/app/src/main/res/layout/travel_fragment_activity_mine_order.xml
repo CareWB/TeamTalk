@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_mine_order"
-        android:name="com.mogujie.tt.ui.fragment.MineOrderFragment"
+        android:name="com.zhizulx.tt.ui.fragment.MineOrderFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_mine_clear_cache"
-        android:name="com.mogujie.tt.ui.fragment.MineClearCacheFragment"
+        android:name="com.zhizulx.tt.ui.fragment.MineClearCacheFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

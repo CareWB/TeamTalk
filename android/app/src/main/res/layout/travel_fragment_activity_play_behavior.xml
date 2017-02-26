@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_play_behavior"
-        android:name="com.mogujie.tt.ui.fragment.PlayBehaviorFragment"
+        android:name="com.zhizulx.tt.ui.fragment.PlayBehaviorFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

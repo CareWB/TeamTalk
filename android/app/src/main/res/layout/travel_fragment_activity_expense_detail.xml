@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_expense_detail"
-        android:name="com.mogujie.tt.ui.fragment.ExpenseDetailFragment"
+        android:name="com.zhizulx.tt.ui.fragment.ExpenseDetailFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

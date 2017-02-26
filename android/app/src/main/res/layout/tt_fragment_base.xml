@@ -60,7 +60,7 @@
 
 
 
-            <com.mogujie.tt.ui.widget.SearchEditText
+            <com.zhizulx.tt.ui.widget.SearchEditText
                 android:id="@+id/chat_title_search"
                 android:layout_width="fill_parent"
                 android:layout_height="30dp"
@@ -102,7 +102,7 @@
         android:layout_height="39dp"
         android:background="@drawable/tt_top_default_bk"
         android:visibility="gone">
-    	<com.mogujie.tt.ui.widget.TopTabButton
+    	<com.zhizulx.tt.ui.widget.TopTabButton
 	        android:id="@+id/contact_tile"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
         android:padding="8dp"
         android:visibility="gone">
 
-        <com.mogujie.tt.ui.widget.DrawableCenterEditText
+        <com.zhizulx.tt.ui.widget.DrawableCenterEditText
             android:id="@+id/search_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
