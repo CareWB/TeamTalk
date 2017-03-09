@@ -11,7 +11,6 @@
     <string name="send">发送</string>
     <string name="preview">预览</string>
     <string name="cancel">取消</string>
-    <string name="confirm">确定</string>
     <string name="exit">退出</string>
     <string name="thumb_remove">清理图片缓存</string>
     <string name="notify_setting">通知设置</string>

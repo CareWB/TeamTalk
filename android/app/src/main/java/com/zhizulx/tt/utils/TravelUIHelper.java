@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.zhizulx.tt.R;
@@ -16,6 +17,9 @@ import com.zhizulx.tt.ui.activity.IntroduceHotelActivity;
 import com.zhizulx.tt.ui.activity.IntroduceSightActivity;
 import com.zhizulx.tt.ui.activity.PlayBehaviorActivity;
 import com.zhizulx.tt.ui.activity.TravelDetailActivity;
+import com.zhizulx.tt.ui.activity.WebViewActivity;
+import com.zhizulx.tt.ui.activity.WebViewFragmentActivity;
+import com.zhizulx.tt.ui.fragment.InternalFragment;
 
 public class TravelUIHelper {
 
@@ -53,6 +57,8 @@ public class TravelUIHelper {
     public static void openCreateTravelActivity(Context ctx) {
         Intent intent = new Intent(ctx, CreateTravelActivity.class);
         ctx.startActivity(intent);
+/*		Intent intent=new Intent(ctx, WebViewActivity.class);
+		ctx.startActivity(intent);*/
     }
 
 	//跳转到景点介绍页面
@@ -64,8 +70,10 @@ public class TravelUIHelper {
 
 	//跳转到景点介绍页面
 	public static void openIntroduceHotelActivity(Context ctx, int hotelID) {
-		Intent intent = new Intent(ctx, IntroduceHotelActivity.class);
+/*		Intent intent = new Intent(ctx, IntroduceHotelActivity.class);
 		intent.putExtra(IntentConstant.KEY_PEERID, hotelID);
+		ctx.startActivity(intent);*/
+		Intent intent=new Intent(ctx, WebViewActivity.class);
 		ctx.startActivity(intent);
 	}
 

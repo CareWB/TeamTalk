@@ -75,6 +75,7 @@ public class SystemConfigSp {
         LOGINSERVER,
         DISCOVERYDATA,
         MSFSSERVER,
-        LOCAL_CITY
+        LOCAL_CITY,
+        AVATAR_UPLOAD_URL
     }
 }

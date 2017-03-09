@@ -1,10 +1,18 @@
 package com.zhizulx.tt.ui.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -15,21 +23,38 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.bumptech.glide.Glide;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.config.IntentConstant;
+import com.zhizulx.tt.imservice.event.LoginEvent;
+import com.zhizulx.tt.imservice.event.UserInfoEvent;
+import com.zhizulx.tt.imservice.service.IMService;
+import com.zhizulx.tt.imservice.support.IMServiceConnector;
+import com.zhizulx.tt.utils.FileUtil;
+import com.zhizulx.tt.utils.ImageEffect;
+import com.zhizulx.tt.utils.ImageUtil;
+import com.zhizulx.tt.utils.TravelUIHelper;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import de.greenrobot.event.EventBus;
 
 public class HomePageActivity extends FragmentActivity implements AMapLocationListener {
     private ImageView avatar;
     private PopupWindow popupWindow;
     private RelativeLayout mine;
+    private ImageView mineAvatar;
     private TextView commonInfo;
     private TextView order;
     private TextView aboutUs;
@@ -38,13 +63,36 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
     //声明mLocationOption对象
     public AMapLocationClientOption mLocationOption = null;
 
+    private IMService imService;
+
+    private IMServiceConnector imServiceConnector = new IMServiceConnector() {
+        @Override
+        public void onIMServiceConnected() {
+            imService = imServiceConnector.getIMService();
+            ImageUtil.GlideRoundAvatar(HomePageActivity.this, "http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg", avatar);
+        }
+
+        @Override
+        public void onServiceDisconnected() {
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
+        imServiceConnector.connect(this);
         setContentView(R.layout.activity_homepage);
         initView();
         initButton();
         initLocation();
+    }
+
+    @Override
+    protected void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        imServiceConnector.disconnect(this);
+        super.onDestroy();
     }
 
     private void initView() {
@@ -111,6 +159,8 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         });
 
         mine = (RelativeLayout)popupWindowView.findViewById(R.id.mine_info);
+        mineAvatar = (ImageView) popupWindowView.findViewById(R.id.mine_avatar);
+        ImageUtil.GlideRoundAvatar(HomePageActivity.this, "http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg", mineAvatar);
         commonInfo = (TextView)popupWindowView.findViewById(R.id.mine_common_info);
         order = (TextView)popupWindowView.findViewById(R.id.mine_order);
         aboutUs = (TextView)popupWindowView.findViewById(R.id.mine_about_us);
@@ -141,8 +191,7 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_clear_cache:
-                        Intent intentMineClearCache = new Intent(HomePageActivity.this, MineClearCacheActivity.class);
-                        startActivity(intentMineClearCache);
+                        ClearCache();
                         popupWindow.dismiss();
                         break;
                 }
@@ -153,6 +202,55 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         order.setOnClickListener(popListener);
         aboutUs.setOnClickListener(popListener);
         clearCache.setOnClickListener(popListener);
+    }
+
+    private void ClearCache() {
+        TravelUIHelper.dialogCallback callback = new TravelUIHelper.dialogCallback() {
+            @Override
+            public void callback() {
+                ImageLoader.getInstance().clearMemoryCache();
+                ImageLoader.getInstance().clearDiskCache();
+                Glide.get(HomePageActivity.this).clearMemory();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        FileUtil.deleteHistoryFiles(new File(FileUtil.getAppPath() + File.separator), System.currentTimeMillis());
+                        Glide.get(HomePageActivity.this).clearDiskCache();
+                        Toast toast = Toast.makeText(HomePageActivity.this,R.string.thumb_remove_finish,Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER,0,0);
+                        toast.show();
+                    }
+                },500);
+            }
+        };
+        TravelUIHelper.showAlertDialog(HomePageActivity.this, getString(R.string.clear_cache_tip), callback);
+    }
+
+    public void onEventMainThread(UserInfoEvent event){
+        switch (event){
+            case USER_INFO_OK:
+                break;
+        }
+    }
+
+    public void onEventMainThread(LoginEvent event){
+        switch (event){
+            case LOGIN_OUT:
+                handleOnLogout();
+                break;
+        }
+    }
+
+    private void handleOnLogout() {
+        finish();
+        jumpToLoginPage();
+
+    }
+
+    private void jumpToLoginPage() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtra(IntentConstant.KEY_LOGIN_NOT_AUTO, true);
+        startActivity(intent);
     }
 
     /**

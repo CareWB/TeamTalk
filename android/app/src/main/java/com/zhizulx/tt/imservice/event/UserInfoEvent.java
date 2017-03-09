@@ -11,5 +11,6 @@ package com.zhizulx.tt.imservice.event;
 public enum UserInfoEvent {
     USER_INFO_OK,
     USER_INFO_UPDATE,
-
+    MY_AVATAR_OK,
+    AVATAR_UPLOAD_URL_OK
 }

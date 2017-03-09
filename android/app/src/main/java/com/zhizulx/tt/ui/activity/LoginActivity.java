@@ -4,23 +4,31 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tencent.tauth.Tencent;
+import com.zhizulx.tt.DB.Constants;
 import com.zhizulx.tt.DB.sp.LoginSp;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
@@ -34,9 +42,22 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.ui.base.TTBaseActivity;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.utils.Logger;
+import com.zhizulx.tt.utils.TimeUtils;
+import com.zyp.thirdloginlib.ShareBlock;
+import com.zyp.thirdloginlib.data.resultModel.AccountResult;
+import com.zyp.thirdloginlib.data.resultModel.WeChartUserInfoResult;
+import com.zyp.thirdloginlib.impl.PlatformActionListener;
+import com.zyp.thirdloginlib.qq.QQLoginManager;
+import com.zyp.thirdloginlib.qq.model.QQUser;
+import com.zyp.thirdloginlib.wechart.WechatLoginManager;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 import de.greenrobot.event.EventBus;
-
 
 /**
  * @YM 1. 链接成功之后，直接判断是否loginSp是否可以直接登陆
@@ -59,11 +80,19 @@ public class LoginActivity extends TTBaseActivity {
     private View mLoginStatusView;
     private TextView mSwitchLoginServer;
     private InputMethodManager intputManager;
-
+    private Button requestIdentifyingCode;
+    private Button login;
+    private int i = 60;//倒计时
+    private String countryCode="86";
 
     private IMService imService;
     private boolean autoLogin = true;
     private boolean loginSuccess = false;
+
+    private String TAG = "qqLogin";
+    private QQLoginManager qqLoginManager;
+    private ImageView qqLogin;
+    private ImageView wechatLogin;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector() {
         @Override
@@ -162,6 +191,12 @@ public class LoginActivity extends TTBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
         intputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
         logger.d("login#onCreate");
 
@@ -220,16 +255,145 @@ public class LoginActivity extends TTBaseActivity {
                 return false;
             }
         });
+        requestIdentifyingCode = (Button)findViewById(R.id.request_identifying_code);
+        requestIdentifyingCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNum = mNameView.getText().toString().trim();
+                if (TextUtils.isEmpty(phoneNum)) {
+                    Toast.makeText(getApplicationContext(), "手机号码不能为空",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                SMSSDK.getVerificationCode(countryCode, phoneNum);
+                requestIdentifyingCode.setClickable(false);
+                //开始倒计时
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (; i > 0; i--) {
+                            handler.sendEmptyMessage(-1);
+                            if (i <= 0) {
+                                break;
+                            }
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        handler.sendEmptyMessage(-2);
+                    }
+                }).start();
+            }
+        });
         mLoginStatusView = findViewById(R.id.login_status);
-        findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
+        login = (Button) findViewById(R.id.sign_in_button);
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String phoneNum = mNameView.getText().toString().trim();
+                String code = mPasswordView.getText().toString().trim();
+                if (TextUtils.isEmpty(phoneNum)) {
+                    Toast.makeText(getApplicationContext(), "手机号码不能为空",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(code)) {
+                    Toast.makeText(getApplicationContext(), "验证码不能为空",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                SMSSDK.submitVerificationCode(countryCode, phoneNum, code);
                 intputManager.hideSoftInputFromWindow(mPasswordView.getWindowToken(), 0);
                 attemptLogin();
             }
         });
         initAutoLogin();
+
+        // 启动短信验证sdk
+        SMSSDK.initSDK(LoginActivity.this, "1baa910545d5b", "0928f3be205e6caf9af24f3486b52d64");
+
+        //initSDK方法是短信SDK的入口，需要传递您从MOB应用管理后台中注册的SMSSDK的应用AppKey和AppSecrete，如果填写错误，后续的操作都将不能进行
+        EventHandler eventHandler = new EventHandler() {
+            @Override
+            public void afterEvent(int event, int result, Object data) {
+                Message msg = new Message();
+                msg.what = -3;
+                msg.arg1 = event;
+                msg.arg2 = result;
+                msg.obj = data;
+                handler.sendMessage(msg);
+            }
+        };
+        //注册回调监听接口
+        SMSSDK.registerEventHandler(eventHandler);
+
+        qqLogin = (ImageView)findViewById(R.id.qq_login);
+        qqLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                qqLogin();
+            }
+        });
+
+        wechatLogin = (ImageView)findViewById(R.id.wechat_login);
+        wechatLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                wechatLogin();
+            }
+        });
     }
+
+    Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            if (msg.what == -1) {
+                requestIdentifyingCode.setText(i + " s");
+            } else if (msg.what == -2) {
+                login.setText("重新发送");
+                requestIdentifyingCode.setClickable(true);
+                i = 60;
+            } else {
+                int event = msg.arg1;
+                int result = msg.arg2;
+                Object data = msg.obj;
+                Log.e("asd", "event=" + event + "  result=" + result + "  ---> result=-1 success , result=0 error");
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    // 短信注册成功后，返回MainActivity,然后提示
+                    if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                        // 提交验证码成功,调用注册接口，之后直接登录
+                        //当号码来自短信注册页面时调用登录注册接口
+                        //当号码来自绑定页面时调用绑定手机号码接口
+
+                        Toast.makeText(getApplicationContext(), "短信验证成功",
+                                Toast.LENGTH_SHORT).show();
+
+                    } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                        Toast.makeText(getApplicationContext(), "验证码已经发送",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        ((Throwable) data).printStackTrace();
+                    }
+                } else if (result == SMSSDK.RESULT_ERROR) {
+                    try {
+                        Throwable throwable = (Throwable) data;
+                        throwable.printStackTrace();
+                        JSONObject object = new JSONObject(throwable.getMessage());
+                        String des = object.optString("detail");//错误描述
+                        int status = object.optInt("status");//错误代码
+                        if (status > 0 && !TextUtils.isEmpty(des)) {
+                            Log.e("asd", "des: " + des);
+                            Toast.makeText(LoginActivity.this, des, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    } catch (Exception e) {
+                        //do something
+                    }
+                }
+            }
+        }
+    };
 
     private void initAutoLogin() {
         logger.i("login#initAutoLogin");
@@ -238,8 +402,8 @@ public class LoginActivity extends TTBaseActivity {
         loginPage = findViewById(R.id.login_page);
         autoLogin = shouldAutoLogin();
 
-        splashPage.setVisibility(autoLogin ? View.VISIBLE : View.GONE);
         loginPage.setVisibility(autoLogin ? View.GONE : View.VISIBLE);
+        splashPage.setVisibility(autoLogin ? View.VISIBLE : View.GONE);
 
         loginPage.setOnTouchListener(new OnTouchListener() {
 
@@ -286,6 +450,8 @@ public class LoginActivity extends TTBaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // 销毁回调监听接口
+        SMSSDK.unregisterAllEventHandler();
 
         imServiceConnector.disconnect(LoginActivity.this);
         EventBus.getDefault().unregister(this);
@@ -294,7 +460,7 @@ public class LoginActivity extends TTBaseActivity {
     }
 
 
-    public void attemptLogin() {
+    /*public void attemptLogin() {
         String loginName = mNameView.getText().toString();
         String mPassword = mPasswordView.getText().toString();
         boolean cancel = false;
@@ -323,6 +489,13 @@ public class LoginActivity extends TTBaseActivity {
                 mPassword = mPassword.trim();
                 imService.getLoginManager().login(loginName, mPassword);
             }
+        }
+    }
+*/
+    public void attemptLogin() {
+        showProgress(true);
+        if (imService != null) {
+            imService.getLoginManager().login("wb", "wb");
         }
     }
 
@@ -411,5 +584,54 @@ public class LoginActivity extends TTBaseActivity {
         logger.d("login#errorTip:%s", errorTip);
         mLoginStatusView.setVisibility(View.GONE);
         Toast.makeText(this, errorTip, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == com.tencent.connect.common.Constants.REQUEST_LOGIN) {
+            Tencent.onActivityResultData(requestCode, resultCode, data, qqLoginManager.getIuListener());
+        }
+    }
+
+    private void qqLogin() {
+        ShareBlock.getInstance().initQQ(Constants.QQ_APP_ID);
+        qqLoginManager = new QQLoginManager(this);
+        qqLoginManager.login(new PlatformActionListener() {
+            @Override
+            public void onComplete(AccountResult accountResult) {
+                Log.d(TAG, "onComplete: qq login resutl ");
+                QQUser qqUser = (QQUser) accountResult;
+                //tvContent.setText("昵称 ：" + qqUser.getNickname());
+            }
+
+            @Override
+            public void onError() {
+                Log.d(TAG, "onError: qq login resutl ");
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "onCancel: qq login resutl ");
+            }
+        });
+    }
+
+    private void wechatLogin() {
+        ShareBlock.getInstance().initWechat(Constants.WECHAT_APP_ID,Constants.WECHAT_SECRET);
+        WechatLoginManager wechatLoginManager = new WechatLoginManager(this);
+        wechatLoginManager.login(new PlatformActionListener() {
+            @Override
+            public void onComplete(AccountResult accountResult) {
+                WeChartUserInfoResult weChartUserInfoResult = (WeChartUserInfoResult) accountResult;
+
+            }
+
+            @Override
+            public void onError() {}
+
+            @Override
+            public void onCancel() {}
+        });
     }
 }

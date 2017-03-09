@@ -61,6 +61,10 @@ public class TravelTipFragment extends TTBaseFragment {
 			imService = imServiceConnector.getIMService();
 			if (imService != null) {
                 imTravelManager = imService.getTravelManager();
+                ArrayList<Integer> userList = new ArrayList<>();
+                userList.add(imService.getLoginManager().getLoginId());
+                imService.getContactManager().reqGetDetaillUsers(userList);
+                imTravelManager.reqTravelList();
 			}
 		}
 
@@ -169,11 +173,11 @@ public class TravelTipFragment extends TTBaseFragment {
                 Bitmap bmp;
                 if (mLastPos == travelEntityList.size()-1) {
                     bmp = BitmapFactory.decodeResource(getResources(), R.drawable.new_travel_bk);
+                    ViewSwitchUtils.startSwitchBackgroundAnim(mBlurView, bmp);
                 } else {
                     bmp = BitmapFactory.decodeResource(getResources(), R.drawable.xiamen);
+                    ViewSwitchUtils.startSwitchBackgroundAnim(mBlurView, BlurBitmapUtils.getBlurBitmap(mBlurView.getContext(), bmp, 15));
                 }
-
-				ViewSwitchUtils.startSwitchBackgroundAnim(mBlurView, BlurBitmapUtils.getBlurBitmap(mBlurView.getContext(), bmp, 15));
             }
 		};
 

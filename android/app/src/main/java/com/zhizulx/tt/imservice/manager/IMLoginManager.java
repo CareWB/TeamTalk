@@ -1,17 +1,28 @@
 package com.zhizulx.tt.imservice.manager;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
 
 import com.google.protobuf.CodedInputStream;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.zhizulx.tt.DB.DBInterface;
 import com.zhizulx.tt.DB.entity.UserEntity;
 import com.zhizulx.tt.DB.sp.LoginSp;
+import com.zhizulx.tt.DB.sp.SystemConfigSp;
+import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.callback.Packetlistener;
 import com.zhizulx.tt.imservice.event.LoginEvent;
+import com.zhizulx.tt.imservice.event.UserInfoEvent;
 import com.zhizulx.tt.protobuf.helper.ProtoBuf2JavaBean;
 import com.zhizulx.tt.protobuf.IMBaseDefine;
 import com.zhizulx.tt.protobuf.IMBuddy;
 import com.zhizulx.tt.protobuf.IMLogin;
+import com.zhizulx.tt.utils.FileUtil;
 import com.zhizulx.tt.utils.Logger;
 
 import java.io.IOException;
@@ -80,6 +91,10 @@ public class IMLoginManager extends IMManager {
      */
     public void triggerEvent(LoginEvent event) {
         loginStatus = event;
+        EventBus.getDefault().postSticky(event);
+    }
+
+    public void triggerEvent(UserInfoEvent event) {
         EventBus.getDefault().postSticky(event);
     }
 
@@ -384,6 +399,16 @@ public class IMLoginManager extends IMManager {
                 triggerEvent(LoginEvent.KICK_PC_FAILED);
             }
         });
+    }
+
+    public String getUserAvatarName()
+    {
+        return String.format("%d.jpg", loginId);
+    }
+
+    public String getUserAvatarPath()
+    {
+        return String.format("%s/%s", FileUtil.getAppPath(), getUserAvatarName());
     }
 
     /**------------------状态的 set  get------------------------------*/

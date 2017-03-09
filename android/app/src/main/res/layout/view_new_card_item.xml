@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardBackgroundColor="@color/translucent"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="9dp"
-    app:cardMaxElevation="18dp"
-    app:cardUseCompatPadding="true">
+    app:cardBackgroundColor="#00000000"
+    app:cardElevation="0px"
+    app:cardMaxElevation="2px"
+    app:contentPadding="15dp"
+    app:cardUseCompatPadding="false"
+    app:cardCornerRadius="12dp">
 
     <ImageView
         android:id="@+id/iv_new_travel_destination_bk"

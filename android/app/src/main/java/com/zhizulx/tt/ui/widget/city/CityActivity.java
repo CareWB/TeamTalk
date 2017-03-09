@@ -30,6 +30,7 @@ public class CityActivity extends Activity implements MySlideView.onTouchListene
 
     private MySlideView mySlideView;
     private CircleTextView circleTxt;
+    private TextView title;
 
     private ImageView back;
 
@@ -58,6 +59,8 @@ public class CityActivity extends Activity implements MySlideView.onTouchListene
     }
 
     private void initView() {
+        title = (TextView)findViewById(R.id.select_city_title);
+        title.setText(intent.getStringExtra("title"));
         back = (ImageView)findViewById(R.id.select_city_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,8 +115,6 @@ public class CityActivity extends Activity implements MySlideView.onTouchListene
 
     @Override
     public void itemClick(int position) {
-        //setCity(cityList.get(position).getCityName());
-        //Toast.makeText(getApplicationContext(), "你选择了:" + cityList.get(position).getCityName(), Toast.LENGTH_SHORT).show();
         setCity(cityList.get(position).getCityName());
         goBcak();
     }

@@ -1,6 +1,7 @@
 
 package com.zhizulx.tt.utils;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
@@ -26,6 +27,7 @@ public class FileUtil
 {
     public static String SDCardRoot;
     public static File updateFile;
+    public static String AppFileDir = "ZZLX";
     static
     {
         // 获取SD卡路径
@@ -485,5 +487,78 @@ public class FileUtil
             }
         }
         return filename;
+    }
+
+    public static String getAppPath() {
+        return SDCardRoot + AppFileDir;
+    }
+
+    public static String saveFile(Context c, String fileName, Bitmap bitmap) {
+        return saveFile(c, "", fileName, bitmap);
+    }
+
+    public static String saveFile(Context c, String filePath, String fileName, Bitmap bitmap) {
+        byte[] bytes = bitmapToBytes(bitmap);
+        return saveFile(c, filePath, fileName, bytes);
+    }
+
+    public static byte[] bitmapToBytes(Bitmap bm) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        return baos.toByteArray();
+    }
+
+    public static String saveFile(Context c, String filePath, String fileName, byte[] bytes) {
+        String fileFullName = "";
+        FileOutputStream fos = null;
+
+        try {
+            String suffix = "";
+            if (filePath == null || filePath.trim().length() == 0) {
+                filePath = FileUtil.getAppPath() + "/";
+            }
+            File file = new File(filePath);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File fullFile = new File(filePath, fileName + suffix);
+            fileFullName = fullFile.getPath();
+            fos = new FileOutputStream(new File(filePath, fileName + suffix));
+            fos.write(bytes);
+        } catch (Exception e) {
+            fileFullName = "";
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    fileFullName = "";
+                }
+            }
+        }
+        return fileFullName;
+    }
+
+    //删除除了某文件的其他文件
+    public static void deleteOtherFile(String path, String name)
+    {
+        File filePath = new File(path);
+        // 若是目录递归删除后,并最后删除目录后返回
+        if (filePath.isDirectory()) {
+            File[] childFiles = filePath.listFiles();
+            if (childFiles == null || childFiles.length == 0) {
+                return;
+            }
+
+            for (int i = 0; i < childFiles.length; i++) {
+                if (name.equals(childFiles[i].getName().trim()))
+                {
+                    continue;
+                }
+                delete(childFiles[i]); // 递归删除子文件或子文件夹
+            }
+        }
+        return;
+
     }
 }

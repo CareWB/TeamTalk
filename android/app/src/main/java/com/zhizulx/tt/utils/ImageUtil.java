@@ -5,8 +5,15 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.DisplayMetrics;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.zhizulx.tt.ui.activity.HomePageActivity;
 import com.zhizulx.tt.ui.helper.PhotoHelper;
 
 import java.io.File;
@@ -66,4 +73,15 @@ public class ImageUtil {
 		}
 	}
 
+	public static void GlideRoundAvatar(final Context ctx, String url, final ImageView avatar) {
+		Glide.with(ctx).load(url).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(new BitmapImageViewTarget(avatar) {
+			@Override
+			protected void setResource(Bitmap resource) {
+				RoundedBitmapDrawable circularBitmapDrawable =
+						RoundedBitmapDrawableFactory.create(ctx.getResources(), resource);
+				circularBitmapDrawable.setCircular(true);
+				avatar.setImageDrawable(circularBitmapDrawable);
+			}
+		});
+	}
 }

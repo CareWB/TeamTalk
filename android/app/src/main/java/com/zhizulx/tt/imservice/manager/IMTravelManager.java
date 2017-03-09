@@ -9,6 +9,7 @@ import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.DB.entity.TrafficEntity;
 import com.zhizulx.tt.DB.entity.TravelCityEntity;
 import com.zhizulx.tt.DB.entity.TravelEntity;
+import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.protobuf.IMBaseDefine;
 import com.zhizulx.tt.protobuf.IMBuddy;
@@ -16,7 +17,9 @@ import com.zhizulx.tt.protobuf.helper.ProtoBuf2JavaBean;
 import com.zhizulx.tt.utils.Logger;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.greenrobot.event.EventBus;
 
@@ -38,11 +41,20 @@ public class IMTravelManager extends IMManager {
     private List<TrafficEntity> backTrafficEntityList = new ArrayList<>();
     private TravelEntity mtTravel = new TravelEntity();
     private List <TravelCityEntity> mtCity = new ArrayList<>();
+    private Map<String, String> cityCodeName = new HashMap<>();
+    private Map<String, String> cityNameCode = new HashMap<>();
     private static final int TRAFFIC_CITY_DIVDER = 0xf1;
     private static final int TRAFFIC_TYPE_DIVDER = 0xf2;
 
     @Override
-    public void doOnStart() {}
+    public void doOnStart() {
+        String[] name = ctx.getResources().getStringArray(R.array.city_name);
+        String[] code = ctx.getResources().getStringArray(R.array.city_code);
+        for (int index=0; index<name.length; index ++) {
+            cityCodeName.put(code[index], name[index]);
+            cityNameCode.put(name[index], code[index]);
+        }
+    }
 
 
     // 未读消息控制器，本地是不存状态的
@@ -52,7 +64,7 @@ public class IMTravelManager extends IMManager {
     }
 
     public void onLocalNetOk(){
-        reqTravelList();
+        //reqTravelList();
     }
 
     public void onLocalLoginOk(){
@@ -85,8 +97,8 @@ public class IMTravelManager extends IMManager {
     }
 
     /**-------------------------------分割线----------------------------------*/
-    private void reqTravelList() {
-        logger.i("reqTravelList");
+    public void reqTravelList() {
+        Log.e("yuki", "reqTravelList");
         int loginId = IMLoginManager.instance().getLoginId();
         IMBuddy.QueryMyTravelReq queryMyTravelReq = IMBuddy.QueryMyTravelReq.newBuilder()
                 .setUserId(loginId).build();
@@ -97,7 +109,7 @@ public class IMTravelManager extends IMManager {
     }
 
     public void onRspTravelList(IMBuddy.QueryMyTravelRsp queryMyTravelRsp) {
-        logger.i("onRepTravelList");
+        Log.e("yuki", "onRspTravelList");
         if (queryMyTravelRsp.getResultCode() != 0) {
             logger.e("onRepTravelList fail %d", queryMyTravelRsp.getResultCode());
             triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_FAIL));
@@ -339,7 +351,7 @@ public class IMTravelManager extends IMManager {
     }
 
     public void reqTravelRoute() {
-        logger.i("reqDelTravel");
+        logger.i("reqTravelRoute");
         int loginId = IMLoginManager.instance().getLoginId();
 
         IMBuddy.BasicInfo basicInfo = IMBuddy.BasicInfo
@@ -373,8 +385,8 @@ public class IMTravelManager extends IMManager {
     }
 
     public void onRspTravelRoute(IMBuddy.GetTransportToolRsp getTransportToolRsp) {
-        logger.i("onRspDelTravel");
-        Log.e("yuki", "onRspDelTravel");
+        logger.i("onRspTravelRoute");
+        Log.e("yuki", "onRspTravelRoute");
         List<TrafficEntity> trafficEntitiesRsp = new ArrayList<>();
         if (getTransportToolRsp.getResultCode() != 0) {
             logger.e("onRepTravelList fail %d", getTransportToolRsp.getResultCode());
@@ -582,5 +594,13 @@ public class IMTravelManager extends IMManager {
             mtCity.add(travelCityEntity);
         }
         return mtCity;
+    }
+
+    public String getCityNameByCode(String code) {
+        return cityCodeName.get(code);
+    }
+
+    public String getCityCodeByName(String name) {
+        return cityNameCode.get(name);
     }
 }

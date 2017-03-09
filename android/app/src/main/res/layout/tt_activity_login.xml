@@ -26,7 +26,6 @@
 
         <LinearLayout
             android:id="@+id/login_page"
-            style="@style/LoginFormContainer"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center_horizontal"
@@ -36,37 +35,49 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_logo_top"
+                android:layout_marginBottom="@dimen/login_logo_bottom"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="50dp"
-                android:layout_marginTop="80dp"
-                android:src="@drawable/tt_login_logo" />
+                android:background="@drawable/logo" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
+                android:paddingLeft="@dimen/login_left_pad"
+                android:paddingRight="@dimen/login_left_pad">
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/phone_number_bk"
+                    android:paddingLeft="@dimen/login_left_pad"
+                    android:orientation="horizontal"
                     android:focusable="true"
                     android:focusableInTouchMode="true">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/phone_number"
+                        android:textSize="@dimen/title_hint_size"
+                        android:textColor="@color/title"/>
+
                     <EditText
                         android:id="@+id/name"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="45dp"
-                        android:background="@drawable/tt_message_text_bg"
-                        android:hint="@string/prompt_name"
-                        android:inputType="text|textPersonName|textEmailAddress"
+                        android:layout_marginLeft="@dimen/login_title_content"
+                        android:background="@null"
+                        android:hint="@string/prompt_phone_number"
+                        android:inputType="phone"
                         android:maxLines="1"
-                        android:paddingLeft="15dp"
                         android:singleLine="true"
                         android:textColorHint="@color/login_hint_color"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:layout_weight="1"/>
 
                     <!-- <ImageView
                         android:layout_width="30dp"
@@ -76,40 +87,67 @@
                         android:layout_alignTop="@+id/name"
                         android:paddingLeft="10dp"
                         android:src="@drawable/tt_login_user" />  -->
-                </RelativeLayout>
+                </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="13dp">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/login_left_pad">
 
-                    <EditText
-                        android:id="@+id/password"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:background="@drawable/tt_message_text_bg"
-                        android:hint="@string/prompt_password"
-                        android:imeActionId="@+id/login"
-                        android:imeActionLabel="@string/action_sign_in_short"
-                        android:imeOptions="actionUnspecified"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:paddingLeft="15dp"
-                        android:singleLine="true"
-                        android:textColorHint="@color/login_hint_color"
-                        android:textSize="15sp" />
-                </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/identifying_code_bk"
+                        android:paddingLeft="@dimen/login_left_pad"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/identifying_code"
+                            android:textSize="@dimen/title_hint_size"
+                            android:textColor="@color/title"/>
+
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_marginLeft="@dimen/login_title_content"
+                            android:background="@null"
+                            android:hint="@string/prompt_identifying_code"
+                            android:imeActionId="@+id/login"
+                            android:imeActionLabel="@string/action_sign_in_short"
+                            android:imeOptions="actionUnspecified"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColorHint="@color/login_hint_color"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/login_left_pad"
+                        android:gravity="center"
+                        android:background="@drawable/request_identifying_code_bk"
+                        android:text="@string/request_identifying_code"
+                        android:id="@+id/request_identifying_code"/>
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/sign_in_button"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirm"
                     android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
-                    android:background="@drawable/tt_default_btn_bk"
-                    android:text="@string/action_sign_in_register"
-                    android:textColor="@android:color/white"
-                    android:textSize="21sp" />
+                    android:layout_marginTop="@dimen/login_vertical_pad"
+                    android:background="@drawable/login_ok_bk"
+                    android:textColor="@color/next_step"
+                    android:textSize="@dimen/next_step" />
 
                 <TextView
                     android:id="@+id/sign_switch_login_server"
@@ -120,8 +158,32 @@
                     android:text="@string/switch_login_server"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
+                    android:visibility="gone"
                     />
             </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/login_third_top"
+                android:paddingLeft="@dimen/login_third_left_right"
+                android:paddingRight="@dimen/login_third_left_right"
+                android:background="@drawable/third_login_bk">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/wechat_login"
+                    android:background="@drawable/wechat"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/qq_login"
+                    android:background="@drawable/qq"/>
+
+            </RelativeLayout>
         </LinearLayout>
     </FrameLayout>
 
