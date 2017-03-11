@@ -865,6 +865,10 @@ CREATE TABLE `IMScenic` (
   `price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '价格',
   `bestTimeFrom` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '最佳游戏开始时间',
   `bestTimeTo` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '最佳游戏结束时间',
+  `lng` varchar(16) COLLATE utf8mb4_bin NOT NULL COMMENT '经度',
+  `lat` varchar(16) COLLATE utf8mb4_bin NOT NULL COMMENT '纬度',
+  `address` varchar(256) COLLATE utf8mb4_bin NOT NULL COMMENT '地址',
+  `desc` varchar(256) COLLATE utf8mb4_bin NOT NULL COMMENT '介绍',
   `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '0 is ok',
   PRIMARY KEY (`id`),
   KEY `idx_cityCode_name_class` (`cityCode`,`name`,`class`)
@@ -877,7 +881,36 @@ CREATE TABLE `IMScenic` (
 
 LOCK TABLES `IMScenic` WRITE;
 /*!40000 ALTER TABLE `IMScenic` DISABLE KEYS */;
-INSERT INTO `IMScenic` VALUES (1,'XMN','鼓浪屿',83,'文娱 自然',0,1,'http://www.baidu.com','50',8,100,'09:00','17:00',0);
+INSERT INTO `IMScenic` VALUES (1,'XMN','鼓浪屿',43,'海边',0,1,'https://lvyou.baidu.com/gulangyu','1',3,75,'09:00','17:00','118.07348603976','24.452265001262','福建省厦门市思明区','鼓浪屿是厦门最大的一个卫星岛之一，由于历史原因，中外风格各异的建筑物在此地被完好地汇集、保留，现成为著名的风景区。',0);
+INSERT INTO `IMScenic` VALUES (2,'XMN','厦门大学',44,'学校',0,1,'https://lvyou.baidu.com/xiamendaxue','1',3,0,'09:00','17:00','118.10477402066','24.443314045528','厦门市思明区思明南路422号','被誉为“中国最美丽的校园之一，校园依山傍海。',0);
+INSERT INTO `IMScenic` VALUES (3,'XMN','南普陀寺',41,'宗教场所',0,1,'https://lvyou.baidu.com/nanputuosi','1',3,0,'09:00','17:00','118.10273432817','24.446569267095','福建省 厦门市 思明区思明南路515号','香火很旺盛，据说是一个很灵验的寺庙，游人络绎不绝。建筑精美。',0);
+INSERT INTO `IMScenic` VALUES (4,'XMN','环岛路',45,'海边',0,1,'https://lvyou.baidu.com/huandaolu','1',3,0,'09:00','17:00','118.11280163802','24.437136933926','思明区环岛路沿线','厦门集旅游观光和休闲娱乐为一体的滨海走廊，风景优美，沙滩也很细腻。',0);
+INSERT INTO `IMScenic` VALUES (5,'XMN','日光岩',42,'其他',0,1,'https://lvyou.baidu.com/riguangyan','1',3,102,'09:00','17:00','118.07396672304','24.448610748152','中国福建省厦门市思明区晃右路晃岩路56-64','由两块巨石一竖一横相倚而立，海拔92.7米，为鼓浪屿最高峰。',0);
+INSERT INTO `IMScenic` VALUES (6,'XMN','曾厝垵',43,'乡村',0,1,'https://lvyou.baidu.com/zengcuoan','1',3,5,'09:00','17:00','118.13209697087','24.433600015683','福建省厦门市思明区','曾厝是厦门最美的渔村，交通便利，比较安静和悠闲，商业气氛很浓。 ',0);
+INSERT INTO `IMScenic` VALUES (7,'XMN','中山路',42,'其他',0,1,'https://lvyou.baidu.com/zhongshanlu','1',3,15,'09:00','17:00','118.08745774467','24.460389565619',' 福建省厦门市思明区','中山路的中华城晚上特别美丽，有着浓郁的南洋风情，给人感觉很干净。',0);
+INSERT INTO `IMScenic` VALUES (8,'XMN','厦门海底世界',41,'展馆',0,1,'https://lvyou.baidu.com/xiamenhaidishijie','1',3,84,'09:00','17:00','118.07783895877','24.452080054354',' 厦门市思明区鼓浪屿龙头路2号','厦门海底世界坐落在鼓浪屿东岸黄家渡，原为鼓浪屿公园，紧靠轮渡码头。 ',0);
+INSERT INTO `IMScenic` VALUES (9,'XMN','菽庄花园',42,'其他',0,1,'https://lvyou.baidu.com/shuzhuanghuayuan','1',3,0,'09:00','17:00','118.07589116293','24.445179340157','思明区鼓浪屿港仔後路7号','既有江南园林的精巧，又有波涛汹涌的壮观。空气挺清新的，美景相互映衬。 ',0);
+INSERT INTO `IMScenic` VALUES (10,'XMN','胡里山炮台',39,'历史遗址',0,1,'https://lvyou.baidu.com/hulishanpaotai','1',3,23,'09:00','17:00','118.11300779913','24.435091234888',' 福建省厦门市思明区胡里山上','胡里山炮台位于福建厦门岛东南，毗邻厦门大学园区。学生有优惠，门票便宜。',0);
+INSERT INTO `IMScenic` VALUES (11,'XMN','钢琴博物馆',41,'展馆',0,1,'https://lvyou.baidu.com/gangqinbowuguan','1',3,0,'09:00','17:00','118.07608708336','24.444704322226','福建省厦门市思明区港后路7号','鼓浪屿钢琴博物馆堪称世界一流，里面的钢琴很漂亮。历史都很悠久。',0);
+INSERT INTO `IMScenic` VALUES (12,'XMN','集美学村',41,'乡村',0,1,'https://lvyou.baidu.com/jimeixuecun','1',3,24,'09:00','17:00','118.09909259763','24.572565292416',' 福建省 厦门市 集美区嘉庚路','集美学村是传统的闽南建筑，还附有悠久的历史感，而且中国最美的学村。 ',0);
+INSERT INTO `IMScenic` VALUES (13,'XMN','厦门台湾小吃街',41,'其他',0,1,'https://lvyou.baidu.com/shamentaiwanxiaochijie','1',3,0,'09:00','17:00','118.08191196578','24.462763022543',' 厦门市思明区人和路','南方的美食就是比北方精致，康熙推荐过，而且很有特色。东西挺便宜。',0);
+INSERT INTO `IMScenic` VALUES (14,'XMN','皓月园',40,'公园',0,1,'https://lvyou.baidu.com/haoyueyuan','1',3,102,'09:00','17:00','118.08246999316','24.447643055431','厦门思明区鼓浪屿东部覆鼎岩海滨','座落在鼓浪屿东南，濒临鹭江，是一座郑成功纪念园。',0);
+INSERT INTO `IMScenic` VALUES (15,'XMN','五老峰',43,'山峰',0,1,'https://lvyou.baidu.com/xiamenwulaofeng','1',3,0,'09:00','17:00','118.10569604144','24.452376018617','厦门市思明区思明南路南普陀寺后','五老峰，得名于白云缭绕之时，其形状酷似五个须发皆白的老人翘首遥望茫茫大海。等山眺望，大海无边，俯瞰厦门市景，大有壮阔之感。',0);
+INSERT INTO `IMScenic` VALUES (16,'XMN','万石植物园',42,'自然保护区',0,1,'https://lvyou.baidu.com/wanshizhiwuyuan','1',3,0,'09:00','17:00','118.10041104063','24.460121002962',' 厦门市思明区虎园路25号','空气清新，植物园面积很大，可以乘坐电瓶车游览，也可以爬山。 ',0);
+INSERT INTO `IMScenic` VALUES (17,'XMN','观音山',43,'海边',0,1,'https://lvyou.baidu.com/xiamenguanyinshan','1',3,0,'09:00','17:00','118.01321638752','24.871223301562','位于厦门东部，紧临环岛路','',0);
+INSERT INTO `IMScenic` VALUES (18,'XMN','港仔后海滨浴场',40,'海边',0,1,'https://lvyou.baidu.com/gangzihouhaibinyuchang','1',3,0,'09:00','17:00','118.07452367245','24.445975172063',' 福建厦门市鼓浪屿菽庄花园边','',0);
+INSERT INTO `IMScenic` VALUES (19,'XMN','鼓浪屿音乐厅',41,'现代建筑',0,1,'https://lvyou.baidu.com/gulangyuyinleting','1',3,0,'09:00','17:00','118.07777401128','24.449423005546','福建省厦门市思明区鼓浪屿晃岩路1号','许多世界音乐名家和艺术团体曾来鼓浪屿音乐厅演出，很浪漫的地方。 ',0);
+INSERT INTO `IMScenic` VALUES (20,'XMN','白鹭洲公园',40,'公园',0,1,'https://lvyou.baidu.com/bailuzhougongyuan','1',3,0,'09:00','17:00','118.09606800298','24.478968814064','厦门市白鹭洲路','内有400只从荷兰引进的广场鸽，这里是厦门最大的全开放广场公园。',0);
+INSERT INTO `IMScenic` VALUES (21,'XMN','沙雕文化公园',41,'公园',0,1,'https://lvyou.baidu.com/shadiaowenhuagongyuan','1',3,0,'09:00','17:00','118.20524985124','24.49990620025',' 思明区环岛路观音山商业街21号','亚洲最大的沙雕文化公园，每年4月份举办全国沙滩排球锦标赛。',0);
+INSERT INTO `IMScenic` VALUES (22,'XMN','白城沙滩',43,'海边',0,1,'https://lvyou.baidu.com/baichengshatan','1',3,0,'09:00','17:00','118.109838','24.437918','环岛南路(近胡里山炮台)','环境还不错，是挺漂亮的。是个不错的地方。交通很方便。',0);
+INSERT INTO `IMScenic` VALUES (23,'XMN','厦门大桥',40,'现代建筑',0,1,'https://lvyou.baidu.com/xiamendaqiao','1',3,0,'09:00','17:00','118.10802301203','24.563718057677',' 厦门市集美区和湖里区中间','我国第一座跨越海峡的公路大桥，每当夜幕来临，大桥上灯火辉煌，景色迷人。',0);
+INSERT INTO `IMScenic` VALUES (24,'XMN','郑成功纪念馆',41,'历史建筑',0,1,'https://lvyou.baidu.com/zhengchenggongjinianguan','1',3,0,'09:00','17:00','118.07333009392','24.449013382427','福建省厦门市鼓浪屿日光岩','郑成功纪念馆是1962年为纪念郑成功收复台湾300周年而建立。',0);
+INSERT INTO `IMScenic` VALUES (25,'XMN','陈嘉庚纪念胜地',39,'公园',0,1,'https://lvyou.baidu.com/jimeichenjiagengjinianshengdi','1',3,21,'09:00','17:00','118.11194501388','24.571786044702','福建厦门市集美区嘉庚路149号','陈嘉庚：一个生前曾被毛泽东称誉为“华侨旗帜、民族光辉”。厦门大学、集美大学（前身为集美学村各校）两校师生都尊称其为“校主”的人。',0);
+INSERT INTO `IMScenic` VALUES (26,'XMN','野山谷',41,'山峰',0,1,'https://lvyou.baidu.com/yeshangu','1',3,45,'09:00','17:00','118.0546870207','24.879610022564','厦门市同安小坪与安溪龙门隧道交界处','有“闽南绿肺”之称，有原生态自然、千亩茶园，诗画美景尽现。 ',0);
+INSERT INTO `IMScenic` VALUES (27,'XMN','海湾公园',43,'公园',0,1,'https://lvyou.baidu.com/haiwangongyuan','1',3,0,'09:00','17:00','118.08303089512','24.479877313914',' 海湾公园位于厦门市中心区域西海岸','公园分为天园、地园、林园、草园、水花园、滨海风光和星光大道7大景区。',0);
+INSERT INTO `IMScenic` VALUES (28,'XMN','万国建筑博览',44,'历史建筑',0,1,'https://lvyou.baidu.com/wanguojianzhubolan','1',3,0,'09:00','17:00','118.07509077272','24.453408064105',' ','这里是鼓浪屿中西文化交流的精萃景观。中国传统建筑，如宗教建筑、园林建筑、居民建筑等，在鼓浪屿都可以找到其影子。',0);
+INSERT INTO `IMScenic` VALUES (29,'XMN','日月谷温泉',43,'峡谷',0,1,'https://lvyou.baidu.com/riyueguwenquan','1',3,348,'09:00','17:00','117.94823997373','24.565245017915','厦门市海沧区孚莲路1888-1889号','园区里有泉源文化区、明潭岛、孔雀园等景点可供游客观赏，互动体验。 ',0);
+INSERT INTO `IMScenic` VALUES (30,'XMN','厦门中山公园',40,'公园',0,1,'https://lvyou.baidu.com/xiamenzhongshangongyuan','1',3,0,'09:00','17:00','118.09589822324','24.465097952174','厦门市思明区公园南路','一个集休闲、展览、科普、娱乐于一体的综合性文化公园，规模颇大、设计精巧、布局优美、中西合璧。',0);
 /*!40000 ALTER TABLE `IMScenic` ENABLE KEYS */;
 UNLOCK TABLES;
 
