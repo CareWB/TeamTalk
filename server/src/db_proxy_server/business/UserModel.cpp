@@ -18,7 +18,7 @@ extern map<int, IM::Buddy::TravelToolInfo> travelToolMap;
 extern map<int, IM::Buddy::ScenicInfo> scenicMap;
 extern map<int, IM::Buddy::HotelInfo> hotelMap;
 
-#define IN_MAP_CHECK(k, m) if (m.find(k) == m.end()) contiue
+#define IN_MAP_CHECK(k, m) if (m.find(k) == m.end()) continue
 
 CUserModel* CUserModel::m_pInstance = NULL;
 
@@ -461,9 +461,9 @@ bool CUserModel::getTransportTool(uint32_t user_id, IM::Buddy::GetTransportToolR
             + "' and placeToCode='" + req.basic_info().place_to_code() 
             + "') or (placeFromCode='" + req.basic_info().place_to_code() 
             + "' and placeToCode='" + req.basic_info().place_back_code()
-            + "')) and timeStart>'" + req.transport_config().time_from() 
-            + "' and timeEnd<'" + req.transport_config().time_to() 
-            + "' order by placeFromCode, placeToCode, type, timeStart, price";
+            + "')) and timeFrom>'" + req.transport_config().time_from() 
+            + "' and timeTo<'" + req.transport_config().time_to() 
+            + "' order by placeFromCode, placeToCode, type, timeFrom, price";
         log("sql:%s", strSql.c_str());
         
         CResultSet* pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
