@@ -57,7 +57,7 @@ message IMRemoveSessionRsp{
 }
 
 message IMAllUserReq{
-    //cmd id:        0x0208
+    //cmd id:        0x02038
     required uint32 user_id = 1;
     required uint32 latest_update_time = 2;
     optional bytes attach_data = 20;
@@ -383,7 +383,7 @@ message DayRoute{
 
 message Route {
     required uint32 day_count = 1;
-    required required string city_code = 2;
+    required string city_code = 2;
     required string quality = 3; // binghui
     required TransportToolType start_transport_tool = 4;
     required TransportToolType end_transport_tool = 5;
@@ -431,7 +431,7 @@ message NewCreateMyTravelReq{
     //cmd id:        0x0251
     required uint32 user_id = 1;
     required uint32 day_count = 2;
-    required required string city_code = 3;
+    required string city_code = 3;
     required string tags = 4; // split with space
     optional bytes attach_data = 20;
 }
