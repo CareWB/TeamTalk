@@ -436,7 +436,7 @@ message NewCreateMyTravelReq{
     optional bytes attach_data = 20;
 }
 
-message NewUpdateRouteRsp{
+message NewCreateMyTravelRsp{
     //cmd id:        0x025c
     required uint32 user_id         = 1;
     required uint32 result_code     = 2;
