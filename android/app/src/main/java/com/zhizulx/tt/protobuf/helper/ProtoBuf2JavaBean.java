@@ -1,5 +1,7 @@
 package com.zhizulx.tt.protobuf.helper;
 
+import android.util.Log;
+
 import com.google.protobuf.ByteString;
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
 import com.zhizulx.tt.DB.entity.TrafficEntity;

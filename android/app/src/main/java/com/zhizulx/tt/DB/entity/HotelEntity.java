@@ -12,16 +12,19 @@ public class HotelEntity {
     private Long id;
     private int peerId;
     /** Not-null value. */
+    private String cityCode;
+    /** Not-null value. */
     private String name;
     /** Not-null value. */
     private String pic;
     private int star;
     /** Not-null value. */
     private String tag;
-    private int mustGo;
     /** Not-null value. */
     private String url;
     private int price;
+    private double longitude;
+    private double latitude;
     /** Not-null value. */
     private String startTime;
     /** Not-null value. */
@@ -43,16 +46,18 @@ public class HotelEntity {
         this.id = id;
     }
 
-    public HotelEntity(Long id, int peerId, String name, String pic, int star, String tag, int mustGo, String url, int price, String startTime, String endTime, int distance, int select, int version, int status, int created, int updated) {
+    public HotelEntity(Long id, int peerId, String cityCode, String name, String pic, int star, String tag, String url, int price, double longitude, double latitude, String startTime, String endTime, int distance, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
+        this.cityCode = cityCode;
         this.name = name;
         this.pic = pic;
         this.star = star;
         this.tag = tag;
-        this.mustGo = mustGo;
         this.url = url;
         this.price = price;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.startTime = startTime;
         this.endTime = endTime;
         this.distance = distance;
@@ -77,6 +82,16 @@ public class HotelEntity {
 
     public void setPeerId(int peerId) {
         this.peerId = peerId;
+    }
+
+    /** Not-null value. */
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 
     /** Not-null value. */
@@ -117,14 +132,6 @@ public class HotelEntity {
         this.tag = tag;
     }
 
-    public int getMustGo() {
-        return mustGo;
-    }
-
-    public void setMustGo(int mustGo) {
-        this.mustGo = mustGo;
-    }
-
     /** Not-null value. */
     public String getUrl() {
         return url;
@@ -141,6 +148,22 @@ public class HotelEntity {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
     /** Not-null value. */

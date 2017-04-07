@@ -44,7 +44,7 @@ public interface SysConstant {
      *1. 配置的全局key
      * */
     public static final String SETTING_GLOBAL = "Global";
-    public static final String UPLOAD_IMAGE_INTENT_PARAMS = "com.mogujie.tt.upload.image.intent";
+    public static final String UPLOAD_IMAGE_INTENT_PARAMS = "com.zhizulx.tt.upload.image.intent";
     /**
      * event 优先级
      * */

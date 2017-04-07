@@ -3,6 +3,7 @@ package com.zhizulx.tt.imservice.manager;
 import android.util.Log;
 
 import com.zhizulx.tt.DB.DBInterface;
+import com.zhizulx.tt.DB.String2Entity;
 import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.DB.entity.PlayConfigEntity;
 import com.zhizulx.tt.DB.entity.SightEntity;
@@ -14,8 +15,10 @@ import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.protobuf.IMBaseDefine;
 import com.zhizulx.tt.protobuf.IMBuddy;
 import com.zhizulx.tt.protobuf.helper.ProtoBuf2JavaBean;
+import com.zhizulx.tt.utils.CsvUtil;
 import com.zhizulx.tt.utils.Logger;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +49,9 @@ public class IMTravelManager extends IMManager {
     private static final int TRAFFIC_CITY_DIVDER = 0xf1;
     private static final int TRAFFIC_TYPE_DIVDER = 0xf2;
 
+    private Map<Integer, HotelEntity> hotelEntityMap = new HashMap<>();
+    private Map<Integer, SightEntity> sightEntityMap = new HashMap<>();
+
     @Override
     public void doOnStart() {
         String[] name = ctx.getResources().getStringArray(R.array.city_name);
@@ -70,22 +76,55 @@ public class IMTravelManager extends IMManager {
     public void onLocalLoginOk(){
         logger.i("group#loadFromDb");
 
-/*        if(!EventBus.getDefault().isRegistered(inst)){
-            EventBus.getDefault().registerSticky(inst);
+
+/*        List<HotelEntity> localHotelEntityList = dbInterface.loadAllHotel();
+        for(HotelEntity hotelEntity:localHotelEntityList){
+            this.hotelEntityList.add(hotelEntity);
         }*/
-
-        // 加载本地group
-        List<TravelEntity> localTravelDetailList = dbInterface.loadAllTravel();
-        for(TravelEntity travelEntity:localTravelDetailList){
-            travelEntityList.add(travelEntity);
-        }
-
+        initSightHotel();
         triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
     }
 
     @Override
     public void reset() {
         travelEntityList.clear();
+    }
+
+    private void initSightHotel() {
+        // 加载本地hotel
+        List<List<String>> csvHotel = new ArrayList<List<String>>();
+        List<List<String>> csvSight = new ArrayList<List<String>>();
+        List<HotelEntity> hotelEntityList = new ArrayList<>();
+        List<SightEntity> sightEntityList = new ArrayList<>();
+        try {
+            CsvUtil csvUtilHotel = new CsvUtil(ctx, "hotel.csv");
+            csvUtilHotel.run();
+            csvHotel = csvUtilHotel.getCsv();
+            CsvUtil csvUtilSight = new CsvUtil(ctx, "sight.csv");
+            csvUtilSight.run();
+            csvSight = csvUtilSight.getCsv();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (List<String> hotelStringList : csvHotel) {
+            HotelEntity hotelEntity = String2Entity.getHotelEntity(hotelStringList);
+            hotelEntityList.add(hotelEntity);
+            if (hotelEntityMap.containsKey(hotelEntity.getPeerId())) {
+                continue;
+            }
+            hotelEntityMap.put(hotelEntity.getPeerId(), hotelEntity);
+        }
+        dbInterface.batchInsertOrUpdateHotel(hotelEntityList);
+
+        for (List<String> sightStringList : csvSight) {
+            SightEntity sightEntity = String2Entity.getSightEntity(sightStringList);
+            sightEntityList.add(sightEntity);
+            if (sightEntityMap.containsKey(sightEntity.getPeerId())) {
+                continue;
+            }
+            sightEntityMap.put(sightEntity.getPeerId(), sightEntity);
+        }
+        dbInterface.batchInsertOrUpdateSight(sightEntityList);
     }
 
     /**
@@ -131,6 +170,7 @@ public class IMTravelManager extends IMManager {
             travelEntityList.add(travelEntity);
             needDb.add(travelEntity);
         }
+
         dbInterface.batchInsertOrUpdateTravel(needDb);
         triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
     }
@@ -141,9 +181,9 @@ public class IMTravelManager extends IMManager {
         IMBuddy.BasicInfo basicInfo = IMBuddy.BasicInfo
                 .newBuilder()
                 .setPersonNum(mtTravel.getPersonNum())
-                .setPlaceFromCode(mtTravel.getStartPlace())
-                .setPlaceBackCode(mtTravel.getEndPlace())
-                .setPlaceToCode(mtTravel.getDestination())
+                .setPlaceFromCode("SZX")
+                .setPlaceBackCode("SZX")
+                .setPlaceToCode("XMN")
                 .setDateFrom(mtTravel.getStartDate())
                 .setDateTo(mtTravel.getEndDate())
                 .build();
@@ -177,7 +217,7 @@ public class IMTravelManager extends IMManager {
                     .setName(hotelEntity.getName())
                     .setScore(hotelEntity.getStar())
                     .setTags(hotelEntity.getTag())
-                    .setMustSee(hotelEntity.getMustGo())
+                    .setMustSee(0)
                     .setUrl(hotelEntity.getUrl())
                     .setClass_("aaa")
                     .setPrice(hotelEntity.getPrice())
@@ -203,12 +243,12 @@ public class IMTravelManager extends IMManager {
                     .setTags(sightEntity.getTag())
                     .setFree(sightEntity.getFree())
                     .setMustSee(sightEntity.getMustGo())
-                    .setUrl(sightEntity.getUrl())
+                    .setUrl("")
                     .setClass_("abc")
                     .setPlayTime(sightEntity.getPlayTime())
-                    .setPrice(sightEntity.getPrice())
-                    .setBestTimeFrom(sightEntity.getBestStartTime())
-                    .setBestTimeTo(sightEntity.getBestEndTime())
+                    .setPrice(123)
+                    .setBestTimeFrom("0:0")
+                    .setBestTimeTo("0:0")
                     .build();
             IMBuddy.DayScenic dayScenic = IMBuddy.DayScenic
                     .newBuilder()
@@ -229,7 +269,7 @@ public class IMTravelManager extends IMManager {
         TrafficEntity cityGo = travelCityEntity.getGo();
         IMBuddy.TravelToolInfo go = IMBuddy.TravelToolInfo
                 .newBuilder()
-                .setId(cityGo.getPeerId())
+                .setId(1)
                 .setTransportToolType(cityGo.getType())
                 .setNo(cityGo.getNo())
                 .setPlaceFromCode(cityGo.getStartCityCode())
@@ -245,7 +285,7 @@ public class IMTravelManager extends IMManager {
         TrafficEntity cityBack = travelCityEntity.getBack();
         IMBuddy.TravelToolInfo back = IMBuddy.TravelToolInfo
                 .newBuilder()
-                .setId(cityBack.getPeerId())
+                .setId(1)
                 .setTransportToolType(cityBack.getType())
                 .setNo(cityBack.getNo())
                 .setPlaceFromCode(cityBack.getStartCityCode())
@@ -602,5 +642,23 @@ public class IMTravelManager extends IMManager {
 
     public String getCityCodeByName(String name) {
         return cityNameCode.get(name);
+    }
+
+    public List<HotelEntity> getHotelList() {
+        List<HotelEntity> hotelEntityList = new ArrayList<>(hotelEntityMap.values());
+        return hotelEntityList;
+    }
+
+    public List<SightEntity> getSightList() {
+        List<SightEntity> sightEntityList = new ArrayList<>(sightEntityMap.values());
+        return sightEntityList;
+    }
+
+    public HotelEntity getHotelByID(int id) {
+        return hotelEntityMap.get(id);
+    }
+
+    public SightEntity getSightByID(int id) {
+        return sightEntityMap.get(id);
     }
 }

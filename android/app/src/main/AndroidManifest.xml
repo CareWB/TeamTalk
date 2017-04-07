@@ -82,6 +82,7 @@
         </service>
         <service android:name="com.zhizulx.tt.imservice.service.LoadImageService" />
         <service android:name="com.amap.api.location.APSService"></service>
+        <service android:name="com.zhizulx.tt.imservice.service.LocationService"></service>
 
         <activity
             android:name="com.zhizulx.tt.ui.activity.PickPhotoActivity"
@@ -146,7 +147,7 @@
 
                 <action android:name="android.intent.action.VIEW" />
 
-                <data android:scheme="com.mogujie.tt" />
+                <data android:scheme="com.zhizulx.tt" />
             </intent-filter>
         </activity>
         <activity
@@ -180,16 +181,6 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.zhizulx.tt.ui.activity.TravelBehaviorActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.zhizulx.tt.ui.activity.PlayBehaviorActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
             android:name="com.zhizulx.tt.ui.activity.SelectSightActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
@@ -206,11 +197,6 @@
         </activity>
         <activity
             android:name="com.zhizulx.tt.ui.activity.IntroduceHotelActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.zhizulx.tt.ui.activity.TravelDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
@@ -294,9 +280,47 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.zhizulx.tt.ui.activity.WebViewActivity"
+            android:name="com.zhizulx.tt.ui.activity.HotelWebViewActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+
+        <activity
+            android:name="com.zhizulx.tt.ui.activity.SelectDesignWayActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <activity
+            android:name="com.zhizulx.tt.ui.activity.SelectTravelRouteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <activity
+            android:name="com.zhizulx.tt.ui.route.RouteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <activity
+            android:name="com.zhizulx.tt.ui.route.BusRouteDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <activity
+            android:name="com.zhizulx.tt.ui.route.WalkRouteDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <activity
+            android:name="com.zhizulx.tt.ui.route.DriveRouteDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
     </application>
 </manifest>

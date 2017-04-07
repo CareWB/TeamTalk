@@ -54,8 +54,8 @@ public class SightAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         SightEntity sightEntity = mList.get(i);
         SightViewHolder holder = (SightViewHolder) viewHolder;
-        //Glide.with(ctx).load(sightEntity.getPic()).into(holder.pic);
-        Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
+        Glide.with(ctx).load(sightEntity.getPic()).into(holder.pic);
+        //Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
         holder.name.setText(sightEntity.getName());
         holder.star.setRating((float)(sightEntity.getStar())/2);
         holder.tag.setText(sightEntity.getTag());
@@ -64,6 +64,7 @@ public class SightAdapter extends RecyclerView.Adapter {
         } else {
             holder.free.setBackgroundResource(R.drawable.ticket);
         }
+        holder.sightPlayTime.setText("建议游玩"+sightEntity.getPlayTime()+"小时");
         if (sightEntity.getMustGo() == 1) {
             holder.mustGo.setVisibility(View.VISIBLE);
         } else {
@@ -90,6 +91,7 @@ public class SightAdapter extends RecyclerView.Adapter {
         public ImageView free;
         public ImageView mustGo;
         public ImageView sightSelect;
+        public TextView sightPlayTime;
 
         public SightViewHolder(View itemView) {
             super(itemView);
@@ -101,6 +103,7 @@ public class SightAdapter extends RecyclerView.Adapter {
             free = (ImageView) itemView.findViewById(R.id.sight_free);
             mustGo = (ImageView) itemView.findViewById(R.id.must_go);
             sightSelect = (ImageView) itemView.findViewById(R.id.sight_select);
+            sightPlayTime = (TextView) itemView.findViewById(R.id.sight_play_time);
             lySight.setOnClickListener(this);
             sightSelect.setOnClickListener(this);
         }

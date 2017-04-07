@@ -37,6 +37,7 @@ import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.imservice.event.LoginEvent;
 import com.zhizulx.tt.imservice.event.UserInfoEvent;
 import com.zhizulx.tt.imservice.service.IMService;
+import com.zhizulx.tt.imservice.service.LocationService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.utils.FileUtil;
 import com.zhizulx.tt.utils.ImageEffect;
@@ -47,11 +48,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import de.greenrobot.event.EventBus;
 
-public class HomePageActivity extends FragmentActivity implements AMapLocationListener {
-    private ImageView avatar;
+public class HomePageActivity extends FragmentActivity {
+    private ImageView mineIcon;
     private PopupWindow popupWindow;
     private RelativeLayout mine;
     private ImageView mineAvatar;
@@ -69,7 +71,6 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         @Override
         public void onIMServiceConnected() {
             imService = imServiceConnector.getIMService();
-            ImageUtil.GlideRoundAvatar(HomePageActivity.this, "http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg", avatar);
         }
 
         @Override
@@ -85,7 +86,7 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         setContentView(R.layout.activity_homepage);
         initView();
         initButton();
-        initLocation();
+        startLocation();
     }
 
     @Override
@@ -102,7 +103,7 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
             //透明导航栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
-        avatar = (ImageView)findViewById(R.id.avatar);
+        mineIcon = (ImageView)findViewById(R.id.mine_icon);
     }
 
     private void initButton() {
@@ -110,13 +111,13 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.avatar:
+                    case R.id.mine_icon:
                         initPopupWindow();
                         break;
                 }
             }
         };
-        avatar.setOnClickListener(homePageListener);
+        mineIcon.setOnClickListener(homePageListener);
     }
 
     class popupDismissListener implements PopupWindow.OnDismissListener{
@@ -138,7 +139,7 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         ColorDrawable dw = new ColorDrawable(0xffffffff);
         popupWindow.setBackgroundDrawable(dw);
         //显示位置
-        popupWindow.showAtLocation(avatar, Gravity.LEFT, 0, 500);
+        popupWindow.showAtLocation(mineIcon, Gravity.LEFT, 0, 500);
         //设置背景半透明
         backgroundAlpha(0.5f);
         //关闭事件
@@ -253,6 +254,12 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         startActivity(intent);
     }
 
+    private void startLocation() {
+        Intent intent = new Intent();
+        intent.setClass(this, LocationService.class);
+        startService(intent);
+    }
+
     /**
      * 设置添加屏幕的背景透明度
      * @param bgAlpha
@@ -262,56 +269,5 @@ public class HomePageActivity extends FragmentActivity implements AMapLocationLi
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.alpha = bgAlpha; //0.0-1.0
         getWindow().setAttributes(lp);
-    }
-
-
-    private void initLocation() {
-        mlocationClient = new AMapLocationClient(this);
-        //初始化定位参数
-        mLocationOption = new AMapLocationClientOption();
-        //设置定位监听
-        mlocationClient.setLocationListener(this);
-        //设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
-        mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-        /*//设置定位间隔,单位毫秒,默认为2000ms
-        mLocationOption.setInterval(2000);*/
-
-        //获取一次定位结果：
-        // 该方法默认为false。
-        mLocationOption.setOnceLocation(true);
-        //获取最近3s内精度最高的一次定位结果：
-        // 设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
-        mLocationOption.setOnceLocationLatest(true);
-
-        //设置定位参数
-        mlocationClient.setLocationOption(mLocationOption);
-        // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
-        // 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
-        // 在定位结束后，在合适的生命周期调用onDestroy()方法
-        // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
-        // 启动定位
-        mlocationClient.startLocation();
-    }
-
-    @Override
-    public void onLocationChanged(AMapLocation amapLocation) {
-        if (amapLocation != null) {
-            if (amapLocation.getErrorCode() == 0) {
-                SystemConfigSp.instance().setStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY, amapLocation.getCity().replace("市", ""));
-                //定位成功回调信息，设置相关消息
-                amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
-                amapLocation.getLatitude();//获取纬度
-                amapLocation.getLongitude();//获取经度
-                amapLocation.getAccuracy();//获取精度信息
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date date = new Date(amapLocation.getTime());
-                df.format(date);//定位时间
-            } else {
-                //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
-                Log.e("AmapError","location Error, ErrCode:"
-                        + amapLocation.getErrorCode() + ", errInfo:"
-                        + amapLocation.getErrorInfo());
-            }
-        }
     }
 }

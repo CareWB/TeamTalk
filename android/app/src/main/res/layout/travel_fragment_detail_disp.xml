@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/contact_default_bk"
+    android:background="@color/detail_disp_bk"
     android:focusable="true"
     android:focusableInTouchMode="true" >
 
@@ -11,36 +11,70 @@
         android:layout_marginStart="12dp"
         android:layout_width="4dp"
         android:layout_height="fill_parent"
+        android:layout_marginTop="45dp"
         android:layout_centerHorizontal="true"
         android:background="@color/travel_menu_bk" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/contact_default_bk"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="23dp"
+            android:id="@+id/detail_disp_price"
+            android:text="约3444元"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:drawableLeft="@drawable/detail_disp_price"
+            android:drawablePadding="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/detail_disp_top_divider"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="23dp"
+            android:id="@+id/detail_disp_experience"
+            android:text="经济舒适游"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:drawableLeft="@drawable/detail_disp_experience"
+            android:drawablePadding="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/detail_disp_top_divider"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="23dp"
+            android:id="@+id/detail_disp_route"
+            android:text="文化路线"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:drawableLeft="@drawable/detail_disp_route"
+            android:drawablePadding="5dp"/>
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
         android:id="@+id/rv_detail_disp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" >
 
     </android.support.v7.widget.RecyclerView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="right"
-        android:clickable="true"
-        android:visibility="gone"
-        android:background="@color/translucent"
-        android:id="@+id/ly_detail_disp_sight_disp">
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="@dimen/detail_disp_sight_disp_rv_height"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/detail_disp_sight_disp_pad"
-            android:background="@color/base_title"
-            android:id="@+id/rv_detail_disp_sight_disp"/>
-
-    </LinearLayout>
 
     <TextView
         android:text="@string/detail_disp_menu"
@@ -56,6 +90,15 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:id="@+id/detail_disp_menu" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/not_collection"
+        android:layout_marginRight="@dimen/detail_disp_collection_right"
+        android:layout_marginTop="@dimen/detail_disp_collection_top"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -73,6 +116,65 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/rv_detail_disp_menu"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="right"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="@color/translucent"
+        android:id="@+id/ly_detail_disp_adjust_disp">
+
+
+        <TextView
+            android:text="调整景点"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/title"
+            android:textSize="@dimen/title_size"
+            android:background="@drawable/detail_disp_adjust_bk"
+            android:id="@+id/detail_disp_adjust_sight" />
+
+        <TextView
+            android:text="调整酒店"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/title"
+            android:textSize="@dimen/title_size"
+            android:background="@drawable/detail_disp_adjust_bk"
+            android:id="@+id/detail_disp_adjust_hotel" />
+
+        <TextView
+            android:text="调整交通"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/title"
+            android:textSize="@dimen/title_size"
+            android:background="@drawable/detail_disp_adjust_bk"
+            android:id="@+id/detail_disp_adjust_traffic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:clickable="true"
+        android:visibility="gone"
+        android:id="@+id/ly_time_select_wheel"
+        android:background="@color/translucent">
+
+        <com.zhizulx.tt.utils.WheelPicker
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/time_select_wheel"
+            android:background="@color/clicked"/>
     </LinearLayout>
 
 </RelativeLayout>

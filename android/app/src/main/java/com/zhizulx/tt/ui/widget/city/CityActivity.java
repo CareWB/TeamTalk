@@ -80,7 +80,7 @@ public class CityActivity extends Activity implements MySlideView.onTouchListene
                 goBcak();
             }
         });
-
+        String[] cityName = getResources().getStringArray(R.array.city_name);
         cityList.clear();
         firstPinYin.clear();
         pinyinList.clear();
@@ -88,10 +88,10 @@ public class CityActivity extends Activity implements MySlideView.onTouchListene
         mySlideView = (MySlideView) findViewById(R.id.my_slide_view);
         circleTxt = (CircleTextView) findViewById(R.id.my_circle_view);
         pinyinComparator = new PinyinComparator();
-        for (int i = 0; i < City.stringCitys.length; i++) {
+        for (int i = 0; i < cityName.length; i++) {
             City city = new City();
-            city.setCityName(City.stringCitys[i]);
-            city.setCityPinyin(transformPinYin(City.stringCitys[i]));
+            city.setCityName(cityName[i]);
+            city.setCityPinyin(transformPinYin(cityName[i]));
             cityList.add(city);
         }
         Collections.sort(cityList, pinyinComparator);

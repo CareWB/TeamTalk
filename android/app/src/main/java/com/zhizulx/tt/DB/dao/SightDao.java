@@ -25,24 +25,26 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property PeerId = new Property(1, int.class, "peerId", false, "PEER_ID");
-        public final static Property Name = new Property(2, String.class, "name", false, "NAME");
-        public final static Property Pic = new Property(3, String.class, "pic", false, "PIC");
-        public final static Property Star = new Property(4, int.class, "star", false, "STAR");
-        public final static Property Tag = new Property(5, String.class, "tag", false, "TAG");
-        public final static Property Free = new Property(6, int.class, "free", false, "FREE");
-        public final static Property MustGo = new Property(7, int.class, "mustGo", false, "MUST_GO");
-        public final static Property Url = new Property(8, String.class, "url", false, "URL");
-        public final static Property PlayTime = new Property(9, int.class, "playTime", false, "PLAY_TIME");
-        public final static Property Price = new Property(10, int.class, "price", false, "PRICE");
-        public final static Property BestStartTime = new Property(11, String.class, "bestStartTime", false, "BEST_START_TIME");
-        public final static Property BestEndTime = new Property(12, String.class, "bestEndTime", false, "BEST_END_TIME");
-        public final static Property StartTime = new Property(13, String.class, "startTime", false, "START_TIME");
-        public final static Property EndTime = new Property(14, String.class, "endTime", false, "END_TIME");
-        public final static Property Select = new Property(15, int.class, "select", false, "SELECT");
-        public final static Property Version = new Property(16, int.class, "version", false, "VERSION");
-        public final static Property Status = new Property(17, int.class, "status", false, "STATUS");
-        public final static Property Created = new Property(18, int.class, "created", false, "CREATED");
-        public final static Property Updated = new Property(19, int.class, "updated", false, "UPDATED");
+        public final static Property CityCode = new Property(2, String.class, "cityCode", false, "CITY_CODE");
+        public final static Property Name = new Property(3, String.class, "name", false, "NAME");
+        public final static Property Pic = new Property(4, String.class, "pic", false, "PIC");
+        public final static Property Star = new Property(5, int.class, "star", false, "STAR");
+        public final static Property Tag = new Property(6, String.class, "tag", false, "TAG");
+        public final static Property Free = new Property(7, int.class, "free", false, "FREE");
+        public final static Property MustGo = new Property(8, int.class, "mustGo", false, "MUST_GO");
+        public final static Property OpenTime = new Property(9, String.class, "openTime", false, "OPEN_TIME");
+        public final static Property PlayTime = new Property(10, int.class, "playTime", false, "PLAY_TIME");
+        public final static Property Introduction = new Property(11, String.class, "introduction", false, "INTRODUCTION");
+        public final static Property Address = new Property(12, String.class, "address", false, "ADDRESS");
+        public final static Property Longitude = new Property(13, double.class, "longitude", false, "LONGITUDE");
+        public final static Property Latitude = new Property(14, double.class, "latitude", false, "LATITUDE");
+        public final static Property StartTime = new Property(15, String.class, "startTime", false, "START_TIME");
+        public final static Property EndTime = new Property(16, String.class, "endTime", false, "END_TIME");
+        public final static Property Select = new Property(17, int.class, "select", false, "SELECT");
+        public final static Property Version = new Property(18, int.class, "version", false, "VERSION");
+        public final static Property Status = new Property(19, int.class, "status", false, "STATUS");
+        public final static Property Created = new Property(20, int.class, "created", false, "CREATED");
+        public final static Property Updated = new Property(21, int.class, "updated", false, "UPDATED");
     };
 
 
@@ -60,24 +62,26 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'SightInfo' (" + //
                 "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "'PEER_ID' INTEGER NOT NULL UNIQUE ," + // 1: peerId
-                "'NAME' TEXT NOT NULL ," + // 2: name
-                "'PIC' TEXT NOT NULL ," + // 3: pic
-                "'STAR' INTEGER NOT NULL ," + // 4: star
-                "'TAG' TEXT NOT NULL ," + // 5: tag
-                "'FREE' INTEGER NOT NULL ," + // 6: free
-                "'MUST_GO' INTEGER NOT NULL ," + // 7: mustGo
-                "'URL' TEXT NOT NULL ," + // 8: url
-                "'PLAY_TIME' INTEGER NOT NULL ," + // 9: playTime
-                "'PRICE' INTEGER NOT NULL ," + // 10: price
-                "'BEST_START_TIME' TEXT NOT NULL ," + // 11: bestStartTime
-                "'BEST_END_TIME' TEXT NOT NULL ," + // 12: bestEndTime
-                "'START_TIME' TEXT NOT NULL ," + // 13: startTime
-                "'END_TIME' TEXT NOT NULL ," + // 14: endTime
-                "'SELECT' INTEGER NOT NULL ," + // 15: select
-                "'VERSION' INTEGER NOT NULL ," + // 16: version
-                "'STATUS' INTEGER NOT NULL ," + // 17: status
-                "'CREATED' INTEGER NOT NULL ," + // 18: created
-                "'UPDATED' INTEGER NOT NULL );"); // 19: updated
+                "'CITY_CODE' TEXT NOT NULL ," + // 2: cityCode
+                "'NAME' TEXT NOT NULL ," + // 3: name
+                "'PIC' TEXT NOT NULL ," + // 4: pic
+                "'STAR' INTEGER NOT NULL ," + // 5: star
+                "'TAG' TEXT NOT NULL ," + // 6: tag
+                "'FREE' INTEGER NOT NULL ," + // 7: free
+                "'MUST_GO' INTEGER NOT NULL ," + // 8: mustGo
+                "'OPEN_TIME' TEXT NOT NULL ," + // 9: openTime
+                "'PLAY_TIME' INTEGER NOT NULL ," + // 10: playTime
+                "'INTRODUCTION' TEXT NOT NULL ," + // 11: introduction
+                "'ADDRESS' TEXT NOT NULL ," + // 12: address
+                "'LONGITUDE' REAL NOT NULL ," + // 13: longitude
+                "'LATITUDE' REAL NOT NULL ," + // 14: latitude
+                "'START_TIME' TEXT NOT NULL ," + // 15: startTime
+                "'END_TIME' TEXT NOT NULL ," + // 16: endTime
+                "'SELECT' INTEGER NOT NULL ," + // 17: select
+                "'VERSION' INTEGER NOT NULL ," + // 18: version
+                "'STATUS' INTEGER NOT NULL ," + // 19: status
+                "'CREATED' INTEGER NOT NULL ," + // 20: created
+                "'UPDATED' INTEGER NOT NULL );"); // 21: updated
     }
 
     /** Drops the underlying database table. */
@@ -96,24 +100,26 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
             stmt.bindLong(1, id);
         }
         stmt.bindLong(2, entity.getPeerId());
-        stmt.bindString(3, entity.getName());
-        stmt.bindString(4, entity.getPic());
-        stmt.bindLong(5, entity.getStar());
-        stmt.bindString(6, entity.getTag());
-        stmt.bindLong(7, entity.getFree());
-        stmt.bindLong(8, entity.getMustGo());
-        stmt.bindString(9, entity.getUrl());
-        stmt.bindLong(10, entity.getPlayTime());
-        stmt.bindLong(11, entity.getPrice());
-        stmt.bindString(12, entity.getBestStartTime());
-        stmt.bindString(13, entity.getBestEndTime());
-        stmt.bindString(14, entity.getStartTime());
-        stmt.bindString(15, entity.getEndTime());
-        stmt.bindLong(16, entity.getSelect());
-        stmt.bindLong(17, entity.getVersion());
-        stmt.bindLong(18, entity.getStatus());
-        stmt.bindLong(19, entity.getCreated());
-        stmt.bindLong(20, entity.getUpdated());
+        stmt.bindString(3, entity.getCityCode());
+        stmt.bindString(4, entity.getName());
+        stmt.bindString(5, entity.getPic());
+        stmt.bindLong(6, entity.getStar());
+        stmt.bindString(7, entity.getTag());
+        stmt.bindLong(8, entity.getFree());
+        stmt.bindLong(9, entity.getMustGo());
+        stmt.bindString(10, entity.getOpenTime());
+        stmt.bindLong(11, entity.getPlayTime());
+        stmt.bindString(12, entity.getIntroduction());
+        stmt.bindString(13, entity.getAddress());
+        stmt.bindDouble(14, entity.getLongitude());
+        stmt.bindDouble(15, entity.getLatitude());
+        stmt.bindString(16, entity.getStartTime());
+        stmt.bindString(17, entity.getEndTime());
+        stmt.bindLong(18, entity.getSelect());
+        stmt.bindLong(19, entity.getVersion());
+        stmt.bindLong(20, entity.getStatus());
+        stmt.bindLong(21, entity.getCreated());
+        stmt.bindLong(22, entity.getUpdated());
     }
 
     /** @inheritdoc */
@@ -128,24 +134,26 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         SightEntity entity = new SightEntity( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getInt(offset + 1), // peerId
-            cursor.getString(offset + 2), // name
-            cursor.getString(offset + 3), // pic
-            cursor.getInt(offset + 4), // star
-            cursor.getString(offset + 5), // tag
-            cursor.getInt(offset + 6), // free
-            cursor.getInt(offset + 7), // mustGo
-            cursor.getString(offset + 8), // url
-            cursor.getInt(offset + 9), // playTime
-            cursor.getInt(offset + 10), // price
-            cursor.getString(offset + 11), // bestStartTime
-            cursor.getString(offset + 12), // bestEndTime
-            cursor.getString(offset + 13), // startTime
-            cursor.getString(offset + 14), // endTime
-            cursor.getInt(offset + 15), // select
-            cursor.getInt(offset + 16), // version
-            cursor.getInt(offset + 17), // status
-            cursor.getInt(offset + 18), // created
-            cursor.getInt(offset + 19) // updated
+            cursor.getString(offset + 2), // cityCode
+            cursor.getString(offset + 3), // name
+            cursor.getString(offset + 4), // pic
+            cursor.getInt(offset + 5), // star
+            cursor.getString(offset + 6), // tag
+            cursor.getInt(offset + 7), // free
+            cursor.getInt(offset + 8), // mustGo
+            cursor.getString(offset + 9), // openTime
+            cursor.getInt(offset + 10), // playTime
+            cursor.getString(offset + 11), // introduction
+            cursor.getString(offset + 12), // address
+            cursor.getDouble(offset + 13), // longitude
+            cursor.getDouble(offset + 14), // latitude
+            cursor.getString(offset + 15), // startTime
+            cursor.getString(offset + 16), // endTime
+            cursor.getInt(offset + 17), // select
+            cursor.getInt(offset + 18), // version
+            cursor.getInt(offset + 19), // status
+            cursor.getInt(offset + 20), // created
+            cursor.getInt(offset + 21) // updated
         );
         return entity;
     }
@@ -155,24 +163,26 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
     public void readEntity(Cursor cursor, SightEntity entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setPeerId(cursor.getInt(offset + 1));
-        entity.setName(cursor.getString(offset + 2));
-        entity.setPic(cursor.getString(offset + 3));
-        entity.setStar(cursor.getInt(offset + 4));
-        entity.setTag(cursor.getString(offset + 5));
-        entity.setFree(cursor.getInt(offset + 6));
-        entity.setMustGo(cursor.getInt(offset + 7));
-        entity.setUrl(cursor.getString(offset + 8));
-        entity.setPlayTime(cursor.getInt(offset + 9));
-        entity.setPrice(cursor.getInt(offset + 10));
-        entity.setBestStartTime(cursor.getString(offset + 11));
-        entity.setBestEndTime(cursor.getString(offset + 12));
-        entity.setStartTime(cursor.getString(offset + 13));
-        entity.setEndTime(cursor.getString(offset + 14));
-        entity.setSelect(cursor.getInt(offset + 15));
-        entity.setVersion(cursor.getInt(offset + 16));
-        entity.setStatus(cursor.getInt(offset + 17));
-        entity.setCreated(cursor.getInt(offset + 18));
-        entity.setUpdated(cursor.getInt(offset + 19));
+        entity.setCityCode(cursor.getString(offset + 2));
+        entity.setName(cursor.getString(offset + 3));
+        entity.setPic(cursor.getString(offset + 4));
+        entity.setStar(cursor.getInt(offset + 5));
+        entity.setTag(cursor.getString(offset + 6));
+        entity.setFree(cursor.getInt(offset + 7));
+        entity.setMustGo(cursor.getInt(offset + 8));
+        entity.setOpenTime(cursor.getString(offset + 9));
+        entity.setPlayTime(cursor.getInt(offset + 10));
+        entity.setIntroduction(cursor.getString(offset + 11));
+        entity.setAddress(cursor.getString(offset + 12));
+        entity.setLongitude(cursor.getDouble(offset + 13));
+        entity.setLatitude(cursor.getDouble(offset + 14));
+        entity.setStartTime(cursor.getString(offset + 15));
+        entity.setEndTime(cursor.getString(offset + 16));
+        entity.setSelect(cursor.getInt(offset + 17));
+        entity.setVersion(cursor.getInt(offset + 18));
+        entity.setStatus(cursor.getInt(offset + 19));
+        entity.setCreated(cursor.getInt(offset + 20));
+        entity.setUpdated(cursor.getInt(offset + 21));
      }
     
     /** @inheritdoc */

@@ -11,7 +11,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -22,7 +21,6 @@ import com.zhizulx.tt.config.UrlConstant;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
-import com.zhizulx.tt.ui.activity.SelectHotelActivity;
 import com.zhizulx.tt.ui.adapter.SightAdapter;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.utils.TravelUIHelper;
@@ -40,10 +38,11 @@ public class SelectSightFragment extends TTBaseFragment{
 	private View curView = null;
     private IMTravelManager travelManager;
     private TextView total;
-    private TextView nature;
-    private TextView history;
-    private TextView entertainment;
-    private TextView building;
+    private TextView literature;
+    private TextView comfort;
+    private TextView exploration;
+    private TextView excite;
+    private TextView encounter;
     private RecyclerView rvSight;
     private SightAdapter sightAdapter;
     private List<SightEntity> sightEntityList = new ArrayList<>();
@@ -59,8 +58,6 @@ public class SelectSightFragment extends TTBaseFragment{
     private int spinner_select = ALL;
     private TextView selectSightDropText;
 
-    private Button next;
-    
     private Map<Integer, String> selectFlag = new HashMap<>();
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
@@ -70,6 +67,7 @@ public class SelectSightFragment extends TTBaseFragment{
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
+                initSightList();
             }
         }
 
@@ -90,7 +88,7 @@ public class SelectSightFragment extends TTBaseFragment{
 
 		initRes();
         initBtn();
-        testCase();
+        //testCase();
         initPopupWindow();
         initSight();
 		return curView;
@@ -141,30 +139,23 @@ public class SelectSightFragment extends TTBaseFragment{
 		});
 
         total = (TextView)curView.findViewById(R.id.select_total);
-        nature = (TextView)curView.findViewById(R.id.select_nature);
-        history = (TextView)curView.findViewById(R.id.select_history);
-        entertainment = (TextView)curView.findViewById(R.id.select_entertainment);
-        building = (TextView)curView.findViewById(R.id.select_building);
+        literature = (TextView)curView.findViewById(R.id.select_literature);
+        comfort = (TextView)curView.findViewById(R.id.select_comfort);
+        exploration = (TextView)curView.findViewById(R.id.select_exploration);
+        excite = (TextView)curView.findViewById(R.id.select_excite);
+        encounter = (TextView)curView.findViewById(R.id.select_encounter);
         selectFlag.put(R.id.select_total, "全部");
-        selectFlag.put(R.id.select_nature, "自然");
-        selectFlag.put(R.id.select_history, "历史");
-        selectFlag.put(R.id.select_entertainment, "文娱");
-        selectFlag.put(R.id.select_building, "建筑");
+        selectFlag.put(R.id.select_literature, "文艺");
+        selectFlag.put(R.id.select_comfort, "舒适");
+        selectFlag.put(R.id.select_exploration, "探险");
+        selectFlag.put(R.id.select_excite, "刺激");
+        selectFlag.put(R.id.select_encounter, "艳遇");
 
         pop = (LinearLayout)curView.findViewById(R.id.select_sight_drop);
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPopupWindow.showAsDropDown(curView.findViewById(R.id.select_sight_drop));
-            }
-        });
-
-        next = (Button)curView.findViewById(R.id.select_sight_next);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                storageSight();
-                jump2SelectHotel();
             }
         });
 
@@ -189,176 +180,176 @@ public class SelectSightFragment extends TTBaseFragment{
             }
         };
         total.setOnClickListener(listener);
-        nature.setOnClickListener(listener);
-        history.setOnClickListener(listener);
-        entertainment.setOnClickListener(listener);
-        building.setOnClickListener(listener);
+        literature.setOnClickListener(listener);
+        comfort.setOnClickListener(listener);
+        exploration.setOnClickListener(listener);
+        excite.setOnClickListener(listener);
+        encounter.setOnClickListener(listener);
     }
 
     private void buttonDisp(int id) {
         total.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
         total.setTextColor(getResources().getColor(R.color.not_clicked));
-        nature.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
-        nature.setTextColor(getResources().getColor(R.color.not_clicked));
-        history.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
-        history.setTextColor(getResources().getColor(R.color.not_clicked));
-        entertainment.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
-        entertainment.setTextColor(getResources().getColor(R.color.not_clicked));
-        building.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
-        building.setTextColor(getResources().getColor(R.color.not_clicked));
+        literature.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        literature.setTextColor(getResources().getColor(R.color.not_clicked));
+        comfort.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        comfort.setTextColor(getResources().getColor(R.color.not_clicked));
+        exploration.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        exploration.setTextColor(getResources().getColor(R.color.not_clicked));
+        excite.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        excite.setTextColor(getResources().getColor(R.color.not_clicked));
+        encounter.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_not_click));
+        encounter.setTextColor(getResources().getColor(R.color.not_clicked));
 
         switch (id) {
             case R.id.select_total:
                 total.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
                 total.setTextColor(getResources().getColor(R.color.clicked));
                 break;
-            case R.id.select_nature:
-                nature.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
-                nature.setTextColor(getResources().getColor(R.color.clicked));
+            case R.id.select_literature:
+                literature.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                literature.setTextColor(getResources().getColor(R.color.clicked));
                 break;
-            case R.id.select_history:
-                history.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
-                history.setTextColor(getResources().getColor(R.color.clicked));
+            case R.id.select_comfort:
+                comfort.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                comfort.setTextColor(getResources().getColor(R.color.clicked));
                 break;
-            case R.id.select_entertainment:
-                entertainment.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
-                entertainment.setTextColor(getResources().getColor(R.color.clicked));
+            case R.id.select_exploration:
+                exploration.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                exploration.setTextColor(getResources().getColor(R.color.clicked));
                 break;
-            case R.id.select_building:
-                building.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
-                building.setTextColor(getResources().getColor(R.color.clicked));
+            case R.id.select_excite:
+                excite.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                excite.setTextColor(getResources().getColor(R.color.clicked));
+                break;
+            case R.id.select_encounter:
+                encounter.setBackground(getResources().getDrawable(R.drawable.select_sight_tag_click));
+                encounter.setTextColor(getResources().getColor(R.color.clicked));
                 break;
         }
     }
 
-    private void testCase() {
+    private void initSightList() {
+        sightEntityList.clear();
+        sightEntityList.addAll(travelManager.getSightList());
+        for (SightEntity sightEntity:sightEntityList) {
+            if (sightEntity.getMustGo() == 1) {
+                sightEntity.setSelect(1);
+            }
+        }
+
+        tagSightEntityList.addAll(sightEntityList);
+        sightAdapter.notifyDataSetChanged();
+    }
+
+/*    private void testCase() {
         String pre = UrlConstant.PIC_URL_PREFIX;
 
         SightEntity gulangyu = new SightEntity();
+        gulangyu.setPeerId(1);
         gulangyu.setName("鼓浪屿");
         gulangyu.setPic(pre+"gulangyu.png");
         gulangyu.setStar(8);
-        gulangyu.setUrl("http://www.baidu.com");
-        gulangyu.setTag("自然");
-        gulangyu.setBestStartTime("08:00");
-        gulangyu.setBestEndTime("20:00");
+        gulangyu.setTag("文艺");
         gulangyu.setStartTime("12:00");
         gulangyu.setEndTime("15:00");
         gulangyu.setFree(0);
         gulangyu.setMustGo(1);
 
         SightEntity xiada = new SightEntity();
+        xiada.setPeerId(1);
         xiada.setName("厦门大学");
         xiada.setPic(pre+"xiamendaxue.png");
         xiada.setStar(9);
-        xiada.setUrl("http://www.baidu.com");
-        xiada.setTag("建筑 文娱");
-        xiada.setBestStartTime("08:00");
-        xiada.setBestEndTime("20:00");
+        xiada.setTag("刺激 艳遇");
         xiada.setStartTime("12:00");
         xiada.setEndTime("15:00");
         xiada.setFree(1);
         xiada.setMustGo(1);
 
         SightEntity nanputuosi = new SightEntity();
+        nanputuosi.setPeerId(1);
         nanputuosi.setName("南普陀寺");
         nanputuosi.setPic(pre+"nanputuosi.png");
         nanputuosi.setStar(8);
-        nanputuosi.setUrl("http://www.baidu.com");
-        nanputuosi.setTag("文娱");
-        nanputuosi.setBestStartTime("08:00");
-        nanputuosi.setBestEndTime("20:00");
+        nanputuosi.setTag("探险");
         nanputuosi.setStartTime("12:00");
         nanputuosi.setEndTime("15:00");
         nanputuosi.setFree(0);
         nanputuosi.setMustGo(0);
 
         SightEntity huandaolu = new SightEntity();
+        huandaolu.setPeerId(1);
         huandaolu.setName("环岛路");
         huandaolu.setPic(pre+"huandaolu.png");
         huandaolu.setStar(8);
-        huandaolu.setUrl("http://www.baidu.com");
-        huandaolu.setTag("建筑");
-        huandaolu.setBestStartTime("08:00");
-        huandaolu.setBestEndTime("20:00");
+        huandaolu.setTag("舒适");
         huandaolu.setStartTime("12:00");
         huandaolu.setEndTime("15:00");
         huandaolu.setFree(1);
         huandaolu.setMustGo(0);
 
         SightEntity riguangyan = new SightEntity();
+        riguangyan.setPeerId(1);
         riguangyan.setName("日光岩");
         riguangyan.setPic(pre+"riguangyan.png");
         riguangyan.setStar(8);
-        riguangyan.setUrl("http://www.baidu.com");
-        riguangyan.setTag("自然");
-        riguangyan.setBestStartTime("08:00");
-        riguangyan.setBestEndTime("20:00");
+        riguangyan.setTag("探险");
         riguangyan.setStartTime("12:00");
         riguangyan.setEndTime("15:00");
         riguangyan.setFree(0);
         riguangyan.setMustGo(1);
 
         SightEntity zengcuoan = new SightEntity();
+        zengcuoan.setPeerId(1);
         zengcuoan.setName("曾厝垵");
         zengcuoan.setPic(pre+"zengcuoan.png");
         zengcuoan.setStar(8);
-        zengcuoan.setUrl("http://www.baidu.com");
-        zengcuoan.setTag("历史");
-        zengcuoan.setBestStartTime("08:00");
-        zengcuoan.setBestEndTime("20:00");
+        zengcuoan.setTag("刺激");
         zengcuoan.setStartTime("12:00");
         zengcuoan.setEndTime("15:00");
         zengcuoan.setFree(0);
         zengcuoan.setMustGo(0);
 
         SightEntity zhongshanlu = new SightEntity();
+        zhongshanlu.setPeerId(1);
         zhongshanlu.setName("中山路");
         zhongshanlu.setPic(pre+"zhongshanlu.png");
         zhongshanlu.setStar(8);
-        zhongshanlu.setUrl("http://www.baidu.com");
-        zhongshanlu.setTag("建筑");
-        zhongshanlu.setBestStartTime("08:00");
-        zhongshanlu.setBestEndTime("20:00");
+        zhongshanlu.setTag("艳遇");
         zhongshanlu.setStartTime("12:00");
         zhongshanlu.setEndTime("15:00");
         zhongshanlu.setFree(1);
         zhongshanlu.setMustGo(1);
 
         SightEntity xiamenhaidishijie = new SightEntity();
+        xiamenhaidishijie.setPeerId(1);
         xiamenhaidishijie.setName("厦门海底世界");
         xiamenhaidishijie.setPic(pre+"xiamenhaidishijie.png");
         xiamenhaidishijie.setStar(8);
-        xiamenhaidishijie.setUrl("http://www.baidu.com");
-        xiamenhaidishijie.setTag("自然");
-        xiamenhaidishijie.setBestStartTime("08:00");
-        xiamenhaidishijie.setBestEndTime("20:00");
+        xiamenhaidishijie.setTag("舒适");
         xiamenhaidishijie.setStartTime("12:00");
         xiamenhaidishijie.setEndTime("15:00");
         xiamenhaidishijie.setFree(0);
         xiamenhaidishijie.setMustGo(0);
 
         SightEntity shuzhuanghuayuan = new SightEntity();
+        shuzhuanghuayuan.setPeerId(1);
         shuzhuanghuayuan.setName("菽庄花园");
         shuzhuanghuayuan.setPic(pre+"shuzhuanghuayuan.png");
         shuzhuanghuayuan.setStar(8);
-        shuzhuanghuayuan.setUrl("http://www.baidu.com");
-        shuzhuanghuayuan.setTag("文娱");
-        shuzhuanghuayuan.setBestStartTime("08:00");
-        shuzhuanghuayuan.setBestEndTime("20:00");
+        shuzhuanghuayuan.setTag("文艺");
         shuzhuanghuayuan.setStartTime("12:00");
         shuzhuanghuayuan.setEndTime("15:00");
         shuzhuanghuayuan.setFree(1);
         shuzhuanghuayuan.setMustGo(0);
 
         SightEntity shadiaowenhuayuan = new SightEntity();
+        shadiaowenhuayuan.setPeerId(1);
         shadiaowenhuayuan.setName("沙雕文化园");
         shadiaowenhuayuan.setPic(pre+"shadiaowenhuayuan.png");
         shadiaowenhuayuan.setStar(8);
-        shadiaowenhuayuan.setUrl("http://www.baidu.com");
-        shadiaowenhuayuan.setTag("文娱");
-        shadiaowenhuayuan.setBestStartTime("08:00");
-        shadiaowenhuayuan.setBestEndTime("20:00");
+        shadiaowenhuayuan.setTag("文艺");
         shadiaowenhuayuan.setStartTime("12:00");
         shadiaowenhuayuan.setEndTime("15:00");
         shadiaowenhuayuan.setFree(0);
@@ -382,7 +373,7 @@ public class SelectSightFragment extends TTBaseFragment{
         }
 
         tagSightEntityList.addAll(sightEntityList);
-    }
+    }*/
 
     private void initSight() {
         rvSight.setHasFixedSize(true);
@@ -413,7 +404,7 @@ public class SelectSightFragment extends TTBaseFragment{
 
     private void freeProcess() {
         if (spinner_select == ALL) {
-            selectSightDropText.setText(getString(R.string.select_sight_not_screen));
+            selectSightDropText.setText(getString(R.string.select_sight_recommend));
             return;
         }
 
@@ -497,23 +488,5 @@ public class SelectSightFragment extends TTBaseFragment{
         lyPop.setOnClickListener(popupListener);
         notScreen.setOnClickListener(popupListener);
         free.setOnClickListener(popupListener);
-    }
-
-    private void jump2SelectHotel() {
-        Intent selectHotel = new Intent(getActivity(), SelectHotelActivity.class);
-        startActivity(selectHotel);
-    }
-
-    private void storageSight() {
-        if (travelManager != null) {
-            List<SightEntity> sightEntityList = travelManager.getMtCity().get(0).getSightList();
-            sightEntityList.clear();
-            for (SightEntity sightEntity:tagSightEntityList) {
-                if (sightEntity.getSelect() == 0) {
-                    continue;
-                }
-                sightEntityList.add(sightEntity);
-            }
-        }
     }
 }

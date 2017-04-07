@@ -8,14 +8,18 @@ import com.zhizulx.tt.DB.dao.DaoMaster;
 import com.zhizulx.tt.DB.dao.DaoSession;
 import com.zhizulx.tt.DB.dao.DepartmentDao;
 import com.zhizulx.tt.DB.dao.GroupDao;
+import com.zhizulx.tt.DB.dao.HotelDao;
 import com.zhizulx.tt.DB.dao.MessageDao;
 import com.zhizulx.tt.DB.dao.SessionDao;
+import com.zhizulx.tt.DB.dao.SightDao;
 import com.zhizulx.tt.DB.dao.TravelDao;
 import com.zhizulx.tt.DB.dao.UserDao;
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
 import com.zhizulx.tt.DB.entity.GroupEntity;
+import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.DB.entity.MessageEntity;
 import com.zhizulx.tt.DB.entity.SessionEntity;
+import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.DB.entity.TravelEntity;
 import com.zhizulx.tt.DB.entity.UserEntity;
 import com.zhizulx.tt.config.DBConstant;
@@ -529,6 +533,92 @@ public class DBInterface {
             return 0;
         }else{
             return travelEntity.getUpdated();
+        }
+    }
+
+    /**-------------------------下面开始Hotel 操作相关---------------------------------------*/
+    /**
+     * @return
+     *  toER_STATUS_LEAVE
+     */
+    public List<HotelEntity> loadAllHotel(){
+        HotelDao dao = openReadableDb().getHotelDao();
+        List<HotelEntity> result = dao.loadAll();
+        return result;
+    }
+
+    public void delAllHotel(){
+        HotelDao dao = openReadableDb().getHotelDao();
+        dao.deleteAll();
+    }
+
+    public void insertOrUpdateHotel(HotelEntity entity){
+        HotelDao hotelDao = openWritableDb().getHotelDao();
+        long rowId = hotelDao.insertOrReplace(entity);
+    }
+
+    public void  batchInsertOrUpdateHotel(List<HotelEntity> entityList){
+        if(entityList.size() <=0){
+            return ;
+        }
+        HotelDao hotelDao = openWritableDb().getHotelDao();
+        hotelDao.insertOrReplaceInTx(entityList);
+    }
+
+    /**update*/
+    public int getHotelLastTime(){
+        HotelDao hotelDao =  openReadableDb().getHotelDao();
+        HotelEntity hotelEntity = hotelDao.queryBuilder()
+                .orderDesc(HotelDao.Properties.Updated)
+                .limit(1)
+                .unique();
+        if(hotelEntity == null){
+            return 0;
+        }else{
+            return hotelEntity.getUpdated();
+        }
+    }
+
+    /**-------------------------下面开始Sight 操作相关---------------------------------------*/
+    /**
+     * @return
+     *  toER_STATUS_LEAVE
+     */
+    public List<SightEntity> loadAllSight(){
+        SightDao dao = openReadableDb().getSightDao();
+        List<SightEntity> result = dao.loadAll();
+        return result;
+    }
+
+    public void delAllSight(){
+        SightDao dao = openReadableDb().getSightDao();
+        dao.deleteAll();
+    }
+
+    public void insertOrUpdateSight(SightEntity entity){
+        SightDao sightDao = openWritableDb().getSightDao();
+        long rowId = sightDao.insertOrReplace(entity);
+    }
+
+    public void  batchInsertOrUpdateSight(List<SightEntity> entityList){
+        if(entityList.size() <=0){
+            return ;
+        }
+        SightDao sightDao = openWritableDb().getSightDao();
+        sightDao.insertOrReplaceInTx(entityList);
+    }
+
+    /**update*/
+    public int getSightLLastTime(){
+        SightDao sightDao =  openReadableDb().getSightDao();
+        SightEntity sightEntity = sightDao.queryBuilder()
+                .orderDesc(HotelDao.Properties.Updated)
+                .limit(1)
+                .unique();
+        if(sightEntity == null){
+            return 0;
+        }else{
+            return sightEntity.getUpdated();
         }
     }
 

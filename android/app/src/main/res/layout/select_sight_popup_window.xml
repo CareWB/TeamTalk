@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="@string/select_sight_not_screen"
+        android:text="@string/select_sight_recommend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/not_clicked"

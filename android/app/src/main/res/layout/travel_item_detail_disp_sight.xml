@@ -9,22 +9,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/detail_disp_sight_point"
-        android:layout_marginTop="@dimen/detail_disp_top"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/detail_disp_point_top"
         android:layout_centerHorizontal="true"
         android:id="@+id/detail_disp_sight_point" />
 
     <FrameLayout
         android:layout_width="@dimen/detail_disp_sight_width"
         android:layout_height="@dimen/detail_disp_sight_height"
-        android:layout_centerVertical="true"
         android:layout_marginTop="@dimen/detail_disp_top"
-        android:layout_toEndOf="@+id/detail_disp_sight_point">
+        android:id="@+id/travel_item_detail_disp_sight_bk"
+        android:layout_toLeftOf="@+id/detail_disp_sight_point">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/detail_disp_sight_bk"/>
+            android:background="@drawable/detail_disp_bk"/>
 
         <TextView
             android:text=""
@@ -39,15 +38,42 @@
             android:drawablePadding="@dimen/select_place_city_pic_left"
             android:id="@+id/detail_disp_sight_title" />
 
-        <TextView
-            android:text=""
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/detail_disp_sight_pad"
-            android:layout_marginBottom="@dimen/detail_disp_sight_pad"
-            android:textSize="@dimen/title_size"
-            android:textColor="@color/base_title"
             android:layout_gravity="bottom"
-            android:id="@+id/detail_disp_sight_content" />
+            android:background="@drawable/detail_disp_bottom_bk"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="查看详情"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/title_size"
+                android:textColor="@color/first_title_color"
+                android:layout_gravity="bottom"
+                android:id="@+id/detail_disp_sight_info" />
+
+            <TextView
+                android:text="实时地图"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/title_size"
+                android:textColor="@color/first_title_color"
+                android:layout_gravity="bottom"
+                android:id="@+id/detail_disp_sight_map" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/detail_disp_sight_unclick"
+            android:clickable="true"
+            android:visibility="gone"
+            android:background="@drawable/detail_disp_unclick_bk"/>
     </FrameLayout>
 </RelativeLayout>

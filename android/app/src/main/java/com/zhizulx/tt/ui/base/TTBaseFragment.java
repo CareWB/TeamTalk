@@ -210,6 +210,11 @@ public abstract class TTBaseFragment extends Fragment {
         //tryHandleSearchAction(action);
 	}
 
+	public void hideFragmentDivder() {
+		LinearLayout lyFragmentDivder = (LinearLayout) topContentView.findViewById(R.id.fragment_divder);
+		lyFragmentDivder.setVisibility(View.GONE);
+	}
+
 	protected abstract void initHandler();
 
 	@Override

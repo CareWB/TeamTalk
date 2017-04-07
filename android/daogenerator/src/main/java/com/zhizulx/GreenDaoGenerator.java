@@ -16,11 +16,11 @@ import de.greenrobot.daogenerator.Schema;
  * 【备注】session表中的create与update字段没有特别的区分，主要是之前服务端的习惯。。。
  */
 public class GreenDaoGenerator {
-    private static String entityPath = "com.mogujie.tt.DB.entity";
+    private static String entityPath = "com.zhizulx.tt.DB.entity";
 
     public static void main(String[] args) throws Exception {
         int dbVersion = 12;
-        Schema schema = new Schema(dbVersion, "com.mogujie.tt.DB.dao");
+        Schema schema = new Schema(dbVersion, "com.zhizulx.tt.DB.dao");
 
         schema.enableKeepSectionsByDefault();
         addDepartment(schema);
@@ -225,17 +225,19 @@ public class GreenDaoGenerator {
 
         sightlInfo.addIdProperty().autoincrement();
         sightlInfo.addIntProperty("peerId").unique().notNull();
+        sightlInfo.addStringProperty("cityCode").notNull();
         sightlInfo.addStringProperty("name").notNull();
         sightlInfo.addStringProperty("pic").notNull();
         sightlInfo.addIntProperty("star").notNull();
         sightlInfo.addStringProperty("tag").notNull();
         sightlInfo.addIntProperty("free").notNull();
         sightlInfo.addIntProperty("mustGo").notNull();
-        sightlInfo.addStringProperty("url").notNull();
+        sightlInfo.addStringProperty("openTime").notNull();
         sightlInfo.addIntProperty("playTime").notNull();
-        sightlInfo.addIntProperty("price").notNull();
-        sightlInfo.addStringProperty("bestStartTime").notNull();
-        sightlInfo.addStringProperty("bestEndTime").notNull();
+        sightlInfo.addStringProperty("introduction").notNull();
+        sightlInfo.addStringProperty("address").notNull();
+        sightlInfo.addDoubleProperty("longitude").notNull();
+        sightlInfo.addDoubleProperty("latitude").notNull();
         sightlInfo.addStringProperty("startTime").notNull();
         sightlInfo.addStringProperty("endTime").notNull();
         sightlInfo.addIntProperty("select").notNull();
@@ -255,13 +257,15 @@ public class GreenDaoGenerator {
 
         hotelInfo.addIdProperty().autoincrement();
         hotelInfo.addIntProperty("peerId").unique().notNull();
+        hotelInfo.addStringProperty("cityCode").notNull();
         hotelInfo.addStringProperty("name").notNull();
         hotelInfo.addStringProperty("pic").notNull();
         hotelInfo.addIntProperty("star").notNull();
         hotelInfo.addStringProperty("tag").notNull();
-        hotelInfo.addIntProperty("mustGo").notNull();
         hotelInfo.addStringProperty("url").notNull();
         hotelInfo.addIntProperty("price").notNull();
+        hotelInfo.addDoubleProperty("longitude").notNull();
+        hotelInfo.addDoubleProperty("latitude").notNull();
         hotelInfo.addStringProperty("startTime").notNull();
         hotelInfo.addStringProperty("endTime").notNull();
         hotelInfo.addIntProperty("distance").notNull();
@@ -309,14 +313,13 @@ public class GreenDaoGenerator {
         detailDispInfo.setJavaPackage(entityPath);
 
         detailDispInfo.addIdProperty().autoincrement();
+        detailDispInfo.addIntProperty("dbID").notNull();
         detailDispInfo.addIntProperty("type").notNull();
         detailDispInfo.addStringProperty("image").notNull();
         detailDispInfo.addStringProperty("title").notNull();
-        detailDispInfo.addStringProperty("content").notNull();
-        detailDispInfo.addIntProperty("trafficType").notNull();
+        detailDispInfo.addStringProperty("cityCode").notNull();
         detailDispInfo.addStringProperty("time").notNull();
-        detailDispInfo.addStringProperty("start").notNull();
-        detailDispInfo.addStringProperty("end").notNull();
+        detailDispInfo.addIntProperty("edited").notNull();
         detailDispInfo.addIntProperty("version").notNull();
         detailDispInfo.addIntProperty("status").notNull();
         detailDispInfo.addIntProperty("created").notNull();

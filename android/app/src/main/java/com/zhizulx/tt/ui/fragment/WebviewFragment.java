@@ -85,7 +85,7 @@ public class WebviewFragment extends MainFragment {
 		url = str;
 	}
 
-    private static final String SCHEMA ="com.mogujie.tt://message_private_url";
+    private static final String SCHEMA ="com.zhizulx.tt://message_private_url";
     private static final String PARAM_UID ="uid";
     private static final Uri PROFILE_URI = Uri.parse(SCHEMA);
     private void extractUidFromUri() {

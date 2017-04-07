@@ -259,7 +259,7 @@ public class IMReconnectManager extends IMManager {
 
 
     /**--------------------boradcast-广播相关-----------------------------*/
-    private final String  ACTION_RECONNECT = "com.mogujie.tt.imlib.action.reconnect";
+    private final String  ACTION_RECONNECT = "com.zhizulx.tt.imlib.action.reconnect";
     private BroadcastReceiver imReceiver = new BroadcastReceiver(){
         @Override
         public void onReceive(Context context, Intent intent) {

@@ -5,21 +5,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.TextView;
 
+import com.zhizulx.tt.DB.Serializable.MapRoute;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.ui.activity.CreateTravelActivity;
 import com.zhizulx.tt.ui.activity.DetailDispActivity;
 import com.zhizulx.tt.ui.activity.ExpenseDetailActivity;
-import com.zhizulx.tt.ui.activity.IntroduceHotelActivity;
 import com.zhizulx.tt.ui.activity.IntroduceSightActivity;
-import com.zhizulx.tt.ui.activity.PlayBehaviorActivity;
-import com.zhizulx.tt.ui.activity.TravelDetailActivity;
-import com.zhizulx.tt.ui.activity.WebViewActivity;
-import com.zhizulx.tt.ui.activity.WebViewFragmentActivity;
-import com.zhizulx.tt.ui.fragment.InternalFragment;
+import com.zhizulx.tt.ui.activity.SelectDesignWayActivity;
+import com.zhizulx.tt.ui.activity.SelectHotelActivity;
+import com.zhizulx.tt.ui.activity.SelectSightActivity;
+import com.zhizulx.tt.ui.activity.SelectTravelRouteActivity;
+import com.zhizulx.tt.ui.activity.TrafficListActivity;
+import com.zhizulx.tt.ui.activity.HotelWebViewActivity;
+import com.zhizulx.tt.ui.route.RouteActivity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TravelUIHelper {
 
@@ -57,8 +62,6 @@ public class TravelUIHelper {
     public static void openCreateTravelActivity(Context ctx) {
         Intent intent = new Intent(ctx, CreateTravelActivity.class);
         ctx.startActivity(intent);
-/*		Intent intent=new Intent(ctx, WebViewActivity.class);
-		ctx.startActivity(intent);*/
     }
 
 	//跳转到景点介绍页面
@@ -68,19 +71,14 @@ public class TravelUIHelper {
         ctx.startActivity(intent);
 	}
 
-	//跳转到景点介绍页面
-	public static void openIntroduceHotelActivity(Context ctx, int hotelID) {
+	//跳转到酒店介绍页面
+	public static void openIntroduceHotelActivity(Context ctx, String name, String url) {
 /*		Intent intent = new Intent(ctx, IntroduceHotelActivity.class);
 		intent.putExtra(IntentConstant.KEY_PEERID, hotelID);
 		ctx.startActivity(intent);*/
-		Intent intent=new Intent(ctx, WebViewActivity.class);
-		ctx.startActivity(intent);
-	}
-
-	//跳转到详细行程页面
-	public static void openTravelDetailActivity(Context ctx) {
-		Intent intent = new Intent(ctx, TravelDetailActivity.class);
-		//Intent intent = new Intent(ctx, Calculating.class);
+		Intent intent = new Intent(ctx, HotelWebViewActivity.class);
+        intent.putExtra(IntentConstant.NAME, name);
+        intent.putExtra(IntentConstant.WEBVIEW_URL, url);
 		ctx.startActivity(intent);
 	}
 
@@ -90,15 +88,40 @@ public class TravelUIHelper {
 		ctx.startActivity(intent);
 	}
 
-    //跳转到游玩喜好页面
-    public static void openPlayBehaviorActivity(Context ctx) {
-        Intent intent = new Intent(ctx, PlayBehaviorActivity.class);
-        ctx.startActivity(intent);
-    }
-
 	//跳转到游玩喜好页面
 	public static void openExpenseDetailActivity(Context ctx) {
 		Intent intent = new Intent(ctx, ExpenseDetailActivity.class);
 		ctx.startActivity(intent);
+	}
+
+	//跳转到游玩喜好页面
+	public static void openTrafficListActivity(Context ctx) {
+		Intent intent = new Intent(ctx, TrafficListActivity.class);
+		ctx.startActivity(intent);
+	}
+
+	//跳转到设计方式选择页面
+	public static void openSelectDesignWayActivity(Context ctx) {
+		Intent intent = new Intent(ctx, SelectDesignWayActivity.class);
+		ctx.startActivity(intent);
+	}
+
+	//跳转到路线选择细节页面
+	public static void openSelectTravelRouteActivity(Context ctx) {
+		Intent intent = new Intent(ctx, SelectTravelRouteActivity.class);
+		ctx.startActivity(intent);
+	}
+
+	//跳转到景点选择细节页面
+	public static void openSelectSightActivity(Context ctx) {
+		Intent intent = new Intent(ctx, SelectSightActivity.class);
+		ctx.startActivity(intent);
+	}
+
+	//跳转到路径规划页面
+	public static void openMapRouteActivity(Context ctx, MapRoute mapRoute) {
+		Intent intent = new Intent(ctx, RouteActivity.class);
+        intent.putExtra("map_point", mapRoute);
+        ctx.startActivity(intent);
 	}
 }

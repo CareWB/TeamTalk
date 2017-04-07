@@ -35,7 +35,7 @@ public class IMHeartBeatManager  extends  IMManager{
 
     private Logger logger = Logger.getLogger(IMHeartBeatManager.class);
     private final int HEARTBEAT_INTERVAL = 4 * 60 * 1000;
-    private final String ACTION_SENDING_HEARTBEAT = "com.mogujie.tt.imservice.manager.imheartbeatmanager";
+    private final String ACTION_SENDING_HEARTBEAT = "com.zhizulx.tt.imservice.manager.imheartbeatmanager";
     private PendingIntent pendingIntent;
 
     @Override

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_bk"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/select_design_way_introduct"
+        android:layout_weight="1"
+        android:id="@+id/select_design_way_introduct" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/select_design_way_custom"
+        android:layout_weight="1"
+        android:id="@+id/select_design_way_custom" />
+</LinearLayout>

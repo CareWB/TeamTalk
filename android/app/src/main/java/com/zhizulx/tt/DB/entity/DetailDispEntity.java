@@ -10,20 +10,17 @@ package com.zhizulx.tt.DB.entity;
 public class DetailDispEntity {
 
     private Long id;
+    private int dbID;
     private int type;
     /** Not-null value. */
     private String image;
     /** Not-null value. */
     private String title;
     /** Not-null value. */
-    private String content;
-    private int trafficType;
+    private String cityCode;
     /** Not-null value. */
     private String time;
-    /** Not-null value. */
-    private String start;
-    /** Not-null value. */
-    private String end;
+    private int edited;
     private int version;
     private int status;
     private int created;
@@ -39,16 +36,15 @@ public class DetailDispEntity {
         this.id = id;
     }
 
-    public DetailDispEntity(Long id, int type, String image, String title, String content, int trafficType, String time, String start, String end, int version, int status, int created, int updated) {
+    public DetailDispEntity(Long id, int dbID, int type, String image, String title, String cityCode, String time, int edited, int version, int status, int created, int updated) {
         this.id = id;
+        this.dbID = dbID;
         this.type = type;
         this.image = image;
         this.title = title;
-        this.content = content;
-        this.trafficType = trafficType;
+        this.cityCode = cityCode;
         this.time = time;
-        this.start = start;
-        this.end = end;
+        this.edited = edited;
         this.version = version;
         this.status = status;
         this.created = created;
@@ -61,6 +57,14 @@ public class DetailDispEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getDbID() {
+        return dbID;
+    }
+
+    public void setDbID(int dbID) {
+        this.dbID = dbID;
     }
 
     public int getType() {
@@ -92,21 +96,13 @@ public class DetailDispEntity {
     }
 
     /** Not-null value. */
-    public String getContent() {
-        return content;
+    public String getCityCode() {
+        return cityCode;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public int getTrafficType() {
-        return trafficType;
-    }
-
-    public void setTrafficType(int trafficType) {
-        this.trafficType = trafficType;
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 
     /** Not-null value. */
@@ -119,24 +115,12 @@ public class DetailDispEntity {
         this.time = time;
     }
 
-    /** Not-null value. */
-    public String getStart() {
-        return start;
+    public int getEdited() {
+        return edited;
     }
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setStart(String start) {
-        this.start = start;
-    }
-
-    /** Not-null value. */
-    public String getEnd() {
-        return end;
-    }
-
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setEnd(String end) {
-        this.end = end;
+    public void setEdited(int edited) {
+        this.edited = edited;
     }
 
     public int getVersion() {

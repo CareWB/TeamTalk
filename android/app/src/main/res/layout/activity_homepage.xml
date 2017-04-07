@@ -3,29 +3,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/home_page"
+    android:background="@color/travel_menu_bk"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:background="@drawable/toolbar_bk">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="bottom" >
 
         <ImageView
-            android:background="@drawable/default_avatar"
+            android:background="@drawable/mine_icon"
             android:layout_marginLeft="22dp"
+            android:layout_alignParentLeft="true"
             android:layout_marginBottom="14dp"
-            android:layout_width="@dimen/main_page_avatar"
-            android:layout_height="@dimen/main_page_avatar"
-            android:id="@+id/avatar"/>
+            android:layout_width="@dimen/mine_icon_width"
+            android:layout_height="@dimen/mine_icon_length"
+            android:id="@+id/mine_icon"/>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/mian_title_size"
+            android:textColor="@color/mian_title"
+            android:text="@string/app_name"/>
+
+    </RelativeLayout>
 
     <fragment
-        android:id="@+id/travel_tip"
+        android:id="@+id/select_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.zhizulx.tt.ui.fragment.SelectTagFragment"
+        tools:layout="@layout/tt_fragment_travel_tip" />
+
+<!--    <fragment
+        android:id="@+id/select_tag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         class="com.zhizulx.tt.ui.fragment.TravelTipFragment"
-        tools:layout="@layout/tt_fragment_travel_tip" />
+        tools:layout="@layout/tt_fragment_travel_tip" />-->
 </LinearLayout>

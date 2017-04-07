@@ -55,7 +55,7 @@ public class IntroduceHotelFragment extends TTBaseFragment{
 			((ViewGroup) curView.getParent()).removeView(curView);
 			return curView;
 		}
-		curView = inflater.inflate(R.layout.travel_fragment_introduce_sight, topContentView);
+		curView = inflater.inflate(R.layout.travel_fragment_introduce_hotel, topContentView);
         intent = getActivity().getIntent();
         sightID = intent.getIntExtra(IntentConstant.KEY_PEERID, 0);
 		sightEntity = new SightEntity();

@@ -38,15 +38,29 @@
                 android:textColor="@color/not_clicked"
                 android:id="@+id/sight_name" />
 
-            <RatingBar
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/item_select_sight_cell_between"
-                style="@style/starRatingBar"
-                android:id="@+id/sight_star"
-                android:maxHeight="12dp"
-                android:minHeight="12dp"
-                android:isIndicator="true" />
+                android:gravity="center_vertical">
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/starRatingBar"
+                    android:id="@+id/sight_star"
+                    android:maxHeight="12dp"
+                    android:minHeight="12dp"
+                    android:isIndicator="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/select_sight_star_play_time"
+                    android:textColor="@color/sight_play_time"
+                    android:id="@+id/sight_play_time"
+                    android:textSize="@dimen/title_size"
+                    android:text="建议游玩"/>
+            </LinearLayout>
 
             <TextView
                 android:text="建筑 文化"

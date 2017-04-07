@@ -25,7 +25,7 @@ public class IntentConstant {
 
     public static final String USER_DETAIL_PARAM = "FROM_PAGE";
     public static final String WEBVIEW_URL = "WEBVIEW_URL";
-
+    public static final String NAME= "name";
 
     public static final String CUR_MESSAGE = "CUR_MESSAGE";
 

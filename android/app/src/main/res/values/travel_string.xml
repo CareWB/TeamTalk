@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">智足旅行</string>
+    <string name="select_tag_title">此时的你</string>
+    <string name="select_design_way">定制旅行</string>
+    <string name="select_travel_route">路线选择</string>
     <string name="travel">行程</string>
     <string name="local">当地</string>
     <string name="other_trip">看看其他人怎么玩</string>
@@ -9,31 +13,39 @@
     <string name="economical_efficiency">经济高效游</string>
     <string name="economical_comfort">经济舒适游</string>
     <string name="luxury_quality">豪华品质游</string>
+    <string name="route_literature">文艺</string>
+    <string name="route_comfort">舒适</string>
+    <string name="route_exploration">刺激</string>
+    <string name="route_excite">探险</string>
+    <string name="route_encounter">艳遇</string>
     <string name="travel_create">定制我的行程</string>
+    <string name="create_route">定制行程</string>
     <string name="travel_share">分享行程</string>
     <string name="travel_delete">删除行程</string>
     <string name="select_destination">选择目的地</string>
     <string name="travel_behavior">出行喜好</string>
     <string name="travel_detail">详细行程</string>
-    <string name="detail_disp">行程预览</string>
+    <string name="detail_disp">行程展示</string>
     <string name="detail_disp_menu">行程目录</string>
     <string name="play_behavior">游玩喜好</string>
-    <string name="select_sight">选择景点</string>
-    <string name="select_hotel">选择酒店</string>
+    <string name="select_sight">调整景点</string>
+    <string name="select_hotel">调整酒店</string>
     <string name="expense_detail">费用清单</string>
-
     <string name="time_place">时间地点</string>
     <string name="time">时&#160;&#160;&#160;&#160;间</string>
     <string name="ask_time">您的游玩时间 ?</string>
     <string name="destination">目的地</string>
     <string name="ask_destination">您的目的地 ?</string>
-    <string name="basic_info">基本信息</string>
+    <string name="basic_info">基本信息:</string>
+    <string name="tag_info">想要的旅行:</string>
     <string name="person_num">人&#160;&#160;&#160;&#160;数</string>
     <string name="start_place">出发地</string>
     <string name="end_place">返回地</string>
+    <string name="experience">体验</string>
+    <string name="route">路线</string>
     <string name="next_step">下一步</string>
     <string name="under_constracted">景点规划中，敬请期待</string>
-    <string name="select_sight_not_screen">不筛选</string>
+    <string name="select_sight_recommend">推荐</string>
     <string name="select_sight_free">免票</string>
     <string name="select_hotel_comprehensive">综合</string>
     <string name="generating_route">生成路线</string>
@@ -66,4 +78,5 @@
     <string name="prompt_identifying_code">请输入验证码</string>
     <string name="request_identifying_code">获取验证码</string>
     <string name="confirm">确定</string>
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
 </resources>

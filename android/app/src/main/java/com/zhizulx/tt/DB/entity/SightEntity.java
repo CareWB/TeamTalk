@@ -12,6 +12,8 @@ public class SightEntity {
     private Long id;
     private int peerId;
     /** Not-null value. */
+    private String cityCode;
+    /** Not-null value. */
     private String name;
     /** Not-null value. */
     private String pic;
@@ -21,13 +23,14 @@ public class SightEntity {
     private int free;
     private int mustGo;
     /** Not-null value. */
-    private String url;
+    private String openTime;
     private int playTime;
-    private int price;
     /** Not-null value. */
-    private String bestStartTime;
+    private String introduction;
     /** Not-null value. */
-    private String bestEndTime;
+    private String address;
+    private double longitude;
+    private double latitude;
     /** Not-null value. */
     private String startTime;
     /** Not-null value. */
@@ -48,20 +51,22 @@ public class SightEntity {
         this.id = id;
     }
 
-    public SightEntity(Long id, int peerId, String name, String pic, int star, String tag, int free, int mustGo, String url, int playTime, int price, String bestStartTime, String bestEndTime, String startTime, String endTime, int select, int version, int status, int created, int updated) {
+    public SightEntity(Long id, int peerId, String cityCode, String name, String pic, int star, String tag, int free, int mustGo, String openTime, int playTime, String introduction, String address, double longitude, double latitude, String startTime, String endTime, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
+        this.cityCode = cityCode;
         this.name = name;
         this.pic = pic;
         this.star = star;
         this.tag = tag;
         this.free = free;
         this.mustGo = mustGo;
-        this.url = url;
+        this.openTime = openTime;
         this.playTime = playTime;
-        this.price = price;
-        this.bestStartTime = bestStartTime;
-        this.bestEndTime = bestEndTime;
+        this.introduction = introduction;
+        this.address = address;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.startTime = startTime;
         this.endTime = endTime;
         this.select = select;
@@ -85,6 +90,16 @@ public class SightEntity {
 
     public void setPeerId(int peerId) {
         this.peerId = peerId;
+    }
+
+    /** Not-null value. */
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 
     /** Not-null value. */
@@ -142,13 +157,13 @@ public class SightEntity {
     }
 
     /** Not-null value. */
-    public String getUrl() {
-        return url;
+    public String getOpenTime() {
+        return openTime;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setUrl(String url) {
-        this.url = url;
+    public void setOpenTime(String openTime) {
+        this.openTime = openTime;
     }
 
     public int getPlayTime() {
@@ -159,32 +174,40 @@ public class SightEntity {
         this.playTime = playTime;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     /** Not-null value. */
-    public String getBestStartTime() {
-        return bestStartTime;
+    public String getIntroduction() {
+        return introduction;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setBestStartTime(String bestStartTime) {
-        this.bestStartTime = bestStartTime;
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     /** Not-null value. */
-    public String getBestEndTime() {
-        return bestEndTime;
+    public String getAddress() {
+        return address;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setBestEndTime(String bestEndTime) {
-        this.bestEndTime = bestEndTime;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
     /** Not-null value. */

@@ -9,106 +9,6 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        android:layout_height="45dp">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingLeft="@dimen/select_sight_top_disp_left"
-            android:paddingTop="@dimen/select_sight_top_disp_top_bottom"
-            android:paddingBottom="@dimen/select_sight_top_disp_top_bottom">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/select_sight_clock"
-                android:layout_marginRight="@dimen/select_sight_top_disp_icon_text"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/select_sight_clock" />
-
-            <TextView
-                android:text="厦门停留时间："
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/content_s"
-                android:textColor="@color/not_clicked"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/select_sight_clock"
-                android:id="@+id/select_sight_city_duration" />
-
-            <TextView
-                android:text="3天"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-2dp"
-                android:textSize="@dimen/content_size"
-                android:textColor="@color/not_clicked"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/select_sight_city_duration"
-                android:id="@+id/select_sight_duration" />
-
-            <TextView
-                android:text="01:09(18:23)-01:11(13:45)"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/content_xs"
-                android:textColor="@color/title"
-                android:layout_alignParentBottom="true"
-                android:layout_toEndOf="@+id/select_sight_clock"
-                android:id="@+id/select_sight_city_date" />
-        </RelativeLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/select_sight_divider"
-            android:id="@+id/select_sight_divider" />
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingLeft="@dimen/select_sight_top_disp_left"
-            android:paddingTop="@dimen/select_sight_top_disp_top_bottom"
-            android:paddingBottom="@dimen/select_sight_top_disp_top_bottom">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/select_sight_sofa"
-                android:layout_marginRight="@dimen/select_sight_top_disp_icon_text"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/select_sight_sofa" />
-
-            <TextView
-                android:text="经济高效游"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/content_s"
-                android:textColor="@color/not_clicked"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/select_sight_sofa"
-                android:id="@+id/select_sight_play_quality" />
-
-            <TextView
-                android:text="有限的时间和金钱玩更多的内容"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/content_xs"
-                android:textColor="@color/title"
-                android:layout_alignParentBottom="true"
-                android:layout_toEndOf="@+id/select_sight_sofa"
-                android:id="@+id/select_sight_play_quality_illustration" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingRight="6dp"
         android:gravity="center_vertical"
@@ -116,26 +16,23 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="99dp"
+            android:layout_width="76dp"
             android:layout_height="match_parent"
-            android:background="@color/base_title"
+            android:background="@drawable/select_sight_drop_bk"
             android:gravity="center"
             android:id="@+id/select_sight_drop"
-            android:layout_marginRight="6dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="1dp">
 
             <TextView
-                android:text="@string/select_sight_not_screen"
+                android:text="@string/select_sight_recommend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/item_select_sight_not_screen_left_right"
-                android:layout_marginRight="@dimen/item_select_sight_not_screen_left_right"
                 android:textColor="@color/not_clicked"
                 android:textSize="@dimen/title_hint_size"
                 android:id="@+id/select_sight_drop_text"
-                android:drawableRight="@drawable/down_arrow"
-                android:layout_weight="1" />
+                android:drawableRight="@drawable/down_arrow" />
         </LinearLayout>
 
         <TextView
@@ -150,7 +47,7 @@
             android:id="@+id/select_total" />
 
         <TextView
-            android:text="自然"
+            android:text="文艺"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/select_sight_tag_between"
@@ -158,10 +55,10 @@
             android:textColor="@color/not_clicked"
             android:textSize="@dimen/content_size"
             android:gravity="center"
-            android:id="@+id/select_nature" />
+            android:id="@+id/select_literature" />
 
         <TextView
-            android:text="历史"
+            android:text="舒适"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/select_sight_tag_between"
@@ -169,10 +66,10 @@
             android:textColor="@color/not_clicked"
             android:textSize="@dimen/content_size"
             android:gravity="center"
-            android:id="@+id/select_history" />
+            android:id="@+id/select_comfort" />
 
         <TextView
-            android:text="文娱"
+            android:text="探险"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/select_sight_tag_between"
@@ -180,17 +77,28 @@
             android:textColor="@color/not_clicked"
             android:textSize="@dimen/content_size"
             android:gravity="center"
-            android:id="@+id/select_entertainment" />
+            android:id="@+id/select_exploration" />
 
         <TextView
-            android:text="建筑"
+            android:text="刺激"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_excite" />
+
+        <TextView
+            android:text="艳遇"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/select_sight_tag_not_click"
             android:textColor="@color/not_clicked"
             android:textSize="@dimen/content_size"
             android:gravity="center"
-            android:id="@+id/select_building" />
+            android:id="@+id/select_encounter" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -198,14 +106,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/next_step"
-        android:textColor="@color/next_step"
-        android:textSize="@dimen/next_step"
-        android:background="@drawable/next_step_click"
-        android:id="@+id/select_sight_next" />
 
 </LinearLayout>

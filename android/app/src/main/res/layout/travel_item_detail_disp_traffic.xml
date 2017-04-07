@@ -1,70 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/rl_detail_disp_sight">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/detail_disp_top"
         android:background="@drawable/detail_disp_traffic_point"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/detail_disp_traffic_top"
         android:layout_centerHorizontal="true"
         android:id="@+id/detail_disp_traffic_point" />
 
-    <RelativeLayout
-        android:layout_width="@dimen/detail_disp_traffic_width"
-        android:layout_height="@dimen/detail_disp_traffic_height"
-        android:layout_centerVertical="true"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="@dimen/detail_disp_top"
-        android:layout_marginRight="@dimen/select_place_result_item_text_icon"
-        android:paddingTop="@dimen/detail_disp_traffic_top_bottom"
-        android:paddingBottom="@dimen/detail_disp_traffic_top_bottom"
-        android:id="@+id/rl_detail_disp_traffic"
-        android:background="@drawable/detail_disp_traffic"
         android:layout_toStartOf="@+id/detail_disp_traffic_point">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detail_disp_traffic_plane"
+                android:visibility="visible"
+                android:id="@+id/detail_disp_traffic_select_result"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detail_disp_traffic_select_result_mask"
+                android:visibility="gone"
+                android:clickable="true"
+                android:id="@+id/detail_disp_traffic_select_result_mask"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/detail_disp_traffic_select_plane"
+            android:gravity="bottom"
+            android:paddingBottom="11dp"
+            android:paddingRight="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="飞机"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/content_s"
+                android:textColor="@color/price"
+                android:id="@+id/detail_disp_traffic_plane" />
+
+            <TextView
+                android:text="火车"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/content_s"
+                android:textColor="@color/not_clicked"
+                android:id="@+id/detail_disp_traffic_train" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_disp_top"
+        android:layout_toEndOf="@+id/detail_disp_traffic_point">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/detail_disp_traffic_start"
+            android:id="@+id/detail_disp_traffic_time">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:00"
+                android:layout_marginLeft="49dp"
+                android:layout_marginTop="6dp"
+                android:textSize="15sp"
+                android:textColor="@color/price"
+                android:textStyle="bold"
+                android:id="@+id/detail_disp_traffic_time_result"/>
+        </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bus_blue"
-            android:layout_marginLeft="@dimen/detail_disp_traffic_icon_left_right"
-            android:layout_marginRight="@dimen/detail_disp_traffic_icon_left_right"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/detail_disp_traffic_icon" />
-
-        <TextView
-            android:text="飞机"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:textColor="@color/detail_disp_traffic_type"
-            android:textSize="@dimen/content_size"
-            android:layout_toEndOf="@+id/detail_disp_traffic_icon"
-            android:id="@+id/detail_disp_traffic_title" />
-
-        <TextView
-            android:text="(10分钟)"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/detail_disp_traffic_type"
-            android:textSize="@dimen/content_size"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/detail_disp_traffic_title"
-            android:id="@+id/detail_disp_traffic_time" />
-
-        <TextView
-            android:text="点击查看调整路线"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/city_alpha"
-            android:textSize="@dimen/content_s"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/detail_disp_traffic_title"
-            android:id="@+id/detail_disp_traffic_content" />
-
-    </RelativeLayout>
+            android:background="@drawable/detail_disp_traffic_time_mask"
+            android:visibility="gone"
+            android:clickable="true"
+            android:id="@+id/detail_disp_traffic_time_mask"/>
+    </FrameLayout>
 </RelativeLayout>
