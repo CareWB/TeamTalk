@@ -88,6 +88,7 @@ private:
     void _HandleDeleteTravelRequest(CImPdu* pPdu);
     void _HandleUpdateTravelRequest(CImPdu* pPdu);
     void _HandleQueryRadomRouteRequest(CImPdu* pPdu);
+    void _HandleUpdateRadomRouteRequest(CImPdu* pPdu);
 private:
     string          m_login_name;        //登录名拼音
     uint32_t        m_user_id;

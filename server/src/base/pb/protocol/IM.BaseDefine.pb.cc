@@ -169,6 +169,8 @@ bool BuddyListCmdID_IsValid(int value) {
     case 604:
     case 605:
     case 606:
+    case 607:
+    case 608:
       return true;
     default:
       return false;

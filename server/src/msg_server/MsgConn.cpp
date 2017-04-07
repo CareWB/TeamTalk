@@ -362,6 +362,9 @@ void CMsgConn::HandlePdu(CImPdu* pPdu)
         case CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST:
             _HandleQueryRadomRouteRequest(pPdu);
             break;
+        case CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST:
+            _HandleQueryRadomRouteRequest(pPdu);
+            break;
         case CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST:
             _HandleUpdateTravelRequest(pPdu);
             break;
@@ -983,6 +986,23 @@ void CMsgConn::_HandleQueryRadomRouteRequest(CImPdu *pPdu)
         pDBConn->SendPdu(pPdu);
     }
 }
+
+void CMsgConn::_HandleUpdateRadomRouteRequest(CImPdu *pPdu)
+{
+    IM::Buddy::NewUpdateRadomRouteReq msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    log("user_id=%u.", GetUserId());
+    CDBServConn* pDBConn = get_db_serv_conn();
+    if (pDBConn) {
+        CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
+        msg.set_user_id(GetUserId());
+        msg.set_attach_data(attach.GetBuffer(), attach.GetLength());
+        pPdu->SetPBMsg(&msg);
+        pDBConn->SendPdu(pPdu);
+    }
+}
+
+
 
 void CMsgConn::_HandleUpdateTravelRequest(CImPdu *pPdu)
 {

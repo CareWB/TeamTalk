@@ -66,8 +66,8 @@ void protobuf_ShutdownFile_IM_2eBuddy_2eproto() {
   delete Route::default_instance_;
   delete NewQueryRadomRouteReq::default_instance_;
   delete NewQueryRadomRouteRsp::default_instance_;
-  delete NewUpdateRouteReq::default_instance_;
-  delete NewUpdateRouteRsp::default_instance_;
+  delete NewUpdateRadomRouteReq::default_instance_;
+  delete NewUpdateRadomRouteRsp::default_instance_;
   delete NewCreateMyTravelReq::default_instance_;
   delete NewCreateMyTravelRsp::default_instance_;
 }
@@ -134,8 +134,8 @@ void protobuf_AddDesc_IM_2eBuddy_2eproto() {
   Route::default_instance_ = new Route();
   NewQueryRadomRouteReq::default_instance_ = new NewQueryRadomRouteReq();
   NewQueryRadomRouteRsp::default_instance_ = new NewQueryRadomRouteRsp();
-  NewUpdateRouteReq::default_instance_ = new NewUpdateRouteReq();
-  NewUpdateRouteRsp::default_instance_ = new NewUpdateRouteRsp();
+  NewUpdateRadomRouteReq::default_instance_ = new NewUpdateRadomRouteReq();
+  NewUpdateRadomRouteRsp::default_instance_ = new NewUpdateRadomRouteRsp();
   NewCreateMyTravelReq::default_instance_ = new NewCreateMyTravelReq();
   NewCreateMyTravelRsp::default_instance_ = new NewCreateMyTravelRsp();
   IMRecentContactSessionReq::default_instance_->InitAsDefaultInstance();
@@ -187,8 +187,8 @@ void protobuf_AddDesc_IM_2eBuddy_2eproto() {
   Route::default_instance_->InitAsDefaultInstance();
   NewQueryRadomRouteReq::default_instance_->InitAsDefaultInstance();
   NewQueryRadomRouteRsp::default_instance_->InitAsDefaultInstance();
-  NewUpdateRouteReq::default_instance_->InitAsDefaultInstance();
-  NewUpdateRouteRsp::default_instance_->InitAsDefaultInstance();
+  NewUpdateRadomRouteReq::default_instance_->InitAsDefaultInstance();
+  NewUpdateRadomRouteRsp::default_instance_->InitAsDefaultInstance();
   NewCreateMyTravelReq::default_instance_->InitAsDefaultInstance();
   NewCreateMyTravelRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_IM_2eBuddy_2eproto);
@@ -15593,32 +15593,32 @@ void NewQueryRadomRouteRsp::Swap(NewQueryRadomRouteRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int NewUpdateRouteReq::kUserIdFieldNumber;
-const int NewUpdateRouteReq::kStartTransportToolFieldNumber;
-const int NewUpdateRouteReq::kEndTransportToolFieldNumber;
-const int NewUpdateRouteReq::kStartTimeFieldNumber;
-const int NewUpdateRouteReq::kEndTimeFieldNumber;
-const int NewUpdateRouteReq::kScenicIdsFieldNumber;
-const int NewUpdateRouteReq::kAttachDataFieldNumber;
+const int NewUpdateRadomRouteReq::kUserIdFieldNumber;
+const int NewUpdateRadomRouteReq::kStartTransportToolFieldNumber;
+const int NewUpdateRadomRouteReq::kEndTransportToolFieldNumber;
+const int NewUpdateRadomRouteReq::kStartTimeFieldNumber;
+const int NewUpdateRadomRouteReq::kEndTimeFieldNumber;
+const int NewUpdateRadomRouteReq::kScenicIdsFieldNumber;
+const int NewUpdateRadomRouteReq::kAttachDataFieldNumber;
 #endif  // !_MSC_VER
 
-NewUpdateRouteReq::NewUpdateRouteReq()
+NewUpdateRadomRouteReq::NewUpdateRadomRouteReq()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewUpdateRadomRouteReq)
 }
 
-void NewUpdateRouteReq::InitAsDefaultInstance() {
+void NewUpdateRadomRouteReq::InitAsDefaultInstance() {
 }
 
-NewUpdateRouteReq::NewUpdateRouteReq(const NewUpdateRouteReq& from)
+NewUpdateRadomRouteReq::NewUpdateRadomRouteReq(const NewUpdateRadomRouteReq& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewUpdateRadomRouteReq)
 }
 
-void NewUpdateRouteReq::SharedCtor() {
+void NewUpdateRadomRouteReq::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   user_id_ = 0u;
@@ -15630,12 +15630,12 @@ void NewUpdateRouteReq::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-NewUpdateRouteReq::~NewUpdateRouteReq() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.NewUpdateRouteReq)
+NewUpdateRadomRouteReq::~NewUpdateRadomRouteReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewUpdateRadomRouteReq)
   SharedDtor();
 }
 
-void NewUpdateRouteReq::SharedDtor() {
+void NewUpdateRadomRouteReq::SharedDtor() {
   if (start_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete start_time_;
   }
@@ -15653,12 +15653,12 @@ void NewUpdateRouteReq::SharedDtor() {
   }
 }
 
-void NewUpdateRouteReq::SetCachedSize(int size) const {
+void NewUpdateRadomRouteReq::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const NewUpdateRouteReq& NewUpdateRouteReq::default_instance() {
+const NewUpdateRadomRouteReq& NewUpdateRadomRouteReq::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -15667,13 +15667,13 @@ const NewUpdateRouteReq& NewUpdateRouteReq::default_instance() {
   return *default_instance_;
 }
 
-NewUpdateRouteReq* NewUpdateRouteReq::default_instance_ = NULL;
+NewUpdateRadomRouteReq* NewUpdateRadomRouteReq::default_instance_ = NULL;
 
-NewUpdateRouteReq* NewUpdateRouteReq::New() const {
-  return new NewUpdateRouteReq;
+NewUpdateRadomRouteReq* NewUpdateRadomRouteReq::New() const {
+  return new NewUpdateRadomRouteReq;
 }
 
-void NewUpdateRouteReq::Clear() {
+void NewUpdateRadomRouteReq::Clear() {
   if (_has_bits_[0 / 32] & 95) {
     user_id_ = 0u;
     start_transport_tool_ = 1;
@@ -15699,7 +15699,7 @@ void NewUpdateRouteReq::Clear() {
   mutable_unknown_fields()->clear();
 }
 
-bool NewUpdateRouteReq::MergePartialFromCodedStream(
+bool NewUpdateRadomRouteReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -15707,7 +15707,7 @@ bool NewUpdateRouteReq::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewUpdateRadomRouteReq)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
@@ -15841,17 +15841,17 @@ bool NewUpdateRouteReq::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewUpdateRadomRouteReq)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewUpdateRadomRouteReq)
   return false;
 #undef DO_
 }
 
-void NewUpdateRouteReq::SerializeWithCachedSizes(
+void NewUpdateRadomRouteReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewUpdateRadomRouteReq)
   // required uint32 user_id = 1;
   if (has_user_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
@@ -15895,10 +15895,10 @@ void NewUpdateRouteReq::SerializeWithCachedSizes(
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewUpdateRadomRouteReq)
 }
 
-int NewUpdateRouteReq::ByteSize() const {
+int NewUpdateRadomRouteReq::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -15961,12 +15961,12 @@ int NewUpdateRouteReq::ByteSize() const {
   return total_size;
 }
 
-void NewUpdateRouteReq::CheckTypeAndMergeFrom(
+void NewUpdateRadomRouteReq::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const NewUpdateRouteReq*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const NewUpdateRadomRouteReq*>(&from));
 }
 
-void NewUpdateRouteReq::MergeFrom(const NewUpdateRouteReq& from) {
+void NewUpdateRadomRouteReq::MergeFrom(const NewUpdateRadomRouteReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   scenic_ids_.MergeFrom(from.scenic_ids_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -15992,19 +15992,19 @@ void NewUpdateRouteReq::MergeFrom(const NewUpdateRouteReq& from) {
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void NewUpdateRouteReq::CopyFrom(const NewUpdateRouteReq& from) {
+void NewUpdateRadomRouteReq::CopyFrom(const NewUpdateRadomRouteReq& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool NewUpdateRouteReq::IsInitialized() const {
+bool NewUpdateRadomRouteReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
 
   return true;
 }
 
-void NewUpdateRouteReq::Swap(NewUpdateRouteReq* other) {
+void NewUpdateRadomRouteReq::Swap(NewUpdateRadomRouteReq* other) {
   if (other != this) {
     std::swap(user_id_, other->user_id_);
     std::swap(start_transport_tool_, other->start_transport_tool_);
@@ -16019,37 +16019,37 @@ void NewUpdateRouteReq::Swap(NewUpdateRouteReq* other) {
   }
 }
 
-::std::string NewUpdateRouteReq::GetTypeName() const {
-  return "IM.Buddy.NewUpdateRouteReq";
+::std::string NewUpdateRadomRouteReq::GetTypeName() const {
+  return "IM.Buddy.NewUpdateRadomRouteReq";
 }
 
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int NewUpdateRouteRsp::kUserIdFieldNumber;
-const int NewUpdateRouteRsp::kResultCodeFieldNumber;
-const int NewUpdateRouteRsp::kRoutesFieldNumber;
-const int NewUpdateRouteRsp::kAttachDataFieldNumber;
+const int NewUpdateRadomRouteRsp::kUserIdFieldNumber;
+const int NewUpdateRadomRouteRsp::kResultCodeFieldNumber;
+const int NewUpdateRadomRouteRsp::kRoutesFieldNumber;
+const int NewUpdateRadomRouteRsp::kAttachDataFieldNumber;
 #endif  // !_MSC_VER
 
-NewUpdateRouteRsp::NewUpdateRouteRsp()
+NewUpdateRadomRouteRsp::NewUpdateRadomRouteRsp()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewUpdateRadomRouteRsp)
 }
 
-void NewUpdateRouteRsp::InitAsDefaultInstance() {
+void NewUpdateRadomRouteRsp::InitAsDefaultInstance() {
 }
 
-NewUpdateRouteRsp::NewUpdateRouteRsp(const NewUpdateRouteRsp& from)
+NewUpdateRadomRouteRsp::NewUpdateRadomRouteRsp(const NewUpdateRadomRouteRsp& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewUpdateRadomRouteRsp)
 }
 
-void NewUpdateRouteRsp::SharedCtor() {
+void NewUpdateRadomRouteRsp::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   user_id_ = 0u;
@@ -16058,12 +16058,12 @@ void NewUpdateRouteRsp::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-NewUpdateRouteRsp::~NewUpdateRouteRsp() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.NewUpdateRouteRsp)
+NewUpdateRadomRouteRsp::~NewUpdateRadomRouteRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewUpdateRadomRouteRsp)
   SharedDtor();
 }
 
-void NewUpdateRouteRsp::SharedDtor() {
+void NewUpdateRadomRouteRsp::SharedDtor() {
   if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete attach_data_;
   }
@@ -16075,12 +16075,12 @@ void NewUpdateRouteRsp::SharedDtor() {
   }
 }
 
-void NewUpdateRouteRsp::SetCachedSize(int size) const {
+void NewUpdateRadomRouteRsp::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const NewUpdateRouteRsp& NewUpdateRouteRsp::default_instance() {
+const NewUpdateRadomRouteRsp& NewUpdateRadomRouteRsp::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -16089,15 +16089,15 @@ const NewUpdateRouteRsp& NewUpdateRouteRsp::default_instance() {
   return *default_instance_;
 }
 
-NewUpdateRouteRsp* NewUpdateRouteRsp::default_instance_ = NULL;
+NewUpdateRadomRouteRsp* NewUpdateRadomRouteRsp::default_instance_ = NULL;
 
-NewUpdateRouteRsp* NewUpdateRouteRsp::New() const {
-  return new NewUpdateRouteRsp;
+NewUpdateRadomRouteRsp* NewUpdateRadomRouteRsp::New() const {
+  return new NewUpdateRadomRouteRsp;
 }
 
-void NewUpdateRouteRsp::Clear() {
+void NewUpdateRadomRouteRsp::Clear() {
 #define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<NewUpdateRouteRsp*>(16)->f) - \
+  &reinterpret_cast<NewUpdateRadomRouteRsp*>(16)->f) - \
    reinterpret_cast<char*>(16))
 
 #define ZR_(first, last) do {                              \
@@ -16123,7 +16123,7 @@ void NewUpdateRouteRsp::Clear() {
   mutable_unknown_fields()->clear();
 }
 
-bool NewUpdateRouteRsp::MergePartialFromCodedStream(
+bool NewUpdateRadomRouteRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -16131,7 +16131,7 @@ bool NewUpdateRouteRsp::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewUpdateRadomRouteRsp)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
@@ -16207,17 +16207,17 @@ bool NewUpdateRouteRsp::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewUpdateRadomRouteRsp)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewUpdateRadomRouteRsp)
   return false;
 #undef DO_
 }
 
-void NewUpdateRouteRsp::SerializeWithCachedSizes(
+void NewUpdateRadomRouteRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewUpdateRadomRouteRsp)
   // required uint32 user_id = 1;
   if (has_user_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
@@ -16242,10 +16242,10 @@ void NewUpdateRouteRsp::SerializeWithCachedSizes(
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewUpdateRadomRouteRsp)
 }
 
-int NewUpdateRouteRsp::ByteSize() const {
+int NewUpdateRadomRouteRsp::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -16287,12 +16287,12 @@ int NewUpdateRouteRsp::ByteSize() const {
   return total_size;
 }
 
-void NewUpdateRouteRsp::CheckTypeAndMergeFrom(
+void NewUpdateRadomRouteRsp::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const NewUpdateRouteRsp*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const NewUpdateRadomRouteRsp*>(&from));
 }
 
-void NewUpdateRouteRsp::MergeFrom(const NewUpdateRouteRsp& from) {
+void NewUpdateRadomRouteRsp::MergeFrom(const NewUpdateRadomRouteRsp& from) {
   GOOGLE_CHECK_NE(&from, this);
   routes_.MergeFrom(from.routes_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -16309,20 +16309,20 @@ void NewUpdateRouteRsp::MergeFrom(const NewUpdateRouteRsp& from) {
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void NewUpdateRouteRsp::CopyFrom(const NewUpdateRouteRsp& from) {
+void NewUpdateRadomRouteRsp::CopyFrom(const NewUpdateRadomRouteRsp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool NewUpdateRouteRsp::IsInitialized() const {
+bool NewUpdateRadomRouteRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (!::google::protobuf::internal::AllAreInitialized(this->routes())) return false;
   return true;
 }
 
-void NewUpdateRouteRsp::Swap(NewUpdateRouteRsp* other) {
+void NewUpdateRadomRouteRsp::Swap(NewUpdateRadomRouteRsp* other) {
   if (other != this) {
     std::swap(user_id_, other->user_id_);
     std::swap(result_code_, other->result_code_);
@@ -16334,8 +16334,8 @@ void NewUpdateRouteRsp::Swap(NewUpdateRouteRsp* other) {
   }
 }
 
-::std::string NewUpdateRouteRsp::GetTypeName() const {
-  return "IM.Buddy.NewUpdateRouteRsp";
+::std::string NewUpdateRadomRouteRsp::GetTypeName() const {
+  return "IM.Buddy.NewUpdateRadomRouteRsp";
 }
 
 

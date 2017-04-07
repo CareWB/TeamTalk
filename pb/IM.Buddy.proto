@@ -408,7 +408,7 @@ message NewQueryRadomRouteRsp{
     optional bytes attach_data      = 20;
 }
 
-message NewUpdateRouteReq{
+message NewUpdateRadomRouteReq{
     //cmd id:        0x025c
     required uint32 user_id = 1;
     required TransportToolType start_transport_tool = 2;
@@ -419,7 +419,7 @@ message NewUpdateRouteReq{
     optional bytes attach_data = 20;
 }
 
-message NewUpdateRouteRsp{
+message NewUpdateRadomRouteRsp{
     //cmd id:        0x025c
     required uint32 user_id         = 1;
     required uint32 result_code     = 2;

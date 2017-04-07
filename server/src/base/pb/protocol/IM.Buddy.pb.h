@@ -83,8 +83,8 @@ class DayRoute;
 class Route;
 class NewQueryRadomRouteReq;
 class NewQueryRadomRouteRsp;
-class NewUpdateRouteReq;
-class NewUpdateRouteRsp;
+class NewUpdateRadomRouteReq;
+class NewUpdateRadomRouteRsp;
 class NewCreateMyTravelReq;
 class NewCreateMyTravelRsp;
 
@@ -6472,14 +6472,14 @@ class NewQueryRadomRouteRsp : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class NewUpdateRouteReq : public ::google::protobuf::MessageLite {
+class NewUpdateRadomRouteReq : public ::google::protobuf::MessageLite {
  public:
-  NewUpdateRouteReq();
-  virtual ~NewUpdateRouteReq();
+  NewUpdateRadomRouteReq();
+  virtual ~NewUpdateRadomRouteReq();
 
-  NewUpdateRouteReq(const NewUpdateRouteReq& from);
+  NewUpdateRadomRouteReq(const NewUpdateRadomRouteReq& from);
 
-  inline NewUpdateRouteReq& operator=(const NewUpdateRouteReq& from) {
+  inline NewUpdateRadomRouteReq& operator=(const NewUpdateRadomRouteReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -6492,26 +6492,26 @@ class NewUpdateRouteReq : public ::google::protobuf::MessageLite {
     return &_unknown_fields_;
   }
 
-  static const NewUpdateRouteReq& default_instance();
+  static const NewUpdateRadomRouteReq& default_instance();
 
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   // Returns the internal default instance pointer. This function can
   // return NULL thus should not be used by the user. This is intended
   // for Protobuf internal code. Please use default_instance() declared
   // above instead.
-  static inline const NewUpdateRouteReq* internal_default_instance() {
+  static inline const NewUpdateRadomRouteReq* internal_default_instance() {
     return default_instance_;
   }
   #endif
 
-  void Swap(NewUpdateRouteReq* other);
+  void Swap(NewUpdateRadomRouteReq* other);
 
   // implements Message ----------------------------------------------
 
-  NewUpdateRouteReq* New() const;
+  NewUpdateRadomRouteReq* New() const;
   void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
-  void CopyFrom(const NewUpdateRouteReq& from);
-  void MergeFrom(const NewUpdateRouteReq& from);
+  void CopyFrom(const NewUpdateRadomRouteReq& from);
+  void MergeFrom(const NewUpdateRadomRouteReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -6602,7 +6602,7 @@ class NewUpdateRouteReq : public ::google::protobuf::MessageLite {
   inline ::std::string* release_attach_data();
   inline void set_allocated_attach_data(::std::string* attach_data);
 
-  // @@protoc_insertion_point(class_scope:IM.Buddy.NewUpdateRouteReq)
+  // @@protoc_insertion_point(class_scope:IM.Buddy.NewUpdateRadomRouteReq)
  private:
   inline void set_has_user_id();
   inline void clear_has_user_id();
@@ -6637,18 +6637,18 @@ class NewUpdateRouteReq : public ::google::protobuf::MessageLite {
   friend void protobuf_ShutdownFile_IM_2eBuddy_2eproto();
 
   void InitAsDefaultInstance();
-  static NewUpdateRouteReq* default_instance_;
+  static NewUpdateRadomRouteReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class NewUpdateRouteRsp : public ::google::protobuf::MessageLite {
+class NewUpdateRadomRouteRsp : public ::google::protobuf::MessageLite {
  public:
-  NewUpdateRouteRsp();
-  virtual ~NewUpdateRouteRsp();
+  NewUpdateRadomRouteRsp();
+  virtual ~NewUpdateRadomRouteRsp();
 
-  NewUpdateRouteRsp(const NewUpdateRouteRsp& from);
+  NewUpdateRadomRouteRsp(const NewUpdateRadomRouteRsp& from);
 
-  inline NewUpdateRouteRsp& operator=(const NewUpdateRouteRsp& from) {
+  inline NewUpdateRadomRouteRsp& operator=(const NewUpdateRadomRouteRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -6661,26 +6661,26 @@ class NewUpdateRouteRsp : public ::google::protobuf::MessageLite {
     return &_unknown_fields_;
   }
 
-  static const NewUpdateRouteRsp& default_instance();
+  static const NewUpdateRadomRouteRsp& default_instance();
 
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   // Returns the internal default instance pointer. This function can
   // return NULL thus should not be used by the user. This is intended
   // for Protobuf internal code. Please use default_instance() declared
   // above instead.
-  static inline const NewUpdateRouteRsp* internal_default_instance() {
+  static inline const NewUpdateRadomRouteRsp* internal_default_instance() {
     return default_instance_;
   }
   #endif
 
-  void Swap(NewUpdateRouteRsp* other);
+  void Swap(NewUpdateRadomRouteRsp* other);
 
   // implements Message ----------------------------------------------
 
-  NewUpdateRouteRsp* New() const;
+  NewUpdateRadomRouteRsp* New() const;
   void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
-  void CopyFrom(const NewUpdateRouteRsp& from);
-  void MergeFrom(const NewUpdateRouteRsp& from);
+  void CopyFrom(const NewUpdateRadomRouteRsp& from);
+  void MergeFrom(const NewUpdateRadomRouteRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -6740,7 +6740,7 @@ class NewUpdateRouteRsp : public ::google::protobuf::MessageLite {
   inline ::std::string* release_attach_data();
   inline void set_allocated_attach_data(::std::string* attach_data);
 
-  // @@protoc_insertion_point(class_scope:IM.Buddy.NewUpdateRouteRsp)
+  // @@protoc_insertion_point(class_scope:IM.Buddy.NewUpdateRadomRouteRsp)
  private:
   inline void set_has_user_id();
   inline void clear_has_user_id();
@@ -6766,7 +6766,7 @@ class NewUpdateRouteRsp : public ::google::protobuf::MessageLite {
   friend void protobuf_ShutdownFile_IM_2eBuddy_2eproto();
 
   void InitAsDefaultInstance();
-  static NewUpdateRouteRsp* default_instance_;
+  static NewUpdateRadomRouteRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -16161,135 +16161,135 @@ inline void NewQueryRadomRouteRsp::set_allocated_attach_data(::std::string* atta
 
 // -------------------------------------------------------------------
 
-// NewUpdateRouteReq
+// NewUpdateRadomRouteReq
 
 // required uint32 user_id = 1;
-inline bool NewUpdateRouteReq::has_user_id() const {
+inline bool NewUpdateRadomRouteReq::has_user_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NewUpdateRouteReq::set_has_user_id() {
+inline void NewUpdateRadomRouteReq::set_has_user_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NewUpdateRouteReq::clear_has_user_id() {
+inline void NewUpdateRadomRouteReq::clear_has_user_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NewUpdateRouteReq::clear_user_id() {
+inline void NewUpdateRadomRouteReq::clear_user_id() {
   user_id_ = 0u;
   clear_has_user_id();
 }
-inline ::google::protobuf::uint32 NewUpdateRouteReq::user_id() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteReq.user_id)
+inline ::google::protobuf::uint32 NewUpdateRadomRouteReq::user_id() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteReq.user_id)
   return user_id_;
 }
-inline void NewUpdateRouteReq::set_user_id(::google::protobuf::uint32 value) {
+inline void NewUpdateRadomRouteReq::set_user_id(::google::protobuf::uint32 value) {
   set_has_user_id();
   user_id_ = value;
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteReq.user_id)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteReq.user_id)
 }
 
 // required .IM.Buddy.TransportToolType start_transport_tool = 2;
-inline bool NewUpdateRouteReq::has_start_transport_tool() const {
+inline bool NewUpdateRadomRouteReq::has_start_transport_tool() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void NewUpdateRouteReq::set_has_start_transport_tool() {
+inline void NewUpdateRadomRouteReq::set_has_start_transport_tool() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void NewUpdateRouteReq::clear_has_start_transport_tool() {
+inline void NewUpdateRadomRouteReq::clear_has_start_transport_tool() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void NewUpdateRouteReq::clear_start_transport_tool() {
+inline void NewUpdateRadomRouteReq::clear_start_transport_tool() {
   start_transport_tool_ = 1;
   clear_has_start_transport_tool();
 }
-inline ::IM::Buddy::TransportToolType NewUpdateRouteReq::start_transport_tool() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteReq.start_transport_tool)
+inline ::IM::Buddy::TransportToolType NewUpdateRadomRouteReq::start_transport_tool() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteReq.start_transport_tool)
   return static_cast< ::IM::Buddy::TransportToolType >(start_transport_tool_);
 }
-inline void NewUpdateRouteReq::set_start_transport_tool(::IM::Buddy::TransportToolType value) {
+inline void NewUpdateRadomRouteReq::set_start_transport_tool(::IM::Buddy::TransportToolType value) {
   assert(::IM::Buddy::TransportToolType_IsValid(value));
   set_has_start_transport_tool();
   start_transport_tool_ = value;
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteReq.start_transport_tool)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteReq.start_transport_tool)
 }
 
 // required .IM.Buddy.TransportToolType end_transport_tool = 3;
-inline bool NewUpdateRouteReq::has_end_transport_tool() const {
+inline bool NewUpdateRadomRouteReq::has_end_transport_tool() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void NewUpdateRouteReq::set_has_end_transport_tool() {
+inline void NewUpdateRadomRouteReq::set_has_end_transport_tool() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void NewUpdateRouteReq::clear_has_end_transport_tool() {
+inline void NewUpdateRadomRouteReq::clear_has_end_transport_tool() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void NewUpdateRouteReq::clear_end_transport_tool() {
+inline void NewUpdateRadomRouteReq::clear_end_transport_tool() {
   end_transport_tool_ = 1;
   clear_has_end_transport_tool();
 }
-inline ::IM::Buddy::TransportToolType NewUpdateRouteReq::end_transport_tool() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteReq.end_transport_tool)
+inline ::IM::Buddy::TransportToolType NewUpdateRadomRouteReq::end_transport_tool() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteReq.end_transport_tool)
   return static_cast< ::IM::Buddy::TransportToolType >(end_transport_tool_);
 }
-inline void NewUpdateRouteReq::set_end_transport_tool(::IM::Buddy::TransportToolType value) {
+inline void NewUpdateRadomRouteReq::set_end_transport_tool(::IM::Buddy::TransportToolType value) {
   assert(::IM::Buddy::TransportToolType_IsValid(value));
   set_has_end_transport_tool();
   end_transport_tool_ = value;
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteReq.end_transport_tool)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteReq.end_transport_tool)
 }
 
 // required string start_time = 4;
-inline bool NewUpdateRouteReq::has_start_time() const {
+inline bool NewUpdateRadomRouteReq::has_start_time() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void NewUpdateRouteReq::set_has_start_time() {
+inline void NewUpdateRadomRouteReq::set_has_start_time() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void NewUpdateRouteReq::clear_has_start_time() {
+inline void NewUpdateRadomRouteReq::clear_has_start_time() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void NewUpdateRouteReq::clear_start_time() {
+inline void NewUpdateRadomRouteReq::clear_start_time() {
   if (start_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     start_time_->clear();
   }
   clear_has_start_time();
 }
-inline const ::std::string& NewUpdateRouteReq::start_time() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteReq.start_time)
+inline const ::std::string& NewUpdateRadomRouteReq::start_time() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteReq.start_time)
   return *start_time_;
 }
-inline void NewUpdateRouteReq::set_start_time(const ::std::string& value) {
+inline void NewUpdateRadomRouteReq::set_start_time(const ::std::string& value) {
   set_has_start_time();
   if (start_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     start_time_ = new ::std::string;
   }
   start_time_->assign(value);
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteReq.start_time)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteReq.start_time)
 }
-inline void NewUpdateRouteReq::set_start_time(const char* value) {
+inline void NewUpdateRadomRouteReq::set_start_time(const char* value) {
   set_has_start_time();
   if (start_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     start_time_ = new ::std::string;
   }
   start_time_->assign(value);
-  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRouteReq.start_time)
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRadomRouteReq.start_time)
 }
-inline void NewUpdateRouteReq::set_start_time(const char* value, size_t size) {
+inline void NewUpdateRadomRouteReq::set_start_time(const char* value, size_t size) {
   set_has_start_time();
   if (start_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     start_time_ = new ::std::string;
   }
   start_time_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRouteReq.start_time)
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRadomRouteReq.start_time)
 }
-inline ::std::string* NewUpdateRouteReq::mutable_start_time() {
+inline ::std::string* NewUpdateRadomRouteReq::mutable_start_time() {
   set_has_start_time();
   if (start_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     start_time_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRouteReq.start_time)
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRadomRouteReq.start_time)
   return start_time_;
 }
-inline ::std::string* NewUpdateRouteReq::release_start_time() {
+inline ::std::string* NewUpdateRadomRouteReq::release_start_time() {
   clear_has_start_time();
   if (start_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     return NULL;
@@ -16299,7 +16299,7 @@ inline ::std::string* NewUpdateRouteReq::release_start_time() {
     return temp;
   }
 }
-inline void NewUpdateRouteReq::set_allocated_start_time(::std::string* start_time) {
+inline void NewUpdateRadomRouteReq::set_allocated_start_time(::std::string* start_time) {
   if (start_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete start_time_;
   }
@@ -16310,62 +16310,62 @@ inline void NewUpdateRouteReq::set_allocated_start_time(::std::string* start_tim
     clear_has_start_time();
     start_time_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRouteReq.start_time)
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRadomRouteReq.start_time)
 }
 
 // required string end_time = 5;
-inline bool NewUpdateRouteReq::has_end_time() const {
+inline bool NewUpdateRadomRouteReq::has_end_time() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void NewUpdateRouteReq::set_has_end_time() {
+inline void NewUpdateRadomRouteReq::set_has_end_time() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void NewUpdateRouteReq::clear_has_end_time() {
+inline void NewUpdateRadomRouteReq::clear_has_end_time() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void NewUpdateRouteReq::clear_end_time() {
+inline void NewUpdateRadomRouteReq::clear_end_time() {
   if (end_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     end_time_->clear();
   }
   clear_has_end_time();
 }
-inline const ::std::string& NewUpdateRouteReq::end_time() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteReq.end_time)
+inline const ::std::string& NewUpdateRadomRouteReq::end_time() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteReq.end_time)
   return *end_time_;
 }
-inline void NewUpdateRouteReq::set_end_time(const ::std::string& value) {
+inline void NewUpdateRadomRouteReq::set_end_time(const ::std::string& value) {
   set_has_end_time();
   if (end_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     end_time_ = new ::std::string;
   }
   end_time_->assign(value);
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteReq.end_time)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteReq.end_time)
 }
-inline void NewUpdateRouteReq::set_end_time(const char* value) {
+inline void NewUpdateRadomRouteReq::set_end_time(const char* value) {
   set_has_end_time();
   if (end_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     end_time_ = new ::std::string;
   }
   end_time_->assign(value);
-  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRouteReq.end_time)
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRadomRouteReq.end_time)
 }
-inline void NewUpdateRouteReq::set_end_time(const char* value, size_t size) {
+inline void NewUpdateRadomRouteReq::set_end_time(const char* value, size_t size) {
   set_has_end_time();
   if (end_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     end_time_ = new ::std::string;
   }
   end_time_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRouteReq.end_time)
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRadomRouteReq.end_time)
 }
-inline ::std::string* NewUpdateRouteReq::mutable_end_time() {
+inline ::std::string* NewUpdateRadomRouteReq::mutable_end_time() {
   set_has_end_time();
   if (end_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     end_time_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRouteReq.end_time)
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRadomRouteReq.end_time)
   return end_time_;
 }
-inline ::std::string* NewUpdateRouteReq::release_end_time() {
+inline ::std::string* NewUpdateRadomRouteReq::release_end_time() {
   clear_has_end_time();
   if (end_time_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     return NULL;
@@ -16375,7 +16375,7 @@ inline ::std::string* NewUpdateRouteReq::release_end_time() {
     return temp;
   }
 }
-inline void NewUpdateRouteReq::set_allocated_end_time(::std::string* end_time) {
+inline void NewUpdateRadomRouteReq::set_allocated_end_time(::std::string* end_time) {
   if (end_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete end_time_;
   }
@@ -16386,92 +16386,92 @@ inline void NewUpdateRouteReq::set_allocated_end_time(::std::string* end_time) {
     clear_has_end_time();
     end_time_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRouteReq.end_time)
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRadomRouteReq.end_time)
 }
 
 // repeated uint32 scenic_ids = 9;
-inline int NewUpdateRouteReq::scenic_ids_size() const {
+inline int NewUpdateRadomRouteReq::scenic_ids_size() const {
   return scenic_ids_.size();
 }
-inline void NewUpdateRouteReq::clear_scenic_ids() {
+inline void NewUpdateRadomRouteReq::clear_scenic_ids() {
   scenic_ids_.Clear();
 }
-inline ::google::protobuf::uint32 NewUpdateRouteReq::scenic_ids(int index) const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteReq.scenic_ids)
+inline ::google::protobuf::uint32 NewUpdateRadomRouteReq::scenic_ids(int index) const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteReq.scenic_ids)
   return scenic_ids_.Get(index);
 }
-inline void NewUpdateRouteReq::set_scenic_ids(int index, ::google::protobuf::uint32 value) {
+inline void NewUpdateRadomRouteReq::set_scenic_ids(int index, ::google::protobuf::uint32 value) {
   scenic_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteReq.scenic_ids)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteReq.scenic_ids)
 }
-inline void NewUpdateRouteReq::add_scenic_ids(::google::protobuf::uint32 value) {
+inline void NewUpdateRadomRouteReq::add_scenic_ids(::google::protobuf::uint32 value) {
   scenic_ids_.Add(value);
-  // @@protoc_insertion_point(field_add:IM.Buddy.NewUpdateRouteReq.scenic_ids)
+  // @@protoc_insertion_point(field_add:IM.Buddy.NewUpdateRadomRouteReq.scenic_ids)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
-NewUpdateRouteReq::scenic_ids() const {
-  // @@protoc_insertion_point(field_list:IM.Buddy.NewUpdateRouteReq.scenic_ids)
+NewUpdateRadomRouteReq::scenic_ids() const {
+  // @@protoc_insertion_point(field_list:IM.Buddy.NewUpdateRadomRouteReq.scenic_ids)
   return scenic_ids_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
-NewUpdateRouteReq::mutable_scenic_ids() {
-  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.NewUpdateRouteReq.scenic_ids)
+NewUpdateRadomRouteReq::mutable_scenic_ids() {
+  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.NewUpdateRadomRouteReq.scenic_ids)
   return &scenic_ids_;
 }
 
 // optional bytes attach_data = 20;
-inline bool NewUpdateRouteReq::has_attach_data() const {
+inline bool NewUpdateRadomRouteReq::has_attach_data() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void NewUpdateRouteReq::set_has_attach_data() {
+inline void NewUpdateRadomRouteReq::set_has_attach_data() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void NewUpdateRouteReq::clear_has_attach_data() {
+inline void NewUpdateRadomRouteReq::clear_has_attach_data() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void NewUpdateRouteReq::clear_attach_data() {
+inline void NewUpdateRadomRouteReq::clear_attach_data() {
   if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_->clear();
   }
   clear_has_attach_data();
 }
-inline const ::std::string& NewUpdateRouteReq::attach_data() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteReq.attach_data)
+inline const ::std::string& NewUpdateRadomRouteReq::attach_data() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteReq.attach_data)
   return *attach_data_;
 }
-inline void NewUpdateRouteReq::set_attach_data(const ::std::string& value) {
+inline void NewUpdateRadomRouteReq::set_attach_data(const ::std::string& value) {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
   attach_data_->assign(value);
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteReq.attach_data)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteReq.attach_data)
 }
-inline void NewUpdateRouteReq::set_attach_data(const char* value) {
+inline void NewUpdateRadomRouteReq::set_attach_data(const char* value) {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
   attach_data_->assign(value);
-  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRouteReq.attach_data)
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRadomRouteReq.attach_data)
 }
-inline void NewUpdateRouteReq::set_attach_data(const void* value, size_t size) {
+inline void NewUpdateRadomRouteReq::set_attach_data(const void* value, size_t size) {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
   attach_data_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRouteReq.attach_data)
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRadomRouteReq.attach_data)
 }
-inline ::std::string* NewUpdateRouteReq::mutable_attach_data() {
+inline ::std::string* NewUpdateRadomRouteReq::mutable_attach_data() {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRouteReq.attach_data)
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRadomRouteReq.attach_data)
   return attach_data_;
 }
-inline ::std::string* NewUpdateRouteReq::release_attach_data() {
+inline ::std::string* NewUpdateRadomRouteReq::release_attach_data() {
   clear_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     return NULL;
@@ -16481,7 +16481,7 @@ inline ::std::string* NewUpdateRouteReq::release_attach_data() {
     return temp;
   }
 }
-inline void NewUpdateRouteReq::set_allocated_attach_data(::std::string* attach_data) {
+inline void NewUpdateRadomRouteReq::set_allocated_attach_data(::std::string* attach_data) {
   if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete attach_data_;
   }
@@ -16492,144 +16492,144 @@ inline void NewUpdateRouteReq::set_allocated_attach_data(::std::string* attach_d
     clear_has_attach_data();
     attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRouteReq.attach_data)
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRadomRouteReq.attach_data)
 }
 
 // -------------------------------------------------------------------
 
-// NewUpdateRouteRsp
+// NewUpdateRadomRouteRsp
 
 // required uint32 user_id = 1;
-inline bool NewUpdateRouteRsp::has_user_id() const {
+inline bool NewUpdateRadomRouteRsp::has_user_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NewUpdateRouteRsp::set_has_user_id() {
+inline void NewUpdateRadomRouteRsp::set_has_user_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NewUpdateRouteRsp::clear_has_user_id() {
+inline void NewUpdateRadomRouteRsp::clear_has_user_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NewUpdateRouteRsp::clear_user_id() {
+inline void NewUpdateRadomRouteRsp::clear_user_id() {
   user_id_ = 0u;
   clear_has_user_id();
 }
-inline ::google::protobuf::uint32 NewUpdateRouteRsp::user_id() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteRsp.user_id)
+inline ::google::protobuf::uint32 NewUpdateRadomRouteRsp::user_id() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteRsp.user_id)
   return user_id_;
 }
-inline void NewUpdateRouteRsp::set_user_id(::google::protobuf::uint32 value) {
+inline void NewUpdateRadomRouteRsp::set_user_id(::google::protobuf::uint32 value) {
   set_has_user_id();
   user_id_ = value;
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteRsp.user_id)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteRsp.user_id)
 }
 
 // required uint32 result_code = 2;
-inline bool NewUpdateRouteRsp::has_result_code() const {
+inline bool NewUpdateRadomRouteRsp::has_result_code() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void NewUpdateRouteRsp::set_has_result_code() {
+inline void NewUpdateRadomRouteRsp::set_has_result_code() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void NewUpdateRouteRsp::clear_has_result_code() {
+inline void NewUpdateRadomRouteRsp::clear_has_result_code() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void NewUpdateRouteRsp::clear_result_code() {
+inline void NewUpdateRadomRouteRsp::clear_result_code() {
   result_code_ = 0u;
   clear_has_result_code();
 }
-inline ::google::protobuf::uint32 NewUpdateRouteRsp::result_code() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteRsp.result_code)
+inline ::google::protobuf::uint32 NewUpdateRadomRouteRsp::result_code() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteRsp.result_code)
   return result_code_;
 }
-inline void NewUpdateRouteRsp::set_result_code(::google::protobuf::uint32 value) {
+inline void NewUpdateRadomRouteRsp::set_result_code(::google::protobuf::uint32 value) {
   set_has_result_code();
   result_code_ = value;
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteRsp.result_code)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteRsp.result_code)
 }
 
 // repeated .IM.Buddy.Route routes = 3;
-inline int NewUpdateRouteRsp::routes_size() const {
+inline int NewUpdateRadomRouteRsp::routes_size() const {
   return routes_.size();
 }
-inline void NewUpdateRouteRsp::clear_routes() {
+inline void NewUpdateRadomRouteRsp::clear_routes() {
   routes_.Clear();
 }
-inline const ::IM::Buddy::Route& NewUpdateRouteRsp::routes(int index) const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteRsp.routes)
+inline const ::IM::Buddy::Route& NewUpdateRadomRouteRsp::routes(int index) const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteRsp.routes)
   return routes_.Get(index);
 }
-inline ::IM::Buddy::Route* NewUpdateRouteRsp::mutable_routes(int index) {
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRouteRsp.routes)
+inline ::IM::Buddy::Route* NewUpdateRadomRouteRsp::mutable_routes(int index) {
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRadomRouteRsp.routes)
   return routes_.Mutable(index);
 }
-inline ::IM::Buddy::Route* NewUpdateRouteRsp::add_routes() {
-  // @@protoc_insertion_point(field_add:IM.Buddy.NewUpdateRouteRsp.routes)
+inline ::IM::Buddy::Route* NewUpdateRadomRouteRsp::add_routes() {
+  // @@protoc_insertion_point(field_add:IM.Buddy.NewUpdateRadomRouteRsp.routes)
   return routes_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::IM::Buddy::Route >&
-NewUpdateRouteRsp::routes() const {
-  // @@protoc_insertion_point(field_list:IM.Buddy.NewUpdateRouteRsp.routes)
+NewUpdateRadomRouteRsp::routes() const {
+  // @@protoc_insertion_point(field_list:IM.Buddy.NewUpdateRadomRouteRsp.routes)
   return routes_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::Route >*
-NewUpdateRouteRsp::mutable_routes() {
-  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.NewUpdateRouteRsp.routes)
+NewUpdateRadomRouteRsp::mutable_routes() {
+  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.NewUpdateRadomRouteRsp.routes)
   return &routes_;
 }
 
 // optional bytes attach_data = 20;
-inline bool NewUpdateRouteRsp::has_attach_data() const {
+inline bool NewUpdateRadomRouteRsp::has_attach_data() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void NewUpdateRouteRsp::set_has_attach_data() {
+inline void NewUpdateRadomRouteRsp::set_has_attach_data() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void NewUpdateRouteRsp::clear_has_attach_data() {
+inline void NewUpdateRadomRouteRsp::clear_has_attach_data() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void NewUpdateRouteRsp::clear_attach_data() {
+inline void NewUpdateRadomRouteRsp::clear_attach_data() {
   if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_->clear();
   }
   clear_has_attach_data();
 }
-inline const ::std::string& NewUpdateRouteRsp::attach_data() const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRouteRsp.attach_data)
+inline const ::std::string& NewUpdateRadomRouteRsp::attach_data() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteRsp.attach_data)
   return *attach_data_;
 }
-inline void NewUpdateRouteRsp::set_attach_data(const ::std::string& value) {
+inline void NewUpdateRadomRouteRsp::set_attach_data(const ::std::string& value) {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
   attach_data_->assign(value);
-  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRouteRsp.attach_data)
+  // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteRsp.attach_data)
 }
-inline void NewUpdateRouteRsp::set_attach_data(const char* value) {
+inline void NewUpdateRadomRouteRsp::set_attach_data(const char* value) {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
   attach_data_->assign(value);
-  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRouteRsp.attach_data)
+  // @@protoc_insertion_point(field_set_char:IM.Buddy.NewUpdateRadomRouteRsp.attach_data)
 }
-inline void NewUpdateRouteRsp::set_attach_data(const void* value, size_t size) {
+inline void NewUpdateRadomRouteRsp::set_attach_data(const void* value, size_t size) {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
   attach_data_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRouteRsp.attach_data)
+  // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewUpdateRadomRouteRsp.attach_data)
 }
-inline ::std::string* NewUpdateRouteRsp::mutable_attach_data() {
+inline ::std::string* NewUpdateRadomRouteRsp::mutable_attach_data() {
   set_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     attach_data_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRouteRsp.attach_data)
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRadomRouteRsp.attach_data)
   return attach_data_;
 }
-inline ::std::string* NewUpdateRouteRsp::release_attach_data() {
+inline ::std::string* NewUpdateRadomRouteRsp::release_attach_data() {
   clear_has_attach_data();
   if (attach_data_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     return NULL;
@@ -16639,7 +16639,7 @@ inline ::std::string* NewUpdateRouteRsp::release_attach_data() {
     return temp;
   }
 }
-inline void NewUpdateRouteRsp::set_allocated_attach_data(::std::string* attach_data) {
+inline void NewUpdateRadomRouteRsp::set_allocated_attach_data(::std::string* attach_data) {
   if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete attach_data_;
   }
@@ -16650,7 +16650,7 @@ inline void NewUpdateRouteRsp::set_allocated_attach_data(::std::string* attach_d
     clear_has_attach_data();
     attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRouteRsp.attach_data)
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRadomRouteRsp.attach_data)
 }
 
 // -------------------------------------------------------------------

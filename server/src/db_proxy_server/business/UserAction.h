@@ -25,6 +25,7 @@ namespace DB_PROXY {
     void getScenicHotel(CImPdu* pPdu, uint32_t conn_uuid);
     void createTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
     void queryRadomRoute(CImPdu* pPdu, uint32_t conn_uuid);
+    void updateRadomRoute(CImPdu* pPdu, uint32_t conn_uuid);
     void queryTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
     void deleteTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
     void updateTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
