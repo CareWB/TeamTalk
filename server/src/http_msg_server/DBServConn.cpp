@@ -31,7 +31,7 @@ uint32_t    g_latest_auth = 0;
 
 namespace HTTP {
     
-#define SERVER_TIMEOUT				30000
+#define SERVER_TIMEOUT				60000
     
 static ConnMap_t g_db_server_conn_map;
 

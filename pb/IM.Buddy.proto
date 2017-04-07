@@ -396,7 +396,7 @@ message NewQueryRadomRouteReq{
     //cmd id:        0x025c
     required uint32 user_id = 1;
     repeated string tags = 2;
-    repeated string sentence = 3;
+    required string sentence = 3;
     optional bytes attach_data = 20;
 }
 

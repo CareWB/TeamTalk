@@ -38,17 +38,38 @@ void protobuf_ShutdownFile_IM_2eBuddy_2eproto() {
   delete IMChangeSignInfoReq::default_instance_;
   delete IMChangeSignInfoRsp::default_instance_;
   delete IMSignInfoChangedNotify::default_instance_;
-  delete TravelRouteReq::default_instance_;
   delete TravelToolInfo::default_instance_;
-  delete TravelRouteRsp::default_instance_;
-  delete TravelInfo::default_instance_;
-  delete TrafficInfo::default_instance_;
-  delete PlayInfo::default_instance_;
+  delete BasicInfo::default_instance_;
+  delete TransportConfig::default_instance_;
   delete TravelDetail::default_instance_;
-  delete GetTravelListReq::default_instance_;
-  delete GetTravelTripListRsp::default_instance_;
-  delete CreateTravelReq::default_instance_;
-  delete CreateTravelRsp::default_instance_;
+  delete TransportTool::default_instance_;
+  delete DayScenic::default_instance_;
+  delete DayHotel::default_instance_;
+  delete PlayDetail::default_instance_;
+  delete PlayConfig::default_instance_;
+  delete ScenicInfo::default_instance_;
+  delete HotelInfo::default_instance_;
+  delete MyTravel::default_instance_;
+  delete CreateMyTravelReq::default_instance_;
+  delete CreateMyTravelRsp::default_instance_;
+  delete DeleteMyTravelReq::default_instance_;
+  delete DeleteMyTravelRsp::default_instance_;
+  delete UpdateMyTravelReq::default_instance_;
+  delete UpdateMyTravelRsp::default_instance_;
+  delete QueryMyTravelReq::default_instance_;
+  delete QueryMyTravelRsp::default_instance_;
+  delete GetTransportToolReq::default_instance_;
+  delete GetTransportToolRsp::default_instance_;
+  delete GetScenicHotelReq::default_instance_;
+  delete GetScenicHotelRsp::default_instance_;
+  delete DayRoute::default_instance_;
+  delete Route::default_instance_;
+  delete NewQueryRadomRouteReq::default_instance_;
+  delete NewQueryRadomRouteRsp::default_instance_;
+  delete NewUpdateRouteReq::default_instance_;
+  delete NewUpdateRouteRsp::default_instance_;
+  delete NewCreateMyTravelReq::default_instance_;
+  delete NewCreateMyTravelRsp::default_instance_;
 }
 
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
@@ -85,17 +106,38 @@ void protobuf_AddDesc_IM_2eBuddy_2eproto() {
   IMChangeSignInfoReq::default_instance_ = new IMChangeSignInfoReq();
   IMChangeSignInfoRsp::default_instance_ = new IMChangeSignInfoRsp();
   IMSignInfoChangedNotify::default_instance_ = new IMSignInfoChangedNotify();
-  TravelRouteReq::default_instance_ = new TravelRouteReq();
   TravelToolInfo::default_instance_ = new TravelToolInfo();
-  TravelRouteRsp::default_instance_ = new TravelRouteRsp();
-  TravelInfo::default_instance_ = new TravelInfo();
-  TrafficInfo::default_instance_ = new TrafficInfo();
-  PlayInfo::default_instance_ = new PlayInfo();
+  BasicInfo::default_instance_ = new BasicInfo();
+  TransportConfig::default_instance_ = new TransportConfig();
   TravelDetail::default_instance_ = new TravelDetail();
-  GetTravelListReq::default_instance_ = new GetTravelListReq();
-  GetTravelTripListRsp::default_instance_ = new GetTravelTripListRsp();
-  CreateTravelReq::default_instance_ = new CreateTravelReq();
-  CreateTravelRsp::default_instance_ = new CreateTravelRsp();
+  TransportTool::default_instance_ = new TransportTool();
+  DayScenic::default_instance_ = new DayScenic();
+  DayHotel::default_instance_ = new DayHotel();
+  PlayDetail::default_instance_ = new PlayDetail();
+  PlayConfig::default_instance_ = new PlayConfig();
+  ScenicInfo::default_instance_ = new ScenicInfo();
+  HotelInfo::default_instance_ = new HotelInfo();
+  MyTravel::default_instance_ = new MyTravel();
+  CreateMyTravelReq::default_instance_ = new CreateMyTravelReq();
+  CreateMyTravelRsp::default_instance_ = new CreateMyTravelRsp();
+  DeleteMyTravelReq::default_instance_ = new DeleteMyTravelReq();
+  DeleteMyTravelRsp::default_instance_ = new DeleteMyTravelRsp();
+  UpdateMyTravelReq::default_instance_ = new UpdateMyTravelReq();
+  UpdateMyTravelRsp::default_instance_ = new UpdateMyTravelRsp();
+  QueryMyTravelReq::default_instance_ = new QueryMyTravelReq();
+  QueryMyTravelRsp::default_instance_ = new QueryMyTravelRsp();
+  GetTransportToolReq::default_instance_ = new GetTransportToolReq();
+  GetTransportToolRsp::default_instance_ = new GetTransportToolRsp();
+  GetScenicHotelReq::default_instance_ = new GetScenicHotelReq();
+  GetScenicHotelRsp::default_instance_ = new GetScenicHotelRsp();
+  DayRoute::default_instance_ = new DayRoute();
+  Route::default_instance_ = new Route();
+  NewQueryRadomRouteReq::default_instance_ = new NewQueryRadomRouteReq();
+  NewQueryRadomRouteRsp::default_instance_ = new NewQueryRadomRouteRsp();
+  NewUpdateRouteReq::default_instance_ = new NewUpdateRouteReq();
+  NewUpdateRouteRsp::default_instance_ = new NewUpdateRouteRsp();
+  NewCreateMyTravelReq::default_instance_ = new NewCreateMyTravelReq();
+  NewCreateMyTravelRsp::default_instance_ = new NewCreateMyTravelRsp();
   IMRecentContactSessionReq::default_instance_->InitAsDefaultInstance();
   IMRecentContactSessionRsp::default_instance_->InitAsDefaultInstance();
   IMUserStatNotify::default_instance_->InitAsDefaultInstance();
@@ -117,17 +159,38 @@ void protobuf_AddDesc_IM_2eBuddy_2eproto() {
   IMChangeSignInfoReq::default_instance_->InitAsDefaultInstance();
   IMChangeSignInfoRsp::default_instance_->InitAsDefaultInstance();
   IMSignInfoChangedNotify::default_instance_->InitAsDefaultInstance();
-  TravelRouteReq::default_instance_->InitAsDefaultInstance();
   TravelToolInfo::default_instance_->InitAsDefaultInstance();
-  TravelRouteRsp::default_instance_->InitAsDefaultInstance();
-  TravelInfo::default_instance_->InitAsDefaultInstance();
-  TrafficInfo::default_instance_->InitAsDefaultInstance();
-  PlayInfo::default_instance_->InitAsDefaultInstance();
+  BasicInfo::default_instance_->InitAsDefaultInstance();
+  TransportConfig::default_instance_->InitAsDefaultInstance();
   TravelDetail::default_instance_->InitAsDefaultInstance();
-  GetTravelListReq::default_instance_->InitAsDefaultInstance();
-  GetTravelTripListRsp::default_instance_->InitAsDefaultInstance();
-  CreateTravelReq::default_instance_->InitAsDefaultInstance();
-  CreateTravelRsp::default_instance_->InitAsDefaultInstance();
+  TransportTool::default_instance_->InitAsDefaultInstance();
+  DayScenic::default_instance_->InitAsDefaultInstance();
+  DayHotel::default_instance_->InitAsDefaultInstance();
+  PlayDetail::default_instance_->InitAsDefaultInstance();
+  PlayConfig::default_instance_->InitAsDefaultInstance();
+  ScenicInfo::default_instance_->InitAsDefaultInstance();
+  HotelInfo::default_instance_->InitAsDefaultInstance();
+  MyTravel::default_instance_->InitAsDefaultInstance();
+  CreateMyTravelReq::default_instance_->InitAsDefaultInstance();
+  CreateMyTravelRsp::default_instance_->InitAsDefaultInstance();
+  DeleteMyTravelReq::default_instance_->InitAsDefaultInstance();
+  DeleteMyTravelRsp::default_instance_->InitAsDefaultInstance();
+  UpdateMyTravelReq::default_instance_->InitAsDefaultInstance();
+  UpdateMyTravelRsp::default_instance_->InitAsDefaultInstance();
+  QueryMyTravelReq::default_instance_->InitAsDefaultInstance();
+  QueryMyTravelRsp::default_instance_->InitAsDefaultInstance();
+  GetTransportToolReq::default_instance_->InitAsDefaultInstance();
+  GetTransportToolRsp::default_instance_->InitAsDefaultInstance();
+  GetScenicHotelReq::default_instance_->InitAsDefaultInstance();
+  GetScenicHotelRsp::default_instance_->InitAsDefaultInstance();
+  DayRoute::default_instance_->InitAsDefaultInstance();
+  Route::default_instance_->InitAsDefaultInstance();
+  NewQueryRadomRouteReq::default_instance_->InitAsDefaultInstance();
+  NewQueryRadomRouteRsp::default_instance_->InitAsDefaultInstance();
+  NewUpdateRouteReq::default_instance_->InitAsDefaultInstance();
+  NewUpdateRouteRsp::default_instance_->InitAsDefaultInstance();
+  NewCreateMyTravelReq::default_instance_->InitAsDefaultInstance();
+  NewCreateMyTravelRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_IM_2eBuddy_2eproto);
 }
 
@@ -145,18 +208,20 @@ struct StaticDescriptorInitializer_IM_2eBuddy_2eproto {
   }
 } static_descriptor_initializer_IM_2eBuddy_2eproto_;
 #endif
-bool TravelType_IsValid(int value) {
+bool TransportToolType_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
     case 4:
+    case 8:
+    case 16:
       return true;
     default:
       return false;
   }
 }
 
-bool TrafficQualityType_IsValid(int value) {
+bool PositionType_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
@@ -167,29 +232,7 @@ bool TrafficQualityType_IsValid(int value) {
   }
 }
 
-bool PlayQualityType_IsValid(int value) {
-  switch(value) {
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
-}
-
-bool CityTrafficType_IsValid(int value) {
-  switch(value) {
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
-}
-
-bool HotelPositionType_IsValid(int value) {
+bool QualityType_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
@@ -6026,396 +6069,8 @@ void IMSignInfoChangedNotify::Swap(IMSignInfoChangedNotify* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int TravelRouteReq::kUserIdFieldNumber;
-const int TravelRouteReq::kTravelTypeFieldNumber;
-const int TravelRouteReq::kLinesFieldNumber;
-const int TravelRouteReq::kTimeFromFieldNumber;
-const int TravelRouteReq::kTimeToFieldNumber;
-const int TravelRouteReq::kAttachDataFieldNumber;
-#endif  // !_MSC_VER
-
-TravelRouteReq::TravelRouteReq()
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.TravelRouteReq)
-}
-
-void TravelRouteReq::InitAsDefaultInstance() {
-}
-
-TravelRouteReq::TravelRouteReq(const TravelRouteReq& from)
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.TravelRouteReq)
-}
-
-void TravelRouteReq::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  user_id_ = 0u;
-  travel_type_ = 0u;
-  lines_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  time_from_ = 0u;
-  time_to_ = 0u;
-  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-TravelRouteReq::~TravelRouteReq() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.TravelRouteReq)
-  SharedDtor();
-}
-
-void TravelRouteReq::SharedDtor() {
-  if (lines_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete lines_;
-  }
-  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete attach_data_;
-  }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
-  if (this != default_instance_) {
-  #endif
-  }
-}
-
-void TravelRouteReq::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const TravelRouteReq& TravelRouteReq::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_IM_2eBuddy_2eproto();
-#else
-  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
-#endif
-  return *default_instance_;
-}
-
-TravelRouteReq* TravelRouteReq::default_instance_ = NULL;
-
-TravelRouteReq* TravelRouteReq::New() const {
-  return new TravelRouteReq;
-}
-
-void TravelRouteReq::Clear() {
-#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<TravelRouteReq*>(16)->f) - \
-   reinterpret_cast<char*>(16))
-
-#define ZR_(first, last) do {                              \
-    size_t f = OFFSET_OF_FIELD_(first);                    \
-    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
-    ::memset(&first, 0, n);                                \
-  } while (0)
-
-  if (_has_bits_[0 / 32] & 63) {
-    ZR_(user_id_, travel_type_);
-    ZR_(time_from_, time_to_);
-    if (has_lines()) {
-      if (lines_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        lines_->clear();
-      }
-    }
-    if (has_attach_data()) {
-      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        attach_data_->clear();
-      }
-    }
-  }
-
-#undef OFFSET_OF_FIELD_
-#undef ZR_
-
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->clear();
-}
-
-bool TravelRouteReq::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::io::StringOutputStream unknown_fields_string(
-      mutable_unknown_fields());
-  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
-      &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.TravelRouteReq)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 user_id = 1;
-      case 1: {
-        if (tag == 8) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &user_id_)));
-          set_has_user_id();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(16)) goto parse_travel_type;
-        break;
-      }
-
-      // required uint32 travel_type = 2;
-      case 2: {
-        if (tag == 16) {
-         parse_travel_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &travel_type_)));
-          set_has_travel_type();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_lines;
-        break;
-      }
-
-      // required string lines = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_lines:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_lines()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_time_from;
-        break;
-      }
-
-      // required uint32 time_from = 4;
-      case 4: {
-        if (tag == 32) {
-         parse_time_from:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &time_from_)));
-          set_has_time_from();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(40)) goto parse_time_to;
-        break;
-      }
-
-      // required uint32 time_to = 5;
-      case 5: {
-        if (tag == 40) {
-         parse_time_to:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &time_to_)));
-          set_has_time_to();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(162)) goto parse_attach_data;
-        break;
-      }
-
-      // optional bytes attach_data = 20;
-      case 20: {
-        if (tag == 162) {
-         parse_attach_data:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_attach_data()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
-            input, tag, &unknown_fields_stream));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.TravelRouteReq)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.TravelRouteReq)
-  return false;
-#undef DO_
-}
-
-void TravelRouteReq::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.TravelRouteReq)
-  // required uint32 user_id = 1;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
-  }
-
-  // required uint32 travel_type = 2;
-  if (has_travel_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->travel_type(), output);
-  }
-
-  // required string lines = 3;
-  if (has_lines()) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->lines(), output);
-  }
-
-  // required uint32 time_from = 4;
-  if (has_time_from()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->time_from(), output);
-  }
-
-  // required uint32 time_to = 5;
-  if (has_time_to()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->time_to(), output);
-  }
-
-  // optional bytes attach_data = 20;
-  if (has_attach_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      20, this->attach_data(), output);
-  }
-
-  output->WriteRaw(unknown_fields().data(),
-                   unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.TravelRouteReq)
-}
-
-int TravelRouteReq::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 user_id = 1;
-    if (has_user_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->user_id());
-    }
-
-    // required uint32 travel_type = 2;
-    if (has_travel_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->travel_type());
-    }
-
-    // required string lines = 3;
-    if (has_lines()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->lines());
-    }
-
-    // required uint32 time_from = 4;
-    if (has_time_from()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->time_from());
-    }
-
-    // required uint32 time_to = 5;
-    if (has_time_to()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->time_to());
-    }
-
-    // optional bytes attach_data = 20;
-    if (has_attach_data()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->attach_data());
-    }
-
-  }
-  total_size += unknown_fields().size();
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void TravelRouteReq::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const TravelRouteReq*>(&from));
-}
-
-void TravelRouteReq::MergeFrom(const TravelRouteReq& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_user_id()) {
-      set_user_id(from.user_id());
-    }
-    if (from.has_travel_type()) {
-      set_travel_type(from.travel_type());
-    }
-    if (from.has_lines()) {
-      set_lines(from.lines());
-    }
-    if (from.has_time_from()) {
-      set_time_from(from.time_from());
-    }
-    if (from.has_time_to()) {
-      set_time_to(from.time_to());
-    }
-    if (from.has_attach_data()) {
-      set_attach_data(from.attach_data());
-    }
-  }
-  mutable_unknown_fields()->append(from.unknown_fields());
-}
-
-void TravelRouteReq::CopyFrom(const TravelRouteReq& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool TravelRouteReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
-
-  return true;
-}
-
-void TravelRouteReq::Swap(TravelRouteReq* other) {
-  if (other != this) {
-    std::swap(user_id_, other->user_id_);
-    std::swap(travel_type_, other->travel_type_);
-    std::swap(lines_, other->lines_);
-    std::swap(time_from_, other->time_from_);
-    std::swap(time_to_, other->time_to_);
-    std::swap(attach_data_, other->attach_data_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.swap(other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::std::string TravelRouteReq::GetTypeName() const {
-  return "IM.Buddy.TravelRouteReq";
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int TravelToolInfo::kTravelTypeFieldNumber;
+const int TravelToolInfo::kIdFieldNumber;
+const int TravelToolInfo::kTransportToolTypeFieldNumber;
 const int TravelToolInfo::kNoFieldNumber;
 const int TravelToolInfo::kPlaceFromCodeFieldNumber;
 const int TravelToolInfo::kPlaceFromFieldNumber;
@@ -6423,6 +6078,7 @@ const int TravelToolInfo::kPlaceToCodeFieldNumber;
 const int TravelToolInfo::kPlaceToFieldNumber;
 const int TravelToolInfo::kTimeFromFieldNumber;
 const int TravelToolInfo::kTimeToFieldNumber;
+const int TravelToolInfo::kClassFieldNumber;
 const int TravelToolInfo::kPriceFieldNumber;
 #endif  // !_MSC_VER
 
@@ -6445,7 +6101,8 @@ TravelToolInfo::TravelToolInfo(const TravelToolInfo& from)
 void TravelToolInfo::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  travel_type_ = 0u;
+  id_ = 0u;
+  transport_tool_type_ = 0u;
   no_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   place_from_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   place_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -6453,6 +6110,7 @@ void TravelToolInfo::SharedCtor() {
   place_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   time_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   time_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  class__ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   price_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -6484,6 +6142,9 @@ void TravelToolInfo::SharedDtor() {
   if (time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete time_to_;
   }
+  if (class__ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete class__;
+  }
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
   #else
@@ -6513,8 +6174,18 @@ TravelToolInfo* TravelToolInfo::New() const {
 }
 
 void TravelToolInfo::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<TravelToolInfo*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
   if (_has_bits_[0 / 32] & 255) {
-    travel_type_ = 0u;
+    ZR_(id_, transport_tool_type_);
     if (has_no()) {
       if (no_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         no_->clear();
@@ -6545,13 +6216,24 @@ void TravelToolInfo::Clear() {
         time_from_->clear();
       }
     }
+  }
+  if (_has_bits_[8 / 32] & 1792) {
     if (has_time_to()) {
       if (time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         time_to_->clear();
       }
     }
+    if (has_class_()) {
+      if (class__ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        class__->clear();
+      }
+    }
+    price_ = 0u;
   }
-  price_ = 0u;
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
@@ -6570,114 +6252,142 @@ bool TravelToolInfo::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 travel_type = 1;
+      // required uint32 id = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &travel_type_)));
-          set_has_travel_type();
+                 input, &id_)));
+          set_has_id();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_no;
+        if (input->ExpectTag(16)) goto parse_transport_tool_type;
         break;
       }
 
-      // required string no = 2;
+      // required uint32 transport_tool_type = 2;
       case 2: {
-        if (tag == 18) {
+        if (tag == 16) {
+         parse_transport_tool_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &transport_tool_type_)));
+          set_has_transport_tool_type();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_no;
+        break;
+      }
+
+      // required string no = 3;
+      case 3: {
+        if (tag == 26) {
          parse_no:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_no()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_place_from_code;
+        if (input->ExpectTag(34)) goto parse_place_from_code;
         break;
       }
 
-      // required string place_from_code = 3;
-      case 3: {
-        if (tag == 26) {
+      // required string place_from_code = 4;
+      case 4: {
+        if (tag == 34) {
          parse_place_from_code:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_place_from_code()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_place_from;
+        if (input->ExpectTag(42)) goto parse_place_from;
         break;
       }
 
-      // required string place_from = 4;
-      case 4: {
-        if (tag == 34) {
+      // required string place_from = 5;
+      case 5: {
+        if (tag == 42) {
          parse_place_from:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_place_from()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_place_to_code;
+        if (input->ExpectTag(50)) goto parse_place_to_code;
         break;
       }
 
-      // required string place_to_code = 5;
-      case 5: {
-        if (tag == 42) {
+      // required string place_to_code = 6;
+      case 6: {
+        if (tag == 50) {
          parse_place_to_code:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_place_to_code()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_place_to;
+        if (input->ExpectTag(58)) goto parse_place_to;
         break;
       }
 
-      // required string place_to = 6;
-      case 6: {
-        if (tag == 50) {
+      // required string place_to = 7;
+      case 7: {
+        if (tag == 58) {
          parse_place_to:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_place_to()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_time_from;
+        if (input->ExpectTag(66)) goto parse_time_from;
         break;
       }
 
-      // required string time_from = 7;
-      case 7: {
-        if (tag == 58) {
+      // required string time_from = 8;
+      case 8: {
+        if (tag == 66) {
          parse_time_from:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_time_from()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_time_to;
+        if (input->ExpectTag(74)) goto parse_time_to;
         break;
       }
 
-      // required string time_to = 8;
-      case 8: {
-        if (tag == 66) {
+      // required string time_to = 9;
+      case 9: {
+        if (tag == 74) {
          parse_time_to:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_time_to()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(72)) goto parse_price;
+        if (input->ExpectTag(82)) goto parse_class;
         break;
       }
 
-      // required uint32 price = 9;
-      case 9: {
-        if (tag == 72) {
+      // required string class = 10;
+      case 10: {
+        if (tag == 82) {
+         parse_class:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_class_()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(88)) goto parse_price;
+        break;
+      }
+
+      // required uint32 price = 11;
+      case 11: {
+        if (tag == 88) {
          parse_price:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -6715,56 +6425,67 @@ failure:
 void TravelToolInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:IM.Buddy.TravelToolInfo)
-  // required uint32 travel_type = 1;
-  if (has_travel_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->travel_type(), output);
+  // required uint32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
-  // required string no = 2;
+  // required uint32 transport_tool_type = 2;
+  if (has_transport_tool_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->transport_tool_type(), output);
+  }
+
+  // required string no = 3;
   if (has_no()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->no(), output);
+      3, this->no(), output);
   }
 
-  // required string place_from_code = 3;
+  // required string place_from_code = 4;
   if (has_place_from_code()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->place_from_code(), output);
+      4, this->place_from_code(), output);
   }
 
-  // required string place_from = 4;
+  // required string place_from = 5;
   if (has_place_from()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->place_from(), output);
+      5, this->place_from(), output);
   }
 
-  // required string place_to_code = 5;
+  // required string place_to_code = 6;
   if (has_place_to_code()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->place_to_code(), output);
+      6, this->place_to_code(), output);
   }
 
-  // required string place_to = 6;
+  // required string place_to = 7;
   if (has_place_to()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->place_to(), output);
+      7, this->place_to(), output);
   }
 
-  // required string time_from = 7;
+  // required string time_from = 8;
   if (has_time_from()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      7, this->time_from(), output);
+      8, this->time_from(), output);
   }
 
-  // required string time_to = 8;
+  // required string time_to = 9;
   if (has_time_to()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      8, this->time_to(), output);
+      9, this->time_to(), output);
   }
 
-  // required uint32 price = 9;
+  // required string class = 10;
+  if (has_class_()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      10, this->class_(), output);
+  }
+
+  // required uint32 price = 11;
   if (has_price()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->price(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(11, this->price(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
@@ -6776,65 +6497,79 @@ int TravelToolInfo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 travel_type = 1;
-    if (has_travel_type()) {
+    // required uint32 id = 1;
+    if (has_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->travel_type());
+          this->id());
     }
 
-    // required string no = 2;
+    // required uint32 transport_tool_type = 2;
+    if (has_transport_tool_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->transport_tool_type());
+    }
+
+    // required string no = 3;
     if (has_no()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->no());
     }
 
-    // required string place_from_code = 3;
+    // required string place_from_code = 4;
     if (has_place_from_code()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->place_from_code());
     }
 
-    // required string place_from = 4;
+    // required string place_from = 5;
     if (has_place_from()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->place_from());
     }
 
-    // required string place_to_code = 5;
+    // required string place_to_code = 6;
     if (has_place_to_code()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->place_to_code());
     }
 
-    // required string place_to = 6;
+    // required string place_to = 7;
     if (has_place_to()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->place_to());
     }
 
-    // required string time_from = 7;
+    // required string time_from = 8;
     if (has_time_from()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->time_from());
     }
 
-    // required string time_to = 8;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // required string time_to = 9;
     if (has_time_to()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->time_to());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // required uint32 price = 9;
+    // required string class = 10;
+    if (has_class_()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->class_());
+    }
+
+    // required uint32 price = 11;
     if (has_price()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -6858,8 +6593,11 @@ void TravelToolInfo::CheckTypeAndMergeFrom(
 void TravelToolInfo::MergeFrom(const TravelToolInfo& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_travel_type()) {
-      set_travel_type(from.travel_type());
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_transport_tool_type()) {
+      set_transport_tool_type(from.transport_tool_type());
     }
     if (from.has_no()) {
       set_no(from.no());
@@ -6879,11 +6617,14 @@ void TravelToolInfo::MergeFrom(const TravelToolInfo& from) {
     if (from.has_time_from()) {
       set_time_from(from.time_from());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_time_to()) {
       set_time_to(from.time_to());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_class_()) {
+      set_class_(from.class_());
+    }
     if (from.has_price()) {
       set_price(from.price());
     }
@@ -6898,14 +6639,15 @@ void TravelToolInfo::CopyFrom(const TravelToolInfo& from) {
 }
 
 bool TravelToolInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000001ff) != 0x000001ff) return false;
+  if ((_has_bits_[0] & 0x000007ff) != 0x000007ff) return false;
 
   return true;
 }
 
 void TravelToolInfo::Swap(TravelToolInfo* other) {
   if (other != this) {
-    std::swap(travel_type_, other->travel_type_);
+    std::swap(id_, other->id_);
+    std::swap(transport_tool_type_, other->transport_tool_type_);
     std::swap(no_, other->no_);
     std::swap(place_from_code_, other->place_from_code_);
     std::swap(place_from_, other->place_from_);
@@ -6913,6 +6655,7 @@ void TravelToolInfo::Swap(TravelToolInfo* other) {
     std::swap(place_to_, other->place_to_);
     std::swap(time_from_, other->time_from_);
     std::swap(time_to_, other->time_to_);
+    std::swap(class__, other->class__);
     std::swap(price_, other->price_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
@@ -6928,335 +6671,63 @@ void TravelToolInfo::Swap(TravelToolInfo* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int TravelRouteRsp::kUserIdFieldNumber;
-const int TravelRouteRsp::kResultCodeFieldNumber;
-const int TravelRouteRsp::kTravelToolInfoFieldNumber;
+const int BasicInfo::kDateFromFieldNumber;
+const int BasicInfo::kDateToFieldNumber;
+const int BasicInfo::kPlaceToCodeFieldNumber;
+const int BasicInfo::kPersonNumFieldNumber;
+const int BasicInfo::kPlaceFromCodeFieldNumber;
+const int BasicInfo::kPlaceBackCodeFieldNumber;
 #endif  // !_MSC_VER
 
-TravelRouteRsp::TravelRouteRsp()
+BasicInfo::BasicInfo()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.TravelRouteRsp)
+  // @@protoc_insertion_point(constructor:IM.Buddy.BasicInfo)
 }
 
-void TravelRouteRsp::InitAsDefaultInstance() {
+void BasicInfo::InitAsDefaultInstance() {
 }
 
-TravelRouteRsp::TravelRouteRsp(const TravelRouteRsp& from)
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.TravelRouteRsp)
-}
-
-void TravelRouteRsp::SharedCtor() {
-  _cached_size_ = 0;
-  user_id_ = 0u;
-  result_code_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-TravelRouteRsp::~TravelRouteRsp() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.TravelRouteRsp)
-  SharedDtor();
-}
-
-void TravelRouteRsp::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
-  if (this != default_instance_) {
-  #endif
-  }
-}
-
-void TravelRouteRsp::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const TravelRouteRsp& TravelRouteRsp::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_IM_2eBuddy_2eproto();
-#else
-  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
-#endif
-  return *default_instance_;
-}
-
-TravelRouteRsp* TravelRouteRsp::default_instance_ = NULL;
-
-TravelRouteRsp* TravelRouteRsp::New() const {
-  return new TravelRouteRsp;
-}
-
-void TravelRouteRsp::Clear() {
-#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<TravelRouteRsp*>(16)->f) - \
-   reinterpret_cast<char*>(16))
-
-#define ZR_(first, last) do {                              \
-    size_t f = OFFSET_OF_FIELD_(first);                    \
-    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
-    ::memset(&first, 0, n);                                \
-  } while (0)
-
-  ZR_(user_id_, result_code_);
-
-#undef OFFSET_OF_FIELD_
-#undef ZR_
-
-  travel_tool_info_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->clear();
-}
-
-bool TravelRouteRsp::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::io::StringOutputStream unknown_fields_string(
-      mutable_unknown_fields());
-  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
-      &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.TravelRouteRsp)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 user_id = 1;
-      case 1: {
-        if (tag == 8) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &user_id_)));
-          set_has_user_id();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(16)) goto parse_result_code;
-        break;
-      }
-
-      // required uint32 result_code = 2;
-      case 2: {
-        if (tag == 16) {
-         parse_result_code:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &result_code_)));
-          set_has_result_code();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_travel_tool_info;
-        break;
-      }
-
-      // repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_travel_tool_info:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_travel_tool_info()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_travel_tool_info;
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
-            input, tag, &unknown_fields_stream));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.TravelRouteRsp)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.TravelRouteRsp)
-  return false;
-#undef DO_
-}
-
-void TravelRouteRsp::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.TravelRouteRsp)
-  // required uint32 user_id = 1;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
-  }
-
-  // required uint32 result_code = 2;
-  if (has_result_code()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
-  }
-
-  // repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
-  for (int i = 0; i < this->travel_tool_info_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      3, this->travel_tool_info(i), output);
-  }
-
-  output->WriteRaw(unknown_fields().data(),
-                   unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.TravelRouteRsp)
-}
-
-int TravelRouteRsp::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 user_id = 1;
-    if (has_user_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->user_id());
-    }
-
-    // required uint32 result_code = 2;
-    if (has_result_code()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->result_code());
-    }
-
-  }
-  // repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
-  total_size += 1 * this->travel_tool_info_size();
-  for (int i = 0; i < this->travel_tool_info_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->travel_tool_info(i));
-  }
-
-  total_size += unknown_fields().size();
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void TravelRouteRsp::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const TravelRouteRsp*>(&from));
-}
-
-void TravelRouteRsp::MergeFrom(const TravelRouteRsp& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  travel_tool_info_.MergeFrom(from.travel_tool_info_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_user_id()) {
-      set_user_id(from.user_id());
-    }
-    if (from.has_result_code()) {
-      set_result_code(from.result_code());
-    }
-  }
-  mutable_unknown_fields()->append(from.unknown_fields());
-}
-
-void TravelRouteRsp::CopyFrom(const TravelRouteRsp& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool TravelRouteRsp::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
-
-  if (!::google::protobuf::internal::AllAreInitialized(this->travel_tool_info())) return false;
-  return true;
-}
-
-void TravelRouteRsp::Swap(TravelRouteRsp* other) {
-  if (other != this) {
-    std::swap(user_id_, other->user_id_);
-    std::swap(result_code_, other->result_code_);
-    travel_tool_info_.Swap(&other->travel_tool_info_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.swap(other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::std::string TravelRouteRsp::GetTypeName() const {
-  return "IM.Buddy.TravelRouteRsp";
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int TravelInfo::kPersonNumFieldNumber;
-const int TravelInfo::kPlaceFromFieldNumber;
-const int TravelInfo::kPlaceBackFieldNumber;
-const int TravelInfo::kPlaceToFieldNumber;
-const int TravelInfo::kDateFromFieldNumber;
-const int TravelInfo::kDateToFieldNumber;
-#endif  // !_MSC_VER
-
-TravelInfo::TravelInfo()
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.TravelInfo)
-}
-
-void TravelInfo::InitAsDefaultInstance() {
-}
-
-TravelInfo::TravelInfo(const TravelInfo& from)
+BasicInfo::BasicInfo(const BasicInfo& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.TravelInfo)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.BasicInfo)
 }
 
-void TravelInfo::SharedCtor() {
+void BasicInfo::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  person_num_ = 0u;
-  place_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  place_back_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  place_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   date_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   date_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  place_to_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  person_num_ = 0u;
+  place_from_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  place_back_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-TravelInfo::~TravelInfo() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.TravelInfo)
+BasicInfo::~BasicInfo() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.BasicInfo)
   SharedDtor();
 }
 
-void TravelInfo::SharedDtor() {
-  if (place_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete place_from_;
-  }
-  if (place_back_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete place_back_;
-  }
-  if (place_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete place_to_;
-  }
+void BasicInfo::SharedDtor() {
   if (date_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete date_from_;
   }
   if (date_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete date_to_;
   }
+  if (place_to_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete place_to_code_;
+  }
+  if (place_from_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete place_from_code_;
+  }
+  if (place_back_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete place_back_code_;
+  }
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
   #else
@@ -7265,12 +6736,12 @@ void TravelInfo::SharedDtor() {
   }
 }
 
-void TravelInfo::SetCachedSize(int size) const {
+void BasicInfo::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const TravelInfo& TravelInfo::default_instance() {
+const BasicInfo& BasicInfo::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -7279,30 +6750,14 @@ const TravelInfo& TravelInfo::default_instance() {
   return *default_instance_;
 }
 
-TravelInfo* TravelInfo::default_instance_ = NULL;
+BasicInfo* BasicInfo::default_instance_ = NULL;
 
-TravelInfo* TravelInfo::New() const {
-  return new TravelInfo;
+BasicInfo* BasicInfo::New() const {
+  return new BasicInfo;
 }
 
-void TravelInfo::Clear() {
+void BasicInfo::Clear() {
   if (_has_bits_[0 / 32] & 63) {
-    person_num_ = 0u;
-    if (has_place_from()) {
-      if (place_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        place_from_->clear();
-      }
-    }
-    if (has_place_back()) {
-      if (place_back_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        place_back_->clear();
-      }
-    }
-    if (has_place_to()) {
-      if (place_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        place_to_->clear();
-      }
-    }
     if (has_date_from()) {
       if (date_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         date_from_->clear();
@@ -7313,12 +6768,28 @@ void TravelInfo::Clear() {
         date_to_->clear();
       }
     }
+    if (has_place_to_code()) {
+      if (place_to_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        place_to_code_->clear();
+      }
+    }
+    person_num_ = 0u;
+    if (has_place_from_code()) {
+      if (place_from_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        place_from_code_->clear();
+      }
+    }
+    if (has_place_back_code()) {
+      if (place_back_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        place_back_code_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
 
-bool TravelInfo::MergePartialFromCodedStream(
+bool BasicInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -7326,15 +6797,54 @@ bool TravelInfo::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.TravelInfo)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.BasicInfo)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 person_num = 1;
+      // required string date_from = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_date_from()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_date_to;
+        break;
+      }
+
+      // required string date_to = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_date_to:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_date_to()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_place_to_code;
+        break;
+      }
+
+      // required string place_to_code = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_place_to_code:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_place_to_code()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_person_num;
+        break;
+      }
+
+      // required uint32 person_num = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_person_num:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &person_num_)));
@@ -7342,68 +6852,29 @@ bool TravelInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_place_from;
+        if (input->ExpectTag(42)) goto parse_place_from_code;
         break;
       }
 
-      // required string place_from = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_place_from:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_place_from()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_place_back;
-        break;
-      }
-
-      // required string place_back = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_place_back:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_place_back()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(34)) goto parse_place_to;
-        break;
-      }
-
-      // required string place_to = 4;
-      case 4: {
-        if (tag == 34) {
-         parse_place_to:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_place_to()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(42)) goto parse_date_from;
-        break;
-      }
-
-      // required string date_from = 5;
+      // required string place_from_code = 5;
       case 5: {
         if (tag == 42) {
-         parse_date_from:
+         parse_place_from_code:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_date_from()));
+                input, this->mutable_place_from_code()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_date_to;
+        if (input->ExpectTag(50)) goto parse_place_back_code;
         break;
       }
 
-      // required string date_to = 6;
+      // required string place_back_code = 6;
       case 6: {
         if (tag == 50) {
-         parse_date_to:
+         parse_place_back_code:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_date_to()));
+                input, this->mutable_place_back_code()));
         } else {
           goto handle_unusual;
         }
@@ -7425,103 +6896,103 @@ bool TravelInfo::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.TravelInfo)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.BasicInfo)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.TravelInfo)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.BasicInfo)
   return false;
 #undef DO_
 }
 
-void TravelInfo::SerializeWithCachedSizes(
+void BasicInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.TravelInfo)
-  // required uint32 person_num = 1;
-  if (has_person_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->person_num(), output);
-  }
-
-  // required string place_from = 2;
-  if (has_place_from()) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->place_from(), output);
-  }
-
-  // required string place_back = 3;
-  if (has_place_back()) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->place_back(), output);
-  }
-
-  // required string place_to = 4;
-  if (has_place_to()) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->place_to(), output);
-  }
-
-  // required string date_from = 5;
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.BasicInfo)
+  // required string date_from = 1;
   if (has_date_from()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->date_from(), output);
+      1, this->date_from(), output);
   }
 
-  // required string date_to = 6;
+  // required string date_to = 2;
   if (has_date_to()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->date_to(), output);
+      2, this->date_to(), output);
+  }
+
+  // required string place_to_code = 3;
+  if (has_place_to_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->place_to_code(), output);
+  }
+
+  // required uint32 person_num = 4;
+  if (has_person_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->person_num(), output);
+  }
+
+  // required string place_from_code = 5;
+  if (has_place_from_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->place_from_code(), output);
+  }
+
+  // required string place_back_code = 6;
+  if (has_place_back_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->place_back_code(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.TravelInfo)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.BasicInfo)
 }
 
-int TravelInfo::ByteSize() const {
+int BasicInfo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 person_num = 1;
-    if (has_person_num()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->person_num());
-    }
-
-    // required string place_from = 2;
-    if (has_place_from()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->place_from());
-    }
-
-    // required string place_back = 3;
-    if (has_place_back()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->place_back());
-    }
-
-    // required string place_to = 4;
-    if (has_place_to()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->place_to());
-    }
-
-    // required string date_from = 5;
+    // required string date_from = 1;
     if (has_date_from()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->date_from());
     }
 
-    // required string date_to = 6;
+    // required string date_to = 2;
     if (has_date_to()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->date_to());
     }
 
+    // required string place_to_code = 3;
+    if (has_place_to_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->place_to_code());
+    }
+
+    // required uint32 person_num = 4;
+    if (has_person_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->person_num());
+    }
+
+    // required string place_from_code = 5;
+    if (has_place_from_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->place_from_code());
+    }
+
+    // required string place_back_code = 6;
+    if (has_place_back_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->place_back_code());
+    }
+
   }
   total_size += unknown_fields().size();
 
@@ -7531,111 +7002,115 @@ int TravelInfo::ByteSize() const {
   return total_size;
 }
 
-void TravelInfo::CheckTypeAndMergeFrom(
+void BasicInfo::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const TravelInfo*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const BasicInfo*>(&from));
 }
 
-void TravelInfo::MergeFrom(const TravelInfo& from) {
+void BasicInfo::MergeFrom(const BasicInfo& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_person_num()) {
-      set_person_num(from.person_num());
-    }
-    if (from.has_place_from()) {
-      set_place_from(from.place_from());
-    }
-    if (from.has_place_back()) {
-      set_place_back(from.place_back());
-    }
-    if (from.has_place_to()) {
-      set_place_to(from.place_to());
-    }
     if (from.has_date_from()) {
       set_date_from(from.date_from());
     }
     if (from.has_date_to()) {
       set_date_to(from.date_to());
     }
+    if (from.has_place_to_code()) {
+      set_place_to_code(from.place_to_code());
+    }
+    if (from.has_person_num()) {
+      set_person_num(from.person_num());
+    }
+    if (from.has_place_from_code()) {
+      set_place_from_code(from.place_from_code());
+    }
+    if (from.has_place_back_code()) {
+      set_place_back_code(from.place_back_code());
+    }
   }
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void TravelInfo::CopyFrom(const TravelInfo& from) {
+void BasicInfo::CopyFrom(const BasicInfo& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool TravelInfo::IsInitialized() const {
+bool BasicInfo::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
 
   return true;
 }
 
-void TravelInfo::Swap(TravelInfo* other) {
+void BasicInfo::Swap(BasicInfo* other) {
   if (other != this) {
-    std::swap(person_num_, other->person_num_);
-    std::swap(place_from_, other->place_from_);
-    std::swap(place_back_, other->place_back_);
-    std::swap(place_to_, other->place_to_);
     std::swap(date_from_, other->date_from_);
     std::swap(date_to_, other->date_to_);
+    std::swap(place_to_code_, other->place_to_code_);
+    std::swap(person_num_, other->person_num_);
+    std::swap(place_from_code_, other->place_from_code_);
+    std::swap(place_back_code_, other->place_back_code_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string TravelInfo::GetTypeName() const {
-  return "IM.Buddy.TravelInfo";
+::std::string BasicInfo::GetTypeName() const {
+  return "IM.Buddy.BasicInfo";
 }
 
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int TrafficInfo::kTrafficTimeFromFieldNumber;
-const int TrafficInfo::kTrafficTimeToFieldNumber;
-const int TrafficInfo::kTravelTypeFieldNumber;
+const int TransportConfig::kToolTypeFieldNumber;
+const int TransportConfig::kTimeFromFieldNumber;
+const int TransportConfig::kTimeToFieldNumber;
+const int TransportConfig::kQualityFieldNumber;
+const int TransportConfig::kTransitFieldNumber;
 #endif  // !_MSC_VER
 
-TrafficInfo::TrafficInfo()
+TransportConfig::TransportConfig()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.TrafficInfo)
+  // @@protoc_insertion_point(constructor:IM.Buddy.TransportConfig)
 }
 
-void TrafficInfo::InitAsDefaultInstance() {
+void TransportConfig::InitAsDefaultInstance() {
 }
 
-TrafficInfo::TrafficInfo(const TrafficInfo& from)
+TransportConfig::TransportConfig(const TransportConfig& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.TrafficInfo)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.TransportConfig)
 }
 
-void TrafficInfo::SharedCtor() {
+void TransportConfig::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  traffic_time_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  traffic_time_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  travel_type_ = 0u;
+  tool_type_ = 0u;
+  time_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  time_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  quality_ = 1;
+  transit_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-TrafficInfo::~TrafficInfo() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.TrafficInfo)
+TransportConfig::~TransportConfig() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.TransportConfig)
   SharedDtor();
 }
 
-void TrafficInfo::SharedDtor() {
-  if (traffic_time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete traffic_time_from_;
+void TransportConfig::SharedDtor() {
+  if (time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete time_from_;
   }
-  if (traffic_time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete traffic_time_to_;
+  if (time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete time_to_;
   }
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
@@ -7645,12 +7120,12 @@ void TrafficInfo::SharedDtor() {
   }
 }
 
-void TrafficInfo::SetCachedSize(int size) const {
+void TransportConfig::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const TrafficInfo& TrafficInfo::default_instance() {
+const TransportConfig& TransportConfig::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -7659,312 +7134,33 @@ const TrafficInfo& TrafficInfo::default_instance() {
   return *default_instance_;
 }
 
-TrafficInfo* TrafficInfo::default_instance_ = NULL;
+TransportConfig* TransportConfig::default_instance_ = NULL;
 
-TrafficInfo* TrafficInfo::New() const {
-  return new TrafficInfo;
+TransportConfig* TransportConfig::New() const {
+  return new TransportConfig;
 }
 
-void TrafficInfo::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
-    if (has_traffic_time_from()) {
-      if (traffic_time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        traffic_time_from_->clear();
-      }
-    }
-    if (has_traffic_time_to()) {
-      if (traffic_time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        traffic_time_to_->clear();
-      }
-    }
-    travel_type_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->clear();
-}
-
-bool TrafficInfo::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::io::StringOutputStream unknown_fields_string(
-      mutable_unknown_fields());
-  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
-      &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.TrafficInfo)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string traffic_time_from = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_traffic_time_from()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_traffic_time_to;
-        break;
-      }
-
-      // required string traffic_time_to = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_traffic_time_to:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_traffic_time_to()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(24)) goto parse_travel_type;
-        break;
-      }
-
-      // required uint32 travel_type = 3;
-      case 3: {
-        if (tag == 24) {
-         parse_travel_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &travel_type_)));
-          set_has_travel_type();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
-            input, tag, &unknown_fields_stream));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.TrafficInfo)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.TrafficInfo)
-  return false;
-#undef DO_
-}
-
-void TrafficInfo::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.TrafficInfo)
-  // required string traffic_time_from = 1;
-  if (has_traffic_time_from()) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->traffic_time_from(), output);
-  }
-
-  // required string traffic_time_to = 2;
-  if (has_traffic_time_to()) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->traffic_time_to(), output);
-  }
-
-  // required uint32 travel_type = 3;
-  if (has_travel_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->travel_type(), output);
-  }
-
-  output->WriteRaw(unknown_fields().data(),
-                   unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.TrafficInfo)
-}
-
-int TrafficInfo::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string traffic_time_from = 1;
-    if (has_traffic_time_from()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->traffic_time_from());
-    }
-
-    // required string traffic_time_to = 2;
-    if (has_traffic_time_to()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->traffic_time_to());
-    }
-
-    // required uint32 travel_type = 3;
-    if (has_travel_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->travel_type());
-    }
-
-  }
-  total_size += unknown_fields().size();
-
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void TrafficInfo::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const TrafficInfo*>(&from));
-}
-
-void TrafficInfo::MergeFrom(const TrafficInfo& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_traffic_time_from()) {
-      set_traffic_time_from(from.traffic_time_from());
-    }
-    if (from.has_traffic_time_to()) {
-      set_traffic_time_to(from.traffic_time_to());
-    }
-    if (from.has_travel_type()) {
-      set_travel_type(from.travel_type());
-    }
-  }
-  mutable_unknown_fields()->append(from.unknown_fields());
-}
-
-void TrafficInfo::CopyFrom(const TrafficInfo& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool TrafficInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
-
-  return true;
-}
-
-void TrafficInfo::Swap(TrafficInfo* other) {
-  if (other != this) {
-    std::swap(traffic_time_from_, other->traffic_time_from_);
-    std::swap(traffic_time_to_, other->traffic_time_to_);
-    std::swap(travel_type_, other->travel_type_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.swap(other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::std::string TrafficInfo::GetTypeName() const {
-  return "IM.Buddy.TrafficInfo";
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int PlayInfo::kPlayQualityFieldNumber;
-const int PlayInfo::kPlayTimeFromFieldNumber;
-const int PlayInfo::kPlayTimeToFieldNumber;
-const int PlayInfo::kCityTrafficFieldNumber;
-const int PlayInfo::kHotelPositionFieldNumber;
-#endif  // !_MSC_VER
-
-PlayInfo::PlayInfo()
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.PlayInfo)
-}
-
-void PlayInfo::InitAsDefaultInstance() {
-}
-
-PlayInfo::PlayInfo(const PlayInfo& from)
-  : ::google::protobuf::MessageLite() {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.PlayInfo)
-}
-
-void PlayInfo::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
-  _cached_size_ = 0;
-  play_quality_ = 1;
-  play_time_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  play_time_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  city_traffic_ = 0u;
-  hotel_position_ = 1;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-PlayInfo::~PlayInfo() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.PlayInfo)
-  SharedDtor();
-}
-
-void PlayInfo::SharedDtor() {
-  if (play_time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete play_time_from_;
-  }
-  if (play_time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete play_time_to_;
-  }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
-  if (this != default_instance_) {
-  #endif
-  }
-}
-
-void PlayInfo::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const PlayInfo& PlayInfo::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_IM_2eBuddy_2eproto();
-#else
-  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
-#endif
-  return *default_instance_;
-}
-
-PlayInfo* PlayInfo::default_instance_ = NULL;
-
-PlayInfo* PlayInfo::New() const {
-  return new PlayInfo;
-}
-
-void PlayInfo::Clear() {
+void TransportConfig::Clear() {
   if (_has_bits_[0 / 32] & 31) {
-    play_quality_ = 1;
-    if (has_play_time_from()) {
-      if (play_time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        play_time_from_->clear();
+    tool_type_ = 0u;
+    if (has_time_from()) {
+      if (time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        time_from_->clear();
       }
     }
-    if (has_play_time_to()) {
-      if (play_time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        play_time_to_->clear();
+    if (has_time_to()) {
+      if (time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        time_to_->clear();
       }
     }
-    city_traffic_ = 0u;
-    hotel_position_ = 1;
+    quality_ = 1;
+    transit_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
 
-bool PlayInfo::MergePartialFromCodedStream(
+bool TransportConfig::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -7972,87 +7168,81 @@ bool PlayInfo::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.PlayInfo)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.TransportConfig)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .IM.Buddy.PlayQualityType play_quality = 1;
+      // required uint32 tool_type = 1;
       case 1: {
         if (tag == 8) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::IM::Buddy::PlayQualityType_IsValid(value)) {
-            set_play_quality(static_cast< ::IM::Buddy::PlayQualityType >(value));
-          } else {
-            unknown_fields_stream.WriteVarint32(tag);
-            unknown_fields_stream.WriteVarint32(value);
-          }
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_play_time_from;
-        break;
-      }
-
-      // required string play_time_from = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_play_time_from:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_play_time_from()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_play_time_to;
-        break;
-      }
-
-      // required string play_time_to = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_play_time_to:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_play_time_to()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_city_traffic;
-        break;
-      }
-
-      // required uint32 city_traffic = 4;
-      case 4: {
-        if (tag == 32) {
-         parse_city_traffic:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &city_traffic_)));
-          set_has_city_traffic();
+                 input, &tool_type_)));
+          set_has_tool_type();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_hotel_position;
+        if (input->ExpectTag(18)) goto parse_time_from;
         break;
       }
 
-      // required .IM.Buddy.HotelPositionType hotel_position = 5;
-      case 5: {
-        if (tag == 40) {
-         parse_hotel_position:
+      // required string time_from = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_time_from:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_time_from()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_time_to;
+        break;
+      }
+
+      // required string time_to = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_time_to:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_time_to()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_quality;
+        break;
+      }
+
+      // required .IM.Buddy.QualityType quality = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_quality:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::IM::Buddy::HotelPositionType_IsValid(value)) {
-            set_hotel_position(static_cast< ::IM::Buddy::HotelPositionType >(value));
+          if (::IM::Buddy::QualityType_IsValid(value)) {
+            set_quality(static_cast< ::IM::Buddy::QualityType >(value));
           } else {
             unknown_fields_stream.WriteVarint32(tag);
             unknown_fields_stream.WriteVarint32(value);
           }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_transit;
+        break;
+      }
+
+      // required uint32 transit = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_transit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &transit_)));
+          set_has_transit();
         } else {
           goto handle_unusual;
         }
@@ -8074,86 +7264,86 @@ bool PlayInfo::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.PlayInfo)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.TransportConfig)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.PlayInfo)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.TransportConfig)
   return false;
 #undef DO_
 }
 
-void PlayInfo::SerializeWithCachedSizes(
+void TransportConfig::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.PlayInfo)
-  // required .IM.Buddy.PlayQualityType play_quality = 1;
-  if (has_play_quality()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->play_quality(), output);
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.TransportConfig)
+  // required uint32 tool_type = 1;
+  if (has_tool_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->tool_type(), output);
   }
 
-  // required string play_time_from = 2;
-  if (has_play_time_from()) {
+  // required string time_from = 2;
+  if (has_time_from()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->play_time_from(), output);
+      2, this->time_from(), output);
   }
 
-  // required string play_time_to = 3;
-  if (has_play_time_to()) {
+  // required string time_to = 3;
+  if (has_time_to()) {
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->play_time_to(), output);
+      3, this->time_to(), output);
   }
 
-  // required uint32 city_traffic = 4;
-  if (has_city_traffic()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->city_traffic(), output);
-  }
-
-  // required .IM.Buddy.HotelPositionType hotel_position = 5;
-  if (has_hotel_position()) {
+  // required .IM.Buddy.QualityType quality = 4;
+  if (has_quality()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->hotel_position(), output);
+      4, this->quality(), output);
+  }
+
+  // required uint32 transit = 5;
+  if (has_transit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->transit(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.PlayInfo)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.TransportConfig)
 }
 
-int PlayInfo::ByteSize() const {
+int TransportConfig::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .IM.Buddy.PlayQualityType play_quality = 1;
-    if (has_play_quality()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->play_quality());
-    }
-
-    // required string play_time_from = 2;
-    if (has_play_time_from()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->play_time_from());
-    }
-
-    // required string play_time_to = 3;
-    if (has_play_time_to()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->play_time_to());
-    }
-
-    // required uint32 city_traffic = 4;
-    if (has_city_traffic()) {
+    // required uint32 tool_type = 1;
+    if (has_tool_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->city_traffic());
+          this->tool_type());
     }
 
-    // required .IM.Buddy.HotelPositionType hotel_position = 5;
-    if (has_hotel_position()) {
+    // required string time_from = 2;
+    if (has_time_from()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->hotel_position());
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->time_from());
+    }
+
+    // required string time_to = 3;
+    if (has_time_to()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->time_to());
+    }
+
+    // required .IM.Buddy.QualityType quality = 4;
+    if (has_quality()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->quality());
+    }
+
+    // required uint32 transit = 5;
+    if (has_transit()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->transit());
     }
 
   }
@@ -8165,71 +7355,68 @@ int PlayInfo::ByteSize() const {
   return total_size;
 }
 
-void PlayInfo::CheckTypeAndMergeFrom(
+void TransportConfig::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const PlayInfo*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const TransportConfig*>(&from));
 }
 
-void PlayInfo::MergeFrom(const PlayInfo& from) {
+void TransportConfig::MergeFrom(const TransportConfig& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_play_quality()) {
-      set_play_quality(from.play_quality());
+    if (from.has_tool_type()) {
+      set_tool_type(from.tool_type());
     }
-    if (from.has_play_time_from()) {
-      set_play_time_from(from.play_time_from());
+    if (from.has_time_from()) {
+      set_time_from(from.time_from());
     }
-    if (from.has_play_time_to()) {
-      set_play_time_to(from.play_time_to());
+    if (from.has_time_to()) {
+      set_time_to(from.time_to());
     }
-    if (from.has_city_traffic()) {
-      set_city_traffic(from.city_traffic());
+    if (from.has_quality()) {
+      set_quality(from.quality());
     }
-    if (from.has_hotel_position()) {
-      set_hotel_position(from.hotel_position());
+    if (from.has_transit()) {
+      set_transit(from.transit());
     }
   }
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void PlayInfo::CopyFrom(const PlayInfo& from) {
+void TransportConfig::CopyFrom(const TransportConfig& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool PlayInfo::IsInitialized() const {
+bool TransportConfig::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
 
   return true;
 }
 
-void PlayInfo::Swap(PlayInfo* other) {
+void TransportConfig::Swap(TransportConfig* other) {
   if (other != this) {
-    std::swap(play_quality_, other->play_quality_);
-    std::swap(play_time_from_, other->play_time_from_);
-    std::swap(play_time_to_, other->play_time_to_);
-    std::swap(city_traffic_, other->city_traffic_);
-    std::swap(hotel_position_, other->hotel_position_);
+    std::swap(tool_type_, other->tool_type_);
+    std::swap(time_from_, other->time_from_);
+    std::swap(time_to_, other->time_to_);
+    std::swap(quality_, other->quality_);
+    std::swap(transit_, other->transit_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string PlayInfo::GetTypeName() const {
-  return "IM.Buddy.PlayInfo";
+::std::string TransportConfig::GetTypeName() const {
+  return "IM.Buddy.TransportConfig";
 }
 
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int TravelDetail::kDbIdxFieldNumber;
-const int TravelDetail::kTravelInfoFieldNumber;
-const int TravelDetail::kTrafficInfoFieldNumber;
-const int TravelDetail::kPlayInfoFieldNumber;
-const int TravelDetail::kCostFieldNumber;
+const int TravelDetail::kTransportToolFieldNumber;
+const int TravelDetail::kPlayDetailFieldNumber;
 #endif  // !_MSC_VER
 
 TravelDetail::TravelDetail()
@@ -8240,22 +7427,16 @@ TravelDetail::TravelDetail()
 
 void TravelDetail::InitAsDefaultInstance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  travel_info_ = const_cast< ::IM::Buddy::TravelInfo*>(
-      ::IM::Buddy::TravelInfo::internal_default_instance());
+  transport_tool_ = const_cast< ::IM::Buddy::TransportTool*>(
+      ::IM::Buddy::TransportTool::internal_default_instance());
 #else
-  travel_info_ = const_cast< ::IM::Buddy::TravelInfo*>(&::IM::Buddy::TravelInfo::default_instance());
+  transport_tool_ = const_cast< ::IM::Buddy::TransportTool*>(&::IM::Buddy::TransportTool::default_instance());
 #endif
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  traffic_info_ = const_cast< ::IM::Buddy::TrafficInfo*>(
-      ::IM::Buddy::TrafficInfo::internal_default_instance());
+  play_detail_ = const_cast< ::IM::Buddy::PlayDetail*>(
+      ::IM::Buddy::PlayDetail::internal_default_instance());
 #else
-  traffic_info_ = const_cast< ::IM::Buddy::TrafficInfo*>(&::IM::Buddy::TrafficInfo::default_instance());
-#endif
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  play_info_ = const_cast< ::IM::Buddy::PlayInfo*>(
-      ::IM::Buddy::PlayInfo::internal_default_instance());
-#else
-  play_info_ = const_cast< ::IM::Buddy::PlayInfo*>(&::IM::Buddy::PlayInfo::default_instance());
+  play_detail_ = const_cast< ::IM::Buddy::PlayDetail*>(&::IM::Buddy::PlayDetail::default_instance());
 #endif
 }
 
@@ -8268,11 +7449,8 @@ TravelDetail::TravelDetail(const TravelDetail& from)
 
 void TravelDetail::SharedCtor() {
   _cached_size_ = 0;
-  db_idx_ = 0u;
-  travel_info_ = NULL;
-  traffic_info_ = NULL;
-  play_info_ = NULL;
-  cost_ = 0u;
+  transport_tool_ = NULL;
+  play_detail_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -8287,9 +7465,8 @@ void TravelDetail::SharedDtor() {
   #else
   if (this != default_instance_) {
   #endif
-    delete travel_info_;
-    delete traffic_info_;
-    delete play_info_;
+    delete transport_tool_;
+    delete play_detail_;
   }
 }
 
@@ -8314,32 +7491,14 @@ TravelDetail* TravelDetail::New() const {
 }
 
 void TravelDetail::Clear() {
-#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<TravelDetail*>(16)->f) - \
-   reinterpret_cast<char*>(16))
-
-#define ZR_(first, last) do {                              \
-    size_t f = OFFSET_OF_FIELD_(first);                    \
-    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
-    ::memset(&first, 0, n);                                \
-  } while (0)
-
-  if (_has_bits_[0 / 32] & 31) {
-    ZR_(db_idx_, cost_);
-    if (has_travel_info()) {
-      if (travel_info_ != NULL) travel_info_->::IM::Buddy::TravelInfo::Clear();
+  if (_has_bits_[0 / 32] & 3) {
+    if (has_transport_tool()) {
+      if (transport_tool_ != NULL) transport_tool_->::IM::Buddy::TransportTool::Clear();
     }
-    if (has_traffic_info()) {
-      if (traffic_info_ != NULL) traffic_info_->::IM::Buddy::TrafficInfo::Clear();
-    }
-    if (has_play_info()) {
-      if (play_info_ != NULL) play_info_->::IM::Buddy::PlayInfo::Clear();
+    if (has_play_detail()) {
+      if (play_detail_ != NULL) play_detail_->::IM::Buddy::PlayDetail::Clear();
     }
   }
-
-#undef OFFSET_OF_FIELD_
-#undef ZR_
-
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
@@ -8358,67 +7517,24 @@ bool TravelDetail::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 db_idx = 1;
+      // required .IM.Buddy.TransportTool transport_tool = 1;
       case 1: {
-        if (tag == 8) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &db_idx_)));
-          set_has_db_idx();
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_transport_tool()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_travel_info;
+        if (input->ExpectTag(18)) goto parse_play_detail;
         break;
       }
 
-      // required .IM.Buddy.TravelInfo travel_info = 2;
+      // required .IM.Buddy.PlayDetail play_detail = 2;
       case 2: {
         if (tag == 18) {
-         parse_travel_info:
+         parse_play_detail:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_travel_info()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(26)) goto parse_traffic_info;
-        break;
-      }
-
-      // required .IM.Buddy.TrafficInfo traffic_info = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_traffic_info:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_traffic_info()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(34)) goto parse_play_info;
-        break;
-      }
-
-      // required .IM.Buddy.PlayInfo play_info = 4;
-      case 4: {
-        if (tag == 34) {
-         parse_play_info:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_play_info()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(40)) goto parse_cost;
-        break;
-      }
-
-      // required uint32 cost = 5;
-      case 5: {
-        if (tag == 40) {
-         parse_cost:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &cost_)));
-          set_has_cost();
+               input, mutable_play_detail()));
         } else {
           goto handle_unusual;
         }
@@ -8451,32 +7567,16 @@ failure:
 void TravelDetail::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:IM.Buddy.TravelDetail)
-  // required uint32 db_idx = 1;
-  if (has_db_idx()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->db_idx(), output);
-  }
-
-  // required .IM.Buddy.TravelInfo travel_info = 2;
-  if (has_travel_info()) {
+  // required .IM.Buddy.TransportTool transport_tool = 1;
+  if (has_transport_tool()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      2, this->travel_info(), output);
+      1, this->transport_tool(), output);
   }
 
-  // required .IM.Buddy.TrafficInfo traffic_info = 3;
-  if (has_traffic_info()) {
+  // required .IM.Buddy.PlayDetail play_detail = 2;
+  if (has_play_detail()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      3, this->traffic_info(), output);
-  }
-
-  // required .IM.Buddy.PlayInfo play_info = 4;
-  if (has_play_info()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      4, this->play_info(), output);
-  }
-
-  // required uint32 cost = 5;
-  if (has_cost()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->cost(), output);
+      2, this->play_detail(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
@@ -8488,39 +7588,18 @@ int TravelDetail::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 db_idx = 1;
-    if (has_db_idx()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->db_idx());
-    }
-
-    // required .IM.Buddy.TravelInfo travel_info = 2;
-    if (has_travel_info()) {
+    // required .IM.Buddy.TransportTool transport_tool = 1;
+    if (has_transport_tool()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->travel_info());
+          this->transport_tool());
     }
 
-    // required .IM.Buddy.TrafficInfo traffic_info = 3;
-    if (has_traffic_info()) {
+    // required .IM.Buddy.PlayDetail play_detail = 2;
+    if (has_play_detail()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->traffic_info());
-    }
-
-    // required .IM.Buddy.PlayInfo play_info = 4;
-    if (has_play_info()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->play_info());
-    }
-
-    // required uint32 cost = 5;
-    if (has_cost()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->cost());
+          this->play_detail());
     }
 
   }
@@ -8540,20 +7619,11 @@ void TravelDetail::CheckTypeAndMergeFrom(
 void TravelDetail::MergeFrom(const TravelDetail& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_db_idx()) {
-      set_db_idx(from.db_idx());
+    if (from.has_transport_tool()) {
+      mutable_transport_tool()->::IM::Buddy::TransportTool::MergeFrom(from.transport_tool());
     }
-    if (from.has_travel_info()) {
-      mutable_travel_info()->::IM::Buddy::TravelInfo::MergeFrom(from.travel_info());
-    }
-    if (from.has_traffic_info()) {
-      mutable_traffic_info()->::IM::Buddy::TrafficInfo::MergeFrom(from.traffic_info());
-    }
-    if (from.has_play_info()) {
-      mutable_play_info()->::IM::Buddy::PlayInfo::MergeFrom(from.play_info());
-    }
-    if (from.has_cost()) {
-      set_cost(from.cost());
+    if (from.has_play_detail()) {
+      mutable_play_detail()->::IM::Buddy::PlayDetail::MergeFrom(from.play_detail());
     }
   }
   mutable_unknown_fields()->append(from.unknown_fields());
@@ -8566,27 +7636,21 @@ void TravelDetail::CopyFrom(const TravelDetail& from) {
 }
 
 bool TravelDetail::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (has_travel_info()) {
-    if (!this->travel_info().IsInitialized()) return false;
+  if (has_transport_tool()) {
+    if (!this->transport_tool().IsInitialized()) return false;
   }
-  if (has_traffic_info()) {
-    if (!this->traffic_info().IsInitialized()) return false;
-  }
-  if (has_play_info()) {
-    if (!this->play_info().IsInitialized()) return false;
+  if (has_play_detail()) {
+    if (!this->play_detail().IsInitialized()) return false;
   }
   return true;
 }
 
 void TravelDetail::Swap(TravelDetail* other) {
   if (other != this) {
-    std::swap(db_idx_, other->db_idx_);
-    std::swap(travel_info_, other->travel_info_);
-    std::swap(traffic_info_, other->traffic_info_);
-    std::swap(play_info_, other->play_info_);
-    std::swap(cost_, other->cost_);
+    std::swap(transport_tool_, other->transport_tool_);
+    std::swap(play_detail_, other->play_detail_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -8601,57 +7665,67 @@ void TravelDetail::Swap(TravelDetail* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int GetTravelListReq::kUserIdFieldNumber;
-const int GetTravelListReq::kAttachDataFieldNumber;
+const int TransportTool::kFromInfoFieldNumber;
+const int TransportTool::kBackInfoFieldNumber;
 #endif  // !_MSC_VER
 
-GetTravelListReq::GetTravelListReq()
+TransportTool::TransportTool()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.GetTravelListReq)
+  // @@protoc_insertion_point(constructor:IM.Buddy.TransportTool)
 }
 
-void GetTravelListReq::InitAsDefaultInstance() {
+void TransportTool::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  from_info_ = const_cast< ::IM::Buddy::TravelToolInfo*>(
+      ::IM::Buddy::TravelToolInfo::internal_default_instance());
+#else
+  from_info_ = const_cast< ::IM::Buddy::TravelToolInfo*>(&::IM::Buddy::TravelToolInfo::default_instance());
+#endif
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  back_info_ = const_cast< ::IM::Buddy::TravelToolInfo*>(
+      ::IM::Buddy::TravelToolInfo::internal_default_instance());
+#else
+  back_info_ = const_cast< ::IM::Buddy::TravelToolInfo*>(&::IM::Buddy::TravelToolInfo::default_instance());
+#endif
 }
 
-GetTravelListReq::GetTravelListReq(const GetTravelListReq& from)
+TransportTool::TransportTool(const TransportTool& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.GetTravelListReq)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.TransportTool)
 }
 
-void GetTravelListReq::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
+void TransportTool::SharedCtor() {
   _cached_size_ = 0;
-  user_id_ = 0u;
-  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  from_info_ = NULL;
+  back_info_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-GetTravelListReq::~GetTravelListReq() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.GetTravelListReq)
+TransportTool::~TransportTool() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.TransportTool)
   SharedDtor();
 }
 
-void GetTravelListReq::SharedDtor() {
-  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete attach_data_;
-  }
+void TransportTool::SharedDtor() {
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
   #else
   if (this != default_instance_) {
   #endif
+    delete from_info_;
+    delete back_info_;
   }
 }
 
-void GetTravelListReq::SetCachedSize(int size) const {
+void TransportTool::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const GetTravelListReq& GetTravelListReq::default_instance() {
+const TransportTool& TransportTool::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -8660,26 +7734,26 @@ const GetTravelListReq& GetTravelListReq::default_instance() {
   return *default_instance_;
 }
 
-GetTravelListReq* GetTravelListReq::default_instance_ = NULL;
+TransportTool* TransportTool::default_instance_ = NULL;
 
-GetTravelListReq* GetTravelListReq::New() const {
-  return new GetTravelListReq;
+TransportTool* TransportTool::New() const {
+  return new TransportTool;
 }
 
-void GetTravelListReq::Clear() {
+void TransportTool::Clear() {
   if (_has_bits_[0 / 32] & 3) {
-    user_id_ = 0u;
-    if (has_attach_data()) {
-      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        attach_data_->clear();
-      }
+    if (has_from_info()) {
+      if (from_info_ != NULL) from_info_->::IM::Buddy::TravelToolInfo::Clear();
+    }
+    if (has_back_info()) {
+      if (back_info_ != NULL) back_info_->::IM::Buddy::TravelToolInfo::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
 
-bool GetTravelListReq::MergePartialFromCodedStream(
+bool TransportTool::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -8687,32 +7761,30 @@ bool GetTravelListReq::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.GetTravelListReq)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.TransportTool)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 user_id = 1;
+      // required .IM.Buddy.TravelToolInfo from_info = 1;
       case 1: {
-        if (tag == 8) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &user_id_)));
-          set_has_user_id();
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_from_info()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(162)) goto parse_attach_data;
+        if (input->ExpectTag(18)) goto parse_back_info;
         break;
       }
 
-      // optional bytes attach_data = 20;
-      case 20: {
-        if (tag == 162) {
-         parse_attach_data:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_attach_data()));
+      // required .IM.Buddy.TravelToolInfo back_info = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_back_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_back_info()));
         } else {
           goto handle_unusual;
         }
@@ -8734,49 +7806,50 @@ bool GetTravelListReq::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.GetTravelListReq)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.TransportTool)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.GetTravelListReq)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.TransportTool)
   return false;
 #undef DO_
 }
 
-void GetTravelListReq::SerializeWithCachedSizes(
+void TransportTool::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.GetTravelListReq)
-  // required uint32 user_id = 1;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.TransportTool)
+  // required .IM.Buddy.TravelToolInfo from_info = 1;
+  if (has_from_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      1, this->from_info(), output);
   }
 
-  // optional bytes attach_data = 20;
-  if (has_attach_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      20, this->attach_data(), output);
+  // required .IM.Buddy.TravelToolInfo back_info = 2;
+  if (has_back_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      2, this->back_info(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.GetTravelListReq)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.TransportTool)
 }
 
-int GetTravelListReq::ByteSize() const {
+int TransportTool::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 user_id = 1;
-    if (has_user_id()) {
+    // required .IM.Buddy.TravelToolInfo from_info = 1;
+    if (has_from_info()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->user_id());
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->from_info());
     }
 
-    // optional bytes attach_data = 20;
-    if (has_attach_data()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->attach_data());
+    // required .IM.Buddy.TravelToolInfo back_info = 2;
+    if (has_back_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->back_info());
     }
 
   }
@@ -8788,93 +7861,946 @@ int GetTravelListReq::ByteSize() const {
   return total_size;
 }
 
-void GetTravelListReq::CheckTypeAndMergeFrom(
+void TransportTool::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const GetTravelListReq*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const TransportTool*>(&from));
 }
 
-void GetTravelListReq::MergeFrom(const GetTravelListReq& from) {
+void TransportTool::MergeFrom(const TransportTool& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_user_id()) {
-      set_user_id(from.user_id());
+    if (from.has_from_info()) {
+      mutable_from_info()->::IM::Buddy::TravelToolInfo::MergeFrom(from.from_info());
     }
-    if (from.has_attach_data()) {
-      set_attach_data(from.attach_data());
+    if (from.has_back_info()) {
+      mutable_back_info()->::IM::Buddy::TravelToolInfo::MergeFrom(from.back_info());
     }
   }
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void GetTravelListReq::CopyFrom(const GetTravelListReq& from) {
+void TransportTool::CopyFrom(const TransportTool& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GetTravelListReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+bool TransportTool::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
+  if (has_from_info()) {
+    if (!this->from_info().IsInitialized()) return false;
+  }
+  if (has_back_info()) {
+    if (!this->back_info().IsInitialized()) return false;
+  }
   return true;
 }
 
-void GetTravelListReq::Swap(GetTravelListReq* other) {
+void TransportTool::Swap(TransportTool* other) {
   if (other != this) {
-    std::swap(user_id_, other->user_id_);
-    std::swap(attach_data_, other->attach_data_);
+    std::swap(from_info_, other->from_info_);
+    std::swap(back_info_, other->back_info_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string GetTravelListReq::GetTypeName() const {
-  return "IM.Buddy.GetTravelListReq";
+::std::string TransportTool::GetTypeName() const {
+  return "IM.Buddy.TransportTool";
 }
 
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int GetTravelTripListRsp::kUserIdFieldNumber;
-const int GetTravelTripListRsp::kResultCodeFieldNumber;
-const int GetTravelTripListRsp::kTravelDetailFieldNumber;
-const int GetTravelTripListRsp::kAttachDataFieldNumber;
+const int DayScenic::kDayTimeFromFieldNumber;
+const int DayScenic::kDayTimeToFieldNumber;
+const int DayScenic::kScenicInfoFieldNumber;
 #endif  // !_MSC_VER
 
-GetTravelTripListRsp::GetTravelTripListRsp()
+DayScenic::DayScenic()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.GetTravelTripListRsp)
+  // @@protoc_insertion_point(constructor:IM.Buddy.DayScenic)
 }
 
-void GetTravelTripListRsp::InitAsDefaultInstance() {
+void DayScenic::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  scenic_info_ = const_cast< ::IM::Buddy::ScenicInfo*>(
+      ::IM::Buddy::ScenicInfo::internal_default_instance());
+#else
+  scenic_info_ = const_cast< ::IM::Buddy::ScenicInfo*>(&::IM::Buddy::ScenicInfo::default_instance());
+#endif
 }
 
-GetTravelTripListRsp::GetTravelTripListRsp(const GetTravelTripListRsp& from)
+DayScenic::DayScenic(const DayScenic& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.GetTravelTripListRsp)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.DayScenic)
 }
 
-void GetTravelTripListRsp::SharedCtor() {
+void DayScenic::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  user_id_ = 0u;
-  result_code_ = 0u;
-  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  daytimefrom_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  daytimeto_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  scenic_info_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-GetTravelTripListRsp::~GetTravelTripListRsp() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.GetTravelTripListRsp)
+DayScenic::~DayScenic() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.DayScenic)
   SharedDtor();
 }
 
-void GetTravelTripListRsp::SharedDtor() {
-  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete attach_data_;
+void DayScenic::SharedDtor() {
+  if (daytimefrom_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete daytimefrom_;
+  }
+  if (daytimeto_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete daytimeto_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete scenic_info_;
+  }
+}
+
+void DayScenic::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const DayScenic& DayScenic::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+DayScenic* DayScenic::default_instance_ = NULL;
+
+DayScenic* DayScenic::New() const {
+  return new DayScenic;
+}
+
+void DayScenic::Clear() {
+  if (_has_bits_[0 / 32] & 7) {
+    if (has_daytimefrom()) {
+      if (daytimefrom_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        daytimefrom_->clear();
+      }
+    }
+    if (has_daytimeto()) {
+      if (daytimeto_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        daytimeto_->clear();
+      }
+    }
+    if (has_scenic_info()) {
+      if (scenic_info_ != NULL) scenic_info_->::IM::Buddy::ScenicInfo::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool DayScenic::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.DayScenic)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string dayTimeFrom = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_daytimefrom()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_dayTimeTo;
+        break;
+      }
+
+      // required string dayTimeTo = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_dayTimeTo:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_daytimeto()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_scenic_info;
+        break;
+      }
+
+      // required .IM.Buddy.ScenicInfo scenic_info = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_scenic_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_scenic_info()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.DayScenic)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.DayScenic)
+  return false;
+#undef DO_
+}
+
+void DayScenic::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.DayScenic)
+  // required string dayTimeFrom = 1;
+  if (has_daytimefrom()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->daytimefrom(), output);
+  }
+
+  // required string dayTimeTo = 2;
+  if (has_daytimeto()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->daytimeto(), output);
+  }
+
+  // required .IM.Buddy.ScenicInfo scenic_info = 3;
+  if (has_scenic_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->scenic_info(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.DayScenic)
+}
+
+int DayScenic::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string dayTimeFrom = 1;
+    if (has_daytimefrom()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->daytimefrom());
+    }
+
+    // required string dayTimeTo = 2;
+    if (has_daytimeto()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->daytimeto());
+    }
+
+    // required .IM.Buddy.ScenicInfo scenic_info = 3;
+    if (has_scenic_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->scenic_info());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DayScenic::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const DayScenic*>(&from));
+}
+
+void DayScenic::MergeFrom(const DayScenic& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_daytimefrom()) {
+      set_daytimefrom(from.daytimefrom());
+    }
+    if (from.has_daytimeto()) {
+      set_daytimeto(from.daytimeto());
+    }
+    if (from.has_scenic_info()) {
+      mutable_scenic_info()->::IM::Buddy::ScenicInfo::MergeFrom(from.scenic_info());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void DayScenic::CopyFrom(const DayScenic& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DayScenic::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  if (has_scenic_info()) {
+    if (!this->scenic_info().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void DayScenic::Swap(DayScenic* other) {
+  if (other != this) {
+    std::swap(daytimefrom_, other->daytimefrom_);
+    std::swap(daytimeto_, other->daytimeto_);
+    std::swap(scenic_info_, other->scenic_info_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string DayScenic::GetTypeName() const {
+  return "IM.Buddy.DayScenic";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DayHotel::kDayTimeFromFieldNumber;
+const int DayHotel::kDayTimeToFieldNumber;
+const int DayHotel::kHotelInfoFieldNumber;
+#endif  // !_MSC_VER
+
+DayHotel::DayHotel()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.DayHotel)
+}
+
+void DayHotel::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  hotel_info_ = const_cast< ::IM::Buddy::HotelInfo*>(
+      ::IM::Buddy::HotelInfo::internal_default_instance());
+#else
+  hotel_info_ = const_cast< ::IM::Buddy::HotelInfo*>(&::IM::Buddy::HotelInfo::default_instance());
+#endif
+}
+
+DayHotel::DayHotel(const DayHotel& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.DayHotel)
+}
+
+void DayHotel::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  daytimefrom_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  daytimeto_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  hotel_info_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DayHotel::~DayHotel() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.DayHotel)
+  SharedDtor();
+}
+
+void DayHotel::SharedDtor() {
+  if (daytimefrom_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete daytimefrom_;
+  }
+  if (daytimeto_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete daytimeto_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete hotel_info_;
+  }
+}
+
+void DayHotel::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const DayHotel& DayHotel::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+DayHotel* DayHotel::default_instance_ = NULL;
+
+DayHotel* DayHotel::New() const {
+  return new DayHotel;
+}
+
+void DayHotel::Clear() {
+  if (_has_bits_[0 / 32] & 7) {
+    if (has_daytimefrom()) {
+      if (daytimefrom_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        daytimefrom_->clear();
+      }
+    }
+    if (has_daytimeto()) {
+      if (daytimeto_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        daytimeto_->clear();
+      }
+    }
+    if (has_hotel_info()) {
+      if (hotel_info_ != NULL) hotel_info_->::IM::Buddy::HotelInfo::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool DayHotel::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.DayHotel)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string dayTimeFrom = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_daytimefrom()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_dayTimeTo;
+        break;
+      }
+
+      // required string dayTimeTo = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_dayTimeTo:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_daytimeto()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_hotel_info;
+        break;
+      }
+
+      // required .IM.Buddy.HotelInfo hotel_info = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_hotel_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_hotel_info()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.DayHotel)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.DayHotel)
+  return false;
+#undef DO_
+}
+
+void DayHotel::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.DayHotel)
+  // required string dayTimeFrom = 1;
+  if (has_daytimefrom()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->daytimefrom(), output);
+  }
+
+  // required string dayTimeTo = 2;
+  if (has_daytimeto()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->daytimeto(), output);
+  }
+
+  // required .IM.Buddy.HotelInfo hotel_info = 3;
+  if (has_hotel_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->hotel_info(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.DayHotel)
+}
+
+int DayHotel::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string dayTimeFrom = 1;
+    if (has_daytimefrom()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->daytimefrom());
+    }
+
+    // required string dayTimeTo = 2;
+    if (has_daytimeto()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->daytimeto());
+    }
+
+    // required .IM.Buddy.HotelInfo hotel_info = 3;
+    if (has_hotel_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->hotel_info());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DayHotel::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const DayHotel*>(&from));
+}
+
+void DayHotel::MergeFrom(const DayHotel& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_daytimefrom()) {
+      set_daytimefrom(from.daytimefrom());
+    }
+    if (from.has_daytimeto()) {
+      set_daytimeto(from.daytimeto());
+    }
+    if (from.has_hotel_info()) {
+      mutable_hotel_info()->::IM::Buddy::HotelInfo::MergeFrom(from.hotel_info());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void DayHotel::CopyFrom(const DayHotel& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DayHotel::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  if (has_hotel_info()) {
+    if (!this->hotel_info().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void DayHotel::Swap(DayHotel* other) {
+  if (other != this) {
+    std::swap(daytimefrom_, other->daytimefrom_);
+    std::swap(daytimeto_, other->daytimeto_);
+    std::swap(hotel_info_, other->hotel_info_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string DayHotel::GetTypeName() const {
+  return "IM.Buddy.DayHotel";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PlayDetail::kPlayConfigFieldNumber;
+const int PlayDetail::kDayHotelFieldNumber;
+const int PlayDetail::kDayScenicFieldNumber;
+#endif  // !_MSC_VER
+
+PlayDetail::PlayDetail()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.PlayDetail)
+}
+
+void PlayDetail::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  play_config_ = const_cast< ::IM::Buddy::PlayConfig*>(
+      ::IM::Buddy::PlayConfig::internal_default_instance());
+#else
+  play_config_ = const_cast< ::IM::Buddy::PlayConfig*>(&::IM::Buddy::PlayConfig::default_instance());
+#endif
+}
+
+PlayDetail::PlayDetail(const PlayDetail& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.PlayDetail)
+}
+
+void PlayDetail::SharedCtor() {
+  _cached_size_ = 0;
+  play_config_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PlayDetail::~PlayDetail() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.PlayDetail)
+  SharedDtor();
+}
+
+void PlayDetail::SharedDtor() {
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete play_config_;
+  }
+}
+
+void PlayDetail::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const PlayDetail& PlayDetail::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+PlayDetail* PlayDetail::default_instance_ = NULL;
+
+PlayDetail* PlayDetail::New() const {
+  return new PlayDetail;
+}
+
+void PlayDetail::Clear() {
+  if (has_play_config()) {
+    if (play_config_ != NULL) play_config_->::IM::Buddy::PlayConfig::Clear();
+  }
+  day_hotel_.Clear();
+  day_scenic_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool PlayDetail::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.PlayDetail)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .IM.Buddy.PlayConfig play_config = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_play_config()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_day_hotel;
+        break;
+      }
+
+      // repeated .IM.Buddy.DayHotel day_hotel = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_day_hotel:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_day_hotel()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_day_hotel;
+        if (input->ExpectTag(26)) goto parse_day_scenic;
+        break;
+      }
+
+      // repeated .IM.Buddy.DayScenic day_scenic = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_day_scenic:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_day_scenic()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_day_scenic;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.PlayDetail)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.PlayDetail)
+  return false;
+#undef DO_
+}
+
+void PlayDetail::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.PlayDetail)
+  // required .IM.Buddy.PlayConfig play_config = 1;
+  if (has_play_config()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      1, this->play_config(), output);
+  }
+
+  // repeated .IM.Buddy.DayHotel day_hotel = 2;
+  for (int i = 0; i < this->day_hotel_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      2, this->day_hotel(i), output);
+  }
+
+  // repeated .IM.Buddy.DayScenic day_scenic = 3;
+  for (int i = 0; i < this->day_scenic_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->day_scenic(i), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.PlayDetail)
+}
+
+int PlayDetail::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .IM.Buddy.PlayConfig play_config = 1;
+    if (has_play_config()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->play_config());
+    }
+
+  }
+  // repeated .IM.Buddy.DayHotel day_hotel = 2;
+  total_size += 1 * this->day_hotel_size();
+  for (int i = 0; i < this->day_hotel_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->day_hotel(i));
+  }
+
+  // repeated .IM.Buddy.DayScenic day_scenic = 3;
+  total_size += 1 * this->day_scenic_size();
+  for (int i = 0; i < this->day_scenic_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->day_scenic(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PlayDetail::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const PlayDetail*>(&from));
+}
+
+void PlayDetail::MergeFrom(const PlayDetail& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  day_hotel_.MergeFrom(from.day_hotel_);
+  day_scenic_.MergeFrom(from.day_scenic_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_play_config()) {
+      mutable_play_config()->::IM::Buddy::PlayConfig::MergeFrom(from.play_config());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void PlayDetail::CopyFrom(const PlayDetail& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PlayDetail::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  if (has_play_config()) {
+    if (!this->play_config().IsInitialized()) return false;
+  }
+  if (!::google::protobuf::internal::AllAreInitialized(this->day_hotel())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->day_scenic())) return false;
+  return true;
+}
+
+void PlayDetail::Swap(PlayDetail* other) {
+  if (other != this) {
+    std::swap(play_config_, other->play_config_);
+    day_hotel_.Swap(&other->day_hotel_);
+    day_scenic_.Swap(&other->day_scenic_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string PlayDetail::GetTypeName() const {
+  return "IM.Buddy.PlayDetail";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PlayConfig::kQualityFieldNumber;
+const int PlayConfig::kTimeFromFieldNumber;
+const int PlayConfig::kTimeToFieldNumber;
+const int PlayConfig::kTransportToolTypeFieldNumber;
+const int PlayConfig::kPositionFieldNumber;
+#endif  // !_MSC_VER
+
+PlayConfig::PlayConfig()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.PlayConfig)
+}
+
+void PlayConfig::InitAsDefaultInstance() {
+}
+
+PlayConfig::PlayConfig(const PlayConfig& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.PlayConfig)
+}
+
+void PlayConfig::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  quality_ = 1;
+  time_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  time_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  transport_tool_type_ = 0u;
+  position_ = 1;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PlayConfig::~PlayConfig() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.PlayConfig)
+  SharedDtor();
+}
+
+void PlayConfig::SharedDtor() {
+  if (time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete time_from_;
+  }
+  if (time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete time_to_;
   }
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
@@ -8884,12 +8810,12 @@ void GetTravelTripListRsp::SharedDtor() {
   }
 }
 
-void GetTravelTripListRsp::SetCachedSize(int size) const {
+void PlayConfig::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const GetTravelTripListRsp& GetTravelTripListRsp::default_instance() {
+const PlayConfig& PlayConfig::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -8898,15 +8824,401 @@ const GetTravelTripListRsp& GetTravelTripListRsp::default_instance() {
   return *default_instance_;
 }
 
-GetTravelTripListRsp* GetTravelTripListRsp::default_instance_ = NULL;
+PlayConfig* PlayConfig::default_instance_ = NULL;
 
-GetTravelTripListRsp* GetTravelTripListRsp::New() const {
-  return new GetTravelTripListRsp;
+PlayConfig* PlayConfig::New() const {
+  return new PlayConfig;
 }
 
-void GetTravelTripListRsp::Clear() {
+void PlayConfig::Clear() {
+  if (_has_bits_[0 / 32] & 31) {
+    quality_ = 1;
+    if (has_time_from()) {
+      if (time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        time_from_->clear();
+      }
+    }
+    if (has_time_to()) {
+      if (time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        time_to_->clear();
+      }
+    }
+    transport_tool_type_ = 0u;
+    position_ = 1;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool PlayConfig::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.PlayConfig)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .IM.Buddy.QualityType quality = 1;
+      case 1: {
+        if (tag == 8) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::IM::Buddy::QualityType_IsValid(value)) {
+            set_quality(static_cast< ::IM::Buddy::QualityType >(value));
+          } else {
+            unknown_fields_stream.WriteVarint32(tag);
+            unknown_fields_stream.WriteVarint32(value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_time_from;
+        break;
+      }
+
+      // required string time_from = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_time_from:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_time_from()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_time_to;
+        break;
+      }
+
+      // required string time_to = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_time_to:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_time_to()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_transport_tool_type;
+        break;
+      }
+
+      // required uint32 transport_tool_type = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_transport_tool_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &transport_tool_type_)));
+          set_has_transport_tool_type();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_position;
+        break;
+      }
+
+      // required .IM.Buddy.PositionType position = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_position:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::IM::Buddy::PositionType_IsValid(value)) {
+            set_position(static_cast< ::IM::Buddy::PositionType >(value));
+          } else {
+            unknown_fields_stream.WriteVarint32(tag);
+            unknown_fields_stream.WriteVarint32(value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.PlayConfig)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.PlayConfig)
+  return false;
+#undef DO_
+}
+
+void PlayConfig::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.PlayConfig)
+  // required .IM.Buddy.QualityType quality = 1;
+  if (has_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->quality(), output);
+  }
+
+  // required string time_from = 2;
+  if (has_time_from()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->time_from(), output);
+  }
+
+  // required string time_to = 3;
+  if (has_time_to()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->time_to(), output);
+  }
+
+  // required uint32 transport_tool_type = 4;
+  if (has_transport_tool_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->transport_tool_type(), output);
+  }
+
+  // required .IM.Buddy.PositionType position = 5;
+  if (has_position()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      5, this->position(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.PlayConfig)
+}
+
+int PlayConfig::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .IM.Buddy.QualityType quality = 1;
+    if (has_quality()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->quality());
+    }
+
+    // required string time_from = 2;
+    if (has_time_from()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->time_from());
+    }
+
+    // required string time_to = 3;
+    if (has_time_to()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->time_to());
+    }
+
+    // required uint32 transport_tool_type = 4;
+    if (has_transport_tool_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->transport_tool_type());
+    }
+
+    // required .IM.Buddy.PositionType position = 5;
+    if (has_position()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->position());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PlayConfig::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const PlayConfig*>(&from));
+}
+
+void PlayConfig::MergeFrom(const PlayConfig& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_quality()) {
+      set_quality(from.quality());
+    }
+    if (from.has_time_from()) {
+      set_time_from(from.time_from());
+    }
+    if (from.has_time_to()) {
+      set_time_to(from.time_to());
+    }
+    if (from.has_transport_tool_type()) {
+      set_transport_tool_type(from.transport_tool_type());
+    }
+    if (from.has_position()) {
+      set_position(from.position());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void PlayConfig::CopyFrom(const PlayConfig& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PlayConfig::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+
+  return true;
+}
+
+void PlayConfig::Swap(PlayConfig* other) {
+  if (other != this) {
+    std::swap(quality_, other->quality_);
+    std::swap(time_from_, other->time_from_);
+    std::swap(time_to_, other->time_to_);
+    std::swap(transport_tool_type_, other->transport_tool_type_);
+    std::swap(position_, other->position_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string PlayConfig::GetTypeName() const {
+  return "IM.Buddy.PlayConfig";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ScenicInfo::kIdFieldNumber;
+const int ScenicInfo::kCityCodeFieldNumber;
+const int ScenicInfo::kNameFieldNumber;
+const int ScenicInfo::kScoreFieldNumber;
+const int ScenicInfo::kTagsFieldNumber;
+const int ScenicInfo::kFreeFieldNumber;
+const int ScenicInfo::kMustSeeFieldNumber;
+const int ScenicInfo::kUrlFieldNumber;
+const int ScenicInfo::kClassFieldNumber;
+const int ScenicInfo::kPlayTimeFieldNumber;
+const int ScenicInfo::kPriceFieldNumber;
+const int ScenicInfo::kBestTimeFromFieldNumber;
+const int ScenicInfo::kBestTimeToFieldNumber;
+#endif  // !_MSC_VER
+
+ScenicInfo::ScenicInfo()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.ScenicInfo)
+}
+
+void ScenicInfo::InitAsDefaultInstance() {
+}
+
+ScenicInfo::ScenicInfo(const ScenicInfo& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.ScenicInfo)
+}
+
+void ScenicInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  id_ = 0u;
+  city_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  score_ = 0u;
+  tags_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  free_ = 0u;
+  must_see_ = 0u;
+  url_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  class__ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  play_time_ = 0u;
+  price_ = 0u;
+  best_time_from_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  best_time_to_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ScenicInfo::~ScenicInfo() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.ScenicInfo)
+  SharedDtor();
+}
+
+void ScenicInfo::SharedDtor() {
+  if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete city_code_;
+  }
+  if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete name_;
+  }
+  if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete tags_;
+  }
+  if (url_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete url_;
+  }
+  if (class__ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete class__;
+  }
+  if (best_time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete best_time_from_;
+  }
+  if (best_time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete best_time_to_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void ScenicInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ScenicInfo& ScenicInfo::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+ScenicInfo* ScenicInfo::default_instance_ = NULL;
+
+ScenicInfo* ScenicInfo::New() const {
+  return new ScenicInfo;
+}
+
+void ScenicInfo::Clear() {
 #define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<GetTravelTripListRsp*>(16)->f) - \
+  &reinterpret_cast<ScenicInfo*>(16)->f) - \
    reinterpret_cast<char*>(16))
 
 #define ZR_(first, last) do {                              \
@@ -8915,11 +9227,45 @@ void GetTravelTripListRsp::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 11) {
-    ZR_(user_id_, result_code_);
-    if (has_attach_data()) {
-      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        attach_data_->clear();
+  if (_has_bits_[0 / 32] & 255) {
+    ZR_(id_, score_);
+    ZR_(free_, must_see_);
+    if (has_city_code()) {
+      if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        city_code_->clear();
+      }
+    }
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        name_->clear();
+      }
+    }
+    if (has_tags()) {
+      if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        tags_->clear();
+      }
+    }
+    if (has_url()) {
+      if (url_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        url_->clear();
+      }
+    }
+  }
+  if (_has_bits_[8 / 32] & 7936) {
+    ZR_(play_time_, price_);
+    if (has_class_()) {
+      if (class__ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        class__->clear();
+      }
+    }
+    if (has_best_time_from()) {
+      if (best_time_from_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        best_time_from_->clear();
+      }
+    }
+    if (has_best_time_to()) {
+      if (best_time_to_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        best_time_to_->clear();
       }
     }
   }
@@ -8927,12 +9273,11 @@ void GetTravelTripListRsp::Clear() {
 #undef OFFSET_OF_FIELD_
 #undef ZR_
 
-  travel_detail_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
 
-bool GetTravelTripListRsp::MergePartialFromCodedStream(
+bool ScenicInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -8940,61 +9285,185 @@ bool GetTravelTripListRsp::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.GetTravelTripListRsp)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.ScenicInfo)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 user_id = 1;
+      // required uint32 id = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &user_id_)));
-          set_has_user_id();
+                 input, &id_)));
+          set_has_id();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_result_code;
+        if (input->ExpectTag(18)) goto parse_city_code;
         break;
       }
 
-      // required uint32 result_code = 2;
+      // required string city_code = 2;
       case 2: {
-        if (tag == 16) {
-         parse_result_code:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &result_code_)));
-          set_has_result_code();
+        if (tag == 18) {
+         parse_city_code:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_city_code()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_travel_detail;
+        if (input->ExpectTag(26)) goto parse_name;
         break;
       }
 
-      // repeated .IM.Buddy.TravelDetail travel_detail = 3;
+      // required string name = 3;
       case 3: {
         if (tag == 26) {
-         parse_travel_detail:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_travel_detail()));
+         parse_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_travel_detail;
-        if (input->ExpectTag(162)) goto parse_attach_data;
+        if (input->ExpectTag(32)) goto parse_score;
         break;
       }
 
-      // optional bytes attach_data = 20;
-      case 20: {
-        if (tag == 162) {
-         parse_attach_data:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_attach_data()));
+      // required uint32 score = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_score:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &score_)));
+          set_has_score();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_tags;
+        break;
+      }
+
+      // required string tags = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_tags:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_tags()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_free;
+        break;
+      }
+
+      // required uint32 free = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_free:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &free_)));
+          set_has_free();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_must_see;
+        break;
+      }
+
+      // required uint32 must_see = 7;
+      case 7: {
+        if (tag == 56) {
+         parse_must_see:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &must_see_)));
+          set_has_must_see();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_url;
+        break;
+      }
+
+      // required string url = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_url:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(74)) goto parse_class;
+        break;
+      }
+
+      // required string class = 9;
+      case 9: {
+        if (tag == 74) {
+         parse_class:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_class_()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_play_time;
+        break;
+      }
+
+      // required uint32 play_time = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_play_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &play_time_)));
+          set_has_play_time();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(88)) goto parse_price;
+        break;
+      }
+
+      // required uint32 price = 11;
+      case 11: {
+        if (tag == 88) {
+         parse_price:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &price_)));
+          set_has_price();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(98)) goto parse_best_time_from;
+        break;
+      }
+
+      // required string best_time_from = 12;
+      case 12: {
+        if (tag == 98) {
+         parse_best_time_from:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_best_time_from()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(106)) goto parse_best_time_to;
+        break;
+      }
+
+      // required string best_time_to = 13;
+      case 13: {
+        if (tag == 106) {
+         parse_best_time_to:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_best_time_to()));
         } else {
           goto handle_unusual;
         }
@@ -9016,78 +9485,192 @@ bool GetTravelTripListRsp::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.GetTravelTripListRsp)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.ScenicInfo)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.GetTravelTripListRsp)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.ScenicInfo)
   return false;
 #undef DO_
 }
 
-void GetTravelTripListRsp::SerializeWithCachedSizes(
+void ScenicInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.GetTravelTripListRsp)
-  // required uint32 user_id = 1;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.ScenicInfo)
+  // required uint32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
-  // required uint32 result_code = 2;
-  if (has_result_code()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  // required string city_code = 2;
+  if (has_city_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->city_code(), output);
   }
 
-  // repeated .IM.Buddy.TravelDetail travel_detail = 3;
-  for (int i = 0; i < this->travel_detail_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      3, this->travel_detail(i), output);
+  // required string name = 3;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->name(), output);
   }
 
-  // optional bytes attach_data = 20;
-  if (has_attach_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      20, this->attach_data(), output);
+  // required uint32 score = 4;
+  if (has_score()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->score(), output);
+  }
+
+  // required string tags = 5;
+  if (has_tags()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->tags(), output);
+  }
+
+  // required uint32 free = 6;
+  if (has_free()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->free(), output);
+  }
+
+  // required uint32 must_see = 7;
+  if (has_must_see()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->must_see(), output);
+  }
+
+  // required string url = 8;
+  if (has_url()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->url(), output);
+  }
+
+  // required string class = 9;
+  if (has_class_()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      9, this->class_(), output);
+  }
+
+  // required uint32 play_time = 10;
+  if (has_play_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->play_time(), output);
+  }
+
+  // required uint32 price = 11;
+  if (has_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(11, this->price(), output);
+  }
+
+  // required string best_time_from = 12;
+  if (has_best_time_from()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      12, this->best_time_from(), output);
+  }
+
+  // required string best_time_to = 13;
+  if (has_best_time_to()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      13, this->best_time_to(), output);
   }
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.GetTravelTripListRsp)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.ScenicInfo)
 }
 
-int GetTravelTripListRsp::ByteSize() const {
+int ScenicInfo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 user_id = 1;
-    if (has_user_id()) {
+    // required uint32 id = 1;
+    if (has_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->user_id());
+          this->id());
     }
 
-    // required uint32 result_code = 2;
-    if (has_result_code()) {
+    // required string city_code = 2;
+    if (has_city_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->city_code());
+    }
+
+    // required string name = 3;
+    if (has_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->name());
+    }
+
+    // required uint32 score = 4;
+    if (has_score()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->result_code());
+          this->score());
     }
 
-    // optional bytes attach_data = 20;
-    if (has_attach_data()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->attach_data());
+    // required string tags = 5;
+    if (has_tags()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->tags());
+    }
+
+    // required uint32 free = 6;
+    if (has_free()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->free());
+    }
+
+    // required uint32 must_see = 7;
+    if (has_must_see()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->must_see());
+    }
+
+    // required string url = 8;
+    if (has_url()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->url());
     }
 
   }
-  // repeated .IM.Buddy.TravelDetail travel_detail = 3;
-  total_size += 1 * this->travel_detail_size();
-  for (int i = 0; i < this->travel_detail_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->travel_detail(i));
-  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // required string class = 9;
+    if (has_class_()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->class_());
+    }
 
+    // required uint32 play_time = 10;
+    if (has_play_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->play_time());
+    }
+
+    // required uint32 price = 11;
+    if (has_price()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->price());
+    }
+
+    // required string best_time_from = 12;
+    if (has_best_time_from()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->best_time_from());
+    }
+
+    // required string best_time_to = 13;
+    if (has_best_time_to()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->best_time_to());
+    }
+
+  }
   total_size += unknown_fields().size();
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -9096,121 +9679,179 @@ int GetTravelTripListRsp::ByteSize() const {
   return total_size;
 }
 
-void GetTravelTripListRsp::CheckTypeAndMergeFrom(
+void ScenicInfo::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const GetTravelTripListRsp*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const ScenicInfo*>(&from));
 }
 
-void GetTravelTripListRsp::MergeFrom(const GetTravelTripListRsp& from) {
+void ScenicInfo::MergeFrom(const ScenicInfo& from) {
   GOOGLE_CHECK_NE(&from, this);
-  travel_detail_.MergeFrom(from.travel_detail_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_user_id()) {
-      set_user_id(from.user_id());
+    if (from.has_id()) {
+      set_id(from.id());
     }
-    if (from.has_result_code()) {
-      set_result_code(from.result_code());
+    if (from.has_city_code()) {
+      set_city_code(from.city_code());
     }
-    if (from.has_attach_data()) {
-      set_attach_data(from.attach_data());
+    if (from.has_name()) {
+      set_name(from.name());
+    }
+    if (from.has_score()) {
+      set_score(from.score());
+    }
+    if (from.has_tags()) {
+      set_tags(from.tags());
+    }
+    if (from.has_free()) {
+      set_free(from.free());
+    }
+    if (from.has_must_see()) {
+      set_must_see(from.must_see());
+    }
+    if (from.has_url()) {
+      set_url(from.url());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_class_()) {
+      set_class_(from.class_());
+    }
+    if (from.has_play_time()) {
+      set_play_time(from.play_time());
+    }
+    if (from.has_price()) {
+      set_price(from.price());
+    }
+    if (from.has_best_time_from()) {
+      set_best_time_from(from.best_time_from());
+    }
+    if (from.has_best_time_to()) {
+      set_best_time_to(from.best_time_to());
     }
   }
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void GetTravelTripListRsp::CopyFrom(const GetTravelTripListRsp& from) {
+void ScenicInfo::CopyFrom(const ScenicInfo& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GetTravelTripListRsp::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+bool ScenicInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00001fff) != 0x00001fff) return false;
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->travel_detail())) return false;
   return true;
 }
 
-void GetTravelTripListRsp::Swap(GetTravelTripListRsp* other) {
+void ScenicInfo::Swap(ScenicInfo* other) {
   if (other != this) {
-    std::swap(user_id_, other->user_id_);
-    std::swap(result_code_, other->result_code_);
-    travel_detail_.Swap(&other->travel_detail_);
-    std::swap(attach_data_, other->attach_data_);
+    std::swap(id_, other->id_);
+    std::swap(city_code_, other->city_code_);
+    std::swap(name_, other->name_);
+    std::swap(score_, other->score_);
+    std::swap(tags_, other->tags_);
+    std::swap(free_, other->free_);
+    std::swap(must_see_, other->must_see_);
+    std::swap(url_, other->url_);
+    std::swap(class__, other->class__);
+    std::swap(play_time_, other->play_time_);
+    std::swap(price_, other->price_);
+    std::swap(best_time_from_, other->best_time_from_);
+    std::swap(best_time_to_, other->best_time_to_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string GetTravelTripListRsp::GetTypeName() const {
-  return "IM.Buddy.GetTravelTripListRsp";
+::std::string ScenicInfo::GetTypeName() const {
+  return "IM.Buddy.ScenicInfo";
 }
 
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int CreateTravelReq::kUserIdFieldNumber;
-const int CreateTravelReq::kTravelDetailFieldNumber;
-const int CreateTravelReq::kAttachDataFieldNumber;
+const int HotelInfo::kIdFieldNumber;
+const int HotelInfo::kCityCodeFieldNumber;
+const int HotelInfo::kNameFieldNumber;
+const int HotelInfo::kScoreFieldNumber;
+const int HotelInfo::kTagsFieldNumber;
+const int HotelInfo::kMustSeeFieldNumber;
+const int HotelInfo::kUrlFieldNumber;
+const int HotelInfo::kClassFieldNumber;
+const int HotelInfo::kPriceFieldNumber;
+const int HotelInfo::kDistanceFieldNumber;
 #endif  // !_MSC_VER
 
-CreateTravelReq::CreateTravelReq()
+HotelInfo::HotelInfo()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.CreateTravelReq)
+  // @@protoc_insertion_point(constructor:IM.Buddy.HotelInfo)
 }
 
-void CreateTravelReq::InitAsDefaultInstance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  travel_detail_ = const_cast< ::IM::Buddy::TravelDetail*>(
-      ::IM::Buddy::TravelDetail::internal_default_instance());
-#else
-  travel_detail_ = const_cast< ::IM::Buddy::TravelDetail*>(&::IM::Buddy::TravelDetail::default_instance());
-#endif
+void HotelInfo::InitAsDefaultInstance() {
 }
 
-CreateTravelReq::CreateTravelReq(const CreateTravelReq& from)
+HotelInfo::HotelInfo(const HotelInfo& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.CreateTravelReq)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.HotelInfo)
 }
 
-void CreateTravelReq::SharedCtor() {
+void HotelInfo::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  user_id_ = 0u;
-  travel_detail_ = NULL;
-  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_ = 0u;
+  city_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  score_ = 0u;
+  tags_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  must_see_ = 0u;
+  url_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  class__ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  price_ = 0u;
+  distance_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-CreateTravelReq::~CreateTravelReq() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.CreateTravelReq)
+HotelInfo::~HotelInfo() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.HotelInfo)
   SharedDtor();
 }
 
-void CreateTravelReq::SharedDtor() {
-  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete attach_data_;
+void HotelInfo::SharedDtor() {
+  if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete city_code_;
+  }
+  if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete name_;
+  }
+  if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete tags_;
+  }
+  if (url_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete url_;
+  }
+  if (class__ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete class__;
   }
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   if (this != &default_instance()) {
   #else
   if (this != default_instance_) {
   #endif
-    delete travel_detail_;
   }
 }
 
-void CreateTravelReq::SetCachedSize(int size) const {
+void HotelInfo::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const CreateTravelReq& CreateTravelReq::default_instance() {
+const HotelInfo& HotelInfo::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -9219,17 +9860,924 @@ const CreateTravelReq& CreateTravelReq::default_instance() {
   return *default_instance_;
 }
 
-CreateTravelReq* CreateTravelReq::default_instance_ = NULL;
+HotelInfo* HotelInfo::default_instance_ = NULL;
 
-CreateTravelReq* CreateTravelReq::New() const {
-  return new CreateTravelReq;
+HotelInfo* HotelInfo::New() const {
+  return new HotelInfo;
 }
 
-void CreateTravelReq::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
-    user_id_ = 0u;
+void HotelInfo::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<HotelInfo*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 255) {
+    ZR_(id_, score_);
+    if (has_city_code()) {
+      if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        city_code_->clear();
+      }
+    }
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        name_->clear();
+      }
+    }
+    if (has_tags()) {
+      if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        tags_->clear();
+      }
+    }
+    must_see_ = 0u;
+    if (has_url()) {
+      if (url_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        url_->clear();
+      }
+    }
+    if (has_class_()) {
+      if (class__ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        class__->clear();
+      }
+    }
+  }
+  if (_has_bits_[8 / 32] & 768) {
+    price_ = 0u;
+    distance_ = 0u;
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool HotelInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.HotelInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_city_code;
+        break;
+      }
+
+      // required string city_code = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_city_code:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_city_code()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_name;
+        break;
+      }
+
+      // required string name = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_score;
+        break;
+      }
+
+      // required uint32 score = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_score:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &score_)));
+          set_has_score();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_tags;
+        break;
+      }
+
+      // required string tags = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_tags:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_tags()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_must_see;
+        break;
+      }
+
+      // required uint32 must_see = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_must_see:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &must_see_)));
+          set_has_must_see();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(58)) goto parse_url;
+        break;
+      }
+
+      // required string url = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_url:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_url()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_class;
+        break;
+      }
+
+      // required string class = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_class:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_class_()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(72)) goto parse_price;
+        break;
+      }
+
+      // required uint32 price = 9;
+      case 9: {
+        if (tag == 72) {
+         parse_price:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &price_)));
+          set_has_price();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_distance;
+        break;
+      }
+
+      // required uint32 distance = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_distance:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &distance_)));
+          set_has_distance();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.HotelInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.HotelInfo)
+  return false;
+#undef DO_
+}
+
+void HotelInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.HotelInfo)
+  // required uint32 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  // required string city_code = 2;
+  if (has_city_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->city_code(), output);
+  }
+
+  // required string name = 3;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->name(), output);
+  }
+
+  // required uint32 score = 4;
+  if (has_score()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->score(), output);
+  }
+
+  // required string tags = 5;
+  if (has_tags()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->tags(), output);
+  }
+
+  // required uint32 must_see = 6;
+  if (has_must_see()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->must_see(), output);
+  }
+
+  // required string url = 7;
+  if (has_url()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->url(), output);
+  }
+
+  // required string class = 8;
+  if (has_class_()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->class_(), output);
+  }
+
+  // required uint32 price = 9;
+  if (has_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->price(), output);
+  }
+
+  // required uint32 distance = 10;
+  if (has_distance()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->distance(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.HotelInfo)
+}
+
+int HotelInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->id());
+    }
+
+    // required string city_code = 2;
+    if (has_city_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->city_code());
+    }
+
+    // required string name = 3;
+    if (has_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->name());
+    }
+
+    // required uint32 score = 4;
+    if (has_score()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->score());
+    }
+
+    // required string tags = 5;
+    if (has_tags()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->tags());
+    }
+
+    // required uint32 must_see = 6;
+    if (has_must_see()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->must_see());
+    }
+
+    // required string url = 7;
+    if (has_url()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->url());
+    }
+
+    // required string class = 8;
+    if (has_class_()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->class_());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // required uint32 price = 9;
+    if (has_price()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->price());
+    }
+
+    // required uint32 distance = 10;
+    if (has_distance()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->distance());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void HotelInfo::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const HotelInfo*>(&from));
+}
+
+void HotelInfo::MergeFrom(const HotelInfo& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_city_code()) {
+      set_city_code(from.city_code());
+    }
+    if (from.has_name()) {
+      set_name(from.name());
+    }
+    if (from.has_score()) {
+      set_score(from.score());
+    }
+    if (from.has_tags()) {
+      set_tags(from.tags());
+    }
+    if (from.has_must_see()) {
+      set_must_see(from.must_see());
+    }
+    if (from.has_url()) {
+      set_url(from.url());
+    }
+    if (from.has_class_()) {
+      set_class_(from.class_());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_price()) {
+      set_price(from.price());
+    }
+    if (from.has_distance()) {
+      set_distance(from.distance());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void HotelInfo::CopyFrom(const HotelInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool HotelInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000003ff) != 0x000003ff) return false;
+
+  return true;
+}
+
+void HotelInfo::Swap(HotelInfo* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(city_code_, other->city_code_);
+    std::swap(name_, other->name_);
+    std::swap(score_, other->score_);
+    std::swap(tags_, other->tags_);
+    std::swap(must_see_, other->must_see_);
+    std::swap(url_, other->url_);
+    std::swap(class__, other->class__);
+    std::swap(price_, other->price_);
+    std::swap(distance_, other->distance_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string HotelInfo::GetTypeName() const {
+  return "IM.Buddy.HotelInfo";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MyTravel::kDbIdxFieldNumber;
+const int MyTravel::kCostFieldNumber;
+const int MyTravel::kBasicInfoFieldNumber;
+const int MyTravel::kTransportConfigFieldNumber;
+const int MyTravel::kTravelDetailFieldNumber;
+#endif  // !_MSC_VER
+
+MyTravel::MyTravel()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.MyTravel)
+}
+
+void MyTravel::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  basic_info_ = const_cast< ::IM::Buddy::BasicInfo*>(
+      ::IM::Buddy::BasicInfo::internal_default_instance());
+#else
+  basic_info_ = const_cast< ::IM::Buddy::BasicInfo*>(&::IM::Buddy::BasicInfo::default_instance());
+#endif
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  transport_config_ = const_cast< ::IM::Buddy::TransportConfig*>(
+      ::IM::Buddy::TransportConfig::internal_default_instance());
+#else
+  transport_config_ = const_cast< ::IM::Buddy::TransportConfig*>(&::IM::Buddy::TransportConfig::default_instance());
+#endif
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  travel_detail_ = const_cast< ::IM::Buddy::TravelDetail*>(
+      ::IM::Buddy::TravelDetail::internal_default_instance());
+#else
+  travel_detail_ = const_cast< ::IM::Buddy::TravelDetail*>(&::IM::Buddy::TravelDetail::default_instance());
+#endif
+}
+
+MyTravel::MyTravel(const MyTravel& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.MyTravel)
+}
+
+void MyTravel::SharedCtor() {
+  _cached_size_ = 0;
+  db_idx_ = 0u;
+  cost_ = 0u;
+  basic_info_ = NULL;
+  transport_config_ = NULL;
+  travel_detail_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MyTravel::~MyTravel() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.MyTravel)
+  SharedDtor();
+}
+
+void MyTravel::SharedDtor() {
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete basic_info_;
+    delete transport_config_;
+    delete travel_detail_;
+  }
+}
+
+void MyTravel::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const MyTravel& MyTravel::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+MyTravel* MyTravel::default_instance_ = NULL;
+
+MyTravel* MyTravel::New() const {
+  return new MyTravel;
+}
+
+void MyTravel::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<MyTravel*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 31) {
+    ZR_(db_idx_, cost_);
+    if (has_basic_info()) {
+      if (basic_info_ != NULL) basic_info_->::IM::Buddy::BasicInfo::Clear();
+    }
+    if (has_transport_config()) {
+      if (transport_config_ != NULL) transport_config_->::IM::Buddy::TransportConfig::Clear();
+    }
     if (has_travel_detail()) {
       if (travel_detail_ != NULL) travel_detail_->::IM::Buddy::TravelDetail::Clear();
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool MyTravel::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.MyTravel)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 db_idx = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &db_idx_)));
+          set_has_db_idx();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_cost;
+        break;
+      }
+
+      // required uint32 cost = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_cost:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cost_)));
+          set_has_cost();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_basic_info;
+        break;
+      }
+
+      // required .IM.Buddy.BasicInfo basic_info = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_basic_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_basic_info()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_transport_config;
+        break;
+      }
+
+      // required .IM.Buddy.TransportConfig transport_config = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_transport_config:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_transport_config()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_travel_detail;
+        break;
+      }
+
+      // required .IM.Buddy.TravelDetail travel_detail = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_travel_detail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_travel_detail()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.MyTravel)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.MyTravel)
+  return false;
+#undef DO_
+}
+
+void MyTravel::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.MyTravel)
+  // required uint32 db_idx = 1;
+  if (has_db_idx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->db_idx(), output);
+  }
+
+  // required uint32 cost = 2;
+  if (has_cost()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->cost(), output);
+  }
+
+  // required .IM.Buddy.BasicInfo basic_info = 3;
+  if (has_basic_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->basic_info(), output);
+  }
+
+  // required .IM.Buddy.TransportConfig transport_config = 4;
+  if (has_transport_config()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      4, this->transport_config(), output);
+  }
+
+  // required .IM.Buddy.TravelDetail travel_detail = 5;
+  if (has_travel_detail()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      5, this->travel_detail(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.MyTravel)
+}
+
+int MyTravel::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 db_idx = 1;
+    if (has_db_idx()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->db_idx());
+    }
+
+    // required uint32 cost = 2;
+    if (has_cost()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cost());
+    }
+
+    // required .IM.Buddy.BasicInfo basic_info = 3;
+    if (has_basic_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->basic_info());
+    }
+
+    // required .IM.Buddy.TransportConfig transport_config = 4;
+    if (has_transport_config()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->transport_config());
+    }
+
+    // required .IM.Buddy.TravelDetail travel_detail = 5;
+    if (has_travel_detail()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->travel_detail());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MyTravel::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const MyTravel*>(&from));
+}
+
+void MyTravel::MergeFrom(const MyTravel& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_db_idx()) {
+      set_db_idx(from.db_idx());
+    }
+    if (from.has_cost()) {
+      set_cost(from.cost());
+    }
+    if (from.has_basic_info()) {
+      mutable_basic_info()->::IM::Buddy::BasicInfo::MergeFrom(from.basic_info());
+    }
+    if (from.has_transport_config()) {
+      mutable_transport_config()->::IM::Buddy::TransportConfig::MergeFrom(from.transport_config());
+    }
+    if (from.has_travel_detail()) {
+      mutable_travel_detail()->::IM::Buddy::TravelDetail::MergeFrom(from.travel_detail());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void MyTravel::CopyFrom(const MyTravel& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MyTravel::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+
+  if (has_basic_info()) {
+    if (!this->basic_info().IsInitialized()) return false;
+  }
+  if (has_transport_config()) {
+    if (!this->transport_config().IsInitialized()) return false;
+  }
+  if (has_travel_detail()) {
+    if (!this->travel_detail().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void MyTravel::Swap(MyTravel* other) {
+  if (other != this) {
+    std::swap(db_idx_, other->db_idx_);
+    std::swap(cost_, other->cost_);
+    std::swap(basic_info_, other->basic_info_);
+    std::swap(transport_config_, other->transport_config_);
+    std::swap(travel_detail_, other->travel_detail_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string MyTravel::GetTypeName() const {
+  return "IM.Buddy.MyTravel";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CreateMyTravelReq::kUserIdFieldNumber;
+const int CreateMyTravelReq::kMyTravelFieldNumber;
+const int CreateMyTravelReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+CreateMyTravelReq::CreateMyTravelReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.CreateMyTravelReq)
+}
+
+void CreateMyTravelReq::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  my_travel_ = const_cast< ::IM::Buddy::MyTravel*>(
+      ::IM::Buddy::MyTravel::internal_default_instance());
+#else
+  my_travel_ = const_cast< ::IM::Buddy::MyTravel*>(&::IM::Buddy::MyTravel::default_instance());
+#endif
+}
+
+CreateMyTravelReq::CreateMyTravelReq(const CreateMyTravelReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.CreateMyTravelReq)
+}
+
+void CreateMyTravelReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  my_travel_ = NULL;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CreateMyTravelReq::~CreateMyTravelReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.CreateMyTravelReq)
+  SharedDtor();
+}
+
+void CreateMyTravelReq::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete my_travel_;
+  }
+}
+
+void CreateMyTravelReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const CreateMyTravelReq& CreateMyTravelReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+CreateMyTravelReq* CreateMyTravelReq::default_instance_ = NULL;
+
+CreateMyTravelReq* CreateMyTravelReq::New() const {
+  return new CreateMyTravelReq;
+}
+
+void CreateMyTravelReq::Clear() {
+  if (_has_bits_[0 / 32] & 7) {
+    user_id_ = 0u;
+    if (has_my_travel()) {
+      if (my_travel_ != NULL) my_travel_->::IM::Buddy::MyTravel::Clear();
     }
     if (has_attach_data()) {
       if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -9241,7 +10789,7 @@ void CreateTravelReq::Clear() {
   mutable_unknown_fields()->clear();
 }
 
-bool CreateTravelReq::MergePartialFromCodedStream(
+bool CreateMyTravelReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -9249,7 +10797,7 @@ bool CreateTravelReq::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.CreateTravelReq)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.CreateMyTravelReq)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
@@ -9265,16 +10813,16 @@ bool CreateTravelReq::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_travel_detail;
+        if (input->ExpectTag(18)) goto parse_my_travel;
         break;
       }
 
-      // required .IM.Buddy.TravelDetail travel_detail = 2;
+      // required .IM.Buddy.MyTravel my_travel = 2;
       case 2: {
         if (tag == 18) {
-         parse_travel_detail:
+         parse_my_travel:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_travel_detail()));
+               input, mutable_my_travel()));
         } else {
           goto handle_unusual;
         }
@@ -9309,26 +10857,26 @@ bool CreateTravelReq::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.CreateTravelReq)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.CreateMyTravelReq)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.CreateTravelReq)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.CreateMyTravelReq)
   return false;
 #undef DO_
 }
 
-void CreateTravelReq::SerializeWithCachedSizes(
+void CreateMyTravelReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.CreateTravelReq)
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.CreateMyTravelReq)
   // required uint32 user_id = 1;
   if (has_user_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
   }
 
-  // required .IM.Buddy.TravelDetail travel_detail = 2;
-  if (has_travel_detail()) {
+  // required .IM.Buddy.MyTravel my_travel = 2;
+  if (has_my_travel()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      2, this->travel_detail(), output);
+      2, this->my_travel(), output);
   }
 
   // optional bytes attach_data = 20;
@@ -9339,10 +10887,10 @@ void CreateTravelReq::SerializeWithCachedSizes(
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.CreateTravelReq)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.CreateMyTravelReq)
 }
 
-int CreateTravelReq::ByteSize() const {
+int CreateMyTravelReq::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -9353,11 +10901,11 @@ int CreateTravelReq::ByteSize() const {
           this->user_id());
     }
 
-    // required .IM.Buddy.TravelDetail travel_detail = 2;
-    if (has_travel_detail()) {
+    // required .IM.Buddy.MyTravel my_travel = 2;
+    if (has_my_travel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->travel_detail());
+          this->my_travel());
     }
 
     // optional bytes attach_data = 20;
@@ -9376,19 +10924,19 @@ int CreateTravelReq::ByteSize() const {
   return total_size;
 }
 
-void CreateTravelReq::CheckTypeAndMergeFrom(
+void CreateMyTravelReq::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const CreateTravelReq*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const CreateMyTravelReq*>(&from));
 }
 
-void CreateTravelReq::MergeFrom(const CreateTravelReq& from) {
+void CreateMyTravelReq::MergeFrom(const CreateMyTravelReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_user_id()) {
       set_user_id(from.user_id());
     }
-    if (from.has_travel_detail()) {
-      mutable_travel_detail()->::IM::Buddy::TravelDetail::MergeFrom(from.travel_detail());
+    if (from.has_my_travel()) {
+      mutable_my_travel()->::IM::Buddy::MyTravel::MergeFrom(from.my_travel());
     }
     if (from.has_attach_data()) {
       set_attach_data(from.attach_data());
@@ -9397,25 +10945,25 @@ void CreateTravelReq::MergeFrom(const CreateTravelReq& from) {
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void CreateTravelReq::CopyFrom(const CreateTravelReq& from) {
+void CreateMyTravelReq::CopyFrom(const CreateMyTravelReq& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CreateTravelReq::IsInitialized() const {
+bool CreateMyTravelReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
-  if (has_travel_detail()) {
-    if (!this->travel_detail().IsInitialized()) return false;
+  if (has_my_travel()) {
+    if (!this->my_travel().IsInitialized()) return false;
   }
   return true;
 }
 
-void CreateTravelReq::Swap(CreateTravelReq* other) {
+void CreateMyTravelReq::Swap(CreateMyTravelReq* other) {
   if (other != this) {
     std::swap(user_id_, other->user_id_);
-    std::swap(travel_detail_, other->travel_detail_);
+    std::swap(my_travel_, other->my_travel_);
     std::swap(attach_data_, other->attach_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
@@ -9423,37 +10971,37 @@ void CreateTravelReq::Swap(CreateTravelReq* other) {
   }
 }
 
-::std::string CreateTravelReq::GetTypeName() const {
-  return "IM.Buddy.CreateTravelReq";
+::std::string CreateMyTravelReq::GetTypeName() const {
+  return "IM.Buddy.CreateMyTravelReq";
 }
 
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int CreateTravelRsp::kUserIdFieldNumber;
-const int CreateTravelRsp::kResultCodeFieldNumber;
-const int CreateTravelRsp::kDbIdxFieldNumber;
-const int CreateTravelRsp::kAttachDataFieldNumber;
+const int CreateMyTravelRsp::kUserIdFieldNumber;
+const int CreateMyTravelRsp::kResultCodeFieldNumber;
+const int CreateMyTravelRsp::kDbIdxFieldNumber;
+const int CreateMyTravelRsp::kAttachDataFieldNumber;
 #endif  // !_MSC_VER
 
-CreateTravelRsp::CreateTravelRsp()
+CreateMyTravelRsp::CreateMyTravelRsp()
   : ::google::protobuf::MessageLite() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:IM.Buddy.CreateTravelRsp)
+  // @@protoc_insertion_point(constructor:IM.Buddy.CreateMyTravelRsp)
 }
 
-void CreateTravelRsp::InitAsDefaultInstance() {
+void CreateMyTravelRsp::InitAsDefaultInstance() {
 }
 
-CreateTravelRsp::CreateTravelRsp(const CreateTravelRsp& from)
+CreateMyTravelRsp::CreateMyTravelRsp(const CreateMyTravelRsp& from)
   : ::google::protobuf::MessageLite() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:IM.Buddy.CreateTravelRsp)
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.CreateMyTravelRsp)
 }
 
-void CreateTravelRsp::SharedCtor() {
+void CreateMyTravelRsp::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   user_id_ = 0u;
@@ -9463,12 +11011,12 @@ void CreateTravelRsp::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-CreateTravelRsp::~CreateTravelRsp() {
-  // @@protoc_insertion_point(destructor:IM.Buddy.CreateTravelRsp)
+CreateMyTravelRsp::~CreateMyTravelRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.CreateMyTravelRsp)
   SharedDtor();
 }
 
-void CreateTravelRsp::SharedDtor() {
+void CreateMyTravelRsp::SharedDtor() {
   if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete attach_data_;
   }
@@ -9480,12 +11028,12 @@ void CreateTravelRsp::SharedDtor() {
   }
 }
 
-void CreateTravelRsp::SetCachedSize(int size) const {
+void CreateMyTravelRsp::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const CreateTravelRsp& CreateTravelRsp::default_instance() {
+const CreateMyTravelRsp& CreateMyTravelRsp::default_instance() {
 #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   protobuf_AddDesc_IM_2eBuddy_2eproto();
 #else
@@ -9494,15 +11042,15 @@ const CreateTravelRsp& CreateTravelRsp::default_instance() {
   return *default_instance_;
 }
 
-CreateTravelRsp* CreateTravelRsp::default_instance_ = NULL;
+CreateMyTravelRsp* CreateMyTravelRsp::default_instance_ = NULL;
 
-CreateTravelRsp* CreateTravelRsp::New() const {
-  return new CreateTravelRsp;
+CreateMyTravelRsp* CreateMyTravelRsp::New() const {
+  return new CreateMyTravelRsp;
 }
 
-void CreateTravelRsp::Clear() {
+void CreateMyTravelRsp::Clear() {
 #define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<CreateTravelRsp*>(16)->f) - \
+  &reinterpret_cast<CreateMyTravelRsp*>(16)->f) - \
    reinterpret_cast<char*>(16))
 
 #define ZR_(first, last) do {                              \
@@ -9528,7 +11076,7 @@ void CreateTravelRsp::Clear() {
   mutable_unknown_fields()->clear();
 }
 
-bool CreateTravelRsp::MergePartialFromCodedStream(
+bool CreateMyTravelRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
@@ -9536,7 +11084,7 @@ bool CreateTravelRsp::MergePartialFromCodedStream(
       mutable_unknown_fields());
   ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
       &unknown_fields_string);
-  // @@protoc_insertion_point(parse_start:IM.Buddy.CreateTravelRsp)
+  // @@protoc_insertion_point(parse_start:IM.Buddy.CreateMyTravelRsp)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
@@ -9613,17 +11161,17 @@ bool CreateTravelRsp::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:IM.Buddy.CreateTravelRsp)
+  // @@protoc_insertion_point(parse_success:IM.Buddy.CreateMyTravelRsp)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:IM.Buddy.CreateTravelRsp)
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.CreateMyTravelRsp)
   return false;
 #undef DO_
 }
 
-void CreateTravelRsp::SerializeWithCachedSizes(
+void CreateMyTravelRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:IM.Buddy.CreateTravelRsp)
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.CreateMyTravelRsp)
   // required uint32 user_id = 1;
   if (has_user_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
@@ -9647,10 +11195,10 @@ void CreateTravelRsp::SerializeWithCachedSizes(
 
   output->WriteRaw(unknown_fields().data(),
                    unknown_fields().size());
-  // @@protoc_insertion_point(serialize_end:IM.Buddy.CreateTravelRsp)
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.CreateMyTravelRsp)
 }
 
-int CreateTravelRsp::ByteSize() const {
+int CreateMyTravelRsp::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -9691,12 +11239,12 @@ int CreateTravelRsp::ByteSize() const {
   return total_size;
 }
 
-void CreateTravelRsp::CheckTypeAndMergeFrom(
+void CreateMyTravelRsp::CheckTypeAndMergeFrom(
     const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const CreateTravelRsp*>(&from));
+  MergeFrom(*::google::protobuf::down_cast<const CreateMyTravelRsp*>(&from));
 }
 
-void CreateTravelRsp::MergeFrom(const CreateTravelRsp& from) {
+void CreateMyTravelRsp::MergeFrom(const CreateMyTravelRsp& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_user_id()) {
@@ -9715,19 +11263,19 @@ void CreateTravelRsp::MergeFrom(const CreateTravelRsp& from) {
   mutable_unknown_fields()->append(from.unknown_fields());
 }
 
-void CreateTravelRsp::CopyFrom(const CreateTravelRsp& from) {
+void CreateMyTravelRsp::CopyFrom(const CreateMyTravelRsp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CreateTravelRsp::IsInitialized() const {
+bool CreateMyTravelRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
 
-void CreateTravelRsp::Swap(CreateTravelRsp* other) {
+void CreateMyTravelRsp::Swap(CreateMyTravelRsp* other) {
   if (other != this) {
     std::swap(user_id_, other->user_id_);
     std::swap(result_code_, other->result_code_);
@@ -9739,8 +11287,5744 @@ void CreateTravelRsp::Swap(CreateTravelRsp* other) {
   }
 }
 
-::std::string CreateTravelRsp::GetTypeName() const {
-  return "IM.Buddy.CreateTravelRsp";
+::std::string CreateMyTravelRsp::GetTypeName() const {
+  return "IM.Buddy.CreateMyTravelRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeleteMyTravelReq::kUserIdFieldNumber;
+const int DeleteMyTravelReq::kDbIdxFieldNumber;
+const int DeleteMyTravelReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+DeleteMyTravelReq::DeleteMyTravelReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.DeleteMyTravelReq)
+}
+
+void DeleteMyTravelReq::InitAsDefaultInstance() {
+}
+
+DeleteMyTravelReq::DeleteMyTravelReq(const DeleteMyTravelReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.DeleteMyTravelReq)
+}
+
+void DeleteMyTravelReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeleteMyTravelReq::~DeleteMyTravelReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.DeleteMyTravelReq)
+  SharedDtor();
+}
+
+void DeleteMyTravelReq::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void DeleteMyTravelReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const DeleteMyTravelReq& DeleteMyTravelReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+DeleteMyTravelReq* DeleteMyTravelReq::default_instance_ = NULL;
+
+DeleteMyTravelReq* DeleteMyTravelReq::New() const {
+  return new DeleteMyTravelReq;
+}
+
+void DeleteMyTravelReq::Clear() {
+  if (_has_bits_[0 / 32] & 5) {
+    user_id_ = 0u;
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+  db_idx_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool DeleteMyTravelReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.DeleteMyTravelReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_db_idx;
+        break;
+      }
+
+      // repeated uint32 db_idx = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_db_idx:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 1, 16, input, this->mutable_db_idx())));
+        } else if (tag == 18) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_db_idx())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_db_idx;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.DeleteMyTravelReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.DeleteMyTravelReq)
+  return false;
+#undef DO_
+}
+
+void DeleteMyTravelReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.DeleteMyTravelReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // repeated uint32 db_idx = 2;
+  for (int i = 0; i < this->db_idx_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
+      2, this->db_idx(i), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.DeleteMyTravelReq)
+}
+
+int DeleteMyTravelReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated uint32 db_idx = 2;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->db_idx_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt32Size(this->db_idx(i));
+    }
+    total_size += 1 * this->db_idx_size() + data_size;
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeleteMyTravelReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const DeleteMyTravelReq*>(&from));
+}
+
+void DeleteMyTravelReq::MergeFrom(const DeleteMyTravelReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  db_idx_.MergeFrom(from.db_idx_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void DeleteMyTravelReq::CopyFrom(const DeleteMyTravelReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeleteMyTravelReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void DeleteMyTravelReq::Swap(DeleteMyTravelReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    db_idx_.Swap(&other->db_idx_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string DeleteMyTravelReq::GetTypeName() const {
+  return "IM.Buddy.DeleteMyTravelReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeleteMyTravelRsp::kUserIdFieldNumber;
+const int DeleteMyTravelRsp::kResultCodeFieldNumber;
+const int DeleteMyTravelRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+DeleteMyTravelRsp::DeleteMyTravelRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.DeleteMyTravelRsp)
+}
+
+void DeleteMyTravelRsp::InitAsDefaultInstance() {
+}
+
+DeleteMyTravelRsp::DeleteMyTravelRsp(const DeleteMyTravelRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.DeleteMyTravelRsp)
+}
+
+void DeleteMyTravelRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeleteMyTravelRsp::~DeleteMyTravelRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.DeleteMyTravelRsp)
+  SharedDtor();
+}
+
+void DeleteMyTravelRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void DeleteMyTravelRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const DeleteMyTravelRsp& DeleteMyTravelRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+DeleteMyTravelRsp* DeleteMyTravelRsp::default_instance_ = NULL;
+
+DeleteMyTravelRsp* DeleteMyTravelRsp::New() const {
+  return new DeleteMyTravelRsp;
+}
+
+void DeleteMyTravelRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<DeleteMyTravelRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 7) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool DeleteMyTravelRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.DeleteMyTravelRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.DeleteMyTravelRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.DeleteMyTravelRsp)
+  return false;
+#undef DO_
+}
+
+void DeleteMyTravelRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.DeleteMyTravelRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.DeleteMyTravelRsp)
+}
+
+int DeleteMyTravelRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeleteMyTravelRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const DeleteMyTravelRsp*>(&from));
+}
+
+void DeleteMyTravelRsp::MergeFrom(const DeleteMyTravelRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void DeleteMyTravelRsp::CopyFrom(const DeleteMyTravelRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeleteMyTravelRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void DeleteMyTravelRsp::Swap(DeleteMyTravelRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string DeleteMyTravelRsp::GetTypeName() const {
+  return "IM.Buddy.DeleteMyTravelRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int UpdateMyTravelReq::kUserIdFieldNumber;
+const int UpdateMyTravelReq::kDbIdxFieldNumber;
+const int UpdateMyTravelReq::kMyTravelFieldNumber;
+const int UpdateMyTravelReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+UpdateMyTravelReq::UpdateMyTravelReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.UpdateMyTravelReq)
+}
+
+void UpdateMyTravelReq::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  my_travel_ = const_cast< ::IM::Buddy::MyTravel*>(
+      ::IM::Buddy::MyTravel::internal_default_instance());
+#else
+  my_travel_ = const_cast< ::IM::Buddy::MyTravel*>(&::IM::Buddy::MyTravel::default_instance());
+#endif
+}
+
+UpdateMyTravelReq::UpdateMyTravelReq(const UpdateMyTravelReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.UpdateMyTravelReq)
+}
+
+void UpdateMyTravelReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  db_idx_ = 0u;
+  my_travel_ = NULL;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+UpdateMyTravelReq::~UpdateMyTravelReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.UpdateMyTravelReq)
+  SharedDtor();
+}
+
+void UpdateMyTravelReq::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete my_travel_;
+  }
+}
+
+void UpdateMyTravelReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const UpdateMyTravelReq& UpdateMyTravelReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+UpdateMyTravelReq* UpdateMyTravelReq::default_instance_ = NULL;
+
+UpdateMyTravelReq* UpdateMyTravelReq::New() const {
+  return new UpdateMyTravelReq;
+}
+
+void UpdateMyTravelReq::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<UpdateMyTravelReq*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 15) {
+    ZR_(user_id_, db_idx_);
+    if (has_my_travel()) {
+      if (my_travel_ != NULL) my_travel_->::IM::Buddy::MyTravel::Clear();
+    }
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool UpdateMyTravelReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.UpdateMyTravelReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_db_idx;
+        break;
+      }
+
+      // required uint32 db_idx = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_db_idx:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &db_idx_)));
+          set_has_db_idx();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_my_travel;
+        break;
+      }
+
+      // required .IM.Buddy.MyTravel my_travel = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_my_travel:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_my_travel()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.UpdateMyTravelReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.UpdateMyTravelReq)
+  return false;
+#undef DO_
+}
+
+void UpdateMyTravelReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.UpdateMyTravelReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 db_idx = 2;
+  if (has_db_idx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->db_idx(), output);
+  }
+
+  // required .IM.Buddy.MyTravel my_travel = 3;
+  if (has_my_travel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->my_travel(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.UpdateMyTravelReq)
+}
+
+int UpdateMyTravelReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 db_idx = 2;
+    if (has_db_idx()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->db_idx());
+    }
+
+    // required .IM.Buddy.MyTravel my_travel = 3;
+    if (has_my_travel()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->my_travel());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UpdateMyTravelReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const UpdateMyTravelReq*>(&from));
+}
+
+void UpdateMyTravelReq::MergeFrom(const UpdateMyTravelReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_db_idx()) {
+      set_db_idx(from.db_idx());
+    }
+    if (from.has_my_travel()) {
+      mutable_my_travel()->::IM::Buddy::MyTravel::MergeFrom(from.my_travel());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void UpdateMyTravelReq::CopyFrom(const UpdateMyTravelReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UpdateMyTravelReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  if (has_my_travel()) {
+    if (!this->my_travel().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void UpdateMyTravelReq::Swap(UpdateMyTravelReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(db_idx_, other->db_idx_);
+    std::swap(my_travel_, other->my_travel_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string UpdateMyTravelReq::GetTypeName() const {
+  return "IM.Buddy.UpdateMyTravelReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int UpdateMyTravelRsp::kUserIdFieldNumber;
+const int UpdateMyTravelRsp::kResultCodeFieldNumber;
+const int UpdateMyTravelRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+UpdateMyTravelRsp::UpdateMyTravelRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.UpdateMyTravelRsp)
+}
+
+void UpdateMyTravelRsp::InitAsDefaultInstance() {
+}
+
+UpdateMyTravelRsp::UpdateMyTravelRsp(const UpdateMyTravelRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.UpdateMyTravelRsp)
+}
+
+void UpdateMyTravelRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+UpdateMyTravelRsp::~UpdateMyTravelRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.UpdateMyTravelRsp)
+  SharedDtor();
+}
+
+void UpdateMyTravelRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void UpdateMyTravelRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const UpdateMyTravelRsp& UpdateMyTravelRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+UpdateMyTravelRsp* UpdateMyTravelRsp::default_instance_ = NULL;
+
+UpdateMyTravelRsp* UpdateMyTravelRsp::New() const {
+  return new UpdateMyTravelRsp;
+}
+
+void UpdateMyTravelRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<UpdateMyTravelRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 7) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool UpdateMyTravelRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.UpdateMyTravelRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.UpdateMyTravelRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.UpdateMyTravelRsp)
+  return false;
+#undef DO_
+}
+
+void UpdateMyTravelRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.UpdateMyTravelRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.UpdateMyTravelRsp)
+}
+
+int UpdateMyTravelRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void UpdateMyTravelRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const UpdateMyTravelRsp*>(&from));
+}
+
+void UpdateMyTravelRsp::MergeFrom(const UpdateMyTravelRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void UpdateMyTravelRsp::CopyFrom(const UpdateMyTravelRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UpdateMyTravelRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void UpdateMyTravelRsp::Swap(UpdateMyTravelRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string UpdateMyTravelRsp::GetTypeName() const {
+  return "IM.Buddy.UpdateMyTravelRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int QueryMyTravelReq::kUserIdFieldNumber;
+const int QueryMyTravelReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+QueryMyTravelReq::QueryMyTravelReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.QueryMyTravelReq)
+}
+
+void QueryMyTravelReq::InitAsDefaultInstance() {
+}
+
+QueryMyTravelReq::QueryMyTravelReq(const QueryMyTravelReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.QueryMyTravelReq)
+}
+
+void QueryMyTravelReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+QueryMyTravelReq::~QueryMyTravelReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.QueryMyTravelReq)
+  SharedDtor();
+}
+
+void QueryMyTravelReq::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void QueryMyTravelReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const QueryMyTravelReq& QueryMyTravelReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+QueryMyTravelReq* QueryMyTravelReq::default_instance_ = NULL;
+
+QueryMyTravelReq* QueryMyTravelReq::New() const {
+  return new QueryMyTravelReq;
+}
+
+void QueryMyTravelReq::Clear() {
+  if (_has_bits_[0 / 32] & 3) {
+    user_id_ = 0u;
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool QueryMyTravelReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.QueryMyTravelReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.QueryMyTravelReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.QueryMyTravelReq)
+  return false;
+#undef DO_
+}
+
+void QueryMyTravelReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.QueryMyTravelReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.QueryMyTravelReq)
+}
+
+int QueryMyTravelReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void QueryMyTravelReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const QueryMyTravelReq*>(&from));
+}
+
+void QueryMyTravelReq::MergeFrom(const QueryMyTravelReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void QueryMyTravelReq::CopyFrom(const QueryMyTravelReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QueryMyTravelReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void QueryMyTravelReq::Swap(QueryMyTravelReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string QueryMyTravelReq::GetTypeName() const {
+  return "IM.Buddy.QueryMyTravelReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int QueryMyTravelRsp::kUserIdFieldNumber;
+const int QueryMyTravelRsp::kResultCodeFieldNumber;
+const int QueryMyTravelRsp::kMyTravelFieldNumber;
+const int QueryMyTravelRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+QueryMyTravelRsp::QueryMyTravelRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.QueryMyTravelRsp)
+}
+
+void QueryMyTravelRsp::InitAsDefaultInstance() {
+}
+
+QueryMyTravelRsp::QueryMyTravelRsp(const QueryMyTravelRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.QueryMyTravelRsp)
+}
+
+void QueryMyTravelRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+QueryMyTravelRsp::~QueryMyTravelRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.QueryMyTravelRsp)
+  SharedDtor();
+}
+
+void QueryMyTravelRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void QueryMyTravelRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const QueryMyTravelRsp& QueryMyTravelRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+QueryMyTravelRsp* QueryMyTravelRsp::default_instance_ = NULL;
+
+QueryMyTravelRsp* QueryMyTravelRsp::New() const {
+  return new QueryMyTravelRsp;
+}
+
+void QueryMyTravelRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<QueryMyTravelRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 11) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  my_travel_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool QueryMyTravelRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.QueryMyTravelRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_my_travel;
+        break;
+      }
+
+      // repeated .IM.Buddy.MyTravel my_travel = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_my_travel:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_my_travel()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_my_travel;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.QueryMyTravelRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.QueryMyTravelRsp)
+  return false;
+#undef DO_
+}
+
+void QueryMyTravelRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.QueryMyTravelRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // repeated .IM.Buddy.MyTravel my_travel = 3;
+  for (int i = 0; i < this->my_travel_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->my_travel(i), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.QueryMyTravelRsp)
+}
+
+int QueryMyTravelRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated .IM.Buddy.MyTravel my_travel = 3;
+  total_size += 1 * this->my_travel_size();
+  for (int i = 0; i < this->my_travel_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->my_travel(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void QueryMyTravelRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const QueryMyTravelRsp*>(&from));
+}
+
+void QueryMyTravelRsp::MergeFrom(const QueryMyTravelRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  my_travel_.MergeFrom(from.my_travel_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void QueryMyTravelRsp::CopyFrom(const QueryMyTravelRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QueryMyTravelRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->my_travel())) return false;
+  return true;
+}
+
+void QueryMyTravelRsp::Swap(QueryMyTravelRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    my_travel_.Swap(&other->my_travel_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string QueryMyTravelRsp::GetTypeName() const {
+  return "IM.Buddy.QueryMyTravelRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GetTransportToolReq::kUserIdFieldNumber;
+const int GetTransportToolReq::kBasicInfoFieldNumber;
+const int GetTransportToolReq::kTransportConfigFieldNumber;
+const int GetTransportToolReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+GetTransportToolReq::GetTransportToolReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.GetTransportToolReq)
+}
+
+void GetTransportToolReq::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  basic_info_ = const_cast< ::IM::Buddy::BasicInfo*>(
+      ::IM::Buddy::BasicInfo::internal_default_instance());
+#else
+  basic_info_ = const_cast< ::IM::Buddy::BasicInfo*>(&::IM::Buddy::BasicInfo::default_instance());
+#endif
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  transport_config_ = const_cast< ::IM::Buddy::TransportConfig*>(
+      ::IM::Buddy::TransportConfig::internal_default_instance());
+#else
+  transport_config_ = const_cast< ::IM::Buddy::TransportConfig*>(&::IM::Buddy::TransportConfig::default_instance());
+#endif
+}
+
+GetTransportToolReq::GetTransportToolReq(const GetTransportToolReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.GetTransportToolReq)
+}
+
+void GetTransportToolReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  basic_info_ = NULL;
+  transport_config_ = NULL;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GetTransportToolReq::~GetTransportToolReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.GetTransportToolReq)
+  SharedDtor();
+}
+
+void GetTransportToolReq::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete basic_info_;
+    delete transport_config_;
+  }
+}
+
+void GetTransportToolReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const GetTransportToolReq& GetTransportToolReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+GetTransportToolReq* GetTransportToolReq::default_instance_ = NULL;
+
+GetTransportToolReq* GetTransportToolReq::New() const {
+  return new GetTransportToolReq;
+}
+
+void GetTransportToolReq::Clear() {
+  if (_has_bits_[0 / 32] & 15) {
+    user_id_ = 0u;
+    if (has_basic_info()) {
+      if (basic_info_ != NULL) basic_info_->::IM::Buddy::BasicInfo::Clear();
+    }
+    if (has_transport_config()) {
+      if (transport_config_ != NULL) transport_config_->::IM::Buddy::TransportConfig::Clear();
+    }
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool GetTransportToolReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.GetTransportToolReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_basic_info;
+        break;
+      }
+
+      // required .IM.Buddy.BasicInfo basic_info = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_basic_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_basic_info()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_transport_config;
+        break;
+      }
+
+      // required .IM.Buddy.TransportConfig transport_config = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_transport_config:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_transport_config()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.GetTransportToolReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.GetTransportToolReq)
+  return false;
+#undef DO_
+}
+
+void GetTransportToolReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.GetTransportToolReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required .IM.Buddy.BasicInfo basic_info = 2;
+  if (has_basic_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      2, this->basic_info(), output);
+  }
+
+  // required .IM.Buddy.TransportConfig transport_config = 3;
+  if (has_transport_config()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->transport_config(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.GetTransportToolReq)
+}
+
+int GetTransportToolReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required .IM.Buddy.BasicInfo basic_info = 2;
+    if (has_basic_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->basic_info());
+    }
+
+    // required .IM.Buddy.TransportConfig transport_config = 3;
+    if (has_transport_config()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->transport_config());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GetTransportToolReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const GetTransportToolReq*>(&from));
+}
+
+void GetTransportToolReq::MergeFrom(const GetTransportToolReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_basic_info()) {
+      mutable_basic_info()->::IM::Buddy::BasicInfo::MergeFrom(from.basic_info());
+    }
+    if (from.has_transport_config()) {
+      mutable_transport_config()->::IM::Buddy::TransportConfig::MergeFrom(from.transport_config());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void GetTransportToolReq::CopyFrom(const GetTransportToolReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetTransportToolReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  if (has_basic_info()) {
+    if (!this->basic_info().IsInitialized()) return false;
+  }
+  if (has_transport_config()) {
+    if (!this->transport_config().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void GetTransportToolReq::Swap(GetTransportToolReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(basic_info_, other->basic_info_);
+    std::swap(transport_config_, other->transport_config_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string GetTransportToolReq::GetTypeName() const {
+  return "IM.Buddy.GetTransportToolReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GetTransportToolRsp::kUserIdFieldNumber;
+const int GetTransportToolRsp::kResultCodeFieldNumber;
+const int GetTransportToolRsp::kTravelToolInfoFieldNumber;
+const int GetTransportToolRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+GetTransportToolRsp::GetTransportToolRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.GetTransportToolRsp)
+}
+
+void GetTransportToolRsp::InitAsDefaultInstance() {
+}
+
+GetTransportToolRsp::GetTransportToolRsp(const GetTransportToolRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.GetTransportToolRsp)
+}
+
+void GetTransportToolRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GetTransportToolRsp::~GetTransportToolRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.GetTransportToolRsp)
+  SharedDtor();
+}
+
+void GetTransportToolRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void GetTransportToolRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const GetTransportToolRsp& GetTransportToolRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+GetTransportToolRsp* GetTransportToolRsp::default_instance_ = NULL;
+
+GetTransportToolRsp* GetTransportToolRsp::New() const {
+  return new GetTransportToolRsp;
+}
+
+void GetTransportToolRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<GetTransportToolRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 11) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  travel_tool_info_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool GetTransportToolRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.GetTransportToolRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_travel_tool_info;
+        break;
+      }
+
+      // repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_travel_tool_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_travel_tool_info()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_travel_tool_info;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.GetTransportToolRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.GetTransportToolRsp)
+  return false;
+#undef DO_
+}
+
+void GetTransportToolRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.GetTransportToolRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
+  for (int i = 0; i < this->travel_tool_info_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->travel_tool_info(i), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.GetTransportToolRsp)
+}
+
+int GetTransportToolRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;
+  total_size += 1 * this->travel_tool_info_size();
+  for (int i = 0; i < this->travel_tool_info_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->travel_tool_info(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GetTransportToolRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const GetTransportToolRsp*>(&from));
+}
+
+void GetTransportToolRsp::MergeFrom(const GetTransportToolRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  travel_tool_info_.MergeFrom(from.travel_tool_info_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void GetTransportToolRsp::CopyFrom(const GetTransportToolRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetTransportToolRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->travel_tool_info())) return false;
+  return true;
+}
+
+void GetTransportToolRsp::Swap(GetTransportToolRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    travel_tool_info_.Swap(&other->travel_tool_info_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string GetTransportToolRsp::GetTypeName() const {
+  return "IM.Buddy.GetTransportToolRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GetScenicHotelReq::kUserIdFieldNumber;
+const int GetScenicHotelReq::kCityCodeFieldNumber;
+const int GetScenicHotelReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+GetScenicHotelReq::GetScenicHotelReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.GetScenicHotelReq)
+}
+
+void GetScenicHotelReq::InitAsDefaultInstance() {
+}
+
+GetScenicHotelReq::GetScenicHotelReq(const GetScenicHotelReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.GetScenicHotelReq)
+}
+
+void GetScenicHotelReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  city_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GetScenicHotelReq::~GetScenicHotelReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.GetScenicHotelReq)
+  SharedDtor();
+}
+
+void GetScenicHotelReq::SharedDtor() {
+  if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete city_code_;
+  }
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void GetScenicHotelReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const GetScenicHotelReq& GetScenicHotelReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+GetScenicHotelReq* GetScenicHotelReq::default_instance_ = NULL;
+
+GetScenicHotelReq* GetScenicHotelReq::New() const {
+  return new GetScenicHotelReq;
+}
+
+void GetScenicHotelReq::Clear() {
+  if (_has_bits_[0 / 32] & 7) {
+    user_id_ = 0u;
+    if (has_city_code()) {
+      if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        city_code_->clear();
+      }
+    }
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool GetScenicHotelReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.GetScenicHotelReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_city_code;
+        break;
+      }
+
+      // required string city_code = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_city_code:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_city_code()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.GetScenicHotelReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.GetScenicHotelReq)
+  return false;
+#undef DO_
+}
+
+void GetScenicHotelReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.GetScenicHotelReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required string city_code = 2;
+  if (has_city_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->city_code(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.GetScenicHotelReq)
+}
+
+int GetScenicHotelReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required string city_code = 2;
+    if (has_city_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->city_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GetScenicHotelReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const GetScenicHotelReq*>(&from));
+}
+
+void GetScenicHotelReq::MergeFrom(const GetScenicHotelReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_city_code()) {
+      set_city_code(from.city_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void GetScenicHotelReq::CopyFrom(const GetScenicHotelReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetScenicHotelReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void GetScenicHotelReq::Swap(GetScenicHotelReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(city_code_, other->city_code_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string GetScenicHotelReq::GetTypeName() const {
+  return "IM.Buddy.GetScenicHotelReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GetScenicHotelRsp::kUserIdFieldNumber;
+const int GetScenicHotelRsp::kResultCodeFieldNumber;
+const int GetScenicHotelRsp::kScenicInfoFieldNumber;
+const int GetScenicHotelRsp::kHotelInfoFieldNumber;
+const int GetScenicHotelRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+GetScenicHotelRsp::GetScenicHotelRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.GetScenicHotelRsp)
+}
+
+void GetScenicHotelRsp::InitAsDefaultInstance() {
+}
+
+GetScenicHotelRsp::GetScenicHotelRsp(const GetScenicHotelRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.GetScenicHotelRsp)
+}
+
+void GetScenicHotelRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GetScenicHotelRsp::~GetScenicHotelRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.GetScenicHotelRsp)
+  SharedDtor();
+}
+
+void GetScenicHotelRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void GetScenicHotelRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const GetScenicHotelRsp& GetScenicHotelRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+GetScenicHotelRsp* GetScenicHotelRsp::default_instance_ = NULL;
+
+GetScenicHotelRsp* GetScenicHotelRsp::New() const {
+  return new GetScenicHotelRsp;
+}
+
+void GetScenicHotelRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<GetScenicHotelRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 19) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  scenic_info_.Clear();
+  hotel_info_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool GetScenicHotelRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.GetScenicHotelRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_scenic_info;
+        break;
+      }
+
+      // repeated .IM.Buddy.ScenicInfo scenic_info = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_scenic_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_scenic_info()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_scenic_info;
+        if (input->ExpectTag(34)) goto parse_hotel_info;
+        break;
+      }
+
+      // repeated .IM.Buddy.HotelInfo hotel_info = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_hotel_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_hotel_info()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_hotel_info;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.GetScenicHotelRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.GetScenicHotelRsp)
+  return false;
+#undef DO_
+}
+
+void GetScenicHotelRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.GetScenicHotelRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // repeated .IM.Buddy.ScenicInfo scenic_info = 3;
+  for (int i = 0; i < this->scenic_info_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->scenic_info(i), output);
+  }
+
+  // repeated .IM.Buddy.HotelInfo hotel_info = 4;
+  for (int i = 0; i < this->hotel_info_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      4, this->hotel_info(i), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.GetScenicHotelRsp)
+}
+
+int GetScenicHotelRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated .IM.Buddy.ScenicInfo scenic_info = 3;
+  total_size += 1 * this->scenic_info_size();
+  for (int i = 0; i < this->scenic_info_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->scenic_info(i));
+  }
+
+  // repeated .IM.Buddy.HotelInfo hotel_info = 4;
+  total_size += 1 * this->hotel_info_size();
+  for (int i = 0; i < this->hotel_info_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->hotel_info(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GetScenicHotelRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const GetScenicHotelRsp*>(&from));
+}
+
+void GetScenicHotelRsp::MergeFrom(const GetScenicHotelRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  scenic_info_.MergeFrom(from.scenic_info_);
+  hotel_info_.MergeFrom(from.hotel_info_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void GetScenicHotelRsp::CopyFrom(const GetScenicHotelRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetScenicHotelRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->scenic_info())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->hotel_info())) return false;
+  return true;
+}
+
+void GetScenicHotelRsp::Swap(GetScenicHotelRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    scenic_info_.Swap(&other->scenic_info_);
+    hotel_info_.Swap(&other->hotel_info_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string GetScenicHotelRsp::GetTypeName() const {
+  return "IM.Buddy.GetScenicHotelRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DayRoute::kScenicsFieldNumber;
+const int DayRoute::kHotelsFieldNumber;
+#endif  // !_MSC_VER
+
+DayRoute::DayRoute()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.DayRoute)
+}
+
+void DayRoute::InitAsDefaultInstance() {
+}
+
+DayRoute::DayRoute(const DayRoute& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.DayRoute)
+}
+
+void DayRoute::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DayRoute::~DayRoute() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.DayRoute)
+  SharedDtor();
+}
+
+void DayRoute::SharedDtor() {
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void DayRoute::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const DayRoute& DayRoute::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+DayRoute* DayRoute::default_instance_ = NULL;
+
+DayRoute* DayRoute::New() const {
+  return new DayRoute;
+}
+
+void DayRoute::Clear() {
+  scenics_.Clear();
+  hotels_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool DayRoute::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.DayRoute)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated uint32 scenics = 1;
+      case 1: {
+        if (tag == 8) {
+         parse_scenics:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 1, 8, input, this->mutable_scenics())));
+        } else if (tag == 10) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_scenics())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(8)) goto parse_scenics;
+        if (input->ExpectTag(16)) goto parse_hotels;
+        break;
+      }
+
+      // repeated uint32 hotels = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_hotels:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 1, 16, input, this->mutable_hotels())));
+        } else if (tag == 18) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_hotels())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_hotels;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.DayRoute)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.DayRoute)
+  return false;
+#undef DO_
+}
+
+void DayRoute::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.DayRoute)
+  // repeated uint32 scenics = 1;
+  for (int i = 0; i < this->scenics_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
+      1, this->scenics(i), output);
+  }
+
+  // repeated uint32 hotels = 2;
+  for (int i = 0; i < this->hotels_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
+      2, this->hotels(i), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.DayRoute)
+}
+
+int DayRoute::ByteSize() const {
+  int total_size = 0;
+
+  // repeated uint32 scenics = 1;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->scenics_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt32Size(this->scenics(i));
+    }
+    total_size += 1 * this->scenics_size() + data_size;
+  }
+
+  // repeated uint32 hotels = 2;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->hotels_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt32Size(this->hotels(i));
+    }
+    total_size += 1 * this->hotels_size() + data_size;
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DayRoute::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const DayRoute*>(&from));
+}
+
+void DayRoute::MergeFrom(const DayRoute& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  scenics_.MergeFrom(from.scenics_);
+  hotels_.MergeFrom(from.hotels_);
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void DayRoute::CopyFrom(const DayRoute& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DayRoute::IsInitialized() const {
+
+  return true;
+}
+
+void DayRoute::Swap(DayRoute* other) {
+  if (other != this) {
+    scenics_.Swap(&other->scenics_);
+    hotels_.Swap(&other->hotels_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string DayRoute::GetTypeName() const {
+  return "IM.Buddy.DayRoute";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Route::kDayCountFieldNumber;
+const int Route::kCityCodeFieldNumber;
+const int Route::kQualityFieldNumber;
+const int Route::kStartTransportToolFieldNumber;
+const int Route::kEndTransportToolFieldNumber;
+const int Route::kStartTimeFieldNumber;
+const int Route::kEndTimeFieldNumber;
+const int Route::kDayRoutesFieldNumber;
+#endif  // !_MSC_VER
+
+Route::Route()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.Route)
+}
+
+void Route::InitAsDefaultInstance() {
+}
+
+Route::Route(const Route& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.Route)
+}
+
+void Route::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  day_count_ = 0u;
+  city_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  quality_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  start_transport_tool_ = 1;
+  end_transport_tool_ = 1;
+  start_time_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  end_time_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Route::~Route() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.Route)
+  SharedDtor();
+}
+
+void Route::SharedDtor() {
+  if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete city_code_;
+  }
+  if (quality_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete quality_;
+  }
+  if (start_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete start_time_;
+  }
+  if (end_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete end_time_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void Route::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const Route& Route::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+Route* Route::default_instance_ = NULL;
+
+Route* Route::New() const {
+  return new Route;
+}
+
+void Route::Clear() {
+  if (_has_bits_[0 / 32] & 127) {
+    day_count_ = 0u;
+    if (has_city_code()) {
+      if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        city_code_->clear();
+      }
+    }
+    if (has_quality()) {
+      if (quality_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        quality_->clear();
+      }
+    }
+    start_transport_tool_ = 1;
+    end_transport_tool_ = 1;
+    if (has_start_time()) {
+      if (start_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        start_time_->clear();
+      }
+    }
+    if (has_end_time()) {
+      if (end_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        end_time_->clear();
+      }
+    }
+  }
+  day_routes_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool Route::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.Route)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 day_count = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &day_count_)));
+          set_has_day_count();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_city_code;
+        break;
+      }
+
+      // required string city_code = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_city_code:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_city_code()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_quality;
+        break;
+      }
+
+      // required string quality = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_quality:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_quality()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_start_transport_tool;
+        break;
+      }
+
+      // required .IM.Buddy.TransportToolType start_transport_tool = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_start_transport_tool:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::IM::Buddy::TransportToolType_IsValid(value)) {
+            set_start_transport_tool(static_cast< ::IM::Buddy::TransportToolType >(value));
+          } else {
+            unknown_fields_stream.WriteVarint32(tag);
+            unknown_fields_stream.WriteVarint32(value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_end_transport_tool;
+        break;
+      }
+
+      // required .IM.Buddy.TransportToolType end_transport_tool = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_end_transport_tool:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::IM::Buddy::TransportToolType_IsValid(value)) {
+            set_end_transport_tool(static_cast< ::IM::Buddy::TransportToolType >(value));
+          } else {
+            unknown_fields_stream.WriteVarint32(tag);
+            unknown_fields_stream.WriteVarint32(value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(50)) goto parse_start_time;
+        break;
+      }
+
+      // required string start_time = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_start_time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_start_time()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(58)) goto parse_end_time;
+        break;
+      }
+
+      // required string end_time = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_end_time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_end_time()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_day_routes;
+        break;
+      }
+
+      // repeated .IM.Buddy.DayRoute day_routes = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_day_routes:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_day_routes()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_day_routes;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.Route)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.Route)
+  return false;
+#undef DO_
+}
+
+void Route::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.Route)
+  // required uint32 day_count = 1;
+  if (has_day_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->day_count(), output);
+  }
+
+  // required string city_code = 2;
+  if (has_city_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->city_code(), output);
+  }
+
+  // required string quality = 3;
+  if (has_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->quality(), output);
+  }
+
+  // required .IM.Buddy.TransportToolType start_transport_tool = 4;
+  if (has_start_transport_tool()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      4, this->start_transport_tool(), output);
+  }
+
+  // required .IM.Buddy.TransportToolType end_transport_tool = 5;
+  if (has_end_transport_tool()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      5, this->end_transport_tool(), output);
+  }
+
+  // required string start_time = 6;
+  if (has_start_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->start_time(), output);
+  }
+
+  // required string end_time = 7;
+  if (has_end_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->end_time(), output);
+  }
+
+  // repeated .IM.Buddy.DayRoute day_routes = 8;
+  for (int i = 0; i < this->day_routes_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      8, this->day_routes(i), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.Route)
+}
+
+int Route::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 day_count = 1;
+    if (has_day_count()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->day_count());
+    }
+
+    // required string city_code = 2;
+    if (has_city_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->city_code());
+    }
+
+    // required string quality = 3;
+    if (has_quality()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->quality());
+    }
+
+    // required .IM.Buddy.TransportToolType start_transport_tool = 4;
+    if (has_start_transport_tool()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->start_transport_tool());
+    }
+
+    // required .IM.Buddy.TransportToolType end_transport_tool = 5;
+    if (has_end_transport_tool()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->end_transport_tool());
+    }
+
+    // required string start_time = 6;
+    if (has_start_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->start_time());
+    }
+
+    // required string end_time = 7;
+    if (has_end_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->end_time());
+    }
+
+  }
+  // repeated .IM.Buddy.DayRoute day_routes = 8;
+  total_size += 1 * this->day_routes_size();
+  for (int i = 0; i < this->day_routes_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->day_routes(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Route::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const Route*>(&from));
+}
+
+void Route::MergeFrom(const Route& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  day_routes_.MergeFrom(from.day_routes_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_day_count()) {
+      set_day_count(from.day_count());
+    }
+    if (from.has_city_code()) {
+      set_city_code(from.city_code());
+    }
+    if (from.has_quality()) {
+      set_quality(from.quality());
+    }
+    if (from.has_start_transport_tool()) {
+      set_start_transport_tool(from.start_transport_tool());
+    }
+    if (from.has_end_transport_tool()) {
+      set_end_transport_tool(from.end_transport_tool());
+    }
+    if (from.has_start_time()) {
+      set_start_time(from.start_time());
+    }
+    if (from.has_end_time()) {
+      set_end_time(from.end_time());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void Route::CopyFrom(const Route& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Route::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
+
+  return true;
+}
+
+void Route::Swap(Route* other) {
+  if (other != this) {
+    std::swap(day_count_, other->day_count_);
+    std::swap(city_code_, other->city_code_);
+    std::swap(quality_, other->quality_);
+    std::swap(start_transport_tool_, other->start_transport_tool_);
+    std::swap(end_transport_tool_, other->end_transport_tool_);
+    std::swap(start_time_, other->start_time_);
+    std::swap(end_time_, other->end_time_);
+    day_routes_.Swap(&other->day_routes_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string Route::GetTypeName() const {
+  return "IM.Buddy.Route";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NewQueryRadomRouteReq::kUserIdFieldNumber;
+const int NewQueryRadomRouteReq::kTagsFieldNumber;
+const int NewQueryRadomRouteReq::kSentenceFieldNumber;
+const int NewQueryRadomRouteReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+NewQueryRadomRouteReq::NewQueryRadomRouteReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewQueryRadomRouteReq)
+}
+
+void NewQueryRadomRouteReq::InitAsDefaultInstance() {
+}
+
+NewQueryRadomRouteReq::NewQueryRadomRouteReq(const NewQueryRadomRouteReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewQueryRadomRouteReq)
+}
+
+void NewQueryRadomRouteReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  sentence_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NewQueryRadomRouteReq::~NewQueryRadomRouteReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewQueryRadomRouteReq)
+  SharedDtor();
+}
+
+void NewQueryRadomRouteReq::SharedDtor() {
+  if (sentence_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete sentence_;
+  }
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void NewQueryRadomRouteReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const NewQueryRadomRouteReq& NewQueryRadomRouteReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+NewQueryRadomRouteReq* NewQueryRadomRouteReq::default_instance_ = NULL;
+
+NewQueryRadomRouteReq* NewQueryRadomRouteReq::New() const {
+  return new NewQueryRadomRouteReq;
+}
+
+void NewQueryRadomRouteReq::Clear() {
+  if (_has_bits_[0 / 32] & 13) {
+    user_id_ = 0u;
+    if (has_sentence()) {
+      if (sentence_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        sentence_->clear();
+      }
+    }
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+  tags_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool NewQueryRadomRouteReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewQueryRadomRouteReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_tags;
+        break;
+      }
+
+      // repeated string tags = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_tags:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_tags()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_tags;
+        if (input->ExpectTag(26)) goto parse_sentence;
+        break;
+      }
+
+      // required string sentence = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_sentence:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_sentence()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewQueryRadomRouteReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewQueryRadomRouteReq)
+  return false;
+#undef DO_
+}
+
+void NewQueryRadomRouteReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewQueryRadomRouteReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // repeated string tags = 2;
+  for (int i = 0; i < this->tags_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->tags(i), output);
+  }
+
+  // required string sentence = 3;
+  if (has_sentence()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->sentence(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewQueryRadomRouteReq)
+}
+
+int NewQueryRadomRouteReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required string sentence = 3;
+    if (has_sentence()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->sentence());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated string tags = 2;
+  total_size += 1 * this->tags_size();
+  for (int i = 0; i < this->tags_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->tags(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NewQueryRadomRouteReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const NewQueryRadomRouteReq*>(&from));
+}
+
+void NewQueryRadomRouteReq::MergeFrom(const NewQueryRadomRouteReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  tags_.MergeFrom(from.tags_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_sentence()) {
+      set_sentence(from.sentence());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void NewQueryRadomRouteReq::CopyFrom(const NewQueryRadomRouteReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NewQueryRadomRouteReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000005) != 0x00000005) return false;
+
+  return true;
+}
+
+void NewQueryRadomRouteReq::Swap(NewQueryRadomRouteReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    tags_.Swap(&other->tags_);
+    std::swap(sentence_, other->sentence_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string NewQueryRadomRouteReq::GetTypeName() const {
+  return "IM.Buddy.NewQueryRadomRouteReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NewQueryRadomRouteRsp::kUserIdFieldNumber;
+const int NewQueryRadomRouteRsp::kResultCodeFieldNumber;
+const int NewQueryRadomRouteRsp::kRoutesFieldNumber;
+const int NewQueryRadomRouteRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+NewQueryRadomRouteRsp::NewQueryRadomRouteRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewQueryRadomRouteRsp)
+}
+
+void NewQueryRadomRouteRsp::InitAsDefaultInstance() {
+}
+
+NewQueryRadomRouteRsp::NewQueryRadomRouteRsp(const NewQueryRadomRouteRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewQueryRadomRouteRsp)
+}
+
+void NewQueryRadomRouteRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NewQueryRadomRouteRsp::~NewQueryRadomRouteRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewQueryRadomRouteRsp)
+  SharedDtor();
+}
+
+void NewQueryRadomRouteRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void NewQueryRadomRouteRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const NewQueryRadomRouteRsp& NewQueryRadomRouteRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+NewQueryRadomRouteRsp* NewQueryRadomRouteRsp::default_instance_ = NULL;
+
+NewQueryRadomRouteRsp* NewQueryRadomRouteRsp::New() const {
+  return new NewQueryRadomRouteRsp;
+}
+
+void NewQueryRadomRouteRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<NewQueryRadomRouteRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 11) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  routes_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool NewQueryRadomRouteRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewQueryRadomRouteRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_routes;
+        break;
+      }
+
+      // repeated .IM.Buddy.Route routes = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_routes:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_routes()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_routes;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewQueryRadomRouteRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewQueryRadomRouteRsp)
+  return false;
+#undef DO_
+}
+
+void NewQueryRadomRouteRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewQueryRadomRouteRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // repeated .IM.Buddy.Route routes = 3;
+  for (int i = 0; i < this->routes_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->routes(i), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewQueryRadomRouteRsp)
+}
+
+int NewQueryRadomRouteRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated .IM.Buddy.Route routes = 3;
+  total_size += 1 * this->routes_size();
+  for (int i = 0; i < this->routes_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->routes(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NewQueryRadomRouteRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const NewQueryRadomRouteRsp*>(&from));
+}
+
+void NewQueryRadomRouteRsp::MergeFrom(const NewQueryRadomRouteRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  routes_.MergeFrom(from.routes_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void NewQueryRadomRouteRsp::CopyFrom(const NewQueryRadomRouteRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NewQueryRadomRouteRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->routes())) return false;
+  return true;
+}
+
+void NewQueryRadomRouteRsp::Swap(NewQueryRadomRouteRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    routes_.Swap(&other->routes_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string NewQueryRadomRouteRsp::GetTypeName() const {
+  return "IM.Buddy.NewQueryRadomRouteRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NewUpdateRouteReq::kUserIdFieldNumber;
+const int NewUpdateRouteReq::kStartTransportToolFieldNumber;
+const int NewUpdateRouteReq::kEndTransportToolFieldNumber;
+const int NewUpdateRouteReq::kStartTimeFieldNumber;
+const int NewUpdateRouteReq::kEndTimeFieldNumber;
+const int NewUpdateRouteReq::kScenicIdsFieldNumber;
+const int NewUpdateRouteReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+NewUpdateRouteReq::NewUpdateRouteReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewUpdateRouteReq)
+}
+
+void NewUpdateRouteReq::InitAsDefaultInstance() {
+}
+
+NewUpdateRouteReq::NewUpdateRouteReq(const NewUpdateRouteReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewUpdateRouteReq)
+}
+
+void NewUpdateRouteReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  start_transport_tool_ = 1;
+  end_transport_tool_ = 1;
+  start_time_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  end_time_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NewUpdateRouteReq::~NewUpdateRouteReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewUpdateRouteReq)
+  SharedDtor();
+}
+
+void NewUpdateRouteReq::SharedDtor() {
+  if (start_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete start_time_;
+  }
+  if (end_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete end_time_;
+  }
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void NewUpdateRouteReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const NewUpdateRouteReq& NewUpdateRouteReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+NewUpdateRouteReq* NewUpdateRouteReq::default_instance_ = NULL;
+
+NewUpdateRouteReq* NewUpdateRouteReq::New() const {
+  return new NewUpdateRouteReq;
+}
+
+void NewUpdateRouteReq::Clear() {
+  if (_has_bits_[0 / 32] & 95) {
+    user_id_ = 0u;
+    start_transport_tool_ = 1;
+    end_transport_tool_ = 1;
+    if (has_start_time()) {
+      if (start_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        start_time_->clear();
+      }
+    }
+    if (has_end_time()) {
+      if (end_time_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        end_time_->clear();
+      }
+    }
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+  scenic_ids_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool NewUpdateRouteReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewUpdateRouteReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_start_transport_tool;
+        break;
+      }
+
+      // required .IM.Buddy.TransportToolType start_transport_tool = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_start_transport_tool:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::IM::Buddy::TransportToolType_IsValid(value)) {
+            set_start_transport_tool(static_cast< ::IM::Buddy::TransportToolType >(value));
+          } else {
+            unknown_fields_stream.WriteVarint32(tag);
+            unknown_fields_stream.WriteVarint32(value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_end_transport_tool;
+        break;
+      }
+
+      // required .IM.Buddy.TransportToolType end_transport_tool = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_end_transport_tool:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::IM::Buddy::TransportToolType_IsValid(value)) {
+            set_end_transport_tool(static_cast< ::IM::Buddy::TransportToolType >(value));
+          } else {
+            unknown_fields_stream.WriteVarint32(tag);
+            unknown_fields_stream.WriteVarint32(value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_start_time;
+        break;
+      }
+
+      // required string start_time = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_start_time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_start_time()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_end_time;
+        break;
+      }
+
+      // required string end_time = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_end_time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_end_time()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(72)) goto parse_scenic_ids;
+        break;
+      }
+
+      // repeated uint32 scenic_ids = 9;
+      case 9: {
+        if (tag == 72) {
+         parse_scenic_ids:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 1, 72, input, this->mutable_scenic_ids())));
+        } else if (tag == 74) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_scenic_ids())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(72)) goto parse_scenic_ids;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewUpdateRouteReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewUpdateRouteReq)
+  return false;
+#undef DO_
+}
+
+void NewUpdateRouteReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewUpdateRouteReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required .IM.Buddy.TransportToolType start_transport_tool = 2;
+  if (has_start_transport_tool()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->start_transport_tool(), output);
+  }
+
+  // required .IM.Buddy.TransportToolType end_transport_tool = 3;
+  if (has_end_transport_tool()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->end_transport_tool(), output);
+  }
+
+  // required string start_time = 4;
+  if (has_start_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->start_time(), output);
+  }
+
+  // required string end_time = 5;
+  if (has_end_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->end_time(), output);
+  }
+
+  // repeated uint32 scenic_ids = 9;
+  for (int i = 0; i < this->scenic_ids_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
+      9, this->scenic_ids(i), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewUpdateRouteReq)
+}
+
+int NewUpdateRouteReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required .IM.Buddy.TransportToolType start_transport_tool = 2;
+    if (has_start_transport_tool()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->start_transport_tool());
+    }
+
+    // required .IM.Buddy.TransportToolType end_transport_tool = 3;
+    if (has_end_transport_tool()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->end_transport_tool());
+    }
+
+    // required string start_time = 4;
+    if (has_start_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->start_time());
+    }
+
+    // required string end_time = 5;
+    if (has_end_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->end_time());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated uint32 scenic_ids = 9;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->scenic_ids_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt32Size(this->scenic_ids(i));
+    }
+    total_size += 1 * this->scenic_ids_size() + data_size;
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NewUpdateRouteReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const NewUpdateRouteReq*>(&from));
+}
+
+void NewUpdateRouteReq::MergeFrom(const NewUpdateRouteReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  scenic_ids_.MergeFrom(from.scenic_ids_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_start_transport_tool()) {
+      set_start_transport_tool(from.start_transport_tool());
+    }
+    if (from.has_end_transport_tool()) {
+      set_end_transport_tool(from.end_transport_tool());
+    }
+    if (from.has_start_time()) {
+      set_start_time(from.start_time());
+    }
+    if (from.has_end_time()) {
+      set_end_time(from.end_time());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void NewUpdateRouteReq::CopyFrom(const NewUpdateRouteReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NewUpdateRouteReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
+
+  return true;
+}
+
+void NewUpdateRouteReq::Swap(NewUpdateRouteReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(start_transport_tool_, other->start_transport_tool_);
+    std::swap(end_transport_tool_, other->end_transport_tool_);
+    std::swap(start_time_, other->start_time_);
+    std::swap(end_time_, other->end_time_);
+    scenic_ids_.Swap(&other->scenic_ids_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string NewUpdateRouteReq::GetTypeName() const {
+  return "IM.Buddy.NewUpdateRouteReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NewUpdateRouteRsp::kUserIdFieldNumber;
+const int NewUpdateRouteRsp::kResultCodeFieldNumber;
+const int NewUpdateRouteRsp::kRoutesFieldNumber;
+const int NewUpdateRouteRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+NewUpdateRouteRsp::NewUpdateRouteRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewUpdateRouteRsp)
+}
+
+void NewUpdateRouteRsp::InitAsDefaultInstance() {
+}
+
+NewUpdateRouteRsp::NewUpdateRouteRsp(const NewUpdateRouteRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewUpdateRouteRsp)
+}
+
+void NewUpdateRouteRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NewUpdateRouteRsp::~NewUpdateRouteRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewUpdateRouteRsp)
+  SharedDtor();
+}
+
+void NewUpdateRouteRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void NewUpdateRouteRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const NewUpdateRouteRsp& NewUpdateRouteRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+NewUpdateRouteRsp* NewUpdateRouteRsp::default_instance_ = NULL;
+
+NewUpdateRouteRsp* NewUpdateRouteRsp::New() const {
+  return new NewUpdateRouteRsp;
+}
+
+void NewUpdateRouteRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<NewUpdateRouteRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 11) {
+    ZR_(user_id_, result_code_);
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  routes_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool NewUpdateRouteRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewUpdateRouteRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_routes;
+        break;
+      }
+
+      // repeated .IM.Buddy.Route routes = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_routes:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_routes()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_routes;
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewUpdateRouteRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewUpdateRouteRsp)
+  return false;
+#undef DO_
+}
+
+void NewUpdateRouteRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewUpdateRouteRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // repeated .IM.Buddy.Route routes = 3;
+  for (int i = 0; i < this->routes_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->routes(i), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewUpdateRouteRsp)
+}
+
+int NewUpdateRouteRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  // repeated .IM.Buddy.Route routes = 3;
+  total_size += 1 * this->routes_size();
+  for (int i = 0; i < this->routes_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->routes(i));
+  }
+
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NewUpdateRouteRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const NewUpdateRouteRsp*>(&from));
+}
+
+void NewUpdateRouteRsp::MergeFrom(const NewUpdateRouteRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  routes_.MergeFrom(from.routes_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void NewUpdateRouteRsp::CopyFrom(const NewUpdateRouteRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NewUpdateRouteRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->routes())) return false;
+  return true;
+}
+
+void NewUpdateRouteRsp::Swap(NewUpdateRouteRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    routes_.Swap(&other->routes_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string NewUpdateRouteRsp::GetTypeName() const {
+  return "IM.Buddy.NewUpdateRouteRsp";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NewCreateMyTravelReq::kUserIdFieldNumber;
+const int NewCreateMyTravelReq::kDayCountFieldNumber;
+const int NewCreateMyTravelReq::kCityCodeFieldNumber;
+const int NewCreateMyTravelReq::kTagsFieldNumber;
+const int NewCreateMyTravelReq::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+NewCreateMyTravelReq::NewCreateMyTravelReq()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewCreateMyTravelReq)
+}
+
+void NewCreateMyTravelReq::InitAsDefaultInstance() {
+}
+
+NewCreateMyTravelReq::NewCreateMyTravelReq(const NewCreateMyTravelReq& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewCreateMyTravelReq)
+}
+
+void NewCreateMyTravelReq::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  day_count_ = 0u;
+  city_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  tags_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NewCreateMyTravelReq::~NewCreateMyTravelReq() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewCreateMyTravelReq)
+  SharedDtor();
+}
+
+void NewCreateMyTravelReq::SharedDtor() {
+  if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete city_code_;
+  }
+  if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete tags_;
+  }
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+  }
+}
+
+void NewCreateMyTravelReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const NewCreateMyTravelReq& NewCreateMyTravelReq::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+NewCreateMyTravelReq* NewCreateMyTravelReq::default_instance_ = NULL;
+
+NewCreateMyTravelReq* NewCreateMyTravelReq::New() const {
+  return new NewCreateMyTravelReq;
+}
+
+void NewCreateMyTravelReq::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<NewCreateMyTravelReq*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 31) {
+    ZR_(user_id_, day_count_);
+    if (has_city_code()) {
+      if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        city_code_->clear();
+      }
+    }
+    if (has_tags()) {
+      if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        tags_->clear();
+      }
+    }
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool NewCreateMyTravelReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewCreateMyTravelReq)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_day_count;
+        break;
+      }
+
+      // required uint32 day_count = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_day_count:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &day_count_)));
+          set_has_day_count();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_city_code;
+        break;
+      }
+
+      // required string city_code = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_city_code:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_city_code()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_tags;
+        break;
+      }
+
+      // required string tags = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_tags:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_tags()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewCreateMyTravelReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewCreateMyTravelReq)
+  return false;
+#undef DO_
+}
+
+void NewCreateMyTravelReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewCreateMyTravelReq)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 day_count = 2;
+  if (has_day_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->day_count(), output);
+  }
+
+  // required string city_code = 3;
+  if (has_city_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->city_code(), output);
+  }
+
+  // required string tags = 4;
+  if (has_tags()) {
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->tags(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewCreateMyTravelReq)
+}
+
+int NewCreateMyTravelReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 day_count = 2;
+    if (has_day_count()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->day_count());
+    }
+
+    // required string city_code = 3;
+    if (has_city_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->city_code());
+    }
+
+    // required string tags = 4;
+    if (has_tags()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->tags());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NewCreateMyTravelReq::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const NewCreateMyTravelReq*>(&from));
+}
+
+void NewCreateMyTravelReq::MergeFrom(const NewCreateMyTravelReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_day_count()) {
+      set_day_count(from.day_count());
+    }
+    if (from.has_city_code()) {
+      set_city_code(from.city_code());
+    }
+    if (from.has_tags()) {
+      set_tags(from.tags());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void NewCreateMyTravelReq::CopyFrom(const NewCreateMyTravelReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NewCreateMyTravelReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+
+  return true;
+}
+
+void NewCreateMyTravelReq::Swap(NewCreateMyTravelReq* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(day_count_, other->day_count_);
+    std::swap(city_code_, other->city_code_);
+    std::swap(tags_, other->tags_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string NewCreateMyTravelReq::GetTypeName() const {
+  return "IM.Buddy.NewCreateMyTravelReq";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NewCreateMyTravelRsp::kUserIdFieldNumber;
+const int NewCreateMyTravelRsp::kResultCodeFieldNumber;
+const int NewCreateMyTravelRsp::kRouteFieldNumber;
+const int NewCreateMyTravelRsp::kAttachDataFieldNumber;
+#endif  // !_MSC_VER
+
+NewCreateMyTravelRsp::NewCreateMyTravelRsp()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:IM.Buddy.NewCreateMyTravelRsp)
+}
+
+void NewCreateMyTravelRsp::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  route_ = const_cast< ::IM::Buddy::Route*>(
+      ::IM::Buddy::Route::internal_default_instance());
+#else
+  route_ = const_cast< ::IM::Buddy::Route*>(&::IM::Buddy::Route::default_instance());
+#endif
+}
+
+NewCreateMyTravelRsp::NewCreateMyTravelRsp(const NewCreateMyTravelRsp& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:IM.Buddy.NewCreateMyTravelRsp)
+}
+
+void NewCreateMyTravelRsp::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  user_id_ = 0u;
+  result_code_ = 0u;
+  route_ = NULL;
+  attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NewCreateMyTravelRsp::~NewCreateMyTravelRsp() {
+  // @@protoc_insertion_point(destructor:IM.Buddy.NewCreateMyTravelRsp)
+  SharedDtor();
+}
+
+void NewCreateMyTravelRsp::SharedDtor() {
+  if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete attach_data_;
+  }
+  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  if (this != &default_instance()) {
+  #else
+  if (this != default_instance_) {
+  #endif
+    delete route_;
+  }
+}
+
+void NewCreateMyTravelRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const NewCreateMyTravelRsp& NewCreateMyTravelRsp::default_instance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  protobuf_AddDesc_IM_2eBuddy_2eproto();
+#else
+  if (default_instance_ == NULL) protobuf_AddDesc_IM_2eBuddy_2eproto();
+#endif
+  return *default_instance_;
+}
+
+NewCreateMyTravelRsp* NewCreateMyTravelRsp::default_instance_ = NULL;
+
+NewCreateMyTravelRsp* NewCreateMyTravelRsp::New() const {
+  return new NewCreateMyTravelRsp;
+}
+
+void NewCreateMyTravelRsp::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<NewCreateMyTravelRsp*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 15) {
+    ZR_(user_id_, result_code_);
+    if (has_route()) {
+      if (route_ != NULL) route_->::IM::Buddy::Route::Clear();
+    }
+    if (has_attach_data()) {
+      if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        attach_data_->clear();
+      }
+    }
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->clear();
+}
+
+bool NewCreateMyTravelRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::io::StringOutputStream unknown_fields_string(
+      mutable_unknown_fields());
+  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+      &unknown_fields_string);
+  // @@protoc_insertion_point(parse_start:IM.Buddy.NewCreateMyTravelRsp)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 user_id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_result_code;
+        break;
+      }
+
+      // required uint32 result_code = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_result_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_code_)));
+          set_has_result_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_route;
+        break;
+      }
+
+      // required .IM.Buddy.Route route = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_route:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_route()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(162)) goto parse_attach_data;
+        break;
+      }
+
+      // optional bytes attach_data = 20;
+      case 20: {
+        if (tag == 162) {
+         parse_attach_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_attach_data()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(
+            input, tag, &unknown_fields_stream));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:IM.Buddy.NewCreateMyTravelRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:IM.Buddy.NewCreateMyTravelRsp)
+  return false;
+#undef DO_
+}
+
+void NewCreateMyTravelRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:IM.Buddy.NewCreateMyTravelRsp)
+  // required uint32 user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
+  }
+
+  // required uint32 result_code = 2;
+  if (has_result_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
+  }
+
+  // required .IM.Buddy.Route route = 3;
+  if (has_route()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->route(), output);
+  }
+
+  // optional bytes attach_data = 20;
+  if (has_attach_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      20, this->attach_data(), output);
+  }
+
+  output->WriteRaw(unknown_fields().data(),
+                   unknown_fields().size());
+  // @@protoc_insertion_point(serialize_end:IM.Buddy.NewCreateMyTravelRsp)
+}
+
+int NewCreateMyTravelRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 user_id = 1;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->user_id());
+    }
+
+    // required uint32 result_code = 2;
+    if (has_result_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result_code());
+    }
+
+    // required .IM.Buddy.Route route = 3;
+    if (has_route()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->route());
+    }
+
+    // optional bytes attach_data = 20;
+    if (has_attach_data()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->attach_data());
+    }
+
+  }
+  total_size += unknown_fields().size();
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NewCreateMyTravelRsp::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const NewCreateMyTravelRsp*>(&from));
+}
+
+void NewCreateMyTravelRsp::MergeFrom(const NewCreateMyTravelRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_result_code()) {
+      set_result_code(from.result_code());
+    }
+    if (from.has_route()) {
+      mutable_route()->::IM::Buddy::Route::MergeFrom(from.route());
+    }
+    if (from.has_attach_data()) {
+      set_attach_data(from.attach_data());
+    }
+  }
+  mutable_unknown_fields()->append(from.unknown_fields());
+}
+
+void NewCreateMyTravelRsp::CopyFrom(const NewCreateMyTravelRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NewCreateMyTravelRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  if (has_route()) {
+    if (!this->route().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void NewCreateMyTravelRsp::Swap(NewCreateMyTravelRsp* other) {
+  if (other != this) {
+    std::swap(user_id_, other->user_id_);
+    std::swap(result_code_, other->result_code_);
+    std::swap(route_, other->route_);
+    std::swap(attach_data_, other->attach_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.swap(other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string NewCreateMyTravelRsp::GetTypeName() const {
+  return "IM.Buddy.NewCreateMyTravelRsp";
 }
 
 

@@ -56,6 +56,8 @@ public:
 	long llen(string key);
 	bool lrange(string key, long start, long end, list<string>& ret_value);
 
+	long pub(const string& channel, const string& message);
+
 private:
 	CachePool* 		m_pCachePool;
 	redisContext* 	m_pContext;

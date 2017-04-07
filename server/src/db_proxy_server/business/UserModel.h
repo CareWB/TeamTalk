@@ -38,6 +38,8 @@ public:
     bool getTransportTool(uint32_t user_id, IM::Buddy::GetTransportToolReq& req, IM::Buddy::GetTransportToolRsp& rsp);
     bool getScenicHotel(uint32_t user_id, IM::Buddy::GetScenicHotelReq& req, IM::Buddy::GetScenicHotelRsp& rsp);
     uint32_t createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTravelReq* pb);
+    bool queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRouteRsp* pb);
+    
     bool queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp& rsp);
     bool deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_idx_list);
     uint32_t updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb);

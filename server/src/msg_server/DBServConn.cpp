@@ -256,6 +256,9 @@ void CDBServConn::HandlePdu(CImPdu* pPdu)
         case CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE:
             _HandleCreateTravelResponse(pPdu);
             break;
+        case CID_BUDDY_LIST_RADOM_ROUTE_QUERY_RESPONSE:
+            _HandleQueryRadomRouteResponse(pPdu);
+            break;
         case CID_BUDDY_LIST_TRAVEL_UPDATE_RESPONSE:
             _HandleUpdateTravelResponse(pPdu);
             break;
@@ -934,6 +937,28 @@ void CDBServConn::_HandleQueryPushShieldResponse(CImPdu* pPdu) {
 
 void CDBServConn::_HandleCreateTravelResponse(CImPdu* pPdu) {
     IM::Buddy::CreateMyTravelRsp msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    
+    uint32_t user_id = msg.user_id();
+    uint32_t result = msg.result_code();    
+    log("user_id=%u, result=%u.", user_id, result);
+    
+    CDbAttachData attach_data((uchar_t*)msg.attach_data().c_str(), msg.attach_data().length());
+    uint32_t handle = attach_data.GetHandle();
+    
+    CMsgConn* pMsgConn = CImUserManager::GetInstance()->GetMsgConnByHandle(user_id, handle);
+    
+    if (pMsgConn && pMsgConn->IsOpen()) {
+        msg.clear_attach_data();
+        pPdu->SetPBMsg(&msg);
+        pMsgConn->SendPdu(pPdu);
+    } else {
+        log("can't found msg_conn by user_id = %u, handle = %u", user_id, handle);
+    }
+}
+
+void CDBServConn::_HandleQueryRadomRouteResponse(CImPdu* pPdu) {
+    IM::Buddy::NewQueryRadomRouteRsp msg;
     CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
     
     uint32_t user_id = msg.user_id();

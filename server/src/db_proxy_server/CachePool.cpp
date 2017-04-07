@@ -558,6 +558,26 @@ bool CacheConn::lrange(string key, long start, long end, list<string>& ret_value
 	return true;
 }
 
+long CacheConn::pub(const string& channel, const string& message)
+{
+	if (Init()) {
+		return -1;
+	}
+
+	redisReply* reply = (redisReply *)redisCommand(m_pContext, "PUBLISH %s %s", channel.c_str(), message.c_str());
+	if (!reply) {
+		log("redisCommand failed:%s", m_pContext->errstr);
+		redisFree(m_pContext);
+		m_pContext = NULL;
+		return -1;
+	}
+
+	long ret_value = reply->integer;
+	freeReplyObject(reply);
+	return ret_value;
+}
+
+
 ///////////////
 CachePool::CachePool(const char* pool_name, const char* server_ip, int server_port, int db_num, int max_conn_cnt)
 {

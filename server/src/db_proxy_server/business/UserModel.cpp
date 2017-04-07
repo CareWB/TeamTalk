@@ -688,6 +688,12 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
     return idx;
 }
 
+bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRouteRsp* pb) {
+    log("enter.");
+    bool bRet = false;
+    return bRet;
+}
+
 uint32_t CUserModel::updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb) {
     log("enter.");
     bool bRet = false;
