@@ -6716,17 +6716,14 @@ class NewUpdateRadomRouteRsp : public ::google::protobuf::MessageLite {
   inline ::google::protobuf::uint32 result_code() const;
   inline void set_result_code(::google::protobuf::uint32 value);
 
-  // repeated .IM.Buddy.Route routes = 3;
-  inline int routes_size() const;
-  inline void clear_routes();
-  static const int kRoutesFieldNumber = 3;
-  inline const ::IM::Buddy::Route& routes(int index) const;
-  inline ::IM::Buddy::Route* mutable_routes(int index);
-  inline ::IM::Buddy::Route* add_routes();
-  inline const ::google::protobuf::RepeatedPtrField< ::IM::Buddy::Route >&
-      routes() const;
-  inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::Route >*
-      mutable_routes();
+  // required .IM.Buddy.Route route = 3;
+  inline bool has_route() const;
+  inline void clear_route();
+  static const int kRouteFieldNumber = 3;
+  inline const ::IM::Buddy::Route& route() const;
+  inline ::IM::Buddy::Route* mutable_route();
+  inline ::IM::Buddy::Route* release_route();
+  inline void set_allocated_route(::IM::Buddy::Route* route);
 
   // optional bytes attach_data = 20;
   inline bool has_attach_data() const;
@@ -6746,6 +6743,8 @@ class NewUpdateRadomRouteRsp : public ::google::protobuf::MessageLite {
   inline void clear_has_user_id();
   inline void set_has_result_code();
   inline void clear_has_result_code();
+  inline void set_has_route();
+  inline void clear_has_route();
   inline void set_has_attach_data();
   inline void clear_has_attach_data();
 
@@ -6755,7 +6754,7 @@ class NewUpdateRadomRouteRsp : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 user_id_;
   ::google::protobuf::uint32 result_code_;
-  ::google::protobuf::RepeatedPtrField< ::IM::Buddy::Route > routes_;
+  ::IM::Buddy::Route* route_;
   ::std::string* attach_data_;
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
@@ -6857,17 +6856,21 @@ class NewCreateMyTravelReq : public ::google::protobuf::MessageLite {
   inline ::std::string* release_city_code();
   inline void set_allocated_city_code(::std::string* city_code);
 
-  // required string tags = 4;
-  inline bool has_tags() const;
+  // repeated string tags = 4;
+  inline int tags_size() const;
   inline void clear_tags();
   static const int kTagsFieldNumber = 4;
-  inline const ::std::string& tags() const;
-  inline void set_tags(const ::std::string& value);
-  inline void set_tags(const char* value);
-  inline void set_tags(const char* value, size_t size);
-  inline ::std::string* mutable_tags();
-  inline ::std::string* release_tags();
-  inline void set_allocated_tags(::std::string* tags);
+  inline const ::std::string& tags(int index) const;
+  inline ::std::string* mutable_tags(int index);
+  inline void set_tags(int index, const ::std::string& value);
+  inline void set_tags(int index, const char* value);
+  inline void set_tags(int index, const char* value, size_t size);
+  inline ::std::string* add_tags();
+  inline void add_tags(const ::std::string& value);
+  inline void add_tags(const char* value);
+  inline void add_tags(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& tags() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_tags();
 
   // optional bytes attach_data = 20;
   inline bool has_attach_data() const;
@@ -6889,8 +6892,6 @@ class NewCreateMyTravelReq : public ::google::protobuf::MessageLite {
   inline void clear_has_day_count();
   inline void set_has_city_code();
   inline void clear_has_city_code();
-  inline void set_has_tags();
-  inline void clear_has_tags();
   inline void set_has_attach_data();
   inline void clear_has_attach_data();
 
@@ -6901,7 +6902,7 @@ class NewCreateMyTravelReq : public ::google::protobuf::MessageLite {
   ::google::protobuf::uint32 user_id_;
   ::google::protobuf::uint32 day_count_;
   ::std::string* city_code_;
-  ::std::string* tags_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> tags_;
   ::std::string* attach_data_;
   #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
   friend void  protobuf_AddDesc_IM_2eBuddy_2eproto_impl();
@@ -16547,34 +16548,49 @@ inline void NewUpdateRadomRouteRsp::set_result_code(::google::protobuf::uint32 v
   // @@protoc_insertion_point(field_set:IM.Buddy.NewUpdateRadomRouteRsp.result_code)
 }
 
-// repeated .IM.Buddy.Route routes = 3;
-inline int NewUpdateRadomRouteRsp::routes_size() const {
-  return routes_.size();
+// required .IM.Buddy.Route route = 3;
+inline bool NewUpdateRadomRouteRsp::has_route() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void NewUpdateRadomRouteRsp::clear_routes() {
-  routes_.Clear();
+inline void NewUpdateRadomRouteRsp::set_has_route() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline const ::IM::Buddy::Route& NewUpdateRadomRouteRsp::routes(int index) const {
-  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteRsp.routes)
-  return routes_.Get(index);
+inline void NewUpdateRadomRouteRsp::clear_has_route() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline ::IM::Buddy::Route* NewUpdateRadomRouteRsp::mutable_routes(int index) {
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRadomRouteRsp.routes)
-  return routes_.Mutable(index);
+inline void NewUpdateRadomRouteRsp::clear_route() {
+  if (route_ != NULL) route_->::IM::Buddy::Route::Clear();
+  clear_has_route();
 }
-inline ::IM::Buddy::Route* NewUpdateRadomRouteRsp::add_routes() {
-  // @@protoc_insertion_point(field_add:IM.Buddy.NewUpdateRadomRouteRsp.routes)
-  return routes_.Add();
+inline const ::IM::Buddy::Route& NewUpdateRadomRouteRsp::route() const {
+  // @@protoc_insertion_point(field_get:IM.Buddy.NewUpdateRadomRouteRsp.route)
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  return route_ != NULL ? *route_ : *default_instance().route_;
+#else
+  return route_ != NULL ? *route_ : *default_instance_->route_;
+#endif
 }
-inline const ::google::protobuf::RepeatedPtrField< ::IM::Buddy::Route >&
-NewUpdateRadomRouteRsp::routes() const {
-  // @@protoc_insertion_point(field_list:IM.Buddy.NewUpdateRadomRouteRsp.routes)
-  return routes_;
+inline ::IM::Buddy::Route* NewUpdateRadomRouteRsp::mutable_route() {
+  set_has_route();
+  if (route_ == NULL) route_ = new ::IM::Buddy::Route;
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewUpdateRadomRouteRsp.route)
+  return route_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::IM::Buddy::Route >*
-NewUpdateRadomRouteRsp::mutable_routes() {
-  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.NewUpdateRadomRouteRsp.routes)
-  return &routes_;
+inline ::IM::Buddy::Route* NewUpdateRadomRouteRsp::release_route() {
+  clear_has_route();
+  ::IM::Buddy::Route* temp = route_;
+  route_ = NULL;
+  return temp;
+}
+inline void NewUpdateRadomRouteRsp::set_allocated_route(::IM::Buddy::Route* route) {
+  delete route_;
+  route_ = route;
+  if (route) {
+    set_has_route();
+  } else {
+    clear_has_route();
+  }
+  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewUpdateRadomRouteRsp.route)
 }
 
 // optional bytes attach_data = 20;
@@ -16781,80 +16797,58 @@ inline void NewCreateMyTravelReq::set_allocated_city_code(::std::string* city_co
   // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewCreateMyTravelReq.city_code)
 }
 
-// required string tags = 4;
-inline bool NewCreateMyTravelReq::has_tags() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void NewCreateMyTravelReq::set_has_tags() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void NewCreateMyTravelReq::clear_has_tags() {
-  _has_bits_[0] &= ~0x00000008u;
+// repeated string tags = 4;
+inline int NewCreateMyTravelReq::tags_size() const {
+  return tags_.size();
 }
 inline void NewCreateMyTravelReq::clear_tags() {
-  if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    tags_->clear();
-  }
-  clear_has_tags();
+  tags_.Clear();
 }
-inline const ::std::string& NewCreateMyTravelReq::tags() const {
+inline const ::std::string& NewCreateMyTravelReq::tags(int index) const {
   // @@protoc_insertion_point(field_get:IM.Buddy.NewCreateMyTravelReq.tags)
-  return *tags_;
+  return tags_.Get(index);
 }
-inline void NewCreateMyTravelReq::set_tags(const ::std::string& value) {
-  set_has_tags();
-  if (tags_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    tags_ = new ::std::string;
-  }
-  tags_->assign(value);
+inline ::std::string* NewCreateMyTravelReq::mutable_tags(int index) {
+  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewCreateMyTravelReq.tags)
+  return tags_.Mutable(index);
+}
+inline void NewCreateMyTravelReq::set_tags(int index, const ::std::string& value) {
   // @@protoc_insertion_point(field_set:IM.Buddy.NewCreateMyTravelReq.tags)
+  tags_.Mutable(index)->assign(value);
 }
-inline void NewCreateMyTravelReq::set_tags(const char* value) {
-  set_has_tags();
-  if (tags_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    tags_ = new ::std::string;
-  }
-  tags_->assign(value);
+inline void NewCreateMyTravelReq::set_tags(int index, const char* value) {
+  tags_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:IM.Buddy.NewCreateMyTravelReq.tags)
 }
-inline void NewCreateMyTravelReq::set_tags(const char* value, size_t size) {
-  set_has_tags();
-  if (tags_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    tags_ = new ::std::string;
-  }
-  tags_->assign(reinterpret_cast<const char*>(value), size);
+inline void NewCreateMyTravelReq::set_tags(int index, const char* value, size_t size) {
+  tags_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_set_pointer:IM.Buddy.NewCreateMyTravelReq.tags)
 }
-inline ::std::string* NewCreateMyTravelReq::mutable_tags() {
-  set_has_tags();
-  if (tags_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    tags_ = new ::std::string;
-  }
-  // @@protoc_insertion_point(field_mutable:IM.Buddy.NewCreateMyTravelReq.tags)
+inline ::std::string* NewCreateMyTravelReq::add_tags() {
+  return tags_.Add();
+}
+inline void NewCreateMyTravelReq::add_tags(const ::std::string& value) {
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:IM.Buddy.NewCreateMyTravelReq.tags)
+}
+inline void NewCreateMyTravelReq::add_tags(const char* value) {
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:IM.Buddy.NewCreateMyTravelReq.tags)
+}
+inline void NewCreateMyTravelReq::add_tags(const char* value, size_t size) {
+  tags_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:IM.Buddy.NewCreateMyTravelReq.tags)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+NewCreateMyTravelReq::tags() const {
+  // @@protoc_insertion_point(field_list:IM.Buddy.NewCreateMyTravelReq.tags)
   return tags_;
 }
-inline ::std::string* NewCreateMyTravelReq::release_tags() {
-  clear_has_tags();
-  if (tags_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    return NULL;
-  } else {
-    ::std::string* temp = tags_;
-    tags_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    return temp;
-  }
-}
-inline void NewCreateMyTravelReq::set_allocated_tags(::std::string* tags) {
-  if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete tags_;
-  }
-  if (tags) {
-    set_has_tags();
-    tags_ = tags;
-  } else {
-    clear_has_tags();
-    tags_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  }
-  // @@protoc_insertion_point(field_set_allocated:IM.Buddy.NewCreateMyTravelReq.tags)
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+NewCreateMyTravelReq::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_list:IM.Buddy.NewCreateMyTravelReq.tags)
+  return &tags_;
 }
 
 // optional bytes attach_data = 20;

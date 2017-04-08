@@ -700,6 +700,11 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
     return bRet;
 }
 
+bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelRsp* pb) {
+    log("enter.");
+    bool bRet = false;
+    return bRet;
+}
 
 
 uint32_t CUserModel::updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb) {

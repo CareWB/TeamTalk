@@ -54,6 +54,7 @@ private:
     void _HandleCreateTravelResponse(CImPdu* pPdu);
     void _HandleQueryRadomRouteResponse(CImPdu* pPdu);
     void _HandleUpdateRadomRouteResponse(CImPdu* pPdu);
+    void _HandleNewCreateTravelResponse(CImPdu* pPdu);
     void _HandleUpdateTravelResponse(CImPdu* pPdu);
     void _HandleDeleteTravelResponse(CImPdu* pPdu);
     void _HandleQueryTravelResponse(CImPdu* pPdu);

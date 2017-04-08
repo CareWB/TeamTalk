@@ -84,6 +84,7 @@ void CHandlerMap::Init()
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST), DB_PROXY::updateTravelDetail));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST), DB_PROXY::queryRadomRoute));
     m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST), DB_PROXY::updateRadomRoute));
+    m_handler_map.insert(make_pair(uint32_t(CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST), DB_PROXY::newCreateTravel));
 
     
     // message content

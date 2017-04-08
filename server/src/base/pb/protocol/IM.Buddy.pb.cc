@@ -16029,7 +16029,7 @@ void NewUpdateRadomRouteReq::Swap(NewUpdateRadomRouteReq* other) {
 #ifndef _MSC_VER
 const int NewUpdateRadomRouteRsp::kUserIdFieldNumber;
 const int NewUpdateRadomRouteRsp::kResultCodeFieldNumber;
-const int NewUpdateRadomRouteRsp::kRoutesFieldNumber;
+const int NewUpdateRadomRouteRsp::kRouteFieldNumber;
 const int NewUpdateRadomRouteRsp::kAttachDataFieldNumber;
 #endif  // !_MSC_VER
 
@@ -16040,6 +16040,12 @@ NewUpdateRadomRouteRsp::NewUpdateRadomRouteRsp()
 }
 
 void NewUpdateRadomRouteRsp::InitAsDefaultInstance() {
+#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
+  route_ = const_cast< ::IM::Buddy::Route*>(
+      ::IM::Buddy::Route::internal_default_instance());
+#else
+  route_ = const_cast< ::IM::Buddy::Route*>(&::IM::Buddy::Route::default_instance());
+#endif
 }
 
 NewUpdateRadomRouteRsp::NewUpdateRadomRouteRsp(const NewUpdateRadomRouteRsp& from)
@@ -16054,6 +16060,7 @@ void NewUpdateRadomRouteRsp::SharedCtor() {
   _cached_size_ = 0;
   user_id_ = 0u;
   result_code_ = 0u;
+  route_ = NULL;
   attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -16072,6 +16079,7 @@ void NewUpdateRadomRouteRsp::SharedDtor() {
   #else
   if (this != default_instance_) {
   #endif
+    delete route_;
   }
 }
 
@@ -16106,8 +16114,11 @@ void NewUpdateRadomRouteRsp::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 11) {
+  if (_has_bits_[0 / 32] & 15) {
     ZR_(user_id_, result_code_);
+    if (has_route()) {
+      if (route_ != NULL) route_->::IM::Buddy::Route::Clear();
+    }
     if (has_attach_data()) {
       if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         attach_data_->clear();
@@ -16118,7 +16129,6 @@ void NewUpdateRadomRouteRsp::Clear() {
 #undef OFFSET_OF_FIELD_
 #undef ZR_
 
-  routes_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
@@ -16162,20 +16172,19 @@ bool NewUpdateRadomRouteRsp::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_routes;
+        if (input->ExpectTag(26)) goto parse_route;
         break;
       }
 
-      // repeated .IM.Buddy.Route routes = 3;
+      // required .IM.Buddy.Route route = 3;
       case 3: {
         if (tag == 26) {
-         parse_routes:
+         parse_route:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_routes()));
+               input, mutable_route()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_routes;
         if (input->ExpectTag(162)) goto parse_attach_data;
         break;
       }
@@ -16228,10 +16237,10 @@ void NewUpdateRadomRouteRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->result_code(), output);
   }
 
-  // repeated .IM.Buddy.Route routes = 3;
-  for (int i = 0; i < this->routes_size(); i++) {
+  // required .IM.Buddy.Route route = 3;
+  if (has_route()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessage(
-      3, this->routes(i), output);
+      3, this->route(), output);
   }
 
   // optional bytes attach_data = 20;
@@ -16263,6 +16272,13 @@ int NewUpdateRadomRouteRsp::ByteSize() const {
           this->result_code());
     }
 
+    // required .IM.Buddy.Route route = 3;
+    if (has_route()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->route());
+    }
+
     // optional bytes attach_data = 20;
     if (has_attach_data()) {
       total_size += 2 +
@@ -16271,14 +16287,6 @@ int NewUpdateRadomRouteRsp::ByteSize() const {
     }
 
   }
-  // repeated .IM.Buddy.Route routes = 3;
-  total_size += 1 * this->routes_size();
-  for (int i = 0; i < this->routes_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->routes(i));
-  }
-
   total_size += unknown_fields().size();
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -16294,13 +16302,15 @@ void NewUpdateRadomRouteRsp::CheckTypeAndMergeFrom(
 
 void NewUpdateRadomRouteRsp::MergeFrom(const NewUpdateRadomRouteRsp& from) {
   GOOGLE_CHECK_NE(&from, this);
-  routes_.MergeFrom(from.routes_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_user_id()) {
       set_user_id(from.user_id());
     }
     if (from.has_result_code()) {
       set_result_code(from.result_code());
+    }
+    if (from.has_route()) {
+      mutable_route()->::IM::Buddy::Route::MergeFrom(from.route());
     }
     if (from.has_attach_data()) {
       set_attach_data(from.attach_data());
@@ -16316,9 +16326,11 @@ void NewUpdateRadomRouteRsp::CopyFrom(const NewUpdateRadomRouteRsp& from) {
 }
 
 bool NewUpdateRadomRouteRsp::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
-  if (!::google::protobuf::internal::AllAreInitialized(this->routes())) return false;
+  if (has_route()) {
+    if (!this->route().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -16326,7 +16338,7 @@ void NewUpdateRadomRouteRsp::Swap(NewUpdateRadomRouteRsp* other) {
   if (other != this) {
     std::swap(user_id_, other->user_id_);
     std::swap(result_code_, other->result_code_);
-    routes_.Swap(&other->routes_);
+    std::swap(route_, other->route_);
     std::swap(attach_data_, other->attach_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
@@ -16371,7 +16383,6 @@ void NewCreateMyTravelReq::SharedCtor() {
   user_id_ = 0u;
   day_count_ = 0u;
   city_code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  tags_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   attach_data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -16384,9 +16395,6 @@ NewCreateMyTravelReq::~NewCreateMyTravelReq() {
 void NewCreateMyTravelReq::SharedDtor() {
   if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete city_code_;
-  }
-  if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete tags_;
   }
   if (attach_data_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete attach_data_;
@@ -16430,16 +16438,11 @@ void NewCreateMyTravelReq::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 31) {
+  if (_has_bits_[0 / 32] & 23) {
     ZR_(user_id_, day_count_);
     if (has_city_code()) {
       if (city_code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         city_code_->clear();
-      }
-    }
-    if (has_tags()) {
-      if (tags_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        tags_->clear();
       }
     }
     if (has_attach_data()) {
@@ -16452,6 +16455,7 @@ void NewCreateMyTravelReq::Clear() {
 #undef OFFSET_OF_FIELD_
 #undef ZR_
 
+  tags_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->clear();
 }
@@ -16512,15 +16516,16 @@ bool NewCreateMyTravelReq::MergePartialFromCodedStream(
         break;
       }
 
-      // required string tags = 4;
+      // repeated string tags = 4;
       case 4: {
         if (tag == 34) {
          parse_tags:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_tags()));
+                input, this->add_tags()));
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(34)) goto parse_tags;
         if (input->ExpectTag(162)) goto parse_attach_data;
         break;
       }
@@ -16579,10 +16584,10 @@ void NewCreateMyTravelReq::SerializeWithCachedSizes(
       3, this->city_code(), output);
   }
 
-  // required string tags = 4;
-  if (has_tags()) {
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->tags(), output);
+  // repeated string tags = 4;
+  for (int i = 0; i < this->tags_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->tags(i), output);
   }
 
   // optional bytes attach_data = 20;
@@ -16621,13 +16626,6 @@ int NewCreateMyTravelReq::ByteSize() const {
           this->city_code());
     }
 
-    // required string tags = 4;
-    if (has_tags()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->tags());
-    }
-
     // optional bytes attach_data = 20;
     if (has_attach_data()) {
       total_size += 2 +
@@ -16636,6 +16634,13 @@ int NewCreateMyTravelReq::ByteSize() const {
     }
 
   }
+  // repeated string tags = 4;
+  total_size += 1 * this->tags_size();
+  for (int i = 0; i < this->tags_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->tags(i));
+  }
+
   total_size += unknown_fields().size();
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -16651,6 +16656,7 @@ void NewCreateMyTravelReq::CheckTypeAndMergeFrom(
 
 void NewCreateMyTravelReq::MergeFrom(const NewCreateMyTravelReq& from) {
   GOOGLE_CHECK_NE(&from, this);
+  tags_.MergeFrom(from.tags_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_user_id()) {
       set_user_id(from.user_id());
@@ -16660,9 +16666,6 @@ void NewCreateMyTravelReq::MergeFrom(const NewCreateMyTravelReq& from) {
     }
     if (from.has_city_code()) {
       set_city_code(from.city_code());
-    }
-    if (from.has_tags()) {
-      set_tags(from.tags());
     }
     if (from.has_attach_data()) {
       set_attach_data(from.attach_data());
@@ -16678,7 +16681,7 @@ void NewCreateMyTravelReq::CopyFrom(const NewCreateMyTravelReq& from) {
 }
 
 bool NewCreateMyTravelReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
@@ -16688,7 +16691,7 @@ void NewCreateMyTravelReq::Swap(NewCreateMyTravelReq* other) {
     std::swap(user_id_, other->user_id_);
     std::swap(day_count_, other->day_count_);
     std::swap(city_code_, other->city_code_);
-    std::swap(tags_, other->tags_);
+    tags_.Swap(&other->tags_);
     std::swap(attach_data_, other->attach_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.swap(other->_unknown_fields_);
