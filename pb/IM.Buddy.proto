@@ -423,7 +423,7 @@ message NewUpdateRadomRouteRsp{
     //cmd id:        0x025c
     required uint32 user_id         = 1;
     required uint32 result_code     = 2;
-    repeated Route routes            = 3;
+    required Route route            = 3;
     optional bytes attach_data      = 20;
 }
 
@@ -432,7 +432,7 @@ message NewCreateMyTravelReq{
     required uint32 user_id = 1;
     required uint32 day_count = 2;
     required string city_code = 3;
-    required string tags = 4; // split with space
+    repeated string tags = 4;
     optional bytes attach_data = 20;
 }
 
