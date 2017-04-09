@@ -690,19 +690,108 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
 
 bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRouteRsp* pb) {
     log("enter.");
-    bool bRet = false;
+    bool bRet = true;
+
+    IM::Buddy::Route *route = pb->add_routes();
+    route->set_day_count(3);
+    route->set_city_code("XMN");
+    route->set_quality("豪华");
+    route->set_start_transport_tool(IM::Buddy::TransportToolType::TRAIN);
+    route->set_end_transport_tool(IM::Buddy::TransportToolType::TRAIN);
+    route->set_start_time("10:00");
+    route->set_end_time("18:00");
+    IM::Buddy::DayRoute* dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(1);
+    dayRoute->add_scenics(2);
+    dayRoute->add_scenics(3);
+    dayRoute->add_hotels(1);
+    dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(4);
+    dayRoute->add_scenics(5);
+    dayRoute->add_scenics(6);
+    dayRoute->add_hotels(4);
+    dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(7);
+    dayRoute->add_scenics(8);
+    dayRoute->add_scenics(9);
+    dayRoute->add_hotels(7);
+
+    route = pb->add_routes();
+    route->set_day_count(1);
+    route->set_city_code("XMN");
+    route->set_quality("经济");
+    route->set_start_transport_tool(IM::Buddy::TransportToolType::AIRPLANE);
+    route->set_end_transport_tool(IM::Buddy::TransportToolType::AIRPLANE);
+    route->set_start_time("09:00");
+    route->set_end_time("21:00");
+    dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(1);
+    dayRoute->add_scenics(2);
+    dayRoute->add_scenics(3);
+    dayRoute->add_hotels(1);
+
     return bRet;
 }
 
 bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRouteRsp* pb) {
     log("enter.");
-    bool bRet = false;
+    bool bRet = true;
+
+    IM::Buddy::Route *route = pb->mutable_route();
+    route->set_day_count(3);
+    route->set_city_code("XMN");
+    route->set_quality("豪华");
+    route->set_start_transport_tool(IM::Buddy::TransportToolType::TRAIN);
+    route->set_end_transport_tool(IM::Buddy::TransportToolType::TRAIN);
+    route->set_start_time("10:00");
+    route->set_end_time("18:00");
+    IM::Buddy::DayRoute* dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(7);
+    dayRoute->add_scenics(8);
+    dayRoute->add_scenics(9);
+    dayRoute->add_hotels(1);
+    dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(4);
+    dayRoute->add_scenics(5);
+    dayRoute->add_scenics(6);
+    dayRoute->add_hotels(4);
+    dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(1);
+    dayRoute->add_scenics(2);
+    dayRoute->add_scenics(3);
+    dayRoute->add_hotels(7);
+
     return bRet;
 }
 
 bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelRsp* pb) {
     log("enter.");
-    bool bRet = false;
+    bool bRet = true;
+
+    IM::Buddy::Route *route = pb->mutable_route();
+    route->set_day_count(3);
+    route->set_city_code("XMN");
+    route->set_quality("豪华");
+    route->set_start_transport_tool(IM::Buddy::TransportToolType::TRAIN);
+    route->set_end_transport_tool(IM::Buddy::TransportToolType::TRAIN);
+    route->set_start_time("10:00");
+    route->set_end_time("18:00");
+    IM::Buddy::DayRoute* dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(7);
+    dayRoute->add_scenics(8);
+    dayRoute->add_scenics(9);
+    dayRoute->add_hotels(1);
+    dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(4);
+    dayRoute->add_scenics(5);
+    dayRoute->add_scenics(6);
+    dayRoute->add_hotels(4);
+    dayRoute = route->add_day_routes();
+    dayRoute->add_scenics(1);
+    dayRoute->add_scenics(2);
+    dayRoute->add_scenics(3);
+    dayRoute->add_hotels(7);
+
     return bRet;
 }
 
