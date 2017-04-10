@@ -690,7 +690,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
 
 bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRouteRsp* pb) {
     log("enter.");
-    bool bRet = true;
+    bool bRet = false;
 
     IM::Buddy::Route *route = pb->add_routes();
     route->set_day_count(3);
@@ -729,6 +729,68 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     dayRoute->add_scenics(2);
     dayRoute->add_scenics(3);
     dayRoute->add_hotels(1);
+
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk");
+    CacheManager* pCacheManager = CacheManager::getInstance();
+    CacheConn* pCacheConn = pCacheManager->GetCacheConn("pubsub");
+    if (!pDBConn)
+    {
+        log("no db connection for teamtalk");
+        return false;
+    }
+
+    if (!pCacheConn)
+    {
+        log("no cache connection for teamtalk");
+        pDBManager->RelDBConn(pDBConn);
+        return false;
+    }
+
+    long ret = pCacheConn->pub("route", "data");
+    if (-1 == ret)
+    {
+        log("failed to pCacheConn->pub");
+        pDBManager->RelDBConn(pDBConn);
+        pCacheManager->RelCacheConn(pCacheConn);
+        return false;
+    }
+
+    CResultSet* pResultSet = NULL;
+    string strSql = "select * from route";
+    int i = 0;
+    bool data_exist = false;
+
+    while (1)
+    {
+        pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+        if (pResultSet)
+        {
+            while (pResultSet->Next())
+            {
+                data_exist = true;
+                //pResultSet->GetInt("id");
+            }
+        }
+
+        if (data_exist)
+        {
+            bRet = true;
+            break;
+        }
+
+        printf("no data find, try again. %d", i++);
+        if (i >= 30)
+        {
+            bRet = false;
+            break;
+        }
+
+        usleep(1000);
+    }
+
+    pDBManager->RelDBConn(pDBConn);
+    pCacheManager->RelCacheConn(pCacheConn);
 
     return bRet;
 }
