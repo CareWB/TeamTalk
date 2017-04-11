@@ -688,7 +688,7 @@ uint32_t CUserModel::createTravelDetail(uint32_t user_id, IM::Buddy::CreateMyTra
     return idx;
 }
 
-bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRouteRsp* pb) {
+bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRouteReq* req,  IM::Buddy::NewQueryRadomRouteRsp* pb) {
     log("enter.");
     bool bRet = false;
 
@@ -731,7 +731,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     dayRoute->add_hotels(1);
 
     CDBManager* pDBManager = CDBManager::getInstance();
-    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk");
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
     CacheManager* pCacheManager = CacheManager::getInstance();
     CacheConn* pCacheConn = pCacheManager->GetCacheConn("pubsub");
     if (!pDBConn)
@@ -747,7 +747,15 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
         return false;
     }
 
-    long ret = pCacheConn->pub("route", "data");
+    int size = req->tags_size();
+    string tags;
+    for (int n = 0; n < size; ++n) {
+        tags += req->tags(n) + " ";
+    }
+
+    string tmp;
+    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'tags':%s, 'sentence':%s}", user_id, tags.c_str(), req->sentence().c_str());
+    long ret = pCacheConn->pub("route", tmp);
     if (-1 == ret)
     {
         log("failed to pCacheConn->pub");
@@ -757,7 +765,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     CResultSet* pResultSet = NULL;
-    string strSql = "select * from route";
+    string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id);
     int i = 0;
     bool data_exist = false;
 
@@ -789,13 +797,16 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
         usleep(1000);
     }
 
+    tmp = string_fmt(tmp, "{'cmd':'finish', 'userId':%d}", user_id);
+    pCacheConn->pub("route", tmp);
+
     pDBManager->RelDBConn(pDBConn);
     pCacheManager->RelCacheConn(pCacheConn);
 
     return bRet;
 }
 
-bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRouteRsp* pb) {
+bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRouteReq* req, IM::Buddy::NewUpdateRadomRouteRsp* pb) {
     log("enter.");
     bool bRet = true;
 
@@ -826,7 +837,7 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
     return bRet;
 }
 
-bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelRsp* pb) {
+bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelReq* req, IM::Buddy::NewCreateMyTravelRsp* pb) {
     log("enter.");
     bool bRet = true;
 

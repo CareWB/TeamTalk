@@ -307,7 +307,7 @@ msgResp.set_user_id(from_user_id);
         IM::Buddy::NewQueryRadomRouteRsp rsp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
-            bool result = CUserModel::getInstance()->queryRadomRoute(user_id, &rsp);
+            bool result = CUserModel::getInstance()->queryRadomRoute(user_id, &req, &rsp);
             rsp.set_user_id(user_id);
             rsp.set_result_code(result ? 0 : 1);
             if ( ! result) {
@@ -333,7 +333,7 @@ msgResp.set_user_id(from_user_id);
         IM::Buddy::NewUpdateRadomRouteRsp rsp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
-            bool result = CUserModel::getInstance()->updateRadomRoute(user_id, &rsp);
+            bool result = CUserModel::getInstance()->updateRadomRoute(user_id, &req, &rsp);
             rsp.set_user_id(user_id);
             rsp.set_result_code(result ? 0 : 1);
             if ( ! result) {
@@ -359,7 +359,7 @@ msgResp.set_user_id(from_user_id);
         IM::Buddy::NewCreateMyTravelRsp rsp;
         if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
             uint32_t user_id = req.user_id();
-            bool result = CUserModel::getInstance()->newCreateTravel(user_id, &rsp);
+            bool result = CUserModel::getInstance()->newCreateTravel(user_id, &req, &rsp);
             rsp.set_user_id(user_id);
             rsp.set_result_code(result ? 0 : 1);
             if ( ! result) {
