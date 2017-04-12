@@ -754,7 +754,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     string tmp;
-    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'tags':%s, 'sentence':%s}", user_id, tags.c_str(), req->sentence().c_str());
+    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'tags':'%s', 'sentence':%s}", user_id, tags.c_str(), req->sentence().c_str());
     long ret = pCacheConn->pub("route", tmp);
     if (-1 == ret)
     {
