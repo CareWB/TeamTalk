@@ -384,7 +384,7 @@ message DayRoute{
 message Route {
     required uint32 day_count = 1;
     required string city_code = 2;
-    required string quality = 3; // binghui
+    required string tag = 3; // binghui
     required TransportToolType start_transport_tool = 4;
     required TransportToolType end_transport_tool = 5;
     required string start_time = 6;
@@ -411,11 +411,14 @@ message NewQueryRadomRouteRsp{
 message NewUpdateRadomRouteReq{
     //cmd id:        0x025c
     required uint32 user_id = 1;
-    required TransportToolType start_transport_tool = 2;
-    required TransportToolType end_transport_tool = 3;
-    required string start_time = 4;
-    required string end_time = 5;
-    repeated uint32 scenic_ids = 9;
+    required uint32 day_count = 2;
+    required string city_code = 3; //
+    required TransportToolType start_transport_tool = 4;
+    required TransportToolType end_transport_tool = 5;
+    required string start_time = 6;
+    required string end_time = 7;
+    repeated uint32 scenic_ids = 8; //
+    required string tag = 9; //
     optional bytes attach_data = 20;
 }
 
