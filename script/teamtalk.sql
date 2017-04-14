@@ -1208,28 +1208,37 @@ INSERT INTO `IMUser` VALUES (1,1,'wb','0','wb','dc85325889913846c8b5472385b38293
 UNLOCK TABLES;
 
 --
--- Table structure for table `route`
+-- Table structure for table `IMRoute`
 --
 
-DROP TABLE IF EXISTS `route`;
+DROP TABLE IF EXISTS `IMRoute`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `route` (
+CREATE TABLE `IMRoute` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cityCode` char(4) NOT NULL,
-  `route` text NOT NULL,
+  `userId` int(11) unsigned NOT NULL COMMENT '用户id',
+  `cityCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '所属城市编码',
+  `dayCount` int(11) unsigned NOT NULL COMMENT '游玩几天',
+  `startTool` int(11) unsigned NOT NULL COMMENT '起程交通工具',
+  `endTool` int(11) unsigned NOT NULL COMMENT '回程交通工具',
+  `startTime` varchar(255) COLLATE utf8mb4_bin DEFAULT '' COMMENT '出游时间',
+  `endTime` varchar(255) COLLATE utf8mb4_bin DEFAULT '' COMMENT '结束时间',
+  `quality` varchar(255) COLLATE utf8mb4_bin DEFAULT '' COMMENT '旅游质量',
+  `dayNum` int(11) unsigned NOT NULL COMMENT '第几天的行程',
+  `routes` varchar(255) COLLATE utf8mb4_bin DEFAULT '' COMMENT '路线',
+  `hotels` varchar(255) COLLATE utf8mb4_bin DEFAULT '' COMMENT '酒店',
+  `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '0 is ok',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `route`
+-- Dumping data for table `IMRoute`
 --
 
-LOCK TABLES `route` WRITE;
-/*!40000 ALTER TABLE `route` DISABLE KEYS */;
-/*INSERT INTO `route` VALUES (1,'XMN','7,4,5,2')*/;
-/*!40000 ALTER TABLE `route` ENABLE KEYS */;
+LOCK TABLES `IMRoute` WRITE;
+/*!40000 ALTER TABLE `IMRoute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `IMRoute` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

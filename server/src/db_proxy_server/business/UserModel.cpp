@@ -767,7 +767,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     CResultSet* pResultSet = NULL;
-    string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id);
+    string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id) + " order by dayCount";
     int i = 0;
     bool data_exist = false;
 
