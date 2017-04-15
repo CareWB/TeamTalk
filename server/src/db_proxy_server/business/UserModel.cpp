@@ -692,118 +692,140 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     log("enter.");
     bool bRet = false;
 
-    IM::Buddy::Route *route = pb->add_routes();
-    route->set_day_count(3);
-    route->set_city_code("XMN");
-    route->set_quality("豪华");
-    route->set_start_transport_tool(IM::Buddy::TransportToolType::TRAIN);
-    route->set_end_transport_tool(IM::Buddy::TransportToolType::TRAIN);
-    route->set_start_time("10:00");
-    route->set_end_time("18:00");
-    IM::Buddy::DayRoute* dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(1);
-    dayRoute->add_scenics(2);
-    dayRoute->add_scenics(3);
-    dayRoute->add_hotels(1);
-    dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(4);
-    dayRoute->add_scenics(5);
-    dayRoute->add_scenics(6);
-    dayRoute->add_hotels(4);
-    dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(7);
-    dayRoute->add_scenics(8);
-    dayRoute->add_scenics(9);
-    dayRoute->add_hotels(7);
+    string tag = req->tags(0);
 
-    route = pb->add_routes();
-    route->set_day_count(1);
-    route->set_city_code("XMN");
-    route->set_quality("经济");
-    route->set_start_transport_tool(IM::Buddy::TransportToolType::AIRPLANE);
-    route->set_end_transport_tool(IM::Buddy::TransportToolType::AIRPLANE);
-    route->set_start_time("09:00");
-    route->set_end_time("21:00");
-    dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(1);
-    dayRoute->add_scenics(2);
-    dayRoute->add_scenics(3);
-    dayRoute->add_hotels(1);
+    map<string, vector<string> > tag_type;
+    tag_type["毕业"] = {"文艺", "舒适", "探险"};
+    tag_type["辞职"] = {"舒适", "文艺", "刺激"};
+    tag_type["散心"] = {"舒适", "文艺", "无"};
+    tag_type["分手"] = {"舒适", "文艺", "刺激"};
+    tag_type["一起"] = {"文艺", "刺激", "文艺"};
+    tag_type["结婚"] = {"舒适", "文艺", "无"};
+    tag_type["低落"] = {"舒适", "文艺", "刺激"};
+    tag_type["美好的记忆"] = {"舒适", "文艺", "无"};
+    tag_type["灵魂"] = {"文艺", "探险", "刺激"};
+    tag_type["思念"] = {"文艺", "舒适", "无"};
+    tag_type["心扉"] = {"文艺", "探险", "刺激"};
+    tag_type["快乐"] = {"舒适", "文艺", "探险"};
+    tag_type["梦想"] = {"文艺", "探险", "刺激"};
+    tag_type["记忆"] = {"文艺", "舒适", "探险"};
+    tag_type["刻骨铭心"] = {"文艺", "探险", "无"};
+    tag_type["一个人"] = {"无", "无", "无"};
+    tag_type["陌生"] = {"文艺", "探险", "无"};
+    tag_type["放松"] = {"文艺", "舒适", "无"};
+    tag_type["感伤"] = {"文艺", "舒适", "探险"};
+    tag_type["伤感"] = {"文艺", "舒适", "探险"};
+    tag_type["美"] = {"文艺", "舒适", "探险"};
+    tag_type["青春"] = {"文艺", "舒适", "探险"};
+    tag_type["人生"] = {"文艺", "舒适", "探险"};
+    tag_type["慢慢"] = {"文艺", "舒适", "无"};
+    tag_type["幸福"] = {"舒适", "文艺", "无"};
+    tag_type["期待"] = {"文艺", "舒适", "无"};
+    tag_type["生命"] = {"文艺", "舒适", "探险"};
+    tag_type["钱"] = {"穷游", "文艺", "探险"};
+    tag_type["惆怅"] = {"文艺", "舒适", "探险"};
+    tag_type["失去"] = {"舒适", "探险", "刺激"};
+    tag_type["未知"] = {"穷游", "探险", "文艺"};
+    tag_type["冲动"] = {"文艺", "舒适", "探险"};
+    tag_type["痛快"] = {"穷游", "探险", "无"};
+    tag_type["痛痛快快"] = {"刺激", "探险", "无"};
+    tag_type["不快乐"] = {"文艺", "舒适", "无"};
+    tag_type["回忆"] = {"文艺", "舒适", "无"};
+    tag_type["不好"] = {"舒适", "文艺", "无"};
+    tag_type["忘掉"] = {"文艺", "舒适", "探险"};
+    tag_type["烦恼"] = {"舒适", "探险", "刺激"};
+    tag_type["逃避"] = {"文艺", "舒适", "探险"};
+    tag_type["艳遇"] = {"艳遇", "文艺", "探险"};
+    tag_type["计划"] = {"文艺", "舒适", "探险"};
+    tag_type["哭"] = {"舒适", "文艺", "艳遇"};
+    tag_type["单"] = {"文艺", "艳遇", "无"};
+    tag_type["忧伤"] = {"文艺", "舒适", "无"};
+    tag_type["留恋"] = {"文艺", "舒适", "无"};
+    tag_type["流浪"] = {"探险", "文艺", "艳遇"};
+    tag_type["沿途"] = {"文艺", "舒适", "无"};
+    tag_type["远方"] = {"探险", "穷游", "无"};
+    tag_type["遗忘"] = {"文艺", "舒适", "探险"};
+    tag_type["温和"] = {"舒适", "文艺", "无"};
+    tag_type["火车"] = {"探险", "文艺", "艳遇"};
+    tag_type["舒适"] = {"舒适", "文艺", "无"};
+    tag_type["烟"] = {"探险", "文艺", "艳遇"};
+    tag_type["飘"] = {"探险", "文艺", "艳遇"};
+    tag_type["婚姻"] = {"文艺", "舒适", "探险"};
+    tag_type["释放"] = {"刺激", "探险", "舒适"};
 
-    ////////////////////////////////////////////////////////////
+    if (req->sentence().length() != 0)
+    {
+        for (auto iter : tag_type)
+        {
+            if (strstr(req->sentence().c_str(), iter.first.c_str()))
+            {
+                tag = (iter.second)[0];
+            }
+        }
+    }
 
     CDBManager* pDBManager = CDBManager::getInstance();
     CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
-    CacheManager* pCacheManager = CacheManager::getInstance();
-    CacheConn* pCacheConn = pCacheManager->GetCacheConn("pubsub");
     if (!pDBConn)
     {
         log("no db connection for teamtalk");
         return false;
     }
 
-    if (!pCacheConn)
-    {
-        log("no cache connection for teamtalk");
-        pDBManager->RelDBConn(pDBConn);
-        return false;
-    }
-
-    int size = req->tags_size();
-    string tags;
-    for (int n = 0; n < size; ++n) {
-        tags += req->tags(n) + " ";
-    }
-
-    string tmp;
-    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s', 'sentence':'%s'}", user_id, tags.c_str(), req->sentence().c_str());
-    long ret = pCacheConn->pub("route", tmp);
-    if (-1 == ret)
-    {
-        log("failed to pCacheConn->pub");
-        pDBManager->RelDBConn(pDBConn);
-        pCacheManager->RelCacheConn(pCacheConn);
-        return false;
-    }
-
     CResultSet* pResultSet = NULL;
-    string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id) + " order by dayCount";
+    string strSql = "select * from IMRoute where quality=''" + tag + "'' order by dayNum";
     int i = 0;
     bool data_exist = false;
 
-    while (1)
+
+    pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+    if (pResultSet)
     {
-        pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
-        if (pResultSet)
+        IM::Buddy::Route *route = NULL;
+        IM::Buddy::DayRoute* dayRoute = NULL;
+        int day_num = 0;
+        int i = 0;
+
+        while (pResultSet->Next())
         {
-            while (pResultSet->Next())
+            if (i == 5)
             {
-                data_exist = true;
-                //pResultSet->GetInt("id");
+                break;
+            }
+
+            if (day_num == 0 && pResultSet->GetInt("dayNum") <= day_num)
+            {
+                route = pb->add_routes();
+                i++;
+            }
+
+            day_num = pResultSet->GetInt("dayNum");
+            route->set_day_count(pResultSet->GetInt("dayCount"));
+            route->set_city_code(pResultSet->GetString("cityCode"));
+            //route->set_quality(pResultSet->GetString("quality"));
+            route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
+            route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
+            route->set_start_time(pResultSet->GetString("startTime"));
+            route->set_end_time(pResultSet->GetString("endTime"));
+            dayRoute = route->add_day_routes();
+            
+            char *p;
+            const char* sep = " ";
+            p = strtok(pResultSet->GetString("routes"), sep);
+            while(p){
+                dayRoute->add_scenics(atoi(p));
+                p = strtok(NULL, sep);
+            }
+
+            p = strtok(pResultSet->GetString("hotels"), sep);
+            while(p){
+                dayRoute->add_hotels(atoi(p));
+                p = strtok(NULL, sep);
             }
         }
-
-        if (data_exist)
-        {
-            bRet = true;
-            break;
-        }
-
-        printf("no data find, try again. %d", i++);
-        if (i >= 30)
-        {
-            bRet = false;
-            break;
-        }
-
-        usleep(1000);
     }
 
-    tmp = string_fmt(tmp, "{'cmd':'finish', 'userId':%d}", user_id);
-    pCacheConn->pub("route", tmp);
-
     pDBManager->RelDBConn(pDBConn);
-    pCacheManager->RelCacheConn(pCacheConn);
 
     return bRet;
 }
@@ -859,9 +881,9 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
                 route = pb->mutable_route();
                 route->set_day_count(pResultSet->GetInt("dayCount"));
                 route->set_city_code(pResultSet->GetString("cityCode"));
-                route->set_quality(pResultSet->GetString("quality"));
-                route->set_start_transport_tool(pResultSet->GetInt("startTool"));
-                route->set_end_transport_tool(pResultSet->GetInt("endTool"));
+                //route->set_quality(pResultSet->GetString("quality"));
+                route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
+                route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
                 route->set_start_time(pResultSet->GetString("startTime"));
                 route->set_end_time(pResultSet->GetString("endTime"));
                 dayRoute = route->add_day_routes();
@@ -874,7 +896,11 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
                     p = strtok(NULL, sep);
                 }
 
-                dayRoute->add_hotels(1);
+                p = strtok(pResultSet->GetString("hotels"), sep);
+                while(p){
+                    dayRoute->add_hotels(atoi(p));
+                    p = strtok(NULL, sep);
+                }
             }
         }
 
@@ -907,29 +933,102 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
     log("enter.");
     bool bRet = true;
 
-    IM::Buddy::Route *route = pb->mutable_route();
-    route->set_day_count(3);
-    route->set_city_code("XMN");
-    route->set_quality("豪华");
-    route->set_start_transport_tool(IM::Buddy::TransportToolType::TRAIN);
-    route->set_end_transport_tool(IM::Buddy::TransportToolType::TRAIN);
-    route->set_start_time("10:00");
-    route->set_end_time("18:00");
-    IM::Buddy::DayRoute* dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(7);
-    dayRoute->add_scenics(8);
-    dayRoute->add_scenics(9);
-    dayRoute->add_hotels(1);
-    dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(4);
-    dayRoute->add_scenics(5);
-    dayRoute->add_scenics(6);
-    dayRoute->add_hotels(4);
-    dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(1);
-    dayRoute->add_scenics(2);
-    dayRoute->add_scenics(3);
-    dayRoute->add_hotels(7);
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CacheManager* pCacheManager = CacheManager::getInstance();
+    CacheConn* pCacheConn = pCacheManager->GetCacheConn("pubsub");
+    if (!pDBConn)
+    {
+        log("no db connection for teamtalk");
+        return false;
+    }
+
+    if (!pCacheConn)
+    {
+        log("no cache connection for teamtalk");
+        pDBManager->RelDBConn(pDBConn);
+        return false;
+    }
+
+    string tags;
+    for (int i = 0; i < req->tags_size(); ++i)
+    {
+        tags += req->tags(i) + " ";
+    }
+
+    string tmp;
+    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s'}", user_id, req->city_code().c_str(), req->day_count(), tags.c_str());
+    long ret = pCacheConn->pub("route", tmp);
+    if (-1 == ret)
+    {
+        log("failed to pCacheConn->pub");
+        pDBManager->RelDBConn(pDBConn);
+        pCacheManager->RelCacheConn(pCacheConn);
+        return false;
+    }
+
+    CResultSet* pResultSet = NULL;
+    string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id) + " order by dayNum";
+    int i = 0;
+    bool data_exist = false;
+
+    while (1)
+    {
+        pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+        if (pResultSet)
+        {
+            IM::Buddy::Route *route = NULL;
+            IM::Buddy::DayRoute* dayRoute = NULL;
+
+            while (pResultSet->Next())
+            {
+                route = pb->mutable_route();
+                route->set_day_count(pResultSet->GetInt("dayCount"));
+                route->set_city_code(pResultSet->GetString("cityCode"));
+                //route->set_quality(pResultSet->GetString("quality"));
+                route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
+                route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
+                route->set_start_time(pResultSet->GetString("startTime"));
+                route->set_end_time(pResultSet->GetString("endTime"));
+                dayRoute = route->add_day_routes();
+                
+                char *p;
+                const char* sep = " ";
+                p = strtok(pResultSet->GetString("routes"), sep);
+                while(p){
+                    dayRoute->add_scenics(atoi(p));
+                    p = strtok(NULL, sep);
+                }
+
+                p = strtok(pResultSet->GetString("hotels"), sep);
+                while(p){
+                    dayRoute->add_hotels(atoi(p));
+                    p = strtok(NULL, sep);
+                }
+            }
+        }
+
+        if (data_exist)
+        {
+            bRet = true;
+            break;
+        }
+
+        printf("no data find, try again. %d", i++);
+        if (i >= 30)
+        {
+            bRet = false;
+            break;
+        }
+
+        usleep(1000);
+    }
+
+    tmp = string_fmt(tmp, "{'cmd':'finish', 'userId':%d}", user_id);
+    pCacheConn->pub("route", tmp);
+
+    pDBManager->RelDBConn(pDBConn);
+    pCacheManager->RelCacheConn(pCacheConn);
 
     return bRet;
 }
