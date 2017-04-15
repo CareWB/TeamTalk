@@ -756,7 +756,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     string tmp;
-    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'tags':'%s', 'sentence':'%s'}", user_id, tags.c_str(), req->sentence().c_str());
+    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s', 'sentence':'%s'}", user_id, tags.c_str(), req->sentence().c_str());
     long ret = pCacheConn->pub("route", tmp);
     if (-1 == ret)
     {
@@ -812,29 +812,93 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
     log("enter.");
     bool bRet = true;
 
-    IM::Buddy::Route *route = pb->mutable_route();
-    route->set_day_count(3);
-    route->set_city_code("XMN");
-    route->set_quality("豪华");
-    route->set_start_transport_tool(IM::Buddy::TransportToolType::TRAIN);
-    route->set_end_transport_tool(IM::Buddy::TransportToolType::TRAIN);
-    route->set_start_time("10:00");
-    route->set_end_time("18:00");
-    IM::Buddy::DayRoute* dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(7);
-    dayRoute->add_scenics(8);
-    dayRoute->add_scenics(9);
-    dayRoute->add_hotels(1);
-    dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(4);
-    dayRoute->add_scenics(5);
-    dayRoute->add_scenics(6);
-    dayRoute->add_hotels(4);
-    dayRoute = route->add_day_routes();
-    dayRoute->add_scenics(1);
-    dayRoute->add_scenics(2);
-    dayRoute->add_scenics(3);
-    dayRoute->add_hotels(7);
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    CacheManager* pCacheManager = CacheManager::getInstance();
+    CacheConn* pCacheConn = pCacheManager->GetCacheConn("pubsub");
+    if (!pDBConn)
+    {
+        log("no db connection for teamtalk");
+        return false;
+    }
+
+    if (!pCacheConn)
+    {
+        log("no cache connection for teamtalk");
+        pDBManager->RelDBConn(pDBConn);
+        return false;
+    }
+    
+    string tmp;
+    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s', 'startTool':%d, 'endTool':%d, 'endTool':%d, 'startTime':'%s', 'endTime':'%s'}", user_id, req->city_code().c_str(), req->day_count(), req->tag().c_str(), req->start_transport_tool(), req->end_transport_tool(), req->start_time().c_str(), req->end_time().c_str());
+    long ret = pCacheConn->pub("route", tmp);
+    if (-1 == ret)
+    {
+        log("failed to pCacheConn->pub");
+        pDBManager->RelDBConn(pDBConn);
+        pCacheManager->RelCacheConn(pCacheConn);
+        return false;
+    }
+
+    CResultSet* pResultSet = NULL;
+    string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id) + " order by dayNum";
+    int i = 0;
+    bool data_exist = false;
+
+    while (1)
+    {
+        pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+        if (pResultSet)
+        {
+            IM::Buddy::Route *route = NULL;
+            IM::Buddy::DayRoute* dayRoute = NULL;
+
+            while (pResultSet->Next())
+            {
+                data_exist = true;
+                route = pb->mutable_route();
+                route->set_day_count(pResultSet->GetInt("dayCount"));
+                route->set_city_code(pResultSet->GetString("cityCode"));
+                route->set_quality(pResultSet->GetString("quality"));
+                route->set_start_transport_tool(pResultSet->GetInt("startTool"));
+                route->set_end_transport_tool(pResultSet->GetInt("endTool"));
+                route->set_start_time(pResultSet->GetString("startTime"));
+                route->set_end_time(pResultSet->GetString("endTime"));
+                dayRoute = route->add_day_routes();
+                
+                char *p;
+                const char* sep = " ";
+                p = strtok(pResultSet->GetString("routes"), sep);
+                while(p){
+                    dayRoute->add_scenics(atoi(p));
+                    p = strtok(NULL, sep);
+                }
+
+                dayRoute->add_hotels(1);
+            }
+        }
+
+        if (data_exist)
+        {
+            bRet = true;
+            break;
+        }
+
+        printf("no data find, try again. %d", i++);
+        if (i >= 30)
+        {
+            bRet = false;
+            break;
+        }
+
+        usleep(1000);
+    }
+
+    tmp = string_fmt(tmp, "{'cmd':'finish', 'userId':%d}", user_id);
+    pCacheConn->pub("route", tmp);
+
+    pDBManager->RelDBConn(pDBConn);
+    pCacheManager->RelCacheConn(pCacheConn);
 
     return bRet;
 }
