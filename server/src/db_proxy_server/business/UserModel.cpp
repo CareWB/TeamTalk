@@ -775,8 +775,8 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     CResultSet* pResultSet = NULL;
-    //string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
-    string strSql = "select * from IMRoute order by dayNum";
+    string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
+    //string strSql = "select * from IMRoute order by lineId, dayNum";
     log("sql = %s", strSql.c_str());
     int i = 0;
 
@@ -786,6 +786,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     {
         IM::Buddy::Route *route = NULL;
         IM::Buddy::DayRoute* dayRoute = NULL;
+        int lineId = 0;
         int day_num = 0;
         int i = 0;
 
@@ -796,13 +797,13 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
                 break;
             }
 
-            if (day_num == 0 || pResultSet->GetInt("dayNum") <= day_num)
+            if (lineId == 0 || pResultSet->GetInt("lineId") != lineId)
             {
                 route = pb->add_routes();
                 i++;
             }
 
-            day_num = pResultSet->GetInt("dayNum");
+            lineId = pResultSet->GetInt("lineId");
             route->set_day_count(pResultSet->GetInt("dayCount"));
             route->set_city_code(pResultSet->GetString("cityCode"));
             route->set_tag(pResultSet->GetString("quality"));
