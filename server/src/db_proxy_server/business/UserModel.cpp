@@ -775,8 +775,8 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     CResultSet* pResultSet = NULL;
-    string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
-    //string strSql = "select * from IMRoute order by lineId, dayNum";
+    //string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
+    string strSql = "select * from IMRoute order by lineId, dayNum";
     log("sql = %s", strSql.c_str());
     int i = 0;
 
@@ -857,16 +857,15 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
     }
     
     string tmp;
-    log("userId %d", user_id);
-    log("cityCode %s", req->city_code().c_str());
-    log("dayCount %d", req->day_count());
-    log("tags %s", req->tag().c_str());
-    log("startTool %d", req->start_transport_tool());
-    log("endTool %d", req->end_transport_tool());
-    log("startTime %s", req->start_time().c_str());
-    log("endTime %s", req->end_time().c_str());
+    string scenicList;
 
-    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s', 'startTool':%d, 'endTool':%d, 'startTime':'%s', 'endTime':'%s'}", user_id, req->city_code().c_str(), req->day_count(), req->tag().c_str(), req->start_transport_tool(), req->end_transport_tool(), req->start_time().c_str(), req->end_time().c_str());
+    for (int i = 0; i < req->scenic_ids_size(); ++i)
+    {
+        scenicList += int2string(req->scenic_ids(i)) + " ";
+    }
+    
+
+    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s', 'startTool':%d, 'endTool':%d, 'startTime':'%s', 'endTime':'%s', 'scenicList':'%s'}", user_id, req->city_code().c_str(), req->day_count(), req->tag().c_str(), req->start_transport_tool(), req->end_transport_tool(), req->start_time().c_str(), req->end_time().c_str(), scenicList.c_str());
     long ret = pCacheConn->pub("route", tmp);
     if (-1 == ret)
     {
