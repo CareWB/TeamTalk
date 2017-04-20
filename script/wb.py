@@ -175,9 +175,7 @@ def path_ILP_L_POIs(V, poi_poi_distmat, ps, pe, L, withNodeWeight=False, alpha=0
         pb.solve(pulp.GUROBI_CMD(path='gurobi_cl', options=gurobi_options)) # GUROBI
     else:
         pb.solve(pulp.COIN_CMD(path='/root/anaconda2/lib/python2.7/site-packages/pulp/solverdir/cbc/linux/64/cbc', 
-            options=['-threads', str(N_JOBS), '-strategy', '1', '-maxIt', '10000']))#CBC
-        #pb.solve(pulp.COIN_CMD(path='/root/anaconda2/lib/python2.7/site-packages/pulp/solverdir/cbc/osx/64/cbc', 
-        #    options=['-threads', str(N_JOBS), '-strategy', '1', '-maxIt', '10000']))#CBC
+            maxSeconds=30, options=['-threads', str(N_JOBS), '-strategy', '1', '-maxIt', '10000']))#CBC
         
     visit_mat = pd.DataFrame(data=np.zeros((len(pois), len(pois)), dtype=np.float), index=pois, columns=pois)
     for pi in pois:
@@ -286,9 +284,7 @@ def path_ILP_T_Days(V, poi_poi_distmat, ps, pe, dayCount, startTimeIn, endTimeOu
         pb.solve(pulp.GUROBI_CMD(path='gurobi_cl', options=gurobi_options)) # GUROBI
     else:
         pb.solve(pulp.COIN_CMD(path='/root/anaconda2/lib/python2.7/site-packages/pulp/solverdir/cbc/linux/64/cbc', 
-            options=['-threads', str(N_JOBS), '-strategy', '1', '-maxIt', '10000']))#CBC
-        #pb.solve(pulp.COIN_CMD(path='/root/anaconda2/lib/python2.7/site-packages/pulp/solverdir/cbc/osx/64/cbc', 
-        #    options=['-threads', str(N_JOBS), '-strategy', '1', '-maxIt', '10000']))#CBC
+            maxSeconds=30, options=['-threads', str(N_JOBS), '-strategy', '1', '-maxIt', '10000']))#CBC
         
     visit_mat = pd.DataFrame(data=np.zeros((len(pois), len(pois)), dtype=np.float), index=pois, columns=pois)
     for pi in pois:
@@ -476,7 +472,7 @@ def traj_label_T_Days_ILP_POI(pi, pj, dayCount, cityCode, label, startTimeIn, en
 
     
 # Recommend trajectories of specific label using ILP by leveraging POI-POI distance.
-def traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
+def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
     
     # First filter pois in terms of citycode
     poi_city = poi_All[poi_All['cityCode'] == cityCode]
@@ -500,9 +496,9 @@ def traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label,
     startTrans_idx = trans_city_startTrans.index[0]
     #print(startTrans_idx)
 
-    trans_city_backtool = trans_city[trans_city['type'] == backtool]    
-    backtool_idx = trans_city_backtool.index[0]
-    #print(backtool_idx)
+    trans_city_backTrans = trans_city[trans_city['type'] == backTrans]    
+    backTrans_idx = trans_city_backTrans.index[0]
+    #print(backTrans_idx)
     
     time_firstday = endDayTime - startTimeIn
     time_lastday = endTimeOut - startDayTime
@@ -523,10 +519,10 @@ def traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label,
         pi = pi_list[piIdx]
         print('start poi:', pi)
 
-        trans_backtool_poi_label_1st_distmat = calc_trans_poi_dist_mat(trans_city_backtool, poi_label_1st)
-        poi_label_1st_end_dist = trans_backtool_poi_label_1st_distmat.loc[backtool_idx,:]
+        trans_backTrans_poi_label_1st_distmat = calc_trans_poi_dist_mat(trans_city_backTrans, poi_label_1st)
+        poi_label_1st_end_dist = trans_backTrans_poi_label_1st_distmat.loc[backTrans_idx,:]
         poi_label_1st_end_dist_sort = poi_label_1st_end_dist.sort_values()
-        pj_list = poi_label_1st_end_dist_sort.index[:5] # choose 5 nearest POIs for each backtool
+        pj_list = poi_label_1st_end_dist_sort.index[:5] # choose 5 nearest POIs for each backTrans
         pjIdx = np.random.randint(len(pj_list))
         pj = pj_list[pjIdx]
         print('end poi:', pj)
@@ -556,12 +552,12 @@ def traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label,
         print('start poi:', pi)
 
 
-        trans_backtool_poi_label_1st_2nd_distmat = calc_trans_poi_dist_mat(trans_city_backtool, poi_label_1st_2nd)
-        print(trans_backtool_poi_label_1st_2nd_distmat.shape)
+        trans_backTrans_poi_label_1st_2nd_distmat = calc_trans_poi_dist_mat(trans_city_backTrans, poi_label_1st_2nd)
+        print(trans_backTrans_poi_label_1st_2nd_distmat.shape)
 
-        poi_label_1st_2nd_end_dist = trans_backtool_poi_label_1st_2nd_distmat.loc[backtool_idx,:]
+        poi_label_1st_2nd_end_dist = trans_backTrans_poi_label_1st_2nd_distmat.loc[backTrans_idx,:]
         poi_label_1st_2nd_end_dist_sort = poi_label_1st_2nd_end_dist.sort_values()
-        pj_list = poi_label_1st_2nd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backtool
+        pj_list = poi_label_1st_2nd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backTrans
         print("end list:", pj_list)
         pjIdx = np.random.randint(len(pj_list))
         pj = pj_list[pjIdx]
@@ -589,10 +585,10 @@ def traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label,
         pi = pi_list[piIdx]
         print('start poi:', pi)
 
-        trans_backtool_poi_label_1st_2nd_3rd_distmat = calc_trans_poi_dist_mat(trans_city_backtool, poi_label_1st_2nd_3rd)
-        poi_label_1st_2nd_3rd_end_dist = trans_backtool_poi_label_1st_2nd_3rd_distmat.loc[backtool_idx,:]
+        trans_backTrans_poi_label_1st_2nd_3rd_distmat = calc_trans_poi_dist_mat(trans_city_backTrans, poi_label_1st_2nd_3rd)
+        poi_label_1st_2nd_3rd_end_dist = trans_backTrans_poi_label_1st_2nd_3rd_distmat.loc[backTrans_idx,:]
         poi_label_1st_2nd_3rd_end_dist_sort = poi_label_1st_2nd_3rd_end_dist.sort_values()
-        pj_list = poi_label_1st_2nd_3rd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backtool
+        pj_list = poi_label_1st_2nd_3rd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backTrans
         pjIdx = np.random.randint(len(pj_list))
         pj = pj_list[pjIdx]
         print('end poi:', pj)
@@ -616,7 +612,7 @@ def traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label,
     
     return rankPOIs_label_ILP, seqTime_label_ILP, POIs_Eachday, endPOI_Eachday
 
-def traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCode, cityCodeDict, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
+def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCodeDict, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
 
     cityIdx = np.random.randint(len(cityCodeDict))
     cityCode = cityCodeDict[cityIdx]
@@ -637,9 +633,9 @@ def traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCode, cityCode
     startTrans_idx = trans_city_startTrans.index[0]  
     #print(startTrans_idx)
 
-    trans_city_backtool = trans_city[trans_city['type'] == backtool]    
-    backtool_idx = trans_city_backtool.index[0]
-    #print(backtool_idx)
+    trans_city_backTrans = trans_city[trans_city['type'] == backTrans]    
+    backTrans_idx = trans_city_backTrans.index[0]
+    #print(backTrans_idx)
 
     time_firstday = endDayTime - startTimeIn
     time_lastday = endTimeOut - startDayTime
@@ -659,10 +655,10 @@ def traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCode, cityCode
         pi = pi_list[piIdx]
         print('start poi:', pi)
 
-        trans_backtool_poi_label_1st_distmat = calc_trans_poi_dist_mat(trans_city_backtool, poi_label_1st)
-        poi_label_1st_end_dist = trans_backtool_poi_label_1st_distmat.loc[backtool_idx,:]
+        trans_backTrans_poi_label_1st_distmat = calc_trans_poi_dist_mat(trans_city_backTrans, poi_label_1st)
+        poi_label_1st_end_dist = trans_backTrans_poi_label_1st_distmat.loc[backTrans_idx,:]
         poi_label_1st_end_dist_sort = poi_label_1st_end_dist.sort_values()
-        pj_list = poi_label_1st_end_dist_sort.index[:5] # choose 5 nearest POIs for each backtool
+        pj_list = poi_label_1st_end_dist_sort.index[:5] # choose 5 nearest POIs for each backTrans
         pjIdx = np.random.randint(len(pi_list))
         pj = pj_list[pjIdx]
         print('end poi:', pj)
@@ -690,10 +686,10 @@ def traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCode, cityCode
         print('start poi:', pi)
 
 
-        trans_backtool_poi_label_1st_2nd_distmat = calc_trans_poi_dist_mat(trans_city_backtool, poi_label_1st_2nd)
-        poi_label_1st_2nd_end_dist = trans_backtool_poi_label_1st_2nd_distmat.loc[backtool_idx,:]
+        trans_backTrans_poi_label_1st_2nd_distmat = calc_trans_poi_dist_mat(trans_city_backTrans, poi_label_1st_2nd)
+        poi_label_1st_2nd_end_dist = trans_backTrans_poi_label_1st_2nd_distmat.loc[backTrans_idx,:]
         poi_label_1st_2nd_end_dist_sort = poi_label_1st_2nd_end_dist.sort_values()
-        pj_list = poi_label_1st_2nd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backtool
+        pj_list = poi_label_1st_2nd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backTrans
         pjIdx = np.random.randint(len(pi_list))
         pj = pj_list[pjIdx]
         print('end poi:', pj)
@@ -721,10 +717,10 @@ def traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCode, cityCode
         pi = pi_list[piIdx]
         print('start poi:', pi)
 
-        trans_backtool_poi_label_1st_2nd_3rd_distmat = calc_trans_poi_dist_mat(trans_city_backtool, poi_label_1st_2nd_3rd)
-        poi_label_1st_2nd_3rd_end_dist = trans_backtool_poi_label_1st_2nd_3rd_distmat.loc[backtool_idx,:]
+        trans_backTrans_poi_label_1st_2nd_3rd_distmat = calc_trans_poi_dist_mat(trans_city_backTrans, poi_label_1st_2nd_3rd)
+        poi_label_1st_2nd_3rd_end_dist = trans_backTrans_poi_label_1st_2nd_3rd_distmat.loc[backTrans_idx,:]
         poi_label_1st_2nd_3rd_end_dist_sort = poi_label_1st_2nd_3rd_end_dist.sort_values()
-        pj_list = poi_label_1st_2nd_3rd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backtool
+        pj_list = poi_label_1st_2nd_3rd_end_dist_sort.index[:5] # choose 5 nearest POIs for each backTrans
         pjIdx = np.random.randint(len(pi_list))
         pj = pj_list[pjIdx]
         print('end poi:', pj)
@@ -745,7 +741,7 @@ def traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCode, cityCode
     
     return rankPOIs_label_ILP, seqTime_label_ILP, POIs_Eachday, endPOI_Eachday
 
-def traj_with_N_defaults(startTrans, backtool, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, N, startDayTime=9, endDayTime=18):
+def traj_with_N_defaults(startTrans, backTrans, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, N, startDayTime=9, endDayTime=18):
 
     POIs_list = []
     timeSeq_list = []
@@ -754,7 +750,7 @@ def traj_with_N_defaults(startTrans, backtool, dayCount, cityCodeDict, label, st
 
     for _ in range(N):
         rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday \
-            = traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, startDayTime, endDayTime)
+            = traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, startDayTime, endDayTime)
         
         POIs_list.append(rankPOIs_ILP)
         timeSeq_list.append(seqTime_ILP)
@@ -763,9 +759,9 @@ def traj_with_N_defaults(startTrans, backtool, dayCount, cityCodeDict, label, st
 
     return POIs_list, timeSeq_list, POIs_Eachday_list, endPOI_Eachday_list
 
-def traj_label_T_days_ILP_modification(startTrans, backtool, dayCount, cityCode, label, startTimeIn, endTimeOut, delPOIs, addPOIs, startDayTime=9, endDayTime=18):
+def traj_label_T_days_ILP_modification(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, delPOIs, addPOIs, startDayTime=9, endDayTime=18):
 
-    rankPOIs, _, = traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime, endDayTime)
+    rankPOIs, _, = traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime, endDayTime)
 
     rankPOIs.remove(delPOIs)
     rankPOIs.append(addPOIs)
@@ -790,7 +786,7 @@ def traj_label_T_days_ILP_modification(startTrans, backtool, dayCount, cityCode,
 # dayCount = 3
 # N = 5
 # startTrans = 2
-# backtool = 1
+# backTrans = 1
 
 # cityCodeDict = ['XMN', 'SZX', 'CAN']
 # cityCode = 'CAN'  # Define a more general dictionary as cityCodeDict = {'厦门'.decode('utf8').encode('gb2312'):'XMN', ...} 
@@ -840,8 +836,8 @@ def traj_label_T_days_ILP_modification(startTrans, backtool, dayCount, cityCode,
 # rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday = traj_label_T_Days_ILP_POI(ps, pe, dayCount, cityCode, label, startTimeIn, endTimeOut)
 
 # # ## Case 5: 
-# print('Trajectory of startTrans', startTrans, 'and backtool', backtool, 'Day', dayCount)
-# rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday = traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label, startTimeIn, endTimeOut)
+# print('Trajectory of startTrans', startTrans, 'and backTrans', backTrans, 'Day', dayCount)
+# rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday = traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut)
 
 # print('Rank POI thru distance via ILP:', rankPOIs_ILP)
 # print('Time sequence thru distance via ILP:', seqTime_ILP)
@@ -869,7 +865,7 @@ def traj_label_T_days_ILP_modification(startTrans, backtool, dayCount, cityCode,
 # for j in range(N):
 
 #     print('Trajectory', j, 'starts with Day', dayCount)
-#     rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday = traj_label_T_Days_At_Will(startTrans, backtool, dayCount, cityCodeDict, label, startTimeIn, endTimeOut)
+#     rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday = traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCodeDict, label, startTimeIn, endTimeOut)
 
 #     print('Rank POI thru distance via ILP:', rankPOIs_ILP)
 #     print('Time sequence thru distance via ILP:', seqTime_ILP)
@@ -880,7 +876,7 @@ def traj_label_T_days_ILP_modification(startTrans, backtool, dayCount, cityCode,
 #     print('Trajectory', j, 'ends')
 
 ## Case 7: Recommend N trajectories at will one time
-# POIs_list, timeSeq_list, POIs_Eachday_list, endPOI_Eachday_list = traj_with_N_defaults(startTrans, backtool, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, N)
+# POIs_list, timeSeq_list, POIs_Eachday_list, endPOI_Eachday_list = traj_with_N_defaults(startTrans, backTrans, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, N)
 
 # for j in range(len(POIs_list)):
 
@@ -895,7 +891,7 @@ def traj_label_T_days_ILP_modification(startTrans, backtool, dayCount, cityCode,
 
 
 # # ## Case 8: Recommend trajectory with modification
-# rankPOIs, seqTime, _, _, = traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label, startTimeIn, endTimeOut)
+# rankPOIs, seqTime, _, _, = traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut)
 # print(rankPOIs)
 # print(seqTime)
 
@@ -943,7 +939,7 @@ L = 8
 dayCount = 5
 N = 5
 startTrans = 2
-backtool = 1
+backTrans = 1
 
 cityCodeDict = ['XMN', 'SZX', 'CAN']
 cityCode = 'XMN'  # Define a more general dictionary as cityCodeDict = {'厦门'.decode('utf8').encode('gb2312'):'XMN', ...} 
@@ -951,7 +947,7 @@ startTimeIn = 9 #AM Start time for the 1st POI of the 1st day
 endTimeOut = 18 #PM  End time for the last POI of the last day
 
 tags = emo2tag.getTags('我毕业了')
-print unicode(tags[0], 'gb2312'), unicode(tags[1], 'gb2312'),  unicode(tags[1], 'gb2312')
+#print unicode(tags[0], 'gb2312'), unicode(tags[1], 'gb2312'),  unicode(tags[1], 'gb2312')
 
 # tagDict = {'文艺'.decode('utf8').encode('gb2312'):'literature', \
 #     '刺激'.decode('utf8').encode('gb2312'):'excite', \
@@ -969,7 +965,7 @@ print unicode(tags[0], 'gb2312'), unicode(tags[1], 'gb2312'),  unicode(tags[1], 
 
 
 #### User defines transportation, start time of the 1st day, end time of the last day, city code, dayCount
-def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backtool=1, startTimeIn=9, endTimeOut=18, startDayTime=9, endDayTime=18):
+def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backTrans=1, startTimeIn=9, endTimeOut=18, startDayTime=9, endDayTime=18):
     
 
     tagDict = {'文艺':'literature', \
@@ -989,7 +985,7 @@ def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backtool=1, startTim
     #print label
 
 
-    rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday = traj_label_T_Days_ILP_Trans(startTrans, backtool, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime, endDayTime)
+    rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday = traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime, endDayTime)
     print('POIs:', rankPOIs_ILP)
     print('PlayTime:', seqTime_ILP)
 
@@ -1014,7 +1010,7 @@ def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backtool=1, startTim
         day[i]['cityCode'] = cityCode
         day[i]['dayCount'] = dayCount
         day[i]['startTrans'] = startTrans
-        day[i]['backTrans'] = backtool
+        day[i]['backTrans'] = backTrans
         day[i]['startTimeIn'] = startTimeIn
         day[i]['endTimeOut'] = endTimeOut
         day[i]['category'] = tags[0]
@@ -1030,15 +1026,10 @@ def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backtool=1, startTim
 
 
 
-def getRoutes_type2(cityCode, dayCount, tags, idList, nType=1, backtool=1, startTimeIn=9, endTimeOut=18, startDayTime=9, endDayTime=18):
-    
+def getRoutes_type2(cityCode, dayCount, tags, idList, startTrans=1, backTrans=1, startTimeIn=9, endTimeOut=18, startDayTime=9, endDayTime=18):
 
-    tagDict = {'文艺'.decode('utf8').encode('gb2312'):'literature', \
-    '刺激'.decode('utf8').encode('gb2312'):'excite', \
-    '舒适'.decode('utf8').encode('gb2312'):'comfort', \
-    '探险'.decode('utf8').encode('gb2312'):'exploration', \
-    '艳遇'.decode('utf8').encode('gb2312'):'encounter'}
-    #print tagDict
+    tagDict = {'文艺':'literature', '刺激':'excite', '舒适':'comfort','探险':'exploration', '艳遇':'encounter'}
+    print tagDict
     #print tagDict['文艺'.decode('utf8').encode('gb2312')]
     #print tagDict[tags[0]]
 
@@ -1080,7 +1071,7 @@ def getRoutes_type2(cityCode, dayCount, tags, idList, nType=1, backtool=1, start
         day[i]['cityCode'] = cityCode
         day[i]['dayCount'] = dayCount
         day[i]['startTrans'] = startTrans
-        day[i]['backTrans'] = backtool
+        day[i]['backTrans'] = backTrans
         day[i]['startTimeIn'] = startTimeIn
         day[i]['endTimeOut'] = endTimeOut
         day[i]['category'] = tags[0]
@@ -1138,7 +1129,15 @@ def get_AI_route(input):
         for item in input['scenicList'].split():
             if item != '':
                 scenicList.append(int(item))
-        data = getRoutes_type1(input['cityCode'] , input['dayCount'], tags, scenicList, input['startTool'], input['endTool'], int(input['startTime'][:2]), int(input['endTime'][:2]))
+        print(input['cityCode'])
+        print(input['dayCount'])
+        print(tags)
+        print(scenicList)
+        print(input['startTool'])
+        print(input['endTool'])
+        print(int(input['startTime'][:2]))
+        print(int(input['endTime'][:2]))
+        data = getRoutes_type2(input['cityCode'] , input['dayCount'], tags, scenicList, input['startTool'], input['endTool'], int(input['startTime'][:2]), int(input['endTime'][:2]), int(input['startTime'][:2]), int(input['endTime'][:2]))
     else:
         if input.has_key('startTool'):
             data = getRoutes_type1(input['cityCode'] , input['dayCount'], tags, input['startTool'], input['endTool'], int(input['startTime'][:2]), int(input['endTime'][:2]))
@@ -1203,15 +1202,18 @@ def insert_to_db(data):
 ############ End for wangbin ##########
 
 if __name__ == '__main__':
-    connect_db()
-    loop_listen_redis()
-    db_conn.close()
-
+    idList = [14, 22, 4, 7, 13, 10]
+    all_data = getRoutes_type2('XMN', 2, ['文艺','刺激','舒适'], idList, 1, 1, 9, 18, 9, 18)
+    print all_data
     '''
     all_data = getRoutes_type1(cityCode, dayCount, label, inType, outType, startTimeIn, endTimeOut, 9, 18)
     print all_data
-
-    idList = [126, 121, 175, 178, 141, 132, 136, 134, 147, 137]
-    all_data = getRoutes_type2(cityCode, dayCount, label, idList, inType, outType, startTimeIn, endTimeOut, 9, 18)
-    print all_data
     '''
+
+    connect_db()
+    loop_listen_redis()
+    db_conn.close()
+    
+    
+
+
