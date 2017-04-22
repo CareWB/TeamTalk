@@ -30,21 +30,17 @@ USE_GUROBI = False # whether to use GUROBI as ILP solver
 maxTravelDay = 7   # maximum travel days
 
 ## load POI dataset
-fpoi = os.path.join('ScenicWithTag_New.csv')
+fpoi = os.path.join('sight.csv')
 poi_All = pd.read_csv(fpoi, error_bad_lines=False)
-poi_All.set_index('id', inplace=True)
-#print(poi_All.head(5))
-#print(poi_All.index)
+poi_All.set_index('sightId', inplace=True)
 
 ## load Hotel dataset 
-fhotel = os.path.join('Hotel.csv')
+fhotel = os.path.join('hotel.csv')
 hotel_All = pd.read_csv(fhotel, error_bad_lines=False)
-hotel_All.set_index('hotelID', inplace=True)
-#print hotel_city.head()
-#print hotel_city.index
+hotel_All.set_index('hotelId', inplace=True)
 
 ## load Transportation coordinate
-ftrans = os.path.join('stations.csv')
+ftrans = os.path.join('station.csv')
 trans_All = pd.read_csv(ftrans, error_bad_lines=False)
 trans_All.set_index('id', inplace=True)
 
@@ -73,14 +69,12 @@ def calc_poi_poi_dist_mat(poi_city):
     index=poi_city.index, columns=poi_city.index)
 
     for ix in poi_city.index:
-        POI_POI_DISTMAT.loc[ix] = calc_dist_vec((poi_city.loc[ix, 'lng']),                                         
-            (poi_city.loc[ix, 'lat']),                                         
-            (poi_city['lng']),                                         
-            (poi_city['lat']))
+        POI_POI_DISTMAT.loc[ix] = calc_dist_vec((poi_city.loc[ix, 'sightLongitude']),                                         
+            (poi_city.loc[ix, 'sightLatitude']),                                         
+            (poi_city['sightLongitude']),                                         
+            (poi_city['sightLatitude']))
 
-    #POI_POI_DISTMAT = POI_POI_DISTMAT / 20  # Assume a fixed speed of all vehicles
     return POI_POI_DISTMAT
-#print calc_poi_poi_dist_mat(poi_city)
 
 ### Distance matrix between POIs and Hotels.
 def calc_poi_hotel_dist_mat(poi_city, hotel_city):
@@ -89,13 +83,12 @@ def calc_poi_hotel_dist_mat(poi_city, hotel_city):
     index=poi_city.index, columns=hotel_city.index)
 
     for ix in poi_city.index:
-        POI_HOTEL_DISTMAT.loc[ix] = calc_dist_vec((poi_city.loc[ix, 'lng']),                                         
-            (poi_city.loc[ix, 'lat']),                                         
-            (hotel_city['hotelLon']),                                         
-            (hotel_city['hotelLat']))
+        POI_HOTEL_DISTMAT.loc[ix] = calc_dist_vec((poi_city.loc[ix, 'sightLongitude']),                                         
+            (poi_city.loc[ix, 'sightLatitude']),                                         
+            (hotel_city['hotelLongitude']),                                         
+            (hotel_city['hotelLatitude']))
 
     return POI_HOTEL_DISTMAT
-# print calc_poi_hotel_dist_mat(poi_city, hotel_city)
 
 ### Distance matrix between POIs and Hotels.
 def calc_trans_poi_dist_mat(trans_city, poi_city):
@@ -104,10 +97,10 @@ def calc_trans_poi_dist_mat(trans_city, poi_city):
     index=trans_city.index, columns=poi_city.index)
 
     for ix in trans_city.index:
-        TRANS_POI_DISTMAT.loc[ix] = calc_dist_vec((trans_city.loc[ix, 'lng']),                                         
-            (trans_city.loc[ix, 'lat']),                                         
-            (poi_city['lng']),                                         
-            (poi_city['lat']))
+        TRANS_POI_DISTMAT.loc[ix] = calc_dist_vec((trans_city.loc[ix, 'transLongitude']),                                         
+            (trans_city.loc[ix, 'transLatitude']),                                         
+            (poi_city['sightLongitude']),                                         
+            (poi_city['sightLatitude']))
 
     return TRANS_POI_DISTMAT
 
@@ -143,10 +136,10 @@ def path_ILP_L_POIs(V, poi_poi_distmat, ps, pe, L, withNodeWeight=False, alpha=0
         for pj in [y for y in pois if y != p0]: # to
             if withNodeWeight == True:
                 objlist.append(visit_vars[pi][pj] * (alpha * V.loc[int(pj), 'weight'] + \
-                    beta * (poi_poi_distmat.loc[int(pi),int(pj)] + V.loc[int(pj), 'playTime'])))
+                    beta * (poi_poi_distmat.loc[int(pi),int(pj)] + V.loc[int(pj), 'sightPlayTime'])))
             else:
                 # Consider the time b/t two POIs and the duration on the end POI
-                #objlist.append(visit_vars[pi][pj] * (poi_poi_distmat.loc[int(pi),int(pj)] + V.loc[int(pj), 'playTime']))
+                #objlist.append(visit_vars[pi][pj] * (poi_poi_distmat.loc[int(pi),int(pj)] + V.loc[int(pj), 'sightPlayTime']))
                 objlist.append(visit_vars[pi][pj] * (poi_poi_distmat.loc[int(pi),int(pj)])) 
     pb += pulp.lpSum(objlist), 'Objective'
     
@@ -184,7 +177,7 @@ def path_ILP_L_POIs(V, poi_poi_distmat, ps, pe, L, withNodeWeight=False, alpha=0
 
     # build the recommended trajectory
     poiSeq = [p0]
-    timeSeq = [V.loc[int(p0), 'playTime']]
+    timeSeq = [V.loc[int(p0), 'sightPlayTime']]
 
     while True:
         pi = poiSeq[-1]
@@ -193,10 +186,10 @@ def path_ILP_L_POIs(V, poi_poi_distmat, ps, pe, L, withNodeWeight=False, alpha=0
         poiSeq.append(pj)
 
         ## Consider both the time b/t two POIs and the end POI
-        #timeSeq.append(poi_poi_distmat[pi,pj] + V.loc[int(pj), 'playTime'])
+        #timeSeq.append(poi_poi_distmat[pi,pj] + V.loc[int(pj), 'sightPlayTime'])
         
         ## Only consider the time of visiting the end POI
-        timeSeq.append(V.loc[int(pj), 'playTime'])
+        timeSeq.append(V.loc[int(pj), 'sightPlayTime'])
 
         if pj == pN: 
             return [int(x) for x in poiSeq], [time for time in timeSeq]
@@ -246,25 +239,17 @@ def path_ILP_T_Days(V, poi_poi_distmat, ps, pe, dayCount, startTimeIn, endTimeOu
         pb += pulp.lpSum([visit_vars[pi][p0] for pi in pois]) == 0, 'NoIncoming_p0'
         pb += pulp.lpSum([visit_vars[pN][pj] for pj in pois]) == 0, 'NoOutgoing_pN'
     
-    # sum_endTimeOut = sum(endTimeOut)
-    # sum_startTimeIn = sum(startTimeIn)
-
     time_firstday = endDayTime - startTimeIn
     time_lastday = endTimeOut - startDayTime
     time_between = (endDayTime - startDayTime) * (dayCount - 2)
     time_sum = time_firstday + time_lastday + time_between
     #print "time_sum", time_sum
 
-    ## Assume that travellers spend [Time_Min, Time_Min+1] hrs each day to travel
-    # pb += pulp.lpSum([visit_vars[pi][pj] * V.loc[int(pj), 'playTime'] for pi in pois if pi != pN for pj in pois if pj != p0]) \
-    #     <= (sum_endTimeOut - sum_startTimeIn) - (V.loc[int(p0), 'playTime'] + V.loc[int(pN), 'playTime']), 'Time_Max' 
-    # pb += pulp.lpSum([visit_vars[pi][pj] * V.loc[int(pj), 'playTime'] for pi in pois if pi != pN for pj in pois if pj != p0]) \
-    #     >= (sum_endTimeOut - sum_startTimeIn - 1) - (V.loc[int(p0), 'playTime'] + V.loc[int(pN), 'playTime']), 'Time_Min' 
-    
-    pb += pulp.lpSum([visit_vars[pi][pj] * V.loc[int(pj), 'playTime'] for pi in pois if pi != pN for pj in pois if pj != p0]) \
-        <= time_sum - (V.loc[int(p0), 'playTime'] + V.loc[int(pN), 'playTime']), 'Time_Max' 
-    pb += pulp.lpSum([visit_vars[pi][pj] * V.loc[int(pj), 'playTime'] for pi in pois if pi != pN for pj in pois if pj != p0]) \
-        >= (time_sum - 1) - (V.loc[int(p0), 'playTime'] + V.loc[int(pN), 'playTime']), 'Time_Min' 
+
+    pb += pulp.lpSum([visit_vars[pi][pj] * V.loc[int(pj), 'sightPlayTime'] for pi in pois if pi != pN for pj in pois if pj != p0]) \
+        <= time_sum - (V.loc[int(p0), 'sightPlayTime'] + V.loc[int(pN), 'sightPlayTime']), 'Time_Max' 
+    pb += pulp.lpSum([visit_vars[pi][pj] * V.loc[int(pj), 'sightPlayTime'] for pi in pois if pi != pN for pj in pois if pj != p0]) \
+        >= (time_sum - 1) - (V.loc[int(p0), 'sightPlayTime'] + V.loc[int(pN), 'sightPlayTime']), 'Time_Min' 
     
 
     for pk in [x for x in pois if x not in {p0, pN}]:
@@ -293,7 +278,7 @@ def path_ILP_T_Days(V, poi_poi_distmat, ps, pe, dayCount, startTimeIn, endTimeOu
 
     # build the recommended trajectory
     poiSeq = [p0]
-    timeSeq = [V.loc[int(p0), 'playTime']]
+    timeSeq = [V.loc[int(p0), 'sightPlayTime']]
 
     while True:
         pi = poiSeq[-1]
@@ -302,10 +287,10 @@ def path_ILP_T_Days(V, poi_poi_distmat, ps, pe, dayCount, startTimeIn, endTimeOu
         poiSeq.append(pj)
 
         ## Consider both the time b/t two POIs and the end POI
-        #timeSeq.append(poi_poi_distmat[pi,pj] + V.loc[int(pj), 'playTime'])
+        #timeSeq.append(poi_poi_distmat[pi,pj] + V.loc[int(pj), 'sightPlayTime'])
         
         ## Only consider the time of visiting the end POI
-        timeSeq.append(V.loc[int(pj), 'playTime'])
+        timeSeq.append(V.loc[int(pj), 'sightPlayTime'])
 
         if pj == pN: 
             return [int(x) for x in poiSeq], [time for time in timeSeq]
@@ -314,11 +299,11 @@ def path_ILP_T_Days(V, poi_poi_distmat, ps, pe, dayCount, startTimeIn, endTimeOu
 # ## Way 3: Default 1: recommendation L POIs in a descreasing order via playtime of each POI.
 def traj_default_L_POIs(pi, pj, L, poi_city):
 
-    poi_city.sort_values(by='playTime', ascending=False, inplace=True)
+    poi_city.sort_values(by='sightPlayTime', ascending=False, inplace=True)
     POI_pop = poi_city.index.tolist()
     poiSeq = [pi] + [x for x in POI_pop if x not in {pi, pj}][:L-2] + [pj]
-    timeSeq = [poi_city.loc[int(pi), 'playTime']] + [poi_city.loc[int(x), 'playTime'] for x in POI_pop if x not in {pi, pj}][:L-2] \
-        + [poi_city.loc[int(pj), 'playTime']]
+    timeSeq = [poi_city.loc[int(pi), 'sightPlayTime']] + [poi_city.loc[int(x), 'sightPlayTime'] for x in POI_pop if x not in {pi, pj}][:L-2] \
+        + [poi_city.loc[int(pj), 'sightPlayTime']]
     
     #print('Rank POI thru duration:', poiSeq)
     return poiSeq, timeSeq
@@ -327,15 +312,15 @@ def traj_default_L_POIs(pi, pj, L, poi_city):
 # ## Way 4: Default 2: recommendation POIs of dayCount Days in a descreasing order via playtime of each POI.
 def traj_default_T_Days(pi, pj, dayCount, poi_city, startDayTime=9, endDayTime=18):
 
-    poi_city.sort_values(by='playTime', ascending=False, inplace=True)
+    poi_city.sort_values(by='sightPlayTime', ascending=False, inplace=True)
     POI_pop = poi_city.index.tolist()
 
     poiSeq = [p0]
-    timeSeq = [V.loc[int(p0), 'playTime']]
+    timeSeq = [V.loc[int(p0), 'sightPlayTime']]
     i = 1
     while sum(timeSeq) <= dayCount * (endDayTime - startDayTime):
         poiSeq.append(POI_pop[i])
-        timeSeq.append(poi_city.loc[int(POI_pop[i]), 'playTime'])
+        timeSeq.append(poi_city.loc[int(POI_pop[i]), 'sightPlayTime'])
         i += 1
 
     return poiSeq, timeSeq
@@ -452,15 +437,15 @@ def traj_label_T_Days_ILP_POI(pi, pj, dayCount, cityCode, label, startTimeIn, en
     time_sum = time_firstday + time_lastday + time_between
     
     #print poi_label_1st_2nd
-    print sum(poi_label_1st['playTime']), sum(poi_label_2nd['playTime']), sum(poi_label_3rd['playTime'])
+    print sum(poi_label_1st['sightPlayTime']), sum(poi_label_2nd['sightPlayTime']), sum(poi_label_3rd['sightPlayTime'])
 
-    if sum(poi_label_1st['playTime']) >= time_sum:
+    if sum(poi_label_1st['sightPlayTime']) >= time_sum:
         poi_poi_distmat_label_1st = calc_poi_poi_dist_mat(poi_label_1st)
         rankPOIs_label_ILP, seqTime_label_ILP = path_ILP_T_Days(poi_label_1st, poi_poi_distmat_label_1st, pi, pj, dayCount, startTimeIn, endTimeOut)
-    elif sum(poi_label_1st_2nd['playTime']) >= time_sum:
+    elif sum(poi_label_1st_2nd['sightPlayTime']) >= time_sum:
         poi_poi_distmat_label_1st_2nd = calc_poi_poi_dist_mat(poi_label_1st_2nd)
         rankPOIs_label_ILP, seqTime_label_ILP = path_ILP_T_Days(poi_label_1st_2nd, poi_poi_distmat_label_1st_2nd, pi, pj, dayCount, startTimeIn, endTimeOut)
-    elif sum(poi_label_1st_2nd_3rd['playTime']) >= time_sum:    
+    elif sum(poi_label_1st_2nd_3rd['sightPlayTime']) >= time_sum:    
         poi_poi_distmat_label_1st_2nd_3rd = calc_poi_poi_dist_mat(poi_label_1st_2nd_3rd)
         rankPOIs_label_ILP, seqTime_label_ILP = path_ILP_T_Days(poi_label_1st_2nd_3rd, poi_poi_distmat_label_1st_2nd_3rd, pi, pj, dayCount, startTimeIn, endTimeOut)
     else:
@@ -483,20 +468,20 @@ def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label
     poi_label_3rd = poi_city[poi_city[label[2]] == 5]
 
     poi_label_1st_2nd = pd.concat([poi_label_1st,poi_label_2nd]).drop_duplicates()
-    #print(type(poi_label_1st_2nd))
+    #print(transType(poi_label_1st_2nd))
     #print(poi_label_1st_2nd.index)
 
     poi_label_1st_2nd_3rd = pd.concat([poi_label_1st_2nd,poi_label_3rd]).drop_duplicates()
     #print(poi_label_1st_2nd_3rd.index)
-    print sum(poi_label_1st['playTime']), sum(poi_label_2nd['playTime']), sum(poi_label_3rd['playTime'])
+    print sum(poi_label_1st['sightPlayTime']), sum(poi_label_2nd['sightPlayTime']), sum(poi_label_3rd['sightPlayTime'])
 
     # From intype and outtype transportations to find their corresponding nearest pois
     trans_city = trans_All[trans_All['cityCode'] == cityCode]
-    trans_city_startTrans = trans_city[trans_city['type'] == startTrans]
+    trans_city_startTrans = trans_city[trans_city['transType'] == startTrans]
     startTrans_idx = trans_city_startTrans.index[0]
     #print(startTrans_idx)
 
-    trans_city_backTrans = trans_city[trans_city['type'] == backTrans]    
+    trans_city_backTrans = trans_city[trans_city['transType'] == backTrans]    
     backTrans_idx = trans_city_backTrans.index[0]
     #print(backTrans_idx)
     
@@ -506,7 +491,7 @@ def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label
     time_sum = time_firstday + time_lastday + time_between
     print("Sum of PlayTime:", time_sum)
 
-    if sum(poi_label_1st['playTime']) >= time_sum: 
+    if sum(poi_label_1st['sightPlayTime']) >= time_sum: 
 
         poi_poi_distmat_label_1st = calc_poi_poi_dist_mat(poi_label_1st)
         print(poi_poi_distmat_label_1st.shape)
@@ -537,7 +522,7 @@ def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label
 
         rankPOIs_label_ILP, seqTime_label_ILP = path_ILP_T_Days(poi_label_1st, poi_poi_distmat_label_1st, pi, pj, dayCount, startTimeIn, endTimeOut, startDayTime, endDayTime)
     
-    elif sum(poi_label_1st_2nd['playTime']) >= time_sum:
+    elif sum(poi_label_1st_2nd['sightPlayTime']) >= time_sum:
 
         poi_poi_distmat_label_1st_2nd = calc_poi_poi_dist_mat(poi_label_1st_2nd)
         print(poi_poi_distmat_label_1st_2nd.shape)
@@ -573,7 +558,7 @@ def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label
 
         rankPOIs_label_ILP, seqTime_label_ILP = path_ILP_T_Days(poi_label_1st_2nd, poi_poi_distmat_label_1st_2nd, pi, pj, dayCount, startTimeIn, endTimeOut, startDayTime, endDayTime)
 
-    elif sum(poi_label_1st_2nd_3rd['playTime']) >= time_sum:    
+    elif sum(poi_label_1st_2nd_3rd['sightPlayTime']) >= time_sum:    
         
         poi_poi_distmat_label_1st_2nd_3rd = calc_poi_poi_dist_mat(poi_label_1st_2nd_3rd)
         
@@ -625,15 +610,15 @@ def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCod
     poi_label_3rd = poi_city[poi_city[label[2]] == 5]
     poi_label_1st_2nd = poi_label_1st.append(poi_label_2nd)
     poi_label_1st_2nd_3rd = poi_label_1st_2nd.append(poi_label_3rd)
-    #print sum(poi_label_1st['playTime']), sum(poi_label_2nd['playTime']), sum(poi_label_3rd['playTime'])
+    #print sum(poi_label_1st['sightPlayTime']), sum(poi_label_2nd['sightPlayTime']), sum(poi_label_3rd['sightPlayTime'])
 
     # From intype and outtype transportations to find their corresponding nearest pois
     trans_city = trans_All[trans_All['cityCode'] == cityCode]
-    trans_city_startTrans = trans_city[trans_city['type'] == startTrans]
+    trans_city_startTrans = trans_city[trans_city['transType'] == startTrans]
     startTrans_idx = trans_city_startTrans.index[0]  
     #print(startTrans_idx)
 
-    trans_city_backTrans = trans_city[trans_city['type'] == backTrans]    
+    trans_city_backTrans = trans_city[trans_city['transType'] == backTrans]    
     backTrans_idx = trans_city_backTrans.index[0]
     #print(backTrans_idx)
 
@@ -643,7 +628,7 @@ def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCod
     time_sum = time_firstday + time_lastday + time_between
     
 
-    if sum(poi_label_1st['playTime']) >= time_sum: 
+    if sum(poi_label_1st['sightPlayTime']) >= time_sum: 
 
         poi_poi_distmat_label_1st = calc_poi_poi_dist_mat(poi_label_1st)
 
@@ -673,7 +658,7 @@ def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCod
 
         rankPOIs_label_ILP, seqTime_label_ILP = path_ILP_T_Days(poi_label_1st, poi_poi_distmat_label_1st, pi, pj, dayCount, startTimeIn, endTimeOut, startDayTime, endDayTime)
 
-    elif sum(poi_label_1st_2nd['playTime']) >= time_sum:
+    elif sum(poi_label_1st_2nd['sightPlayTime']) >= time_sum:
 
         poi_poi_distmat_label_1st_2nd = calc_poi_poi_dist_mat(poi_label_1st_2nd)
 
@@ -705,7 +690,7 @@ def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCod
 
         rankPOIs_label_ILP, seqTime_label_ILP = path_ILP_T_Days(poi_label_1st_2nd, poi_poi_distmat_label_1st_2nd, pi, pj, dayCount, startTimeIn, endTimeOut, startDayTime, endDayTime)
 
-    elif sum(poi_label_1st_2nd_3rd['playTime']) >= time_sum:    
+    elif sum(poi_label_1st_2nd_3rd['sightPlayTime']) >= time_sum:    
         
         poi_poi_distmat_label_1st_2nd_3rd = calc_poi_poi_dist_mat(poi_label_1st_2nd_3rd)
         
@@ -853,7 +838,7 @@ def traj_label_T_days_ILP_modification(startTrans, backTrans, dayCount, cityCode
 #     print 'day', day, ':', endPOI_Eachday[i]
 
 #     ### Recommend hotels: first find nearest hotels for each endPOI; 
-#     ## then customers can filter each type (economic, luxurious, cost-effective) according to the price and rates
+#     ## then customers can filter each transType (economic, luxurious, cost-effective) according to the price and rates
 #     hotel_loc_dict = poi_hotel_distmat.loc[endPOI_Eachday[i],:]
 #     #print hotel_loc_dict[:]
 #     hotel_loc_dist_sort = hotel_loc_dict.sort_values()
@@ -1065,7 +1050,6 @@ def getRoutes_type2(cityCode, dayCount, tags, idList, startTrans=1, backTrans=1,
         print 'Recommended hotels:', hotel_loc_dist_sort[i].index[:6].tolist() # recommend 6 near hotels for each endPOI
         
     all_data = {}
-    #fill all right data
     day = [{} for _ in range(dayCount)]
     for i in range(dayCount):
         day[i]['cityCode'] = cityCode
@@ -1085,6 +1069,7 @@ def getRoutes_type2(cityCode, dayCount, tags, idList, startTrans=1, backTrans=1,
     return all_data
 
 def loop_listen_redis():
+    print 'loop_listen_redis'+'start'
     pool=redis.ConnectionPool(host=local_ip,port=6379,db=1)
     r = redis.StrictRedis(connection_pool=pool)
     p = r.pubsub()
@@ -1099,8 +1084,10 @@ def loop_listen_redis():
                 mark_user_route_finish(dic['userId'])
             elif dic['cmd'] == 'create':
                 insert_to_db(get_AI_route(dic))
+    print 'loop_listen_redis'+'middle'
             
     p.unsubscribe('route')
+    print 'loop_listen_redis'+'start'
 
 def trans_tags(tags):
     tagDict = {u'文艺':'literature', u'刺激':'excite', u'舒适':'comfort', u'探险':'exploration', u'艳遇':'encounter'}
