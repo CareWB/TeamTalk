@@ -399,7 +399,7 @@ message CollectionRoute {
     required string endDate = 3;
     optional string startTrafficNo = 4;
     optional string endTrafficNo = 5;
-    required uint32 routeId = 6;
+    required Route route = 6;
 }
 
 message NewQueryRadomRouteReq{
