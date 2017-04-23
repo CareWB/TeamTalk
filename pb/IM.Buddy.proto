@@ -382,14 +382,24 @@ message DayRoute{
 }
 
 message Route {
-    required uint32 day_count = 1;
-    required string city_code = 2;
-    required string tag = 3; // binghui
-    required TransportToolType start_transport_tool = 4;
-    required TransportToolType end_transport_tool = 5;
-    required string start_time = 6;
-    required string end_time = 7;
-    repeated DayRoute day_routes = 8;
+    required uint32 id = 1;
+    required uint32 day_count = 2;
+    required string city_code = 3;
+    required string tag = 4; // binghui
+    required TransportToolType start_transport_tool = 5;
+    required TransportToolType end_transport_tool = 6;
+    required string start_time = 7;
+    required string end_time = 8;
+    repeated DayRoute day_routes = 9;
+}
+
+message CollectionRoute {
+    required uint32 id = 1;
+    required string startDate = 2; //2017-04-23
+    required string endDate = 3;
+    optional string startTrafficNo = 4;
+    optional string endTrafficNo = 5;
+    required uint32 routeId = 6;
 }
 
 message NewQueryRadomRouteReq{
@@ -444,6 +454,48 @@ message NewCreateMyTravelRsp{
     required uint32 user_id         = 1;
     required uint32 result_code     = 2;
     required Route route            = 3;
+    optional bytes attach_data      = 20;
+}
+
+message NewCreateCollectRouteReq{
+    //cmd id:        0x0263
+    required uint32 user_id        = 1;
+    required CollectionRoute route = 2;
+    optional bytes attach_data     = 20;
+}
+
+message NewCreateCollectRouteRsp{
+    //cmd id:        0x0264
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    optional bytes attach_data      = 20;
+}
+
+message NewDelCollectRouteReq{
+    //cmd id:        0x0265
+    required uint32 user_id    = 1;
+    repeated uint32 collectID  = 2;
+    optional bytes attach_data = 20;
+}
+
+message NewDelCollectRouteRsp{
+    //cmd id:        0x0266
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    optional bytes attach_data      = 20;
+}
+
+message NewQueryCollectRouteReq{
+    //cmd id:        0x0267
+    required uint32 user_id = 1;
+    optional bytes attach_data = 20;
+}
+
+message NewQueryCollectRouteRsp{
+    //cmd id:        0x0268
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    repeated CollectionRoute route  = 3;
     optional bytes attach_data      = 20;
 }
 //////////////////////////////////////////////////////
