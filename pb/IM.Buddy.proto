@@ -385,7 +385,7 @@ message Route {
     required uint32 id = 1;
     required uint32 day_count = 2;
     required string city_code = 3;
-    required string tag = 4; // binghui
+    repeated string tag = 4; // binghui
     required TransportToolType start_transport_tool = 5;
     required TransportToolType end_transport_tool = 6;
     required string start_time = 7;
