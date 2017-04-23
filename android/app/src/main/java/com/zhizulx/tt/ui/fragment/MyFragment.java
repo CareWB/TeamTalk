@@ -65,7 +65,6 @@ public class MyFragment extends MainFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-
 		imServiceConnector.connect(getActivity());
         EventBus.getDefault().register(this);
 

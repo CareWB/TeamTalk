@@ -1,12 +1,17 @@
 package com.zhizulx.tt.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.zhizulx.tt.DB.entity.CityEntity;
 import com.zhizulx.tt.R;
 
 import java.util.List;
@@ -19,6 +24,7 @@ import java.util.List;
 public class TravelHotAdapter extends RecyclerView.Adapter {
     public static interface OnRecyclerViewListener {
         void onItemClick(int position);
+        void onAddClick(int position);
     }
 
     private OnRecyclerViewListener onRecyclerViewListener;
@@ -27,10 +33,12 @@ public class TravelHotAdapter extends RecyclerView.Adapter {
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
-    private List<Integer> list;
+    private Context ctx;
+    private List<CityEntity> mList;
 
-    public TravelHotAdapter(List<Integer> list) {
-        this.list = list;
+    public TravelHotAdapter(Context ctx, List<CityEntity> list) {
+        this.ctx = ctx;
+        this.mList = list;
     }
 
     @Override
@@ -45,31 +53,41 @@ public class TravelHotAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         HotViewHolder holder = (HotViewHolder) viewHolder;
-        holder.position = i;
-        int hotIndex = list.get(i);
-        holder.hotView.setBackgroundResource(hotIndex);
+        CityEntity cityEntity = mList.get(i);
+        holder.icon.setBackgroundResource(cityEntity.getIcon());
+        holder.name.setText(cityEntity.getName());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return mList.size();
     }
 
-    class HotViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
-    {
-        public ImageView hotView;
-        public int position;
+    class HotViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public ImageView icon;
+        public ImageView add;
+        public TextView name;
 
         public HotViewHolder(View itemView) {
             super(itemView);
-            hotView = (ImageView) itemView.findViewById(R.id.iv_item_hot_city);
-            hotView.setOnClickListener(this);
+            icon = (ImageView) itemView.findViewById(R.id.iv_item_hot_city);
+            add = (ImageView) itemView.findViewById(R.id.iv_item_hot_add_city);
+            name = (TextView)  itemView.findViewById(R.id.iv_item_hot_name);
+            icon.setOnClickListener(this);
+            add.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             if (null != onRecyclerViewListener) {
-                onRecyclerViewListener.onItemClick(position);
+                switch (v.getId()) {
+                    case R.id.iv_item_hot_city:
+                        onRecyclerViewListener.onItemClick(this.getPosition());
+                        break;
+                    case R.id.iv_item_hot_add_city:
+                        onRecyclerViewListener.onAddClick(this.getPosition());
+                        break;
+                }
             }
         }
     }

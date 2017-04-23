@@ -44,12 +44,12 @@ public class TrafficListFragment extends TTBaseFragment{
                 if (direction == GO) {
                     setTopTitle(imService.getTravelManager().getMtTravel().getStartPlace()+"-"+
                             imService.getTravelManager().getMtTravel().getDestination());
-                    trafficEntityListDB.addAll(imService.getTravelManager().getGoTrafficEntityList());
+                    //trafficEntityListDB.addAll(imService.getTravelManager().getGoTrafficEntityList());
                     date = imService.getTravelManager().getMtTravel().getStartDate();
                 } else {
                     setTopTitle(imService.getTravelManager().getMtTravel().getDestination()+"-"+
                             imService.getTravelManager().getMtTravel().getEndPlace());
-                    trafficEntityListDB.addAll(imService.getTravelManager().getBackTrafficEntityList());
+                    //trafficEntityListDB.addAll(imService.getTravelManager().getBackTrafficEntityList());
                     date = imService.getTravelManager().getMtTravel().getEndDate();
                 }
                 trafficEntityList.addAll(trafficEntityListDB);

@@ -23,6 +23,11 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/sight_avatar"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@drawable/detail_disp_bk"/>
 
         <TextView
@@ -30,11 +35,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/detail_disp_sight_pad"
+            android:layout_marginRight="@dimen/detail_disp_sight_pad"
             android:layout_marginTop="@dimen/detail_disp_sight_pad"
             android:textSize="@dimen/title_size"
             android:textColor="@color/base_title"
             android:layout_gravity="top|left"
-            android:drawableLeft="@drawable/detail_disp_sight_log"
             android:drawablePadding="@dimen/select_place_city_pic_left"
             android:id="@+id/detail_disp_sight_title" />
 
@@ -53,6 +58,7 @@
                 android:gravity="center"
                 android:textSize="@dimen/title_size"
                 android:textColor="@color/first_title_color"
+                android:drawableRight="@drawable/detail_disp_bottom_bk_divider"
                 android:layout_gravity="bottom"
                 android:id="@+id/detail_disp_sight_info" />
 

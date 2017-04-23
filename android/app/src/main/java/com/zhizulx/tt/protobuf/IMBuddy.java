@@ -553,7 +553,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMRecentContactSessionReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMRecentContactSessionReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMRecentContactSessionReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMRecentContactSessionReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -808,7 +808,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.ContactSessionInfo contact_session_list = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.ContactSessionInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.ContactSessionInfo> 
         getContactSessionListList();
     /**
      * <code>repeated .IM.BaseDefine.ContactSessionInfo contact_session_list = 2;</code>
@@ -967,7 +967,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.ContactSessionInfo contact_session_list = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.ContactSessionInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.ContactSessionInfoOrBuilder> 
         getContactSessionListOrBuilderList() {
       return contactSessionList_;
     }
@@ -1145,7 +1145,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMRecentContactSessionRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMRecentContactSessionRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMRecentContactSessionRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMRecentContactSessionRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1741,7 +1741,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMUserStatNotify)
         com.zhizulx.tt.protobuf.IMBuddy.IMUserStatNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMUserStatNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMUserStatNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2282,7 +2282,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMUsersInfoReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMUsersInfoReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMUsersInfoReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMUsersInfoReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2575,7 +2575,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.UserInfo user_info_list = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UserInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UserInfo> 
         getUserInfoListList();
     /**
      * <code>repeated .IM.BaseDefine.UserInfo user_info_list = 2;</code>
@@ -2734,7 +2734,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.UserInfo user_info_list = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UserInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UserInfoOrBuilder> 
         getUserInfoListOrBuilderList() {
       return userInfoList_;
     }
@@ -2912,7 +2912,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMUsersInfoRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMUsersInfoRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMUsersInfoRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMUsersInfoRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3622,7 +3622,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMRemoveSessionReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMRemoveSessionReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMRemoveSessionReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMRemoveSessionReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4318,7 +4318,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMRemoveSessionRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMRemoveSessionRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMRemoveSessionRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMRemoveSessionRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4650,7 +4650,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0208
+     *cmd id:        0x02038
      * </pre>
      */
     boolean hasUserId();
@@ -4658,7 +4658,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0208
+     *cmd id:        0x02038
      * </pre>
      */
     int getUserId();
@@ -4786,7 +4786,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0208
+     *cmd id:        0x02038
      * </pre>
      */
     public boolean hasUserId() {
@@ -4796,7 +4796,7 @@ public final class IMBuddy {
      * <code>required uint32 user_id = 1;</code>
      *
      * <pre>
-     *cmd id:        0x0208
+     *cmd id:        0x02038
      * </pre>
      */
     public int getUserId() {
@@ -4970,7 +4970,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMAllUserReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMAllUserReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMAllUserReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMAllUserReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5080,7 +5080,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0208
+       *cmd id:        0x02038
        * </pre>
        */
       public boolean hasUserId() {
@@ -5090,7 +5090,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0208
+       *cmd id:        0x02038
        * </pre>
        */
       public int getUserId() {
@@ -5100,7 +5100,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0208
+       *cmd id:        0x02038
        * </pre>
        */
       public Builder setUserId(int value) {
@@ -5113,7 +5113,7 @@ public final class IMBuddy {
        * <code>required uint32 user_id = 1;</code>
        *
        * <pre>
-       *cmd id:        0x0208
+       *cmd id:        0x02038
        * </pre>
        */
       public Builder clearUserId() {
@@ -5234,7 +5234,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.UserInfo user_list = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UserInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UserInfo> 
         getUserListList();
     /**
      * <code>repeated .IM.BaseDefine.UserInfo user_list = 3;</code>
@@ -5413,7 +5413,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.UserInfo user_list = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UserInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UserInfoOrBuilder> 
         getUserListOrBuilderList() {
       return userList_;
     }
@@ -5603,7 +5603,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMAllUserRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMAllUserRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMAllUserRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMAllUserRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6341,7 +6341,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMUsersStatReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMUsersStatReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMUsersStatReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMUsersStatReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6634,7 +6634,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.UserStat user_stat_list = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UserStat>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UserStat> 
         getUserStatListList();
     /**
      * <code>repeated .IM.BaseDefine.UserStat user_stat_list = 2;</code>
@@ -6793,7 +6793,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.UserStat user_stat_list = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UserStatOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UserStatOrBuilder> 
         getUserStatListOrBuilderList() {
       return userStatList_;
     }
@@ -6971,7 +6971,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMUsersStatRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMUsersStatRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMUsersStatRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMUsersStatRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7666,7 +7666,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMChangeAvatarReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMChangeAvatarReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMChangeAvatarReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMChangeAvatarReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8271,7 +8271,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMChangeAvatarRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMChangeAvatarRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMChangeAvatarRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMChangeAvatarRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8808,7 +8808,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMPCLoginStatusNotify)
         com.zhizulx.tt.protobuf.IMBuddy.IMPCLoginStatusNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMPCLoginStatusNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMPCLoginStatusNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9337,7 +9337,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMRemoveSessionNotify)
         com.zhizulx.tt.protobuf.IMBuddy.IMRemoveSessionNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMRemoveSessionNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMRemoveSessionNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9900,7 +9900,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMDepartmentReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMDepartmentReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMDepartmentReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMDepartmentReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10164,7 +10164,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.DepartInfo dept_list = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.DepartInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.DepartInfo> 
         getDeptListList();
     /**
      * <code>repeated .IM.BaseDefine.DepartInfo dept_list = 3;</code>
@@ -10343,7 +10343,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.BaseDefine.DepartInfo dept_list = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.DepartInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.DepartInfoOrBuilder> 
         getDeptListOrBuilderList() {
       return deptList_;
     }
@@ -10533,7 +10533,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMDepartmentRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMDepartmentRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMDepartmentRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMDepartmentRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11254,7 +11254,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMAvatarChangedNotify)
         com.zhizulx.tt.protobuf.IMBuddy.IMAvatarChangedNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMAvatarChangedNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMAvatarChangedNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11858,7 +11858,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMChangeSignInfoReq)
         com.zhizulx.tt.protobuf.IMBuddy.IMChangeSignInfoReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMChangeSignInfoReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMChangeSignInfoReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12541,7 +12541,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMChangeSignInfoRsp)
         com.zhizulx.tt.protobuf.IMBuddy.IMChangeSignInfoRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMChangeSignInfoRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMChangeSignInfoRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13215,7 +13215,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.IMSignInfoChangedNotify)
         com.zhizulx.tt.protobuf.IMBuddy.IMSignInfoChangedNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.IMSignInfoChangedNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.IMSignInfoChangedNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14596,7 +14596,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.TravelToolInfo)
         com.zhizulx.tt.protobuf.IMBuddy.TravelToolInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.TravelToolInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.TravelToolInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -16456,7 +16456,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.BasicInfo)
         com.zhizulx.tt.protobuf.IMBuddy.BasicInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.BasicInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.BasicInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -17660,7 +17660,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.TransportConfig)
         com.zhizulx.tt.protobuf.IMBuddy.TransportConfigOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.TransportConfig.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.TransportConfig.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18440,7 +18440,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.TravelDetail)
         com.zhizulx.tt.protobuf.IMBuddy.TravelDetailOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.TravelDetail.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.TravelDetail.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18974,7 +18974,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.TransportTool)
         com.zhizulx.tt.protobuf.IMBuddy.TransportToolOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.TransportTool.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.TransportTool.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -19603,7 +19603,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.DayScenic)
         com.zhizulx.tt.protobuf.IMBuddy.DayScenicOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.DayScenic.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.DayScenic.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -20337,7 +20337,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.DayHotel)
         com.zhizulx.tt.protobuf.IMBuddy.DayHotelOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.DayHotel.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.DayHotel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -20693,7 +20693,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayHotel>
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayHotel> 
         getDayHotelList();
     /**
      * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
@@ -20707,7 +20707,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayScenic>
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayScenic> 
         getDayScenicList();
     /**
      * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
@@ -20863,7 +20863,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.DayHotel day_hotel = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.DayHotelOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.DayHotelOrBuilder> 
         getDayHotelOrBuilderList() {
       return dayHotel_;
     }
@@ -20898,7 +20898,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.DayScenic day_scenic = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.DayScenicOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.DayScenicOrBuilder> 
         getDayScenicOrBuilderList() {
       return dayScenic_;
     }
@@ -21071,7 +21071,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.PlayDetail)
         com.zhizulx.tt.protobuf.IMBuddy.PlayDetailOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.PlayDetail.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.PlayDetail.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -22003,7 +22003,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.PlayConfig)
         com.zhizulx.tt.protobuf.IMBuddy.PlayConfigOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.PlayConfig.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.PlayConfig.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -23628,7 +23628,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.ScenicInfo)
         com.zhizulx.tt.protobuf.IMBuddy.ScenicInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.ScenicInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.ScenicInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -25832,7 +25832,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.HotelInfo)
         com.zhizulx.tt.protobuf.IMBuddy.HotelInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.HotelInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.HotelInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -27211,7 +27211,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.MyTravel)
         com.zhizulx.tt.protobuf.IMBuddy.MyTravelOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.MyTravel.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.MyTravel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -27953,7 +27953,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.CreateMyTravelReq)
         com.zhizulx.tt.protobuf.IMBuddy.CreateMyTravelReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.CreateMyTravelReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.CreateMyTravelReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -28585,7 +28585,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.CreateMyTravelRsp)
         com.zhizulx.tt.protobuf.IMBuddy.CreateMyTravelRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.CreateMyTravelRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.CreateMyTravelRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -29220,7 +29220,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.DeleteMyTravelReq)
         com.zhizulx.tt.protobuf.IMBuddy.DeleteMyTravelReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.DeleteMyTravelReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.DeleteMyTravelReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -29817,7 +29817,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.DeleteMyTravelRsp)
         com.zhizulx.tt.protobuf.IMBuddy.DeleteMyTravelRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.DeleteMyTravelRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.DeleteMyTravelRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -30429,7 +30429,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.UpdateMyTravelReq)
         com.zhizulx.tt.protobuf.IMBuddy.UpdateMyTravelReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.UpdateMyTravelReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.UpdateMyTravelReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -31065,7 +31065,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.UpdateMyTravelRsp)
         com.zhizulx.tt.protobuf.IMBuddy.UpdateMyTravelRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.UpdateMyTravelRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.UpdateMyTravelRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -31583,7 +31583,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.QueryMyTravelReq)
         com.zhizulx.tt.protobuf.IMBuddy.QueryMyTravelReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.QueryMyTravelReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.QueryMyTravelReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -31802,7 +31802,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.MyTravel my_travel = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.MyTravel>
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.MyTravel> 
         getMyTravelList();
     /**
      * <code>repeated .IM.Buddy.MyTravel my_travel = 3;</code>
@@ -31981,7 +31981,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.MyTravel my_travel = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.MyTravelOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.MyTravelOrBuilder> 
         getMyTravelOrBuilderList() {
       return myTravel_;
     }
@@ -32171,7 +32171,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.QueryMyTravelRsp)
         com.zhizulx.tt.protobuf.IMBuddy.QueryMyTravelRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.QueryMyTravelRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.QueryMyTravelRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -32943,7 +32943,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.GetTransportToolReq)
         com.zhizulx.tt.protobuf.IMBuddy.GetTransportToolReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.GetTransportToolReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.GetTransportToolReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -33316,7 +33316,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.TravelToolInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.TravelToolInfo> 
         getTravelToolInfoList();
     /**
      * <code>repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;</code>
@@ -33495,7 +33495,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.TravelToolInfo travel_tool_info = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.TravelToolInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.TravelToolInfoOrBuilder> 
         getTravelToolInfoOrBuilderList() {
       return travelToolInfo_;
     }
@@ -33685,7 +33685,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.GetTransportToolRsp)
         com.zhizulx.tt.protobuf.IMBuddy.GetTransportToolRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.GetTransportToolRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.GetTransportToolRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -34449,7 +34449,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.GetScenicHotelReq)
         com.zhizulx.tt.protobuf.IMBuddy.GetScenicHotelReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.GetScenicHotelReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -34783,7 +34783,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.ScenicInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.ScenicInfo> 
         getScenicInfoList();
     /**
      * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
@@ -34797,7 +34797,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.HotelInfo hotel_info = 4;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.HotelInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.HotelInfo> 
         getHotelInfoList();
     /**
      * <code>repeated .IM.Buddy.HotelInfo hotel_info = 4;</code>
@@ -34987,7 +34987,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.ScenicInfo scenic_info = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.ScenicInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.ScenicInfoOrBuilder> 
         getScenicInfoOrBuilderList() {
       return scenicInfo_;
     }
@@ -35022,7 +35022,7 @@ public final class IMBuddy {
     /**
      * <code>repeated .IM.Buddy.HotelInfo hotel_info = 4;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.HotelInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.HotelInfoOrBuilder> 
         getHotelInfoOrBuilderList() {
       return hotelInfo_;
     }
@@ -35226,7 +35226,7 @@ public final class IMBuddy {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Buddy.GetScenicHotelRsp)
         com.zhizulx.tt.protobuf.IMBuddy.GetScenicHotelRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBuddy.GetScenicHotelRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.GetScenicHotelRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -35751,6 +35751,7621 @@ public final class IMBuddy {
     }
 
     // @@protoc_insertion_point(class_scope:IM.Buddy.GetScenicHotelRsp)
+  }
+
+  public interface DayRouteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.DayRoute)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>repeated uint32 scenics = 1;</code>
+     */
+    java.util.List<java.lang.Integer> getScenicsList();
+    /**
+     * <code>repeated uint32 scenics = 1;</code>
+     */
+    int getScenicsCount();
+    /**
+     * <code>repeated uint32 scenics = 1;</code>
+     */
+    int getScenics(int index);
+
+    /**
+     * <code>repeated uint32 hotels = 2;</code>
+     */
+    java.util.List<java.lang.Integer> getHotelsList();
+    /**
+     * <code>repeated uint32 hotels = 2;</code>
+     */
+    int getHotelsCount();
+    /**
+     * <code>repeated uint32 hotels = 2;</code>
+     */
+    int getHotels(int index);
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.DayRoute}
+   */
+  public static final class DayRoute extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.DayRoute)
+      DayRouteOrBuilder {
+    // Use DayRoute.newBuilder() to construct.
+    private DayRoute(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DayRoute(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final DayRoute defaultInstance;
+    public static DayRoute getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DayRoute getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private DayRoute(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                scenics_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              scenics_.add(input.readUInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                scenics_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                scenics_.add(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                hotels_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              hotels_.add(input.readUInt32());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+                hotels_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                hotels_.add(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          scenics_ = java.util.Collections.unmodifiableList(scenics_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          hotels_ = java.util.Collections.unmodifiableList(hotels_);
+        }
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<DayRoute> PARSER =
+        new com.google.protobuf.AbstractParser<DayRoute>() {
+      public DayRoute parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DayRoute(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DayRoute> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int SCENICS_FIELD_NUMBER = 1;
+    private java.util.List<java.lang.Integer> scenics_;
+    /**
+     * <code>repeated uint32 scenics = 1;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getScenicsList() {
+      return scenics_;
+    }
+    /**
+     * <code>repeated uint32 scenics = 1;</code>
+     */
+    public int getScenicsCount() {
+      return scenics_.size();
+    }
+    /**
+     * <code>repeated uint32 scenics = 1;</code>
+     */
+    public int getScenics(int index) {
+      return scenics_.get(index);
+    }
+
+    public static final int HOTELS_FIELD_NUMBER = 2;
+    private java.util.List<java.lang.Integer> hotels_;
+    /**
+     * <code>repeated uint32 hotels = 2;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getHotelsList() {
+      return hotels_;
+    }
+    /**
+     * <code>repeated uint32 hotels = 2;</code>
+     */
+    public int getHotelsCount() {
+      return hotels_.size();
+    }
+    /**
+     * <code>repeated uint32 hotels = 2;</code>
+     */
+    public int getHotels(int index) {
+      return hotels_.get(index);
+    }
+
+    private void initFields() {
+      scenics_ = java.util.Collections.emptyList();
+      hotels_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < scenics_.size(); i++) {
+        output.writeUInt32(1, scenics_.get(i));
+      }
+      for (int i = 0; i < hotels_.size(); i++) {
+        output.writeUInt32(2, hotels_.get(i));
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < scenics_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(scenics_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getScenicsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < hotels_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(hotels_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getHotelsList().size();
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.DayRoute parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.DayRoute prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.DayRoute}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.DayRoute, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.DayRoute)
+        com.zhizulx.tt.protobuf.IMBuddy.DayRouteOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.DayRoute.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        scenics_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        hotels_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.DayRoute getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.DayRoute.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.DayRoute build() {
+        com.zhizulx.tt.protobuf.IMBuddy.DayRoute result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.DayRoute buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.DayRoute result = new com.zhizulx.tt.protobuf.IMBuddy.DayRoute(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          scenics_ = java.util.Collections.unmodifiableList(scenics_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.scenics_ = scenics_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          hotels_ = java.util.Collections.unmodifiableList(hotels_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.hotels_ = hotels_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.DayRoute other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.DayRoute.getDefaultInstance()) return this;
+        if (!other.scenics_.isEmpty()) {
+          if (scenics_.isEmpty()) {
+            scenics_ = other.scenics_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureScenicsIsMutable();
+            scenics_.addAll(other.scenics_);
+          }
+          
+        }
+        if (!other.hotels_.isEmpty()) {
+          if (hotels_.isEmpty()) {
+            hotels_ = other.hotels_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureHotelsIsMutable();
+            hotels_.addAll(other.hotels_);
+          }
+          
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.DayRoute parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.DayRoute) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<java.lang.Integer> scenics_ = java.util.Collections.emptyList();
+      private void ensureScenicsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          scenics_ = new java.util.ArrayList<java.lang.Integer>(scenics_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated uint32 scenics = 1;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getScenicsList() {
+        return java.util.Collections.unmodifiableList(scenics_);
+      }
+      /**
+       * <code>repeated uint32 scenics = 1;</code>
+       */
+      public int getScenicsCount() {
+        return scenics_.size();
+      }
+      /**
+       * <code>repeated uint32 scenics = 1;</code>
+       */
+      public int getScenics(int index) {
+        return scenics_.get(index);
+      }
+      /**
+       * <code>repeated uint32 scenics = 1;</code>
+       */
+      public Builder setScenics(
+          int index, int value) {
+        ensureScenicsIsMutable();
+        scenics_.set(index, value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 scenics = 1;</code>
+       */
+      public Builder addScenics(int value) {
+        ensureScenicsIsMutable();
+        scenics_.add(value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 scenics = 1;</code>
+       */
+      public Builder addAllScenics(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureScenicsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, scenics_);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 scenics = 1;</code>
+       */
+      public Builder clearScenics() {
+        scenics_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> hotels_ = java.util.Collections.emptyList();
+      private void ensureHotelsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          hotels_ = new java.util.ArrayList<java.lang.Integer>(hotels_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated uint32 hotels = 2;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getHotelsList() {
+        return java.util.Collections.unmodifiableList(hotels_);
+      }
+      /**
+       * <code>repeated uint32 hotels = 2;</code>
+       */
+      public int getHotelsCount() {
+        return hotels_.size();
+      }
+      /**
+       * <code>repeated uint32 hotels = 2;</code>
+       */
+      public int getHotels(int index) {
+        return hotels_.get(index);
+      }
+      /**
+       * <code>repeated uint32 hotels = 2;</code>
+       */
+      public Builder setHotels(
+          int index, int value) {
+        ensureHotelsIsMutable();
+        hotels_.set(index, value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 hotels = 2;</code>
+       */
+      public Builder addHotels(int value) {
+        ensureHotelsIsMutable();
+        hotels_.add(value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 hotels = 2;</code>
+       */
+      public Builder addAllHotels(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureHotelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, hotels_);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 hotels = 2;</code>
+       */
+      public Builder clearHotels() {
+        hotels_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.DayRoute)
+    }
+
+    static {
+      defaultInstance = new DayRoute(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.DayRoute)
+  }
+
+  public interface RouteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.Route)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 day_count = 1;</code>
+     */
+    boolean hasDayCount();
+    /**
+     * <code>required uint32 day_count = 1;</code>
+     */
+    int getDayCount();
+
+    /**
+     * <code>required string city_code = 2;</code>
+     */
+    boolean hasCityCode();
+    /**
+     * <code>required string city_code = 2;</code>
+     */
+    java.lang.String getCityCode();
+    /**
+     * <code>required string city_code = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getCityCodeBytes();
+
+    /**
+     * <code>required string tag = 3;</code>
+     *
+     * <pre>
+     * binghui
+     * </pre>
+     */
+    boolean hasTag();
+    /**
+     * <code>required string tag = 3;</code>
+     *
+     * <pre>
+     * binghui
+     * </pre>
+     */
+    java.lang.String getTag();
+    /**
+     * <code>required string tag = 3;</code>
+     *
+     * <pre>
+     * binghui
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTagBytes();
+
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    boolean hasStartTransportTool();
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getStartTransportTool();
+
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    boolean hasEndTransportTool();
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getEndTransportTool();
+
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    boolean hasStartTime();
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    java.lang.String getStartTime();
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getStartTimeBytes();
+
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    boolean hasEndTime();
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    java.lang.String getEndTime();
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getEndTimeBytes();
+
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayRoute> 
+        getDayRoutesList();
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.DayRoute getDayRoutes(int index);
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    int getDayRoutesCount();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.Route}
+   */
+  public static final class Route extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.Route)
+      RouteOrBuilder {
+    // Use Route.newBuilder() to construct.
+    private Route(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Route(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final Route defaultInstance;
+    public static Route getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Route getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private Route(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              dayCount_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              cityCode_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              tag_ = bs;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+              com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.valueOf(rawValue);
+              if (value == null) {
+                unknownFieldsCodedOutput.writeRawVarint32(tag);
+                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
+              } else {
+                bitField0_ |= 0x00000008;
+                startTransportTool_ = value;
+              }
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+              com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.valueOf(rawValue);
+              if (value == null) {
+                unknownFieldsCodedOutput.writeRawVarint32(tag);
+                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
+              } else {
+                bitField0_ |= 0x00000010;
+                endTransportTool_ = value;
+              }
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              startTime_ = bs;
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              endTime_ = bs;
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                dayRoutes_ = new java.util.ArrayList<com.zhizulx.tt.protobuf.IMBuddy.DayRoute>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              dayRoutes_.add(input.readMessage(com.zhizulx.tt.protobuf.IMBuddy.DayRoute.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          dayRoutes_ = java.util.Collections.unmodifiableList(dayRoutes_);
+        }
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<Route> PARSER =
+        new com.google.protobuf.AbstractParser<Route>() {
+      public Route parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Route(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Route> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int DAY_COUNT_FIELD_NUMBER = 1;
+    private int dayCount_;
+    /**
+     * <code>required uint32 day_count = 1;</code>
+     */
+    public boolean hasDayCount() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 day_count = 1;</code>
+     */
+    public int getDayCount() {
+      return dayCount_;
+    }
+
+    public static final int CITY_CODE_FIELD_NUMBER = 2;
+    private java.lang.Object cityCode_;
+    /**
+     * <code>required string city_code = 2;</code>
+     */
+    public boolean hasCityCode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string city_code = 2;</code>
+     */
+    public java.lang.String getCityCode() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          cityCode_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string city_code = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCityCodeBytes() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cityCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TAG_FIELD_NUMBER = 3;
+    private java.lang.Object tag_;
+    /**
+     * <code>required string tag = 3;</code>
+     *
+     * <pre>
+     * binghui
+     * </pre>
+     */
+    public boolean hasTag() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string tag = 3;</code>
+     *
+     * <pre>
+     * binghui
+     * </pre>
+     */
+    public java.lang.String getTag() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          tag_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string tag = 3;</code>
+     *
+     * <pre>
+     * binghui
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTagBytes() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tag_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int START_TRANSPORT_TOOL_FIELD_NUMBER = 4;
+    private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType startTransportTool_;
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    public boolean hasStartTransportTool() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getStartTransportTool() {
+      return startTransportTool_;
+    }
+
+    public static final int END_TRANSPORT_TOOL_FIELD_NUMBER = 5;
+    private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType endTransportTool_;
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    public boolean hasEndTransportTool() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getEndTransportTool() {
+      return endTransportTool_;
+    }
+
+    public static final int START_TIME_FIELD_NUMBER = 6;
+    private java.lang.Object startTime_;
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    public boolean hasStartTime() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    public java.lang.String getStartTime() {
+      java.lang.Object ref = startTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          startTime_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStartTimeBytes() {
+      java.lang.Object ref = startTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        startTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int END_TIME_FIELD_NUMBER = 7;
+    private java.lang.Object endTime_;
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    public boolean hasEndTime() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    public java.lang.String getEndTime() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          endTime_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEndTimeBytes() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DAY_ROUTES_FIELD_NUMBER = 8;
+    private java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayRoute> dayRoutes_;
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    public java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayRoute> getDayRoutesList() {
+      return dayRoutes_;
+    }
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.DayRouteOrBuilder> 
+        getDayRoutesOrBuilderList() {
+      return dayRoutes_;
+    }
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    public int getDayRoutesCount() {
+      return dayRoutes_.size();
+    }
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.DayRoute getDayRoutes(int index) {
+      return dayRoutes_.get(index);
+    }
+    /**
+     * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.DayRouteOrBuilder getDayRoutesOrBuilder(
+        int index) {
+      return dayRoutes_.get(index);
+    }
+
+    private void initFields() {
+      dayCount_ = 0;
+      cityCode_ = "";
+      tag_ = "";
+      startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      startTime_ = "";
+      endTime_ = "";
+      dayRoutes_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasDayCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCityCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTag()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasStartTransportTool()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasEndTransportTool()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasStartTime()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasEndTime()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, dayCount_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getCityCodeBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getTagBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeEnum(4, startTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeEnum(5, endTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getStartTimeBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(7, getEndTimeBytes());
+      }
+      for (int i = 0; i < dayRoutes_.size(); i++) {
+        output.writeMessage(8, dayRoutes_.get(i));
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, dayCount_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getCityCodeBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getTagBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, startTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, endTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getStartTimeBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getEndTimeBytes());
+      }
+      for (int i = 0; i < dayRoutes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, dayRoutes_.get(i));
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.Route parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.Route prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.Route}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.Route, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.Route)
+        com.zhizulx.tt.protobuf.IMBuddy.RouteOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.Route.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        dayCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        cityCode_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        tag_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        startTime_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        endTime_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        dayRoutes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.Route getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.Route build() {
+        com.zhizulx.tt.protobuf.IMBuddy.Route result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.Route buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.Route result = new com.zhizulx.tt.protobuf.IMBuddy.Route(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.dayCount_ = dayCount_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.cityCode_ = cityCode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.tag_ = tag_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.startTransportTool_ = startTransportTool_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.endTransportTool_ = endTransportTool_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.startTime_ = startTime_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.endTime_ = endTime_;
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          dayRoutes_ = java.util.Collections.unmodifiableList(dayRoutes_);
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.dayRoutes_ = dayRoutes_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.Route other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance()) return this;
+        if (other.hasDayCount()) {
+          setDayCount(other.getDayCount());
+        }
+        if (other.hasCityCode()) {
+          bitField0_ |= 0x00000002;
+          cityCode_ = other.cityCode_;
+          
+        }
+        if (other.hasTag()) {
+          bitField0_ |= 0x00000004;
+          tag_ = other.tag_;
+          
+        }
+        if (other.hasStartTransportTool()) {
+          setStartTransportTool(other.getStartTransportTool());
+        }
+        if (other.hasEndTransportTool()) {
+          setEndTransportTool(other.getEndTransportTool());
+        }
+        if (other.hasStartTime()) {
+          bitField0_ |= 0x00000020;
+          startTime_ = other.startTime_;
+          
+        }
+        if (other.hasEndTime()) {
+          bitField0_ |= 0x00000040;
+          endTime_ = other.endTime_;
+          
+        }
+        if (!other.dayRoutes_.isEmpty()) {
+          if (dayRoutes_.isEmpty()) {
+            dayRoutes_ = other.dayRoutes_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureDayRoutesIsMutable();
+            dayRoutes_.addAll(other.dayRoutes_);
+          }
+          
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasDayCount()) {
+          
+          return false;
+        }
+        if (!hasCityCode()) {
+          
+          return false;
+        }
+        if (!hasTag()) {
+          
+          return false;
+        }
+        if (!hasStartTransportTool()) {
+          
+          return false;
+        }
+        if (!hasEndTransportTool()) {
+          
+          return false;
+        }
+        if (!hasStartTime()) {
+          
+          return false;
+        }
+        if (!hasEndTime()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.Route parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.Route) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int dayCount_ ;
+      /**
+       * <code>required uint32 day_count = 1;</code>
+       */
+      public boolean hasDayCount() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 day_count = 1;</code>
+       */
+      public int getDayCount() {
+        return dayCount_;
+      }
+      /**
+       * <code>required uint32 day_count = 1;</code>
+       */
+      public Builder setDayCount(int value) {
+        bitField0_ |= 0x00000001;
+        dayCount_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 day_count = 1;</code>
+       */
+      public Builder clearDayCount() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dayCount_ = 0;
+        
+        return this;
+      }
+
+      private java.lang.Object cityCode_ = "";
+      /**
+       * <code>required string city_code = 2;</code>
+       */
+      public boolean hasCityCode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       */
+      public java.lang.String getCityCode() {
+        java.lang.Object ref = cityCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            cityCode_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCityCodeBytes() {
+        java.lang.Object ref = cityCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cityCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       */
+      public Builder setCityCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        cityCode_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       */
+      public Builder clearCityCode() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cityCode_ = getDefaultInstance().getCityCode();
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 2;</code>
+       */
+      public Builder setCityCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        cityCode_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object tag_ = "";
+      /**
+       * <code>required string tag = 3;</code>
+       *
+       * <pre>
+       * binghui
+       * </pre>
+       */
+      public boolean hasTag() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string tag = 3;</code>
+       *
+       * <pre>
+       * binghui
+       * </pre>
+       */
+      public java.lang.String getTag() {
+        java.lang.Object ref = tag_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            tag_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string tag = 3;</code>
+       *
+       * <pre>
+       * binghui
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getTagBytes() {
+        java.lang.Object ref = tag_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tag_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string tag = 3;</code>
+       *
+       * <pre>
+       * binghui
+       * </pre>
+       */
+      public Builder setTag(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        tag_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string tag = 3;</code>
+       *
+       * <pre>
+       * binghui
+       * </pre>
+       */
+      public Builder clearTag() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        tag_ = getDefaultInstance().getTag();
+        
+        return this;
+      }
+      /**
+       * <code>required string tag = 3;</code>
+       *
+       * <pre>
+       * binghui
+       * </pre>
+       */
+      public Builder setTagBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        tag_ = value;
+        
+        return this;
+      }
+
+      private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public boolean hasStartTransportTool() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getStartTransportTool() {
+        return startTransportTool_;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public Builder setStartTransportTool(com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        startTransportTool_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public Builder clearStartTransportTool() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        
+        return this;
+      }
+
+      private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public boolean hasEndTransportTool() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getEndTransportTool() {
+        return endTransportTool_;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public Builder setEndTransportTool(com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        endTransportTool_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public Builder clearEndTransportTool() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        
+        return this;
+      }
+
+      private java.lang.Object startTime_ = "";
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public boolean hasStartTime() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public java.lang.String getStartTime() {
+        java.lang.Object ref = startTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            startTime_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStartTimeBytes() {
+        java.lang.Object ref = startTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          startTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public Builder setStartTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        startTime_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public Builder clearStartTime() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        startTime_ = getDefaultInstance().getStartTime();
+        
+        return this;
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public Builder setStartTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        startTime_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object endTime_ = "";
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public boolean hasEndTime() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public java.lang.String getEndTime() {
+        java.lang.Object ref = endTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            endTime_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEndTimeBytes() {
+        java.lang.Object ref = endTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          endTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public Builder setEndTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        endTime_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public Builder clearEndTime() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        endTime_ = getDefaultInstance().getEndTime();
+        
+        return this;
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public Builder setEndTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        endTime_ = value;
+        
+        return this;
+      }
+
+      private java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayRoute> dayRoutes_ =
+        java.util.Collections.emptyList();
+      private void ensureDayRoutesIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          dayRoutes_ = new java.util.ArrayList<com.zhizulx.tt.protobuf.IMBuddy.DayRoute>(dayRoutes_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public java.util.List<com.zhizulx.tt.protobuf.IMBuddy.DayRoute> getDayRoutesList() {
+        return java.util.Collections.unmodifiableList(dayRoutes_);
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public int getDayRoutesCount() {
+        return dayRoutes_.size();
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.DayRoute getDayRoutes(int index) {
+        return dayRoutes_.get(index);
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder setDayRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.DayRoute value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureDayRoutesIsMutable();
+        dayRoutes_.set(index, value);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder setDayRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.DayRoute.Builder builderForValue) {
+        ensureDayRoutesIsMutable();
+        dayRoutes_.set(index, builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder addDayRoutes(com.zhizulx.tt.protobuf.IMBuddy.DayRoute value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureDayRoutesIsMutable();
+        dayRoutes_.add(value);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder addDayRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.DayRoute value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureDayRoutesIsMutable();
+        dayRoutes_.add(index, value);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder addDayRoutes(
+          com.zhizulx.tt.protobuf.IMBuddy.DayRoute.Builder builderForValue) {
+        ensureDayRoutesIsMutable();
+        dayRoutes_.add(builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder addDayRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.DayRoute.Builder builderForValue) {
+        ensureDayRoutesIsMutable();
+        dayRoutes_.add(index, builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder addAllDayRoutes(
+          java.lang.Iterable<? extends com.zhizulx.tt.protobuf.IMBuddy.DayRoute> values) {
+        ensureDayRoutesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, dayRoutes_);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder clearDayRoutes() {
+        dayRoutes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.DayRoute day_routes = 8;</code>
+       */
+      public Builder removeDayRoutes(int index) {
+        ensureDayRoutesIsMutable();
+        dayRoutes_.remove(index);
+
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.Route)
+    }
+
+    static {
+      defaultInstance = new Route(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.Route)
+  }
+
+  public interface NewQueryRadomRouteReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.NewQueryRadomRouteReq)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    boolean hasUserId();
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    int getUserId();
+
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    com.google.protobuf.ProtocolStringList
+        getTagsList();
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    int getTagsCount();
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    java.lang.String getTags(int index);
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getTagsBytes(int index);
+
+    /**
+     * <code>required string sentence = 3;</code>
+     */
+    boolean hasSentence();
+    /**
+     * <code>required string sentence = 3;</code>
+     */
+    java.lang.String getSentence();
+    /**
+     * <code>required string sentence = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSentenceBytes();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.NewQueryRadomRouteReq}
+   */
+  public static final class NewQueryRadomRouteReq extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.NewQueryRadomRouteReq)
+      NewQueryRadomRouteReqOrBuilder {
+    // Use NewQueryRadomRouteReq.newBuilder() to construct.
+    private NewQueryRadomRouteReq(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NewQueryRadomRouteReq(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final NewQueryRadomRouteReq defaultInstance;
+    public static NewQueryRadomRouteReq getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NewQueryRadomRouteReq getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private NewQueryRadomRouteReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                tags_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              tags_.add(bs);
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              sentence_ = bs;
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000004;
+              attachData_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          tags_ = tags_.getUnmodifiableView();
+        }
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<NewQueryRadomRouteReq> PARSER =
+        new com.google.protobuf.AbstractParser<NewQueryRadomRouteReq>() {
+      public NewQueryRadomRouteReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NewQueryRadomRouteReq(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NewQueryRadomRouteReq> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int TAGS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList tags_;
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagsList() {
+      return tags_;
+    }
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    public int getTagsCount() {
+      return tags_.size();
+    }
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    public java.lang.String getTags(int index) {
+      return tags_.get(index);
+    }
+    /**
+     * <code>repeated string tags = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTagsBytes(int index) {
+      return tags_.getByteString(index);
+    }
+
+    public static final int SENTENCE_FIELD_NUMBER = 3;
+    private java.lang.Object sentence_;
+    /**
+     * <code>required string sentence = 3;</code>
+     */
+    public boolean hasSentence() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string sentence = 3;</code>
+     */
+    public java.lang.String getSentence() {
+      java.lang.Object ref = sentence_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          sentence_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string sentence = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSentenceBytes() {
+      java.lang.Object ref = sentence_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sentence_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
+    private void initFields() {
+      userId_ = 0;
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      sentence_ = "";
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSentence()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, userId_);
+      }
+      for (int i = 0; i < tags_.size(); i++) {
+        output.writeBytes(2, tags_.getByteString(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(3, getSentenceBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(20, attachData_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, userId_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tags_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(tags_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getTagsList().size();
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getSentenceBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.NewQueryRadomRouteReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.NewQueryRadomRouteReq)
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReqOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sentence_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq build() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq result = new com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          tags_ = tags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.tags_ = tags_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.sentence_ = sentence_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.attachData_ = attachData_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          
+        }
+        if (other.hasSentence()) {
+          bitField0_ |= 0x00000004;
+          sentence_ = other.sentence_;
+          
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasSentence()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteReq) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTagsList() {
+        return tags_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public int getTagsCount() {
+        return tags_.size();
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public java.lang.String getTags(int index) {
+        return tags_.get(index);
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTagsBytes(int index) {
+        return tags_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public Builder setTags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.set(index, value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public Builder addTags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.add(value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public Builder addAllTags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public Builder clearTags() {
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 2;</code>
+       */
+      public Builder addTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.add(value);
+        
+        return this;
+      }
+
+      private java.lang.Object sentence_ = "";
+      /**
+       * <code>required string sentence = 3;</code>
+       */
+      public boolean hasSentence() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string sentence = 3;</code>
+       */
+      public java.lang.String getSentence() {
+        java.lang.Object ref = sentence_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            sentence_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string sentence = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSentenceBytes() {
+        java.lang.Object ref = sentence_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sentence_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string sentence = 3;</code>
+       */
+      public Builder setSentence(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        sentence_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string sentence = 3;</code>
+       */
+      public Builder clearSentence() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        sentence_ = getDefaultInstance().getSentence();
+        
+        return this;
+      }
+      /**
+       * <code>required string sentence = 3;</code>
+       */
+      public Builder setSentenceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        sentence_ = value;
+        
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = getDefaultInstance().getAttachData();
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.NewQueryRadomRouteReq)
+    }
+
+    static {
+      defaultInstance = new NewQueryRadomRouteReq(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.NewQueryRadomRouteReq)
+  }
+
+  public interface NewQueryRadomRouteRspOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.NewQueryRadomRouteRsp)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    boolean hasUserId();
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    int getUserId();
+
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    boolean hasResultCode();
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    int getResultCode();
+
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    java.util.List<com.zhizulx.tt.protobuf.IMBuddy.Route> 
+        getRoutesList();
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.Route getRoutes(int index);
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    int getRoutesCount();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.NewQueryRadomRouteRsp}
+   */
+  public static final class NewQueryRadomRouteRsp extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.NewQueryRadomRouteRsp)
+      NewQueryRadomRouteRspOrBuilder {
+    // Use NewQueryRadomRouteRsp.newBuilder() to construct.
+    private NewQueryRadomRouteRsp(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NewQueryRadomRouteRsp(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final NewQueryRadomRouteRsp defaultInstance;
+    public static NewQueryRadomRouteRsp getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NewQueryRadomRouteRsp getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private NewQueryRadomRouteRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              resultCode_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                routes_ = new java.util.ArrayList<com.zhizulx.tt.protobuf.IMBuddy.Route>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              routes_.add(input.readMessage(com.zhizulx.tt.protobuf.IMBuddy.Route.PARSER, extensionRegistry));
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000004;
+              attachData_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          routes_ = java.util.Collections.unmodifiableList(routes_);
+        }
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<NewQueryRadomRouteRsp> PARSER =
+        new com.google.protobuf.AbstractParser<NewQueryRadomRouteRsp>() {
+      public NewQueryRadomRouteRsp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NewQueryRadomRouteRsp(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NewQueryRadomRouteRsp> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int RESULT_CODE_FIELD_NUMBER = 2;
+    private int resultCode_;
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    public boolean hasResultCode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    public int getResultCode() {
+      return resultCode_;
+    }
+
+    public static final int ROUTES_FIELD_NUMBER = 3;
+    private java.util.List<com.zhizulx.tt.protobuf.IMBuddy.Route> routes_;
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    public java.util.List<com.zhizulx.tt.protobuf.IMBuddy.Route> getRoutesList() {
+      return routes_;
+    }
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBuddy.RouteOrBuilder> 
+        getRoutesOrBuilderList() {
+      return routes_;
+    }
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    public int getRoutesCount() {
+      return routes_.size();
+    }
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.Route getRoutes(int index) {
+      return routes_.get(index);
+    }
+    /**
+     * <code>repeated .IM.Buddy.Route routes = 3;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.RouteOrBuilder getRoutesOrBuilder(
+        int index) {
+      return routes_.get(index);
+    }
+
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
+    private void initFields() {
+      userId_ = 0;
+      resultCode_ = 0;
+      routes_ = java.util.Collections.emptyList();
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasResultCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getRoutesCount(); i++) {
+        if (!getRoutes(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt32(2, resultCode_);
+      }
+      for (int i = 0; i < routes_.size(); i++) {
+        output.writeMessage(3, routes_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(20, attachData_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, resultCode_);
+      }
+      for (int i = 0; i < routes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, routes_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.NewQueryRadomRouteRsp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.NewQueryRadomRouteRsp)
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRspOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        resultCode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        routes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp build() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp result = new com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.resultCode_ = resultCode_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          routes_ = java.util.Collections.unmodifiableList(routes_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.routes_ = routes_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.attachData_ = attachData_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasResultCode()) {
+          setResultCode(other.getResultCode());
+        }
+        if (!other.routes_.isEmpty()) {
+          if (routes_.isEmpty()) {
+            routes_ = other.routes_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureRoutesIsMutable();
+            routes_.addAll(other.routes_);
+          }
+          
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasResultCode()) {
+          
+          return false;
+        }
+        for (int i = 0; i < getRoutesCount(); i++) {
+          if (!getRoutes(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.NewQueryRadomRouteRsp) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        
+        return this;
+      }
+
+      private int resultCode_ ;
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public boolean hasResultCode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public int getResultCode() {
+        return resultCode_;
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public Builder setResultCode(int value) {
+        bitField0_ |= 0x00000002;
+        resultCode_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public Builder clearResultCode() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        resultCode_ = 0;
+        
+        return this;
+      }
+
+      private java.util.List<com.zhizulx.tt.protobuf.IMBuddy.Route> routes_ =
+        java.util.Collections.emptyList();
+      private void ensureRoutesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          routes_ = new java.util.ArrayList<com.zhizulx.tt.protobuf.IMBuddy.Route>(routes_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public java.util.List<com.zhizulx.tt.protobuf.IMBuddy.Route> getRoutesList() {
+        return java.util.Collections.unmodifiableList(routes_);
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public int getRoutesCount() {
+        return routes_.size();
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.Route getRoutes(int index) {
+        return routes_.get(index);
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder setRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.Route value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRoutesIsMutable();
+        routes_.set(index, value);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder setRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.Route.Builder builderForValue) {
+        ensureRoutesIsMutable();
+        routes_.set(index, builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder addRoutes(com.zhizulx.tt.protobuf.IMBuddy.Route value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRoutesIsMutable();
+        routes_.add(value);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder addRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.Route value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRoutesIsMutable();
+        routes_.add(index, value);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder addRoutes(
+          com.zhizulx.tt.protobuf.IMBuddy.Route.Builder builderForValue) {
+        ensureRoutesIsMutable();
+        routes_.add(builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder addRoutes(
+          int index, com.zhizulx.tt.protobuf.IMBuddy.Route.Builder builderForValue) {
+        ensureRoutesIsMutable();
+        routes_.add(index, builderForValue.build());
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder addAllRoutes(
+          java.lang.Iterable<? extends com.zhizulx.tt.protobuf.IMBuddy.Route> values) {
+        ensureRoutesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, routes_);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder clearRoutes() {
+        routes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+
+        return this;
+      }
+      /**
+       * <code>repeated .IM.Buddy.Route routes = 3;</code>
+       */
+      public Builder removeRoutes(int index) {
+        ensureRoutesIsMutable();
+        routes_.remove(index);
+
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = getDefaultInstance().getAttachData();
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.NewQueryRadomRouteRsp)
+    }
+
+    static {
+      defaultInstance = new NewQueryRadomRouteRsp(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.NewQueryRadomRouteRsp)
+  }
+
+  public interface NewUpdateRadomRouteReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.NewUpdateRadomRouteReq)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    boolean hasUserId();
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    int getUserId();
+
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    boolean hasDayCount();
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    int getDayCount();
+
+    /**
+     * <code>required string city_code = 3;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    boolean hasCityCode();
+    /**
+     * <code>required string city_code = 3;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    java.lang.String getCityCode();
+    /**
+     * <code>required string city_code = 3;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getCityCodeBytes();
+
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    boolean hasStartTransportTool();
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getStartTransportTool();
+
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    boolean hasEndTransportTool();
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getEndTransportTool();
+
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    boolean hasStartTime();
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    java.lang.String getStartTime();
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getStartTimeBytes();
+
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    boolean hasEndTime();
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    java.lang.String getEndTime();
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getEndTimeBytes();
+
+    /**
+     * <code>repeated uint32 scenic_ids = 8;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    java.util.List<java.lang.Integer> getScenicIdsList();
+    /**
+     * <code>repeated uint32 scenic_ids = 8;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    int getScenicIdsCount();
+    /**
+     * <code>repeated uint32 scenic_ids = 8;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    int getScenicIds(int index);
+
+    /**
+     * <code>required string tag = 9;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    boolean hasTag();
+    /**
+     * <code>required string tag = 9;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    java.lang.String getTag();
+    /**
+     * <code>required string tag = 9;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTagBytes();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.NewUpdateRadomRouteReq}
+   */
+  public static final class NewUpdateRadomRouteReq extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.NewUpdateRadomRouteReq)
+      NewUpdateRadomRouteReqOrBuilder {
+    // Use NewUpdateRadomRouteReq.newBuilder() to construct.
+    private NewUpdateRadomRouteReq(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NewUpdateRadomRouteReq(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final NewUpdateRadomRouteReq defaultInstance;
+    public static NewUpdateRadomRouteReq getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NewUpdateRadomRouteReq getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private NewUpdateRadomRouteReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              dayCount_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              cityCode_ = bs;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+              com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.valueOf(rawValue);
+              if (value == null) {
+                unknownFieldsCodedOutput.writeRawVarint32(tag);
+                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
+              } else {
+                bitField0_ |= 0x00000008;
+                startTransportTool_ = value;
+              }
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+              com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.valueOf(rawValue);
+              if (value == null) {
+                unknownFieldsCodedOutput.writeRawVarint32(tag);
+                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
+              } else {
+                bitField0_ |= 0x00000010;
+                endTransportTool_ = value;
+              }
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              startTime_ = bs;
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              endTime_ = bs;
+              break;
+            }
+            case 64: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                scenicIds_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              scenicIds_.add(input.readUInt32());
+              break;
+            }
+            case 66: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080) && input.getBytesUntilLimit() > 0) {
+                scenicIds_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                scenicIds_.add(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000080;
+              tag_ = bs;
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000100;
+              attachData_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          scenicIds_ = java.util.Collections.unmodifiableList(scenicIds_);
+        }
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<NewUpdateRadomRouteReq> PARSER =
+        new com.google.protobuf.AbstractParser<NewUpdateRadomRouteReq>() {
+      public NewUpdateRadomRouteReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NewUpdateRadomRouteReq(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NewUpdateRadomRouteReq> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int DAY_COUNT_FIELD_NUMBER = 2;
+    private int dayCount_;
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    public boolean hasDayCount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    public int getDayCount() {
+      return dayCount_;
+    }
+
+    public static final int CITY_CODE_FIELD_NUMBER = 3;
+    private java.lang.Object cityCode_;
+    /**
+     * <code>required string city_code = 3;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public boolean hasCityCode() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string city_code = 3;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public java.lang.String getCityCode() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          cityCode_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string city_code = 3;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getCityCodeBytes() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cityCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int START_TRANSPORT_TOOL_FIELD_NUMBER = 4;
+    private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType startTransportTool_;
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    public boolean hasStartTransportTool() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getStartTransportTool() {
+      return startTransportTool_;
+    }
+
+    public static final int END_TRANSPORT_TOOL_FIELD_NUMBER = 5;
+    private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType endTransportTool_;
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    public boolean hasEndTransportTool() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getEndTransportTool() {
+      return endTransportTool_;
+    }
+
+    public static final int START_TIME_FIELD_NUMBER = 6;
+    private java.lang.Object startTime_;
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    public boolean hasStartTime() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    public java.lang.String getStartTime() {
+      java.lang.Object ref = startTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          startTime_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string start_time = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStartTimeBytes() {
+      java.lang.Object ref = startTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        startTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int END_TIME_FIELD_NUMBER = 7;
+    private java.lang.Object endTime_;
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    public boolean hasEndTime() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    public java.lang.String getEndTime() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          endTime_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string end_time = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEndTimeBytes() {
+      java.lang.Object ref = endTime_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCENIC_IDS_FIELD_NUMBER = 8;
+    private java.util.List<java.lang.Integer> scenicIds_;
+    /**
+     * <code>repeated uint32 scenic_ids = 8;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public java.util.List<java.lang.Integer>
+        getScenicIdsList() {
+      return scenicIds_;
+    }
+    /**
+     * <code>repeated uint32 scenic_ids = 8;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public int getScenicIdsCount() {
+      return scenicIds_.size();
+    }
+    /**
+     * <code>repeated uint32 scenic_ids = 8;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public int getScenicIds(int index) {
+      return scenicIds_.get(index);
+    }
+
+    public static final int TAG_FIELD_NUMBER = 9;
+    private java.lang.Object tag_;
+    /**
+     * <code>required string tag = 9;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public boolean hasTag() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>required string tag = 9;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public java.lang.String getTag() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          tag_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string tag = 9;</code>
+     *
+     * <pre>
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTagBytes() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tag_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
+    private void initFields() {
+      userId_ = 0;
+      dayCount_ = 0;
+      cityCode_ = "";
+      startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      startTime_ = "";
+      endTime_ = "";
+      scenicIds_ = java.util.Collections.emptyList();
+      tag_ = "";
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDayCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCityCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasStartTransportTool()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasEndTransportTool()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasStartTime()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasEndTime()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTag()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt32(2, dayCount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getCityCodeBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeEnum(4, startTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeEnum(5, endTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getStartTimeBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(7, getEndTimeBytes());
+      }
+      for (int i = 0; i < scenicIds_.size(); i++) {
+        output.writeUInt32(8, scenicIds_.get(i));
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBytes(9, getTagBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBytes(20, attachData_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, dayCount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getCityCodeBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, startTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, endTransportTool_.getNumber());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getStartTimeBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getEndTimeBytes());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < scenicIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(scenicIds_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getScenicIdsList().size();
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, getTagBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.NewUpdateRadomRouteReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.NewUpdateRadomRouteReq)
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReqOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dayCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cityCode_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        startTime_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        endTime_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        scenicIds_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        tag_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq build() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq result = new com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.dayCount_ = dayCount_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.cityCode_ = cityCode_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.startTransportTool_ = startTransportTool_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.endTransportTool_ = endTransportTool_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.startTime_ = startTime_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.endTime_ = endTime_;
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          scenicIds_ = java.util.Collections.unmodifiableList(scenicIds_);
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.scenicIds_ = scenicIds_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.tag_ = tag_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.attachData_ = attachData_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasDayCount()) {
+          setDayCount(other.getDayCount());
+        }
+        if (other.hasCityCode()) {
+          bitField0_ |= 0x00000004;
+          cityCode_ = other.cityCode_;
+          
+        }
+        if (other.hasStartTransportTool()) {
+          setStartTransportTool(other.getStartTransportTool());
+        }
+        if (other.hasEndTransportTool()) {
+          setEndTransportTool(other.getEndTransportTool());
+        }
+        if (other.hasStartTime()) {
+          bitField0_ |= 0x00000020;
+          startTime_ = other.startTime_;
+          
+        }
+        if (other.hasEndTime()) {
+          bitField0_ |= 0x00000040;
+          endTime_ = other.endTime_;
+          
+        }
+        if (!other.scenicIds_.isEmpty()) {
+          if (scenicIds_.isEmpty()) {
+            scenicIds_ = other.scenicIds_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureScenicIdsIsMutable();
+            scenicIds_.addAll(other.scenicIds_);
+          }
+          
+        }
+        if (other.hasTag()) {
+          bitField0_ |= 0x00000100;
+          tag_ = other.tag_;
+          
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasDayCount()) {
+          
+          return false;
+        }
+        if (!hasCityCode()) {
+          
+          return false;
+        }
+        if (!hasStartTransportTool()) {
+          
+          return false;
+        }
+        if (!hasEndTransportTool()) {
+          
+          return false;
+        }
+        if (!hasStartTime()) {
+          
+          return false;
+        }
+        if (!hasEndTime()) {
+          
+          return false;
+        }
+        if (!hasTag()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteReq) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        
+        return this;
+      }
+
+      private int dayCount_ ;
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public boolean hasDayCount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public int getDayCount() {
+        return dayCount_;
+      }
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public Builder setDayCount(int value) {
+        bitField0_ |= 0x00000002;
+        dayCount_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public Builder clearDayCount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dayCount_ = 0;
+        
+        return this;
+      }
+
+      private java.lang.Object cityCode_ = "";
+      /**
+       * <code>required string city_code = 3;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public boolean hasCityCode() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public java.lang.String getCityCode() {
+        java.lang.Object ref = cityCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            cityCode_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getCityCodeBytes() {
+        java.lang.Object ref = cityCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cityCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder setCityCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        cityCode_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder clearCityCode() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        cityCode_ = getDefaultInstance().getCityCode();
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder setCityCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        cityCode_ = value;
+        
+        return this;
+      }
+
+      private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public boolean hasStartTransportTool() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getStartTransportTool() {
+        return startTransportTool_;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public Builder setStartTransportTool(com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        startTransportTool_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType start_transport_tool = 4;</code>
+       */
+      public Builder clearStartTransportTool() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        startTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        
+        return this;
+      }
+
+      private com.zhizulx.tt.protobuf.IMBuddy.TransportToolType endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public boolean hasEndTransportTool() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.TransportToolType getEndTransportTool() {
+        return endTransportTool_;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public Builder setEndTransportTool(com.zhizulx.tt.protobuf.IMBuddy.TransportToolType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        endTransportTool_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.TransportToolType end_transport_tool = 5;</code>
+       */
+      public Builder clearEndTransportTool() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        endTransportTool_ = com.zhizulx.tt.protobuf.IMBuddy.TransportToolType.TRAIN;
+        
+        return this;
+      }
+
+      private java.lang.Object startTime_ = "";
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public boolean hasStartTime() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public java.lang.String getStartTime() {
+        java.lang.Object ref = startTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            startTime_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStartTimeBytes() {
+        java.lang.Object ref = startTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          startTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public Builder setStartTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        startTime_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public Builder clearStartTime() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        startTime_ = getDefaultInstance().getStartTime();
+        
+        return this;
+      }
+      /**
+       * <code>required string start_time = 6;</code>
+       */
+      public Builder setStartTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        startTime_ = value;
+        
+        return this;
+      }
+
+      private java.lang.Object endTime_ = "";
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public boolean hasEndTime() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public java.lang.String getEndTime() {
+        java.lang.Object ref = endTime_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            endTime_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEndTimeBytes() {
+        java.lang.Object ref = endTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          endTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public Builder setEndTime(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        endTime_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public Builder clearEndTime() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        endTime_ = getDefaultInstance().getEndTime();
+        
+        return this;
+      }
+      /**
+       * <code>required string end_time = 7;</code>
+       */
+      public Builder setEndTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        endTime_ = value;
+        
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> scenicIds_ = java.util.Collections.emptyList();
+      private void ensureScenicIdsIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          scenicIds_ = new java.util.ArrayList<java.lang.Integer>(scenicIds_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <code>repeated uint32 scenic_ids = 8;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public java.util.List<java.lang.Integer>
+          getScenicIdsList() {
+        return java.util.Collections.unmodifiableList(scenicIds_);
+      }
+      /**
+       * <code>repeated uint32 scenic_ids = 8;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public int getScenicIdsCount() {
+        return scenicIds_.size();
+      }
+      /**
+       * <code>repeated uint32 scenic_ids = 8;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public int getScenicIds(int index) {
+        return scenicIds_.get(index);
+      }
+      /**
+       * <code>repeated uint32 scenic_ids = 8;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder setScenicIds(
+          int index, int value) {
+        ensureScenicIdsIsMutable();
+        scenicIds_.set(index, value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 scenic_ids = 8;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder addScenicIds(int value) {
+        ensureScenicIdsIsMutable();
+        scenicIds_.add(value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 scenic_ids = 8;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder addAllScenicIds(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureScenicIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, scenicIds_);
+        
+        return this;
+      }
+      /**
+       * <code>repeated uint32 scenic_ids = 8;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder clearScenicIds() {
+        scenicIds_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        
+        return this;
+      }
+
+      private java.lang.Object tag_ = "";
+      /**
+       * <code>required string tag = 9;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public boolean hasTag() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>required string tag = 9;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public java.lang.String getTag() {
+        java.lang.Object ref = tag_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            tag_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string tag = 9;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getTagBytes() {
+        java.lang.Object ref = tag_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tag_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string tag = 9;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder setTag(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        tag_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string tag = 9;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder clearTag() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        tag_ = getDefaultInstance().getTag();
+        
+        return this;
+      }
+      /**
+       * <code>required string tag = 9;</code>
+       *
+       * <pre>
+       * </pre>
+       */
+      public Builder setTagBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        tag_ = value;
+        
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        attachData_ = getDefaultInstance().getAttachData();
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.NewUpdateRadomRouteReq)
+    }
+
+    static {
+      defaultInstance = new NewUpdateRadomRouteReq(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.NewUpdateRadomRouteReq)
+  }
+
+  public interface NewUpdateRadomRouteRspOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.NewUpdateRadomRouteRsp)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    boolean hasUserId();
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    int getUserId();
+
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    boolean hasResultCode();
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    int getResultCode();
+
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    boolean hasRoute();
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.Route getRoute();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.NewUpdateRadomRouteRsp}
+   */
+  public static final class NewUpdateRadomRouteRsp extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.NewUpdateRadomRouteRsp)
+      NewUpdateRadomRouteRspOrBuilder {
+    // Use NewUpdateRadomRouteRsp.newBuilder() to construct.
+    private NewUpdateRadomRouteRsp(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NewUpdateRadomRouteRsp(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final NewUpdateRadomRouteRsp defaultInstance;
+    public static NewUpdateRadomRouteRsp getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NewUpdateRadomRouteRsp getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private NewUpdateRadomRouteRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              resultCode_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              com.zhizulx.tt.protobuf.IMBuddy.Route.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = route_.toBuilder();
+              }
+              route_ = input.readMessage(com.zhizulx.tt.protobuf.IMBuddy.Route.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(route_);
+                route_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000008;
+              attachData_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<NewUpdateRadomRouteRsp> PARSER =
+        new com.google.protobuf.AbstractParser<NewUpdateRadomRouteRsp>() {
+      public NewUpdateRadomRouteRsp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NewUpdateRadomRouteRsp(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NewUpdateRadomRouteRsp> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int RESULT_CODE_FIELD_NUMBER = 2;
+    private int resultCode_;
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    public boolean hasResultCode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    public int getResultCode() {
+      return resultCode_;
+    }
+
+    public static final int ROUTE_FIELD_NUMBER = 3;
+    private com.zhizulx.tt.protobuf.IMBuddy.Route route_;
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    public boolean hasRoute() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.Route getRoute() {
+      return route_;
+    }
+
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
+    private void initFields() {
+      userId_ = 0;
+      resultCode_ = 0;
+      route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasResultCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRoute()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getRoute().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt32(2, resultCode_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, route_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(20, attachData_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, resultCode_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, route_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.NewUpdateRadomRouteRsp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.NewUpdateRadomRouteRsp)
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRspOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        resultCode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp build() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp result = new com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.resultCode_ = resultCode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.route_ = route_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.attachData_ = attachData_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasResultCode()) {
+          setResultCode(other.getResultCode());
+        }
+        if (other.hasRoute()) {
+          mergeRoute(other.getRoute());
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasResultCode()) {
+          
+          return false;
+        }
+        if (!hasRoute()) {
+          
+          return false;
+        }
+        if (!getRoute().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.NewUpdateRadomRouteRsp) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        
+        return this;
+      }
+
+      private int resultCode_ ;
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public boolean hasResultCode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public int getResultCode() {
+        return resultCode_;
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public Builder setResultCode(int value) {
+        bitField0_ |= 0x00000002;
+        resultCode_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public Builder clearResultCode() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        resultCode_ = 0;
+        
+        return this;
+      }
+
+      private com.zhizulx.tt.protobuf.IMBuddy.Route route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public boolean hasRoute() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.Route getRoute() {
+        return route_;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder setRoute(com.zhizulx.tt.protobuf.IMBuddy.Route value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        route_ = value;
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder setRoute(
+          com.zhizulx.tt.protobuf.IMBuddy.Route.Builder builderForValue) {
+        route_ = builderForValue.build();
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder mergeRoute(com.zhizulx.tt.protobuf.IMBuddy.Route value) {
+        if (((bitField0_ & 0x00000004) == 0x00000004) &&
+            route_ != com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance()) {
+          route_ =
+            com.zhizulx.tt.protobuf.IMBuddy.Route.newBuilder(route_).mergeFrom(value).buildPartial();
+        } else {
+          route_ = value;
+        }
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder clearRoute() {
+        route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = getDefaultInstance().getAttachData();
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.NewUpdateRadomRouteRsp)
+    }
+
+    static {
+      defaultInstance = new NewUpdateRadomRouteRsp(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.NewUpdateRadomRouteRsp)
+  }
+
+  public interface NewCreateMyTravelReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.NewCreateMyTravelReq)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
+     */
+    boolean hasUserId();
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
+     */
+    int getUserId();
+
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    boolean hasDayCount();
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    int getDayCount();
+
+    /**
+     * <code>required string city_code = 3;</code>
+     */
+    boolean hasCityCode();
+    /**
+     * <code>required string city_code = 3;</code>
+     */
+    java.lang.String getCityCode();
+    /**
+     * <code>required string city_code = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getCityCodeBytes();
+
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    com.google.protobuf.ProtocolStringList
+        getTagsList();
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    int getTagsCount();
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    java.lang.String getTags(int index);
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getTagsBytes(int index);
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.NewCreateMyTravelReq}
+   */
+  public static final class NewCreateMyTravelReq extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.NewCreateMyTravelReq)
+      NewCreateMyTravelReqOrBuilder {
+    // Use NewCreateMyTravelReq.newBuilder() to construct.
+    private NewCreateMyTravelReq(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NewCreateMyTravelReq(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final NewCreateMyTravelReq defaultInstance;
+    public static NewCreateMyTravelReq getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NewCreateMyTravelReq getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private NewCreateMyTravelReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              dayCount_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              cityCode_ = bs;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                tags_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              tags_.add(bs);
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000008;
+              attachData_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          tags_ = tags_.getUnmodifiableView();
+        }
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<NewCreateMyTravelReq> PARSER =
+        new com.google.protobuf.AbstractParser<NewCreateMyTravelReq>() {
+      public NewCreateMyTravelReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NewCreateMyTravelReq(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NewCreateMyTravelReq> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x0251
+     * </pre>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int DAY_COUNT_FIELD_NUMBER = 2;
+    private int dayCount_;
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    public boolean hasDayCount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required uint32 day_count = 2;</code>
+     */
+    public int getDayCount() {
+      return dayCount_;
+    }
+
+    public static final int CITY_CODE_FIELD_NUMBER = 3;
+    private java.lang.Object cityCode_;
+    /**
+     * <code>required string city_code = 3;</code>
+     */
+    public boolean hasCityCode() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string city_code = 3;</code>
+     */
+    public java.lang.String getCityCode() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          cityCode_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string city_code = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCityCodeBytes() {
+      java.lang.Object ref = cityCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cityCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TAGS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList tags_;
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagsList() {
+      return tags_;
+    }
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    public int getTagsCount() {
+      return tags_.size();
+    }
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    public java.lang.String getTags(int index) {
+      return tags_.get(index);
+    }
+    /**
+     * <code>repeated string tags = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTagsBytes(int index) {
+      return tags_.getByteString(index);
+    }
+
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
+    private void initFields() {
+      userId_ = 0;
+      dayCount_ = 0;
+      cityCode_ = "";
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDayCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCityCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt32(2, dayCount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getCityCodeBytes());
+      }
+      for (int i = 0; i < tags_.size(); i++) {
+        output.writeBytes(4, tags_.getByteString(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(20, attachData_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, dayCount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getCityCodeBytes());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tags_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(tags_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getTagsList().size();
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.NewCreateMyTravelReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.NewCreateMyTravelReq)
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReqOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dayCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cityCode_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq build() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq result = new com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.dayCount_ = dayCount_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.cityCode_ = cityCode_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          tags_ = tags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.tags_ = tags_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.attachData_ = attachData_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasDayCount()) {
+          setDayCount(other.getDayCount());
+        }
+        if (other.hasCityCode()) {
+          bitField0_ |= 0x00000004;
+          cityCode_ = other.cityCode_;
+          
+        }
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasDayCount()) {
+          
+          return false;
+        }
+        if (!hasCityCode()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelReq) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x0251
+       * </pre>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        
+        return this;
+      }
+
+      private int dayCount_ ;
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public boolean hasDayCount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public int getDayCount() {
+        return dayCount_;
+      }
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public Builder setDayCount(int value) {
+        bitField0_ |= 0x00000002;
+        dayCount_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 day_count = 2;</code>
+       */
+      public Builder clearDayCount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dayCount_ = 0;
+        
+        return this;
+      }
+
+      private java.lang.Object cityCode_ = "";
+      /**
+       * <code>required string city_code = 3;</code>
+       */
+      public boolean hasCityCode() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       */
+      public java.lang.String getCityCode() {
+        java.lang.Object ref = cityCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            cityCode_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCityCodeBytes() {
+        java.lang.Object ref = cityCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cityCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       */
+      public Builder setCityCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        cityCode_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       */
+      public Builder clearCityCode() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        cityCode_ = getDefaultInstance().getCityCode();
+        
+        return this;
+      }
+      /**
+       * <code>required string city_code = 3;</code>
+       */
+      public Builder setCityCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        cityCode_ = value;
+        
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTagsList() {
+        return tags_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public int getTagsCount() {
+        return tags_.size();
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public java.lang.String getTags(int index) {
+        return tags_.get(index);
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTagsBytes(int index) {
+        return tags_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public Builder setTags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.set(index, value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public Builder addTags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.add(value);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public Builder addAllTags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public Builder clearTags() {
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 4;</code>
+       */
+      public Builder addTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.add(value);
+        
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        attachData_ = getDefaultInstance().getAttachData();
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.NewCreateMyTravelReq)
+    }
+
+    static {
+      defaultInstance = new NewCreateMyTravelReq(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.NewCreateMyTravelReq)
+  }
+
+  public interface NewCreateMyTravelRspOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IM.Buddy.NewCreateMyTravelRsp)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    boolean hasUserId();
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    int getUserId();
+
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    boolean hasResultCode();
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    int getResultCode();
+
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    boolean hasRoute();
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    com.zhizulx.tt.protobuf.IMBuddy.Route getRoute();
+
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    boolean hasAttachData();
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    com.google.protobuf.ByteString getAttachData();
+  }
+  /**
+   * Protobuf type {@code IM.Buddy.NewCreateMyTravelRsp}
+   */
+  public static final class NewCreateMyTravelRsp extends
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:IM.Buddy.NewCreateMyTravelRsp)
+      NewCreateMyTravelRspOrBuilder {
+    // Use NewCreateMyTravelRsp.newBuilder() to construct.
+    private NewCreateMyTravelRsp(com.google.protobuf.GeneratedMessageLite.Builder builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NewCreateMyTravelRsp(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+
+    private static final NewCreateMyTravelRsp defaultInstance;
+    public static NewCreateMyTravelRsp getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NewCreateMyTravelRsp getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.ByteString unknownFields;
+    private NewCreateMyTravelRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              resultCode_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              com.zhizulx.tt.protobuf.IMBuddy.Route.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = route_.toBuilder();
+              }
+              route_ = input.readMessage(com.zhizulx.tt.protobuf.IMBuddy.Route.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(route_);
+                route_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00000008;
+              attachData_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static com.google.protobuf.Parser<NewCreateMyTravelRsp> PARSER =
+        new com.google.protobuf.AbstractParser<NewCreateMyTravelRsp>() {
+      public NewCreateMyTravelRsp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NewCreateMyTravelRsp(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NewCreateMyTravelRsp> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required uint32 user_id = 1;</code>
+     *
+     * <pre>
+     *cmd id:        0x025c
+     * </pre>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int RESULT_CODE_FIELD_NUMBER = 2;
+    private int resultCode_;
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    public boolean hasResultCode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required uint32 result_code = 2;</code>
+     */
+    public int getResultCode() {
+      return resultCode_;
+    }
+
+    public static final int ROUTE_FIELD_NUMBER = 3;
+    private com.zhizulx.tt.protobuf.IMBuddy.Route route_;
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    public boolean hasRoute() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .IM.Buddy.Route route = 3;</code>
+     */
+    public com.zhizulx.tt.protobuf.IMBuddy.Route getRoute() {
+      return route_;
+    }
+
+    public static final int ATTACH_DATA_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString attachData_;
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public boolean hasAttachData() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bytes attach_data = 20;</code>
+     */
+    public com.google.protobuf.ByteString getAttachData() {
+      return attachData_;
+    }
+
+    private void initFields() {
+      userId_ = 0;
+      resultCode_ = 0;
+      route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+      attachData_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUserId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasResultCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRoute()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getRoute().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt32(2, resultCode_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, route_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(20, attachData_);
+      }
+      output.writeRawBytes(unknownFields);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, resultCode_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, route_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, attachData_);
+      }
+      size += unknownFields.size();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    /**
+     * Protobuf type {@code IM.Buddy.NewCreateMyTravelRsp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp, Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:IM.Buddy.NewCreateMyTravelRsp)
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRspOrBuilder {
+      // Construct using com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        resultCode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        attachData_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp getDefaultInstanceForType() {
+        return com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp.getDefaultInstance();
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp build() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp buildPartial() {
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp result = new com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.resultCode_ = resultCode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.route_ = route_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.attachData_ = attachData_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+
+      public Builder mergeFrom(com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp other) {
+        if (other == com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasResultCode()) {
+          setResultCode(other.getResultCode());
+        }
+        if (other.hasRoute()) {
+          mergeRoute(other.getRoute());
+        }
+        if (other.hasAttachData()) {
+          setAttachData(other.getAttachData());
+        }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUserId()) {
+          
+          return false;
+        }
+        if (!hasResultCode()) {
+          
+          return false;
+        }
+        if (!hasRoute()) {
+          
+          return false;
+        }
+        if (!getRoute().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zhizulx.tt.protobuf.IMBuddy.NewCreateMyTravelRsp) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 user_id = 1;</code>
+       *
+       * <pre>
+       *cmd id:        0x025c
+       * </pre>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        
+        return this;
+      }
+
+      private int resultCode_ ;
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public boolean hasResultCode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public int getResultCode() {
+        return resultCode_;
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public Builder setResultCode(int value) {
+        bitField0_ |= 0x00000002;
+        resultCode_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>required uint32 result_code = 2;</code>
+       */
+      public Builder clearResultCode() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        resultCode_ = 0;
+        
+        return this;
+      }
+
+      private com.zhizulx.tt.protobuf.IMBuddy.Route route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public boolean hasRoute() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public com.zhizulx.tt.protobuf.IMBuddy.Route getRoute() {
+        return route_;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder setRoute(com.zhizulx.tt.protobuf.IMBuddy.Route value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        route_ = value;
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder setRoute(
+          com.zhizulx.tt.protobuf.IMBuddy.Route.Builder builderForValue) {
+        route_ = builderForValue.build();
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder mergeRoute(com.zhizulx.tt.protobuf.IMBuddy.Route value) {
+        if (((bitField0_ & 0x00000004) == 0x00000004) &&
+            route_ != com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance()) {
+          route_ =
+            com.zhizulx.tt.protobuf.IMBuddy.Route.newBuilder(route_).mergeFrom(value).buildPartial();
+        } else {
+          route_ = value;
+        }
+
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .IM.Buddy.Route route = 3;</code>
+       */
+      public Builder clearRoute() {
+        route_ = com.zhizulx.tt.protobuf.IMBuddy.Route.getDefaultInstance();
+
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      private com.google.protobuf.ByteString attachData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public boolean hasAttachData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public com.google.protobuf.ByteString getAttachData() {
+        return attachData_;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder setAttachData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        attachData_ = value;
+        
+        return this;
+      }
+      /**
+       * <code>optional bytes attach_data = 20;</code>
+       */
+      public Builder clearAttachData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attachData_ = getDefaultInstance().getAttachData();
+        
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:IM.Buddy.NewCreateMyTravelRsp)
+    }
+
+    static {
+      defaultInstance = new NewCreateMyTravelRsp(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:IM.Buddy.NewCreateMyTravelRsp)
   }
 
 

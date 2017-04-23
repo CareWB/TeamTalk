@@ -9,11 +9,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.event.LoginEvent;
+import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 
 import de.greenrobot.event.EventBus;
-
 
 public class Calculating extends FragmentActivity{
     private ImageView calculating;
@@ -34,7 +34,6 @@ public class Calculating extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 
 		// 在这个地方加可能会有问题吧
-        EventBus.getDefault().register(this);
 		imServiceConnector.connect(this);
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -46,16 +45,7 @@ public class Calculating extends FragmentActivity{
 
 	@Override
 	protected void onDestroy() {
-		EventBus.getDefault().unregister(this);
 		imServiceConnector.disconnect(this);
         super.onDestroy();
 	}
-
-	public void onEventMainThread(LoginEvent event){
-        switch (event){
-            case LOGIN_OUT:
-                break;
-        }
-    }
-
 }

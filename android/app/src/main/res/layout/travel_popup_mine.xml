@@ -61,19 +61,7 @@
         android:background="@drawable/mine_divider"/>
 
     <TextView
-        android:text="@string/mine_common_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/left_menu_left"
-        android:layout_marginBottom="@dimen/left_menu_icon_icon"
-        android:drawablePadding="@dimen/left_menu_icon_text"
-        android:drawableLeft="@drawable/mine_info"
-        android:textSize="@dimen/title_hint_size"
-        android:textColor="@color/base_title"
-        android:id="@+id/mine_common_info" />
-
-    <TextView
-        android:text="@string/mine_order"
+        android:text="@string/mine_collection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/left_menu_icon_icon"
@@ -82,7 +70,7 @@
         android:drawableLeft="@drawable/mine_order"
         android:textSize="@dimen/title_hint_size"
         android:textColor="@color/base_title"
-        android:id="@+id/mine_order" />
+        android:id="@+id/mine_collection" />
 
     <TextView
         android:text="@string/mine_about_us"

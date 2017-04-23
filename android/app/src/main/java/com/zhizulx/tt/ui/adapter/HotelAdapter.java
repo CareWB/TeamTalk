@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.utils.ImageUtil;
 
 import java.util.List;
 
@@ -56,9 +57,10 @@ public class HotelAdapter extends RecyclerView.Adapter {
         HotelEntity hotelEntity = mList.get(i);
         HotelViewHolder holder = (HotelViewHolder) viewHolder;
         //Glide.with(ctx).load(hotelEntity.getPic()).into(holder.pic);
-        Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
+        ImageUtil.GlideAvatar(ctx, hotelEntity.getPic(), holder.pic);
+        //Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
         holder.name.setText(hotelEntity.getName());
-        holder.star.setRating((float)(hotelEntity.getStar())/2);
+        holder.star.setRating((float)(hotelEntity.getStar()));
         holder.tag.setText(hotelEntity.getTag());
         holder.price.setText("￥"+hotelEntity.getPrice()+"起(晚/间)");
 

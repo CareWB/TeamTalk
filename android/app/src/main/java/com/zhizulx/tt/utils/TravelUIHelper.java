@@ -5,11 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.DB.Serializable.MapRoute;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
+import com.zhizulx.tt.ui.activity.CollectActivity;
 import com.zhizulx.tt.ui.activity.CreateTravelActivity;
 import com.zhizulx.tt.ui.activity.DetailDispActivity;
 import com.zhizulx.tt.ui.activity.ExpenseDetailActivity;
@@ -20,6 +24,7 @@ import com.zhizulx.tt.ui.activity.SelectSightActivity;
 import com.zhizulx.tt.ui.activity.SelectTravelRouteActivity;
 import com.zhizulx.tt.ui.activity.TrafficListActivity;
 import com.zhizulx.tt.ui.activity.HotelWebViewActivity;
+import com.zhizulx.tt.ui.activity.TrafficWebViewActivity;
 import com.zhizulx.tt.ui.route.RouteActivity;
 
 import java.util.ArrayList;
@@ -58,6 +63,18 @@ public class TravelUIHelper {
 		dialog.show();
 	}
 
+    public static Dialog showCalculateDialog(Context context) {
+        final Dialog dialog = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar);
+        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialog_view = inflater.inflate(R.layout.travel_calculate_dialog, null);
+        ImageView calculate = (ImageView)dialog_view.findViewById(R.id.calculate_gif);
+        Glide.with(context).load(R.drawable.calculating).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(calculate);
+        dialog.setContentView(dialog_view);
+        dialog.show();
+        dialog.setCancelable(false);
+        return dialog;
+    }
+
     //跳转到新建行程页面
     public static void openCreateTravelActivity(Context ctx) {
         Intent intent = new Intent(ctx, CreateTravelActivity.class);
@@ -82,6 +99,14 @@ public class TravelUIHelper {
 		ctx.startActivity(intent);
 	}
 
+	//跳转到交通方式页面
+	public static void openTrafficListActivity(Context ctx, String name, String url) {
+		Intent intent = new Intent(ctx, TrafficWebViewActivity.class);
+		intent.putExtra(IntentConstant.NAME, name);
+		intent.putExtra(IntentConstant.WEBVIEW_URL, url);
+		ctx.startActivity(intent);
+	}
+
 	//跳转到细节展示页面
 	public static void openDetailDispActivity(Context ctx) {
 		Intent intent = new Intent(ctx, DetailDispActivity.class);
@@ -91,12 +116,6 @@ public class TravelUIHelper {
 	//跳转到游玩喜好页面
 	public static void openExpenseDetailActivity(Context ctx) {
 		Intent intent = new Intent(ctx, ExpenseDetailActivity.class);
-		ctx.startActivity(intent);
-	}
-
-	//跳转到游玩喜好页面
-	public static void openTrafficListActivity(Context ctx) {
-		Intent intent = new Intent(ctx, TrafficListActivity.class);
 		ctx.startActivity(intent);
 	}
 
@@ -113,10 +132,10 @@ public class TravelUIHelper {
 	}
 
 	//跳转到景点选择细节页面
-	public static void openSelectSightActivity(Context ctx) {
+/*	public static void openSelectSightActivity(Context ctx) {
 		Intent intent = new Intent(ctx, SelectSightActivity.class);
 		ctx.startActivity(intent);
-	}
+	}*/
 
 	//跳转到路径规划页面
 	public static void openMapRouteActivity(Context ctx, MapRoute mapRoute) {

@@ -531,7 +531,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMMsgData)
         com.zhizulx.tt.protobuf.IMMessage.IMMsgDataOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMMsgData.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMMsgData.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1344,7 +1344,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMMsgDataAck)
         com.zhizulx.tt.protobuf.IMMessage.IMMsgDataAckOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMMsgDataAck.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMMsgDataAck.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2004,7 +2004,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMMsgDataReadAck)
         com.zhizulx.tt.protobuf.IMMessage.IMMsgDataReadAckOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMMsgDataReadAck.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMMsgDataReadAck.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2664,7 +2664,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMMsgDataReadNotify)
         com.zhizulx.tt.protobuf.IMMessage.IMMsgDataReadNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMMsgDataReadNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMMsgDataReadNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3143,7 +3143,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMClientTimeReq)
         com.zhizulx.tt.protobuf.IMMessage.IMClientTimeReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMClientTimeReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMClientTimeReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3470,7 +3470,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMClientTimeRsp)
         com.zhizulx.tt.protobuf.IMMessage.IMClientTimeRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMClientTimeRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMClientTimeRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3899,7 +3899,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMUnreadMsgCntReq)
         com.zhizulx.tt.protobuf.IMMessage.IMUnreadMsgCntReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMUnreadMsgCntReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMUnreadMsgCntReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4118,7 +4118,7 @@ public final class IMMessage {
     /**
      * <code>repeated .IM.BaseDefine.UnreadInfo unreadinfo_list = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UnreadInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.UnreadInfo> 
         getUnreadinfoListList();
     /**
      * <code>repeated .IM.BaseDefine.UnreadInfo unreadinfo_list = 3;</code>
@@ -4297,7 +4297,7 @@ public final class IMMessage {
     /**
      * <code>repeated .IM.BaseDefine.UnreadInfo unreadinfo_list = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UnreadInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.UnreadInfoOrBuilder> 
         getUnreadinfoListOrBuilderList() {
       return unreadinfoList_;
     }
@@ -4487,7 +4487,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMUnreadMsgCntRsp)
         com.zhizulx.tt.protobuf.IMMessage.IMUnreadMsgCntRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMUnreadMsgCntRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMUnreadMsgCntRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5324,7 +5324,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMGetMsgListReq)
         com.zhizulx.tt.protobuf.IMMessage.IMGetMsgListReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMGetMsgListReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMGetMsgListReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5744,7 +5744,7 @@ public final class IMMessage {
     /**
      * <code>repeated .IM.BaseDefine.MsgInfo msg_list = 5;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfo> 
         getMsgListList();
     /**
      * <code>repeated .IM.BaseDefine.MsgInfo msg_list = 5;</code>
@@ -5976,7 +5976,7 @@ public final class IMMessage {
     /**
      * <code>repeated .IM.BaseDefine.MsgInfo msg_list = 5;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfoOrBuilder> 
         getMsgListOrBuilderList() {
       return msgList_;
     }
@@ -6196,7 +6196,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMGetMsgListRsp)
         com.zhizulx.tt.protobuf.IMMessage.IMGetMsgListRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMGetMsgListRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMGetMsgListRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7044,7 +7044,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMGetLatestMsgIdReq)
         com.zhizulx.tt.protobuf.IMMessage.IMGetLatestMsgIdReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMGetLatestMsgIdReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMGetLatestMsgIdReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7740,7 +7740,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMGetLatestMsgIdRsp)
         com.zhizulx.tt.protobuf.IMMessage.IMGetLatestMsgIdRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMGetLatestMsgIdRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMGetLatestMsgIdRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8512,7 +8512,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMGetMsgByIdReq)
         com.zhizulx.tt.protobuf.IMMessage.IMGetMsgByIdReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMGetMsgByIdReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMGetMsgByIdReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8916,7 +8916,7 @@ public final class IMMessage {
     /**
      * <code>repeated .IM.BaseDefine.MsgInfo msg_list = 4;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfo> 
         getMsgListList();
     /**
      * <code>repeated .IM.BaseDefine.MsgInfo msg_list = 4;</code>
@@ -9122,7 +9122,7 @@ public final class IMMessage {
     /**
      * <code>repeated .IM.BaseDefine.MsgInfo msg_list = 4;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfoOrBuilder> 
         getMsgListOrBuilderList() {
       return msgList_;
     }
@@ -9324,7 +9324,7 @@ public final class IMMessage {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Message.IMGetMsgByIdRsp)
         com.zhizulx.tt.protobuf.IMMessage.IMGetMsgByIdRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMMessage.IMGetMsgByIdRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMMessage.IMGetMsgByIdRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }

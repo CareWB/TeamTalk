@@ -91,7 +91,6 @@ public class SelectDateFragment extends TTBaseFragment{
 		curView = inflater.inflate(R.layout.travel_fragment_select_date, topContentView);
         intent = getActivity().getIntent();
 		initRes();
-        initDate();
         initDateList();
         initDayRecycleView();
 		return curView;
@@ -169,10 +168,6 @@ public class SelectDateFragment extends TTBaseFragment{
         tvEndDate = (TextView)curView.findViewById(R.id.select_date_end);
 	}
 
-    private void initDate() {
-
-    }
-
 	@Override
 	protected void initHandler() {
 	}
@@ -201,12 +196,14 @@ public class SelectDateFragment extends TTBaseFragment{
         dateEntity.setDate(calendar.getTime());
         dateEntity.setType(type);
         dateEntity.setWeekday(calendar.get(Calendar.DAY_OF_WEEK));
-        if (dateEntity.getDate().before(today)) {
-            dateEntity.setType(DateType.cannot_select);
-        }
+        if (dateEntity.getType() != DateType.blank) {
+            if (dateEntity.getDate().before(today)) {
+                dateEntity.setType(DateType.cannot_select);
+            }
 
-        if (dateEntity.getType() != DateType.blank && dateEqual(today, dateEntity.getDate())) {
-            dateEntity.setType(DateType.today);
+            if (dateEqual(today, dateEntity.getDate())) {
+                dateEntity.setType(DateType.today);
+            }
         }
 
         return dateEntity;

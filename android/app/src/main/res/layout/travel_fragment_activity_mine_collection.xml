@@ -5,8 +5,8 @@
     android:orientation="vertical" >
 
     <fragment
-        android:id="@+id/fragment_mine_common"
-        android:name="com.zhizulx.tt.ui.fragment.MineCommonFragment"
+        android:id="@+id/fragment_mine_collection"
+        android:name="com.zhizulx.tt.ui.fragment.MineCollectionFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

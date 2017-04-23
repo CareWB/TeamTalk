@@ -565,6 +565,30 @@ public final class IMBaseDefine {
      * <code>CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE = 604;</code>
      */
     CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE(32, 604),
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST = 605;</code>
+     */
+    CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST(33, 605),
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_QUERY_RESPONSE = 606;</code>
+     */
+    CID_BUDDY_LIST_RADOM_ROUTE_QUERY_RESPONSE(34, 606),
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST = 607;</code>
+     */
+    CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST(35, 607),
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_RESPONSE = 608;</code>
+     */
+    CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_RESPONSE(36, 608),
+    /**
+     * <code>CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST = 609;</code>
+     */
+    CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST(37, 609),
+    /**
+     * <code>CID_BUDDY_LIST_NEW_TRAVEL_CREATE_RESPONSE = 610;</code>
+     */
+    CID_BUDDY_LIST_NEW_TRAVEL_CREATE_RESPONSE(38, 610),
     ;
 
     /**
@@ -720,6 +744,30 @@ public final class IMBaseDefine {
      * <code>CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE = 604;</code>
      */
     public static final int CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE_VALUE = 604;
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST = 605;</code>
+     */
+    public static final int CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST_VALUE = 605;
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_QUERY_RESPONSE = 606;</code>
+     */
+    public static final int CID_BUDDY_LIST_RADOM_ROUTE_QUERY_RESPONSE_VALUE = 606;
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST = 607;</code>
+     */
+    public static final int CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST_VALUE = 607;
+    /**
+     * <code>CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_RESPONSE = 608;</code>
+     */
+    public static final int CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_RESPONSE_VALUE = 608;
+    /**
+     * <code>CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST = 609;</code>
+     */
+    public static final int CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST_VALUE = 609;
+    /**
+     * <code>CID_BUDDY_LIST_NEW_TRAVEL_CREATE_RESPONSE = 610;</code>
+     */
+    public static final int CID_BUDDY_LIST_NEW_TRAVEL_CREATE_RESPONSE_VALUE = 610;
 
 
     public final int getNumber() { return value; }
@@ -759,6 +807,12 @@ public final class IMBaseDefine {
         case 602: return CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_RESPONSE;
         case 603: return CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_REQUEST;
         case 604: return CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE;
+        case 605: return CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST;
+        case 606: return CID_BUDDY_LIST_RADOM_ROUTE_QUERY_RESPONSE;
+        case 607: return CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST;
+        case 608: return CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_RESPONSE;
+        case 609: return CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST;
+        case 610: return CID_BUDDY_LIST_NEW_TRAVEL_CREATE_RESPONSE;
         default: return null;
       }
     }
@@ -3002,7 +3056,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.IpAddr)
         com.zhizulx.tt.protobuf.IMBaseDefine.IpAddrOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.IpAddr.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.IpAddr.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4194,7 +4248,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.UserInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.UserInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.UserInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.UserInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5734,7 +5788,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.ContactSessionInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.ContactSessionInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.ContactSessionInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.ContactSessionInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6469,7 +6523,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.UserStat)
         com.zhizulx.tt.protobuf.IMBaseDefine.UserStatOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.UserStat.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.UserStat.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6973,7 +7027,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.ServerUserStat)
         com.zhizulx.tt.protobuf.IMBaseDefine.ServerUserStatOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.ServerUserStat.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.ServerUserStat.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7705,7 +7759,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.UnreadInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.UnreadInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.UnreadInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.UnreadInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8547,7 +8601,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.MsgInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.MsgInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.MsgInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9150,7 +9204,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.GroupVersionInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.GroupVersionInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9962,7 +10016,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.GroupInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.GroupInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.GroupInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.GroupInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11006,7 +11060,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.UserTokenInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.UserTokenInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.UserTokenInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.UserTokenInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11685,7 +11739,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.PushResult)
         com.zhizulx.tt.protobuf.IMBaseDefine.PushResultOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.PushResult.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.PushResult.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12234,7 +12288,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.ShieldStatus)
         com.zhizulx.tt.protobuf.IMBaseDefine.ShieldStatusOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.ShieldStatus.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.ShieldStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12889,7 +12943,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.OfflineFileInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.OfflineFileInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.OfflineFileInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.OfflineFileInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13680,7 +13734,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.DepartInfo)
         com.zhizulx.tt.protobuf.IMBaseDefine.DepartInfoOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.DepartInfo.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.DepartInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14326,7 +14380,7 @@ public final class IMBaseDefine {
         implements
         // @@protoc_insertion_point(builder_implements:IM.BaseDefine.PushShieldStatus)
         com.zhizulx.tt.protobuf.IMBaseDefine.PushShieldStatusOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMBaseDefine.PushShieldStatus.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMBaseDefine.PushShieldStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }

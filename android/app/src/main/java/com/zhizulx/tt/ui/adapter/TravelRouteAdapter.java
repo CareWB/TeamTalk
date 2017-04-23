@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.entity.TravelCityEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.imservice.manager.IMTravelManager;
 
 import java.util.List;
 
@@ -31,11 +33,13 @@ public class TravelRouteAdapter extends RecyclerView.Adapter {
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
-    private List<TravelCityEntity> mList;
+    private List<RouteEntity> mList;
     private Context ctx;
+    private IMTravelManager travelManager;
 
-    public TravelRouteAdapter(Context ctx, List<TravelCityEntity> mList) {
+    public TravelRouteAdapter(Context ctx, IMTravelManager travelManager, List<RouteEntity> mList) {
         this.ctx = ctx;
+        this.travelManager = travelManager;
         this.mList = mList;
     }
 
@@ -50,11 +54,11 @@ public class TravelRouteAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-        TravelCityEntity travelCityEntity = mList.get(i);
+        RouteEntity routeEntity = mList.get(i);
         TravelRouteViewHolder holder = (TravelRouteViewHolder) viewHolder;
-        holder.days.setText(travelCityEntity.getCityName());
-        holder.city.setText(travelCityEntity.getCityName());
-        holder.topic.setText(travelCityEntity.getCityName());
+        holder.days.setText(routeEntity.getDay() + "天");
+        holder.city.setText(travelManager.getCityNameByCode(routeEntity.getCityCode()));
+        holder.topic.setText(routeEntity.getRouteType());
     }
 
     @Override

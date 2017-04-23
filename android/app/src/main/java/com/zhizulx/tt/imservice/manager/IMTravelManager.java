@@ -1,15 +1,19 @@
 package com.zhizulx.tt.imservice.manager;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.zhizulx.tt.DB.DBInterface;
 import com.zhizulx.tt.DB.String2Entity;
+import com.zhizulx.tt.DB.entity.CityEntity;
 import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.DB.entity.PlayConfigEntity;
+import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.DB.entity.TrafficEntity;
 import com.zhizulx.tt.DB.entity.TravelCityEntity;
 import com.zhizulx.tt.DB.entity.TravelEntity;
+import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.protobuf.IMBaseDefine;
@@ -19,6 +23,7 @@ import com.zhizulx.tt.utils.CsvUtil;
 import com.zhizulx.tt.utils.Logger;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +40,7 @@ public class IMTravelManager extends IMManager {
 
     private IMSocketManager imSocketManager = IMSocketManager.instance();
     private DBInterface dbInterface = DBInterface.instance();
+    private Boolean dBInitFin = false;
 
     /**key=> sessionKey*/
     private List<TravelEntity> travelEntityList = new ArrayList<>();
@@ -51,6 +57,15 @@ public class IMTravelManager extends IMManager {
 
     private Map<Integer, HotelEntity> hotelEntityMap = new HashMap<>();
     private Map<Integer, SightEntity> sightEntityMap = new HashMap<>();
+    private List<RouteEntity> routeEntityList = new ArrayList<>();
+    private RouteEntity routeEntity = new RouteEntity();
+    private String startCity;
+    private String endCity;
+    private String startDate;
+    private String endDate;
+    private List<String> emotionTags = new ArrayList<>();
+    private String sentence = "";
+    private List<CityEntity> cityEntityList = new ArrayList<>();
 
     @Override
     public void doOnStart() {
@@ -59,6 +74,9 @@ public class IMTravelManager extends IMManager {
         for (int index=0; index<name.length; index ++) {
             cityCodeName.put(code[index], name[index]);
             cityNameCode.put(name[index], code[index]);
+        }
+        if (cityEntityList.size() == 0) {
+            initCityEntity();
         }
     }
 
@@ -76,12 +94,16 @@ public class IMTravelManager extends IMManager {
     public void onLocalLoginOk(){
         logger.i("group#loadFromDb");
 
-
 /*        List<HotelEntity> localHotelEntityList = dbInterface.loadAllHotel();
         for(HotelEntity hotelEntity:localHotelEntityList){
             this.hotelEntityList.add(hotelEntity);
         }*/
-        initSightHotel();
+        new Thread() {
+            @Override
+            public void run() {
+                initSightHotel();
+            }
+        }.start();
         triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
     }
 
@@ -91,6 +113,19 @@ public class IMTravelManager extends IMManager {
     }
 
     private void initSightHotel() {
+        if (SystemConfigSp.instance().getIntConfig(SystemConfigSp.SysCfgDimension.DBInit) == 1) {
+            List<SightEntity> sightEntityList = dbInterface.loadAllSight();
+            for (SightEntity sightEntity : sightEntityList) {
+                sightEntityMap.put(sightEntity.getPeerId(), sightEntity);
+            }
+
+            List<HotelEntity> hotelEntityList = dbInterface.loadAllHotel();
+            for (HotelEntity hotelEntity : hotelEntityList) {
+                hotelEntityMap.put(hotelEntity.getPeerId(), hotelEntity);
+            }
+            dBInitFin = true;
+            return;
+        }
         // 加载本地hotel
         List<List<String>> csvHotel = new ArrayList<List<String>>();
         List<List<String>> csvSight = new ArrayList<List<String>>();
@@ -125,6 +160,8 @@ public class IMTravelManager extends IMManager {
             sightEntityMap.put(sightEntity.getPeerId(), sightEntity);
         }
         dbInterface.batchInsertOrUpdateSight(sightEntityList);
+        SystemConfigSp.instance().setIntConfig(SystemConfigSp.SysCfgDimension.DBInit, 1);
+        dBInitFin = true;
     }
 
     /**
@@ -175,7 +212,7 @@ public class IMTravelManager extends IMManager {
         triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
     }
 
-    public void reqCreateTravel() {
+/*    public void reqCreateTravel() {
         int loginId = IMLoginManager.instance().getLoginId();
 
         IMBuddy.BasicInfo basicInfo = IMBuddy.BasicInfo
@@ -339,7 +376,7 @@ public class IMTravelManager extends IMManager {
         } else {
             triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_TRAVEL_OK));
         }
-    }
+    }*/
 
     public void reqDelTravel(List<Integer> travelList) {
         logger.i("reqDelTravel");
@@ -390,7 +427,7 @@ public class IMTravelManager extends IMManager {
         }
     }
 
-    public void reqTravelRoute() {
+/*    public void reqTravelRoute() {
         logger.i("reqTravelRoute");
         int loginId = IMLoginManager.instance().getLoginId();
 
@@ -468,7 +505,7 @@ public class IMTravelManager extends IMManager {
 
             result.add(trafficEntity);
         }
-    }
+    }*/
 
     private void clearTravelList() {
         travelEntityList.clear();
@@ -484,7 +521,7 @@ public class IMTravelManager extends IMManager {
         return mtTravel;
     }
 
-    public List<TrafficEntity> getGoTrafficEntityList() {
+/*    public List<TrafficEntity> getGoTrafficEntityList() {
         if (goTrafficEntityRspList.isEmpty()) {
             TrafficEntity plane1 = new TrafficEntity();
             plane1.setType(1);
@@ -626,7 +663,7 @@ public class IMTravelManager extends IMManager {
         }
         trafficTypePreProcess(backTrafficEntityRspList, backTrafficEntityList);
         return backTrafficEntityList;
-    }
+    }*/
 
     public List <TravelCityEntity> getMtCity() {
         if (mtCity.isEmpty()) {
@@ -634,6 +671,50 @@ public class IMTravelManager extends IMManager {
             mtCity.add(travelCityEntity);
         }
         return mtCity;
+    }
+
+    public List<String> getEmotionTags() {
+        return emotionTags;
+    }
+
+    public void setEmotionTags(List<String> emotionTags) {
+        this.emotionTags.clear();
+        this.emotionTags.addAll(emotionTags);
+    }
+    public Boolean getdBInitFin() {
+        return dBInitFin;
+    }
+
+    public String getStartCity() {
+        return startCity;
+    }
+
+    public void setStartCity(String startCity) {
+        this.startCity = startCity;
+    }
+
+    public String getEndCity() {
+        return endCity;
+    }
+
+    public void setEndCity(String endCity) {
+        this.endCity = endCity;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
     public String getCityNameByCode(String code) {
@@ -660,5 +741,184 @@ public class IMTravelManager extends IMManager {
 
     public SightEntity getSightByID(int id) {
         return sightEntityMap.get(id);
+    }
+
+    public RouteEntity getRouteEntity() {
+        return routeEntity;
+    }
+
+    public void setRouteEntity(RouteEntity routeEntity) {
+        this.routeEntity = routeEntity;
+    }
+
+    public List<RouteEntity> getRouteEntityList() {
+        return routeEntityList;
+    }
+
+    public void reqGetRandomRoute(String sentence) {
+        Log.e("yuki", "reqGetRandomRoute");
+        this.sentence = sentence;
+        int loginId = IMLoginManager.instance().getLoginId();
+        IMBuddy.NewQueryRadomRouteReq newQueryRadomRouteReq = IMBuddy.NewQueryRadomRouteReq.newBuilder()
+                .setUserId(loginId)
+                .addAllTags(tagProcess(routeEntity.getTags()))
+                .setSentence(sentence).build();
+        Log.e("yuki", newQueryRadomRouteReq.toString());
+
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_RADOM_ROUTE_QUERY_REQUEST_VALUE;
+        imSocketManager.sendRequest(newQueryRadomRouteReq,sid,cid);
+    }
+
+    public void onRspGetRandomRoute(IMBuddy.NewQueryRadomRouteRsp newQueryRadomRouteRsp) throws ParseException {
+        Log.e("yuki", "onRspGetRandomRoute");
+        if (newQueryRadomRouteRsp.getResultCode() != 0) {
+            Log.e("yuki", "onRepTravelList fail" + newQueryRadomRouteRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.QUERY_RANDOM_ROUTE_FAIL));
+        } else {
+            if (newQueryRadomRouteRsp.getRoutesList().size() == 0) {
+                Log.e("yuki", "onRspGetRandomRoute no route");
+            } else {
+                if (sentence.equals("")) {
+                    routeEntityList.clear();
+                    for (IMBuddy.Route route : newQueryRadomRouteRsp.getRoutesList()) {
+                        routeEntityList.add(ProtoBuf2JavaBean.getRouteEntity(route));
+                    }
+                    triggerEvent(new TravelEvent(TravelEvent.Event.QUERY_RANDOM_ROUTE_TAG_OK));
+                } else {
+                    routeEntity = ProtoBuf2JavaBean.getRouteEntity(newQueryRadomRouteRsp.getRoutesList().get(0));
+                    triggerEvent(new TravelEvent(TravelEvent.Event.QUERY_RANDOM_ROUTE_SENTENCE_OK));
+                }
+            }
+        }
+    }
+
+    public void reqUpdateRandomRoute(List<Integer> sightIdList) {
+        Log.e("yuki", "reqUpdateRandomRoute");
+        int loginId = IMLoginManager.instance().getLoginId();
+        String startTime = String.format("%02d:00", routeEntity.getStartTime());
+        String endTime = String.format("%02d:00", routeEntity.getEndTime());
+        IMBuddy.NewUpdateRadomRouteReq newUpdateRadomRouteReq = IMBuddy.NewUpdateRadomRouteReq.newBuilder()
+                .setUserId(loginId)
+                .setDayCount(routeEntity.getDay())
+                .setCityCode(routeEntity.getCityCode())
+                .setStartTransportTool(IMBuddy.TransportToolType.valueOf(routeEntity.getStartTrafficTool()))
+                .setEndTransportTool(IMBuddy.TransportToolType.valueOf(routeEntity.getEndTrafficTool()))
+                .setStartTime(startTime)
+                .setEndTime(endTime)
+                .addAllScenicIds(sightIdList)
+                .setTag(routeEntity.getRouteType()).build();
+
+        Log.e("yuki", newUpdateRadomRouteReq.toString());
+
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST_VALUE;
+        imSocketManager.sendRequest(newUpdateRadomRouteReq,sid,cid);
+    }
+
+    public void onRspUpdateRandomRoute(IMBuddy.NewUpdateRadomRouteRsp newUpdateRadomRouteRsp) throws ParseException {
+        Log.e("yuki", "onRspUpdateRandomRoute");
+        if (newUpdateRadomRouteRsp.getResultCode() != 0) {
+            logger.e("onRepTravelList fail %d", newUpdateRadomRouteRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.UPDATE_RANDOM_ROUTE_FAIL));
+        } else {
+            List<String> tags = new ArrayList<>();
+            tags.addAll(routeEntity.getTags());
+            routeEntity = ProtoBuf2JavaBean.getRouteEntity(newUpdateRadomRouteRsp.getRoute());
+            routeEntity.setTags(tags);
+            triggerEvent(new TravelEvent(TravelEvent.Event.UPDATE_RANDOM_ROUTE_OK));
+        }
+    }
+
+    public void reqCreateRoute() {
+        Log.e("yuki", "reqCreateRoute");
+        int loginId = IMLoginManager.instance().getLoginId();
+        IMBuddy.NewCreateMyTravelReq newUpdateRadomRouteReq = IMBuddy.NewCreateMyTravelReq.newBuilder()
+                .setUserId(loginId)
+                .setDayCount(routeEntity.getDay())
+                .setCityCode(routeEntity.getCityCode())
+                .addAllTags(tagProcess(routeEntity.getTags()))
+                .build();
+        Log.e("yuki", newUpdateRadomRouteReq.toString());
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST_VALUE;
+        imSocketManager.sendRequest(newUpdateRadomRouteReq,sid,cid);
+    }
+
+    public void onRspCreateRoute(IMBuddy.NewCreateMyTravelRsp newCreateMyTravelRsp) throws ParseException {
+        Log.e("yuki", "onRspCreateRoute");
+        if (newCreateMyTravelRsp.getResultCode() != 0) {
+            logger.e("onRepTravelList fail %d", newCreateMyTravelRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_ROUTE_Fail));
+        } else {
+            List<String> tags = new ArrayList<>();
+            tags.addAll(routeEntity.getTags());
+            routeEntity = ProtoBuf2JavaBean.getRouteEntity(newCreateMyTravelRsp.getRoute());
+            routeEntity.setTags(tags);
+            triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_ROUTE_OK));
+        }
+    }
+
+    public void initalRoute() {
+        for(Map.Entry<Integer, SightEntity> entry : sightEntityMap.entrySet()) {
+            entry.getValue().setSelect(0);
+        }
+
+        for(Map.Entry<Integer, HotelEntity> entry : hotelEntityMap.entrySet()) {
+            entry.getValue().setSelect(0);
+        }
+    }
+
+    private void initCityEntity() {
+        List<String> xiamenPic = new ArrayList<>();
+        xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/574e9258d109b3de3cafd4a4cdbf6c81810a4ced.jpg");
+        xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/1ad5ad6eddc451da671ac9e0b4fd5266d11632c9.jpg");
+        xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/f7246b600c33874494b2d1c6510fd9f9d72aa011.jpg");
+        String xiamenDescription = "        厦门是一个秀丽清新的城市，空气和阳光都很好。厦门大学的校园整洁优美，鼓浪屿有很多特色店铺，都是可以去看看的。厦门的街道很干净，慢节奏的生活很惬意。海鲜不错，当地小吃很棒。";
+
+        List<String> guangzhouPic = new ArrayList<>();
+        guangzhouPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/b812c8fcc3cec3fda532f9b3d188d43f869427e3.jpg");
+        guangzhouPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/9a504fc2d56285358b18fe8f90ef76c6a6ef63a7.jpg");
+        guangzhouPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/5bafa40f4bfbfbeddfe47e237af0f736afc31f28.jpg");
+        String guangzhouDescription = "        广州作为中国最发达的城市之一，交通还算方便。好玩的地方很多，珠江夜景很漂亮，上下九步行街十分美丽，有空的时候还是值得看看的。广州的小吃众多，早茶和粤菜都很有特色。";
+
+        List<String> shenzhenPic = new ArrayList<>();
+        shenzhenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/9922720e0cf3d7caa3c963d0f21fbe096b63a95d.jpg");
+        shenzhenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/3c6d55fbb2fb431613dbf8ab22a4462308f7d31f.jpg");
+        shenzhenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/78310a55b319ebc42c081e578626cffc1f17168f.jpg");
+        String shenzhenDescription = "        深圳人的生活节奏很快，非常美丽的城市。深圳的道路比较宽阔，交通方便，规划很好。这里可以感受大都市的繁华和繁忙。世界之窗是不错的地方，气候也很适合居住。经济高度发达。";
+
+        CityEntity xiamen = new CityEntity("XMN", "厦门", R.drawable.xiamen_icon, xiamenPic, xiamenDescription);
+        CityEntity guangzhou = new CityEntity("CAN", "广州", R.drawable.guangzhou_icon, guangzhouPic, guangzhouDescription);
+        CityEntity shenzhen = new CityEntity("SZX", "深圳", R.drawable.shenzhen_icon, shenzhenPic, shenzhenDescription);
+
+        cityEntityList.add(xiamen);
+        cityEntityList.add(guangzhou);
+        cityEntityList.add(shenzhen);
+    }
+
+    public List<CityEntity> getCityEntityList() {
+        return cityEntityList;
+    }
+
+    public CityEntity getCityEntitybyCityCode(String cityCode) {
+        for (CityEntity cityEntity : cityEntityList) {
+            if (cityEntity.getCityCode().equals(cityCode)) {
+                return cityEntity;
+            }
+        }
+        return null;
+    }
+
+    private List<String> tagProcess(List<String> inputTag) {
+        List<String> tags = new ArrayList<>();
+        tags.addAll(inputTag);
+        int tagSize = tags.size();
+        if (tagSize < 3) {
+            for (int i = 0; i < 3 - tagSize; i ++) {
+                tags.add(emotionTags.get(i));
+            }
+        }
+        return tags;
     }
 }

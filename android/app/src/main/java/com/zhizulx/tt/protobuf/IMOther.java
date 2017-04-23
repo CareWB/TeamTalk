@@ -207,7 +207,7 @@ public final class IMOther {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Other.IMHeartBeat)
         com.zhizulx.tt.protobuf.IMOther.IMHeartBeatOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMOther.IMHeartBeat.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMOther.IMHeartBeat.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }

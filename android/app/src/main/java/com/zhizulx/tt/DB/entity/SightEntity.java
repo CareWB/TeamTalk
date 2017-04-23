@@ -20,17 +20,17 @@ public class SightEntity {
     private int star;
     /** Not-null value. */
     private String tag;
-    private int free;
     private int mustGo;
     /** Not-null value. */
     private String openTime;
     private int playTime;
-    /** Not-null value. */
-    private String introduction;
-    /** Not-null value. */
-    private String address;
+    private int price;
     private double longitude;
     private double latitude;
+    /** Not-null value. */
+    private String address;
+    /** Not-null value. */
+    private String introduction;
     /** Not-null value. */
     private String startTime;
     /** Not-null value. */
@@ -51,7 +51,7 @@ public class SightEntity {
         this.id = id;
     }
 
-    public SightEntity(Long id, int peerId, String cityCode, String name, String pic, int star, String tag, int free, int mustGo, String openTime, int playTime, String introduction, String address, double longitude, double latitude, String startTime, String endTime, int select, int version, int status, int created, int updated) {
+    public SightEntity(Long id, int peerId, String cityCode, String name, String pic, int star, String tag, int mustGo, String openTime, int playTime, int price, double longitude, double latitude, String address, String introduction, String startTime, String endTime, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
         this.cityCode = cityCode;
@@ -59,14 +59,14 @@ public class SightEntity {
         this.pic = pic;
         this.star = star;
         this.tag = tag;
-        this.free = free;
         this.mustGo = mustGo;
         this.openTime = openTime;
         this.playTime = playTime;
-        this.introduction = introduction;
-        this.address = address;
+        this.price = price;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.address = address;
+        this.introduction = introduction;
         this.startTime = startTime;
         this.endTime = endTime;
         this.select = select;
@@ -140,14 +140,6 @@ public class SightEntity {
         this.tag = tag;
     }
 
-    public int getFree() {
-        return free;
-    }
-
-    public void setFree(int free) {
-        this.free = free;
-    }
-
     public int getMustGo() {
         return mustGo;
     }
@@ -174,24 +166,12 @@ public class SightEntity {
         this.playTime = playTime;
     }
 
-    /** Not-null value. */
-    public String getIntroduction() {
-        return introduction;
+    public int getPrice() {
+        return price;
     }
 
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
-
-    /** Not-null value. */
-    public String getAddress() {
-        return address;
-    }
-
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public double getLongitude() {
@@ -208,6 +188,26 @@ public class SightEntity {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
+    }
+
+    /** Not-null value. */
+    public String getAddress() {
+        return address;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /** Not-null value. */
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    /** Not-null value; ensure this value is available before it is saved to the database. */
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     /** Not-null value. */

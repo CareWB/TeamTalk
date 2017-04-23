@@ -22,7 +22,8 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/fl_detail_disp_traffic_disp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -46,14 +47,14 @@
             android:visibility="gone"
             android:background="@drawable/detail_disp_traffic_select_plane"
             android:gravity="bottom"
-            android:paddingBottom="11dp"
             android:paddingRight="7dp"
+            android:id="@+id/ly_detail_disp_traffic_collect"
             android:orientation="horizontal">
 
             <TextView
                 android:text="飞机"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="@dimen/content_s"
@@ -63,7 +64,7 @@
             <TextView
                 android:text="火车"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textSize="@dimen/content_s"

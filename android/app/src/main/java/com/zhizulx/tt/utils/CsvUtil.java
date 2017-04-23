@@ -29,6 +29,7 @@ public class CsvUtil {
         bufferedreader = new BufferedReader(new InputStreamReader(is));
 
         String stemp;
+        stemp = bufferedreader.readLine();//jump title
         while ((stemp = bufferedreader.readLine()) != null) {
             list.add(stemp);
         }
@@ -39,7 +40,7 @@ public class CsvUtil {
     }
 
     public int getRowNum() {
-        return list.size();
+        return list.size()-1;
     }
 
     public int getColNum() {

@@ -1,19 +1,11 @@
 package com.zhizulx.tt.ui.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,13 +17,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationListener;
 import com.bumptech.glide.Glide;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.imservice.event.LoginEvent;
@@ -40,15 +29,10 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.service.LocationService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.utils.FileUtil;
-import com.zhizulx.tt.utils.ImageEffect;
 import com.zhizulx.tt.utils.ImageUtil;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
 
 import de.greenrobot.event.EventBus;
 
@@ -57,8 +41,7 @@ public class HomePageActivity extends FragmentActivity {
     private PopupWindow popupWindow;
     private RelativeLayout mine;
     private ImageView mineAvatar;
-    private TextView commonInfo;
-    private TextView order;
+    private TextView collection;
     private TextView aboutUs;
     private TextView clearCache;
     private AMapLocationClient mlocationClient;
@@ -162,8 +145,7 @@ public class HomePageActivity extends FragmentActivity {
         mine = (RelativeLayout)popupWindowView.findViewById(R.id.mine_info);
         mineAvatar = (ImageView) popupWindowView.findViewById(R.id.mine_avatar);
         ImageUtil.GlideRoundAvatar(HomePageActivity.this, "http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg", mineAvatar);
-        commonInfo = (TextView)popupWindowView.findViewById(R.id.mine_common_info);
-        order = (TextView)popupWindowView.findViewById(R.id.mine_order);
+        collection = (TextView)popupWindowView.findViewById(R.id.mine_collection);
         aboutUs = (TextView)popupWindowView.findViewById(R.id.mine_about_us);
         clearCache = (TextView)popupWindowView.findViewById(R.id.mine_clear_cache);
 
@@ -176,14 +158,9 @@ public class HomePageActivity extends FragmentActivity {
                         startActivity(intentMine);
                         popupWindow.dismiss();
                         break;
-                    case R.id.mine_common_info:
-                        Intent intentMineCommon = new Intent(HomePageActivity.this, MineCommonActivity.class);
-                        startActivity(intentMineCommon);
-                        popupWindow.dismiss();
-                        break;
-                    case R.id.mine_order:
-                        Intent intentMineOrder = new Intent(HomePageActivity.this, MineOrderActivity.class);
-                        startActivity(intentMineOrder);
+                    case R.id.mine_collection:
+                        Intent intentMineCollection = new Intent(HomePageActivity.this, MineCollectionActivity.class);
+                        startActivity(intentMineCollection);
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_about_us:
@@ -199,8 +176,7 @@ public class HomePageActivity extends FragmentActivity {
             }
         };
         mine.setOnClickListener(popListener);
-        commonInfo.setOnClickListener(popListener);
-        order.setOnClickListener(popListener);
+        collection.setOnClickListener(popListener);
         aboutUs.setOnClickListener(popListener);
         clearCache.setOnClickListener(popListener);
     }

@@ -1,7 +1,10 @@
 package com.zhizulx.tt.app;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.support.multidex.MultiDex;
+
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.utils.ImageLoaderUtil;
 import com.zhizulx.tt.utils.Logger;

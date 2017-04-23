@@ -22,6 +22,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Calendar;
 
 public class FileUtil
 {
@@ -560,5 +561,13 @@ public class FileUtil
         }
         return;
 
+    }
+
+    public static String getModifiedTime(String file){
+        File f = new File(file);
+        Calendar cal = Calendar.getInstance();
+        long time = f.lastModified();
+        cal.setTimeInMillis(time);
+        return cal.getTime().toLocaleString();
     }
 }

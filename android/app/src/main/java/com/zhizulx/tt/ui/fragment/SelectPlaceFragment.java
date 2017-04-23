@@ -27,6 +27,7 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 设置页面
@@ -46,6 +47,7 @@ public class SelectPlaceFragment extends TTBaseFragment{
 
     private List<CityEntity> citySelectedList = new ArrayList<>();
     private List<CityEntity> cityList = new ArrayList<>();
+    List<CityEntity> hotlist = new ArrayList<>();
     private RecyclerView rvSelectCityResult;
     private SelectCityResultAdapter selectCityResultAdapter;
 
@@ -73,6 +75,9 @@ public class SelectPlaceFragment extends TTBaseFragment{
                     ibnSelectPlaceOk.setBackground(getActivity().getResources().getDrawable(R.drawable.select_place_ok_click));
                     ibnSelectPlaceOk.setClickable(true);
                 }
+                hotlist.clear();
+                hotlist.addAll(imService.getTravelManager().getCityEntityList());
+                travelHotAdapter.notifyDataSetChanged();
             }
         }
 
@@ -140,6 +145,25 @@ public class SelectPlaceFragment extends TTBaseFragment{
 	/**
 	 * @Description 初始化资源
 	 */
+    private void backProcess() {
+        if (citySelectedList.isEmpty()) {
+            Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_destination), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            if (citySelectedList.isEmpty()) {
+                intent.putExtra("city", "");
+            } else {
+                intent.putExtra("city", citySelectedList.get(0).getName());
+            }
+
+            getActivity().setResult(101, intent);
+            getActivity().finish();
+            return;
+        }
+        getFragmentManager().popBackStack();
+    }
 	private void initRes() {
 		// 设置标题栏
 		setTopTitle(getString(R.string.select_destination));
@@ -147,23 +171,7 @@ public class SelectPlaceFragment extends TTBaseFragment{
         View.OnClickListener chooseListener = new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                if (citySelectedList.isEmpty()) {
-                    Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_destination), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (getFragmentManager().getBackStackEntryCount() == 0) {
-                    if (citySelectedList.isEmpty()) {
-                        intent.putExtra("city", "");
-                    } else {
-                        intent.putExtra("city", citySelectedList.get(0).getName());
-                    }
-
-                    getActivity().setResult(101, intent);
-                    getActivity().finish();
-                    return;
-                }
-                getFragmentManager().popBackStack();
+                backProcess();
             }
         };
 		topLeftContainerLayout.setOnClickListener(chooseListener);
@@ -200,7 +208,7 @@ public class SelectPlaceFragment extends TTBaseFragment{
 
     private void jump2CityIntroduction(CityEntity city) {
         Intent citySelect = new Intent(getActivity(), IntroduceCityActivity.class);
-        citySelect.putExtra("city", city.getName());
+        citySelect.putExtra("cityCode", city.getCityCode());
         if (hasSelected(city)) {
             citySelect.putExtra("selectFlag", true);
         } else {
@@ -231,35 +239,24 @@ public class SelectPlaceFragment extends TTBaseFragment{
 
     private void initHot() {
         rvHot.setHasFixedSize(true);
-        GridLayoutManager layoutManagerHot = new GridLayoutManager(getActivity(), 3);
+        GridLayoutManager layoutManagerHot = new GridLayoutManager(getActivity(), 1);
         layoutManagerHot.setOrientation(LinearLayoutManager.VERTICAL);
         rvHot.setLayoutManager(layoutManagerHot);
-        List<Integer> hotlist = new ArrayList<Integer>();
-        hotlist.add(R.drawable.hot_xiamen);
-        hotlist.add(R.drawable.hot_guangzhou);
-        hotlist.add(R.drawable.hot_beijing);
-        hotlist.add(R.drawable.hot_daocheng);
-        hotlist.add(R.drawable.hot_lijiang);
-        hotlist.add(R.drawable.hot_neimeng);
-        hotlist.add(R.drawable.hot_songhuajiang);
-        hotlist.add(R.drawable.hot_xianggang);
-        hotlist.add(R.drawable.hot_dongji);
-        hotlist.add(R.drawable.hot_suzhou);
-        hotlist.add(R.drawable.hot_lijiang);
-        hotlist.add(R.drawable.hot_dunhuang);
 
         TravelHotAdapter.OnRecyclerViewListener hotRVListener = new TravelHotAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
-                if (position == 0) {
-                    jump2CityIntroduction(xiamen);
-                } else {
-                    Toast.makeText(getActivity(), getString(R.string.under_constracted), Toast.LENGTH_SHORT).show();
-                }
+                jump2CityIntroduction(hotlist.get(position));
+            }
 
+            @Override
+            public void onAddClick(int position) {
+                citySelectedList.clear();
+                citySelectedList.add(hotlist.get(position));
+                backProcess();
             }
         };
-        travelHotAdapter = new TravelHotAdapter(hotlist);
+        travelHotAdapter = new TravelHotAdapter(getActivity(), hotlist);
         travelHotAdapter.setOnRecyclerViewListener(hotRVListener);
         rvHot.setAdapter(travelHotAdapter);
     }

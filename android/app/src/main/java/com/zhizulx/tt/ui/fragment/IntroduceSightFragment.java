@@ -20,6 +20,8 @@ import com.amap.api.maps2d.model.BitmapDescriptorFactory;
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.MarkerOptions;
 import com.amap.api.services.core.LatLonPoint;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
@@ -38,6 +40,7 @@ public class IntroduceSightFragment extends TTBaseFragment{
     private Intent intent;
     private ImageView back;
 	private SightEntity sightEntity;
+    private ImageView avatar;
     private TextView name;
     private RatingBar star;
     private TextView introduction;
@@ -138,6 +141,7 @@ public class IntroduceSightFragment extends TTBaseFragment{
 			}
 		});
         name = (TextView)curView.findViewById(R.id.introduce_sight_name);
+        avatar = (ImageView)curView.findViewById(R.id.introduce_sight_bk);
         introduction = (TextView)curView.findViewById(R.id.introduce_sight_introduction);
         openTime = (TextView)curView.findViewById(R.id.introduce_sight_open);
         playTime = (TextView)curView.findViewById(R.id.introduce_sight_play_time);
@@ -156,21 +160,22 @@ public class IntroduceSightFragment extends TTBaseFragment{
 
     private void dispSight() {
         name.setText(sightEntity.getName());
+        Glide.with(getActivity()).load(sightEntity.getPic()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(avatar);
         introduction.setText(sightEntity.getIntroduction());
         openTime.setText(sightEntity.getOpenTime());
         playTime.setText(sightEntity.getPlayTime()+"小时");
-        if (sightEntity.getFree() == 1) {
+        if (sightEntity.getPrice() == 0) {
             free.setText("否");
         } else {
             free.setText("是");
         }
         address.setText(sightEntity.getAddress());
-        star.setRating((float)(sightEntity.getStar())/2);
+        star.setRating((float)(sightEntity.getStar()));
         LatLng latLng = new LatLng(sightEntity.getLatitude(), sightEntity.getLongitude());
         LatLonPoint latLonPoint = new LatLonPoint(sightEntity.getLatitude(), sightEntity.getLongitude());
         aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
         aMap.addMarker(new MarkerOptions()
                 .position(AMapUtil.convertToLatLng(latLonPoint))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.mine_avatar)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.position_icon)));
     }
 }

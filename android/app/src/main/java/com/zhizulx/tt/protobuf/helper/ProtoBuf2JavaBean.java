@@ -3,7 +3,9 @@ package com.zhizulx.tt.protobuf.helper;
 import android.util.Log;
 
 import com.google.protobuf.ByteString;
+import com.zhizulx.tt.DB.entity.DayRouteEntity;
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
+import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.entity.TrafficEntity;
 import com.zhizulx.tt.DB.entity.TravelEntity;
 import com.zhizulx.tt.config.DBConstant;
@@ -27,6 +29,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author : yingmu on 15-1-5.
@@ -370,5 +377,39 @@ public class ProtoBuf2JavaBean {
         trafficEntity.setPrice(travelToolInfo.getPrice());
         trafficEntity.setSeatClass(travelToolInfo.getClass_());
         return trafficEntity;
+    }
+
+    public static RouteEntity getRouteEntity(IMBuddy.Route route) throws ParseException {
+        RouteEntity routeEntity = new RouteEntity();
+        routeEntity.setDay(route.getDayCount());
+        routeEntity.setCityCode(route.getCityCode());
+        routeEntity.setRouteType(route.getTag());
+        routeEntity.setStartTrafficTool(route.getStartTransportTool().getNumber());
+        routeEntity.setEndTrafficTool(route.getEndTransportTool().getNumber());
+        routeEntity.setStartTime(getHour(route.getStartTime()));
+        routeEntity.setEndTime(getHour(route.getEndTime()));
+        routeEntity.setDayRouteEntityList(getDayRouteEntityList(route.getDayRoutesList()));
+        return routeEntity;
+    }
+
+    private static int getHour(String hour) throws ParseException {
+        SimpleDateFormat formatterString = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat formatterInt = new SimpleDateFormat("HH");
+        Date date = null;
+        date = formatterString.parse(hour);
+        String singleHour = formatterInt.format(date);
+        return Integer.valueOf(singleHour);
+    }
+
+    private static List<DayRouteEntity> getDayRouteEntityList(List<IMBuddy.DayRoute> dayRouteList) {
+        List<DayRouteEntity> dayRouteEntityList = new ArrayList<>();
+        for (IMBuddy.DayRoute dayRoute : dayRouteList) {
+            DayRouteEntity dayRouteEntity = new DayRouteEntity();
+            dayRouteEntity.setSightIDList(dayRoute.getScenicsList());
+            dayRouteEntity.setHotelSelected(dayRoute.getHotelsList().get(0));
+            dayRouteEntity.setHotelIDList(dayRoute.getHotelsList());
+            dayRouteEntityList.add(dayRouteEntity);
+        }
+        return dayRouteEntityList;
     }
 }

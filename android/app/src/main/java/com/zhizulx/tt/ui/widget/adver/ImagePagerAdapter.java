@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.zhizulx.tt.R;
+
 import java.util.List;
 
 /**
@@ -20,16 +24,16 @@ import java.util.List;
 public class ImagePagerAdapter extends BaseAdapter {
 
 	private Context context;
-	private List<Integer> imageIdList;
+	private List<String> picList;
 	private int size;
 	private boolean isInfiniteLoop;
 
-	public ImagePagerAdapter(Context context, List<Integer> imageIdList)
+	public ImagePagerAdapter(Context context, List<String> picList)
 	{
 		this.context = context;
-		this.imageIdList = imageIdList;
-		if (imageIdList != null) {
-			this.size = imageIdList.size();
+		this.picList = picList;
+		if (picList != null) {
+			this.size = picList.size();
 		}
 		isInfiniteLoop = false;
 	}
@@ -37,7 +41,7 @@ public class ImagePagerAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		// Infinite loop
-		return isInfiniteLoop ? Integer.MAX_VALUE : imageIdList.size();
+		return isInfiniteLoop ? Integer.MAX_VALUE : picList.size();
 	}
 
 	/**
@@ -56,15 +60,15 @@ public class ImagePagerAdapter extends BaseAdapter {
 		if (view == null) {
 			holder = new ViewHolder();
 			view = holder.imageView = new ImageView(context);
-			holder.imageView
-					.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+			holder.imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
 			holder.imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-			view.setTag(holder);
+			view.setTag(R.id.viewflowindic, holder);
 		} else {
-			holder = (ViewHolder) view.getTag();
+			holder = (ViewHolder) view.getTag(R.id.viewflowindic);
 		}
 
-		holder.imageView.setBackgroundResource(imageIdList.get(ImagePagerAdapter.this.getPosition(position)));
+		Glide.with(context).load(picList.get(ImagePagerAdapter.this.getPosition(position))).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(holder.imageView);
+		//holder.imageView.set(imageIdList.get(ImagePagerAdapter.this.getPosition(position)));
 		return view;
 	}
 

@@ -11,7 +11,7 @@
     <FrameLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="fill_parent"
-        android:layout_height="382dp"
+        android:layout_height="384dp"
         android:clickable="false"
         android:orientation="vertical">
 
@@ -45,13 +45,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="@drawable/back_x"
+            android:background="@drawable/hotel_web_back"
             android:id="@+id/introduce_city_back" />
     </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="17dp"
+        android:textColor="@color/title"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/city_title_left_icon"
+        android:drawablePadding="10dp"
+        android:id="@+id/introduce_city_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:textColor="@color/first_title_color"
+        android:textSize="15sp"
+        android:id="@+id/introduce_city_discription"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:gravity="bottom"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

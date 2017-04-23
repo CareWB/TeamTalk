@@ -42,28 +42,18 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:paddingLeft="23dp"
-            android:id="@+id/detail_disp_experience"
-            android:text="经济舒适游"
-            android:textColor="@color/not_clicked"
-            android:textSize="@dimen/content_size"
-            android:drawableLeft="@drawable/detail_disp_experience"
-            android:drawablePadding="5dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/detail_disp_top_divider"/>
-
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="23dp"
-            android:id="@+id/detail_disp_route"
+            android:id="@+id/detail_disp_route_style"
             android:text="文化路线"
             android:textColor="@color/not_clicked"
             android:textSize="@dimen/content_size"
             android:drawableLeft="@drawable/detail_disp_route"
             android:drawablePadding="5dp"/>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/not_collected"
+            android:id="@+id/route_collection" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -90,15 +80,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:id="@+id/detail_disp_menu" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/not_collection"
-        android:layout_marginRight="@dimen/detail_disp_collection_right"
-        android:layout_marginTop="@dimen/detail_disp_collection_top"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"/>
 
     <LinearLayout
         android:orientation="vertical"

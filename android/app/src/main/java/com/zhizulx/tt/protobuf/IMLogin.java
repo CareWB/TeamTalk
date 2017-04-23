@@ -207,7 +207,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMMsgServReq)
         com.zhizulx.tt.protobuf.IMLogin.IMMsgServReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMMsgServReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMMsgServReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -718,7 +718,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMMsgServRsp)
         com.zhizulx.tt.protobuf.IMLogin.IMMsgServRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMMsgServRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMMsgServRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1609,7 +1609,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMLoginReq)
         com.zhizulx.tt.protobuf.IMLogin.IMLoginReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMLoginReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMLoginReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2542,7 +2542,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMLoginRes)
         com.zhizulx.tt.protobuf.IMLogin.IMLoginResOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMLoginRes.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMLoginRes.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3137,7 +3137,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMLogoutReq)
         com.zhizulx.tt.protobuf.IMLogin.IMLogoutReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMLogoutReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMLogoutReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3464,7 +3464,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMLogoutRsp)
         com.zhizulx.tt.protobuf.IMLogin.IMLogoutRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMLogoutRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMLogoutRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3904,7 +3904,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMKickUser)
         com.zhizulx.tt.protobuf.IMLogin.IMKickUserOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMKickUser.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMKickUser.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4499,7 +4499,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMDeviceTokenReq)
         com.zhizulx.tt.protobuf.IMLogin.IMDeviceTokenReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMDeviceTokenReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMDeviceTokenReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5107,7 +5107,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMDeviceTokenRsp)
         com.zhizulx.tt.protobuf.IMLogin.IMDeviceTokenRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMDeviceTokenRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMDeviceTokenRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5551,7 +5551,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMKickPCClientReq)
         com.zhizulx.tt.protobuf.IMLogin.IMKickPCClientReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMKickPCClientReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMKickPCClientReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5984,7 +5984,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMKickPCClientRsp)
         com.zhizulx.tt.protobuf.IMLogin.IMKickPCClientRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMKickPCClientRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMKickPCClientRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6539,7 +6539,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMPushShieldReq)
         com.zhizulx.tt.protobuf.IMLogin.IMPushShieldReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMPushShieldReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMPushShieldReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7215,7 +7215,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMPushShieldRsp)
         com.zhizulx.tt.protobuf.IMLogin.IMPushShieldRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMPushShieldRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMPushShieldRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7848,7 +7848,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMQueryPushShieldReq)
         com.zhizulx.tt.protobuf.IMLogin.IMQueryPushShieldReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMQueryPushShieldReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMQueryPushShieldReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8447,7 +8447,7 @@ public final class IMLogin {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Login.IMQueryPushShieldRsp)
         com.zhizulx.tt.protobuf.IMLogin.IMQueryPushShieldRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMLogin.IMQueryPushShieldRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMLogin.IMQueryPushShieldRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }

@@ -295,7 +295,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMNormalGroupListReq)
         com.zhizulx.tt.protobuf.IMGroup.IMNormalGroupListReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMNormalGroupListReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMNormalGroupListReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -505,7 +505,7 @@ public final class IMGroup {
     /**
      * <code>repeated .IM.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfo> 
         getGroupVersionListList();
     /**
      * <code>repeated .IM.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
@@ -664,7 +664,7 @@ public final class IMGroup {
     /**
      * <code>repeated .IM.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfoOrBuilder> 
         getGroupVersionListOrBuilderList() {
       return groupVersionList_;
     }
@@ -842,7 +842,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMNormalGroupListRsp)
         com.zhizulx.tt.protobuf.IMGroup.IMNormalGroupListRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMNormalGroupListRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMNormalGroupListRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1200,7 +1200,7 @@ public final class IMGroup {
     /**
      * <code>repeated .IM.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfo> 
         getGroupVersionListList();
     /**
      * <code>repeated .IM.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
@@ -1359,7 +1359,7 @@ public final class IMGroup {
     /**
      * <code>repeated .IM.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.GroupVersionInfoOrBuilder> 
         getGroupVersionListOrBuilderList() {
       return groupVersionList_;
     }
@@ -1537,7 +1537,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupInfoListReq)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupInfoListReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupInfoListReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupInfoListReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1895,7 +1895,7 @@ public final class IMGroup {
     /**
      * <code>repeated .IM.BaseDefine.GroupInfo group_info_list = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.GroupInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.GroupInfo> 
         getGroupInfoListList();
     /**
      * <code>repeated .IM.BaseDefine.GroupInfo group_info_list = 2;</code>
@@ -2054,7 +2054,7 @@ public final class IMGroup {
     /**
      * <code>repeated .IM.BaseDefine.GroupInfo group_info_list = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.GroupInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.GroupInfoOrBuilder> 
         getGroupInfoListOrBuilderList() {
       return groupInfoList_;
     }
@@ -2232,7 +2232,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupInfoListRsp)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupInfoListRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupInfoListRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupInfoListRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3137,7 +3137,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupCreateReq)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupCreateReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupCreateReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupCreateReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4163,7 +4163,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupCreateRsp)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupCreateRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupCreateRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupCreateRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5057,7 +5057,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupChangeMemberReq)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupChangeMemberReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupChangeMemberReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupChangeMemberReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6028,7 +6028,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupChangeMemberRsp)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupChangeMemberRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupChangeMemberRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupChangeMemberRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6943,7 +6943,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupShieldReq)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupShieldReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupShieldReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupShieldReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7604,7 +7604,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupShieldRsp)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupShieldRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupShieldRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupShieldRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8427,7 +8427,7 @@ public final class IMGroup {
         implements
         // @@protoc_insertion_point(builder_implements:IM.Group.IMGroupChangeMemberNotify)
         com.zhizulx.tt.protobuf.IMGroup.IMGroupChangeMemberNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMGroup.IMGroupChangeMemberNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMGroup.IMGroupChangeMemberNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }

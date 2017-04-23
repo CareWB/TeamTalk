@@ -1,8 +1,11 @@
 package com.zhizulx.tt.ui.fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +15,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.entity.TravelCityEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.imservice.event.TravelEvent;
+import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.adapter.TravelRouteAdapter;
@@ -24,20 +31,23 @@ import com.zhizulx.tt.utils.TravelUIHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.zhizulx.tt.R.id.create_travel_route;
+import de.greenrobot.event.EventBus;
 
 public class SelectTravelRouteFragment extends TTBaseFragment {
     private View curView = null;
+    private IMTravelManager travelManager;
     private ImageView reset;
-    private Boolean resetFlag = false;
     private TextView createTravelRoute;
     private ImageView noSelectedRouteHint;
     private RecyclerView rvTravelRoute;
     private EditText travelRouteUserWord;
     private TravelRouteAdapter travelRouteAdapter;
     private RelativeLayout lySelectRouteCondition;
-    private List<TravelCityEntity> travelCityEntityList = new ArrayList<>();
-    private List<TravelCityEntity> travelCityEntityListServer = new ArrayList<>();
+    private List<RouteEntity> routeEntityList = new ArrayList<>();
+    private List<RouteEntity> routeEntityListServer = new ArrayList<>();
+    private int firstPageRouteNum = 0;
+    private final static int ONE_PAGE_NUM = 3;
+    private Dialog dialog;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -45,10 +55,21 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-                travelCityEntityList.add(travelCityEntityListServer.get(0));
-                travelCityEntityList.add(travelCityEntityListServer.get(1));
-                travelCityEntityList.add(travelCityEntityListServer.get(2));
-                travelRouteAdapter.notifyDataSetChanged();
+                travelManager = imService.getTravelManager();
+                routeEntityListServer.addAll(travelManager.getRouteEntityList());
+                if (routeEntityListServer.size() > ONE_PAGE_NUM) {
+                    firstPageRouteNum = ONE_PAGE_NUM;
+                    for (int i = 0; i < ONE_PAGE_NUM; i ++) {
+                        routeEntityList.add(routeEntityListServer.get(i));
+                    }
+                } else {
+                    firstPageRouteNum = routeEntityListServer.size();
+                    routeEntityList.addAll(routeEntityListServer);
+                    reset.setVisibility(View.GONE);
+                    lySelectRouteCondition.setVisibility(View.VISIBLE);
+                    noSelectedRouteHint.setBackground(getResources().getDrawable(R.drawable.no_selected_route_black));
+                }
+                initTravelRoute();
             }
         }
 
@@ -60,6 +81,8 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        imServiceConnector.connect(this.getActivity());
+        EventBus.getDefault().register(this);
         if (null != curView) {
             ((ViewGroup) curView.getParent()).removeView(curView);
             return curView;
@@ -92,20 +115,23 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.select_travel_route_reset:
-                        if (resetFlag == false) {
-                            resetFlag = true;
-                            travelCityEntityList.clear();
-                            travelCityEntityList.add(travelCityEntityListServer.get(3));
-                            travelCityEntityList.add(travelCityEntityListServer.get(4));
-                            travelCityEntityList.add(travelCityEntityListServer.get(5));
-                            travelRouteAdapter.notifyDataSetChanged();
-                            reset.setVisibility(View.GONE);
-                            lySelectRouteCondition.setVisibility(View.VISIBLE);
-                            noSelectedRouteHint.setBackground(getResources().getDrawable(R.drawable.no_selected_route_black));
+                        routeEntityList.clear();
+                        for (int i = ONE_PAGE_NUM; i < routeEntityListServer.size(); i ++) {
+                            routeEntityList.add(routeEntityListServer.get(i));
                         }
+                        travelRouteAdapter.notifyDataSetChanged();
+                        reset.setVisibility(View.GONE);
+                        lySelectRouteCondition.setVisibility(View.VISIBLE);
+                        noSelectedRouteHint.setBackground(getResources().getDrawable(R.drawable.no_selected_route_black));
                         break;
                     case R.id.create_travel_route:
-                        TravelUIHelper.openDetailDispActivity(getActivity());
+                        if (travelRouteUserWord.getText().toString().length() > 0) {
+                            travelManager.reqGetRandomRoute(travelRouteUserWord.getText().toString());
+                            mHandler.postDelayed(runnable, 10000);
+                            dialog = TravelUIHelper.showCalculateDialog(getActivity());
+                        } else {
+                            Toast.makeText(getActivity(), "惜字如金可不好哦", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                 }
             }
@@ -125,19 +151,6 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
     }
 
     private void initTravelRoute() {
-        TravelCityEntity xiamen = new TravelCityEntity();
-        TravelCityEntity guangzhou = new TravelCityEntity();
-        xiamen.setCityName("厦门");
-        guangzhou.setCityName("广州");
-        travelCityEntityListServer.add(xiamen);
-        travelCityEntityListServer.add(xiamen);
-        travelCityEntityListServer.add(xiamen);
-        travelCityEntityListServer.add(guangzhou);
-        travelCityEntityListServer.add(guangzhou);
-        travelCityEntityListServer.add(guangzhou);
-        travelCityEntityList.add(travelCityEntityListServer.get(0));
-        travelCityEntityList.add(travelCityEntityListServer.get(1));
-        travelCityEntityList.add(travelCityEntityListServer.get(2));
         rvTravelRoute.setHasFixedSize(true);
         LinearLayoutManager layoutManagerResult = new LinearLayoutManager(getActivity());
         layoutManagerResult.setOrientation(LinearLayoutManager.VERTICAL);
@@ -145,10 +158,14 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
         TravelRouteAdapter.OnRecyclerViewListener hotelRVListener = new TravelRouteAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
+                List<String> tags = new ArrayList<>();
+                tags.addAll(travelManager.getRouteEntity().getTags());
+                travelManager.setRouteEntity(routeEntityListServer.get(position));
+                travelManager.getRouteEntity().setTags(tags);
                 TravelUIHelper.openDetailDispActivity(getActivity());
             }
         };
-        travelRouteAdapter = new TravelRouteAdapter(getActivity(), travelCityEntityList);
+        travelRouteAdapter = new TravelRouteAdapter(getActivity(), travelManager, routeEntityList);
         travelRouteAdapter.setOnRecyclerViewListener(hotelRVListener);
         rvTravelRoute.setAdapter(travelRouteAdapter);
     }
@@ -156,10 +173,34 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        imServiceConnector.disconnect(this.getActivity());
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
     protected void initHandler() {
     }
 
+    public void onEventMainThread(TravelEvent event){
+        switch (event.getEvent()){
+            case QUERY_RANDOM_ROUTE_SENTENCE_OK:
+                mHandler.removeCallbacks(runnable);
+                dialog.dismiss();
+                TravelUIHelper.openDetailDispActivity(getActivity());
+                break;
+            case QUERY_RANDOM_ROUTE_FAIL:
+                Log.e("yuki", "QUERY_RANDOM_ROUTE_FAIL");
+                break;
+        }
+    }
+
+    private Handler mHandler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (dialog != null) {
+                dialog.dismiss();
+            }
+        }
+    };
 }

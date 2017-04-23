@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.zhizulx.tt.DB.entity.CityEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
@@ -23,16 +25,20 @@ import java.util.ArrayList;
  */
 public class IntroduceCityFragment extends TTBaseFragment{
 	private View curView = null;
-    private String city;
+    private String cityCode;
     private Intent intent;
     private ImageView back;
     private Boolean selectFlag;
 
     private ViewFlow mViewFlow;
     private CircleFlowIndicator mFlowIndicator;
-    private ArrayList<Integer> imageUrlList = new ArrayList<Integer>();
+    private ArrayList<String> imageUrlList = new ArrayList<>();
 
     private TextView citySelect;
+    private IMTravelManager travelManager;
+
+    private TextView title;
+    private TextView discription;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -40,7 +46,12 @@ public class IntroduceCityFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-
+                travelManager = imService.getTravelManager();
+                CityEntity cityEntity = travelManager.getCityEntitybyCityCode(cityCode);
+                imageUrlList.addAll(cityEntity.getPicList());
+                initBanner(imageUrlList);
+                title.setText("关于"+cityEntity.getName());
+                discription.setText(cityEntity.getDiscription());
             }
         }
 
@@ -59,7 +70,7 @@ public class IntroduceCityFragment extends TTBaseFragment{
 		}
 		curView = inflater.inflate(R.layout.travel_fragment_introduce_city, topContentView);
         intent = getActivity().getIntent();
-        city = intent.getStringExtra("city");
+        cityCode = intent.getStringExtra("cityCode");
         selectFlag = intent.getBooleanExtra("selectFlag", false);
 		initRes();
         initBtn();
@@ -105,13 +116,6 @@ public class IntroduceCityFragment extends TTBaseFragment{
         mViewFlow = (ViewFlow) curView.findViewById(R.id.viewflow);
         mFlowIndicator = (CircleFlowIndicator) curView.findViewById(R.id.viewflowindic);
 
-        imageUrlList.add(R.drawable.xiamen_1);
-        imageUrlList.add(R.drawable.xiamen_2);
-        imageUrlList.add(R.drawable.xiamen_3);
-        imageUrlList.add(R.drawable.xiamen_4);
-        imageUrlList.add(R.drawable.xiamen_5);
-        initBanner(imageUrlList);
-
         citySelect = (TextView) curView.findViewById(R.id.bn_city_select);
         dispCitySelect();
         citySelect.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +126,8 @@ public class IntroduceCityFragment extends TTBaseFragment{
             }
         });
 
+        title = (TextView) curView.findViewById(R.id.introduce_city_title);
+        discription = (TextView) curView.findViewById(R.id.introduce_city_discription);
 	}
 
 	@Override
@@ -132,13 +138,13 @@ public class IntroduceCityFragment extends TTBaseFragment{
 
     }
 
-    private void initBanner(ArrayList<Integer> imageUrlList) {
+    private void initBanner(ArrayList<String> imageUrlList) {
         mViewFlow.setAdapter(new ImagePagerAdapter(getActivity(), imageUrlList).setInfiniteLoop(true));
         mViewFlow.setmSideBuffer(imageUrlList.size()); // 实际图片张数，
         // 我的ImageAdapter实际图片张数为3
 
         mViewFlow.setFlowIndicator(mFlowIndicator);
-        mViewFlow.setTimeSpan(4500);
+        mViewFlow.setTimeSpan(3000);
         mViewFlow.setSelection(imageUrlList.size() * 1000); // 设置初始位置
         if (imageUrlList.size() > 1)
         {

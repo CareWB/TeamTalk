@@ -11,8 +11,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.utils.ImageUtil;
 
 import java.util.List;
 
@@ -54,12 +56,13 @@ public class SightAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         SightEntity sightEntity = mList.get(i);
         SightViewHolder holder = (SightViewHolder) viewHolder;
-        Glide.with(ctx).load(sightEntity.getPic()).into(holder.pic);
+        ImageUtil.GlideAvatar(ctx, sightEntity.getPic(), holder.pic);
+        //Glide.with(ctx).load(sightEntity.getPic()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(holder.pic);
         //Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
         holder.name.setText(sightEntity.getName());
-        holder.star.setRating((float)(sightEntity.getStar())/2);
+        holder.star.setRating((float)(sightEntity.getStar()));
         holder.tag.setText(sightEntity.getTag());
-        if (sightEntity.getFree() == 1) {
+        if (sightEntity.getPrice() == 0) {
             holder.free.setBackgroundResource(R.drawable.no_ticket);
         } else {
             holder.free.setBackgroundResource(R.drawable.ticket);

@@ -84,4 +84,20 @@ public class ImageUtil {
 			}
 		});
 	}
+
+	public static void GlideRoundRectangleAvatar(final Context ctx, String url, final ImageView avatar) {
+		Glide.with(ctx).load(url).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(new BitmapImageViewTarget(avatar) {
+			@Override
+			protected void setResource(Bitmap resource) {
+				RoundedBitmapDrawable circularBitmapDrawable =
+						RoundedBitmapDrawableFactory.create(ctx.getResources(), resource);
+				circularBitmapDrawable.setCornerRadius(15);
+				avatar.setImageDrawable(circularBitmapDrawable);
+			}
+		});
+	}
+
+    public static void GlideAvatar(final Context ctx, String url, final ImageView avatar) {
+        Glide.with(ctx).load(url).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(new BitmapImageViewTarget(avatar));
+    }
 }

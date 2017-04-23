@@ -1,10 +1,13 @@
 package com.zhizulx.tt.ui.fragment;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -18,7 +21,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.imservice.event.TravelEvent;
+import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.activity.SelectDateActivity;
@@ -29,9 +35,13 @@ import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * 设置页面
@@ -46,14 +56,16 @@ public class CreateTravelFragment extends TTBaseFragment{
     private RelativeLayout place;
     private TextView startCity;
     private TextView endCity;
-    private ImageView economicComfort;
+    private IMTravelManager travelManager;
+
+/*    private ImageView economicComfort;
     private ImageView economicEfficiency;
     private ImageView luxuryQuality;
     private ImageView experienceCancel;
     private LinearLayout lyExperiencePop;
     private TextView createTravelExperience;
     private PopupWindow mExperiencePopupWindow;
-    RelativeLayout experience;
+    RelativeLayout experience;*/
 
     private ImageView literature;
     private ImageView comfort;
@@ -64,8 +76,10 @@ public class CreateTravelFragment extends TTBaseFragment{
     private LinearLayout lyRoutePop;
     private TextView createTravelRoute;
     private PopupWindow mRoutePopupWindow;
-    RelativeLayout route;
+    private RelativeLayout route;
     private Button next;
+    private RouteEntity routeEntity;
+    private Dialog dialog;
 
     private final static int START_CITY = 0;
     private final static int END_CITY = 1;
@@ -79,7 +93,7 @@ public class CreateTravelFragment extends TTBaseFragment{
     private String destination = "";
     private int iduration = 0;
     private IMService imService;
-    private Map<Integer, String> mapExperience = new HashMap<>();
+    //private Map<Integer, String> mapExperience = new HashMap<>();
     private Map<Integer, String> mapRoute = new HashMap<>();
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
@@ -87,6 +101,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         public void onIMServiceConnected() {
             logger.d("config#onIMServiceConnected");
             imService = imServiceConnector.getIMService();
+            travelManager = imService.getTravelManager();
         }
 
         @Override
@@ -99,6 +114,7 @@ public class CreateTravelFragment extends TTBaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		imServiceConnector.connect(this.getActivity());
+        EventBus.getDefault().register(this);
 		if (null != curView) {
 			((ViewGroup) curView.getParent()).removeView(curView);
 			return curView;
@@ -106,7 +122,7 @@ public class CreateTravelFragment extends TTBaseFragment{
 		curView = inflater.inflate(R.layout.travel_fragment_create_travel, topContentView);
 		initRes();
         initBtn();
-        initExperiencePopupWindow();
+        //initExperiencePopupWindow();
         initRoutePopupWindow();
 		return curView;
 	}
@@ -119,11 +135,11 @@ public class CreateTravelFragment extends TTBaseFragment{
     public void onDestroy() {
         super.onDestroy();
         imServiceConnector.disconnect(getActivity());
+        EventBus.getDefault().unregister(this);
     }
 
 	@Override
 	public void onResume() {
-
 		super.onResume();
 	}
 
@@ -195,15 +211,15 @@ public class CreateTravelFragment extends TTBaseFragment{
         duration = (TextView)curView.findViewById(R.id.tcreate_travel_time);
         betweenTime = (TextView)curView.findViewById(R.id.create_travel_time);
         place = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_place);
-        experience = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_experience);
+        //experience = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_experience);
         route = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_route);
         next = (Button)curView.findViewById(R.id.create_travel_next_step);
 
-        mapExperience.put(R.id.create_travel_experience_economic_comfort, getString(R.string.economical_comfort));
+/*        mapExperience.put(R.id.create_travel_experience_economic_comfort, getString(R.string.economical_comfort));
         mapExperience.put(R.id.create_travel_experience_economic_efficiency, getString(R.string.economical_efficiency));
         mapExperience.put(R.id.create_travel_experience_luxury_quality, getString(R.string.luxury_quality));
         createTravelExperience = (TextView)curView.findViewById(R.id.create_travel_experience);
-        createTravelExperience.setText(mapExperience.get(R.id.create_travel_experience_economic_comfort));
+        createTravelExperience.setText(mapExperience.get(R.id.create_travel_experience_economic_comfort));*/
 
         mapRoute.put(R.id.create_travel_route_literature, getString(R.string.route_literature));
         mapRoute.put(R.id.create_travel_route_comfort, getString(R.string.route_comfort));
@@ -237,9 +253,9 @@ public class CreateTravelFragment extends TTBaseFragment{
                         jump2PlaceSelect();
                         break;
 
-                    case R.id.rlcreate_travel_experience:
+/*                    case R.id.rlcreate_travel_experience:
                         mExperiencePopupWindow.showAtLocation(getActivity().getLayoutInflater().inflate(R.layout.travel_fragment_create_travel, null), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-                        break;
+                        break;*/
 
                     case R.id.rlcreate_travel_route:
                         mRoutePopupWindow.showAtLocation(getActivity().getLayoutInflater().inflate(R.layout.travel_fragment_create_travel, null), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -247,7 +263,10 @@ public class CreateTravelFragment extends TTBaseFragment{
 
                     case R.id.create_travel_next_step:
                         if (checkResult()) {
-                            TravelUIHelper.openDetailDispActivity(getActivity());
+                            storeRoute();
+                            travelManager.reqCreateRoute();
+                            mHandler.postDelayed(runnable, 10000);
+                            dialog = TravelUIHelper.showCalculateDialog(getActivity());
                         }
                         break;
                 }
@@ -258,7 +277,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         bnEnd.setOnClickListener(createTravelListener);
         time.setOnClickListener(createTravelListener);
         place.setOnClickListener(createTravelListener);
-        experience.setOnClickListener(createTravelListener);
+        //experience.setOnClickListener(createTravelListener);
         route.setOnClickListener(createTravelListener);
         next.setOnClickListener(createTravelListener);
     }
@@ -335,7 +354,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         this.betweenTime.setText(date);
     }
 
-    private void initExperiencePopupWindow() {
+/*    private void initExperiencePopupWindow() {
         View popupView = curView.inflate(getActivity(), R.layout.travel_select_experience_popup_window, null);
         economicComfort = (ImageView) popupView.findViewById(R.id.create_travel_experience_economic_comfort);
         economicEfficiency = (ImageView) popupView.findViewById(R.id.create_travel_experience_economic_efficiency);
@@ -387,7 +406,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         economicEfficiency.setOnClickListener(popupListener);
         luxuryQuality.setOnClickListener(popupListener);
         experienceCancel.setOnClickListener(popupListener);
-    }
+    }*/
 
     private void initRoutePopupWindow() {
         View popupView = curView.inflate(getActivity(), R.layout.travel_select_route_popup_window, null);
@@ -433,8 +452,8 @@ public class CreateTravelFragment extends TTBaseFragment{
                         mRoutePopupWindow.dismiss();
                         break;
 
-                    case R.id.ly_create_travel_experience_pop:
-                    case R.id.create_travel_experience_cancel:
+                    case R.id.ly_create_travel_route_pop:
+                    case R.id.create_travel_route_cancel:
                         mRoutePopupWindow.dismiss();
                         break;
                 }
@@ -442,10 +461,42 @@ public class CreateTravelFragment extends TTBaseFragment{
         };
         lyRoutePop.setOnClickListener(popupListener);
         literature.setOnClickListener(popupListener);
+        comfort.setOnClickListener(popupListener);
         exploration.setOnClickListener(popupListener);
         excite.setOnClickListener(popupListener);
-        exploration.setOnClickListener(popupListener);
         encounter.setOnClickListener(popupListener);
         routeCancel.setOnClickListener(popupListener);
     }
+
+    private void storeRoute() {
+        routeEntity = travelManager.getRouteEntity();
+        routeEntity.setDay(iduration);
+        routeEntity.setCityCode(travelManager.getCityCodeByName(destination));
+        List<String> tags = new ArrayList<>();
+        tags.add("舒适");
+        routeEntity.setTags(tags);
+    }
+
+    public void onEventMainThread(TravelEvent event){
+        switch (event.getEvent()){
+            case CREATE_ROUTE_OK:
+                mHandler.removeCallbacks(runnable);
+                dialog.dismiss();
+                TravelUIHelper.openDetailDispActivity(getActivity());
+                break;
+            case CREATE_ROUTE_Fail:
+                Log.e("yuki", "CREATE_ROUTE_Fail");
+                break;
+        }
+    }
+
+    private Handler mHandler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (dialog != null) {
+                dialog.dismiss();
+            }
+        }
+    };
 }

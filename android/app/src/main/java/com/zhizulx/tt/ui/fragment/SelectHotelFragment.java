@@ -128,7 +128,13 @@ public class SelectHotelFragment extends TTBaseFragment{
     private void initHotelList() {
         hotelEntityArrayList.clear();
         for (Integer hotelID : hotelList) {
-            hotelEntityArrayList.add(travelManager.getHotelByID(hotelID));
+            HotelEntity hotelEntity = travelManager.getHotelByID(hotelID);
+            if (hotelEntity != null) {
+                if (hotelEntity.getSelect() == 1) {
+                    selectID = hotelEntity.getPeerId();
+                }
+                hotelEntityArrayList.add(hotelEntity);
+            }
         }
         hotelAdapter.notifyDataSetChanged();
     }

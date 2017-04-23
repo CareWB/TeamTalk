@@ -18,8 +18,11 @@ import com.amap.api.maps2d.AMap.InfoWindowAdapter;
 import com.amap.api.maps2d.AMap.OnInfoWindowClickListener;
 import com.amap.api.maps2d.AMap.OnMapClickListener;
 import com.amap.api.maps2d.AMap.OnMarkerClickListener;
+import com.amap.api.maps2d.CameraUpdate;
+import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.BitmapDescriptorFactory;
+import com.amap.api.maps2d.model.CameraPosition;
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.Marker;
 import com.amap.api.maps2d.model.MarkerOptions;
@@ -79,6 +82,21 @@ OnMarkerClickListener, OnInfoWindowClickListener, InfoWindowAdapter, OnRouteSear
 		mStartPoint = new LatLonPoint(mapRoute.getStartLatitude(), mapRoute.getStartLongitude());//起点，
 		mEndPoint = new LatLonPoint(mapRoute.getEndLatitude(), mapRoute.getEndLongitude());//终点，
 		mCurrentCityName = mapRoute.getCity();
+
+        searchRouteResult(ROUTE_TYPE_DRIVE, RouteSearch.DrivingDefault);
+        mDrive.setImageResource(R.drawable.route_drive_select);
+        mBus.setImageResource(R.drawable.route_bus_normal);
+        mWalk.setImageResource(R.drawable.route_walk_normal);
+        mapView.setVisibility(View.VISIBLE);
+        mBusResultLayout.setVisibility(View.GONE);
+	}
+
+	private void changePosition(LatLng latLng) {
+		//修改地图的中心点位置
+		CameraPosition cp = aMap.getCameraPosition();
+		CameraPosition cpNew = CameraPosition.fromLatLngZoom(latLng, cp.zoom);
+		CameraUpdate cu = CameraUpdateFactory.newCameraPosition(cpNew);
+		aMap.moveCamera(cu);
 	}
 
 	private void setfromandtoMarker() {

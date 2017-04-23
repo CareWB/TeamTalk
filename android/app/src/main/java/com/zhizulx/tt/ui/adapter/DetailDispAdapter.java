@@ -11,8 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.DB.entity.DetailDispEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.utils.ImageUtil;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.List;
@@ -44,11 +47,25 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
     private static final int SIGHT = 2;
     private static final int HOTEL = 3;
     private static final int TRAFFIC = 4;
-
+    private static final int STATUS_DISP = 0;
+    private static final int STATUS_EDIT = 1;
+    private static final int STATUS_CANNOT_EDIT = 2;
+    private int trafficEnd = 0;
 
     public DetailDispAdapter(Context ctx, List<DetailDispEntity> mList) {
         this.ctx = ctx;
         this.mList = mList;
+        trafficStatus();
+    }
+
+    private void trafficStatus() {
+        int i = 0;
+        for (DetailDispEntity detailDispEntity : mList) {
+            if (detailDispEntity.getType() == TRAFFIC) {
+               trafficEnd = i;
+            }
+            i ++;
+        }
     }
 
     @Override
@@ -120,7 +137,9 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
             case SIGHT:
                 SightViewHolder sightViewHolder = (SightViewHolder) viewHolder;
                 sightViewHolder.title.setText(detailDispEntity.getTitle());
-                if (detailDispEntity.getEdited() == 0) {
+                ImageUtil.GlideRoundRectangleAvatar(ctx, detailDispEntity.getImage(), sightViewHolder.avatar);
+                //Glide.with(ctx).load(detailDispEntity.getImage()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(sightViewHolder.avatar);
+                if (detailDispEntity.getEdited() == STATUS_CANNOT_EDIT) {
                     sightViewHolder.mask.setVisibility(View.VISIBLE);
                 } else {
                     sightViewHolder.mask.setVisibility(View.GONE);
@@ -129,53 +148,65 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
             case HOTEL:
                 HotelViewHolder hotelViewHolder = (HotelViewHolder) viewHolder;
                 hotelViewHolder.title.setText(detailDispEntity.getTitle());
+                Glide.with(ctx).load(detailDispEntity.getImage()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(hotelViewHolder.avatar);
                 switch (detailDispEntity.getEdited()) {
-                    case 0://不可点击
-                        hotelViewHolder.mask.setVisibility(View.VISIBLE);
-                        hotelViewHolder.info.setVisibility(View.VISIBLE);
-                        hotelViewHolder.map.setVisibility(View.VISIBLE);
-                        hotelViewHolder.selectHotel.setVisibility(View.GONE);
-                        break;
-                    case 1://可查看
+                    case STATUS_DISP://可查看
                         hotelViewHolder.mask.setVisibility(View.GONE);
                         hotelViewHolder.info.setVisibility(View.VISIBLE);
                         hotelViewHolder.map.setVisibility(View.VISIBLE);
                         hotelViewHolder.selectHotel.setVisibility(View.GONE);
                         break;
-                    case 2://可选择
+                    case STATUS_EDIT://可选择
                         hotelViewHolder.mask.setVisibility(View.GONE);
                         hotelViewHolder.info.setVisibility(View.GONE);
                         hotelViewHolder.map.setVisibility(View.GONE);
                         hotelViewHolder.selectHotel.setVisibility(View.VISIBLE);
                         break;
-                }
-                if (detailDispEntity.getEdited() == 0) {
-                    hotelViewHolder.mask.setVisibility(View.VISIBLE);
-                    hotelViewHolder.info.setVisibility(View.VISIBLE);
-                    hotelViewHolder.map.setVisibility(View.VISIBLE);
-                } else {
-                    hotelViewHolder.mask.setVisibility(View.GONE);
-
+                    case STATUS_CANNOT_EDIT://不可点击
+                        hotelViewHolder.mask.setVisibility(View.VISIBLE);
+                        hotelViewHolder.info.setVisibility(View.VISIBLE);
+                        hotelViewHolder.map.setVisibility(View.VISIBLE);
+                        hotelViewHolder.selectHotel.setVisibility(View.GONE);
+                        break;
                 }
                 break;
             case TRAFFIC:
                 TrafficViewHolder trafficViewHolder = (TrafficViewHolder) viewHolder;
                 if (detailDispEntity.getTitle().equals("飞机")) {
                     trafficViewHolder.selectResult.setBackgroundResource(R.drawable.detail_disp_traffic_plane);
+                    trafficViewHolder.lytrafficCollect.setBackgroundResource(R.drawable.detail_disp_traffic_select_plane);
+                    trafficViewHolder.plane.setTextColor(ctx.getResources().getColor(R.color.price));
+                    trafficViewHolder.train.setTextColor(ctx.getResources().getColor(R.color.not_clicked));
                 } else {
                     trafficViewHolder.selectResult.setBackgroundResource(R.drawable.detail_disp_traffic_train);
+                    trafficViewHolder.lytrafficCollect.setBackgroundResource(R.drawable.detail_disp_traffic_select_train);
+                    trafficViewHolder.plane.setTextColor(ctx.getResources().getColor(R.color.not_clicked));
+                    trafficViewHolder.train.setTextColor(ctx.getResources().getColor(R.color.price));
                 }
                 trafficViewHolder.trafficTime.setText(detailDispEntity.getTime());
 
-                if (detailDispEntity.getEdited() == 0) {
-                    trafficViewHolder.selectResultMask.setVisibility(View.VISIBLE);
-                    trafficViewHolder.trafficTimeMask.setVisibility(View.VISIBLE);
-                } else {
-                    trafficViewHolder.selectResultMask.setVisibility(View.GONE);
-                    trafficViewHolder.trafficTimeMask.setVisibility(View.GONE);
+                switch (detailDispEntity.getEdited()) {
+                    case STATUS_DISP:
+                        trafficViewHolder.selectResultMask.setVisibility(View.GONE);
+                        trafficViewHolder.trafficTimeMask.setVisibility(View.GONE);
+                        trafficViewHolder.lytrafficCollect.setVisibility(View.GONE);
+                        trafficViewHolder.flTrafficDisp.setVisibility(View.VISIBLE);
+                        break;
+                    case STATUS_EDIT:
+                        trafficViewHolder.selectResultMask.setVisibility(View.GONE);
+                        trafficViewHolder.trafficTimeMask.setVisibility(View.GONE);
+                        trafficViewHolder.lytrafficCollect.setVisibility(View.VISIBLE);
+                        trafficViewHolder.flTrafficDisp.setVisibility(View.GONE);
+                        break;
+                    case STATUS_CANNOT_EDIT:
+                        trafficViewHolder.selectResultMask.setVisibility(View.VISIBLE);
+                        trafficViewHolder.trafficTimeMask.setVisibility(View.VISIBLE);
+                        trafficViewHolder.lytrafficCollect.setVisibility(View.GONE);
+                        trafficViewHolder.flTrafficDisp.setVisibility(View.VISIBLE);
+                        break;
                 }
 
-                if (i == mList.size()-2) {
+                if (i == trafficEnd) {
                     trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_end);
                 } else {
                     trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_start);
@@ -210,10 +241,12 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
         public TextView info;
         public TextView map;
         public ImageView mask;
+        public ImageView avatar;
 
         public SightViewHolder(View itemView) {
             super(itemView);
             rlSight = (FrameLayout) itemView.findViewById(R.id.travel_item_detail_disp_sight_bk);
+            avatar = (ImageView)  itemView.findViewById(R.id.sight_avatar);
             title = (TextView) itemView.findViewById(R.id.detail_disp_sight_title);
             info = (TextView) itemView.findViewById(R.id.detail_disp_sight_info);
             map = (TextView) itemView.findViewById(R.id.detail_disp_sight_map);
@@ -235,10 +268,12 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
         public TextView map;
         public TextView selectHotel;
         public ImageView mask;
+        public ImageView avatar;
 
         public HotelViewHolder(View itemView) {
             super(itemView);
             rlHotel = (FrameLayout) itemView.findViewById(R.id.travel_item_detail_disp_hotel_bk);
+            avatar = (ImageView)  itemView.findViewById(R.id.hotel_avatar);
             title = (TextView) itemView.findViewById(R.id.detail_disp_hotel_title);
             info = (TextView) itemView.findViewById(R.id.detail_disp_hotel_info);
             map = (TextView) itemView.findViewById(R.id.detail_disp_hotel_map);
@@ -260,6 +295,8 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
         public TextView plane;
         public TextView train;
         public ImageView selectResultMask;
+        public FrameLayout flTrafficDisp;
+        public LinearLayout lytrafficCollect;
         public LinearLayout lytrafficTime;
         public TextView trafficTime;
         public ImageView trafficTimeMask;
@@ -270,6 +307,8 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
             selectResultMask = (ImageView) itemView.findViewById(R.id.detail_disp_traffic_select_result_mask);
             plane = (TextView) itemView.findViewById(R.id.detail_disp_traffic_plane);
             train = (TextView) itemView.findViewById(R.id.detail_disp_traffic_train);
+            flTrafficDisp = (FrameLayout) itemView.findViewById(R.id.fl_detail_disp_traffic_disp);
+            lytrafficCollect = (LinearLayout) itemView.findViewById(R.id.ly_detail_disp_traffic_collect);
             lytrafficTime = (LinearLayout) itemView.findViewById(R.id.detail_disp_traffic_time);
             trafficTime = (TextView) itemView.findViewById(R.id.detail_disp_traffic_time_result);
 

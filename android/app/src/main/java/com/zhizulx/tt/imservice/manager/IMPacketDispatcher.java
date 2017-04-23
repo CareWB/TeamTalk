@@ -9,6 +9,7 @@ import com.zhizulx.tt.protobuf.IMMessage;
 import com.zhizulx.tt.utils.Logger;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 /**
  * yingmu
@@ -82,21 +83,37 @@ public class IMPacketDispatcher {
                 IMBuddy.QueryMyTravelRsp queryMyTravelRsp = IMBuddy.QueryMyTravelRsp.parseFrom(buffer);
                 IMTravelManager.instance().onRspTravelList(queryMyTravelRsp);
                 return;
-            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE_VALUE:
+/*            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_CREATE_RESPONSE_VALUE:
                 IMBuddy.CreateMyTravelRsp createMyTravelRsp = IMBuddy.CreateMyTravelRsp.parseFrom(buffer);
                 IMTravelManager.instance().onRspCreateTravel(createMyTravelRsp);
-                return;
+                return;*/
             case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_DELETE_RESPONSE_VALUE:
                 IMBuddy.DeleteMyTravelRsp deleteMyTravelRsp = IMBuddy.DeleteMyTravelRsp.parseFrom(buffer);
                 IMTravelManager.instance().onRspDelTravel(deleteMyTravelRsp);
                 return;
-            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_RESPONSE_VALUE:
+/*            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_TRANSPORT_TOOL_RESPONSE_VALUE:
                 IMBuddy.GetTransportToolRsp getTransportToolRsp = IMBuddy.GetTransportToolRsp.parseFrom(buffer);
                 IMTravelManager.instance().onRspTravelRoute(getTransportToolRsp);
+                return;*/
+
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_RADOM_ROUTE_QUERY_RESPONSE_VALUE:
+                IMBuddy.NewQueryRadomRouteRsp newQueryRadomRouteRsp = IMBuddy.NewQueryRadomRouteRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspGetRandomRoute(newQueryRadomRouteRsp);
+                return;
+
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_RESPONSE_VALUE:
+                IMBuddy.NewUpdateRadomRouteRsp newUpdateRadomRouteRsp = IMBuddy.NewUpdateRadomRouteRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspUpdateRandomRoute(newUpdateRadomRouteRsp);
+                return;
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_NEW_TRAVEL_CREATE_RESPONSE_VALUE:
+                IMBuddy.NewCreateMyTravelRsp newCreateMyTravelRsp = IMBuddy.NewCreateMyTravelRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspCreateRoute(newCreateMyTravelRsp);
                 return;
             }
         } catch (IOException e) {
             logger.e("buddyPacketDispatcher# error,cid:%d",commandId);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 

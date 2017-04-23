@@ -76,6 +76,7 @@ public class SystemConfigSp {
         DISCOVERYDATA,
         MSFSSERVER,
         LOCAL_CITY,
-        AVATAR_UPLOAD_URL
+        AVATAR_UPLOAD_URL,
+        DBInit
     }
 }

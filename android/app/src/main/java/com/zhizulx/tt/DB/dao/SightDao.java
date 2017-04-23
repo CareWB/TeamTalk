@@ -30,14 +30,14 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         public final static Property Pic = new Property(4, String.class, "pic", false, "PIC");
         public final static Property Star = new Property(5, int.class, "star", false, "STAR");
         public final static Property Tag = new Property(6, String.class, "tag", false, "TAG");
-        public final static Property Free = new Property(7, int.class, "free", false, "FREE");
-        public final static Property MustGo = new Property(8, int.class, "mustGo", false, "MUST_GO");
-        public final static Property OpenTime = new Property(9, String.class, "openTime", false, "OPEN_TIME");
-        public final static Property PlayTime = new Property(10, int.class, "playTime", false, "PLAY_TIME");
-        public final static Property Introduction = new Property(11, String.class, "introduction", false, "INTRODUCTION");
-        public final static Property Address = new Property(12, String.class, "address", false, "ADDRESS");
-        public final static Property Longitude = new Property(13, double.class, "longitude", false, "LONGITUDE");
-        public final static Property Latitude = new Property(14, double.class, "latitude", false, "LATITUDE");
+        public final static Property MustGo = new Property(7, int.class, "mustGo", false, "MUST_GO");
+        public final static Property OpenTime = new Property(8, String.class, "openTime", false, "OPEN_TIME");
+        public final static Property PlayTime = new Property(9, int.class, "playTime", false, "PLAY_TIME");
+        public final static Property Price = new Property(10, int.class, "price", false, "PRICE");
+        public final static Property Longitude = new Property(11, double.class, "longitude", false, "LONGITUDE");
+        public final static Property Latitude = new Property(12, double.class, "latitude", false, "LATITUDE");
+        public final static Property Address = new Property(13, String.class, "address", false, "ADDRESS");
+        public final static Property Introduction = new Property(14, String.class, "introduction", false, "INTRODUCTION");
         public final static Property StartTime = new Property(15, String.class, "startTime", false, "START_TIME");
         public final static Property EndTime = new Property(16, String.class, "endTime", false, "END_TIME");
         public final static Property Select = new Property(17, int.class, "select", false, "SELECT");
@@ -67,14 +67,14 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
                 "'PIC' TEXT NOT NULL ," + // 4: pic
                 "'STAR' INTEGER NOT NULL ," + // 5: star
                 "'TAG' TEXT NOT NULL ," + // 6: tag
-                "'FREE' INTEGER NOT NULL ," + // 7: free
-                "'MUST_GO' INTEGER NOT NULL ," + // 8: mustGo
-                "'OPEN_TIME' TEXT NOT NULL ," + // 9: openTime
-                "'PLAY_TIME' INTEGER NOT NULL ," + // 10: playTime
-                "'INTRODUCTION' TEXT NOT NULL ," + // 11: introduction
-                "'ADDRESS' TEXT NOT NULL ," + // 12: address
-                "'LONGITUDE' REAL NOT NULL ," + // 13: longitude
-                "'LATITUDE' REAL NOT NULL ," + // 14: latitude
+                "'MUST_GO' INTEGER NOT NULL ," + // 7: mustGo
+                "'OPEN_TIME' TEXT NOT NULL ," + // 8: openTime
+                "'PLAY_TIME' INTEGER NOT NULL ," + // 9: playTime
+                "'PRICE' INTEGER NOT NULL ," + // 10: price
+                "'LONGITUDE' REAL NOT NULL ," + // 11: longitude
+                "'LATITUDE' REAL NOT NULL ," + // 12: latitude
+                "'ADDRESS' TEXT NOT NULL ," + // 13: address
+                "'INTRODUCTION' TEXT NOT NULL ," + // 14: introduction
                 "'START_TIME' TEXT NOT NULL ," + // 15: startTime
                 "'END_TIME' TEXT NOT NULL ," + // 16: endTime
                 "'SELECT' INTEGER NOT NULL ," + // 17: select
@@ -105,14 +105,14 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         stmt.bindString(5, entity.getPic());
         stmt.bindLong(6, entity.getStar());
         stmt.bindString(7, entity.getTag());
-        stmt.bindLong(8, entity.getFree());
-        stmt.bindLong(9, entity.getMustGo());
-        stmt.bindString(10, entity.getOpenTime());
-        stmt.bindLong(11, entity.getPlayTime());
-        stmt.bindString(12, entity.getIntroduction());
-        stmt.bindString(13, entity.getAddress());
-        stmt.bindDouble(14, entity.getLongitude());
-        stmt.bindDouble(15, entity.getLatitude());
+        stmt.bindLong(8, entity.getMustGo());
+        stmt.bindString(9, entity.getOpenTime());
+        stmt.bindLong(10, entity.getPlayTime());
+        stmt.bindLong(11, entity.getPrice());
+        stmt.bindDouble(12, entity.getLongitude());
+        stmt.bindDouble(13, entity.getLatitude());
+        stmt.bindString(14, entity.getAddress());
+        stmt.bindString(15, entity.getIntroduction());
         stmt.bindString(16, entity.getStartTime());
         stmt.bindString(17, entity.getEndTime());
         stmt.bindLong(18, entity.getSelect());
@@ -139,14 +139,14 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
             cursor.getString(offset + 4), // pic
             cursor.getInt(offset + 5), // star
             cursor.getString(offset + 6), // tag
-            cursor.getInt(offset + 7), // free
-            cursor.getInt(offset + 8), // mustGo
-            cursor.getString(offset + 9), // openTime
-            cursor.getInt(offset + 10), // playTime
-            cursor.getString(offset + 11), // introduction
-            cursor.getString(offset + 12), // address
-            cursor.getDouble(offset + 13), // longitude
-            cursor.getDouble(offset + 14), // latitude
+            cursor.getInt(offset + 7), // mustGo
+            cursor.getString(offset + 8), // openTime
+            cursor.getInt(offset + 9), // playTime
+            cursor.getInt(offset + 10), // price
+            cursor.getDouble(offset + 11), // longitude
+            cursor.getDouble(offset + 12), // latitude
+            cursor.getString(offset + 13), // address
+            cursor.getString(offset + 14), // introduction
             cursor.getString(offset + 15), // startTime
             cursor.getString(offset + 16), // endTime
             cursor.getInt(offset + 17), // select
@@ -168,14 +168,14 @@ public class SightDao extends AbstractDao<SightEntity, Long> {
         entity.setPic(cursor.getString(offset + 4));
         entity.setStar(cursor.getInt(offset + 5));
         entity.setTag(cursor.getString(offset + 6));
-        entity.setFree(cursor.getInt(offset + 7));
-        entity.setMustGo(cursor.getInt(offset + 8));
-        entity.setOpenTime(cursor.getString(offset + 9));
-        entity.setPlayTime(cursor.getInt(offset + 10));
-        entity.setIntroduction(cursor.getString(offset + 11));
-        entity.setAddress(cursor.getString(offset + 12));
-        entity.setLongitude(cursor.getDouble(offset + 13));
-        entity.setLatitude(cursor.getDouble(offset + 14));
+        entity.setMustGo(cursor.getInt(offset + 7));
+        entity.setOpenTime(cursor.getString(offset + 8));
+        entity.setPlayTime(cursor.getInt(offset + 9));
+        entity.setPrice(cursor.getInt(offset + 10));
+        entity.setLongitude(cursor.getDouble(offset + 11));
+        entity.setLatitude(cursor.getDouble(offset + 12));
+        entity.setAddress(cursor.getString(offset + 13));
+        entity.setIntroduction(cursor.getString(offset + 14));
         entity.setStartTime(cursor.getString(offset + 15));
         entity.setEndTime(cursor.getString(offset + 16));
         entity.setSelect(cursor.getInt(offset + 17));

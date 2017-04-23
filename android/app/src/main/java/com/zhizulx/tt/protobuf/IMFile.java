@@ -380,7 +380,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileLoginReq)
         com.zhizulx.tt.protobuf.IMFile.IMFileLoginReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileLoginReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileLoginReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -985,7 +985,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileLoginRsp)
         com.zhizulx.tt.protobuf.IMFile.IMFileLoginRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileLoginRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileLoginRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1590,7 +1590,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileState)
         com.zhizulx.tt.protobuf.IMFile.IMFileStateOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileState.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileState.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2333,7 +2333,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFilePullDataReq)
         com.zhizulx.tt.protobuf.IMFile.IMFilePullDataReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFilePullDataReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFilePullDataReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3159,7 +3159,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFilePullDataRsp)
         com.zhizulx.tt.protobuf.IMFile.IMFilePullDataRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFilePullDataRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFilePullDataRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3984,7 +3984,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileReq)
         com.zhizulx.tt.protobuf.IMFile.IMFileReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4425,7 +4425,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 6;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.IpAddr>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.IpAddr> 
         getIpAddrListList();
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 6;</code>
@@ -4727,7 +4727,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 6;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.IpAddrOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.IpAddrOrBuilder> 
         getIpAddrListOrBuilderList() {
       return ipAddrList_;
     }
@@ -4957,7 +4957,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileRsp)
         com.zhizulx.tt.protobuf.IMFile.IMFileRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5637,7 +5637,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 6;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.IpAddr>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.IpAddr> 
         getIpAddrListList();
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 6;</code>
@@ -5961,7 +5961,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 6;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.IpAddrOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.IpAddrOrBuilder> 
         getIpAddrListOrBuilderList() {
       return ipAddrList_;
     }
@@ -6226,7 +6226,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileNotify)
         com.zhizulx.tt.protobuf.IMFile.IMFileNotifyOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileNotify.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileNotify.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7184,7 +7184,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileHasOfflineReq)
         com.zhizulx.tt.protobuf.IMFile.IMFileHasOfflineReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileHasOfflineReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileHasOfflineReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7394,7 +7394,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.OfflineFileInfo offline_file_list = 2;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.OfflineFileInfo>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.OfflineFileInfo> 
         getOfflineFileListList();
     /**
      * <code>repeated .IM.BaseDefine.OfflineFileInfo offline_file_list = 2;</code>
@@ -7408,7 +7408,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 3;</code>
      */
-    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.IpAddr>
+    java.util.List<com.zhizulx.tt.protobuf.IMBaseDefine.IpAddr> 
         getIpAddrListList();
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 3;</code>
@@ -7578,7 +7578,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.OfflineFileInfo offline_file_list = 2;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.OfflineFileInfoOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.OfflineFileInfoOrBuilder> 
         getOfflineFileListOrBuilderList() {
       return offlineFileList_;
     }
@@ -7613,7 +7613,7 @@ public final class IMFile {
     /**
      * <code>repeated .IM.BaseDefine.IpAddr ip_addr_list = 3;</code>
      */
-    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.IpAddrOrBuilder>
+    public java.util.List<? extends com.zhizulx.tt.protobuf.IMBaseDefine.IpAddrOrBuilder> 
         getIpAddrListOrBuilderList() {
       return ipAddrList_;
     }
@@ -7805,7 +7805,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileHasOfflineRsp)
         com.zhizulx.tt.protobuf.IMFile.IMFileHasOfflineRspOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileHasOfflineRsp.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileHasOfflineRsp.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8767,7 +8767,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileAddOfflineReq)
         com.zhizulx.tt.protobuf.IMFile.IMFileAddOfflineReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileAddOfflineReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileAddOfflineReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9546,7 +9546,7 @@ public final class IMFile {
         implements
         // @@protoc_insertion_point(builder_implements:IM.File.IMFileDelOfflineReq)
         com.zhizulx.tt.protobuf.IMFile.IMFileDelOfflineReqOrBuilder {
-      // Construct using com.mogujie.tt.protobuf.IMFile.IMFileDelOfflineReq.newBuilder()
+      // Construct using com.zhizulx.tt.protobuf.IMFile.IMFileDelOfflineReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }

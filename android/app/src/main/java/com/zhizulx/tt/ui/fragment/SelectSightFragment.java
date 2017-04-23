@@ -1,12 +1,15 @@
 package com.zhizulx.tt.ui.fragment;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,7 @@ import android.widget.TextView;
 import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.UrlConstant;
+import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
@@ -31,11 +35,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * 设置页面
  */
 public class SelectSightFragment extends TTBaseFragment{
 	private View curView = null;
+    private Intent intent;
     private IMTravelManager travelManager;
     private TextView total;
     private TextView literature;
@@ -53,10 +60,12 @@ public class SelectSightFragment extends TTBaseFragment{
     private TextView notScreen;
     private TextView free;
     private LinearLayout lyPop;
+    private Dialog dialog;
     static final int ALL = 0;
     static final int FREE = 1;
     private int spinner_select = ALL;
     private TextView selectSightDropText;
+    private List<Integer> origin = new ArrayList<>();
 
     private Map<Integer, String> selectFlag = new HashMap<>();
 
@@ -80,6 +89,8 @@ public class SelectSightFragment extends TTBaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		imServiceConnector.connect(this.getActivity());
+        EventBus.getDefault().register(this);
+        intent = getActivity().getIntent();
 		if (null != curView) {
 			((ViewGroup) curView.getParent()).removeView(curView);
 			return curView;
@@ -102,23 +113,13 @@ public class SelectSightFragment extends TTBaseFragment{
     public void onDestroy() {
         super.onDestroy();
         imServiceConnector.disconnect(getActivity());
+        EventBus.getDefault().unregister(this);
     }
 
 	@Override
 	public void onResume() {
 		super.onResume();
 	}
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == Activity.RESULT_FIRST_USER){
-            switch (resultCode) {
-                case 100:
-                    break;
-            }
-        }
-    }
 
 	/**
 	 * @Description 初始化资源
@@ -130,11 +131,9 @@ public class SelectSightFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-                Intent intent = new Intent();
-                intent.putExtra("selectSight", 1);
-                getActivity().setResult(101, intent);
-                getActivity().finish();
-                return;
+                updateRoute();
+                dialog = TravelUIHelper.showCalculateDialog(getActivity());
+                mHandler.postDelayed(runnable, 10000);
 			}
 		});
 
@@ -231,10 +230,13 @@ public class SelectSightFragment extends TTBaseFragment{
 
     private void initSightList() {
         sightEntityList.clear();
-        sightEntityList.addAll(travelManager.getSightList());
-        for (SightEntity sightEntity:sightEntityList) {
-            if (sightEntity.getMustGo() == 1) {
-                sightEntity.setSelect(1);
+        String cityCode = travelManager.getRouteEntity().getCityCode();
+        for (SightEntity sightEntity : travelManager.getSightList()) {
+            if (sightEntity.getCityCode().equals(cityCode)) {
+                sightEntityList.add(sightEntity);
+                if (sightEntity.getSelect() == 1) {
+                    origin.add(sightEntity.getPeerId());
+                }
             }
         }
 
@@ -412,7 +414,7 @@ public class SelectSightFragment extends TTBaseFragment{
             selectSightDropText.setText(getString(R.string.select_sight_free));
             Iterator<SightEntity> iSightEntity = tagSightEntityList.iterator();
             while (iSightEntity.hasNext()) {
-                if (iSightEntity.next().getFree() == 0) {
+                if (iSightEntity.next().getPrice() != 0) {
                     iSightEntity.remove();
                 }
             }
@@ -489,4 +491,54 @@ public class SelectSightFragment extends TTBaseFragment{
         notScreen.setOnClickListener(popupListener);
         free.setOnClickListener(popupListener);
     }
+
+    private void updateRoute() {
+        List<Integer> newSightIDList = new ArrayList<>();
+        for (SightEntity sightEntity : sightEntityList) {
+            if (sightEntity.getSelect() == 1) {
+                newSightIDList.add(sightEntity.getPeerId());
+            }
+        }
+        if (newSightIDList.equals(origin)) {
+            getActivity().finish();
+            return;
+        }
+        travelManager.reqUpdateRandomRoute(newSightIDList);
+    }
+
+    public void onEventMainThread(TravelEvent event){
+        switch (event.getEvent()){
+            case UPDATE_RANDOM_ROUTE_OK:
+                mHandler.removeCallbacks(runnable);
+                dialog.dismiss();
+                if (getFragmentManager().getBackStackEntryCount() == 0) {
+                    intent.putExtra("result", true);
+                    getActivity().setResult(102, intent);
+                    getActivity().finish();
+                    return;
+                }
+                break;
+            case UPDATE_RANDOM_ROUTE_FAIL:
+                Log.e("yuki", "UPDATE_RANDOM_ROUTE_FAIL");
+                mHandler.removeCallbacks(runnable);
+                dialog.dismiss();
+                if (getFragmentManager().getBackStackEntryCount() == 0) {
+                    intent.putExtra("result", false);
+                    getActivity().setResult(102, intent);
+                    getActivity().finish();
+                    return;
+                }
+                break;
+        }
+    }
+
+    private Handler mHandler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (dialog != null) {
+                dialog.dismiss();
+            }
+        }
+    };
 }

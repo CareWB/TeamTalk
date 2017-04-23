@@ -12,6 +12,7 @@
         android:id="@+id/ly_select_switch"
         android:layout_marginTop="@dimen/select_place_top_bottom"
         android:layout_marginBottom="@dimen/select_place_top_bottom"
+        android:visibility="gone"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/select_place_left">
 
@@ -44,6 +45,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_hot"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -77,6 +79,7 @@
         android:layout_height="65dp"
         android:paddingLeft="@dimen/base_left_right_pad"
         android:paddingRight="@dimen/base_left_right_pad"
+        android:visibility="gone"
         android:background="@drawable/select_place_ok_bk">
 
         <android.support.v7.widget.RecyclerView
