@@ -1217,6 +1217,7 @@ DROP TABLE IF EXISTS `IMRoute`;
 CREATE TABLE `IMRoute` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) unsigned NOT NULL COMMENT '用户id',
+  `lineId` int(11) unsigned NOT NULL COMMENT '线路编号',
   `cityCode` varchar(8) COLLATE utf8mb4_bin NOT NULL COMMENT '所属城市编码',
   `dayCount` int(11) unsigned NOT NULL COMMENT '游玩几天',
   `startTool` int(11) unsigned NOT NULL COMMENT '起程交通工具',

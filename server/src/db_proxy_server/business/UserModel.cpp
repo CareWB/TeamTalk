@@ -764,6 +764,8 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
         }
     }
 
+    log("tag:%s", tag.c_str());
+
     CDBManager* pDBManager = CDBManager::getInstance();
     CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
     if (!pDBConn)
@@ -773,9 +775,10 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     CResultSet* pResultSet = NULL;
-    string strSql = "select * from IMRoute where quality=''" + tag + "'' order by dayNum";
+    //string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
+    string strSql = "select * from IMRoute order by lineId, dayNum";
+    log("sql = %s", strSql.c_str());
     int i = 0;
-    bool data_exist = false;
 
 
     pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
@@ -783,6 +786,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     {
         IM::Buddy::Route *route = NULL;
         IM::Buddy::DayRoute* dayRoute = NULL;
+        int lineId = 0;
         int day_num = 0;
         int i = 0;
 
@@ -793,21 +797,22 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
                 break;
             }
 
-            if (day_num == 0 && pResultSet->GetInt("dayNum") <= day_num)
+            if (lineId == 0 || pResultSet->GetInt("lineId") != lineId)
             {
                 route = pb->add_routes();
                 i++;
             }
 
-            day_num = pResultSet->GetInt("dayNum");
+            lineId = pResultSet->GetInt("lineId");
             route->set_day_count(pResultSet->GetInt("dayCount"));
             route->set_city_code(pResultSet->GetString("cityCode"));
-            //route->set_quality(pResultSet->GetString("quality"));
+            route->set_tag(pResultSet->GetString("quality"));
             route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
             route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
             route->set_start_time(pResultSet->GetString("startTime"));
             route->set_end_time(pResultSet->GetString("endTime"));
             dayRoute = route->add_day_routes();
+            bRet = true;
             
             char *p;
             const char* sep = " ";
@@ -826,7 +831,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
     }
 
     pDBManager->RelDBConn(pDBConn);
-
+    log("exit.");
     return bRet;
 }
 
@@ -852,7 +857,15 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
     }
     
     string tmp;
-    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s', 'startTool':%d, 'endTool':%d, 'endTool':%d, 'startTime':'%s', 'endTime':'%s'}", user_id, req->city_code().c_str(), req->day_count(), req->tag().c_str(), req->start_transport_tool(), req->end_transport_tool(), req->start_time().c_str(), req->end_time().c_str());
+    string scenicList;
+
+    for (int i = 0; i < req->scenic_ids_size(); ++i)
+    {
+        scenicList += int2string(req->scenic_ids(i)) + " ";
+    }
+    
+
+    tmp = string_fmt(tmp, "{'cmd':'create', 'userId':%d, 'cityCode':'%s', 'dayCount':%d, 'tags':'%s', 'startTool':%d, 'endTool':%d, 'startTime':'%s', 'endTime':'%s', 'scenicList':'%s'}", user_id, req->city_code().c_str(), req->day_count(), req->tag().c_str(), req->start_transport_tool(), req->end_transport_tool(), req->start_time().c_str(), req->end_time().c_str(), scenicList.c_str());
     long ret = pCacheConn->pub("route", tmp);
     if (-1 == ret)
     {
@@ -864,6 +877,7 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
 
     CResultSet* pResultSet = NULL;
     string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id) + " order by dayNum";
+    log("strSql:%s", strSql.c_str());
     int i = 0;
     bool data_exist = false;
 
@@ -881,7 +895,7 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
                 route = pb->mutable_route();
                 route->set_day_count(pResultSet->GetInt("dayCount"));
                 route->set_city_code(pResultSet->GetString("cityCode"));
-                //route->set_quality(pResultSet->GetString("quality"));
+                route->set_tag(pResultSet->GetString("quality"));
                 route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
                 route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
                 route->set_start_time(pResultSet->GetString("startTime"));
@@ -910,14 +924,14 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
             break;
         }
 
-        printf("no data find, try again. %d", i++);
-        if (i >= 30)
+        log("no data find, try again. %d", i++);
+        if (i >= 100)
         {
             bRet = false;
             break;
         }
 
-        usleep(1000);
+        sleep(1);
     }
 
     tmp = string_fmt(tmp, "{'cmd':'finish', 'userId':%d}", user_id);
@@ -969,11 +983,13 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
 
     CResultSet* pResultSet = NULL;
     string strSql = "select * from IMRoute where status=0 and userId=" + int2string(user_id) + " order by dayNum";
+    log("strSql:%s", strSql.c_str());
     int i = 0;
     bool data_exist = false;
 
     while (1)
     {
+        
         pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
         if (pResultSet)
         {
@@ -982,10 +998,11 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
 
             while (pResultSet->Next())
             {
+                data_exist = true;
                 route = pb->mutable_route();
                 route->set_day_count(pResultSet->GetInt("dayCount"));
                 route->set_city_code(pResultSet->GetString("cityCode"));
-                //route->set_quality(pResultSet->GetString("quality"));
+                route->set_tag(pResultSet->GetString("quality"));
                 route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
                 route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
                 route->set_start_time(pResultSet->GetString("startTime"));
@@ -999,6 +1016,7 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
                     dayRoute->add_scenics(atoi(p));
                     p = strtok(NULL, sep);
                 }
+                dayRoute->add_scenics(1);
 
                 p = strtok(pResultSet->GetString("hotels"), sep);
                 while(p){
@@ -1014,14 +1032,14 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
             break;
         }
 
-        printf("no data find, try again. %d", i++);
-        if (i >= 30)
+        log("no data find, try again. %d", i++);
+        if (i >= 100)
         {
             bRet = false;
             break;
         }
 
-        usleep(1000);
+        sleep(1);
     }
 
     tmp = string_fmt(tmp, "{'cmd':'finish', 'userId':%d}", user_id);
@@ -1030,6 +1048,7 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
     pDBManager->RelDBConn(pDBConn);
     pCacheManager->RelCacheConn(pCacheConn);
 
+    log("exit.");
     return bRet;
 }
 
