@@ -1326,5 +1326,24 @@ bool CUserModel::deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_id
     return bRet;
 }
 
+bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollectRouteReq* req, IM::Buddy::NewCreateCollectRouteRsp* pb) {
+    log("enter.");
+    bool bRet = true;
 
+    return bRet;
+}
+
+bool CUserModel::deleteCollectRoute(uint32_t user_id, IM::Buddy::NewDelCollectRouteReq* req, IM::Buddy::NewDelCollectRouteRsp* pb) {
+    log("enter.");
+    bool bRet = true;
+
+    return bRet;
+}
+
+bool CUserModel::queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectRouteReq* req, IM::Buddy::NewQueryCollectRouteRsp* pb) {
+    log("enter.");
+    bool bRet = true;
+
+    return bRet;
+}
 

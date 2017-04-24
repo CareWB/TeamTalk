@@ -371,6 +371,15 @@ void CMsgConn::HandlePdu(CImPdu* pPdu)
         case CID_BUDDY_LIST_TRAVEL_UPDATE_REQUEST:
             _HandleUpdateTravelRequest(pPdu);
             break;
+        case CID_BUDDY_LIST_NEW_CREATE_COLLECT_ROUTE_REQUEST:
+            _HandleCreateCollectRouteRequest(pPdu);
+            break;
+        case CID_BUDDY_LIST_NEW_DELETE_COLLECT_ROUTE_REQUEST:
+            _HandleDeleteCollectRouteRequest(pPdu);
+            break;
+        case CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_REQUEST:
+            _HandleQueryCollectRouteRequest(pPdu);
+            break;
         case CID_BUDDY_LIST_TRAVEL_DELETE_REQUEST:
             _HandleDeleteTravelRequest(pPdu);
             break;

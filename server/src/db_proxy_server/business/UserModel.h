@@ -41,6 +41,9 @@ public:
     bool queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRouteReq* req, IM::Buddy::NewQueryRadomRouteRsp* pb);
     bool updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRouteReq* req, IM::Buddy::NewUpdateRadomRouteRsp* pb);
     bool newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelReq* req, IM::Buddy::NewCreateMyTravelRsp* pb);
+    bool createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollectRouteReq* req, IM::Buddy::NewCreateCollectRouteRsp* pb);
+    bool deleteCollectRoute(uint32_t user_id, IM::Buddy::NewDelCollectRouteReq* req, IM::Buddy::NewDelCollectRouteRsp* pb);
+    bool queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectRouteReq* req, IM::Buddy::NewQueryCollectRouteRsp* pb);
     bool queryTravelDetail(uint32_t user_id, IM::Buddy::QueryMyTravelRsp& rsp);
     bool deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_idx_list);
     uint32_t updateTravelDetail(uint32_t user_id, IM::Buddy::UpdateMyTravelReq* pb);

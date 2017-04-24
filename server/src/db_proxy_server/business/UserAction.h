@@ -30,6 +30,9 @@ namespace DB_PROXY {
     void queryTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
     void deleteTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
     void updateTravelDetail(CImPdu* pPdu, uint32_t conn_uuid);
+    void createCollectRoute(CImPdu* pPdu, uint32_t conn_uuid);
+    void deleteCollectRoute(CImPdu* pPdu, uint32_t conn_uuid);
+    void queryCollectRoute(CImPdu* pPdu, uint32_t conn_uuid);
 };
 
 

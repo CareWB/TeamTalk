@@ -406,6 +406,87 @@ msgResp.set_user_id(from_user_id);
         }
     }
 
+    void createCollectRoute(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("enter.");
+        IM::Buddy::NewCreateCollectRouteReq req;
+        IM::Buddy::NewCreateCollectRouteRsp rsp;
+        if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
+            uint32_t user_id = req.user_id();
+            
+            bool result = CUserModel::getInstance()->createCollectRoute(user_id, &req, &rsp);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(result ? 0 : 1);
+            if ( ! result) {
+                log(" false, user_id=%u", user_id);
+            }
+            
+            CImPdu* pdu_resp = new CImPdu();
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
+            pdu_resp->SetSeqNum(pPdu->GetSeqNum());
+            pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_NEW_CREATE_COLLECT_ROUTE_RESPONSE);
+            CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
+            
+        } else {
+            log("ParseFromArray failed!!!");
+        }
+    }
+
+    void deleteCollectRoute(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("enter.");
+        IM::Buddy::NewDelCollectRouteReq req;
+        IM::Buddy::NewDelCollectRouteRsp rsp;
+        if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
+            uint32_t user_id = req.user_id();
+            
+            bool result = CUserModel::getInstance()->deleteCollectRoute(user_id, &req, &rsp);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(result ? 0 : 1);
+            if ( ! result) {
+                log(" false, user_id=%u", user_id);
+            }
+            
+            CImPdu* pdu_resp = new CImPdu();
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
+            pdu_resp->SetSeqNum(pPdu->GetSeqNum());
+            pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_NEW_DELETE_COLLECT_ROUTE_RESPONSE);
+            CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
+            
+        } else {
+            log("ParseFromArray failed!!!");
+        }
+    }
+
+    void queryCollectRoute(CImPdu* pPdu, uint32_t conn_uuid) {
+        log("enter.");
+        IM::Buddy::NewQueryCollectRouteReq req;
+        IM::Buddy::NewQueryCollectRouteRsp rsp;
+        if(req.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength())) {
+            uint32_t user_id = req.user_id();
+            
+            bool result = CUserModel::getInstance()->queryCollectRoute(user_id, &req, &rsp);
+            rsp.set_user_id(user_id);
+            rsp.set_result_code(result ? 0 : 1);
+            if ( ! result) {
+                log(" false, user_id=%u", user_id);
+            }
+            
+            CImPdu* pdu_resp = new CImPdu();
+            rsp.set_attach_data(req.attach_data());
+            pdu_resp->SetPBMsg(&rsp);
+            pdu_resp->SetSeqNum(pPdu->GetSeqNum());
+            pdu_resp->SetServiceId(IM::BaseDefine::SID_BUDDY_LIST);
+            pdu_resp->SetCommandId(IM::BaseDefine::CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_RESPONSE);
+            CProxyConn::AddResponsePdu(conn_uuid, pdu_resp);
+            
+        } else {
+            log("ParseFromArray failed!!!");
+        }
+    }
+
     void queryTravelDetail(CImPdu* pPdu, uint32_t conn_uuid) {
         log("enter.");
         IM::Buddy::QueryMyTravelReq req;
