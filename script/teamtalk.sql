@@ -1237,10 +1237,40 @@ CREATE TABLE `IMRoute` (
 -- Dumping data for table `IMRoute`
 --
 
-LOCK TABLES `IMRoute` WRITE;
-/*!40000 ALTER TABLE `IMRoute` DISABLE KEYS */;
-/*!40000 ALTER TABLE `IMRoute` ENABLE KEYS */;
+LOCK TABLES `IMCollectRoute` WRITE;
+/*!40000 ALTER TABLE `IMCollectRoute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `IMCollectRoute` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `IMCollectRoute`
+--
+
+DROP TABLE IF EXISTS `IMCollectRoute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `IMCollectRoute` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) unsigned NOT NULL COMMENT '用户id',
+  `lineId` int(11) unsigned NOT NULL COMMENT '线路编号',
+  `dateFrom` varchar(16) COLLATE utf8mb4_bin NOT NULL COMMENT '起始日期',
+  `dateTo` varchar(16) COLLATE utf8mb4_bin NOT NULL COMMENT '结束日期',
+  `startToolNo` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '编号',
+  `endToolNo` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '编号',
+  `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '0 is ok',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `IMCollectRoute`
+--
+
+LOCK TABLES `IMCollectRoute` WRITE;
+/*!40000 ALTER TABLE `IMCollectRoute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `IMCollectRoute` ENABLE KEYS */;
+UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

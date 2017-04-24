@@ -90,6 +90,9 @@ private:
     void _HandleQueryRadomRouteRequest(CImPdu* pPdu);
     void _HandleUpdateRadomRouteRequest(CImPdu* pPdu);
     void _HandleNewCreateTravelRequest(CImPdu* pPdu);
+    void _HandleCreateCollectRouteRequest(CImPdu* pPdu);
+    void _HandleDeleteCollectRouteRequest(CImPdu* pPdu);
+    void _HandleQueryCollectRouteRequest(CImPdu* pPdu);
 private:
     string          m_login_name;        //登录名拼音
     uint32_t        m_user_id;

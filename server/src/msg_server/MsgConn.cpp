@@ -1062,6 +1062,51 @@ void CMsgConn::_HandleDeleteTravelRequest(CImPdu *pPdu)
     }
 }
 
+void CMsgConn::_HandleCreateCollectRouteRequest(CImPdu *pPdu)
+{
+    IM::Buddy::NewCreateCollectRouteReq msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    log("user_id=%u.", GetUserId());
+    CDBServConn* pDBConn = get_db_serv_conn();
+    if (pDBConn) {
+        CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
+        msg.set_user_id(GetUserId());
+        msg.set_attach_data(attach.GetBuffer(), attach.GetLength());
+        pPdu->SetPBMsg(&msg);
+        pDBConn->SendPdu(pPdu);
+    }
+}
+
+void CMsgConn::_HandleDeleteCollectRouteRequest(CImPdu *pPdu)
+{
+    IM::Buddy::NewDelCollectRouteReq msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    log("user_id=%u.", GetUserId());
+    CDBServConn* pDBConn = get_db_serv_conn();
+    if (pDBConn) {
+        CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
+        msg.set_user_id(GetUserId());
+        msg.set_attach_data(attach.GetBuffer(), attach.GetLength());
+        pPdu->SetPBMsg(&msg);
+        pDBConn->SendPdu(pPdu);
+    }
+}
+
+void CMsgConn::_HandleQueryCollectRouteRequest(CImPdu *pPdu)
+{
+    IM::Buddy::NewQueryCollectRouteReq msg;
+    CHECK_PB_PARSE_MSG(msg.ParseFromArray(pPdu->GetBodyData(), pPdu->GetBodyLength()));
+    log("user_id=%u.", GetUserId());
+    CDBServConn* pDBConn = get_db_serv_conn();
+    if (pDBConn) {
+        CDbAttachData attach(ATTACH_TYPE_HANDLE, m_handle, 0);
+        msg.set_user_id(GetUserId());
+        msg.set_attach_data(attach.GetBuffer(), attach.GetLength());
+        pPdu->SetPBMsg(&msg);
+        pDBConn->SendPdu(pPdu);
+    }
+}
+
 
 void CMsgConn::_HandleClientDeviceToken(CImPdu *pPdu)
 {

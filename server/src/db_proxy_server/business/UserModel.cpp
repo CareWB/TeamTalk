@@ -804,9 +804,10 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
             }
 
             lineId = pResultSet->GetInt("lineId");
+            route->set_id(pResultSet->GetInt("lineId"));
             route->set_day_count(pResultSet->GetInt("dayCount"));
             route->set_city_code(pResultSet->GetString("cityCode"));
-            route->set_tag(pResultSet->GetString("quality"));
+            route->add_tag(pResultSet->GetString("quality"));
             route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
             route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
             route->set_start_time(pResultSet->GetString("startTime"));
@@ -893,9 +894,10 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
             {
                 data_exist = true;
                 route = pb->mutable_route();
+                route->set_id(pResultSet->GetInt("lineId"));
                 route->set_day_count(pResultSet->GetInt("dayCount"));
                 route->set_city_code(pResultSet->GetString("cityCode"));
-                route->set_tag(pResultSet->GetString("quality"));
+                route->add_tag(pResultSet->GetString("quality"));
                 route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
                 route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
                 route->set_start_time(pResultSet->GetString("startTime"));
@@ -1000,9 +1002,10 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
             {
                 data_exist = true;
                 route = pb->mutable_route();
+                route->set_id(pResultSet->GetInt("lineId"));
                 route->set_day_count(pResultSet->GetInt("dayCount"));
                 route->set_city_code(pResultSet->GetString("cityCode"));
-                route->set_tag(pResultSet->GetString("quality"));
+                route->add_tag(pResultSet->GetString("quality"));
                 route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
                 route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
                 route->set_start_time(pResultSet->GetString("startTime"));
