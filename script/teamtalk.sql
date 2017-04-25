@@ -1386,6 +1386,39 @@ BEGIN
     SELECT ret, newId;
 END $$
 
+DROP PROCEDURE IF EXISTS insert_collect$$
+CREATE PROCEDURE insert_collect(
+IN userId INT,
+IN lineId INT,
+IN dateFrom VARCHAR(16),
+IN dateTo VARCHAR(16),
+IN toolFrom VARCHAR(32),
+IN toolTo VARCHAR(32),
+
+OUT ret INT,
+OUT newId INT
+)
+
+BEGIN
+    DECLARE t_error INTEGER DEFAULT 0;
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET t_error=1;
+    
+    SET ret = 1;
+   
+    START TRANSACTION;
+        INSERT INTO IMCollectRoute (userId, lineId, dateFrom, dateTo, startToolNo, endToolNo, status) VALUES(userId, lineId, dateFrom, dateTo, toolFrom, toolTo,0); 
+        SET newId=last_insert_id();
+
+    IF t_error=1 THEN
+        ROLLBACK;
+    ELSE
+        COMMIT;
+        SET ret = 0;
+    END IF;
+    
+    SELECT ret, newId;
+END $$
+
 SET GLOBAL log_bin_trust_function_creators = 1$$
 DROP FUNCTION IF EXISTS split_count$$
 CREATE FUNCTION split_count(

@@ -395,11 +395,11 @@ message Route {
 
 message CollectionRoute {
     required uint32 id = 1;
-    required string startDate = 2; //2017-04-23
-    required string endDate = 3;
-    optional string startTrafficNo = 4;
-    optional string endTrafficNo = 5;
-    required Route route = 6;
+    required string start_date = 2; //2017-04-23
+    required string end_date = 3;
+    required string start_traffic_no = 4;
+    required string end_traffic_no = 5;
+    required uint32 route_id = 6;
 }
 
 message NewQueryRadomRouteReq{
@@ -460,7 +460,7 @@ message NewCreateMyTravelRsp{
 message NewCreateCollectRouteReq{
     //cmd id:        0x0263
     required uint32 user_id        = 1;
-    required CollectionRoute route = 2;
+    required CollectionRoute collect = 2;
     optional bytes attach_data     = 20;
 }
 
@@ -468,13 +468,14 @@ message NewCreateCollectRouteRsp{
     //cmd id:        0x0264
     required uint32 user_id         = 1;
     required uint32 result_code     = 2;
+    required uint32 collect_id      = 3;
     optional bytes attach_data      = 20;
 }
 
 message NewDelCollectRouteReq{
     //cmd id:        0x0265
     required uint32 user_id    = 1;
-    repeated uint32 collectID  = 2;
+    repeated uint32 collect_id  = 2;
     optional bytes attach_data = 20;
 }
 
@@ -495,7 +496,7 @@ message NewQueryCollectRouteRsp{
     //cmd id:        0x0268
     required uint32 user_id         = 1;
     required uint32 result_code     = 2;
-    repeated CollectionRoute route  = 3;
+    repeated CollectionRoute collections  = 3;
     optional bytes attach_data      = 20;
 }
 //////////////////////////////////////////////////////

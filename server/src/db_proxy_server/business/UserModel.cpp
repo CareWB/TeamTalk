@@ -1332,6 +1332,47 @@ bool CUserModel::deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_id
 bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollectRouteReq* req, IM::Buddy::NewCreateCollectRouteRsp* pb) {
     log("enter.");
     bool bRet = true;
+    int idx = 0;
+
+    CDBManager* db_manager = CDBManager::getInstance();
+    CDBConn* db_conn = db_manager->GetDBConn("teamtalk_master");
+    if (db_conn) 
+    {
+        string str_sql;
+        str_sql = string_fmt(str_sql, "call insert_collect(%d, %d, '%s', '%s', '%s', '%s', @ret, @idx)", 
+            req->user_id(),
+            req->collect().route_id(),
+            req->collect().start_date().c_str(),
+            req->collect().end_date().c_str(),
+            req->collect().start_traffic_no().c_str(),
+            req->collect().end_traffic_no().c_str(),
+            );
+
+        CResultSet* pResultSet = pDBConn->ExecuteQuery(str_sql.c_str());
+        if (pResultSet)
+        {
+            while (pResultSet->Next())
+            {
+                int ret = pResultSet->GetInt("ret");
+                if (0 == ret) {
+                    idx = pResultSet->GetInt("newId");
+                    pb->set_collect_id(idx);
+                    break;
+                }
+            }
+            delete pResultSet;
+        }
+        else
+        {
+            log(" no result set for sql:%s", str_sql.c_str());
+        }
+
+        db_manager->RelDBConn(db_conn);
+    } 
+    else 
+    {
+        log("no db connection for teamtalk_master");
+    }
 
     return bRet;
 }
