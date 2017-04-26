@@ -1345,10 +1345,10 @@ bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollec
             req->collect().start_date().c_str(),
             req->collect().end_date().c_str(),
             req->collect().start_traffic_no().c_str(),
-            req->collect().end_traffic_no().c_str(),
+            req->collect().end_traffic_no().c_str()
             );
 
-        CResultSet* pResultSet = pDBConn->ExecuteQuery(str_sql.c_str());
+        CResultSet* pResultSet = db_conn->ExecuteQuery(str_sql.c_str());
         if (pResultSet)
         {
             while (pResultSet->Next())
