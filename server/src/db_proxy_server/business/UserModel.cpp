@@ -1421,8 +1421,6 @@ bool CUserModel::queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectR
     //string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
     string strSql = "select C.id as seq, C.*, R.* from IMRoute as R, IMCollectRoute as C where R.lineId=C.lineId and R.userId=C.userId and C.userId=" + int2string(user_id) +" order by R.id, R.lineId, R.dayNum";
     log("sql = %s", strSql.c_str());
-    int i = 0;
-
 
     pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
     if (pResultSet)
@@ -1441,6 +1439,7 @@ bool CUserModel::queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectR
                 collect = pb->add_collections();
             }
 
+            id = pResultSet->GetInt("seq");
             collect->set_id(pResultSet->GetInt("seq"));
             collect->set_start_date(pResultSet->GetString("dateFrom"));
             collect->set_end_date(pResultSet->GetString("dateTo"));
