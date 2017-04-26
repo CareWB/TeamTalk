@@ -1438,7 +1438,7 @@ bool CUserModel::queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectR
         {
             if (id == 0 || pResultSet->GetInt("seq") != id)
             {
-                collect = pb->collections();
+                collect = pb->add_collections();
             }
 
             collect->set_id(pResultSet->GetInt("seq"));

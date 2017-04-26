@@ -58,6 +58,9 @@ private:
     void _HandleUpdateTravelResponse(CImPdu* pPdu);
     void _HandleDeleteTravelResponse(CImPdu* pPdu);
     void _HandleQueryTravelResponse(CImPdu* pPdu);
+    void _HandleCreateCollectRouteResponse(pPdu);
+    void _HandleDeleteCollectRouteResponse(pPdu);
+    void _HandleQueryCollectRouteResponse(pPdu);
 private:
 	bool 		m_bOpen;
 	uint32_t	m_serv_idx;
