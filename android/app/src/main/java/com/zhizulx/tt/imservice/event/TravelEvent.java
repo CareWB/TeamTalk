@@ -1,16 +1,11 @@
 package com.zhizulx.tt.imservice.event;
 
-import com.zhizulx.tt.DB.entity.TravelEntity;
-
 /**
  * @author : yingmu on 15-1-6.
  * @email : yingmu@mogujie.com.
  */
 public class TravelEvent {
-
-    public TravelEntity entity;
     public Event event;
-
     public TravelEvent(){}
     public TravelEvent(Event e){
         this.event = e;
@@ -31,7 +26,13 @@ public class TravelEvent {
         UPDATE_RANDOM_ROUTE_OK,
         UPDATE_RANDOM_ROUTE_FAIL,
         CREATE_ROUTE_OK,
-        CREATE_ROUTE_Fail,
+        CREATE_ROUTE_FAIL,
+        CREATE_COLLECT_ROUTE_OK,
+        CREATE_COLLECT_ROUTE_FAIL,
+        QUERY_COLLECT_ROUTE_OK,
+        QUERY_COLLECT_ROUTE_FAIL,
+        DELETE_COLLECT_ROUTE_OK,
+        DELETE_COLLECT_ROUTE_FAIL,
     }
 
     public Event getEvent() {

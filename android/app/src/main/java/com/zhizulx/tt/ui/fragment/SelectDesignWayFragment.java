@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.config.SysConstant;
 import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
@@ -75,9 +76,9 @@ public class SelectDesignWayFragment extends TTBaseFragment {
                 switch (v.getId()) {
                     case R.id.select_design_way_introduct:
                         if (travelManager != null) {
-                            travelManager.reqGetRandomRoute("");
+                            travelManager.reqGetRandomRoute(travelManager.GET_ROUTE_BY_TAG);
                             dialog = TravelUIHelper.showCalculateDialog(getActivity());
-                            mHandler.postDelayed(runnable, 10000);
+                            mHandler.postDelayed(runnable, SysConstant.CALCULATE_OVERTIME);
                         }
                         break;
                     case R.id.select_design_way_custom:

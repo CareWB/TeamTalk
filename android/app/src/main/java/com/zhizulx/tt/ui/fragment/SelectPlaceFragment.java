@@ -65,10 +65,10 @@ public class SelectPlaceFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-                if (imService.getTravelManager().getMtTravel().getDestination() != null &&
-                        !imService.getTravelManager().getMtTravel().getDestination().equals("")) {
+                if (imService.getTravelManager().getConfigEntity().getDestination() != null &&
+                        !imService.getTravelManager().getConfigEntity().getDestination().equals("")) {
                     CityEntity cityEntity = new CityEntity();
-                    cityEntity.setName(imService.getTravelManager().getMtTravel().getDestination());
+                    cityEntity.setName(imService.getTravelManager().getConfigEntity().getDestination());
                     cityEntity.setSelect(1);
                     citySelectedList.add(cityEntity);
                     selectCityResultAdapter.notifyDataSetChanged();

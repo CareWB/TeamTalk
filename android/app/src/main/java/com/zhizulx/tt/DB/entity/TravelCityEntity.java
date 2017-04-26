@@ -16,7 +16,6 @@ public class TravelCityEntity {
     private Long id;
     /** Not-null value. */
     private String cityName;
-    private PlayConfigEntity playConfigEntity;
     private TrafficEntity go;
     private List<SightEntity> sightEntityList = new ArrayList<>();
     private List<HotelEntity> hotelEntityList = new ArrayList<>();
@@ -36,14 +35,6 @@ public class TravelCityEntity {
     /** Not-null value; ensure this value is available before it is saved to the database. */
     public void setCityName(String cityName) {
         this.cityName = cityName;
-    }
-
-    public PlayConfigEntity getPlayConfig() {
-        return playConfigEntity;
-    }
-
-    public void setPlayConfig(PlayConfigEntity playConfigEntity) {
-        this.playConfigEntity = playConfigEntity;
     }
 
     /** Not-null value. */

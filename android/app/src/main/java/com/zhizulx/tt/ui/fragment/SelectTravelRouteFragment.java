@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.entity.TravelCityEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.config.SysConstant;
 import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
@@ -126,11 +127,12 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
                         break;
                     case R.id.create_travel_route:
                         if (travelRouteUserWord.getText().toString().length() > 0) {
-                            travelManager.reqGetRandomRoute(travelRouteUserWord.getText().toString());
-                            mHandler.postDelayed(runnable, 10000);
+                            travelManager.getConfigEntity().setSentence(travelRouteUserWord.getText().toString());
+                            travelManager.reqGetRandomRoute(travelManager.GET_ROUTE_BY_SENTENCE);
+                            mHandler.postDelayed(runnable, SysConstant.CALCULATE_OVERTIME);
                             dialog = TravelUIHelper.showCalculateDialog(getActivity());
                         } else {
-                            Toast.makeText(getActivity(), "惜字如金可不好哦", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "不要惜字如金嘛", Toast.LENGTH_SHORT).show();
                         }
                         break;
                 }
@@ -158,10 +160,9 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
         TravelRouteAdapter.OnRecyclerViewListener hotelRVListener = new TravelRouteAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
-                List<String> tags = new ArrayList<>();
-                tags.addAll(travelManager.getRouteEntity().getTags());
                 travelManager.setRouteEntity(routeEntityListServer.get(position));
-                travelManager.getRouteEntity().setTags(tags);
+                travelManager.getRouteEntity().setTags(travelManager.getConfigEntity().getTags());
+                travelManager.getRouteEntity().setRouteType(travelManager.getConfigEntity().getTags().get(0));
                 TravelUIHelper.openDetailDispActivity(getActivity());
             }
         };

@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -58,39 +59,13 @@ public class HotelWebViewActivity extends  TTBaseFragmentActivity{
         webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         //加载网页
         webView.loadUrl(getIntent().getStringExtra(IntentConstant.WEBVIEW_URL));
-        //webView.loadUrl("http://hotels.ctrip.com/hotel/6112181.html");
-
-        //webView.addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
-        //在当前的浏览器中响应
-        webView.setWebViewClient(new WebViewClient() {
-/*            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                view.loadUrl("javascript:window.local_obj.showSource('<head>'+"
-                        + "document.getElementsByTagName('html')[0].innerHTML+'</head>');");
-            }*/
-
+        webView.setWebViewClient(new WebViewClient(){
             @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-            }
-
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                Log.e("onPageStarted", "onPageStarted");
-                super.onPageStarted(view, url, favicon);
-            }
-
-            @Override
-            public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
-                Log.e("shouldOverrideKeyEvent", "shouldOverrideKeyEvent");
-                return super.shouldOverrideKeyEvent(view, event);
-            }
-
-            @Override
-            public void onLoadResource(WebView view, String url) {
-                Log.e("onLoadResource", "onLoadResource");
-                super.onLoadResource(view, url);
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if( url.startsWith("http:") || url.startsWith("https:") ) {
+                    return false;
+                }
+                return true;
             }
         });
     }

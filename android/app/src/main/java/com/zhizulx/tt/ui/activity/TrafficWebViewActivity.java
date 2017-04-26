@@ -61,5 +61,14 @@ public class TrafficWebViewActivity extends  TTBaseFragmentActivity{
         webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         //加载网页
         webView.loadUrl(getIntent().getStringExtra(IntentConstant.WEBVIEW_URL));
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if( url.startsWith("http:") || url.startsWith("https:") ) {
+                    return false;
+                }
+                return true;
+            }
+        });
     }
 }

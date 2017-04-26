@@ -12,6 +12,7 @@ import java.util.List;
  * Entity mapped to table cityInfo.
  */
 public class RouteEntity {
+    private int dbId;
     private int day;
     private String cityCode;
     private String routeType;
@@ -40,6 +41,14 @@ public class RouteEntity {
         this.startTime = startTime;
         this.endTime = endTime;
         this.dayRouteEntityList.addAll(dayRouteEntityList);
+    }
+
+    public int getDbId() {
+        return dbId;
+    }
+
+    public void setDbId(int dbId) {
+        this.dbId = dbId;
     }
 
     public int getDay() {

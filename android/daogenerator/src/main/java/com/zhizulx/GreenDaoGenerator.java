@@ -28,8 +28,6 @@ public class GreenDaoGenerator {
         addGroupInfo(schema);
         addMessage(schema);
         addSessionInfo(schema);
-        addTravelInfo(schema);
-        addPlayConfigInfo(schema);
         addSightInfo(schema);
         addHotelInfo(schema);
         addTrafficInfo(schema);
@@ -162,58 +160,6 @@ public class GreenDaoGenerator {
         sessionInfo.addIntProperty("updated").notNull();
 
         sessionInfo.setHasKeepSections(true);
-    }
-
-    private static void addTravelInfo(Schema schema) {
-        Entity travelInfo = schema.addEntity("TravelEntity");
-        travelInfo.setTableName("TravelInfo");
-        travelInfo.setClassNameDao("TravelDao");
-        travelInfo.setJavaPackage(entityPath);
-
-        travelInfo.addIdProperty().autoincrement();
-        travelInfo.addIntProperty("dbId").unique().notNull();
-        travelInfo.addIntProperty("creatorId").notNull();
-        travelInfo.addIntProperty("duration").notNull();
-        travelInfo.addStringProperty("startDate").notNull();
-        travelInfo.addStringProperty("endDate").notNull();
-        travelInfo.addStringProperty("startPlace").notNull();
-        travelInfo.addStringProperty("endPlace").notNull();
-        travelInfo.addStringProperty("destination").notNull();
-        travelInfo.addStringProperty("destinationBK").notNull();
-        travelInfo.addIntProperty("personNum").notNull();
-        travelInfo.addIntProperty("trafficWay").notNull();
-        travelInfo.addStringProperty("trafficStartTime").notNull();
-        travelInfo.addStringProperty("trafficEndTime").notNull();
-        travelInfo.addIntProperty("trafficQuality").notNull();
-        travelInfo.addIntProperty("transit").notNull();
-        travelInfo.addIntProperty("cost").notNull();
-        travelInfo.addIntProperty("version").notNull();
-        travelInfo.addIntProperty("status").notNull();
-        travelInfo.addIntProperty("created").notNull();
-        travelInfo.addIntProperty("updated").notNull();
-
-        travelInfo.setHasKeepSections(true);
-    }
-
-    private static void addPlayConfigInfo(Schema schema) {
-        Entity playConfiglInfo = schema.addEntity("PlayConfigEntity");
-        playConfiglInfo.setTableName("PlayConfigInfo");
-        playConfiglInfo.setClassNameDao("PlayConfigDao");
-        playConfiglInfo.setJavaPackage(entityPath);
-
-        playConfiglInfo.addIdProperty().autoincrement();
-        playConfiglInfo.addStringProperty("cityName").notNull();
-        playConfiglInfo.addIntProperty("quality").notNull();
-        playConfiglInfo.addStringProperty("startTime").notNull();
-        playConfiglInfo.addStringProperty("endTime").notNull();
-        playConfiglInfo.addIntProperty("transportToolType").notNull();
-        playConfiglInfo.addIntProperty("position").notNull();
-        playConfiglInfo.addIntProperty("version").notNull();
-        playConfiglInfo.addIntProperty("status").notNull();
-        playConfiglInfo.addIntProperty("created").notNull();
-        playConfiglInfo.addIntProperty("updated").notNull();
-
-        playConfiglInfo.setHasKeepSections(true);
     }
 
     private static void addSightInfo(Schema schema) {

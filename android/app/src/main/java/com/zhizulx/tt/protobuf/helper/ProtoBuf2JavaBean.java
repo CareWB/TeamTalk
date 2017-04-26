@@ -3,11 +3,11 @@ package com.zhizulx.tt.protobuf.helper;
 import android.util.Log;
 
 import com.google.protobuf.ByteString;
+import com.zhizulx.tt.DB.entity.CollectRouteEntity;
 import com.zhizulx.tt.DB.entity.DayRouteEntity;
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.entity.TrafficEntity;
-import com.zhizulx.tt.DB.entity.TravelEntity;
 import com.zhizulx.tt.config.DBConstant;
 import com.zhizulx.tt.DB.entity.GroupEntity;
 import com.zhizulx.tt.DB.entity.MessageEntity;
@@ -349,23 +349,6 @@ public class ProtoBuf2JavaBean {
 
     }
 
-    public static TravelEntity getTravelEntity(IMBuddy.MyTravel myTravel){
-        TravelEntity travelEntity = new TravelEntity();
-        travelEntity.setDbId(myTravel.getDbIdx());
-        travelEntity.setStartDate(myTravel.getBasicInfo().getDateFrom());
-        travelEntity.setEndDate(myTravel.getBasicInfo().getDateTo());
-        travelEntity.setStartPlace(myTravel.getBasicInfo().getPlaceFromCode());
-        travelEntity.setEndPlace(myTravel.getBasicInfo().getPlaceBackCode());
-        travelEntity.setDestination(myTravel.getBasicInfo().getPlaceToCode());
-        travelEntity.setPersonNum(myTravel.getBasicInfo().getPersonNum());
-        travelEntity.setTrafficWay(myTravel.getTransportConfig().getToolType());
-        travelEntity.setTrafficStartTime(myTravel.getTransportConfig().getTimeFrom());
-        travelEntity.setTrafficEndTime(myTravel.getTransportConfig().getTimeTo());
-        travelEntity.setTrafficQuality(myTravel.getTransportConfig().getQuality().getNumber());
-        travelEntity.setTransit(myTravel.getTransportConfig().getTransit());
-        return travelEntity;
-    }
-
     public static TrafficEntity getTrafficEntity(IMBuddy.TravelToolInfo travelToolInfo){
         TrafficEntity trafficEntity = new TrafficEntity();
         trafficEntity.setType(travelToolInfo.getTransportToolType());
@@ -381,9 +364,11 @@ public class ProtoBuf2JavaBean {
 
     public static RouteEntity getRouteEntity(IMBuddy.Route route) throws ParseException {
         RouteEntity routeEntity = new RouteEntity();
+        routeEntity.setDbId(route.getId());
         routeEntity.setDay(route.getDayCount());
         routeEntity.setCityCode(route.getCityCode());
-        routeEntity.setRouteType(route.getTag());
+        routeEntity.setRouteType(route.getTagList().get(0));
+        routeEntity.setTags(route.getTagList());
         routeEntity.setStartTrafficTool(route.getStartTransportTool().getNumber());
         routeEntity.setEndTrafficTool(route.getEndTransportTool().getNumber());
         routeEntity.setStartTime(getHour(route.getStartTime()));
@@ -411,5 +396,15 @@ public class ProtoBuf2JavaBean {
             dayRouteEntityList.add(dayRouteEntity);
         }
         return dayRouteEntityList;
+    }
+
+    public static CollectRouteEntity getCollectRouteEntity(IMBuddy.CollectionRoute collectionRoute) throws ParseException {
+        CollectRouteEntity collectRouteEntity = new CollectRouteEntity();
+        collectRouteEntity.setDbId(collectionRoute.getId());
+        collectRouteEntity.setStartDate(collectionRoute.getStartDate());
+        collectRouteEntity.setStartTrafficNo(collectionRoute.getStartTrafficNo());
+        collectRouteEntity.setEndTrafficNo(collectionRoute.getEndTrafficNo());
+        collectRouteEntity.setRouteEntity(getRouteEntity(collectionRoute.getRoute()));
+        return collectRouteEntity;
     }
 }

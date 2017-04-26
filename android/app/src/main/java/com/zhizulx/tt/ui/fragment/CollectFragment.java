@@ -21,7 +21,6 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 
 public class CollectFragment extends TTBaseFragment {
     private View curView = null;
-    private IMTravelManager travelManager;
     private RelativeLayout rlCollectStartTime;
     private EditText startNo;
     private EditText endNo;
@@ -35,7 +34,7 @@ public class CollectFragment extends TTBaseFragment {
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-                travelManager = imService.getTravelManager();
+
             }
         }
 
@@ -122,7 +121,6 @@ public class CollectFragment extends TTBaseFragment {
 
     private void jump2DateSelect() {
         Intent dateSelect = new Intent(getActivity(), SelectStartDateActivity.class);
-        dateSelect.putExtra("date", "04-14");
         startActivityForResult(dateSelect, Activity.RESULT_FIRST_USER);
     }
 
@@ -133,6 +131,9 @@ public class CollectFragment extends TTBaseFragment {
         }
         if (getFragmentManager().getBackStackEntryCount() == 0) {
             getActivity().getIntent().putExtra("collectStatus", 1);
+            getActivity().getIntent().putExtra("startDate", startDate);
+            getActivity().getIntent().putExtra("startTrafficNo", startNo.getText().toString());
+            getActivity().getIntent().putExtra("endTrafficNo", endNo.getText().toString());
             getActivity().setResult(101, getActivity().getIntent());
             getActivity().finish();
             return;

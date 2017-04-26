@@ -53,4 +53,6 @@ public interface SysConstant {
 
     //message 每次拉取的条数
     public static final int MSG_CNT_PER_PAGE = 18;
+
+    public static final int CALCULATE_OVERTIME = 30000;
 }

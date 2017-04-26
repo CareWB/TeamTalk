@@ -37,9 +37,6 @@ public class SelectTagFragment extends TTBaseFragment {
     private List<String> mediumTags = new ArrayList<>();
     private List<String> lowTags = new ArrayList<>();
 
-    private String trafficTitle;
-    private String trafficUrl;
-
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
         public void onIMServiceConnected() {
@@ -47,7 +44,6 @@ public class SelectTagFragment extends TTBaseFragment {
             imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
-                //travelManager.onLocalLoginOk();
                 initTravelInfo();
             }
         }
@@ -110,8 +106,7 @@ public class SelectTagFragment extends TTBaseFragment {
                         tags.addAll(lowTags);
                         break;
                 }
-                travelManager.getRouteEntity().setTags(tags);
-                travelManager.setEmotionTags(tags);
+                travelManager.getConfigEntity().setTags(tags);
                 TravelUIHelper.openSelectDesignWayActivity(getActivity());
             }
         };
@@ -132,11 +127,11 @@ public class SelectTagFragment extends TTBaseFragment {
 
     private void initTravelInfo() {
         Calendar cal = Calendar.getInstance();
-        travelManager.setStartCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
-        travelManager.setEndCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
+        travelManager.getConfigEntity().setStartCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
+        travelManager.getConfigEntity().setEndCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
         cal.add(Calendar.DATE, 2);
-        travelManager.setStartDate((new SimpleDateFormat("yyyy-MM-dd")).format(cal.getTime()));
+        travelManager.getConfigEntity().setStartDate((new SimpleDateFormat("yyyy-MM-dd")).format(cal.getTime()));
         cal.add(Calendar.DATE, 3);
-        travelManager.setEndDate((new SimpleDateFormat("yyyy-MM-dd")).format(cal.getTime()));
+        travelManager.getConfigEntity().setEndDate((new SimpleDateFormat("yyyy-MM-dd")).format(cal.getTime()));
     }
 }

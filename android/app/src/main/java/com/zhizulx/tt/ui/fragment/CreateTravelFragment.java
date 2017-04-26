@@ -157,8 +157,8 @@ public class CreateTravelFragment extends TTBaseFragment{
                         strEndPlace = data.getStringExtra("city");
                     }
                     if (imService != null) {
-                        imService.getTravelManager().getMtTravel().setStartPlace(strStartPlace);
-                        imService.getTravelManager().getMtTravel().setEndPlace(strEndPlace);
+                        imService.getTravelManager().getConfigEntity().setStartCity(strStartPlace);
+                        imService.getTravelManager().getConfigEntity().setEndCity(strEndPlace);
                     }
                     break;
                 case 101:
@@ -166,8 +166,7 @@ public class CreateTravelFragment extends TTBaseFragment{
                     place.setText(data.getStringExtra("city"));
                     destination = data.getStringExtra("city");
                     if (imService != null) {
-                        imService.getTravelManager().getMtTravel().setDestination(destination);
-                        imService.getTravelManager().getMtCity().get(0).setCityName(destination);
+                        imService.getTravelManager().getConfigEntity().setDestination(destination);
                     }
                     break;
                 case 102:
@@ -180,9 +179,9 @@ public class CreateTravelFragment extends TTBaseFragment{
                     }
                     dateProcess();
                     if (imService != null) {
-                        imService.getTravelManager().getMtTravel().setStartDate(strStartDate);
-                        imService.getTravelManager().getMtTravel().setEndDate(strEndDate);
-                        imService.getTravelManager().getMtTravel().setDuration(iduration);
+                        imService.getTravelManager().getConfigEntity().setStartDate(strStartDate);
+                        imService.getTravelManager().getConfigEntity().setEndDate(strEndDate);
+                        imService.getTravelManager().getConfigEntity().setDuration(iduration);
                     }
                     break;
             }
@@ -484,8 +483,8 @@ public class CreateTravelFragment extends TTBaseFragment{
                 dialog.dismiss();
                 TravelUIHelper.openDetailDispActivity(getActivity());
                 break;
-            case CREATE_ROUTE_Fail:
-                Log.e("yuki", "CREATE_ROUTE_Fail");
+            case CREATE_ROUTE_FAIL:
+                Log.e("yuki", "CREATE_ROUTE_FAIL");
                 break;
         }
     }

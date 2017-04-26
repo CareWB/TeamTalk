@@ -13,23 +13,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.DB.Serializable.MapRoute;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
-import com.zhizulx.tt.ui.activity.CollectActivity;
 import com.zhizulx.tt.ui.activity.CreateTravelActivity;
 import com.zhizulx.tt.ui.activity.DetailDispActivity;
 import com.zhizulx.tt.ui.activity.ExpenseDetailActivity;
 import com.zhizulx.tt.ui.activity.IntroduceSightActivity;
 import com.zhizulx.tt.ui.activity.SelectDesignWayActivity;
-import com.zhizulx.tt.ui.activity.SelectHotelActivity;
-import com.zhizulx.tt.ui.activity.SelectSightActivity;
 import com.zhizulx.tt.ui.activity.SelectTravelRouteActivity;
-import com.zhizulx.tt.ui.activity.TrafficListActivity;
 import com.zhizulx.tt.ui.activity.HotelWebViewActivity;
 import com.zhizulx.tt.ui.activity.TrafficWebViewActivity;
 import com.zhizulx.tt.ui.route.RouteActivity;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class TravelUIHelper {
 

@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zhizulx.tt.DB.entity.CollectRouteEntity;
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
@@ -19,6 +21,8 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * 设置页面
  */
@@ -27,7 +31,7 @@ public class MineCollectionFragment extends TTBaseFragment{
     private IMTravelManager travelManager;
 	private RecyclerView rvCollection;
 	private CollectionAdapter collectionAdapter;
-    private List<RouteEntity> routeEntityList = new ArrayList<>();
+    private List<CollectRouteEntity> collectRouteEntityList = new ArrayList<>();
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -36,7 +40,7 @@ public class MineCollectionFragment extends TTBaseFragment{
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
-                initCollectionList();
+                travelManager.reqGetCollectRoute();
             }
         }
 
@@ -50,6 +54,7 @@ public class MineCollectionFragment extends TTBaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		imServiceConnector.connect(this.getActivity());
+        EventBus.getDefault().register(this);
 		if (null != curView) {
 			((ViewGroup) curView.getParent()).removeView(curView);
 			return curView;
@@ -69,6 +74,7 @@ public class MineCollectionFragment extends TTBaseFragment{
     public void onDestroy() {
         super.onDestroy();
         imServiceConnector.disconnect(getActivity());
+        EventBus.getDefault().unregister(this);
     }
 
 	@Override
@@ -99,26 +105,6 @@ public class MineCollectionFragment extends TTBaseFragment{
 
     }
 
-    private void initCollectionList() {
-        routeEntityList.clear();
-        RouteEntity routeEntity1 = new RouteEntity();
-        routeEntity1.setCityCode("111");
-        RouteEntity routeEntity2 = new RouteEntity();
-        routeEntity2.setCityCode("222");
-        RouteEntity routeEntity3 = new RouteEntity();
-        routeEntity3.setCityCode("333");
-        RouteEntity routeEntity4 = new RouteEntity();
-        routeEntity4.setCityCode("444");
-        RouteEntity routeEntity5 = new RouteEntity();
-        routeEntity5.setCityCode("555");
-        routeEntityList.add(routeEntity1);
-        routeEntityList.add(routeEntity2);
-        routeEntityList.add(routeEntity3);
-        routeEntityList.add(routeEntity4);
-        routeEntityList.add(routeEntity5);
-        collectionAdapter.notifyDataSetChanged();
-    }
-
     private void initCollection() {
         rvCollection.setHasFixedSize(true);
         LinearLayoutManager layoutManagerResult = new LinearLayoutManager(getActivity());
@@ -140,13 +126,29 @@ public class MineCollectionFragment extends TTBaseFragment{
             @Override
             public void onDelClick(int position) {
                 Log.e("swip", "onDelClick");
-                routeEntityList.remove(position);
+                collectRouteEntityList.remove(position);
+                List<Integer> idlist = new ArrayList<>();
+                idlist.add(collectRouteEntityList.get(position).getDbId());
+                travelManager.reqDelCollectRoute(idlist);
                 collectionAdapter.notifyItemRemoved(position);
                 collectionAdapter.notifyDataSetChanged();
             }
         };
-        collectionAdapter = new CollectionAdapter(getActivity(), routeEntityList);
+        collectionAdapter = new CollectionAdapter(getActivity(), travelManager, collectRouteEntityList);
         collectionAdapter.setOnRecyclerViewListener(collectionListenser);
         rvCollection.setAdapter(collectionAdapter);
+    }
+
+    public void onEventMainThread(TravelEvent event){
+        switch (event.getEvent()){
+            case QUERY_COLLECT_ROUTE_OK:
+                collectRouteEntityList.clear();
+                collectRouteEntityList.addAll(travelManager.getCollectRouteEntityList());
+                collectionAdapter.notifyDataSetChanged();
+                break;
+            case QUERY_COLLECT_ROUTE_FAIL:
+                Log.e("yuki", "QUERY_COLLECT_ROUTE_FAIL");
+                break;
+        }
     }
 }

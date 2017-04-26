@@ -15,14 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhizulx.tt.DB.Serializable.MapRoute;
+import com.zhizulx.tt.DB.entity.CollectRouteEntity;
 import com.zhizulx.tt.DB.entity.DayRouteEntity;
 import com.zhizulx.tt.DB.entity.DetailDispEntity;
 import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.entity.SightEntity;
-import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
-import com.zhizulx.tt.imservice.event.LocationEvent;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
@@ -36,17 +35,12 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.utils.TravelUIHelper;
 import com.zhizulx.tt.utils.WheelPicker;
 
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import java.net.URLDecoder;
-
-import de.greenrobot.event.EventBus;
-
-import static com.zhizulx.tt.DB.dao.PlayConfigDao.Properties.TransportToolType;
 
 /**
  * 设置页面
@@ -99,8 +93,8 @@ public class DetailDispFragment extends TTBaseFragment{
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
-                startCity = travelManager.getStartCity();
-                endCity = travelManager.getEndCity();
+                startCity = travelManager.getConfigEntity().getStartCity();
+                endCity = travelManager.getConfigEntity().getEndCity();
                 travelManager.initalRoute();
                 showRoute();
                 rvDayInit();
@@ -158,6 +152,12 @@ public class DetailDispFragment extends TTBaseFragment{
                 case 101:
                     if(data.getIntExtra("collectStatus", 0) == 1) {
                         routeCollection.setBackgroundResource(R.drawable.collected);
+                        routeCollection.setClickable(false);
+                        String startDate = data.getStringExtra("startDate");
+                        String startTrafficNo = data.getStringExtra("startTrafficNo");
+                        String endTrafficNo = data.getStringExtra("endTrafficNo");
+                        storeCollectRoute(startDate, startTrafficNo, endTrafficNo);
+                        travelManager.reqCreateCollectRoute();
                         hideTopRightButton();
                     }
                     break;
@@ -657,10 +657,10 @@ public class DetailDispFragment extends TTBaseFragment{
         String trainFormat = "http://touch.train.qunar.com/trainList.html?startStation=%s&endStation=%s&date=%s&searchType=stasta&bd_source=&filterTrainType=&filterTrainType=&filterTrainType=";
         RouteEntity routeEntity = travelManager.getRouteEntity();
         String destination = travelManager.getCityNameByCode(routeEntity.getCityCode());
-        String startCity = travelManager.getStartCity();
-        String endCity = travelManager.getEndCity();
-        String startDate = travelManager.getStartDate();
-        String endDate = travelManager.getEndDate();
+        String startCity = travelManager.getConfigEntity().getStartCity();
+        String endCity = travelManager.getConfigEntity().getEndCity();
+        String startDate = travelManager.getConfigEntity().getStartDate();
+        String endDate = travelManager.getConfigEntity().getEndDate();
         if (id == start.getDbID()) {
             trafficTitle = startCity + "-" + destination;
             if (trafficType.equals(getString(R.string.plane))) {
@@ -676,5 +676,25 @@ public class DetailDispFragment extends TTBaseFragment{
                 trafficUrl = String.format(trainFormat, destination, endCity, endDate);
             }
         }
+    }
+
+    private void storeCollectRoute(String startDate, String startTrafficNo, String endTrafficNo) {
+        CollectRouteEntity collectRouteEntity = travelManager.getCollectRouteEntity();
+        RouteEntity routeEntity = travelManager.getRouteEntity();
+        collectRouteEntity.setDbId(0);
+        collectRouteEntity.setStartDate(startDate);
+        Date date = null;
+        try {
+            date = (new SimpleDateFormat("MM-dd")).parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, routeEntity.getDay());
+        collectRouteEntity.setEndDate((new SimpleDateFormat("MM-dd")).format(cal.getTime()));
+        collectRouteEntity.setStartTrafficNo(startTrafficNo);
+        collectRouteEntity.setEndTrafficNo(endTrafficNo);
+        collectRouteEntity.setRouteEntity(routeEntity);
     }
 }

@@ -10,8 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.zhizulx.tt.DB.entity.CollectRouteEntity;
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.ui.widget.swiprecycleview.ItemHelpter;
 import com.zhizulx.tt.ui.widget.swiprecycleview.SwipeLayout;
 
@@ -37,13 +39,15 @@ public class CollectionAdapter extends RecyclerView.Adapter implements ItemHelpt
         this.onRecyclerViewListener = onRecyclerViewListener;
     }
 
-    private List<RouteEntity> mList;
+    private List<CollectRouteEntity> mList;
     private Context ctx;
     private RecyclerView mRecycler;
     private LayoutInflater mInflater;
+    private IMTravelManager travelManager;
 
-    public CollectionAdapter(Context ctx, List<RouteEntity> mList) {
+    public CollectionAdapter(Context ctx, IMTravelManager travelManager, List<CollectRouteEntity> mList) {
         this.ctx = ctx;
+        this.travelManager = travelManager;
         this.mInflater = LayoutInflater.from(ctx);
         this.mList = mList;
     }
@@ -59,14 +63,14 @@ public class CollectionAdapter extends RecyclerView.Adapter implements ItemHelpt
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-        RouteEntity routeEntity = mList.get(i);
+        CollectRouteEntity collectRouteEntity = mList.get(i);
         CollectionViewHolder holder = (CollectionViewHolder) viewHolder;
         if(holder.root.isOpen()){
             holder.root.clearAnimation();
         }
-        holder.time.setText(routeEntity.getCityCode());
-        holder.destination.setText(routeEntity.getCityCode());
-        holder.routeType.setText(routeEntity.getCityCode());
+        holder.time.setText(collectRouteEntity.getStartDate());
+        holder.destination.setText(travelManager.getCityNameByCode(collectRouteEntity.getRouteEntity().getCityCode()));
+        holder.routeType.setText(collectRouteEntity.getRouteEntity().getRouteType());
     }
 
     @Override

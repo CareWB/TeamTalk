@@ -12,7 +12,6 @@ import com.zhizulx.tt.DB.dao.HotelDao;
 import com.zhizulx.tt.DB.dao.MessageDao;
 import com.zhizulx.tt.DB.dao.SessionDao;
 import com.zhizulx.tt.DB.dao.SightDao;
-import com.zhizulx.tt.DB.dao.TravelDao;
 import com.zhizulx.tt.DB.dao.UserDao;
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
 import com.zhizulx.tt.DB.entity.GroupEntity;
@@ -20,7 +19,6 @@ import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.DB.entity.MessageEntity;
 import com.zhizulx.tt.DB.entity.SessionEntity;
 import com.zhizulx.tt.DB.entity.SightEntity;
-import com.zhizulx.tt.DB.entity.TravelEntity;
 import com.zhizulx.tt.DB.entity.UserEntity;
 import com.zhizulx.tt.config.DBConstant;
 import com.zhizulx.tt.config.MessageConstant;
@@ -491,49 +489,6 @@ public class DBInterface {
             }
         }
         return newList;
-    }
-
-    /**-------------------------下面开始Travel 操作相关---------------------------------------*/
-    /**
-     * @return
-     *  toER_STATUS_LEAVE
-     */
-    public List<TravelEntity> loadAllTravel(){
-        TravelDao dao = openReadableDb().getTravelDao();
-        List<TravelEntity> result = dao.loadAll();
-        return result;
-    }
-
-    public void delAllTravel(){
-        TravelDao dao = openReadableDb().getTravelDao();
-        dao.deleteAll();
-    }
-
-    public void insertOrUpdateTravel(TravelEntity entity){
-        TravelDao travelDao = openWritableDb().getTravelDao();
-        long rowId = travelDao.insertOrReplace(entity);
-    }
-
-    public void  batchInsertOrUpdateTravel(List<TravelEntity> entityList){
-        if(entityList.size() <=0){
-            return ;
-        }
-        TravelDao travelDao = openWritableDb().getTravelDao();
-        travelDao.insertOrReplaceInTx(entityList);
-    }
-
-    /**update*/
-    public int getTravelLastTime(){
-        TravelDao travelDao =  openReadableDb().getTravelDao();
-        TravelEntity travelEntity = travelDao.queryBuilder()
-                .orderDesc(TravelDao.Properties.Updated)
-                .limit(1)
-                .unique();
-        if(travelEntity == null){
-            return 0;
-        }else{
-            return travelEntity.getUpdated();
-        }
     }
 
     /**-------------------------下面开始Hotel 操作相关---------------------------------------*/
