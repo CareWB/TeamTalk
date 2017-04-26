@@ -829,6 +829,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
                 p = strtok(NULL, sep);
             }
         }
+        delete pResultSet;
     }
 
     pDBManager->RelDBConn(pDBConn);
@@ -918,6 +919,8 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
                     p = strtok(NULL, sep);
                 }
             }
+
+            delete pResultSet;
         }
 
         if (data_exist)
@@ -1027,6 +1030,8 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
                     p = strtok(NULL, sep);
                 }
             }
+
+            delete pResultSet;
         }
 
         if (data_exist)
@@ -1348,6 +1353,8 @@ bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollec
             req->collect().end_traffic_no().c_str()
             );
 
+        log("sql:%s", str_sql.c_str());
+
         CResultSet* pResultSet = db_conn->ExecuteQuery(str_sql.c_str());
         if (pResultSet)
         {
@@ -1362,10 +1369,6 @@ bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollec
                 }
             }
             delete pResultSet;
-        }
-        else
-        {
-            log(" no result set for sql:%s", str_sql.c_str());
         }
 
         db_manager->RelDBConn(db_conn);
@@ -1387,11 +1390,8 @@ bool CUserModel::deleteCollectRoute(uint32_t user_id, IM::Buddy::NewDelCollectRo
     if (pDBConn)
     {
         string strSql = "delete from IMCollectRoute where userId=" + int2string(user_id) + " and id="+int2string(req->collect_id(0));
-        if(!pDBConn->ExecuteUpdate(strSql.c_str()))
-        {
-            log("failed sql:%s", strSql.c_str());
-        }
-        else
+        log("sql:%s", strSql.c_str());
+        if(pDBConn->ExecuteUpdate(strSql.c_str()))
         {
             bRet = true;
         }
@@ -1474,6 +1474,8 @@ bool CUserModel::queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectR
                 p = strtok(NULL, sep);
             }
         }
+
+        delete pResultSet;
     }
 
     pDBManager->RelDBConn(pDBConn);
