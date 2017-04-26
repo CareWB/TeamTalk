@@ -1419,7 +1419,7 @@ bool CUserModel::queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectR
 
     CResultSet* pResultSet = NULL;
     //string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
-    string strSql = "select C.id as seq, C.*, R.* from IMRoute as R, IMCollectRoute as C where R.lineId=C.lineId and R.userId=C.userId and C.userId=" + int2string(user_id) +" order by R.id, R.lineId, R.dayNum";
+    string strSql = "select C.id as seq, C.*, R.* from IMRoute as R, IMCollectRoute as C where R.lineId=C.lineId and R.userId=C.userId and C.userId=" + int2string(user_id) +" order by seq, R.lineId, R.dayNum";
     log("sql = %s", strSql.c_str());
 
     pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
