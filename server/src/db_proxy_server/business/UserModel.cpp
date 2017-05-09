@@ -792,7 +792,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
 
         while (pResultSet->Next())
         {
-            if (i == 5)
+            if (i == 6)
             {
                 break;
             }
@@ -1022,7 +1022,6 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
                     dayRoute->add_scenics(atoi(p));
                     p = strtok(NULL, sep);
                 }
-                dayRoute->add_scenics(1);
 
                 p = strtok(pResultSet->GetString("hotels"), sep);
                 while(p){

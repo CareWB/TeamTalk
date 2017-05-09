@@ -1160,6 +1160,8 @@ def insert_to_db(data):
             id = 1
         else:
             id = lineId[0] + 1
+            
+    cur.close()
 
     sql = "INSERT INTO IMRoute (userId, lineId, cityCode, dayCount, startTool, endTool, startTime, endTime, quality, dayNum,routes, hotels, status) VALUES "
 
@@ -1181,6 +1183,7 @@ def insert_to_db(data):
     sql = sql[:-1]
     print(sql)
 
+    cur = db_conn.cursor()
     cur.execute(sql)
     db_conn.commit()
     cur.close()
