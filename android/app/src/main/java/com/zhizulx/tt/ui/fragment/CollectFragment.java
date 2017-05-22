@@ -132,8 +132,18 @@ public class CollectFragment extends TTBaseFragment {
         if (getFragmentManager().getBackStackEntryCount() == 0) {
             getActivity().getIntent().putExtra("collectStatus", 1);
             getActivity().getIntent().putExtra("startDate", startDate);
-            getActivity().getIntent().putExtra("startTrafficNo", startNo.getText().toString());
-            getActivity().getIntent().putExtra("endTrafficNo", endNo.getText().toString());
+            if (startNo.getText().toString().isEmpty()) {
+                getActivity().getIntent().putExtra("startTrafficNo", "");
+            } else {
+                getActivity().getIntent().putExtra("startTrafficNo", startNo.getText().toString());
+            }
+
+            if (endNo.getText().toString().isEmpty()) {
+                getActivity().getIntent().putExtra("endTrafficNo", "");
+            } else {
+                getActivity().getIntent().putExtra("endTrafficNo", endNo.getText().toString());
+            }
+
             getActivity().setResult(101, getActivity().getIntent());
             getActivity().finish();
             return;

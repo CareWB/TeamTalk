@@ -101,7 +101,7 @@ public class MineInfoFragment extends TTBaseFragment{
 				currentUser = imService.getLoginManager().getLoginInfo();
 				nickName.setText(currentUser.getMainName());
                 //ImageUtil.GlideRoundAvatar(getActivity(), "http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg", avatar);
-				ImageUtil.GlideRoundAvatar(getActivity(), "http://e.hiphotos.baidu.com/lvpics/w%3D300/sign=c227a9ded009b3deebbfe268fcbe6cd3/9345d688d43f879430ab4698d31b0ef41bd53a2b.jpg", avatar);
+				ImageUtil.GlideRoundAvatar(getActivity(), currentUser.getAvatar(), avatar);
             }
         }
 

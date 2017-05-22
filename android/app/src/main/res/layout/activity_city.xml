@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/base_left_right_pad"
-            android:background="@drawable/back_x"
+            android:background="@drawable/tt_top_back"
             android:layout_centerVertical="true"
             android:id="@+id/select_city_back"
             android:scaleType="center" />

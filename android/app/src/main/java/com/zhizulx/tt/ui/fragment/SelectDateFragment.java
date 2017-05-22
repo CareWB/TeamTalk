@@ -64,6 +64,7 @@ public class SelectDateFragment extends TTBaseFragment{
     private Date dStartDate;
     private Date dEndDate;
     private Date today = new Date();
+    private static final int MAX_DURATION = 5;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -93,6 +94,7 @@ public class SelectDateFragment extends TTBaseFragment{
 		initRes();
         initDateList();
         initDayRecycleView();
+        selectProcess();
 		return curView;
 	}
 
@@ -117,11 +119,11 @@ public class SelectDateFragment extends TTBaseFragment{
 	private void initRes() {
 		// 设置标题栏
 		setTopTitle("往返日期");
-		setTopLeftButton(R.drawable.back_x);
+		setTopLeftButton(R.drawable.tt_top_back);
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-                if (strStartDate.equals("")) {
+/*                if (strStartDate.equals("")) {
                     Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_start_date), Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -129,7 +131,7 @@ public class SelectDateFragment extends TTBaseFragment{
                 if (strEndDate.equals("")) {
                     Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_end_date), Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }*/
 				if (getFragmentManager().getBackStackEntryCount() == 0) {
                     intent.putExtra("startDate", strStartDate);
                     intent.putExtra("endDate", strEndDate);
@@ -295,6 +297,44 @@ public class SelectDateFragment extends TTBaseFragment{
     private void setDate(DateEntity dateEntity) {
         Date date =  dateEntity.getDate();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+
+        if (selectCnt == 0) {
+            dStartDate = date;
+            tvEndDate.setClickable(true);
+        } else {
+            if (dStartDate == null) {
+                return;
+            }
+            if (dateEntity.getDate().before(dStartDate)) {
+                Toast.makeText(getActivity(), "时光一去不复返 返程日期莫超前", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            long duration = (date.getTime()-dStartDate.getTime())/(1000*60*60*24);
+            if (duration > 4) {
+                Toast.makeText(getActivity(), "暂不支持大于5天的行程", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            dEndDate = date;
+        }
+
+        if (selectCnt == 0) {
+            strStartDate = sdf.format(dStartDate);
+            tvStartDate.setText(strStartDate);
+            tvEndDate.setText("");
+            tvEndDate.setHint(getString(R.string.end_date_hint));
+            setSelectDateBk(dStartDate, dEndDate);
+            selectCnt = 1;
+        } else {
+            strEndDate = sdf.format(dEndDate);
+            setSelectDateBk(dStartDate, dEndDate);
+            tvEndDate.setText(strEndDate);
+        }
+        freshCalendar();
+    }
+
+/*    private void setDate(DateEntity dateEntity) {
+        Date date =  dateEntity.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         boolean exchange = false;
 
         if (selectCnt % 2 == 0) {
@@ -331,7 +371,7 @@ public class SelectDateFragment extends TTBaseFragment{
         }
         selectCnt ++;
         freshCalendar();
-    }
+    }*/
 
     private void setSelectDateBk(Date start, Date end) {
         for (int monthIndex = 0; monthIndex < date.size(); monthIndex ++) {
@@ -392,6 +432,24 @@ public class SelectDateFragment extends TTBaseFragment{
         } else {
             return false;
         }
+    }
+
+    private void selectProcess() {
+        View.OnClickListener selectDateListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.select_date_start:
+                        selectCnt = 0;
+                        break;
+                    case R.id.select_date_end:
+                        selectCnt = 1;
+                        break;
+                }
+            }
+        };
+        tvStartDate.setOnClickListener(selectDateListener);
+        tvEndDate.setOnClickListener(selectDateListener);
     }
 
 }

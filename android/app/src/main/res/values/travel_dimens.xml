@@ -45,8 +45,8 @@
     <dimen name="item_select_sight_left">9dp</dimen>
     <dimen name="item_select_sight_right">21dp</dimen>
     <dimen name="item_select_sight_pic">91dp</dimen>
-    <dimen name="item_select_sight_text_top">2dp</dimen>
-    <dimen name="item_select_sight_cell_between">8dp</dimen>
+    <dimen name="item_select_sight_text_top">4dp</dimen>
+    <dimen name="item_select_sight_cell_between">6dp</dimen>
     <dimen name="item_select_sight_not_screen_left_right">20dp</dimen>
     <dimen name="item_traffic_header_divder">10dp</dimen>
     <dimen name="item_traffic_header_height">43dp</dimen>
@@ -60,7 +60,7 @@
     <dimen name="select_date_top">9dp</dimen>
     <dimen name="select_date_between">11dp</dimen>
     <dimen name="select_date_start_end_right">39dp</dimen>
-    <dimen name="select_date_left_right">33dp</dimen>
+    <dimen name="select_date_left_right">53dp</dimen>
     <dimen name="detail_disp_menu_width">188dp</dimen>
     <dimen name="detail_disp_menu_height">155dp</dimen>
     <dimen name="detail_disp_menu_bottom">8dp</dimen>

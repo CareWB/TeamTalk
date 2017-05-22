@@ -1,26 +1,15 @@
 package com.zhizulx.tt.ui.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.R;
-import com.zhizulx.tt.config.UrlConstant;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
@@ -29,11 +18,8 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 设置页面
@@ -45,6 +31,7 @@ public class SelectHotelFragment extends TTBaseFragment{
     private RecyclerView rvHotel;
     private HotelAdapter hotelAdapter;
     private int selectID = 0;
+    private int day = 0;
     private Intent intent;
     private List<HotelEntity> hotelEntityArrayList = new ArrayList<>();
     private List<Integer> hotelList;
@@ -56,6 +43,7 @@ public class SelectHotelFragment extends TTBaseFragment{
             imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
+                hotelList = travelManager.getRouteEntity().getDayRouteEntityList().get(day-1).getHotelIDList();
                 initHotelList();
             }
         }
@@ -69,7 +57,7 @@ public class SelectHotelFragment extends TTBaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
         intent = getActivity().getIntent();
-        hotelList = intent.getIntegerArrayListExtra("hotelList");
+        day = intent.getIntExtra("day", 1);
 		imServiceConnector.connect(this.getActivity());
 		if (null != curView) {
 			((ViewGroup) curView.getParent()).removeView(curView);
@@ -130,12 +118,12 @@ public class SelectHotelFragment extends TTBaseFragment{
         for (Integer hotelID : hotelList) {
             HotelEntity hotelEntity = travelManager.getHotelByID(hotelID);
             if (hotelEntity != null) {
-                if (hotelEntity.getSelect() == 1) {
-                    selectID = hotelEntity.getPeerId();
-                }
                 hotelEntityArrayList.add(hotelEntity);
+                hotelEntity.setSelect(0);
             }
         }
+        selectID = hotelEntityArrayList.get(0).getPeerId();
+        hotelEntityArrayList.get(0).setSelect(1);
         hotelAdapter.notifyDataSetChanged();
     }
 

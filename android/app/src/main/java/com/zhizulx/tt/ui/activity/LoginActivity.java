@@ -53,7 +53,10 @@ import com.zyp.thirdloginlib.wechart.WechatLoginManager;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -195,7 +198,7 @@ public class LoginActivity extends TTBaseActivity {
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         intputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
         logger.d("login#onCreate");
@@ -446,7 +449,6 @@ public class LoginActivity extends TTBaseActivity {
         return true;
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -494,8 +496,35 @@ public class LoginActivity extends TTBaseActivity {
 */
     public void attemptLogin() {
         showProgress(true);
+        Map<String, String> user = new HashMap<>();
+        user.put("wb", "wb");
+        user.put("llllll", "123456");
+        user.put("hhhhhh", "123456");
+        user.put("cccccc", "123456");
+
+        String name = "";
+        String passWord = "";
         if (imService != null) {
-            imService.getLoginManager().login("wb", "wb");
+            //imService.getLoginManager().login("wb", "wb");
+            switch (Integer.parseInt(mNameView.getText().toString())) {
+                case 0:
+                    name = "wb";
+                    break;
+                case 1:
+                    name = "llllll";
+                    break;
+                case 2:
+                    name = "hhhhhh";
+                    break;
+                case 3:
+                    name = "cccccc";
+                    break;
+                default:
+                    name = "wb";
+                    break;
+            }
+            passWord = user.get(name);
+            imService.getLoginManager().login(name, passWord);
         }
     }
 

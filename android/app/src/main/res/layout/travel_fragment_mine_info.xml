@@ -34,7 +34,7 @@
         <ImageView
             android:layout_width="@dimen/left_menu_avatar"
             android:layout_height="@dimen/left_menu_avatar"
-            android:background="@drawable/avatar"
+            android:background="@drawable/default_avatar"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/mine_info_avatar_arrow"
             android:id="@+id/mine_info_avatar" />

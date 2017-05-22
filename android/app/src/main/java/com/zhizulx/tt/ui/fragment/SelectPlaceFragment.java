@@ -146,10 +146,10 @@ public class SelectPlaceFragment extends TTBaseFragment{
 	 * @Description 初始化资源
 	 */
     private void backProcess() {
-        if (citySelectedList.isEmpty()) {
+/*        if (citySelectedList.isEmpty()) {
             Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_destination), Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
 
         if (getFragmentManager().getBackStackEntryCount() == 0) {
             if (citySelectedList.isEmpty()) {
@@ -167,7 +167,7 @@ public class SelectPlaceFragment extends TTBaseFragment{
 	private void initRes() {
 		// 设置标题栏
 		setTopTitle(getString(R.string.select_destination));
-		setTopLeftButton(R.drawable.back_x);
+		setTopLeftButton(R.drawable.tt_top_back);
         View.OnClickListener chooseListener = new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

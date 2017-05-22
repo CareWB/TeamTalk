@@ -1,12 +1,17 @@
 package com.zhizulx.tt.ui.fragment;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
@@ -30,9 +35,12 @@ public class SelectTagFragment extends TTBaseFragment {
     private View curView = null;
     private IMService imService;
     private IMTravelManager travelManager;
-    private ImageView high;
-    private ImageView medium;
-    private ImageView low;
+    private RelativeLayout high;
+    private RelativeLayout medium;
+    private RelativeLayout low;
+    private ImageView highCircle;
+    private ImageView mediumCircle;
+    private ImageView lowCircle;
     private List<String> highTags = new ArrayList<>();
     private List<String> mediumTags = new ArrayList<>();
     private List<String> lowTags = new ArrayList<>();
@@ -70,6 +78,14 @@ public class SelectTagFragment extends TTBaseFragment {
         return curView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        circleAnimation(highCircle, 3000);
+        circleAnimation(mediumCircle, 6000);
+        circleAnimation(lowCircle, 9000);
+    }
+
     private void initTags() {
         highTags.add(getString(R.string.route_comfort));
         highTags.add(getString(R.string.route_exploration));
@@ -85,29 +101,43 @@ public class SelectTagFragment extends TTBaseFragment {
     private void initRes() {
         // 设置顶部标题栏
         hideTopBar();
-        high = (ImageView)curView.findViewById(R.id.select_tag_high);
-        medium = (ImageView)curView.findViewById(R.id.select_tag_medium);
-        low = (ImageView)curView.findViewById(R.id.select_tag_low);
+        high = (RelativeLayout)curView.findViewById(R.id.select_tag_high);
+        medium = (RelativeLayout)curView.findViewById(R.id.select_tag_medium);
+        low = (RelativeLayout)curView.findViewById(R.id.select_tag_low);
+        highCircle = (ImageView)curView.findViewById(R.id.select_tag_high_circle);
+        mediumCircle = (ImageView)curView.findViewById(R.id.select_tag_medium_circle);
+        lowCircle = (ImageView)curView.findViewById(R.id.select_tag_low_circle);
+        circleAnimation(highCircle, 3000);
+        circleAnimation(mediumCircle, 6000);
+        circleAnimation(lowCircle, 9000);
     }
 
     private void initBtn() {
         View.OnClickListener selectTagListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<String> tags = new ArrayList<>();
+                final List<String> tags = new ArrayList<>();
                 switch (v.getId()) {
                     case R.id.select_tag_high:
                         tags.addAll(highTags);
+                        circleAnimation(highCircle, 500);
                         break;
                     case R.id.select_tag_medium:
                         tags.addAll(mediumTags);
+                        circleAnimation(mediumCircle, 500);
                         break;
                     case R.id.select_tag_low:
                         tags.addAll(lowTags);
+                        circleAnimation(lowCircle, 500);
                         break;
                 }
-                travelManager.getConfigEntity().setTags(tags);
-                TravelUIHelper.openSelectDesignWayActivity(getActivity());
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        travelManager.getConfigEntity().setTags(tags);
+                        TravelUIHelper.openSelectDesignWayActivity(getActivity());
+                    }
+                },500);
             }
         };
         high.setOnClickListener(selectTagListener);
@@ -130,8 +160,17 @@ public class SelectTagFragment extends TTBaseFragment {
         travelManager.getConfigEntity().setStartCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
         travelManager.getConfigEntity().setEndCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
         cal.add(Calendar.DATE, 2);
-        travelManager.getConfigEntity().setStartDate((new SimpleDateFormat("yyyy-MM-dd")).format(cal.getTime()));
+        travelManager.getConfigEntity().setStartDate(cal.getTime());
         cal.add(Calendar.DATE, 3);
-        travelManager.getConfigEntity().setEndDate((new SimpleDateFormat("yyyy-MM-dd")).format(cal.getTime()));
+        travelManager.getConfigEntity().setEndDate(cal.getTime());
+    }
+
+    private void circleAnimation(ImageView icon, long time) {
+        ObjectAnimator oaAnimator = ObjectAnimator.ofFloat(icon, "rotation", 0.0F, 360.0F);
+        oaAnimator.setDuration(time);
+        oaAnimator.setInterpolator(null);
+        oaAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        oaAnimator.setRepeatMode(ValueAnimator.RESTART);
+        oaAnimator.start();
     }
 }

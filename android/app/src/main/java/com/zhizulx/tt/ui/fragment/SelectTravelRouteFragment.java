@@ -1,5 +1,6 @@
 package com.zhizulx.tt.ui.fragment;
 
+import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,6 +33,8 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import de.greenrobot.event.EventBus;
@@ -58,6 +63,8 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
             if (imService != null) {
                 travelManager = imService.getTravelManager();
                 routeEntityListServer.addAll(travelManager.getRouteEntityList());
+                DaySort sort = new DaySort();
+                Collections.sort(routeEntityListServer,sort);
                 if (routeEntityListServer.size() > ONE_PAGE_NUM) {
                     firstPageRouteNum = ONE_PAGE_NUM;
                     for (int i = 0; i < ONE_PAGE_NUM; i ++) {
@@ -124,6 +131,14 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
                         reset.setVisibility(View.GONE);
                         lySelectRouteCondition.setVisibility(View.VISIBLE);
                         noSelectedRouteHint.setBackground(getResources().getDrawable(R.drawable.no_selected_route_black));
+                        noSelectedRouteHint.setVisibility(View.VISIBLE);
+                        /** 设置缩放动画 */
+                        final ScaleAnimation animation =new ScaleAnimation(0.0f, 1.4f, 0.0f, 1.4f,
+                                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                        animation.setDuration(2000);//设置动画持续时间
+                        noSelectedRouteHint.setAnimation(animation);
+                        /** 开始动画 */
+                        animation.startNow();
                         break;
                     case R.id.create_travel_route:
                         if (travelRouteUserWord.getText().toString().length() > 0) {
@@ -160,7 +175,7 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
         TravelRouteAdapter.OnRecyclerViewListener hotelRVListener = new TravelRouteAdapter.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
-                travelManager.setRouteEntity(routeEntityListServer.get(position));
+                travelManager.setRouteEntity(routeEntityList.get(position));
                 travelManager.getRouteEntity().setTags(travelManager.getConfigEntity().getTags());
                 travelManager.getRouteEntity().setRouteType(travelManager.getConfigEntity().getTags().get(0));
                 TravelUIHelper.openDetailDispActivity(getActivity());
@@ -204,4 +219,16 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
             }
         }
     };
+
+    public class DaySort implements Comparator{
+        @Override
+        public int compare(Object arg0, Object arg1) {
+            // TODO Auto-generated method stub
+            RouteEntity route0 = (RouteEntity) arg0;
+            RouteEntity route1 = (RouteEntity) arg1;
+            int d0 = route0.getDay();
+            int d1 = route1.getDay();
+            return d0 > d1 ? 1 : -1; //按照时间的由小到大排列
+        }
+    }
 }

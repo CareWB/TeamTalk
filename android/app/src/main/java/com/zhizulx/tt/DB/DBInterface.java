@@ -82,7 +82,6 @@ public class DBInterface {
         }
     }
 
-
     public void initDbHelp(Context ctx,int loginId){
         if(ctx == null || loginId <=0 ){
             throw  new RuntimeException("#DBInterface# init DB exception!");

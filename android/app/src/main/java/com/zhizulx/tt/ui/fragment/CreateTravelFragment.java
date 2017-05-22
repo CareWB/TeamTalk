@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -92,9 +93,17 @@ public class CreateTravelFragment extends TTBaseFragment{
     private String strEndDate = "";
     private String destination = "";
     private int iduration = 0;
+
+    private ImageButton per_num_add;
+    private ImageButton per_num_sub;
+    private TextView per_num;
+    private final static int MIN_PER_SUM = 1;
+    private int perNum = MIN_PER_SUM;
+
     private IMService imService;
     //private Map<Integer, String> mapExperience = new HashMap<>();
     private Map<Integer, String> mapRoute = new HashMap<>();
+    private String routeType;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -102,6 +111,7 @@ public class CreateTravelFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             imService = imServiceConnector.getIMService();
             travelManager = imService.getTravelManager();
+            travelManager.getConfigEntity().setRouteType(getString(R.string.route_literature));
         }
 
         @Override
@@ -162,6 +172,9 @@ public class CreateTravelFragment extends TTBaseFragment{
                     }
                     break;
                 case 101:
+                    if (data.getStringExtra("city").isEmpty()) {
+                        break;
+                    }
                     TextView place = (TextView)curView.findViewById(R.id.create_travel_place);
                     place.setText(data.getStringExtra("city"));
                     destination = data.getStringExtra("city");
@@ -170,6 +183,9 @@ public class CreateTravelFragment extends TTBaseFragment{
                     }
                     break;
                 case 102:
+                    if (data.getStringExtra("startDate").isEmpty() || data.getStringExtra("endDate").isEmpty()) {
+                        break;
+                    }
                     java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd");
                     try {
                         startDate =  formatter.parse(data.getStringExtra("startDate"));
@@ -179,8 +195,8 @@ public class CreateTravelFragment extends TTBaseFragment{
                     }
                     dateProcess();
                     if (imService != null) {
-                        imService.getTravelManager().getConfigEntity().setStartDate(strStartDate);
-                        imService.getTravelManager().getConfigEntity().setEndDate(strEndDate);
+                        imService.getTravelManager().getConfigEntity().setStartDate(startDate);
+                        imService.getTravelManager().getConfigEntity().setEndDate(endDate);
                         imService.getTravelManager().getConfigEntity().setDuration(iduration);
                     }
                     break;
@@ -214,6 +230,10 @@ public class CreateTravelFragment extends TTBaseFragment{
         route = (RelativeLayout)curView.findViewById(R.id.rlcreate_travel_route);
         next = (Button)curView.findViewById(R.id.create_travel_next_step);
 
+        per_num_add = (ImageButton)curView.findViewById(R.id.create_travel_per_num_add);
+        per_num_sub = (ImageButton)curView.findViewById(R.id.create_travel_per_num_sub);
+        per_num = (TextView)curView.findViewById(R.id.create_travel_per_num);
+
 /*        mapExperience.put(R.id.create_travel_experience_economic_comfort, getString(R.string.economical_comfort));
         mapExperience.put(R.id.create_travel_experience_economic_efficiency, getString(R.string.economical_efficiency));
         mapExperience.put(R.id.create_travel_experience_luxury_quality, getString(R.string.luxury_quality));
@@ -227,6 +247,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         mapRoute.put(R.id.create_travel_route_encounter, getString(R.string.route_encounter));;
         createTravelRoute = (TextView)curView.findViewById(R.id.create_travel_route);
         createTravelRoute.setText(mapRoute.get(R.id.create_travel_route_literature));
+        routeType = getString(R.string.route_literature);
 	}
 
 	@Override
@@ -239,6 +260,10 @@ public class CreateTravelFragment extends TTBaseFragment{
             public void onClick(View v) {
                 int id = v.getId();
                 switch (v.getId()) {
+                    case R.id.create_travel_per_num_add:
+                    case R.id.create_travel_per_num_sub:
+                        clacPerNum(id);
+                        break;
                     case R.id.rlcreate_travel_start:
                     case R.id.rlcreate_travel_end:
                         jump2CitySelect(id);
@@ -264,14 +289,15 @@ public class CreateTravelFragment extends TTBaseFragment{
                         if (checkResult()) {
                             storeRoute();
                             travelManager.reqCreateRoute();
-                            mHandler.postDelayed(runnable, 10000);
+                            mHandler.postDelayed(runnable, 20000);
                             dialog = TravelUIHelper.showCalculateDialog(getActivity());
                         }
                         break;
                 }
             }
         };
-
+        per_num_add.setOnClickListener(createTravelListener);
+        per_num_sub.setOnClickListener(createTravelListener);
         bnStart.setOnClickListener(createTravelListener);
         bnEnd.setOnClickListener(createTravelListener);
         time.setOnClickListener(createTravelListener);
@@ -448,6 +474,8 @@ public class CreateTravelFragment extends TTBaseFragment{
                     case R.id.create_travel_route_excite:
                     case R.id.create_travel_route_encounter:
                         createTravelRoute.setText(mapRoute.get(v.getId()));
+                        routeType = mapRoute.get(v.getId());
+                        travelManager.getConfigEntity().setRouteType(routeType);
                         mRoutePopupWindow.dismiss();
                         break;
 
@@ -471,9 +499,7 @@ public class CreateTravelFragment extends TTBaseFragment{
         routeEntity = travelManager.getRouteEntity();
         routeEntity.setDay(iduration);
         routeEntity.setCityCode(travelManager.getCityCodeByName(destination));
-        List<String> tags = new ArrayList<>();
-        tags.add("舒适");
-        routeEntity.setTags(tags);
+        routeEntity.setRouteType(routeType);
     }
 
     public void onEventMainThread(TravelEvent event){
@@ -498,4 +524,28 @@ public class CreateTravelFragment extends TTBaseFragment{
             }
         }
     };
+
+    private void clacPerNum(int opt) {
+        perNum = Integer.parseInt(per_num.getText().toString());
+        if (opt == R.id.create_travel_per_num_add) {
+            perNum ++;
+        } else {
+            perNum --;
+            if (perNum < MIN_PER_SUM) {
+                perNum = MIN_PER_SUM;
+            }
+        }
+
+        per_num_add.setBackgroundResource(R.drawable.create_travel_add);
+        per_num_sub.setBackgroundResource(R.drawable.create_travel_sub);
+
+        if (perNum == MIN_PER_SUM) {
+            per_num_sub.setBackgroundResource(R.drawable.create_travel_sub_grey);
+            per_num_sub.setClickable(false);
+        } else {
+            per_num_sub.setClickable(true);
+        }
+
+        per_num.setText(String.valueOf(perNum));
+    }
 }

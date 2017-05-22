@@ -7,14 +7,14 @@
     android:paddingBottom="10dp">
 
     <LinearLayout
-        android:layout_width="156dp"
+        android:layout_width="78dp"
         android:layout_height="84dp">
 
-        <ImageView
+<!--        <ImageView
             android:layout_width="78dp"
             android:layout_height="84dp"
             android:background="@drawable/collection_top"
-            android:id = "@+id/collection_top"/>
+            android:id = "@+id/collection_top"/>-->
 
         <ImageView
             android:layout_width="78dp"

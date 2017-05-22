@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
@@ -22,7 +23,7 @@ import com.zhizulx.tt.imservice.manager.IMLoginManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.ui.activity.DetailPortraitActivity;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
-import com.zhizulx.tt.ui.widget.IMBaseImageView;
+import com.zhizulx.tt.utils.ImageUtil;
 
 import java.util.ArrayList;
 
@@ -133,15 +134,16 @@ public class UserInfoFragment extends MainFragment {
 
 	private void initBaseProfile() {
 		logger.d("detail#initBaseProfile");
-        IMBaseImageView portraitImageView = (IMBaseImageView) curView.findViewById(R.id.user_portrait);
+        ImageView portraitImageView = (ImageView) curView.findViewById(R.id.user_portrait);
 
 		setTextViewContent(R.id.nickName, currentUser.getMainName());
 		setTextViewContent(R.id.userName, currentUser.getRealName());
+		ImageUtil.GlideRoundAvatar(getActivity(), currentUser.getAvatar(), portraitImageView);
         //头像设置
-        portraitImageView.setDefaultImageRes(R.drawable.tt_default_user_portrait_corner);
+/*        portraitImageView.setDefaultImageRes(R.drawable.tt_default_user_portrait_corner);
         portraitImageView.setCorner(8);
         portraitImageView.setImageResource(R.drawable.tt_default_user_portrait_corner);
-        portraitImageView.setImageUrl(currentUser.getAvatar());
+        portraitImageView.setImageUrl(currentUser.getAvatar());*/
 
 		portraitImageView.setOnClickListener(new View.OnClickListener() {
 			

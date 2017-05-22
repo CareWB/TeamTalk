@@ -22,7 +22,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-public class TrafficWebViewActivity extends  TTBaseFragmentActivity{
+public class TrafficWebViewActivity extends TTBaseFragmentActivity{
     private WebView webView;
     private ImageView back;
     private TextView title;
@@ -37,7 +37,7 @@ public class TrafficWebViewActivity extends  TTBaseFragmentActivity{
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         setContentView(R.layout.traffic_web_view_activity);
 

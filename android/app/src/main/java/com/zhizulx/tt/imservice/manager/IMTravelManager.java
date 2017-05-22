@@ -51,7 +51,7 @@ public class IMTravelManager extends IMManager {
     private ConfigEntity configEntity = new ConfigEntity();
     private List<CityEntity> cityEntityList = new ArrayList<>();
     private List<CollectRouteEntity> collectRouteEntityList = new ArrayList<>();
-    private CollectRouteEntity collectRouteEntity;
+    private CollectRouteEntity collectRouteEntity = new CollectRouteEntity();
     public static final int GET_ROUTE_BY_TAG = 0;
     public static final int GET_ROUTE_BY_SENTENCE = 1;
 
@@ -295,6 +295,9 @@ public class IMTravelManager extends IMManager {
 
     public void reqUpdateRandomRoute(List<Integer> sightIdList) {
         Log.e("yuki", "reqUpdateRandomRoute");
+        for (int index:sightIdList) {
+            Log.e("yuki", String.valueOf(index));
+        }
         int loginId = IMLoginManager.instance().getLoginId();
         String startTime = String.format("%02d:00", routeEntity.getStartTime());
         String endTime = String.format("%02d:00", routeEntity.getEndTime());
@@ -308,8 +311,6 @@ public class IMTravelManager extends IMManager {
                 .setEndTime(endTime)
                 .addAllScenicIds(sightIdList)
                 .setTag(routeEntity.getRouteType()).build();
-
-        Log.e("yuki", newUpdateRadomRouteReq.toString());
 
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_RADOM_ROUTE_UPDATE_REQUEST_VALUE;
@@ -339,7 +340,6 @@ public class IMTravelManager extends IMManager {
                 .setCityCode(getCityCodeByName(configEntity.getDestination()))
                 .addAllTags(tagProcess(configEntity.getRouteType()))
                 .build();
-        Log.e("yuki", newUpdateRadomRouteReq.toString());
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_NEW_TRAVEL_CREATE_REQUEST_VALUE;
         imSocketManager.sendRequest(newUpdateRadomRouteReq,sid,cid);
@@ -411,8 +411,11 @@ public class IMTravelManager extends IMManager {
 
     private List<String> tagProcess(String routeType) {
         List<String> tags = new ArrayList<>();
-        tags.add(routeType);
-        for (int i = 0; i < 2; i ++) {
+        if (routeType != null && !routeType.isEmpty()) {
+            tags.add(routeType);
+        }
+
+        for (int i = 0; i < 3 - tags.size(); i ++) {
             tags.add(configEntity.getTags().get(i));
         }
         return tags;
@@ -456,16 +459,15 @@ public class IMTravelManager extends IMManager {
         IMBuddy.NewCreateCollectRouteReq newCreateCollectRouteReq = IMBuddy.NewCreateCollectRouteReq.newBuilder()
                 .setUserId(loginId)
                 .setCollect(collectionRoute).build();
-        Log.e("yuki", newCreateCollectRouteReq.toString());
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_NEW_CREATE_COLLECT_ROUTE_REQUEST_VALUE;
         imSocketManager.sendRequest(newCreateCollectRouteReq,sid,cid);
     }
 
     public void onRspCreateCollectRoute(IMBuddy.NewCreateCollectRouteRsp newCreateCollectRouteRsp) throws ParseException {
-        Log.e("yuki", "onRspCreateRoute");
+        Log.e("yuki", "onRspCreateCollectRoute");
         if (newCreateCollectRouteRsp.getResultCode() != 0) {
-            logger.e("onRepTravelList fail %d", newCreateCollectRouteRsp.getResultCode());
+            logger.e("onRspCreateCollectRoute fail %d", newCreateCollectRouteRsp.getResultCode());
             triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_COLLECT_ROUTE_FAIL));
         } else {
             triggerEvent(new TravelEvent(TravelEvent.Event.CREATE_COLLECT_ROUTE_OK));
@@ -477,7 +479,6 @@ public class IMTravelManager extends IMManager {
         int loginId = IMLoginManager.instance().getLoginId();
         IMBuddy.NewQueryCollectRouteReq newQueryCollectRouteReq = IMBuddy.NewQueryCollectRouteReq.newBuilder()
                 .setUserId(loginId).build();
-        Log.e("yuki", newQueryCollectRouteReq.toString());
 
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_REQUEST_VALUE;
@@ -498,6 +499,7 @@ public class IMTravelManager extends IMManager {
                     collectRouteEntityList.add(ProtoBuf2JavaBean.getCollectRouteEntity(collectionRoute));
                 }
                 setCollectRouteEntityList(collectRouteEntityList);
+                triggerEvent(new TravelEvent(TravelEvent.Event.QUERY_COLLECT_ROUTE_OK));
             }
         }
     }
@@ -508,7 +510,6 @@ public class IMTravelManager extends IMManager {
         IMBuddy.NewDelCollectRouteReq newQueryCollectRouteReq = IMBuddy.NewDelCollectRouteReq.newBuilder()
                 .setUserId(loginId)
                 .addAllCollectId(delIdList).build();
-        Log.e("yuki", newQueryCollectRouteReq.toString());
 
         int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
         int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_NEW_DELETE_COLLECT_ROUTE_REQUEST_VALUE;
@@ -523,5 +524,14 @@ public class IMTravelManager extends IMManager {
         } else {
             triggerEvent(new TravelEvent(TravelEvent.Event.DELETE_COLLECT_ROUTE_OK));
         }
+    }
+
+    public Boolean hasCollected(int routeId) {
+        for (CollectRouteEntity collectRouteEntity: collectRouteEntityList) {
+            if (routeId == collectRouteEntity.getRouteEntity().getDbId()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

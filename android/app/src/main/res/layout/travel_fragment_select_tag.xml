@@ -17,23 +17,60 @@
         android:textSize="@dimen/mian_title_size"
         android:textColor="@color/title"/>
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/select_tag_high"
-        android:id="@+id/select_tag_high" />
+        android:id="@+id/select_tag_high">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/select_tag_between"
-        android:layout_marginBottom="@dimen/select_tag_between"
-        android:background="@drawable/select_tag_medium"
-        android:id="@+id/select_tag_medium" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/select_tag_high"
+            android:id="@+id/select_tag_high_circle"/>
 
-    <ImageView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/select_tag_high_title"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/select_tag_low"
-        android:id="@+id/select_tag_low" />
+        android:id="@+id/select_tag_medium">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/select_tag_medium"
+            android:id="@+id/select_tag_medium_circle"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/select_tag_medium_title"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/select_tag_low">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/select_tag_low"
+            android:id="@+id/select_tag_low_circle"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/select_tag_low_title"/>
+    </RelativeLayout>
 </LinearLayout>

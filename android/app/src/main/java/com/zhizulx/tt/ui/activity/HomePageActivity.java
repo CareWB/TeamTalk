@@ -21,6 +21,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.bumptech.glide.Glide;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zhizulx.tt.DB.entity.UserEntity;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.imservice.event.LoginEvent;
@@ -44,9 +45,7 @@ public class HomePageActivity extends FragmentActivity {
     private TextView collection;
     private TextView aboutUs;
     private TextView clearCache;
-    private AMapLocationClient mlocationClient;
-    //声明mLocationOption对象
-    public AMapLocationClientOption mLocationOption = null;
+    private UserEntity userEntity;
 
     private IMService imService;
 
@@ -54,6 +53,8 @@ public class HomePageActivity extends FragmentActivity {
         @Override
         public void onIMServiceConnected() {
             imService = imServiceConnector.getIMService();
+            int loginId = imService.getLoginManager().getLoginId();
+            userEntity = imService.getContactManager().findContact(loginId);
         }
 
         @Override
@@ -84,7 +85,7 @@ public class HomePageActivity extends FragmentActivity {
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         mineIcon = (ImageView)findViewById(R.id.mine_icon);
     }
@@ -95,7 +96,15 @@ public class HomePageActivity extends FragmentActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.mine_icon:
-                        initPopupWindow();
+                        if (popupWindow == null) {
+                            initPopupWindow();
+                        } else {
+                            if (popupWindow.isShowing()) {
+                                return;
+                            }
+                            initPopupWindow();
+                        }
+
                         break;
                 }
             }
@@ -144,7 +153,7 @@ public class HomePageActivity extends FragmentActivity {
 
         mine = (RelativeLayout)popupWindowView.findViewById(R.id.mine_info);
         mineAvatar = (ImageView) popupWindowView.findViewById(R.id.mine_avatar);
-        ImageUtil.GlideRoundAvatar(HomePageActivity.this, "http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg", mineAvatar);
+        ImageUtil.GlideRoundAvatar(HomePageActivity.this, userEntity.getAvatar(), mineAvatar);
         collection = (TextView)popupWindowView.findViewById(R.id.mine_collection);
         aboutUs = (TextView)popupWindowView.findViewById(R.id.mine_about_us);
         clearCache = (TextView)popupWindowView.findViewById(R.id.mine_clear_cache);
@@ -192,7 +201,12 @@ public class HomePageActivity extends FragmentActivity {
                     @Override
                     public void run() {
                         FileUtil.deleteHistoryFiles(new File(FileUtil.getAppPath() + File.separator), System.currentTimeMillis());
-                        Glide.get(HomePageActivity.this).clearDiskCache();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Glide.get(HomePageActivity.this).clearDiskCache();
+                            }
+                        }).start();
                         Toast toast = Toast.makeText(HomePageActivity.this,R.string.thumb_remove_finish,Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER,0,0);
                         toast.show();
@@ -240,8 +254,7 @@ public class HomePageActivity extends FragmentActivity {
      * 设置添加屏幕的背景透明度
      * @param bgAlpha
      */
-    public void backgroundAlpha(float bgAlpha)
-    {
+    public void backgroundAlpha(float bgAlpha) {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.alpha = bgAlpha; //0.0-1.0
         getWindow().setAttributes(lp);

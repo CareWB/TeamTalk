@@ -16,6 +16,8 @@ import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.ui.widget.swiprecycleview.ItemHelpter;
 import com.zhizulx.tt.ui.widget.swiprecycleview.SwipeLayout;
+import com.zhizulx.tt.utils.ImageUtil;
+import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ import java.util.List;
 public class CollectionAdapter extends RecyclerView.Adapter implements ItemHelpter.Callback{
     public static interface OnRecyclerViewListener {
         void onItemClick(int position);
-        void onTopClick(int position);
+        /*void onTopClick(int position);*/
         void onDelClick(int position);
     }
 
@@ -69,8 +71,11 @@ public class CollectionAdapter extends RecyclerView.Adapter implements ItemHelpt
             holder.root.clearAnimation();
         }
         holder.time.setText(collectRouteEntity.getStartDate());
-        holder.destination.setText(travelManager.getCityNameByCode(collectRouteEntity.getRouteEntity().getCityCode()));
-        holder.routeType.setText(collectRouteEntity.getRouteEntity().getRouteType());
+        String citycode = collectRouteEntity.getRouteEntity().getCityCode();
+        String cityname = travelManager.getCityNameByCode(citycode);
+        ImageUtil.GlideRoundAvatar(ctx, travelManager.getCityEntitybyCityCode(citycode).getPicList().get(0), holder.avatar);
+        holder.destination.setText(cityname);
+        holder.routeType.setText(collectRouteEntity.getRouteEntity().getRouteType() + "路线");
     }
 
     @Override
@@ -97,7 +102,7 @@ public class CollectionAdapter extends RecyclerView.Adapter implements ItemHelpt
         public TextView destination;
         public TextView routeType;
         public ImageView item;
-        public ImageView top;
+        //public ImageView top;
         public ImageView del;
 
         public CollectionViewHolder(View itemView) {
@@ -108,9 +113,9 @@ public class CollectionAdapter extends RecyclerView.Adapter implements ItemHelpt
             time = (TextView) itemView.findViewById(R.id.collection_time);
             destination = (TextView) itemView.findViewById(R.id.collection_destination);
             routeType = (TextView) itemView.findViewById(R.id.collection_route_type);
-            top = (ImageView) itemView.findViewById(R.id.collection_top);
+            //top = (ImageView) itemView.findViewById(R.id.collection_top);
             del = (ImageView) itemView.findViewById(R.id.collection_del);
-            top.setOnClickListener(this);
+            //top.setOnClickListener(this);
             del.setOnClickListener(this);
             item.setOnClickListener(this);
         }
@@ -122,9 +127,9 @@ public class CollectionAdapter extends RecyclerView.Adapter implements ItemHelpt
                     case R.id.collection_item:
                         onRecyclerViewListener.onItemClick(this.getPosition());
                         break;
-                    case R.id.collection_top:
+/*                    case R.id.collection_top:
                         onRecyclerViewListener.onTopClick(this.getPosition());
-                        break;
+                        break;*/
                     case R.id.collection_del:
                         onRecyclerViewListener.onDelClick(this.getPosition());
                         break;

@@ -391,7 +391,6 @@ public class ProtoBuf2JavaBean {
         for (IMBuddy.DayRoute dayRoute : dayRouteList) {
             DayRouteEntity dayRouteEntity = new DayRouteEntity();
             dayRouteEntity.setSightIDList(dayRoute.getScenicsList());
-            dayRouteEntity.setHotelSelected(dayRoute.getHotelsList().get(0));
             dayRouteEntity.setHotelIDList(dayRoute.getHotelsList());
             dayRouteEntityList.add(dayRouteEntity);
         }

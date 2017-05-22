@@ -40,7 +40,7 @@ public class CsvUtil {
     }
 
     public int getRowNum() {
-        return list.size()-1;
+        return list.size();
     }
 
     public int getColNum() {

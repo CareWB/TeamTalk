@@ -1,6 +1,5 @@
 package com.zhizulx.tt.ui.fragment;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,10 +16,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.zhizulx.tt.DB.entity.DayRouteEntity;
 import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.R;
-import com.zhizulx.tt.config.UrlConstant;
 import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
@@ -30,6 +30,8 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -68,6 +70,9 @@ public class SelectSightFragment extends TTBaseFragment{
     private List<Integer> origin = new ArrayList<>();
 
     private Map<Integer, String> selectFlag = new HashMap<>();
+    private int totalHours = 1;
+    private int day = 1;
+    private List<DayRouteEntity> dayRouteEntityList = new ArrayList<>();
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -77,6 +82,9 @@ public class SelectSightFragment extends TTBaseFragment{
             if (imService != null) {
                 travelManager = imService.getTravelManager();
                 initSightList();
+                totalHours = getTotalHours();
+                day = travelManager.getRouteEntity().getDay();
+                copyRoute(travelManager.getRouteEntity().getDayRouteEntityList(), dayRouteEntityList);
             }
         }
 
@@ -131,11 +139,23 @@ public class SelectSightFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-                updateRoute();
-                dialog = TravelUIHelper.showCalculateDialog(getActivity());
-                mHandler.postDelayed(runnable, 10000);
+                copyRoute(dayRouteEntityList, travelManager.getRouteEntity().getDayRouteEntityList());
+                getActivity().finish();
 			}
 		});
+        setTopRightButton(R.drawable.detail_disp_adjust_finish);
+        topRightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getSightNum() < day) {
+                    Toast.makeText(getActivity(), "真懒，多玩几个地方嘛！", Toast.LENGTH_SHORT).show();
+                } else {
+                    updateRoute();
+                    dialog = TravelUIHelper.showCalculateDialog(getActivity());
+                    mHandler.postDelayed(runnable, 10000);
+                }
+            }
+        });
 
         total = (TextView)curView.findViewById(R.id.select_total);
         literature = (TextView)curView.findViewById(R.id.select_literature);
@@ -229,7 +249,7 @@ public class SelectSightFragment extends TTBaseFragment{
     }
 
     private void initSightList() {
-        sightEntityList.clear();
+        List<SightEntity> sightEntityList = new ArrayList<>();
         String cityCode = travelManager.getRouteEntity().getCityCode();
         for (SightEntity sightEntity : travelManager.getSightList()) {
             if (sightEntity.getCityCode().equals(cityCode)) {
@@ -239,9 +259,48 @@ public class SelectSightFragment extends TTBaseFragment{
                 }
             }
         }
-
-        tagSightEntityList.addAll(sightEntityList);
+        sightSort(sightEntityList);
+        tagSightEntityList.addAll(this.sightEntityList);
         sightAdapter.notifyDataSetChanged();
+    }
+
+    private void sightSort(List<SightEntity> sightEntityListIn) {
+        sightEntityList.clear();
+        SightIDSort sort = new SightIDSort();
+        Collections.sort(sightEntityListIn, sort);
+        //all route sights
+        List<Integer> sightSelectIDList = new ArrayList<>();
+        for (DayRouteEntity dayRouteEntity : travelManager.getRouteEntity().getDayRouteEntityList()) {
+            sightSelectIDList.addAll(dayRouteEntity.getSightIDList());
+        }
+
+        for (int i : sightSelectIDList) {
+            for (SightEntity sightEntity : sightEntityListIn) {
+                if (sightEntity.getPeerId() == i) {
+                    sightEntityList.add(sightEntity);
+                    continue;
+                }
+            }
+        }
+
+        for (SightEntity sightEntity : sightEntityListIn) {
+            if (sightEntityList.contains(sightEntity)) {
+                continue;
+            }
+            sightEntityList.add(sightEntity);
+        }
+    }
+
+    public class SightIDSort implements Comparator {
+        @Override
+        public int compare(Object arg0, Object arg1) {
+            // TODO Auto-generated method stub
+            SightEntity route0 = (SightEntity) arg0;
+            SightEntity route1 = (SightEntity) arg1;
+            int id0 = route0.getPeerId();
+            int id1 = route1.getPeerId();
+            return id0 > id1 ? 1 : -1; //按照时间的由小到大排列
+        }
     }
 
 /*    private void testCase() {
@@ -394,6 +453,18 @@ public class SelectSightFragment extends TTBaseFragment{
                 if (sightEntity.getSelect() == 1) {
                     sightEntity.setSelect(0);
                 } else {
+                    int hours = sightEntity.getPlayTime() + getCurrentHours();
+                    if (hours > totalHours) {
+                        Toast.makeText(getActivity(), "景点太多可是玩不完的呢！", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (calTravelFullRate() < 50) {
+                        Toast.makeText(getActivity(), "时间还有很多，不要浪费嘛！", Toast.LENGTH_SHORT).show();
+                    } else if (calTravelFullRate() < 80) {
+                        Toast.makeText(getActivity(), "诶呦，不错喔！", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "这条路线可能会有点累的呢！", Toast.LENGTH_SHORT).show();
+                    }
                     sightEntity.setSelect(1);
                 }
                 sightAdapter.notifyDataSetChanged();
@@ -541,4 +612,64 @@ public class SelectSightFragment extends TTBaseFragment{
             }
         }
     };
+
+    private int getTotalHours() {
+        int day = travelManager.getRouteEntity().getDay();
+        int defaultStartHour = 9;
+        int defaultEndHour = 18;
+        int startHour = travelManager.getRouteEntity().getStartTime() < defaultStartHour ? defaultStartHour : travelManager.getRouteEntity().getStartTime();
+        int endHour = travelManager.getRouteEntity().getEndTime() > defaultEndHour ? defaultEndHour : travelManager.getRouteEntity().getEndTime();
+        int totalHours = 1;
+
+        if (day < 2) {
+            totalHours = endHour - startHour;
+        } else {
+            int dayFirst = defaultEndHour - startHour;
+            int dayLast = endHour - defaultStartHour;
+            int middle = (day - 2) * (defaultEndHour - defaultStartHour);
+            totalHours = dayFirst + dayLast + middle;
+        }
+        return totalHours;
+    }
+
+    private int getCurrentHours() {
+        int playHours = 0;
+        for (SightEntity sightEntity : sightEntityList) {
+            if (sightEntity.getSelect() == 1) {
+                playHours += sightEntity.getPlayTime();
+            }
+        }
+        return playHours;
+    }
+
+    private int calTravelFullRate() {
+        int currentHours = getCurrentHours();
+        if (currentHours > totalHours) {
+            return 100;
+        }
+        return currentHours*100/totalHours;
+    }
+
+    private int getSightNum() {
+        int num = 0;
+        for (SightEntity sightEntity : sightEntityList) {
+            if (sightEntity.getSelect() == 1) {
+                num ++;
+            }
+        }
+        return num;
+    }
+
+    private void copyRoute(List<DayRouteEntity> ori, List<DayRouteEntity> des) {
+        for (DayRouteEntity dayRouteEntity : ori) {
+            DayRouteEntity newDayRouteEntity = new DayRouteEntity();
+            List<Integer> sightIDList = new ArrayList<>();
+            List<Integer> hotelIDList = new ArrayList<>();
+            sightIDList.addAll(dayRouteEntity.getSightIDList());
+            hotelIDList.addAll(dayRouteEntity.getHotelIDList());
+            newDayRouteEntity.setSightIDList(sightIDList);
+            newDayRouteEntity.setHotelIDList(hotelIDList);
+            des.add(newDayRouteEntity);
+        }
+    }
 }

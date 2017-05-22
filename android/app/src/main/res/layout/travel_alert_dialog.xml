@@ -8,62 +8,39 @@
     <LinearLayout
         android:orientation="vertical"
         android:background="@drawable/alert_dialog_bk"
-        android:layout_width="281dp"
-        android:layout_height="123dp"
-        android:layout_gravity="center"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|bottom"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="23dp"
+            android:textSize="15sp"
+            android:textColor="@color/title"
+            android:id="@+id/alert_dialog_content"
+            android:layout_gravity="center_horizontal|center" />
+
         <LinearLayout
             android:orientation="horizontal"
-            android:gravity="center"
+            android:gravity="end"
             android:layout_width="match_parent"
-            android:layout_height="67dp">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="@color/travel_alert_dialog_title"
-                android:id="@+id/alert_dialog_title"
-                android:layout_gravity="center_horizontal|center" />
+                android:background="@drawable/alert_dialog_cancel"
+                android:id="@+id/bn_alert_dialog_cancel" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/alert_dialog_confirm"
+                android:id="@+id/bn_alert_dialog_confirm" />
         </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:id="@+id/imageView27"
-            android:background="@drawable/divider_line" />
-
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:paddingLeft="13dp"
-            android:paddingRight="13dp" >
-
-            <Button
-                android:text="@string/tt_cancel"
-                android:textColor="@color/travel_alert_dialog_content_not_choose"
-                android:textSize="15sp"
-                android:layout_width="122dp"
-                android:layout_height="39dp"
-                android:id="@+id/bn_alert_dialog_cancel"
-                android:background="@drawable/bn_bk_white"
-                android:layout_alignParentLeft="true" />
-
-            <Button
-                android:text="@string/tt_ok"
-                android:textColor="@color/travel_alert_dialog_content_choose"
-                android:textSize="15sp"
-                android:layout_width="122dp"
-                android:layout_height="39dp"
-                android:id="@+id/bn_alert_dialog_confirm"
-                android:background="@drawable/bn_bk_blue"
-                android:layout_alignParentRight="true"/>
-
-        </RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>

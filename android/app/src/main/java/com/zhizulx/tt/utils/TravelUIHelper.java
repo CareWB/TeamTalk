@@ -3,6 +3,7 @@ package com.zhizulx.tt.utils;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,10 +17,12 @@ import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.ui.activity.CreateTravelActivity;
 import com.zhizulx.tt.ui.activity.DetailDispActivity;
 import com.zhizulx.tt.ui.activity.ExpenseDetailActivity;
+import com.zhizulx.tt.ui.activity.HomePageActivity;
 import com.zhizulx.tt.ui.activity.IntroduceSightActivity;
 import com.zhizulx.tt.ui.activity.SelectDesignWayActivity;
 import com.zhizulx.tt.ui.activity.SelectTravelRouteActivity;
 import com.zhizulx.tt.ui.activity.HotelWebViewActivity;
+import com.zhizulx.tt.ui.activity.ShowSightsInMap;
 import com.zhizulx.tt.ui.activity.TrafficWebViewActivity;
 import com.zhizulx.tt.ui.route.RouteActivity;
 
@@ -30,12 +33,12 @@ public class TravelUIHelper {
 		public void callback();
 	}
 
-	public static void showAlertDialog(Context context, String title, final dialogCallback callback) {
+	public static void showAlertDialog(Context context, String content, final dialogCallback callback) {
 		final Dialog dialog = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar);
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View dialog_view = inflater.inflate(R.layout.travel_alert_dialog, null);
-		TextView textText = (TextView)dialog_view.findViewById(R.id.alert_dialog_title);
-		textText.setText(title);
+		TextView tvContent = (TextView)dialog_view.findViewById(R.id.alert_dialog_content);
+		tvContent.setText(content);
 		dialog_view.findViewById(R.id.bn_alert_dialog_cancel).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -67,6 +70,18 @@ public class TravelUIHelper {
         return dialog;
     }
 
+	public static Dialog showLoadingDialog(Context context) {
+		final Dialog dialog = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar);
+		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View dialog_view = inflater.inflate(R.layout.travel_calculate_dialog, null);
+		ImageView calculate = (ImageView)dialog_view.findViewById(R.id.calculate_gif);
+		Glide.with(context).load(R.drawable.calculating).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(calculate);
+		dialog.setContentView(dialog_view);
+		dialog.show();
+		dialog.setCancelable(false);
+		return dialog;
+	}
+
     //跳转到新建行程页面
     public static void openCreateTravelActivity(Context ctx) {
         Intent intent = new Intent(ctx, CreateTravelActivity.class);
@@ -93,7 +108,8 @@ public class TravelUIHelper {
 
 	//跳转到交通方式页面
 	public static void openTrafficListActivity(Context ctx, String name, String url) {
-		Intent intent = new Intent(ctx, TrafficWebViewActivity.class);
+        Log.e("openTrafficListActivity", url);
+        Intent intent = new Intent(ctx, TrafficWebViewActivity.class);
 		intent.putExtra(IntentConstant.NAME, name);
 		intent.putExtra(IntentConstant.WEBVIEW_URL, url);
 		ctx.startActivity(intent);
@@ -134,5 +150,18 @@ public class TravelUIHelper {
 		Intent intent = new Intent(ctx, RouteActivity.class);
         intent.putExtra("map_point", mapRoute);
         ctx.startActivity(intent);
+	}
+
+	//跳转到细节展示页面
+	public static void openHomePageActivity(Context ctx) {
+		Intent intent = new Intent(ctx, HomePageActivity.class);
+		ctx.startActivity(intent);
+	}
+
+	//跳转到一天地点展示页
+	public static void openShowSightsInMapActivity(Context ctx, int day) {
+		Intent intent = new Intent(ctx, ShowSightsInMap.class);
+		intent.putExtra("day", day);
+		ctx.startActivity(intent);
 	}
 }

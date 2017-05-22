@@ -17,6 +17,7 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.adapter.CollectionAdapter;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class MineCollectionFragment extends TTBaseFragment{
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
+                initCollection();
                 travelManager.reqGetCollectRoute();
             }
         }
@@ -62,7 +64,6 @@ public class MineCollectionFragment extends TTBaseFragment{
 		curView = inflater.inflate(R.layout.travel_fragment_mine_collection, topContentView);
 		initRes();
         initBtn();
-        initCollection();
 		return curView;
 	}
 
@@ -114,22 +115,23 @@ public class MineCollectionFragment extends TTBaseFragment{
             @Override
             public void onItemClick(int position) {
                 Log.e("swip", "onItemClick");
-                collectionAdapter.notifyDataSetChanged();
+                travelManager.setRouteEntity(collectRouteEntityList.get(position).getRouteEntity());
+                TravelUIHelper.openDetailDispActivity(getActivity());
             }
 
-            @Override
+/*            @Override
             public void onTopClick(int position) {
                 Log.e("swip", "onTopClick");
                 collectionAdapter.notifyItemMoved(position, 0);
-            }
+            }*/
 
             @Override
             public void onDelClick(int position) {
                 Log.e("swip", "onDelClick");
-                collectRouteEntityList.remove(position);
                 List<Integer> idlist = new ArrayList<>();
                 idlist.add(collectRouteEntityList.get(position).getDbId());
                 travelManager.reqDelCollectRoute(idlist);
+                collectRouteEntityList.remove(position);
                 collectionAdapter.notifyItemRemoved(position);
                 collectionAdapter.notifyDataSetChanged();
             }

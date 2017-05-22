@@ -25,7 +25,15 @@
             android:src="@drawable/tt_default_user_portrait_corner" />
             -->
 
-            <com.zhizulx.tt.ui.widget.IMBaseImageView
+<!--            <com.zhizulx.tt.ui.widget.IMBaseImageView
+                android:id="@+id/user_portrait"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="25dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop" />-->
+
+            <ImageView
                 android:id="@+id/user_portrait"
                 android:layout_width="150dp"
                 android:layout_height="150dp"

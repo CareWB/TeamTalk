@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="87dp"
             android:id="@+id/no_selected_route_hint"
+            android:visibility="gone"
             android:background="@drawable/no_selected_route_grey"
             android:layout_gravity="center_horizontal" />
 

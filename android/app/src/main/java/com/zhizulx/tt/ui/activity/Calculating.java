@@ -8,12 +8,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.R;
-import com.zhizulx.tt.imservice.event.LoginEvent;
-import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
-
-import de.greenrobot.event.EventBus;
 
 public class Calculating extends FragmentActivity{
     private ImageView calculating;
@@ -40,7 +36,7 @@ public class Calculating extends FragmentActivity{
 		setContentView(R.layout.travel_activity_calculate);
 
         calculating = (ImageView)findViewById(R.id.calculating);
-        Glide.with(this).load(R.drawable.testgif).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(calculating);
+        Glide.with(this).load(R.drawable.calculating).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(calculating);
 	}
 
 	@Override

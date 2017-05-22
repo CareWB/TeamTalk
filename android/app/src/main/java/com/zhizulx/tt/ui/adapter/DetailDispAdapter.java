@@ -29,6 +29,7 @@ import java.util.List;
  */
 public class DetailDispAdapter extends RecyclerView.Adapter {
     public static interface OnRecyclerViewListener {
+        void onDayClick(View v, int position);
         void onSightClick(View v, int position);
         void onHotelClick(View v, int position);
         void onTrafficClick(View v, int position);
@@ -55,7 +56,6 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
     public DetailDispAdapter(Context ctx, List<DetailDispEntity> mList) {
         this.ctx = ctx;
         this.mList = mList;
-        trafficStatus();
     }
 
     private void trafficStatus() {
@@ -171,6 +171,7 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
                 }
                 break;
             case TRAFFIC:
+                trafficStatus();
                 TrafficViewHolder trafficViewHolder = (TrafficViewHolder) viewHolder;
                 if (detailDispEntity.getTitle().equals("飞机")) {
                     trafficViewHolder.selectResult.setBackgroundResource(R.drawable.detail_disp_traffic_plane);
@@ -226,12 +227,18 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
         }
     }
 
-    class DayViewHolder extends RecyclerView.ViewHolder {
+    class DayViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView day;
 
         public DayViewHolder(View itemView) {
             super(itemView);
             day = (TextView) itemView.findViewById(R.id.detail_disp_day);
+            day.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onRecyclerViewListener.onDayClick(v, this.getPosition());
         }
     }
 
@@ -251,6 +258,7 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
             info = (TextView) itemView.findViewById(R.id.detail_disp_sight_info);
             map = (TextView) itemView.findViewById(R.id.detail_disp_sight_map);
             mask = (ImageView) itemView.findViewById(R.id.detail_disp_sight_unclick);
+            avatar.setOnClickListener(this);
             info.setOnClickListener(this);
             map.setOnClickListener(this);
         }
@@ -279,6 +287,7 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
             map = (TextView) itemView.findViewById(R.id.detail_disp_hotel_map);
             selectHotel = (TextView) itemView.findViewById(R.id.detail_disp_hotel_select);
             mask = (ImageView) itemView.findViewById(R.id.detail_disp_hotel_unclick);
+            avatar.setOnClickListener(this);
             selectHotel.setOnClickListener(this);
             info.setOnClickListener(this);
             map.setOnClickListener(this);

@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zhizulx.tt.DB.entity.RouteEntity;
-import com.zhizulx.tt.DB.entity.TravelCityEntity;
+import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 
@@ -57,8 +57,8 @@ public class TravelRouteAdapter extends RecyclerView.Adapter {
         RouteEntity routeEntity = mList.get(i);
         TravelRouteViewHolder holder = (TravelRouteViewHolder) viewHolder;
         holder.days.setText(routeEntity.getDay() + "天");
-        holder.city.setText(travelManager.getCityNameByCode(routeEntity.getCityCode()));
-        holder.topic.setText(routeEntity.getRouteType());
+        holder.city.setText("\""+travelManager.getCityNameByCode(routeEntity.getCityCode())+"\"之旅");
+        holder.topic.setText(routeEntity.getRouteType()+"路线");
     }
 
     @Override

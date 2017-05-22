@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/title"
-            android:textSize="@dimen/title_size"
+            android:textSize="@dimen/title_text_size"
             android:background="@drawable/detail_disp_adjust_bk"
             android:id="@+id/detail_disp_adjust_sight" />
 
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/title"
-            android:textSize="@dimen/title_size"
+            android:textSize="@dimen/title_text_size"
             android:background="@drawable/detail_disp_adjust_bk"
             android:id="@+id/detail_disp_adjust_hotel" />
 
@@ -136,7 +136,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/title"
-            android:textSize="@dimen/title_size"
+            android:textSize="@dimen/title_text_size"
             android:background="@drawable/detail_disp_adjust_bk"
             android:id="@+id/detail_disp_adjust_traffic" />
     </LinearLayout>
@@ -150,6 +150,26 @@
         android:visibility="gone"
         android:id="@+id/ly_time_select_wheel"
         android:background="@color/translucent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/clicked">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/select_time_cancel"
+                android:id="@+id/select_time_cancel"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/select_time_confirm"
+                android:id="@+id/select_time_confirm"/>
+        </RelativeLayout>
 
         <com.zhizulx.tt.utils.WheelPicker
             android:layout_width="match_parent"

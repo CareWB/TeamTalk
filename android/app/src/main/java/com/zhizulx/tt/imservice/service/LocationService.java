@@ -34,7 +34,7 @@ public class LocationService  extends Service implements AMapLocationListener {
     private double dLongitude = 0.0;
     private double dLatitude = 0.0;
     private String cityName;
-    private LocationEvent locationEvent = new LocationEvent(LocationEvent.Event.GET_EVENT);
+    private LocationEvent locationEvent = new LocationEvent(LocationEvent.Event.FRESH_EVENT);
 
     /**binder*/
     private LocationService.LocationServiceBinder binder = new LocationService.LocationServiceBinder();
@@ -68,7 +68,6 @@ public class LocationService  extends Service implements AMapLocationListener {
         // todo 在onCreate中使用startForeground
         // 在这个地方是否执行 stopForeground呐
         EventBus.getDefault().unregister(this);
-
         super.onDestroy();
     }
 
@@ -143,7 +142,7 @@ public class LocationService  extends Service implements AMapLocationListener {
     /**收到消息需要上层的activity判断 {MessageActicity onEvent(PriorityEvent event)}，这个地方是特殊分支*/
     public void onEvent(LocationEvent event){
         switch (event.getEvent()){
-            case FRESH_EVENT:
+            case GET_EVENT:
                 mlocationClient.startLocation();
                 break;
         }
