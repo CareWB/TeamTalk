@@ -792,7 +792,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
 
         while (pResultSet->Next())
         {
-            if (i == 5)
+            if (i == 6)
             {
                 break;
             }
@@ -829,6 +829,7 @@ bool CUserModel::queryRadomRoute(uint32_t user_id, IM::Buddy::NewQueryRadomRoute
                 p = strtok(NULL, sep);
             }
         }
+        delete pResultSet;
     }
 
     pDBManager->RelDBConn(pDBConn);
@@ -918,6 +919,8 @@ bool CUserModel::updateRadomRoute(uint32_t user_id, IM::Buddy::NewUpdateRadomRou
                     p = strtok(NULL, sep);
                 }
             }
+
+            delete pResultSet;
         }
 
         if (data_exist)
@@ -1019,7 +1022,6 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
                     dayRoute->add_scenics(atoi(p));
                     p = strtok(NULL, sep);
                 }
-                dayRoute->add_scenics(1);
 
                 p = strtok(pResultSet->GetString("hotels"), sep);
                 while(p){
@@ -1027,6 +1029,8 @@ bool CUserModel::newCreateTravel(uint32_t user_id, IM::Buddy::NewCreateMyTravelR
                     p = strtok(NULL, sep);
                 }
             }
+
+            delete pResultSet;
         }
 
         if (data_exist)
@@ -1331,7 +1335,7 @@ bool CUserModel::deleteTravelDetail(uint32_t user_id, const set<uint32_t>& db_id
 
 bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollectRouteReq* req, IM::Buddy::NewCreateCollectRouteRsp* pb) {
     log("enter.");
-    bool bRet = true;
+    bool bRet = false;
     int idx = 0;
 
     CDBManager* db_manager = CDBManager::getInstance();
@@ -1341,12 +1345,14 @@ bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollec
         string str_sql;
         str_sql = string_fmt(str_sql, "call insert_collect(%d, %d, '%s', '%s', '%s', '%s', @ret, @idx)", 
             req->user_id(),
-            req->collect().route_id(),
+            req->collect().route().id(),
             req->collect().start_date().c_str(),
             req->collect().end_date().c_str(),
             req->collect().start_traffic_no().c_str(),
             req->collect().end_traffic_no().c_str()
             );
+
+        log("sql:%s", str_sql.c_str());
 
         CResultSet* pResultSet = db_conn->ExecuteQuery(str_sql.c_str());
         if (pResultSet)
@@ -1357,14 +1363,11 @@ bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollec
                 if (0 == ret) {
                     idx = pResultSet->GetInt("newId");
                     pb->set_collect_id(idx);
+                    bRet = true;
                     break;
                 }
             }
             delete pResultSet;
-        }
-        else
-        {
-            log(" no result set for sql:%s", str_sql.c_str());
         }
 
         db_manager->RelDBConn(db_conn);
@@ -1379,14 +1382,102 @@ bool CUserModel::createCollectRoute(uint32_t user_id, IM::Buddy::NewCreateCollec
 
 bool CUserModel::deleteCollectRoute(uint32_t user_id, IM::Buddy::NewDelCollectRouteReq* req, IM::Buddy::NewDelCollectRouteRsp* pb) {
     log("enter.");
-    bool bRet = true;
+    bool bRet = false;
+
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    if (pDBConn)
+    {
+        string strSql = "delete from IMCollectRoute where userId=" + int2string(user_id) + " and id="+int2string(req->collect_id(0));
+        log("sql:%s", strSql.c_str());
+        if(pDBConn->ExecuteUpdate(strSql.c_str()))
+        {
+            bRet = true;
+        }
+        pDBManager->RelDBConn(pDBConn);
+    }
+    else
+    {
+        log("no db connection for teamtalk_master");
+    }
 
     return bRet;
 }
 
 bool CUserModel::queryCollectRoute(uint32_t user_id, IM::Buddy::NewQueryCollectRouteReq* req, IM::Buddy::NewQueryCollectRouteRsp* pb) {
     log("enter.");
-    bool bRet = true;
+    bool bRet = false;
+
+    CDBManager* pDBManager = CDBManager::getInstance();
+    CDBConn* pDBConn = pDBManager->GetDBConn("teamtalk_master");
+    if (!pDBConn)
+    {
+        log("no db connection for teamtalk");
+        return false;
+    }
+
+    CResultSet* pResultSet = NULL;
+    //string strSql = "select * from IMRoute where quality='" + tag + "' order by dayNum";
+    string strSql = "select C.id as seq, C.*, R.* from IMRoute as R, IMCollectRoute as C where R.lineId=C.lineId and R.userId=C.userId and C.userId=" + int2string(user_id) +" order by seq, R.lineId, R.dayNum";
+    log("sql = %s", strSql.c_str());
+
+    pResultSet = pDBConn->ExecuteQuery(strSql.c_str());
+    if (pResultSet)
+    {
+        IM::Buddy::CollectionRoute* collect = NULL;
+        IM::Buddy::Route *route = NULL;
+        IM::Buddy::DayRoute* dayRoute = NULL;
+        int id = 0;
+        int lineId = 0;
+        int day_num = 0;
+
+        while (pResultSet->Next())
+        {
+            if (id == 0 || pResultSet->GetInt("seq") != id)
+            {
+                collect = pb->add_collections();
+            }
+
+            id = pResultSet->GetInt("seq");
+            collect->set_id(pResultSet->GetInt("seq"));
+            collect->set_start_date(pResultSet->GetString("dateFrom"));
+            collect->set_end_date(pResultSet->GetString("dateTo"));
+            collect->set_start_traffic_no(pResultSet->GetString("startTool"));
+            collect->set_end_traffic_no(pResultSet->GetString("endToolNo"));
+            route = collect->mutable_route();
+
+            lineId = pResultSet->GetInt("lineId");
+            route->set_id(pResultSet->GetInt("lineId"));
+            route->set_day_count(pResultSet->GetInt("dayCount"));
+            route->set_city_code(pResultSet->GetString("cityCode"));
+            route->add_tag(pResultSet->GetString("quality"));
+            route->set_start_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("startTool"));
+            route->set_end_transport_tool((::IM::Buddy::TransportToolType)pResultSet->GetInt("endTool"));
+            route->set_start_time(pResultSet->GetString("startTime"));
+            route->set_end_time(pResultSet->GetString("endTime"));
+            dayRoute = route->add_day_routes();
+            bRet = true;
+            
+            char *p;
+            const char* sep = " ";
+            p = strtok(pResultSet->GetString("routes"), sep);
+            while(p){
+                dayRoute->add_scenics(atoi(p));
+                p = strtok(NULL, sep);
+            }
+
+            p = strtok(pResultSet->GetString("hotels"), sep);
+            while(p){
+                dayRoute->add_hotels(atoi(p));
+                p = strtok(NULL, sep);
+            }
+        }
+
+        delete pResultSet;
+    }
+
+    pDBManager->RelDBConn(pDBConn);
+    log("exit.");
 
     return bRet;
 }

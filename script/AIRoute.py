@@ -197,7 +197,7 @@ def path_ILP_L_POIs(V, poi_poi_distmat, ps, pe, L, withNodeWeight=False, alpha=0
 
 
 ###### Way 2: Recommendation via selecting first POI, end POI, and dayCount Days
-def path_ILP_T_Days(V, poi_poi_distmat, ps, pe, dayCount, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18, withNodeWeight=False, alpha=0.5, ):
+def path_ILP_T_Days(V, poi_poi_distmat, ps, pe, dayCount, startTimeIn, endTimeOut, startDayTime=9, endDayTime=17, withNodeWeight=False, alpha=0.5, ):
     
     assert(isinstance(V, pd.DataFrame))
     assert(ps in V.index)
@@ -310,7 +310,7 @@ def traj_default_L_POIs(pi, pj, L, poi_city):
 
 
 # ## Way 4: Default 2: recommendation POIs of dayCount Days in a descreasing order via playtime of each POI.
-def traj_default_T_Days(pi, pj, dayCount, poi_city, startDayTime=9, endDayTime=18):
+def traj_default_T_Days(pi, pj, dayCount, poi_city, startDayTime=9, endDayTime=17):
 
     poi_city.sort_values(by='sightPlayTime', ascending=False, inplace=True)
     POI_pop = poi_city.index.tolist()
@@ -327,7 +327,7 @@ def traj_default_T_Days(pi, pj, dayCount, poi_city, startDayTime=9, endDayTime=1
 
 
 #### Split time sequenece into a journey
-def timeSeq2Traj(poiSeq, timeSeq, dayCount, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18, maxTravelDay=maxTravelDay):
+def timeSeq2Traj(poiSeq, timeSeq, dayCount, startTimeIn, endTimeOut, startDayTime=9, endDayTime=17, maxTravelDay=maxTravelDay):
 
     POIs_Eachday = [[] for _ in range(maxTravelDay)]
     endPOI_Eachday = []
@@ -367,7 +367,7 @@ def timeSeq2Traj(poiSeq, timeSeq, dayCount, startTimeIn, endTimeOut, startDayTim
 
         idx_time += 1
     
-    endPOI_Eachday.append(poiSeq[len(timeSeq)-1]) # if needed, we can recommend hotels on the final day even time less than 18:00PM
+    endPOI_Eachday.append(poiSeq[len(timeSeq)-1]) # if needed, we can recommend hotels on the final day even time less than 17:00PM
  
     return POIs_Eachday, endPOI_Eachday
 
@@ -408,7 +408,7 @@ def timeSeq2Traj_with_modification(poiSeq, timeSeq, dayCount):
 
  
 # #### Recommend trajectories using ILP by leveraging POI-POI distance.
-def traj_T_Days_ILP_POI(pi, pj, dayCount, poi_city, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
+def traj_T_Days_ILP_POI(pi, pj, dayCount, poi_city, startTimeIn, endTimeOut, startDayTime=9, endDayTime=17):
     
     #print('Trajectory via POI-POI distance: ', pi, '->', pj, 'length:', L)
     poi_poi_distmat = calc_poi_poi_dist_mat(poi_city)
@@ -419,7 +419,7 @@ def traj_T_Days_ILP_POI(pi, pj, dayCount, poi_city, startTimeIn, endTimeOut, sta
     return rankPOIs_ILP, seqTime_ILP, POIs_Eachday, endPOI_Eachday
 
 # Recommend trajectories of specific label using ILP by leveraging POI-POI distance.
-def traj_label_T_Days_ILP_POI(pi, pj, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
+def traj_label_T_Days_ILP_POI(pi, pj, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=17):
     
     poi_city = poi_All[poi_All['cityCode'] == cityCode]
 
@@ -457,7 +457,7 @@ def traj_label_T_Days_ILP_POI(pi, pj, dayCount, cityCode, label, startTimeIn, en
 
     
 # Recommend trajectories of specific label using ILP by leveraging POI-POI distance.
-def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
+def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=17):
     
     # First filter pois in terms of citycode
     poi_city = poi_All[poi_All['cityCode'] == cityCode]
@@ -597,7 +597,7 @@ def traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label
     
     return rankPOIs_label_ILP, seqTime_label_ILP, POIs_Eachday, endPOI_Eachday
 
-def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCodeDict, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=18):
+def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCodeDict, label, startTimeIn, endTimeOut, startDayTime=9, endDayTime=17):
 
     cityIdx = np.random.randint(len(cityCodeDict))
     cityCode = cityCodeDict[cityIdx]
@@ -726,7 +726,7 @@ def traj_label_T_Days_At_Will(startTrans, backTrans, dayCount, cityCode, cityCod
     
     return rankPOIs_label_ILP, seqTime_label_ILP, POIs_Eachday, endPOI_Eachday
 
-def traj_with_N_defaults(startTrans, backTrans, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, N, startDayTime=9, endDayTime=18):
+def traj_with_N_defaults(startTrans, backTrans, dayCount, cityCodeDict, label, startTimeIn, endTimeOut, N, startDayTime=9, endDayTime=17):
 
     POIs_list = []
     timeSeq_list = []
@@ -744,7 +744,7 @@ def traj_with_N_defaults(startTrans, backTrans, dayCount, cityCodeDict, label, s
 
     return POIs_list, timeSeq_list, POIs_Eachday_list, endPOI_Eachday_list
 
-def traj_label_T_days_ILP_modification(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, delPOIs, addPOIs, startDayTime=9, endDayTime=18):
+def traj_label_T_days_ILP_modification(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, delPOIs, addPOIs, startDayTime=9, endDayTime=17):
 
     rankPOIs, _, = traj_label_T_Days_ILP_Trans(startTrans, backTrans, dayCount, cityCode, label, startTimeIn, endTimeOut, startDayTime, endDayTime)
 
@@ -781,10 +781,10 @@ def traj_label_T_days_ILP_modification(startTrans, backTrans, dayCount, cityCode
 # trans_city = trans_All[trans_All['cityCode'] == cityCode]
 
 # # startTimeIn = [9] * dayCount  #AM Start time for the 1st POI of each day 
-# # endTimeOut = [18] * dayCount #PM  End time for each day
+# # endTimeOut = [17] * dayCount #PM  End time for each day
 
 # startTimeIn = 9
-# endTimeOut = 18
+# endTimeOut = 17
 
 # label = []
 # tags = emo2tag.getTags("我毕业了")
@@ -929,7 +929,7 @@ backTrans = 1
 cityCodeDict = ['XMN', 'SZX', 'CAN']
 cityCode = 'XMN'  # Define a more general dictionary as cityCodeDict = {'厦门'.decode('utf8').encode('gb2312'):'XMN', ...} 
 startTimeIn = 9 #AM Start time for the 1st POI of the 1st day 
-endTimeOut = 18 #PM  End time for the last POI of the last day
+endTimeOut = 17 #PM  End time for the last POI of the last day
 
 tags = emo2tag.getTags('我毕业了')
 #print unicode(tags[0], 'gb2312'), unicode(tags[1], 'gb2312'),  unicode(tags[1], 'gb2312')
@@ -950,7 +950,7 @@ tags = emo2tag.getTags('我毕业了')
 
 
 #### User defines transportation, start time of the 1st day, end time of the last day, city code, dayCount
-def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backTrans=1, startTimeIn=9, endTimeOut=18, startDayTime=9, endDayTime=18):
+def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backTrans=1, startTimeIn=9, endTimeOut=17, startDayTime=9, endDayTime=17):
     
 
     tagDict = {'文艺':'literature', \
@@ -1011,7 +1011,7 @@ def getRoutes_type1(cityCode, dayCount, tags, startTrans=1, backTrans=1, startTi
 
 
 
-def getRoutes_type2(cityCode, dayCount, tags, idList, startTrans=1, backTrans=1, startTimeIn=9, endTimeOut=18, startDayTime=9, endDayTime=18):
+def getRoutes_type2(cityCode, dayCount, tags, idList, startTrans=1, backTrans=1, startTimeIn=9, endTimeOut=17, startDayTime=9, endDayTime=17):
 
     tagDict = {'文艺':'literature', '刺激':'excite', '舒适':'comfort','探险':'exploration', '艳遇':'encounter'}
     print tagDict
@@ -1160,6 +1160,7 @@ def insert_to_db(data):
             id = 1
         else:
             id = lineId[0] + 1
+    cur.close()
 
     sql = "INSERT INTO IMRoute (userId, lineId, cityCode, dayCount, startTool, endTool, startTime, endTime, quality, dayNum,routes, hotels, status) VALUES "
 
@@ -1181,6 +1182,7 @@ def insert_to_db(data):
     sql = sql[:-1]
     print(sql)
 
+    cur = db_conn.cursor()
     cur.execute(sql)
     db_conn.commit()
     cur.close()
@@ -1190,10 +1192,10 @@ def insert_to_db(data):
 
 if __name__ == '__main__':
     idList = [14, 22, 4, 7, 13, 10]
-    all_data = getRoutes_type2('XMN', 2, ['文艺','刺激','舒适'], idList, 1, 1, 9, 18, 9, 18)
+    all_data = getRoutes_type2('XMN', 2, ['文艺','刺激','舒适'], idList, 1, 1, 9, 17, 9, 17)
     print all_data
     '''
-    all_data = getRoutes_type1(cityCode, dayCount, label, inType, outType, startTimeIn, endTimeOut, 9, 18)
+    all_data = getRoutes_type1(cityCode, dayCount, label, inType, outType, startTimeIn, endTimeOut, 9, 17)
     print all_data
     '''
 
