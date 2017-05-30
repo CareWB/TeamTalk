@@ -29,6 +29,7 @@ import com.zhizulx.tt.imservice.event.UserInfoEvent;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.service.LocationService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
+import com.zhizulx.tt.utils.EquipmentHandler;
 import com.zhizulx.tt.utils.FileUtil;
 import com.zhizulx.tt.utils.ImageUtil;
 import com.zhizulx.tt.utils.TravelUIHelper;
@@ -55,6 +56,11 @@ public class HomePageActivity extends FragmentActivity {
             imService = imServiceConnector.getIMService();
             int loginId = imService.getLoginManager().getLoginId();
             userEntity = imService.getContactManager().findContact(loginId);
+            EquipmentHandler equipmentHandler = EquipmentHandler.getInstance();
+            equipmentHandler.init(HomePageActivity.this);
+            if (equipmentHandler.hasEquipmentInfo() == false) {
+                equipmentHandler.collection();
+            }
         }
 
         @Override

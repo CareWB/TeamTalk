@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
@@ -21,6 +22,8 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.utils.CsvUtil;
+import com.zhizulx.tt.utils.MonitorActivityBehavior;
+import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.io.IOException;
@@ -33,6 +36,7 @@ import java.util.List;
 
 public class SelectTagFragment extends TTBaseFragment {
     private View curView = null;
+    private MonitorActivityBehavior monitorActivityBehavior;
     private IMService imService;
     private IMTravelManager travelManager;
     private RelativeLayout high;
@@ -81,9 +85,17 @@ public class SelectTagFragment extends TTBaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
         circleAnimation(highCircle, 3000);
         circleAnimation(mediumCircle, 6000);
         circleAnimation(lowCircle, 9000);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.END);
     }
 
     private void initTags() {
@@ -113,9 +125,13 @@ public class SelectTagFragment extends TTBaseFragment {
     }
 
     private void initBtn() {
-        View.OnClickListener selectTagListener = new View.OnClickListener() {
+        MonitorClickListener selectTagListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
+                if (travelManager.getdBInitFin() == false) {
+                    Toast.makeText(getActivity(), "数据加载中...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 final List<String> tags = new ArrayList<>();
                 switch (v.getId()) {
                     case R.id.select_tag_high:
@@ -156,13 +172,7 @@ public class SelectTagFragment extends TTBaseFragment {
     }
 
     private void initTravelInfo() {
-        Calendar cal = Calendar.getInstance();
-        travelManager.getConfigEntity().setStartCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
-        travelManager.getConfigEntity().setEndCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
-        cal.add(Calendar.DATE, 2);
-        travelManager.getConfigEntity().setStartDate(cal.getTime());
-        cal.add(Calendar.DATE, 3);
-        travelManager.getConfigEntity().setEndDate(cal.getTime());
+        travelManager.initDatePlace();
     }
 
     private void circleAnimation(ImageView icon, long time) {

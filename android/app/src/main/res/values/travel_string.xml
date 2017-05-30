@@ -89,4 +89,5 @@
     <string name="input_your_no">输入您的班次号(大写字母和数字)</string>
     <string name="traffic_no_type">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="collect_add">添加收藏</string>
+    <string name="double_click">请不要重复点击</string>
 </resources>

@@ -36,6 +36,8 @@ import com.zhizulx.tt.ui.activity.SelectSightActivity;
 import com.zhizulx.tt.ui.adapter.DetailDispAdapter;
 import com.zhizulx.tt.ui.adapter.DetailDispMenuAdapter;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.MonitorActivityBehavior;
+import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 import com.zhizulx.tt.utils.WheelPicker;
 
@@ -54,6 +56,7 @@ import de.greenrobot.event.EventBus;
  */
 public class DetailDispFragment extends TTBaseFragment{
 	private View curView = null;
+    private MonitorActivityBehavior monitorActivityBehavior;
     private IMTravelManager travelManager;
     private RecyclerView rvDetailDisp;
     private DetailDispAdapter detailDispAdapter;
@@ -149,10 +152,18 @@ public class DetailDispFragment extends TTBaseFragment{
         EventBus.getDefault().unregister(DetailDispFragment.this);
     }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+        monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.END);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -265,9 +276,9 @@ public class DetailDispFragment extends TTBaseFragment{
 	}
 
     private void initBtn() {
-        detailDispMenuDisp.setOnClickListener(new View.OnClickListener() {
+        detailDispMenuDisp.setOnClickListener(new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 if (lyDetailDispMenu.getVisibility() == View.GONE) {
                     lyDetailDispMenu.setVisibility(View.VISIBLE);
                 } else {
@@ -276,9 +287,9 @@ public class DetailDispFragment extends TTBaseFragment{
             }
         });
 
-        View.OnClickListener adjustListener = new View.OnClickListener() {
+        MonitorClickListener adjustListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 switch (v.getId()) {
                     case R.id.detail_disp_adjust_sight:
                         adjustSight();
@@ -301,9 +312,9 @@ public class DetailDispFragment extends TTBaseFragment{
         detailDispAdjustHotel.setOnClickListener(adjustListener);
         detailDispAdjustTraffic.setOnClickListener(adjustListener);
 
-        View.OnClickListener selectTimeListener = new View.OnClickListener() {
+        MonitorClickListener selectTimeListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 switch (v.getId()) {
                     case R.id.select_time_cancel:
                         topRightBtn.setClickable(true);
@@ -838,6 +849,10 @@ public class DetailDispFragment extends TTBaseFragment{
             hotelIdList.add(dayRouteEntity.getHotelIDList().get(0));
         }
         for (int sight:sightIdList) {
+            if (travelManager.getSightByID(sight) == null) {
+                Log.e("yuki", "sightid"+sight);
+                continue;
+            }
             cost += travelManager.getSightByID(sight).getPrice();
         }
 

@@ -1,6 +1,5 @@
 package com.zhizulx.tt.ui.fragment;
 
-import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,16 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhizulx.tt.DB.entity.RouteEntity;
-import com.zhizulx.tt.DB.entity.TravelCityEntity;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.SysConstant;
 import com.zhizulx.tt.imservice.event.TravelEvent;
@@ -30,6 +26,8 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.adapter.TravelRouteAdapter;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.MonitorActivityBehavior;
+import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
@@ -41,6 +39,7 @@ import de.greenrobot.event.EventBus;
 
 public class SelectTravelRouteFragment extends TTBaseFragment {
     private View curView = null;
+    private MonitorActivityBehavior monitorActivityBehavior;
     private IMTravelManager travelManager;
     private ImageView reset;
     private TextView createTravelRoute;
@@ -62,6 +61,7 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
+                travelManager.initDatePlace();
                 routeEntityListServer.addAll(travelManager.getRouteEntityList());
                 DaySort sort = new DaySort();
                 Collections.sort(routeEntityListServer,sort);
@@ -118,9 +118,9 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
         lySelectRouteCondition = (RelativeLayout)curView.findViewById(R.id.select_route_condition);
         createTravelRoute = (TextView)curView.findViewById(R.id.create_travel_route);
         noSelectedRouteHint = (ImageView)curView.findViewById(R.id.no_selected_route_hint);
-        View.OnClickListener designWayListener = new View.OnClickListener() {
+        MonitorClickListener designWayListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 switch (v.getId()) {
                     case R.id.select_travel_route_reset:
                         routeEntityList.clear();
@@ -191,6 +191,19 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
         super.onDestroy();
         imServiceConnector.disconnect(this.getActivity());
         EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.END);
     }
 
     @Override

@@ -32,6 +32,8 @@ import com.zhizulx.tt.ui.activity.SelectDateActivity;
 import com.zhizulx.tt.ui.activity.SelectPlaceActivity;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.ui.widget.city.CityActivity;
+import com.zhizulx.tt.utils.MonitorActivityBehavior;
+import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.text.ParseException;
@@ -49,6 +51,7 @@ import de.greenrobot.event.EventBus;
  */
 public class CreateTravelFragment extends TTBaseFragment{
 	private View curView = null;
+    private MonitorActivityBehavior monitorActivityBehavior;
     private RelativeLayout bnStart;
     private RelativeLayout bnEnd;
     private RelativeLayout time;
@@ -148,10 +151,18 @@ public class CreateTravelFragment extends TTBaseFragment{
         EventBus.getDefault().unregister(this);
     }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+        monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.END);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -255,9 +266,9 @@ public class CreateTravelFragment extends TTBaseFragment{
 	}
 
     private void initBtn() {
-        View.OnClickListener createTravelListener = new View.OnClickListener() {
+        MonitorClickListener createTravelListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 int id = v.getId();
                 switch (v.getId()) {
                     case R.id.create_travel_per_num_add:
@@ -464,9 +475,9 @@ public class CreateTravelFragment extends TTBaseFragment{
             }
         });
 
-        View.OnClickListener popupListener = new View.OnClickListener() {
+        MonitorClickListener popupListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 switch (v.getId()) {
                     case R.id.create_travel_route_literature:
                     case R.id.create_travel_route_comfort:

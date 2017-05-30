@@ -16,12 +16,15 @@ import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.MonitorActivityBehavior;
+import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import de.greenrobot.event.EventBus;
 
 public class SelectDesignWayFragment extends TTBaseFragment {
     private View curView = null;
+    private MonitorActivityBehavior monitorActivityBehavior;
     private ImageView introduct;
     private ImageView custom;
     private IMTravelManager travelManager;
@@ -70,9 +73,9 @@ public class SelectDesignWayFragment extends TTBaseFragment {
         });
         introduct = (ImageView)curView.findViewById(R.id.select_design_way_introduct);
         custom = (ImageView)curView.findViewById(R.id.select_design_way_custom);
-        View.OnClickListener designWayListener = new View.OnClickListener() {
+        MonitorClickListener designWayListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 switch (v.getId()) {
                     case R.id.select_design_way_introduct:
                         if (travelManager != null) {
@@ -96,6 +99,19 @@ public class SelectDesignWayFragment extends TTBaseFragment {
         super.onDestroy();
         imServiceConnector.disconnect(getActivity());
         EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.END);
     }
 
     @Override

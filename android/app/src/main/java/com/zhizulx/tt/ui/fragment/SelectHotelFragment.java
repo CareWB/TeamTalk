@@ -15,6 +15,7 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.adapter.HotelAdapter;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.MonitorActivityBehavior;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ import java.util.List;
  */
 public class SelectHotelFragment extends TTBaseFragment{
 	private View curView = null;
+    private MonitorActivityBehavior monitorActivityBehavior;
     private IMService imService;
     private IMTravelManager travelManager;
     private RecyclerView rvHotel;
@@ -84,7 +86,15 @@ public class SelectHotelFragment extends TTBaseFragment{
 	@Override
 	public void onResume() {
 		super.onResume();
+        monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
 	}
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.END);
+    }
 
 	/**
 	 * @Description 初始化资源

@@ -23,6 +23,7 @@ import com.zhizulx.tt.utils.Logger;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -533,5 +534,15 @@ public class IMTravelManager extends IMManager {
             }
         }
         return false;
+    }
+
+    public void initDatePlace() {
+        Calendar cal = Calendar.getInstance();
+        configEntity.setStartCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
+        configEntity.setEndCity(SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.LOCAL_CITY));
+        cal.add(Calendar.DATE, 2);
+        configEntity.setStartDate(cal.getTime());
+        cal.add(Calendar.DATE, 3);
+        configEntity.setEndDate(cal.getTime());
     }
 }

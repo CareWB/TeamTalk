@@ -27,6 +27,8 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.adapter.SightAdapter;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.MonitorActivityBehavior;
+import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ import de.greenrobot.event.EventBus;
  */
 public class SelectSightFragment extends TTBaseFragment{
 	private View curView = null;
+    private MonitorActivityBehavior monitorActivityBehavior;
     private Intent intent;
     private IMTravelManager travelManager;
     private TextView total;
@@ -124,10 +127,18 @@ public class SelectSightFragment extends TTBaseFragment{
         EventBus.getDefault().unregister(this);
     }
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+        monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        monitorActivityBehavior.storeBehavior(monitorActivityBehavior.END);
+    }
 
 	/**
 	 * @Description 初始化资源
@@ -187,9 +198,9 @@ public class SelectSightFragment extends TTBaseFragment{
 	}
 
     private void initBtn() {
-        View.OnClickListener listener = new View.OnClickListener() {
+        MonitorClickListener listener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 int id = v.getId();
                 Tag = selectFlag.get(id);
                 tagProcess();
@@ -532,9 +543,9 @@ public class SelectSightFragment extends TTBaseFragment{
             }
         });
 
-        View.OnClickListener popupListener = new View.OnClickListener() {
+        MonitorClickListener popupListener = new MonitorClickListener(getActivity()) {
             @Override
-            public void onClick(View v) {
+            public void onMonitorClick(View v) {
                 switch (v.getId()) {
                     case R.id.select_sight_pop_not_screen:
                         spinner_select = 0;

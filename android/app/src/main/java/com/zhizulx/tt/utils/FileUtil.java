@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,7 +23,9 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class FileUtil
 {
@@ -60,9 +63,9 @@ public class FileUtil
      * @param dir
      * @return
      */
-    public static File creatSDDir(String dir)
-    {
-        File dirFile = new File(SDCardRoot + dir + File.separator);
+    public static File creatSDDir(String dir) {
+        //File dirFile = new File(SDCardRoot + dir + File.separator);
+        File dirFile = new File(dir);
         dirFile.mkdirs();
         return dirFile;
     }
@@ -70,13 +73,11 @@ public class FileUtil
     /**
      * 检测文件是否存在
      */
-    public static boolean isFileExist(String fileName, String path)
-    {
+    public static boolean isFileExist(String fileName, String path) {
         File file = new File(SDCardRoot + path + File.separator + fileName);
         return file.exists();
     }
-    public static boolean isFileExist(String filePath)
-    {
+    public static boolean isFileExist(String filePath) {
         File file = new File(filePath);
         return file.exists();
     }
@@ -84,27 +85,21 @@ public class FileUtil
     /**
      * 通过流往文件里写东西
      */
-    public static File writeToSDFromInput(String path, String fileName, InputStream input)
-    {
-
+    public static File writeToSDFromInput(String path, String fileName, InputStream input) {
         File file = null;
         OutputStream output = null;
-        try
-        {
+        try {
             file = createFileInSDCard(fileName, path);
             output = new FileOutputStream(file, false);
             byte buffer[] = new byte[4 * 1024];
             int temp;
-            while ((temp = input.read(buffer)) != -1)
-            {
+            while ((temp = input.read(buffer)) != -1) {
                 output.write(buffer, 0, temp);
             }
             output.flush();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally
-        {
+        } finally {
             try
             {
                 output.close();
@@ -119,41 +114,31 @@ public class FileUtil
     /**
      * 把字符串写入文件
      */
-    public static File writeToSDFromInput(String path, String fileName, String data)
-    {
-
+    public static File writeToSDFromInput(String path, String fileName, String data) {
         File file = null;
         OutputStreamWriter outputWriter = null;
         OutputStream outputStream = null;
-        try
-        {
+        try {
             creatSDDir(path);
             file = createFileInSDCard(fileName, path);
             outputStream = new FileOutputStream(file, false);
             outputWriter = new OutputStreamWriter(outputStream);
             outputWriter.write(data);
             outputWriter.flush();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally
-        {
-            try
-            {
+        } finally {
+            try {
                 outputWriter.close();
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return file;
     }
 
-    public static String getFromCipherConnection(String actionUrl, String content, String path)
-    {
-
-        try
-        {
+    public static String getFromCipherConnection(String actionUrl, String content, String path) {
+        try {
             File[] files = new File[1];
             files[0] = new File(path);
             // content = CipherUtil.getCipherString(content);
@@ -186,10 +171,8 @@ public class FileUtil
             DataOutputStream outStream = new DataOutputStream(conn.getOutputStream());
             outStream.write(sb.toString().getBytes());
             // 发送文件数据
-            if (files != null)
-            {
-                for (File file : files)
-                {
+            if (files != null) {
+                for (File file : files) {
                     StringBuilder sb1 = new StringBuilder();
                     sb1.append(PREFIX);
                     sb1.append(BOUNDARY);
@@ -200,8 +183,7 @@ public class FileUtil
                             + LINEND);
                     sb1.append(LINEND);
                     outStream.write(sb1.toString().getBytes());
-                    try
-                    {
+                    try {
                         InputStream is = new FileInputStream(file);
                         byte[] buffer = new byte[1024];
                         int len = 0;
@@ -212,8 +194,7 @@ public class FileUtil
                         }
                         is.close();
                         outStream.write(LINEND.getBytes());
-                    } catch (IOException e)
-                    {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
@@ -225,31 +206,25 @@ public class FileUtil
             outStream.close();
             // 得到响应码
             int res = conn.getResponseCode();
-            if (res == 200)
-            {
+            if (res == 200) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(
                         (InputStream) conn.getInputStream()));
                 String line = null;
                 StringBuilder result = new StringBuilder();
-                while ((line = in.readLine()) != null)
-                {
+                while ((line = in.readLine()) != null) {
                     result.append(line);
                 }
                 in.close();
                 conn.disconnect();// 断开连接
                 return "true";
             }
-            else
-            {
+            else {
                 return "";
             }
-
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
-
     }
 
     public static byte[] getFileContent(String fileName) {
@@ -446,35 +421,28 @@ public class FileUtil
         }
         byte imgdata[] = bytestream.toByteArray();
         bytestream.close();
-
-
         return imgdata;
     }
 
-    public static byte[] File2byte(String filePath)
-    {
+    public static byte[] File2byte(String filePath) {
         byte[] buffer = null;
-        try
-        {
+        try {
             File file = new File(filePath);
             FileInputStream fis = new FileInputStream(file);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             byte[] b = new byte[1024];
             int n;
-            while ((n = fis.read(b)) != -1)
-            {
+            while ((n = fis.read(b)) != -1) {
                 bos.write(b, 0, n);
             }
             fis.close();
             bos.close();
             buffer = bos.toByteArray();
         }
-        catch (FileNotFoundException e)
-        {
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        catch (IOException e)
-        {
+        catch (IOException e) {
             e.printStackTrace();
         }
         return buffer;
@@ -541,8 +509,7 @@ public class FileUtil
     }
 
     //删除除了某文件的其他文件
-    public static void deleteOtherFile(String path, String name)
-    {
+    public static void deleteOtherFile(String path, String name) {
         File filePath = new File(path);
         // 若是目录递归删除后,并最后删除目录后返回
         if (filePath.isDirectory()) {
@@ -569,5 +536,82 @@ public class FileUtil
         long time = f.lastModified();
         cal.setTimeInMillis(time);
         return cal.getTime().toLocaleString();
+    }
+
+    public static void Log(String format, Object... args) {
+        try {
+            String fileName = "log.txt";
+            String path = SDCardRoot + AppFileDir + File.separator + "log";
+            File dirFile = new File(path + File.separator);
+            if (!dirFile.exists()) {
+                creatSDDir(path);
+            }
+
+            if (!FileUtil.isFileExist(fileName, path)) {
+                FileUtil.createFileInSDCard(fileName, path);
+            }
+            String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(new Date());
+            // 打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件
+            FileWriter writer = new FileWriter(getLogFile(), true);
+            writer.write(currentTime+" "+String.format(format, args)+"\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void UserBehavior(String format, Object... args) {
+        try {
+            String fileName = "userBehavior.log";
+            String path = SDCardRoot + AppFileDir + File.separator + "log";
+            File dirFile = new File(path + File.separator);
+            if (!dirFile.exists()) {
+                creatSDDir(path);
+            }
+
+            if (!FileUtil.isFileExist(fileName, path)) {
+                FileUtil.createFileInSDCard(fileName, path);
+            }
+            String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(new Date());
+            // 打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件
+            FileWriter writer = new FileWriter(getUserBehaviorFile(), true);
+            writer.write(currentTime+" "+String.format(format, args)+"\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String getLogFile() {
+        return SDCardRoot + AppFileDir + File.separator + "log" + File.separator + "log.txt";
+    }
+
+    public static String getCrashFile() {
+        return SDCardRoot + AppFileDir + File.separator + "log" + File.separator + "crash.log";
+    }
+
+    public static String getEquipmentFile() {
+        return SDCardRoot + AppFileDir + File.separator + "log" + File.separator + "equipment.log";
+    }
+
+    public static String getUserBehaviorFile() {
+        return SDCardRoot + AppFileDir + File.separator + "log" + File.separator + "userBehavior.log";
+    }
+
+    public static void zipLog(){
+        ZipUtil.zip(SDCardRoot + AppFileDir + File.separator + "log.zip",
+                new File(getLogFile()), new File(getCrashFile()), new File(getEquipmentFile()), new File(getUserBehaviorFile()));
+    }
+
+    public static String getLogFileZip() {
+        return SDCardRoot + AppFileDir + File.separator + "log.zip";
+    }
+
+    public static void clearLog(){
+        delete(new File(getLogFile()));
+        delete(new File(getCrashFile()));
+        delete(new File(getEquipmentFile()));
+        delete(new File(getUserBehaviorFile()));
+        delete(new File(SDCardRoot + AppFileDir + File.separator + "log.zip"));
     }
 }
