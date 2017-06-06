@@ -157,6 +157,7 @@ public class DetailDispFragment extends TTBaseFragment{
         super.onResume();
         monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
         monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
+        freshRoute();
     }
 
     @Override
@@ -834,9 +835,11 @@ public class DetailDispFragment extends TTBaseFragment{
     }
 
     private void freshRoute() {
-        travelManager.initalRoute();
-        showRoute();
-        rvDayInit();
+        if (travelManager != null) {
+            travelManager.initalRoute();
+            showRoute();
+            rvDayInit();
+        }
     }
 
     private int getTotalCost() {

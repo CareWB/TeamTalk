@@ -75,7 +75,7 @@ public class TravelUIHelper {
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View dialog_view = inflater.inflate(R.layout.travel_calculate_dialog, null);
 		ImageView calculate = (ImageView)dialog_view.findViewById(R.id.calculate_gif);
-		Glide.with(context).load(R.drawable.calculating).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(calculate);
+		Glide.with(context).load(R.drawable.loading).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(calculate);
 		dialog.setContentView(dialog_view);
 		dialog.show();
 		dialog.setCancelable(false);

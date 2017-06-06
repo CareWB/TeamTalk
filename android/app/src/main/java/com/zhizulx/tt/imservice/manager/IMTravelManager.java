@@ -25,6 +25,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -299,6 +300,13 @@ public class IMTravelManager extends IMManager {
         for (int index:sightIdList) {
             Log.e("yuki", String.valueOf(index));
         }
+        HashSet h = new HashSet(sightIdList);
+        sightIdList.clear();
+        sightIdList.addAll(h);
+        for (int index:sightIdList) {
+            Log.e("yuki--", String.valueOf(index));
+        }
+
         int loginId = IMLoginManager.instance().getLoginId();
         String startTime = String.format("%02d:00", routeEntity.getStartTime());
         String endTime = String.format("%02d:00", routeEntity.getEndTime());

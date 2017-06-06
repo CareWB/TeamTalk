@@ -150,7 +150,7 @@ public class SelectSightFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-                copyRoute(dayRouteEntityList, travelManager.getRouteEntity().getDayRouteEntityList());
+                //copyRoute(dayRouteEntityList, travelManager.getRouteEntity().getDayRouteEntityList());
                 getActivity().finish();
 			}
 		});
@@ -313,139 +313,6 @@ public class SelectSightFragment extends TTBaseFragment{
             return id0 > id1 ? 1 : -1; //按照时间的由小到大排列
         }
     }
-
-/*    private void testCase() {
-        String pre = UrlConstant.PIC_URL_PREFIX;
-
-        SightEntity gulangyu = new SightEntity();
-        gulangyu.setPeerId(1);
-        gulangyu.setName("鼓浪屿");
-        gulangyu.setPic(pre+"gulangyu.png");
-        gulangyu.setStar(8);
-        gulangyu.setTag("文艺");
-        gulangyu.setStartTime("12:00");
-        gulangyu.setEndTime("15:00");
-        gulangyu.setFree(0);
-        gulangyu.setMustGo(1);
-
-        SightEntity xiada = new SightEntity();
-        xiada.setPeerId(1);
-        xiada.setName("厦门大学");
-        xiada.setPic(pre+"xiamendaxue.png");
-        xiada.setStar(9);
-        xiada.setTag("刺激 艳遇");
-        xiada.setStartTime("12:00");
-        xiada.setEndTime("15:00");
-        xiada.setFree(1);
-        xiada.setMustGo(1);
-
-        SightEntity nanputuosi = new SightEntity();
-        nanputuosi.setPeerId(1);
-        nanputuosi.setName("南普陀寺");
-        nanputuosi.setPic(pre+"nanputuosi.png");
-        nanputuosi.setStar(8);
-        nanputuosi.setTag("探险");
-        nanputuosi.setStartTime("12:00");
-        nanputuosi.setEndTime("15:00");
-        nanputuosi.setFree(0);
-        nanputuosi.setMustGo(0);
-
-        SightEntity huandaolu = new SightEntity();
-        huandaolu.setPeerId(1);
-        huandaolu.setName("环岛路");
-        huandaolu.setPic(pre+"huandaolu.png");
-        huandaolu.setStar(8);
-        huandaolu.setTag("舒适");
-        huandaolu.setStartTime("12:00");
-        huandaolu.setEndTime("15:00");
-        huandaolu.setFree(1);
-        huandaolu.setMustGo(0);
-
-        SightEntity riguangyan = new SightEntity();
-        riguangyan.setPeerId(1);
-        riguangyan.setName("日光岩");
-        riguangyan.setPic(pre+"riguangyan.png");
-        riguangyan.setStar(8);
-        riguangyan.setTag("探险");
-        riguangyan.setStartTime("12:00");
-        riguangyan.setEndTime("15:00");
-        riguangyan.setFree(0);
-        riguangyan.setMustGo(1);
-
-        SightEntity zengcuoan = new SightEntity();
-        zengcuoan.setPeerId(1);
-        zengcuoan.setName("曾厝垵");
-        zengcuoan.setPic(pre+"zengcuoan.png");
-        zengcuoan.setStar(8);
-        zengcuoan.setTag("刺激");
-        zengcuoan.setStartTime("12:00");
-        zengcuoan.setEndTime("15:00");
-        zengcuoan.setFree(0);
-        zengcuoan.setMustGo(0);
-
-        SightEntity zhongshanlu = new SightEntity();
-        zhongshanlu.setPeerId(1);
-        zhongshanlu.setName("中山路");
-        zhongshanlu.setPic(pre+"zhongshanlu.png");
-        zhongshanlu.setStar(8);
-        zhongshanlu.setTag("艳遇");
-        zhongshanlu.setStartTime("12:00");
-        zhongshanlu.setEndTime("15:00");
-        zhongshanlu.setFree(1);
-        zhongshanlu.setMustGo(1);
-
-        SightEntity xiamenhaidishijie = new SightEntity();
-        xiamenhaidishijie.setPeerId(1);
-        xiamenhaidishijie.setName("厦门海底世界");
-        xiamenhaidishijie.setPic(pre+"xiamenhaidishijie.png");
-        xiamenhaidishijie.setStar(8);
-        xiamenhaidishijie.setTag("舒适");
-        xiamenhaidishijie.setStartTime("12:00");
-        xiamenhaidishijie.setEndTime("15:00");
-        xiamenhaidishijie.setFree(0);
-        xiamenhaidishijie.setMustGo(0);
-
-        SightEntity shuzhuanghuayuan = new SightEntity();
-        shuzhuanghuayuan.setPeerId(1);
-        shuzhuanghuayuan.setName("菽庄花园");
-        shuzhuanghuayuan.setPic(pre+"shuzhuanghuayuan.png");
-        shuzhuanghuayuan.setStar(8);
-        shuzhuanghuayuan.setTag("文艺");
-        shuzhuanghuayuan.setStartTime("12:00");
-        shuzhuanghuayuan.setEndTime("15:00");
-        shuzhuanghuayuan.setFree(1);
-        shuzhuanghuayuan.setMustGo(0);
-
-        SightEntity shadiaowenhuayuan = new SightEntity();
-        shadiaowenhuayuan.setPeerId(1);
-        shadiaowenhuayuan.setName("沙雕文化园");
-        shadiaowenhuayuan.setPic(pre+"shadiaowenhuayuan.png");
-        shadiaowenhuayuan.setStar(8);
-        shadiaowenhuayuan.setTag("文艺");
-        shadiaowenhuayuan.setStartTime("12:00");
-        shadiaowenhuayuan.setEndTime("15:00");
-        shadiaowenhuayuan.setFree(0);
-        shadiaowenhuayuan.setMustGo(1);
-
-        sightEntityList.add(gulangyu);
-        sightEntityList.add(xiada);
-        sightEntityList.add(nanputuosi);
-        sightEntityList.add(huandaolu);
-        sightEntityList.add(riguangyan);
-        sightEntityList.add(zengcuoan);
-        sightEntityList.add(zhongshanlu);
-        sightEntityList.add(xiamenhaidishijie);
-        sightEntityList.add(shuzhuanghuayuan);
-        sightEntityList.add(shadiaowenhuayuan);
-
-        for (SightEntity sightEntity:sightEntityList) {
-            if (sightEntity.getMustGo() == 1) {
-                sightEntity.setSelect(1);
-            }
-        }
-
-        tagSightEntityList.addAll(sightEntityList);
-    }*/
 
     private void initSight() {
         rvSight.setHasFixedSize(true);
