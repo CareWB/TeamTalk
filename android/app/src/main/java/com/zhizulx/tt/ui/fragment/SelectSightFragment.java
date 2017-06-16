@@ -158,7 +158,8 @@ public class SelectSightFragment extends TTBaseFragment{
         topRightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getSightNum() < day) {
+                int thread = day < 2 ? 2 : day;
+                if (getSightNum() < thread) {
                     Toast.makeText(getActivity(), "真懒，多玩几个地方嘛！", Toast.LENGTH_SHORT).show();
                 } else {
                     updateRoute();

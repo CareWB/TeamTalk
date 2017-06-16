@@ -176,11 +176,11 @@ public class SelectTagFragment extends TTBaseFragment {
     }
 
     private void circleAnimation(ImageView icon, long time) {
-        ObjectAnimator oaAnimator = ObjectAnimator.ofFloat(icon, "rotation", 0.0F, 360.0F);
+/*        ObjectAnimator oaAnimator = ObjectAnimator.ofFloat(icon, "rotation", 0.0F, 360.0F);
         oaAnimator.setDuration(time);
         oaAnimator.setInterpolator(null);
         oaAnimator.setRepeatCount(ValueAnimator.INFINITE);
         oaAnimator.setRepeatMode(ValueAnimator.RESTART);
-        oaAnimator.start();
+        oaAnimator.start();*/
     }
 }

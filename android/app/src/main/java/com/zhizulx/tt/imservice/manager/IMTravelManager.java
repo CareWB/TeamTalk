@@ -303,9 +303,6 @@ public class IMTravelManager extends IMManager {
         HashSet h = new HashSet(sightIdList);
         sightIdList.clear();
         sightIdList.addAll(h);
-        for (int index:sightIdList) {
-            Log.e("yuki--", String.valueOf(index));
-        }
 
         int loginId = IMLoginManager.instance().getLoginId();
         String startTime = String.format("%02d:00", routeEntity.getStartTime());
