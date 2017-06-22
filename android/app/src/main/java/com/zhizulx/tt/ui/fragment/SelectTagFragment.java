@@ -2,36 +2,25 @@ package com.zhizulx.tt.ui.fragment;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.zhizulx.tt.DB.entity.RouteEntity;
-import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
-import com.zhizulx.tt.utils.CsvUtil;
 import com.zhizulx.tt.utils.MonitorActivityBehavior;
 import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class SelectTagFragment extends TTBaseFragment {
@@ -176,11 +165,11 @@ public class SelectTagFragment extends TTBaseFragment {
     }
 
     private void circleAnimation(ImageView icon, long time) {
-/*        ObjectAnimator oaAnimator = ObjectAnimator.ofFloat(icon, "rotation", 0.0F, 360.0F);
+        ObjectAnimator oaAnimator = ObjectAnimator.ofFloat(icon, "rotation", 0.0F, 360.0F);
         oaAnimator.setDuration(time);
         oaAnimator.setInterpolator(null);
         oaAnimator.setRepeatCount(ValueAnimator.INFINITE);
         oaAnimator.setRepeatMode(ValueAnimator.RESTART);
-        oaAnimator.start();*/
+        oaAnimator.start();
     }
 }

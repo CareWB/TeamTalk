@@ -1,6 +1,5 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MGIMInitAct">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Login form -->
 
@@ -167,6 +166,7 @@
                 android:paddingTop="@dimen/login_third_top"
                 android:paddingLeft="@dimen/login_third_left_right"
                 android:paddingRight="@dimen/login_third_left_right"
+                android:visibility="gone"
                 android:background="@drawable/third_login_bk">
 
                 <ImageView
