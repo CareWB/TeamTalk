@@ -196,24 +196,6 @@ public class SelectHotelFragment extends TTBaseFragment{
         rvHotel.setAdapter(hotelAdapter);
     }
 
-    public class ComparatorDistance implements Comparator {
-        public int compare(Object arg0, Object arg1) {
-
-            HotelEntity left = (HotelEntity)arg0;
-            HotelEntity right = (HotelEntity)arg1;
-
-            //首先比较出现次数，如果相同，则比较名字
-            Integer num = left.getDistance();
-            Integer num2 = right.getDistance();
-            int flag = num.compareTo(num2);
-            if(flag == 0){
-                return (left.getName()).compareTo(right.getName());
-            }else{
-                return flag;
-            }
-        }
-    }
-
     public class ComparatorPrice implements Comparator {
         public int compare(Object arg0, Object arg1) {
 

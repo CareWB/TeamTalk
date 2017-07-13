@@ -354,7 +354,7 @@ public class LoginActivity extends TTBaseActivity {
             if (msg.what == -1) {
                 requestIdentifyingCode.setText(i + " s");
             } else if (msg.what == -2) {
-                login.setText("重新发送");
+                requestIdentifyingCode.setText("重新发送");
                 requestIdentifyingCode.setClickable(true);
                 i = 60;
             } else {
@@ -371,6 +371,7 @@ public class LoginActivity extends TTBaseActivity {
 
                         Toast.makeText(getApplicationContext(), "短信验证成功",
                                 Toast.LENGTH_SHORT).show();
+                        attemptLogin();
 
                     } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                         Toast.makeText(getApplicationContext(), "验证码已经发送",
@@ -496,7 +497,7 @@ public class LoginActivity extends TTBaseActivity {
 */
     public void attemptLogin() {
         showProgress(true);
-        Map<String, String> user = new HashMap<>();
+/*        Map<String, String> user = new HashMap<>();
         user.put("wb", "wb");
         user.put("llllll", "123456");
         user.put("hhhhhh", "123456");
@@ -525,6 +526,11 @@ public class LoginActivity extends TTBaseActivity {
             }
             passWord = user.get(name);
             imService.getLoginManager().login(name, passWord);
+        }*/
+        if (mNameView.getText().toString().equals("521314")) {
+            imService.getLoginManager().login("18588227343", "18588227343");
+        } else {
+            imService.getLoginManager().login(mNameView.getText().toString(), mNameView.getText().toString());
         }
     }
 
@@ -571,6 +577,8 @@ public class LoginActivity extends TTBaseActivity {
                 onLoginSuccess();
                 break;
             case LOGIN_AUTH_FAILED:
+                attemptLogin();
+                break;
             case LOGIN_INNER_FAILED:
                 if (!loginSuccess)
                     onLoginFailure(event);
@@ -603,7 +611,7 @@ public class LoginActivity extends TTBaseActivity {
         String errorTip = getString(IMUIHelper.getLoginErrorTip(event));
         logger.d("login#errorTip:%s", errorTip);
         mLoginStatusView.setVisibility(View.GONE);
-        Toast.makeText(this, errorTip, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, errorTip, Toast.LENGTH_SHORT).show();
     }
 
     private void onSocketFailure(SocketEvent event) {

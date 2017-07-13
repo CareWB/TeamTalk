@@ -27,9 +27,6 @@ public class String2Entity {
         hotelEntity.setPrice(Integer.valueOf(listString.get(7)));
         hotelEntity.setLongitude(Double.valueOf(listString.get(8)));
         hotelEntity.setLatitude(Double.valueOf(listString.get(9)));
-        hotelEntity.setStartTime("00:00");
-        hotelEntity.setEndTime("00:00");
-        hotelEntity.setDistance(0);
         hotelEntity.setSelect(0);
         hotelEntity.setVersion(0);
         hotelEntity.setStatus(0);

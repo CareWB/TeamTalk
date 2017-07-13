@@ -27,10 +27,13 @@ import android.widget.Toast;
 import com.zhizulx.tt.DB.entity.UserEntity;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.config.UrlConstant;
 import com.zhizulx.tt.imservice.event.UserInfoEvent;
+import com.zhizulx.tt.imservice.manager.IMContactManager;
 import com.zhizulx.tt.imservice.manager.IMLoginManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
+import com.zhizulx.tt.protobuf.IMBuddy;
 import com.zhizulx.tt.ui.activity.MineTextChangeActivity;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
 import com.zhizulx.tt.ui.helper.PhotoHelper;
@@ -52,6 +55,7 @@ public class MineInfoFragment extends TTBaseFragment{
 	private View curView = null;
 	private ImageView avatar;
 	private IMService imService;
+	private IMContactManager imContactManager;
 	private UserEntity currentUser;
 	private TextView nickName;
 	private TextView sex;
@@ -83,10 +87,14 @@ public class MineInfoFragment extends TTBaseFragment{
     private static final int NAME_CHANGE = 11;
     private static final int SIGN_CHANGE = 12;
     private static final int HOMELAND_CHANGE = 100;// 结果
-    private static final int NAME_LIMIT = 6;// 结果
+    private static final int NAME_LIMIT = 11;// 结果
     private static final int SIGN_LIMIT = 32;// 结果
 	private static final int Cancel = 123;
 	private int iAvatar = Cancel;
+
+    private int logid = 0;
+    int sexInt = 0;
+    int Marital = 0;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -94,12 +102,26 @@ public class MineInfoFragment extends TTBaseFragment{
             logger.d("config#onIMServiceConnected");
             imService = imServiceConnector.getIMService();
             if (imService != null) {
-				int logid = imService.getLoginManager().getLoginId();
+				imContactManager = imService.getContactManager();
+				logid = imService.getLoginManager().getLoginId();
 				String avatarUriPath = String.format("file://%s", imService.getLoginManager().getUserAvatarPath());
 				imageUri = Uri.parse(avatarUriPath);
 				imagePhoto = Uri.parse("file://%s" + FileUtil.getAppPath() + File.separator + "photo.jpg");
 				currentUser = imService.getLoginManager().getLoginInfo();
 				nickName.setText(currentUser.getMainName());
+				String strSex = "保密";
+				switch (currentUser.getGender()) {
+					case 1:
+						strSex = "帅哥";
+                        sexInt = 1;
+						break;
+					case 2:
+						strSex = "美女";
+                        sexInt = 2;
+						break;
+				}
+				sex.setText(strSex);
+                Marital = currentUser.getDepartmentId();
                 //ImageUtil.GlideRoundAvatar(getActivity(), "http://i3.sinaimg.cn/blog/2014/1029/S129809T1414550868715.jpg", avatar);
 				ImageUtil.GlideRoundAvatar(getActivity(), currentUser.getAvatar(), avatar);
             }
@@ -119,6 +141,7 @@ public class MineInfoFragment extends TTBaseFragment{
 			((ViewGroup) curView.getParent()).removeView(curView);
 			return curView;
 		}
+		avatarUploadUrl = UrlConstant.AVATAR_UPLOLAD_ADDRESS;
 		curView = inflater.inflate(R.layout.travel_fragment_mine_info, topContentView);
 		initRes();
         initBtn();
@@ -168,14 +191,37 @@ public class MineInfoFragment extends TTBaseFragment{
                 }
                 break;
             case NAME_CHANGE:
+                if (data == null) {
+                    break;
+                }
                 nickName.setText(data.getStringExtra("content"));
+                if (data.getStringExtra("content") == null || (data.getStringExtra("content").isEmpty())) {
+                    break;
+                }
+                if (logid != 0) {
+                    imContactManager.reqInfoModify(logid, IMBuddy.ModifyType.NICK, data.getStringExtra("content"));
+                }
                 break;
             case SIGN_CHANGE:
+                if (data == null) {
+                    break;
+                }
                 signature.setLength(0);
                 signature.append(data.getStringExtra("content"));
+                if (!signature.toString().isEmpty()) {
+                    if (logid != 0) {
+                        imContactManager.reqInfoModify(logid, IMBuddy.ModifyType.SIGN, data.getStringExtra("content"));
+                    }
+                }
                 break;
             case HOMELAND_CHANGE:
                 homeland.setText(data.getStringExtra("city"));
+                if (data.getStringExtra("city") == null || (data.getStringExtra("city").isEmpty())) {
+                    break;
+                }
+                if (logid != 0) {
+                    imContactManager.reqInfoModify(logid, IMBuddy.ModifyType.HOMELAND, data.getStringExtra("city"));
+                }
                 break;
         }
 
@@ -189,11 +235,10 @@ public class MineInfoFragment extends TTBaseFragment{
 				break;
 
 			case AVATAR_UPLOAD_URL_OK:
-				avatarUploadUrl = SystemConfigSp.instance().getStrConfig(SystemConfigSp.SysCfgDimension.AVATAR_UPLOAD_URL);
+
 				break;
 		}
 	}
-
 
 	private String uploadAvatar() {
 		Bitmap bitmap;
@@ -204,7 +249,7 @@ public class MineInfoFragment extends TTBaseFragment{
 				MoGuHttpClient httpClient = new MoGuHttpClient();
 				byte[] bytes = PhotoHelper.getBytes(bitmap);
 				if (avatarUploadUrl != null && !avatarUploadUrl.isEmpty()) {
-					result = httpClient.uploadAvatar(avatarUploadUrl+"/auth/terminal", bytes,
+					result = httpClient.uploadAvatar(avatarUploadUrl, bytes,
 							String.valueOf(imService.getLoginManager().getLoginId()));
 				}
 			}
@@ -213,6 +258,16 @@ public class MineInfoFragment extends TTBaseFragment{
 		}
 		return result;
 	}
+/*    private String uploadAvatar() {
+        String result = "";
+        HttpAssist httpAssist = new HttpAssist();
+        if (avatarUploadUrl != null && !avatarUploadUrl.isEmpty()) {
+            httpAssist.setUrl(avatarUploadUrl);
+            result = httpAssist.uploadFile(new File(imService.getLoginManager().getUserAvatarPath()));
+        }
+        return result;
+    }*/
+
 
     /**
 	 * @Description 初始化资源
@@ -241,13 +296,17 @@ public class MineInfoFragment extends TTBaseFragment{
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
 			String val = "null";
-			if (msg.what == 1)
-			{
+			if (msg.what == 1) {
 				Bundle data = msg.getData();
 				val = data.getString("avatarUrl");
+                if (!val.equals("not ok")) {
+                    if (logid != 0) {
+                        imContactManager.reqInfoModify(logid, IMBuddy.ModifyType.AVATAR, UrlConstant.AVATAR_DOWNLOAD_ADDRESS+val);
+                    }
+                }
 			}
 
-			Log.i("mylog", "请求结果为-->" + val);
+			Log.e("yuki upload avatar", "请求结果为-->" + val);
 		}
 	};
 
@@ -482,7 +541,8 @@ public class MineInfoFragment extends TTBaseFragment{
     private void changeSign() {
         Intent nameIntent = new Intent(getActivity(), MineTextChangeActivity.class);
         nameIntent.putExtra("title", getString(R.string.change_sign));
-        nameIntent.putExtra("content", signature.toString());
+        String sign = imService.getLoginManager().getSignInfo();
+        nameIntent.putExtra("content", sign);
         nameIntent.putExtra("limit", SIGN_LIMIT);
         startActivityForResult(nameIntent, SIGN_CHANGE);
     }
@@ -528,19 +588,25 @@ public class MineInfoFragment extends TTBaseFragment{
                 switch (v.getId()) {
                     case R.id.mine_info_sex_guess:
                         sex.setText("你猜");
+                        sexInt = 0;
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_info_sex_male:
                         sex.setText("帅哥");
+                        sexInt = 1;
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_info_sex_female:
                         sex.setText("美女");
+                        sexInt = 2;
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_info_sex_cancel:
                         popupWindow.dismiss();
                         break;
+                }
+                if (logid != 0) {
+                    imContactManager.reqInfoModify(logid, IMBuddy.ModifyType.SEX, String.valueOf(sexInt));
                 }
             }
         };
@@ -591,19 +657,25 @@ public class MineInfoFragment extends TTBaseFragment{
                 switch (v.getId()) {
                     case R.id.mine_info_marital_guess:
                         marital.setText("无所谓");
+                        Marital = 0;
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_info_marital_single:
                         marital.setText("可约");
+                        Marital = 1;
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_info_marital_couple:
-                        marital.setText("拒邀");
+                        marital.setText("勿扰");
+                        Marital = 2;
                         popupWindow.dismiss();
                         break;
                     case R.id.mine_info_marital_cancel:
                         popupWindow.dismiss();
                         break;
+                }
+                if (logid != 0) {
+                    imContactManager.reqInfoModify(logid, IMBuddy.ModifyType.ENCOUNTER, String.valueOf(Marital));
                 }
             }
         };

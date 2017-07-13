@@ -613,6 +613,18 @@ public final class IMBaseDefine {
      * <code>CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_RESPONSE = 616;</code>
      */
     CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_RESPONSE(44, 616),
+    /**
+     * <code>CID_BUDDY_INFO_MODIFY_REQUEST = 617;</code>
+     *
+     * <pre>
+     *person information modify
+     * </pre>
+     */
+    CID_BUDDY_INFO_MODIFY_REQUEST(45, 617),
+    /**
+     * <code>CID_BUDDY_INFO_MODIFY_RESPONSE = 618;</code>
+     */
+    CID_BUDDY_INFO_MODIFY_RESPONSE(46, 618),
     ;
 
     /**
@@ -816,6 +828,18 @@ public final class IMBaseDefine {
      * <code>CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_RESPONSE = 616;</code>
      */
     public static final int CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_RESPONSE_VALUE = 616;
+    /**
+     * <code>CID_BUDDY_INFO_MODIFY_REQUEST = 617;</code>
+     *
+     * <pre>
+     *person information modify
+     * </pre>
+     */
+    public static final int CID_BUDDY_INFO_MODIFY_REQUEST_VALUE = 617;
+    /**
+     * <code>CID_BUDDY_INFO_MODIFY_RESPONSE = 618;</code>
+     */
+    public static final int CID_BUDDY_INFO_MODIFY_RESPONSE_VALUE = 618;
 
 
     public final int getNumber() { return value; }
@@ -867,6 +891,8 @@ public final class IMBaseDefine {
         case 614: return CID_BUDDY_LIST_NEW_DELETE_COLLECT_ROUTE_RESPONSE;
         case 615: return CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_REQUEST;
         case 616: return CID_BUDDY_LIST_NEW_QUERY_COLLECT_ROUTE_RESPONSE;
+        case 617: return CID_BUDDY_INFO_MODIFY_REQUEST;
+        case 618: return CID_BUDDY_INFO_MODIFY_RESPONSE;
         default: return null;
       }
     }
@@ -1758,6 +1784,14 @@ public final class IMBaseDefine {
      * <code>REFUSE_REASON_VERSION_TOO_OLD = 7;</code>
      */
     REFUSE_REASON_VERSION_TOO_OLD(7, 7),
+    /**
+     * <code>REFUSE_REASON_UNDEFINE_REQUEST = 8;</code>
+     */
+    REFUSE_REASON_UNDEFINE_REQUEST(8, 8),
+    /**
+     * <code>REFUSE_REASON_DB_OP_FAILED = 9;</code>
+     */
+    REFUSE_REASON_DB_OP_FAILED(9, 9),
     ;
 
     /**
@@ -1792,6 +1826,14 @@ public final class IMBaseDefine {
      * <code>REFUSE_REASON_VERSION_TOO_OLD = 7;</code>
      */
     public static final int REFUSE_REASON_VERSION_TOO_OLD_VALUE = 7;
+    /**
+     * <code>REFUSE_REASON_UNDEFINE_REQUEST = 8;</code>
+     */
+    public static final int REFUSE_REASON_UNDEFINE_REQUEST_VALUE = 8;
+    /**
+     * <code>REFUSE_REASON_DB_OP_FAILED = 9;</code>
+     */
+    public static final int REFUSE_REASON_DB_OP_FAILED_VALUE = 9;
 
 
     public final int getNumber() { return value; }
@@ -1806,6 +1848,8 @@ public final class IMBaseDefine {
         case 5: return REFUSE_REASON_NO_ROUTE_SERVER;
         case 6: return REFUSE_REASON_DB_VALIDATE_FAILED;
         case 7: return REFUSE_REASON_VERSION_TOO_OLD;
+        case 8: return REFUSE_REASON_UNDEFINE_REQUEST;
+        case 9: return REFUSE_REASON_DB_OP_FAILED;
         default: return null;
       }
     }

@@ -34,14 +34,11 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
         public final static Property Price = new Property(8, int.class, "price", false, "PRICE");
         public final static Property Longitude = new Property(9, double.class, "longitude", false, "LONGITUDE");
         public final static Property Latitude = new Property(10, double.class, "latitude", false, "LATITUDE");
-        public final static Property StartTime = new Property(11, String.class, "startTime", false, "START_TIME");
-        public final static Property EndTime = new Property(12, String.class, "endTime", false, "END_TIME");
-        public final static Property Distance = new Property(13, int.class, "distance", false, "DISTANCE");
-        public final static Property Select = new Property(14, int.class, "select", false, "SELECT");
-        public final static Property Version = new Property(15, int.class, "version", false, "VERSION");
-        public final static Property Status = new Property(16, int.class, "status", false, "STATUS");
-        public final static Property Created = new Property(17, int.class, "created", false, "CREATED");
-        public final static Property Updated = new Property(18, int.class, "updated", false, "UPDATED");
+        public final static Property Select = new Property(11, int.class, "select", false, "SELECT");
+        public final static Property Version = new Property(12, int.class, "version", false, "VERSION");
+        public final static Property Status = new Property(13, int.class, "status", false, "STATUS");
+        public final static Property Created = new Property(14, int.class, "created", false, "CREATED");
+        public final static Property Updated = new Property(15, int.class, "updated", false, "UPDATED");
     };
 
 
@@ -68,14 +65,11 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
                 "'PRICE' INTEGER NOT NULL ," + // 8: price
                 "'LONGITUDE' REAL NOT NULL ," + // 9: longitude
                 "'LATITUDE' REAL NOT NULL ," + // 10: latitude
-                "'START_TIME' TEXT NOT NULL ," + // 11: startTime
-                "'END_TIME' TEXT NOT NULL ," + // 12: endTime
-                "'DISTANCE' INTEGER NOT NULL ," + // 13: distance
-                "'SELECT' INTEGER NOT NULL ," + // 14: select
-                "'VERSION' INTEGER NOT NULL ," + // 15: version
-                "'STATUS' INTEGER NOT NULL ," + // 16: status
-                "'CREATED' INTEGER NOT NULL ," + // 17: created
-                "'UPDATED' INTEGER NOT NULL );"); // 18: updated
+                "'SELECT' INTEGER NOT NULL ," + // 11: select
+                "'VERSION' INTEGER NOT NULL ," + // 12: version
+                "'STATUS' INTEGER NOT NULL ," + // 13: status
+                "'CREATED' INTEGER NOT NULL ," + // 14: created
+                "'UPDATED' INTEGER NOT NULL );"); // 15: updated
     }
 
     /** Drops the underlying database table. */
@@ -103,14 +97,11 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
         stmt.bindLong(9, entity.getPrice());
         stmt.bindDouble(10, entity.getLongitude());
         stmt.bindDouble(11, entity.getLatitude());
-        stmt.bindString(12, entity.getStartTime());
-        stmt.bindString(13, entity.getEndTime());
-        stmt.bindLong(14, entity.getDistance());
-        stmt.bindLong(15, entity.getSelect());
-        stmt.bindLong(16, entity.getVersion());
-        stmt.bindLong(17, entity.getStatus());
-        stmt.bindLong(18, entity.getCreated());
-        stmt.bindLong(19, entity.getUpdated());
+        stmt.bindLong(12, entity.getSelect());
+        stmt.bindLong(13, entity.getVersion());
+        stmt.bindLong(14, entity.getStatus());
+        stmt.bindLong(15, entity.getCreated());
+        stmt.bindLong(16, entity.getUpdated());
     }
 
     /** @inheritdoc */
@@ -134,14 +125,11 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
             cursor.getInt(offset + 8), // price
             cursor.getDouble(offset + 9), // longitude
             cursor.getDouble(offset + 10), // latitude
-            cursor.getString(offset + 11), // startTime
-            cursor.getString(offset + 12), // endTime
-            cursor.getInt(offset + 13), // distance
-            cursor.getInt(offset + 14), // select
-            cursor.getInt(offset + 15), // version
-            cursor.getInt(offset + 16), // status
-            cursor.getInt(offset + 17), // created
-            cursor.getInt(offset + 18) // updated
+            cursor.getInt(offset + 11), // select
+            cursor.getInt(offset + 12), // version
+            cursor.getInt(offset + 13), // status
+            cursor.getInt(offset + 14), // created
+            cursor.getInt(offset + 15) // updated
         );
         return entity;
     }
@@ -160,14 +148,11 @@ public class HotelDao extends AbstractDao<HotelEntity, Long> {
         entity.setPrice(cursor.getInt(offset + 8));
         entity.setLongitude(cursor.getDouble(offset + 9));
         entity.setLatitude(cursor.getDouble(offset + 10));
-        entity.setStartTime(cursor.getString(offset + 11));
-        entity.setEndTime(cursor.getString(offset + 12));
-        entity.setDistance(cursor.getInt(offset + 13));
-        entity.setSelect(cursor.getInt(offset + 14));
-        entity.setVersion(cursor.getInt(offset + 15));
-        entity.setStatus(cursor.getInt(offset + 16));
-        entity.setCreated(cursor.getInt(offset + 17));
-        entity.setUpdated(cursor.getInt(offset + 18));
+        entity.setSelect(cursor.getInt(offset + 11));
+        entity.setVersion(cursor.getInt(offset + 12));
+        entity.setStatus(cursor.getInt(offset + 13));
+        entity.setCreated(cursor.getInt(offset + 14));
+        entity.setUpdated(cursor.getInt(offset + 15));
      }
     
     /** @inheritdoc */

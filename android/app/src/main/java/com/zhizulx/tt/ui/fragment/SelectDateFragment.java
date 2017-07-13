@@ -94,7 +94,7 @@ public class SelectDateFragment extends TTBaseFragment{
 		initRes();
         initDateList();
         initDayRecycleView();
-        selectProcess();
+        //selectProcess();
 		return curView;
 	}
 
@@ -123,25 +123,25 @@ public class SelectDateFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-/*                if (strStartDate.equals("")) {
-                    Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_start_date), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (strEndDate.equals("")) {
-                    Toast.makeText(getActivity(), getString(R.string.create_travel_not_select_end_date), Toast.LENGTH_SHORT).show();
-                    return;
-                }*/
-				if (getFragmentManager().getBackStackEntryCount() == 0) {
-                    intent.putExtra("startDate", strStartDate);
-                    intent.putExtra("endDate", strEndDate);
-					getActivity().setResult(102, intent);
-					getActivity().finish();
-					return;
-				}
-				getFragmentManager().popBackStack();
+                getActivity().finish();
 			}
 		});
+
+        setTopRightButton(R.drawable.detail_disp_adjust_finish);
+        topRightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getFragmentManager().getBackStackEntryCount() == 0) {
+                    intent.putExtra("startDate", strStartDate);
+                    intent.putExtra("endDate", strEndDate);
+                    getActivity().setResult(102, intent);
+                    getActivity().finish();
+                    return;
+                }
+                getFragmentManager().popBackStack();
+            }
+        });
+
         rvCalendar1 = (RecyclerView)curView.findViewById(R.id.rv_calendar_month1);
         rvCalendar2 = (RecyclerView)curView.findViewById(R.id.rv_calendar_month2);
         rvCalendar3 = (RecyclerView)curView.findViewById(R.id.rv_calendar_month3);
@@ -300,13 +300,25 @@ public class SelectDateFragment extends TTBaseFragment{
 
         if (selectCnt == 0) {
             dStartDate = date;
-            tvEndDate.setClickable(true);
+            //tvEndDate.setClickable(true);
         } else {
             if (dStartDate == null) {
                 return;
             }
-            if (dateEntity.getDate().before(dStartDate)) {
-                Toast.makeText(getActivity(), "时光一去不复返 返程日期莫超前", Toast.LENGTH_SHORT).show();
+
+            if (dateEntity.getDate().before(dStartDate) || (dStartDate != null && dEndDate != null)) {
+                //Toast.makeText(getActivity(), "时光一去不复返 返程日期莫超前", Toast.LENGTH_SHORT).show();
+
+                dStartDate = date;
+                dEndDate = date;
+                strStartDate = sdf.format(dStartDate);
+                tvStartDate.setText(strStartDate);
+                tvEndDate.setText("");
+                tvEndDate.setHint(getString(R.string.end_date_hint));
+                setSelectDateBk(dStartDate, dEndDate);
+                selectCnt = 1;
+                dEndDate = null;
+                freshCalendar();
                 return;
             }
             long duration = (date.getTime()-dStartDate.getTime())/(1000*60*60*24);
@@ -434,7 +446,7 @@ public class SelectDateFragment extends TTBaseFragment{
         }
     }
 
-    private void selectProcess() {
+/*    private void selectProcess() {
         View.OnClickListener selectDateListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -450,6 +462,6 @@ public class SelectDateFragment extends TTBaseFragment{
         };
         tvStartDate.setOnClickListener(selectDateListener);
         tvEndDate.setOnClickListener(selectDateListener);
-    }
+    }*/
 
 }

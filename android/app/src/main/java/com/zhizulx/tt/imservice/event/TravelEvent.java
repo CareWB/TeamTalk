@@ -33,6 +33,8 @@ public class TravelEvent {
         QUERY_COLLECT_ROUTE_FAIL,
         DELETE_COLLECT_ROUTE_OK,
         DELETE_COLLECT_ROUTE_FAIL,
+        QUERY_SIGHT_HOTEL_OK,
+        QUERY_SIGHT_HOTEL_FAIL
     }
 
     public Event getEvent() {

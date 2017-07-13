@@ -31,6 +31,9 @@ import java.util.Map;
 
 import de.greenrobot.event.EventBus;
 
+import static com.zhizulx.tt.protobuf.helper.ProtoBuf2JavaBean.getHotelEntity;
+import static com.zhizulx.tt.protobuf.helper.ProtoBuf2JavaBean.getSightEntity;
+
 public class IMTravelManager extends IMManager {
     private Logger logger = Logger.getLogger(IMTravelManager.class);
 	private static IMTravelManager inst = new IMTravelManager();
@@ -101,7 +104,7 @@ public class IMTravelManager extends IMManager {
     public void reset() {
     }
 
-    private void initSightHotel() {
+/*    private void initSightHotel() {
         if (SystemConfigSp.instance().getIntConfig(SystemConfigSp.SysCfgDimension.DBInit) == 1) {
             List<SightEntity> sightEntityList = dbInterface.loadAllSight();
             for (SightEntity sightEntity : sightEntityList) {
@@ -151,6 +154,19 @@ public class IMTravelManager extends IMManager {
         dbInterface.batchInsertOrUpdateSight(sightEntityList);
         SystemConfigSp.instance().setIntConfig(SystemConfigSp.SysCfgDimension.DBInit, 1);
         dBInitFin = true;
+    }*/
+    private void initSightHotel() {
+        List<SightEntity> sightEntityList = dbInterface.loadAllSight();
+        for (SightEntity sightEntity : sightEntityList) {
+            sightEntityMap.put(sightEntity.getPeerId(), sightEntity);
+        }
+
+        List<HotelEntity> hotelEntityList = dbInterface.loadAllHotel();
+        for (HotelEntity hotelEntity : hotelEntityList) {
+            hotelEntityMap.put(hotelEntity.getPeerId(), hotelEntity);
+        }
+        dBInitFin = true;
+        return;
     }
 
     /**
@@ -532,6 +548,39 @@ public class IMTravelManager extends IMManager {
         }
     }
 
+    public void reqSightHotel(String cityCode) {
+        Log.e("yuki", "reqSightHotel");
+        int loginId = IMLoginManager.instance().getLoginId();
+        IMBuddy.GetScenicHotelReq getScenicHotelReq = IMBuddy.GetScenicHotelReq.newBuilder()
+                .setUserId(loginId)
+                .setCityCode(cityCode).build();
+
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_REQUEST_VALUE;
+        imSocketManager.sendRequest(getScenicHotelReq,sid,cid);
+    }
+
+    public void onRspSightHotel(IMBuddy.GetScenicHotelRsp getScenicHotelRsp) throws ParseException {
+        Log.e("yuki", "onRspSightHotel");
+        if (getScenicHotelRsp.getResultCode() != 0) {
+            logger.e("onRspSightHotel fail %d", getScenicHotelRsp.getResultCode());
+            triggerEvent(new TravelEvent(TravelEvent.Event.QUERY_SIGHT_HOTEL_FAIL));
+        } else {
+            List<SightEntity> sightEntityList = new ArrayList<>();
+            for (IMBuddy.ScenicInfo scenicInfo : getScenicHotelRsp.getScenicInfoList()) {
+                sightEntityList.add(getSightEntity(scenicInfo));
+            }
+            addSightList(sightEntityList);
+
+            List<HotelEntity> hotelEntityList = new ArrayList<>();
+            for (IMBuddy.HotelInfo hotelInfo : getScenicHotelRsp.getHotelInfoList()) {
+                hotelEntityList.add(getHotelEntity(hotelInfo));
+            }
+            addHotelList(hotelEntityList);
+            triggerEvent(new TravelEvent(TravelEvent.Event.QUERY_SIGHT_HOTEL_OK));
+        }
+    }
+
     public Boolean hasCollected(int routeId) {
         for (CollectRouteEntity collectRouteEntity: collectRouteEntityList) {
             if (routeId == collectRouteEntity.getRouteEntity().getDbId()) {
@@ -549,5 +598,29 @@ public class IMTravelManager extends IMManager {
         configEntity.setStartDate(cal.getTime());
         cal.add(Calendar.DATE, 3);
         configEntity.setEndDate(cal.getTime());
+    }
+
+    private void addSightList(List<SightEntity> sightEntityList) {
+        List<SightEntity> dbSightEntityList = new ArrayList<>();
+        for (SightEntity sightEntity : sightEntityList) {
+            if (sightEntityMap.containsKey(sightEntity.getPeerId())) {
+                continue;
+            }
+            sightEntityMap.put(sightEntity.getPeerId(), sightEntity);
+            dbSightEntityList.add(sightEntity);
+        }
+        dbInterface.batchInsertOrUpdateSight(dbSightEntityList);
+    }
+
+    private void addHotelList(List<HotelEntity> hotelEntityList) {
+        List<HotelEntity> dbHotelEntityList = new ArrayList<>();
+        for (HotelEntity hotelEntity : hotelEntityList) {
+            if (hotelEntityMap.containsKey(hotelEntity.getPeerId())) {
+                continue;
+            }
+            hotelEntityMap.put(hotelEntity.getPeerId(), hotelEntity);
+            dbHotelEntityList.add(hotelEntity);
+        }
+        dbInterface.batchInsertOrUpdateHotel(dbHotelEntityList);
     }
 }

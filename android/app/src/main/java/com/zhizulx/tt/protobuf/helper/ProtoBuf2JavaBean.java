@@ -6,7 +6,9 @@ import com.google.protobuf.ByteString;
 import com.zhizulx.tt.DB.entity.CollectRouteEntity;
 import com.zhizulx.tt.DB.entity.DayRouteEntity;
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
+import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.DB.entity.RouteEntity;
+import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.DB.entity.TrafficEntity;
 import com.zhizulx.tt.config.DBConstant;
 import com.zhizulx.tt.DB.entity.GroupEntity;
@@ -405,5 +407,41 @@ public class ProtoBuf2JavaBean {
         collectRouteEntity.setEndTrafficNo(collectionRoute.getEndTrafficNo());
         collectRouteEntity.setRouteEntity(getRouteEntity(collectionRoute.getRoute()));
         return collectRouteEntity;
+    }
+
+    public static SightEntity getSightEntity(IMBuddy.ScenicInfo scenicInfo) throws ParseException {
+        SightEntity sightEntity = new SightEntity();
+        sightEntity.setPeerId(scenicInfo.getId());
+        sightEntity.setCityCode(scenicInfo.getCityCode());
+        sightEntity.setName(scenicInfo.getSightName());
+        sightEntity.setPic(scenicInfo.getSightPic());
+        sightEntity.setStar(scenicInfo.getSightScore());
+        sightEntity.setTag(scenicInfo.getSightTag());
+        sightEntity.setMustGo(scenicInfo.getSightMustSee());
+        sightEntity.setOpenTime(scenicInfo.getSightOpenTime());
+        sightEntity.setPlayTime(scenicInfo.getSightPlayTime());
+        sightEntity.setPrice(scenicInfo.getSightPrice());
+        sightEntity.setLongitude(Double.valueOf(scenicInfo.getSightLongitude()));
+        sightEntity.setLatitude(Double.valueOf(scenicInfo.getSightLatitude()));
+        sightEntity.setAddress(scenicInfo.getSightAddress());
+        sightEntity.setIntroduction(scenicInfo.getSightDiscription());
+        sightEntity.setStartTime(scenicInfo.getSightStartTime());
+        sightEntity.setEndTime(scenicInfo.getSightEndTime());
+        return sightEntity;
+    }
+
+    public static HotelEntity getHotelEntity(IMBuddy.HotelInfo hotelInfo) throws ParseException {
+        HotelEntity hotelEntity = new HotelEntity();
+        hotelEntity.setPeerId(hotelInfo.getId());
+        hotelEntity.setCityCode(hotelInfo.getCityCode());
+        hotelEntity.setName(hotelInfo.getHotelName());
+        hotelEntity.setPic(hotelInfo.getHotelPic());
+        hotelEntity.setStar(hotelInfo.getHotelScore());
+        hotelEntity.setTag(hotelInfo.getHotelTag());
+        hotelEntity.setUrl(hotelInfo.getHotelUrl());
+        hotelEntity.setPrice(hotelInfo.getHotelPrice());
+        hotelEntity.setLongitude(Double.valueOf(hotelInfo.getHotelLongitude()));
+        hotelEntity.setLatitude(Double.valueOf(hotelInfo.getHotelLatitude()));
+        return hotelEntity;
     }
 }

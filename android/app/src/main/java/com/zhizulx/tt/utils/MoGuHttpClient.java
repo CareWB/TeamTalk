@@ -9,7 +9,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MoGuHttpClient {
@@ -88,8 +90,11 @@ public class MoGuHttpClient {
 
 	public String uploadAvatar(String strUrl, byte[] bytes, String userID) {
 		logger.d("pic#uploadImage3 strUlr:%s", strUrl);
+		String currentTime = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS").format(new Date());
 		List<String> list = new ArrayList<String>(); // 要上传的文件名,如：d:\haha.doc.你要实现自己的业务。我这里就是一个空list.
-		list.add(userID+".jpg");
+        String avatarName = currentTime+"_"+userID;
+        String avatarPath = avatarName + ".jpg";
+		list.add(avatarName);
 		try {
 			String BOUNDARY = "---------7d4a6d158c9"; // 定义数据分隔线
 			URL url = new URL(strUrl);
@@ -119,7 +124,7 @@ public class MoGuHttpClient {
 				//sb.append("Content-Disposition: form-data;name=\"userid\";" + "userid=" + "\""+userID+"\"" + "\r\n");
 				sb.append("Content-Disposition: form-data; name=\"userid\"");
 				sb.append("\r\n\r\n");
-				sb.append(userID);
+				sb.append(avatarName);
 				sb.append("\r\n");
 				//sb.append("Content-Type:application/octet-stream\r\n\r\n");
 				byte[] buserid = sb.toString().getBytes();
@@ -147,8 +152,8 @@ public class MoGuHttpClient {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				logger.d("pic#line:%s", line);
-				if (line.equals(0)) {
-					return "ok";
+				if (line.equals("None")) {
+					return avatarPath;
 				} else {
 					return "not ok";
 				}
@@ -162,6 +167,6 @@ public class MoGuHttpClient {
 			e.printStackTrace();
 		}
 
-		return "";
+		return "not ok";
 	}
 }

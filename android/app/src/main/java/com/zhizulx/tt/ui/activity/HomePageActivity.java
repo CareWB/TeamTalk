@@ -47,6 +47,8 @@ public class HomePageActivity extends FragmentActivity {
     private TextView aboutUs;
     private TextView clearCache;
     private UserEntity userEntity;
+    private TextView name;
+    private TextView sex;
 
     private IMService imService;
 
@@ -54,8 +56,7 @@ public class HomePageActivity extends FragmentActivity {
         @Override
         public void onIMServiceConnected() {
             imService = imServiceConnector.getIMService();
-            int loginId = imService.getLoginManager().getLoginId();
-            userEntity = imService.getContactManager().findContact(loginId);
+            userEntity = imService.getLoginManager().getLoginInfo();
             EquipmentHandler equipmentHandler = EquipmentHandler.getInstance();
             equipmentHandler.init(HomePageActivity.this);
             if (equipmentHandler.hasEquipmentInfo() == false) {
@@ -158,8 +159,24 @@ public class HomePageActivity extends FragmentActivity {
         });
 
         mine = (RelativeLayout)popupWindowView.findViewById(R.id.mine_info);
-        mineAvatar = (ImageView) popupWindowView.findViewById(R.id.mine_avatar);
-        ImageUtil.GlideRoundAvatar(HomePageActivity.this, userEntity.getAvatar(), mineAvatar);
+        mineAvatar = (ImageView)popupWindowView.findViewById(R.id.mine_avatar);
+        name = (TextView)popupWindowView.findViewById(R.id.mine_name);
+        sex = (TextView)popupWindowView.findViewById(R.id.mine_sex);
+        userEntity = imService.getLoginManager().getLoginInfo();
+        if (userEntity != null) {
+            ImageUtil.GlideRoundAvatar(HomePageActivity.this, userEntity.getAvatar(), mineAvatar);
+            name.setText(userEntity.getMainName());
+            String strSex = "保密";
+            switch (userEntity.getGender()) {
+                case 1:
+                    strSex = "帅哥";
+                    break;
+                case 2:
+                    strSex = "美女";
+                    break;
+            }
+            sex.setText(strSex);
+        }
         collection = (TextView)popupWindowView.findViewById(R.id.mine_collection);
         aboutUs = (TextView)popupWindowView.findViewById(R.id.mine_about_us);
         clearCache = (TextView)popupWindowView.findViewById(R.id.mine_clear_cache);

@@ -92,15 +92,28 @@ public class MineTextChangeFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-                intent.putExtra("content", tvContent.getText().toString());
-                if (title.equals(getString(R.string.change_name))) {
-                    getActivity().setResult(11, intent);
-                } else {
-                    getActivity().setResult(12, intent);
-                }
                 getActivity().finish();
 			}
 		});
+
+        setTopRightButton(R.drawable.detail_disp_adjust_finish);
+        topRightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getFragmentManager().getBackStackEntryCount() == 0) {
+                    intent.putExtra("content", tvContent.getText().toString());
+                    if (title.equals(getString(R.string.change_name))) {
+                        getActivity().setResult(11, intent);
+                    } else {
+                        getActivity().setResult(12, intent);
+                    }
+                    getActivity().finish();
+                    return;
+                }
+                getFragmentManager().popBackStack();
+            }
+        });
+
         tvContent = (EditText)curView.findViewById(R.id.text_content);
         tvContent.addTextChangedListener(new TextWatcher() {
             @Override

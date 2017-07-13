@@ -65,6 +65,8 @@ public class IMLoginManager extends IMManager {
 
     private LoginEvent loginStatus= LoginEvent.NONE;
 
+    private String signInfo = "";
+
     /**-------------------------------功能方法--------------------------------------*/
 
     @Override
@@ -273,6 +275,7 @@ public class IMLoginManager extends IMManager {
                 IMBaseDefine.UserInfo userInfo =  loginRes.getUserInfo();
                 loginId = userInfo.getUserId();
                 loginInfo = ProtoBuf2JavaBean.getUserEntity(userInfo);
+                signInfo = userInfo.getSignInfo();
                 onLoginOk();
             }break;
 
@@ -456,5 +459,13 @@ public class IMLoginManager extends IMManager {
 
     public void setPcOnline(boolean isPcOnline) {
         this.isPcOnline = isPcOnline;
+    }
+
+    public void setSignInfo(String signInfo) {
+        this.signInfo = signInfo;
+    }
+
+    public String getSignInfo() {
+        return signInfo;
     }
 }

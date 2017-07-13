@@ -113,6 +113,14 @@ public class IMPacketDispatcher {
                 IMBuddy.NewQueryCollectRouteRsp newQueryCollectRouteRsp = IMBuddy.NewQueryCollectRouteRsp.parseFrom(buffer);
                 IMTravelManager.instance().onRspGetCollectRoute(newQueryCollectRouteRsp);
                 return;
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_INFO_MODIFY_RESPONSE_VALUE:
+                IMBuddy.Info_Modify_Rsp infoModifyRsp = IMBuddy.Info_Modify_Rsp.parseFrom(buffer);
+                IMContactManager.instance().onRepInfoModify(infoModifyRsp);
+                return;
+            case IMBaseDefine.BuddyListCmdID.CID_BUDDY_LIST_TRAVEL_GET_SCENIC_HOTEL_RESPONSE_VALUE:
+                IMBuddy.GetScenicHotelRsp getScenicHotelRsp = IMBuddy.GetScenicHotelRsp.parseFrom(buffer);
+                IMTravelManager.instance().onRspSightHotel(getScenicHotelRsp);
+                return;
             }
         } catch (IOException e) {
             logger.e("buddyPacketDispatcher# error,cid:%d",commandId);

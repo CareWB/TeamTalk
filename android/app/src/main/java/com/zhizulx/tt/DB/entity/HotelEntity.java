@@ -25,11 +25,6 @@ public class HotelEntity {
     private int price;
     private double longitude;
     private double latitude;
-    /** Not-null value. */
-    private String startTime;
-    /** Not-null value. */
-    private String endTime;
-    private int distance;
     private int select;
     private int version;
     private int status;
@@ -46,7 +41,7 @@ public class HotelEntity {
         this.id = id;
     }
 
-    public HotelEntity(Long id, int peerId, String cityCode, String name, String pic, int star, String tag, String url, int price, double longitude, double latitude, String startTime, String endTime, int distance, int select, int version, int status, int created, int updated) {
+    public HotelEntity(Long id, int peerId, String cityCode, String name, String pic, int star, String tag, String url, int price, double longitude, double latitude, int select, int version, int status, int created, int updated) {
         this.id = id;
         this.peerId = peerId;
         this.cityCode = cityCode;
@@ -58,9 +53,6 @@ public class HotelEntity {
         this.price = price;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.distance = distance;
         this.select = select;
         this.version = version;
         this.status = status;
@@ -164,34 +156,6 @@ public class HotelEntity {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
-    }
-
-    /** Not-null value. */
-    public String getStartTime() {
-        return startTime;
-    }
-
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    /** Not-null value. */
-    public String getEndTime() {
-        return endTime;
-    }
-
-    /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public int getDistance() {
-        return distance;
-    }
-
-    public void setDistance(int distance) {
-        this.distance = distance;
     }
 
     public int getSelect() {

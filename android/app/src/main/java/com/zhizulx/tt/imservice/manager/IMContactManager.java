@@ -1,5 +1,7 @@
 package com.zhizulx.tt.imservice.manager;
 
+import android.util.Log;
+
 import com.zhizulx.tt.DB.DBInterface;
 import com.zhizulx.tt.DB.entity.DepartmentEntity;
 import com.zhizulx.tt.DB.entity.UserEntity;
@@ -38,6 +40,7 @@ public class IMContactManager extends IMManager {
             return inst;
     }
     private IMSocketManager imSocketManager = IMSocketManager.instance();
+    private IMLoginManager loginMgr = IMLoginManager.instance();
     private DBInterface dbInterface = DBInterface.instance();
 
     // 自身状态字段
@@ -400,6 +403,62 @@ public class IMContactManager extends IMManager {
         // 部门信息更新
         dbInterface.batchInsertOrUpdateDepart(needDb);
         triggerEvent(UserInfoEvent.USER_INFO_UPDATE);
+    }
+
+    private void updateLoginInfo(IMBuddy.ModifyType modifyType, String context) {
+        UserEntity mine = loginMgr.getLoginInfo();
+        switch (modifyType.getNumber()) {
+            case IMBuddy.ModifyType.NICK_VALUE:
+                mine.setMainName(context);
+                break;
+            case IMBuddy.ModifyType.AVATAR_VALUE:
+                mine.setAvatar(context);
+                break;
+            case IMBuddy.ModifyType.SEX_VALUE:
+                mine.setGender(Integer.valueOf(context));
+                break;
+            case IMBuddy.ModifyType.ENCOUNTER_VALUE:
+                mine.setDepartmentId(Integer.valueOf(context));
+                break;
+            case IMBuddy.ModifyType.HOMELAND_VALUE:
+                mine.setEmail(context);
+                break;
+            case IMBuddy.ModifyType.SIGN_VALUE:
+                loginMgr.setSignInfo(context);
+                break;
+        }
+    }
+
+    public void reqInfoModify(int userID, IMBuddy.ModifyType modifyType, String context) {
+        logger.i("contact#reqInfoModify");
+        Log.e("LL", "reqInfoModify");
+        updateLoginInfo(modifyType, context);
+
+        IMBuddy.Info_Modify_Req infoModifyReq = null;
+        infoModifyReq  = IMBuddy.Info_Modify_Req.newBuilder()
+                .setUserId(userID)
+                .setModifyType(modifyType)
+                .setModifyContext(context).build();
+
+        int sid = IMBaseDefine.ServiceID.SID_BUDDY_LIST_VALUE;
+        int cid = IMBaseDefine.BuddyListCmdID.CID_BUDDY_INFO_MODIFY_REQUEST_VALUE;
+        imSocketManager.sendRequest(infoModifyReq, sid, cid);
+    }
+
+    public void onRepInfoModify(IMBuddy.Info_Modify_Rsp infoModifyRsp) {
+        logger.i("contact#onRepInfoModify");
+        int userId = infoModifyRsp.getUserId();
+        IMBaseDefine.ResultType resultType = infoModifyRsp.getRetCode();
+        Log.e("LL", "onRepInfoModify");
+        if(userId != loginMgr.getLoginId()){
+            return;
+        }
+
+        if (resultType.equals(IMBaseDefine.ResultType.REFUSE_REASON_NONE)) {
+            triggerEvent(UserInfoEvent.INFO_MODIFY_OK);
+        } else {
+            triggerEvent(UserInfoEvent.INFO_MODIFY_FAIL);
+        }
     }
 
     /**------------------------部门相关的协议 end------------------------------*/

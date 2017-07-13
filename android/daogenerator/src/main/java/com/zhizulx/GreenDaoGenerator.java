@@ -211,9 +211,6 @@ public class GreenDaoGenerator {
         hotelInfo.addIntProperty("price").notNull();
         hotelInfo.addDoubleProperty("longitude").notNull();
         hotelInfo.addDoubleProperty("latitude").notNull();
-        hotelInfo.addStringProperty("startTime").notNull();
-        hotelInfo.addStringProperty("endTime").notNull();
-        hotelInfo.addIntProperty("distance").notNull();
         hotelInfo.addIntProperty("select").notNull();
         hotelInfo.addIntProperty("version").notNull();
         hotelInfo.addIntProperty("status").notNull();

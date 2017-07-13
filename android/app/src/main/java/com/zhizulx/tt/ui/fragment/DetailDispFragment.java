@@ -99,7 +99,10 @@ public class DetailDispFragment extends TTBaseFragment{
     private String startCity;
     private String endCity;
     private Dialog dialog;
+    private Dialog dialogUpdate;
     private LocationEvent locationEvent = new LocationEvent(LocationEvent.Event.FRESH_EVENT);
+    private boolean locationStatus = false;
+    private boolean sighthotelStatus = false;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -110,11 +113,11 @@ public class DetailDispFragment extends TTBaseFragment{
                 travelManager = imService.getTravelManager();
                 startCity = travelManager.getConfigEntity().getStartCity();
                 endCity = travelManager.getConfigEntity().getEndCity();
+                String cityCode = travelManager.getCityCodeByName(travelManager.getConfigEntity().getDestination());
+                travelManager.reqSightHotel(cityCode);
                 travelManager.initalRoute();
                 EventBus.getDefault().postSticky(new LocationEvent(LocationEvent.Event.GET_EVENT));
                 dialog = TravelUIHelper.showLoadingDialog(getActivity());
-                showRoute();
-                rvDayInit();
             }
         }
 
@@ -613,7 +616,7 @@ public class DetailDispFragment extends TTBaseFragment{
             routeCollection.setClickable(false);
             hideTopRightButton();
         }
-        routeCost.setText("约"+getTotalCost()+"元");
+        routeCost.setText("约"+String.valueOf(getTotalCost())+"元");
         routeStyle.setText(routeEntity.getRouteType()+"路线");
         start = new DetailDispEntity();
         start.setType(TRAFFIC);
@@ -773,7 +776,21 @@ public class DetailDispFragment extends TTBaseFragment{
                 locationEvent.setCityName(event.getCityName());
                 locationEvent.setLongitude(event.getLongitude());
                 locationEvent.setLatitude(event.getLatitude());
-                dialog.dismiss();
+                locationStatus = true;
+                processStatus();
+                break;
+        }
+    }
+
+    public void onEvent(TravelEvent event) {
+        switch (event.getEvent()){
+            case QUERY_SIGHT_HOTEL_OK:
+                Log.e("yuki", "QUERY_SIGHT_HOTEL_OK");
+                sighthotelStatus = true;
+                processStatus();
+                break;
+            case QUERY_SIGHT_HOTEL_FAIL:
+                Log.e("yuki", "QUERY_SIGHT_HOTEL_FAIL");
                 break;
         }
     }
@@ -802,13 +819,11 @@ public class DetailDispFragment extends TTBaseFragment{
                 break;
             case UPDATE_RANDOM_ROUTE_OK:
                 mHandler.removeCallbacks(runnable);
-                dialog.dismiss();
+                dialogUpdate.dismiss();
                 freshRoute();
                 break;
             case UPDATE_RANDOM_ROUTE_FAIL:
                 Log.e("yuki", "UPDATE_RANDOM_ROUTE_FAIL");
-                mHandler.removeCallbacks(runnable);
-                dialog.dismiss();
                 break;
         }
     }
@@ -817,8 +832,16 @@ public class DetailDispFragment extends TTBaseFragment{
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            if (dialog != null) {
-                dialog.dismiss();
+            processStatus();
+        }
+    };
+
+    private Handler mUpdateHandler = new Handler();
+    private Runnable runnableUpdate = new Runnable() {
+        @Override
+        public void run() {
+            if (dialogUpdate != null) {
+                dialogUpdate.dismiss();
             }
         }
     };
@@ -830,8 +853,8 @@ public class DetailDispFragment extends TTBaseFragment{
             sightIdList.addAll(dayRouteEntity.getSightIDList());
         }
         travelManager.reqUpdateRandomRoute(sightIdList);
-        dialog = TravelUIHelper.showCalculateDialog(getActivity());
-        mHandler.postDelayed(runnable, 10000);
+        dialogUpdate = TravelUIHelper.showCalculateDialog(getActivity());
+        mUpdateHandler.postDelayed(runnableUpdate, 10000);
     }
 
     private void freshRoute() {
@@ -863,5 +886,15 @@ public class DetailDispFragment extends TTBaseFragment{
             cost += travelManager.getHotelByID(hotel).getPrice();
         }
         return cost;
+    }
+
+    private void processStatus() {
+        if (locationStatus && sighthotelStatus) {
+            if (dialog != null) {
+                dialog.dismiss();
+                showRoute();
+                rvDayInit();
+            }
+        }
     }
 }

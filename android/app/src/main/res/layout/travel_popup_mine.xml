@@ -22,7 +22,7 @@
             android:id="@+id/mine_avatar" />
 
         <TextView
-            android:text="张三"
+            android:text=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/left_menu_avatar_name_top"
@@ -34,7 +34,7 @@
             android:id="@+id/mine_name" />
 
         <TextView
-            android:text="帅哥"
+            android:text="保密"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/left_menu_name_sex_top"
