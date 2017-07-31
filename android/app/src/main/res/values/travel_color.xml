@@ -44,4 +44,14 @@
     <color name="phone_bg">#f6f6f6</color>
     <color name="black"> #000000</color>
     <color name="blue">#4c90f9</color>
+
+    <color name="feedback">#cfcfcf</color>
+    <color name="select_route_title_color">#8e8e8e</color>
+    <color name="select_route_title_hint_color">#cfcfcf</color>
+    <color name="select_route_user_hint">#464646</color>
+    <color name="detail_disp_day">#787878</color>
+    <color name="detail_disp_day_bk">#f4f4f4</color>
+    <color name="show_sight_in_map">#e60012</color>
+    <color name="select_design_way">#151515</color>
+    <color name="select_design_custom">#f7f5f5</color>
 </resources>

@@ -17,6 +17,8 @@ public class UrlConstant {
     //public final static String ACCESS_MSG_ADDRESS = "http://112.74.78.3:8080/msg_server";
     public final static String ACCESS_MSG_ADDRESS = "http://39.108.92.92:8080/msg_server";
     public final static String AVATAR_UPLOLAD_ADDRESS = "http://39.108.92.92:1122/pic/save.do";
+    public final static String FEEDBACK_UPLOLAD_ADDRESS = "http://39.108.92.92:1122/feedback/save.do";
+    public final static String TRACK_UPLOLAD_ADDRESS = "http://39.108.92.92:1122/track/save.do";
     public final static String AVATAR_DOWNLOAD_ADDRESS = "http://39.108.92.92:8521/";
     //public final static String ACCESS_MSG_ADDRESS = "http://192.168.1.12:8080/msg_server";
 

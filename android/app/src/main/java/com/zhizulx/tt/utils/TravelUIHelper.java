@@ -17,13 +17,16 @@ import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.ui.activity.CreateTravelActivity;
 import com.zhizulx.tt.ui.activity.DetailDispActivity;
 import com.zhizulx.tt.ui.activity.ExpenseDetailActivity;
+import com.zhizulx.tt.ui.activity.FeedbackActivity;
 import com.zhizulx.tt.ui.activity.HomePageActivity;
 import com.zhizulx.tt.ui.activity.IntroduceSightActivity;
+import com.zhizulx.tt.ui.activity.MessageActivity;
 import com.zhizulx.tt.ui.activity.SelectDesignWayActivity;
 import com.zhizulx.tt.ui.activity.SelectTravelRouteActivity;
 import com.zhizulx.tt.ui.activity.HotelWebViewActivity;
 import com.zhizulx.tt.ui.activity.ShowSightsInMap;
 import com.zhizulx.tt.ui.activity.TrafficWebViewActivity;
+import com.zhizulx.tt.ui.fragment.ContactFragment;
 import com.zhizulx.tt.ui.route.RouteActivity;
 
 public class TravelUIHelper {
@@ -47,6 +50,25 @@ public class TravelUIHelper {
 		});
 
 		dialog_view.findViewById(R.id.bn_alert_dialog_confirm).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				callback.callback();
+				dialog.dismiss();
+			}
+		});
+
+		dialog.setContentView(dialog_view);
+		dialog.show();
+	}
+
+	public static void showSuccessDialog(Context context, String content, final dialogCallback callback) {
+		final Dialog dialog = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar);
+		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View dialog_view = inflater.inflate(R.layout.travel_success_dialog, null);
+		TextView tvContent = (TextView)dialog_view.findViewById(R.id.success_dialog_content);
+		tvContent.setText(content);
+
+		dialog_view.findViewById(R.id.bn_success_dialog_confirm).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				callback.callback();
@@ -130,6 +152,7 @@ public class TravelUIHelper {
 	//跳转到设计方式选择页面
 	public static void openSelectDesignWayActivity(Context ctx) {
 		Intent intent = new Intent(ctx, SelectDesignWayActivity.class);
+        //Intent intent = new Intent(ctx, FeedbackActivity.class);
 		ctx.startActivity(intent);
 	}
 

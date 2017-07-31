@@ -25,10 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhizulx.tt.DB.entity.UserEntity;
-import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.UrlConstant;
-import com.zhizulx.tt.imservice.event.UserInfoEvent;
 import com.zhizulx.tt.imservice.manager.IMContactManager;
 import com.zhizulx.tt.imservice.manager.IMLoginManager;
 import com.zhizulx.tt.imservice.service.IMService;
@@ -47,6 +45,8 @@ import com.zhizulx.tt.utils.TravelUIHelper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import okhttp3.OkHttpClient;
 
 /**
  * 设置页面
@@ -96,6 +96,8 @@ public class MineInfoFragment extends TTBaseFragment{
     int sexInt = 0;
     int Marital = 0;
 
+	private final OkHttpClient client = new OkHttpClient();
+
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
         public void onIMServiceConnected() {
@@ -106,6 +108,7 @@ public class MineInfoFragment extends TTBaseFragment{
 				logid = imService.getLoginManager().getLoginId();
 				String avatarUriPath = String.format("file://%s", imService.getLoginManager().getUserAvatarPath());
 				imageUri = Uri.parse(avatarUriPath);
+				Log.e("yuki uri", imageUri.toString());
 				imagePhoto = Uri.parse("file://%s" + FileUtil.getAppPath() + File.separator + "photo.jpg");
 				currentUser = imService.getLoginManager().getLoginInfo();
 				nickName.setText(currentUser.getMainName());
@@ -226,18 +229,6 @@ public class MineInfoFragment extends TTBaseFragment{
         }
 
 		super.onActivityResult(requestCode, resultCode, data);
-	}
-
-	public void onEventMainThread(UserInfoEvent event){
-		switch (event){
-			case MY_AVATAR_OK:
-
-				break;
-
-			case AVATAR_UPLOAD_URL_OK:
-
-				break;
-		}
 	}
 
 	private String uploadAvatar() {

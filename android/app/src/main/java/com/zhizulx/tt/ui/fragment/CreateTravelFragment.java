@@ -115,6 +115,7 @@ public class CreateTravelFragment extends TTBaseFragment{
             imService = imServiceConnector.getIMService();
             travelManager = imService.getTravelManager();
             travelManager.getConfigEntity().setRouteType(getString(R.string.route_literature));
+            trace("040100", "create travel all by user");
         }
 
         @Override
@@ -558,5 +559,12 @@ public class CreateTravelFragment extends TTBaseFragment{
         }
 
         per_num.setText(String.valueOf(perNum));
+    }
+
+    private void trace(String code, String msg) {
+        if (travelManager != null) {
+            String myMsg = "[SelectTagFragment] " + msg;
+            travelManager.AppTrace(code, myMsg);
+        }
     }
 }

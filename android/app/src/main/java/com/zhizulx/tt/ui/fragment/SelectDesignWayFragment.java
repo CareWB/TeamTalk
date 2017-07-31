@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.SysConstant;
@@ -25,8 +25,8 @@ import de.greenrobot.event.EventBus;
 public class SelectDesignWayFragment extends TTBaseFragment {
     private View curView = null;
     private MonitorActivityBehavior monitorActivityBehavior;
-    private ImageView introduct;
-    private ImageView custom;
+    private LinearLayout introduct;
+    private LinearLayout custom;
     private IMTravelManager travelManager;
     private Dialog dialog;
 
@@ -71,8 +71,8 @@ public class SelectDesignWayFragment extends TTBaseFragment {
                 getActivity().finish();
             }
         });
-        introduct = (ImageView)curView.findViewById(R.id.select_design_way_introduct);
-        custom = (ImageView)curView.findViewById(R.id.select_design_way_custom);
+        introduct = (LinearLayout) curView.findViewById(R.id.select_design_way_introduct);
+        custom = (LinearLayout)curView.findViewById(R.id.select_design_way_custom);
         MonitorClickListener designWayListener = new MonitorClickListener(getActivity()) {
             @Override
             public void onMonitorClick(View v) {

@@ -1,6 +1,7 @@
 package com.zhizulx.tt.ui.activity;
 
 import android.app.Dialog;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -43,7 +44,7 @@ public class ShowSightsInMap extends FragmentActivity{
     private IMTravelManager travelManager;
     private Dialog dialog;
     private List<SightEntity> sightEntityList = new ArrayList<>();
-    private List<Integer> mapDrawable = new ArrayList<>();
+    //private List<Integer> mapDrawable = new ArrayList<>();
 	private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
         public void onIMServiceConnected() {
@@ -93,8 +94,8 @@ public class ShowSightsInMap extends FragmentActivity{
             }
         });
         title = (TextView)findViewById(R.id.show_sights_in_map_title);
-        title.setText("Day"+(day+1));
-        mapDrawable.add(R.drawable.poi_marker_1);
+        title.setText("第"+(day+1)+"天的景点");
+/*        mapDrawable.add(R.drawable.poi_marker_1);
         mapDrawable.add(R.drawable.poi_marker_2);
         mapDrawable.add(R.drawable.poi_marker_3);
         mapDrawable.add(R.drawable.poi_marker_4);
@@ -102,7 +103,7 @@ public class ShowSightsInMap extends FragmentActivity{
         mapDrawable.add(R.drawable.poi_marker_6);
         mapDrawable.add(R.drawable.poi_marker_7);
         mapDrawable.add(R.drawable.poi_marker_8);
-        mapDrawable.add(R.drawable.poi_marker_9);
+        mapDrawable.add(R.drawable.poi_marker_9);*/
         dialog = TravelUIHelper.showLoadingDialog(ShowSightsInMap.this);
         mHandler.postDelayed(runnable, 1500);
 	}
@@ -139,9 +140,11 @@ public class ShowSightsInMap extends FragmentActivity{
         }
 
         LatLonPoint latLonPoint = new LatLonPoint(sightEntity.getLatitude(), sightEntity.getLongitude());
+        String sightName = String.valueOf(sightEntityList.indexOf(sightEntity)+1) + ") " + sightEntity.getName();
         aMap.addMarker(new MarkerOptions()
                 .position(AMapUtil.convertToLatLng(latLonPoint))
-                .icon(BitmapDescriptorFactory.fromResource(mapDrawable.get(sightEntityList.indexOf(sightEntity)))));
+                .icon(BitmapDescriptorFactory.fromBitmap(getSightTitleBitmap(sightName))));
+                //.icon(BitmapDescriptorFactory.fromResource(mapDrawable.get(sightEntityList.indexOf(sightEntity)))));
     }
 
     private void initSightList() {
@@ -175,7 +178,6 @@ public class ShowSightsInMap extends FragmentActivity{
 
             List<LatLng> points = new ArrayList<LatLng>();
             for (SightEntity sightEntity : sightEntityList) {
-
                 LatLng latLonPoint = new LatLng(sightEntity.getLatitude(), sightEntity.getLongitude());
                 points.add(latLonPoint);
             }
@@ -196,4 +198,15 @@ public class ShowSightsInMap extends FragmentActivity{
             }
         }
     };
+
+    private Bitmap getSightTitleBitmap(String sightName) {
+        View view = View.inflate(ShowSightsInMap.this,R.layout.travel_item_sight_in_map, null);
+        TextView name = (TextView) view.findViewById(R.id.tv_sight_name);
+        name.setText(sightName);
+        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+        return bitmap;
+    }
 }

@@ -56,9 +56,7 @@ public class HotelAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         HotelEntity hotelEntity = mList.get(i);
         HotelViewHolder holder = (HotelViewHolder) viewHolder;
-        //Glide.with(ctx).load(hotelEntity.getPic()).into(holder.pic);
         ImageUtil.GlideAvatar(ctx, hotelEntity.getPic(), holder.pic);
-        //Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
         holder.name.setText(hotelEntity.getName());
         holder.star.setRating((float)(hotelEntity.getStar()));
         holder.tag.setText(hotelEntity.getTag());

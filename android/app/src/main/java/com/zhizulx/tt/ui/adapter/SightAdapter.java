@@ -57,8 +57,6 @@ public class SightAdapter extends RecyclerView.Adapter {
         SightEntity sightEntity = mList.get(i);
         SightViewHolder holder = (SightViewHolder) viewHolder;
         ImageUtil.GlideAvatar(ctx, sightEntity.getPic(), holder.pic);
-        //Glide.with(ctx).load(sightEntity.getPic()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().into(holder.pic);
-        //Glide.with(ctx).load(R.drawable.gulangyu).into(holder.pic);
         holder.name.setText(sightEntity.getName());
         holder.star.setRating((float)(sightEntity.getStar()));
         holder.tag.setText(sightEntity.getTag());

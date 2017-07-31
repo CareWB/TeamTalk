@@ -162,7 +162,7 @@
             android:text="@string/collect_add"
             android:textColor="@color/next_step"
             android:textSize="@dimen/next_step"
-            android:background="@drawable/next_step_click"
+            android:background="@drawable/travel_button_press_bk_edge"
             android:id="@+id/collect" />
     </LinearLayout>
 

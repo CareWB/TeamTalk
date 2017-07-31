@@ -2,6 +2,7 @@ package com.zhizulx.tt.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,8 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
     private static final int STATUS_EDIT = 1;
     private static final int STATUS_CANNOT_EDIT = 2;
     private int trafficEnd = 0;
+    private static final int TRAVEL_START = 0;
+    private static final int TRAVEL_END = 1;
 
     public DetailDispAdapter(Context ctx, List<DetailDispEntity> mList) {
         this.ctx = ctx;
@@ -63,6 +66,18 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
         for (DetailDispEntity detailDispEntity : mList) {
             if (detailDispEntity.getType() == TRAFFIC) {
                trafficEnd = i;
+            }
+            i ++;
+        }
+
+        i = 0;
+        for (DetailDispEntity detailDispEntity : mList) {
+            if (detailDispEntity.getType() == TRAFFIC) {
+                if (trafficEnd == i) {
+                    detailDispEntity.setStatus(TRAVEL_END);
+                } else {
+                    detailDispEntity.setStatus(TRAVEL_START);
+                }
             }
             i ++;
         }
@@ -132,7 +147,8 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
                 break;
             case DAY:
                 DayViewHolder dayViewHolder = (DayViewHolder) viewHolder;
-                dayViewHolder.day.setText(detailDispEntity.getTitle());
+                String str = String.format("<small>第<font color='#FF0000'>%s</font>天的行程</small>", detailDispEntity.getTitle());
+                dayViewHolder.day.setText(Html.fromHtml(str));
                 break;
             case SIGHT:
                 SightViewHolder sightViewHolder = (SightViewHolder) viewHolder;
@@ -207,10 +223,15 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
                         break;
                 }
 
-                if (i == trafficEnd) {
+/*                if (i == trafficEnd) {
                     trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_end);
                 } else {
                     trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_start);
+                }*/
+                if (detailDispEntity.getStatus() == TRAVEL_START) {
+                    trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_start);
+                } else {
+                    trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_end);
                 }
                 break;
         }
@@ -229,11 +250,13 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
 
     class DayViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView day;
+        public TextView showInMap;
 
         public DayViewHolder(View itemView) {
             super(itemView);
             day = (TextView) itemView.findViewById(R.id.detail_disp_day);
-            day.setOnClickListener(this);
+            showInMap = (TextView) itemView.findViewById(R.id.detail_disp_day_show_in_map);
+            showInMap.setOnClickListener(this);
         }
 
         @Override

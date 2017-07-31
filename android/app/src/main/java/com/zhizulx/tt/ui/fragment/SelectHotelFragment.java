@@ -106,6 +106,14 @@ public class SelectHotelFragment extends TTBaseFragment{
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+                getActivity().finish();
+			}
+		});
+
+        setTopRightButton(R.drawable.detail_disp_adjust_finish);
+        topRightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if (getFragmentManager().getBackStackEntryCount() == 0) {
                     intent.putExtra("result", selectID);
                     getActivity().setResult(100, intent);
@@ -113,8 +121,8 @@ public class SelectHotelFragment extends TTBaseFragment{
                     return;
                 }
                 getFragmentManager().popBackStack();
-			}
-		});
+            }
+        });
 
         rvHotel = (RecyclerView)curView.findViewById(R.id.rv_hotel);
 	}

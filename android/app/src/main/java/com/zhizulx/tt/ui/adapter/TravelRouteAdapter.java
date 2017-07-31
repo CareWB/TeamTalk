@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
+import com.zhizulx.tt.utils.ImageUtil;
 
 import java.util.List;
 
@@ -56,9 +58,11 @@ public class TravelRouteAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         RouteEntity routeEntity = mList.get(i);
         TravelRouteViewHolder holder = (TravelRouteViewHolder) viewHolder;
+        String avatarUrl = travelManager.getCityEntitybyCityCode(routeEntity.getCityCode()).getIcon();
+        ImageUtil.GlideAvatar(ctx, avatarUrl, holder.city);
+        holder.title.setText(travelManager.getCityNameByCode(routeEntity.getCityCode())+routeEntity.getRouteType()+"之旅");
         holder.days.setText(routeEntity.getDay() + "天");
-        holder.city.setText("\""+travelManager.getCityNameByCode(routeEntity.getCityCode())+"\"之旅");
-        holder.topic.setText(routeEntity.getRouteType()+"路线");
+        holder.cost.setText("约￥1000/人");
     }
 
     @Override
@@ -68,16 +72,18 @@ public class TravelRouteAdapter extends RecyclerView.Adapter {
 
     class TravelRouteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public LinearLayout lyTravelRoute;
+        public ImageView city;
+        public TextView title;
         public TextView days;
-        public TextView city;
-        public TextView topic;
+        public TextView cost;
 
         public TravelRouteViewHolder(View itemView) {
             super(itemView);
             lyTravelRoute = (LinearLayout) itemView.findViewById(R.id.ly_travel_route);
+            city = (ImageView) itemView.findViewById(R.id.travel_item_travel_route_city_bk);
+            title = (TextView) itemView.findViewById(R.id.travel_route_title);
             days = (TextView) itemView.findViewById(R.id.travel_route_days);
-            city = (TextView) itemView.findViewById(R.id.travel_route_city);
-            topic = (TextView) itemView.findViewById(R.id.travel_route_topic);
+            cost = (TextView) itemView.findViewById(R.id.travel_route_cost);
             lyTravelRoute.setOnClickListener(this);
         }
 

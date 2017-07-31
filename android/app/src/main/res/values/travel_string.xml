@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">智足旅行</string>
     <string name="select_tag_title">此时的你</string>
-    <string name="select_design_way">定制旅行</string>
+    <string name="select_design_way">路线规划</string>
     <string name="select_travel_route">路线选择</string>
     <string name="travel">行程</string>
     <string name="local">当地</string>
@@ -60,6 +60,7 @@
     <string name="mine_common_info">常用信息</string>
     <string name="mine_collection">我的收藏</string>
     <string name="mine_about_us">关于我们</string>
+    <string name="feedback">意见反馈</string>
     <string name="mine_clear_cache">清理缓存</string>
     <string name="avatar">头像</string>
     <string name="nick_name">昵称</string>
@@ -90,4 +91,10 @@
     <string name="traffic_no_type">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="collect_add">添加收藏</string>
     <string name="double_click">请不要重复点击</string>
+    <string name="feedback_content">请用简洁的文字说明问题或建议</string>
+    <string name="feedback_picture_hint">图片（可选择，提供问题截图，最多3张）</string>
+    <string name="feedback_confirm">确认提交</string>
+    <string name="select_route_user_hint">小智：请小主赐教！</string>
+    <string name="select_route_user_title">小智推荐</string>
+    <string name="select_route_user_hint_example">例如：毕业、未知、流浪、放松、陌生...</string>
 </resources>

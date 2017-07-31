@@ -14,11 +14,10 @@
         android:id="@+id/ly_city">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
             android:layout_marginLeft="@dimen/select_place_city_pic_left"
             android:layout_marginRight="@dimen/select_place_city_pic_right"
-            android:background="@drawable/select_city_xiamen"
             android:id="@+id/city_image"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />

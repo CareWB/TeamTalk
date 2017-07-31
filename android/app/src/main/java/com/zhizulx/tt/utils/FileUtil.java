@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.util.Log;
 
 import com.zhizulx.tt.config.SysConstant;
 
@@ -607,11 +608,20 @@ public class FileUtil
         return SDCardRoot + AppFileDir + File.separator + "log.zip";
     }
 
+    public static String getCommentFile() {
+        return SDCardRoot + AppFileDir + File.separator + "feedback.txt";
+    }
+
     public static void clearLog(){
         delete(new File(getLogFile()));
         delete(new File(getCrashFile()));
         delete(new File(getEquipmentFile()));
         delete(new File(getUserBehaviorFile()));
         delete(new File(SDCardRoot + AppFileDir + File.separator + "log.zip"));
+    }
+
+    public static void uploadLog(String strCode, String strContent, String strUserID) {
+        UploadLogUtil uploadLogUtil = new UploadLogUtil();
+        uploadLogUtil.uploadApkLog(strCode, strContent, strUserID);
     }
 }

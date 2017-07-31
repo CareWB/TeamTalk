@@ -88,10 +88,22 @@
         android:text="@string/mine_clear_cache"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/left_menu_icon_icon"
         android:layout_marginStart="@dimen/left_menu_left"
         android:drawablePadding="@dimen/left_menu_icon_text"
         android:drawableLeft="@drawable/mine_clear_cache"
         android:textSize="@dimen/title_hint_size"
         android:textColor="@color/base_title"
         android:id="@+id/mine_clear_cache" />
+
+    <TextView
+        android:text="@string/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/left_menu_left"
+        android:drawablePadding="@dimen/left_menu_icon_text"
+        android:drawableLeft="@drawable/mine_feedback"
+        android:textSize="@dimen/title_hint_size"
+        android:textColor="@color/base_title"
+        android:id="@+id/mine_feedback" />
 </LinearLayout>

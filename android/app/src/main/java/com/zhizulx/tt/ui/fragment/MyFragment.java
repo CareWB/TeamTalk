@@ -28,6 +28,7 @@ import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.utils.FileUtil;
 import com.zhizulx.tt.ui.widget.IMBaseImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zhizulx.tt.utils.UploadLogUtil;
 
 import java.io.File;
 

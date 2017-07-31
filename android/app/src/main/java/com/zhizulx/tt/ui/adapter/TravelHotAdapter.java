@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.zhizulx.tt.DB.entity.CityEntity;
 import com.zhizulx.tt.R;
+import com.zhizulx.tt.utils.ImageUtil;
 
 import java.util.List;
 
@@ -54,7 +55,8 @@ public class TravelHotAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         HotViewHolder holder = (HotViewHolder) viewHolder;
         CityEntity cityEntity = mList.get(i);
-        holder.icon.setBackgroundResource(cityEntity.getIcon());
+        ImageUtil.GlideAvatar(ctx, cityEntity.getIcon(), holder.icon);
+        //holder.icon.setImageDrawable(ctx.getResources().getDrawable(R.drawable.xiamen_icon));
         holder.name.setText(cityEntity.getName());
     }
 

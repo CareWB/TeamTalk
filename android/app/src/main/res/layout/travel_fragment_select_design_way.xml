@@ -5,17 +5,60 @@
     android:background="@color/default_bk"
     android:orientation="vertical" >
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/select_design_way_introduct"
         android:layout_weight="1"
-        android:id="@+id/select_design_way_introduct" />
+        android:gravity="center"
+        android:id="@+id/select_design_way_introduct">
 
-    <ImageView
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/select_design_way_introduct" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/select_design_way"
+                android:text="点我试试看"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/select_design_way_custom"
         android:layout_weight="1"
-        android:id="@+id/select_design_way_custom" />
+        android:gravity="center"
+        android:background="@color/select_design_custom"
+        android:id="@+id/select_design_way_custom">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/select_design_way_custom" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/select_design_way"
+                android:text="我的行程我做主"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

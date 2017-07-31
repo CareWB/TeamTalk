@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,6 +104,9 @@ public class DetailDispFragment extends TTBaseFragment{
     private LocationEvent locationEvent = new LocationEvent(LocationEvent.Event.FRESH_EVENT);
     private boolean locationStatus = false;
     private boolean sighthotelStatus = false;
+    private static final int UPDATE_OPT_TIME_CHANGE = 1;
+    private static final int UPDATE_OPT_SIGHT_CHANGE = 2;
+    private List<Integer> changeSightIDList = new ArrayList<>();
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -113,11 +117,11 @@ public class DetailDispFragment extends TTBaseFragment{
                 travelManager = imService.getTravelManager();
                 startCity = travelManager.getConfigEntity().getStartCity();
                 endCity = travelManager.getConfigEntity().getEndCity();
-                String cityCode = travelManager.getCityCodeByName(travelManager.getConfigEntity().getDestination());
-                travelManager.reqSightHotel(cityCode);
+                travelManager.reqSightHotel(travelManager.getRouteEntity().getCityCode());
                 travelManager.initalRoute();
                 EventBus.getDefault().postSticky(new LocationEvent(LocationEvent.Event.GET_EVENT));
                 dialog = TravelUIHelper.showLoadingDialog(getActivity());
+                trace("050100", "detail disp in");
             }
         }
 
@@ -199,7 +203,9 @@ public class DetailDispFragment extends TTBaseFragment{
                     break;
                 case 102:
                     if(data.getBooleanExtra("result", false)) {
-                        showRoute();
+                        changeSightIDList.clear();
+                        changeSightIDList.addAll(data.getIntegerArrayListExtra("sightID"));
+                        updateRoute(UPDATE_OPT_SIGHT_CHANGE);
                     }
                     break;
             }
@@ -327,9 +333,15 @@ public class DetailDispFragment extends TTBaseFragment{
                     case R.id.select_time_confirm:
                         topRightBtn.setClickable(true);
                         timeSelect.setTime(timeWheel.getTimeData().replace("时", "") + ":00");
+                        int hour = Integer.valueOf(timeWheel.getTimeData().replace("时", ""));
+                        if (timeSelect.getStatus() == 0) {
+                            travelManager.getRouteEntity().setStartTime(hour);
+                        } else {
+                            travelManager.getRouteEntity().setEndTime(hour);
+                        }
                         detailDispAdapter.notifyDataSetChanged();
                         lyDetailDispAdjust.setVisibility(View.GONE);
-                        updateRoute();
+                        updateRoute(UPDATE_OPT_TIME_CHANGE);
                         break;
                 }
                 lyTimeSelectWheel.setVisibility(View.GONE);
@@ -470,10 +482,8 @@ public class DetailDispFragment extends TTBaseFragment{
 
     private int getDay(String strDay) {
         int day = 1;
-        String dayNum;
         if (strDay != null) {
-            dayNum = strDay.replace("Day", "");
-            day = Integer.parseInt(dayNum);
+            day = Integer.parseInt(strDay);
         }
         day --;
         return day;
@@ -666,7 +676,7 @@ public class DetailDispFragment extends TTBaseFragment{
 
         detailDispEntity = new DetailDispEntity();
         detailDispEntity.setType(DAY);
-        detailDispEntity.setTitle("Day" + day);
+        detailDispEntity.setTitle(String.valueOf(day));
         detailDispEntityList.add(detailDispEntity);
 
         for (int i : dayRouteEntity.getSightIDList()) {
@@ -846,14 +856,24 @@ public class DetailDispFragment extends TTBaseFragment{
         }
     };
 
-    private void updateRoute() {
+    private void updateRoute(int opt) {
         List<Integer> sightIdList = new ArrayList<>();
-        RouteEntity routeEntity = travelManager.getRouteEntity();
-        for (DayRouteEntity dayRouteEntity : routeEntity.getDayRouteEntityList()) {
-            sightIdList.addAll(dayRouteEntity.getSightIDList());
+        if (UPDATE_OPT_TIME_CHANGE == opt) {
+            RouteEntity routeEntity = travelManager.getRouteEntity();
+            for (DayRouteEntity dayRouteEntity : routeEntity.getDayRouteEntityList()) {
+                sightIdList.addAll(dayRouteEntity.getSightIDList());
+            }
         }
+
+        if (UPDATE_OPT_SIGHT_CHANGE == opt) {
+            sightIdList = changeSightIDList;
+        }
+
         travelManager.reqUpdateRandomRoute(sightIdList);
-        dialogUpdate = TravelUIHelper.showCalculateDialog(getActivity());
+        if (dialogUpdate == null || !dialogUpdate.isShowing()) {
+            dialogUpdate = TravelUIHelper.showCalculateDialog(getActivity());
+        }
+        mUpdateHandler.removeCallbacks(runnableUpdate);
         mUpdateHandler.postDelayed(runnableUpdate, 10000);
     }
 
@@ -895,6 +915,13 @@ public class DetailDispFragment extends TTBaseFragment{
                 showRoute();
                 rvDayInit();
             }
+        }
+    }
+
+    private void trace(String code, String msg) {
+        if (travelManager != null) {
+            String myMsg = "[SelectTagFragment] " + msg;
+            travelManager.AppTrace(code, myMsg);
         }
     }
 }

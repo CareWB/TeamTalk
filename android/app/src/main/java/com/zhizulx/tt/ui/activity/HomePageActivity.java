@@ -46,6 +46,7 @@ public class HomePageActivity extends FragmentActivity {
     private TextView collection;
     private TextView aboutUs;
     private TextView clearCache;
+    private TextView feedback;
     private UserEntity userEntity;
     private TextView name;
     private TextView sex;
@@ -180,6 +181,7 @@ public class HomePageActivity extends FragmentActivity {
         collection = (TextView)popupWindowView.findViewById(R.id.mine_collection);
         aboutUs = (TextView)popupWindowView.findViewById(R.id.mine_about_us);
         clearCache = (TextView)popupWindowView.findViewById(R.id.mine_clear_cache);
+        feedback = (TextView)popupWindowView.findViewById(R.id.mine_feedback);
 
         View.OnClickListener popListener = new View.OnClickListener() {
             @Override
@@ -204,6 +206,11 @@ public class HomePageActivity extends FragmentActivity {
                         ClearCache();
                         popupWindow.dismiss();
                         break;
+                    case R.id.mine_feedback:
+                        Intent intentMineFeedback = new Intent(HomePageActivity.this, FeedbackActivity.class);
+                        startActivity(intentMineFeedback);
+                        popupWindow.dismiss();
+                        break;
                 }
             }
         };
@@ -211,6 +218,7 @@ public class HomePageActivity extends FragmentActivity {
         collection.setOnClickListener(popListener);
         aboutUs.setOnClickListener(popListener);
         clearCache.setOnClickListener(popListener);
+        feedback.setOnClickListener(popListener);
     }
 
     private void ClearCache() {

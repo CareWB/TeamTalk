@@ -18,6 +18,7 @@ import com.zhizulx.tt.protobuf.IMBaseDefine;
 import com.zhizulx.tt.protobuf.IMBuddy;
 import com.zhizulx.tt.protobuf.helper.ProtoBuf2JavaBean;
 import com.zhizulx.tt.utils.CsvUtil;
+import com.zhizulx.tt.utils.FileUtil;
 import com.zhizulx.tt.utils.Logger;
 
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class IMTravelManager extends IMManager {
 	}
 
     private IMSocketManager imSocketManager = IMSocketManager.instance();
+    private IMLoginManager loginMgr = IMLoginManager.instance();
     private DBInterface dbInterface = DBInterface.instance();
     private Boolean dBInitFin = false;
 
@@ -94,7 +96,11 @@ public class IMTravelManager extends IMManager {
         new Thread() {
             @Override
             public void run() {
-                initSightHotel();
+                if (dBInitFin == false) {
+                    initCityEntity();
+                    initSightHotel();
+                    dBInitFin = true;
+                }
             }
         }.start();
         triggerEvent(new TravelEvent(TravelEvent.Event.TRAVEL_LIST_OK));
@@ -165,8 +171,6 @@ public class IMTravelManager extends IMManager {
         for (HotelEntity hotelEntity : hotelEntityList) {
             hotelEntityMap.put(hotelEntity.getPeerId(), hotelEntity);
         }
-        dBInitFin = true;
-        return;
     }
 
     /**
@@ -390,7 +394,7 @@ public class IMTravelManager extends IMManager {
         }
     }
 
-    private void initCityEntity() {
+    /*private void initCityEntity() {
         List<String> xiamenPic = new ArrayList<>();
         xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/574e9258d109b3de3cafd4a4cdbf6c81810a4ced.jpg");
         xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/1ad5ad6eddc451da671ac9e0b4fd5266d11632c9.jpg");
@@ -416,6 +420,22 @@ public class IMTravelManager extends IMManager {
         cityEntityList.add(xiamen);
         cityEntityList.add(guangzhou);
         cityEntityList.add(shenzhen);
+    }*/
+
+    private void initCityEntity() {
+        cityEntityList.clear();
+        List<List<String>> csvCity = new ArrayList<List<String>>();
+        try {
+            CsvUtil csvUtilCity = new CsvUtil(ctx, "city.csv");
+            csvUtilCity.run();
+            csvCity = csvUtilCity.getCsv();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (List<String> cityStringList : csvCity) {
+            CityEntity cityEntity = String2Entity.getCityEntity(cityStringList);
+            cityEntityList.add(cityEntity);
+        }
     }
 
     public List<CityEntity> getCityEntityList() {
@@ -437,7 +457,8 @@ public class IMTravelManager extends IMManager {
             tags.add(routeType);
         }
 
-        for (int i = 0; i < 3 - tags.size(); i ++) {
+        int oriSize = tags.size();
+        for (int i = 0; i < 3 - oriSize; i ++) {
             tags.add(configEntity.getTags().get(i));
         }
         return tags;
@@ -622,5 +643,9 @@ public class IMTravelManager extends IMManager {
             dbHotelEntityList.add(hotelEntity);
         }
         dbInterface.batchInsertOrUpdateHotel(dbHotelEntityList);
+    }
+
+    public void AppTrace(String code, String msg) {
+        FileUtil.uploadLog(code, msg, String.valueOf(loginMgr.getLoginId()));
     }
 }

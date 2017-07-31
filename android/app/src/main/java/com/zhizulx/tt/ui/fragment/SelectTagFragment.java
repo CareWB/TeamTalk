@@ -16,6 +16,7 @@ import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.FileUtil;
 import com.zhizulx.tt.utils.MonitorActivityBehavior;
 import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
@@ -46,6 +47,7 @@ public class SelectTagFragment extends TTBaseFragment {
             if (imService != null) {
                 travelManager = imService.getTravelManager();
                 initTravelInfo();
+                trace("010100", "home page in");
             }
         }
 
@@ -126,14 +128,17 @@ public class SelectTagFragment extends TTBaseFragment {
                     case R.id.select_tag_high:
                         tags.addAll(highTags);
                         circleAnimation(highCircle, 500);
+                        trace("010301", "select_tag_high");
                         break;
                     case R.id.select_tag_medium:
                         tags.addAll(mediumTags);
                         circleAnimation(mediumCircle, 500);
+                        trace("010302", "select_tag_medium");
                         break;
                     case R.id.select_tag_low:
                         tags.addAll(lowTags);
                         circleAnimation(lowCircle, 500);
+                        trace("010303", "select_tag_low");
                         break;
                 }
                 new Handler().postDelayed(new Runnable() {
@@ -171,5 +176,12 @@ public class SelectTagFragment extends TTBaseFragment {
         oaAnimator.setRepeatCount(ValueAnimator.INFINITE);
         oaAnimator.setRepeatMode(ValueAnimator.RESTART);
         oaAnimator.start();
+    }
+
+    private void trace(String code, String msg) {
+        if (travelManager != null) {
+            String myMsg = "[SelectTagFragment] " + msg;
+            travelManager.AppTrace(code, myMsg);
+        }
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class CityEntity {
     private String cityCode;
     private String name;
-    private int icon;
+    private String icon;
     private List<String> picList = new ArrayList<>();
     private String discription;
     private int select;
@@ -14,7 +14,7 @@ public class CityEntity {
     public CityEntity() {
     }
 
-    public CityEntity(String cityCode, String name, int icon, List<String> picList, String discription) {
+    public CityEntity(String cityCode, String name, String icon, List<String> picList, String discription) {
         this.cityCode = cityCode;
         this.name = name;
         this.icon = icon;
@@ -38,11 +38,11 @@ public class CityEntity {
         return name;
     }
 
-    public void setIcon(int icon) {
+    public void setIcon(String icon) {
         this.icon = icon;
     }
 
-    public int getIcon() {
+    public String getIcon() {
         return icon;
     }
 

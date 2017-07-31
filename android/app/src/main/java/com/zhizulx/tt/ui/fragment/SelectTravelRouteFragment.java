@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,18 +43,21 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
     private View curView = null;
     private MonitorActivityBehavior monitorActivityBehavior;
     private IMTravelManager travelManager;
-    private ImageView reset;
+    private Button reset;
     private TextView createTravelRoute;
-    private ImageView noSelectedRouteHint;
     private RecyclerView rvTravelRoute;
     private EditText travelRouteUserWord;
+    private LinearLayout selectRouteUserEdit;
     private TravelRouteAdapter travelRouteAdapter;
-    private RelativeLayout lySelectRouteCondition;
     private List<RouteEntity> routeEntityList = new ArrayList<>();
     private List<RouteEntity> routeEntityListServer = new ArrayList<>();
-    private int firstPageRouteNum = 0;
+    //private int firstPageRouteNum = 0;
     private final static int ONE_PAGE_NUM = 3;
+    private int PageNum = 0;
     private Dialog dialog;
+    private int resetTime = 0;
+    private List<List<RouteEntity>> routeEntityListList = new ArrayList<>();
+    private List<String> resetStr = new ArrayList<>();
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -65,18 +70,9 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
                 routeEntityListServer.addAll(travelManager.getRouteEntityList());
                 DaySort sort = new DaySort();
                 Collections.sort(routeEntityListServer,sort);
-                if (routeEntityListServer.size() > ONE_PAGE_NUM) {
-                    firstPageRouteNum = ONE_PAGE_NUM;
-                    for (int i = 0; i < ONE_PAGE_NUM; i ++) {
-                        routeEntityList.add(routeEntityListServer.get(i));
-                    }
-                } else {
-                    firstPageRouteNum = routeEntityListServer.size();
-                    routeEntityList.addAll(routeEntityListServer);
-                    reset.setVisibility(View.GONE);
-                    lySelectRouteCondition.setVisibility(View.VISIBLE);
-                    noSelectedRouteHint.setBackground(getResources().getDrawable(R.drawable.no_selected_route_black));
-                }
+                initRouteEntityList();
+                trace("030100", "select route in");
+                resetProcess();
                 initTravelRoute();
             }
         }
@@ -98,6 +94,9 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
         curView = inflater.inflate(R.layout.travel_fragment_select_travel_route,
                 topContentView);
 
+        resetStr.add("换一波");
+        resetStr.add("再换一波");
+        resetStr.add("还不满意，找小智");
         initRes();
         initTravelRoute();
         return curView;
@@ -110,39 +109,37 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
         topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                trace("030200", "select route out");
                 getActivity().finish();
             }
         });
-        reset = (ImageView)curView.findViewById(R.id.select_travel_route_reset);
+        reset = (Button)curView.findViewById(R.id.select_travel_route_reset);
         rvTravelRoute = (RecyclerView)curView.findViewById(R.id.rv_select_travel_route);
-        lySelectRouteCondition = (RelativeLayout)curView.findViewById(R.id.select_route_condition);
         createTravelRoute = (TextView)curView.findViewById(R.id.create_travel_route);
-        noSelectedRouteHint = (ImageView)curView.findViewById(R.id.no_selected_route_hint);
+        selectRouteUserEdit = (LinearLayout)curView.findViewById(R.id.select_route_user_edit);
         MonitorClickListener designWayListener = new MonitorClickListener(getActivity()) {
             @Override
             public void onMonitorClick(View v) {
                 switch (v.getId()) {
                     case R.id.select_travel_route_reset:
-                        routeEntityList.clear();
-                        for (int i = ONE_PAGE_NUM; i < routeEntityListServer.size(); i ++) {
-                            routeEntityList.add(routeEntityListServer.get(i));
-                        }
+                        resetProcess();
                         travelRouteAdapter.notifyDataSetChanged();
-                        reset.setVisibility(View.GONE);
-                        lySelectRouteCondition.setVisibility(View.VISIBLE);
-                        noSelectedRouteHint.setBackground(getResources().getDrawable(R.drawable.no_selected_route_black));
-                        noSelectedRouteHint.setVisibility(View.VISIBLE);
-                        /** 设置缩放动画 */
-                        final ScaleAnimation animation =new ScaleAnimation(0.0f, 1.4f, 0.0f, 1.4f,
-                                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-                        animation.setDuration(2000);//设置动画持续时间
-                        noSelectedRouteHint.setAnimation(animation);
-                        /** 开始动画 */
-                        animation.startNow();
+                        if (resetTime > PageNum) {
+                            trace("030303", "change by user input");
+                            reset.setVisibility(View.GONE);
+                            rvTravelRoute.setVisibility(View.GONE);
+                            selectRouteUserEdit.setVisibility(View.VISIBLE);
+                            setTopTitle(getString(R.string.select_route_user_title));
+                        }
+                        if (resetTime > PageNum) {
+                            resetTime = PageNum;;
+                        }
                         break;
                     case R.id.create_travel_route:
+                        trace("030305", "create route");
                         if (travelRouteUserWord.getText().toString().length() > 0) {
                             travelManager.getConfigEntity().setSentence(travelRouteUserWord.getText().toString());
+                            trace("030304", travelRouteUserWord.getText().toString());
                             travelManager.reqGetRandomRoute(travelManager.GET_ROUTE_BY_SENTENCE);
                             mHandler.postDelayed(runnable, SysConstant.CALCULATE_OVERTIME);
                             dialog = TravelUIHelper.showCalculateDialog(getActivity());
@@ -242,6 +239,77 @@ public class SelectTravelRouteFragment extends TTBaseFragment {
             int d0 = route0.getDay();
             int d1 = route1.getDay();
             return d0 > d1 ? 1 : -1; //按照时间的由小到大排列
+        }
+    }
+
+    private void resetProcess() {
+        switch (resetTime) {
+            case 1:
+                trace("030301", "change once");
+                break;
+            case 2:
+                trace("030302", "change again");
+                break;
+        }
+
+        if (resetTime < routeEntityListList.size()) {
+            routeEntityList.clear();
+            routeEntityList.addAll(routeEntityListList.get(resetTime));
+        }
+        if (resetTime < resetStr.size()) {
+            reset.setText(resetStr.get(resetTime));
+        }
+        resetTime ++;
+    }
+
+    private void initRouteEntityList() {
+        int num = routeEntityListServer.size();
+        if (num <= ONE_PAGE_NUM) {
+            List<RouteEntity> route1 = new ArrayList<>();
+            for (int i = 0; i < num; i ++) {
+                route1.add(routeEntityListServer.get(i));
+            }
+            routeEntityListList.add(route1);
+            PageNum = 1;
+        } else if (num <= ONE_PAGE_NUM*2) {
+            List<RouteEntity> route1 = new ArrayList<>();
+            for (int i = 0; i < ONE_PAGE_NUM; i ++) {
+                route1.add(routeEntityListServer.get(i));
+            }
+            routeEntityListList.add(route1);
+
+            List<RouteEntity> route2 = new ArrayList<>();
+            for (int i = ONE_PAGE_NUM; i < num; i ++) {
+                route2.add(routeEntityListServer.get(i));
+            }
+            routeEntityListList.add(route2);
+            PageNum = 2;
+        } else if (num <= ONE_PAGE_NUM*3){
+            List<RouteEntity> route1 = new ArrayList<>();
+            for (int i = 0; i < ONE_PAGE_NUM; i ++) {
+                route1.add(routeEntityListServer.get(i));
+            }
+            routeEntityListList.add(route1);
+
+            List<RouteEntity> route2 = new ArrayList<>();
+            for (int i = ONE_PAGE_NUM; i < ONE_PAGE_NUM*2; i ++) {
+                route2.add(routeEntityListServer.get(i));
+            }
+            routeEntityListList.add(route2);
+
+            List<RouteEntity> route3 = new ArrayList<>();
+            for (int i = ONE_PAGE_NUM*2; i < num; i ++) {
+                route3.add(routeEntityListServer.get(i));
+            }
+            routeEntityListList.add(route3);
+            PageNum = 3;
+        }
+    }
+
+    private void trace(String code, String msg) {
+        if (travelManager != null) {
+            String myMsg = "[SelectTagFragment] " + msg;
+            travelManager.AppTrace(code, myMsg);
         }
     }
 }

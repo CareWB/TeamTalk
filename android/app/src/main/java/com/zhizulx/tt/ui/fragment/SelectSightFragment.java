@@ -1,14 +1,11 @@
 package com.zhizulx.tt.ui.fragment;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +18,6 @@ import android.widget.Toast;
 import com.zhizulx.tt.DB.entity.DayRouteEntity;
 import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.R;
-import com.zhizulx.tt.imservice.event.TravelEvent;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
@@ -38,8 +34,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import de.greenrobot.event.EventBus;
 
 /**
  * 设置页面
@@ -65,7 +59,6 @@ public class SelectSightFragment extends TTBaseFragment{
     private TextView notScreen;
     private TextView free;
     private LinearLayout lyPop;
-    private Dialog dialog;
     static final int ALL = 0;
     static final int FREE = 1;
     private int spinner_select = ALL;
@@ -100,7 +93,6 @@ public class SelectSightFragment extends TTBaseFragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		imServiceConnector.connect(this.getActivity());
-        EventBus.getDefault().register(this);
         intent = getActivity().getIntent();
 		if (null != curView) {
 			((ViewGroup) curView.getParent()).removeView(curView);
@@ -124,7 +116,6 @@ public class SelectSightFragment extends TTBaseFragment{
     public void onDestroy() {
         super.onDestroy();
         imServiceConnector.disconnect(getActivity());
-        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -151,6 +142,12 @@ public class SelectSightFragment extends TTBaseFragment{
 			@Override
 			public void onClick(View arg0) {
                 //copyRoute(dayRouteEntityList, travelManager.getRouteEntity().getDayRouteEntityList());
+                if (getFragmentManager().getBackStackEntryCount() == 0) {
+                    intent.putExtra("result", false);
+                    getActivity().setResult(102, intent);
+                    getActivity().finish();
+                    return;
+                }
                 getActivity().finish();
 			}
 		});
@@ -162,9 +159,17 @@ public class SelectSightFragment extends TTBaseFragment{
                 if (getSightNum() < thread) {
                     Toast.makeText(getActivity(), "真懒，多玩几个地方嘛！", Toast.LENGTH_SHORT).show();
                 } else {
-                    updateRoute();
-                    dialog = TravelUIHelper.showCalculateDialog(getActivity());
-                    mHandler.postDelayed(runnable, 10000);
+                    if (getFragmentManager().getBackStackEntryCount() == 0) {
+                        if (checkUpdateRoute()) {
+                            intent.putExtra("result", true);
+                            intent.putIntegerArrayListExtra("sightID", getChangeSightIDList());
+                        } else {
+                            intent.putExtra("result", false);
+                        }
+                        getActivity().setResult(102, intent);
+                        getActivity().finish();
+                        return;
+                    }
                 }
             }
         });
@@ -272,6 +277,7 @@ public class SelectSightFragment extends TTBaseFragment{
             }
         }
         sightSort(sightEntityList);
+        tagSightEntityList.clear();
         tagSightEntityList.addAll(this.sightEntityList);
         sightAdapter.notifyDataSetChanged();
     }
@@ -442,7 +448,7 @@ public class SelectSightFragment extends TTBaseFragment{
         free.setOnClickListener(popupListener);
     }
 
-    private void updateRoute() {
+    private Boolean checkUpdateRoute() {
         List<Integer> newSightIDList = new ArrayList<>();
         for (SightEntity sightEntity : sightEntityList) {
             if (sightEntity.getSelect() == 1) {
@@ -451,46 +457,10 @@ public class SelectSightFragment extends TTBaseFragment{
         }
         if (newSightIDList.equals(origin)) {
             getActivity().finish();
-            return;
+            return false;
         }
-        travelManager.reqUpdateRandomRoute(newSightIDList);
+        return true;
     }
-
-    public void onEventMainThread(TravelEvent event){
-        switch (event.getEvent()){
-            case UPDATE_RANDOM_ROUTE_OK:
-                mHandler.removeCallbacks(runnable);
-                dialog.dismiss();
-                if (getFragmentManager().getBackStackEntryCount() == 0) {
-                    intent.putExtra("result", true);
-                    getActivity().setResult(102, intent);
-                    getActivity().finish();
-                    return;
-                }
-                break;
-            case UPDATE_RANDOM_ROUTE_FAIL:
-                Log.e("yuki", "UPDATE_RANDOM_ROUTE_FAIL");
-                mHandler.removeCallbacks(runnable);
-                dialog.dismiss();
-                if (getFragmentManager().getBackStackEntryCount() == 0) {
-                    intent.putExtra("result", false);
-                    getActivity().setResult(102, intent);
-                    getActivity().finish();
-                    return;
-                }
-                break;
-        }
-    }
-
-    private Handler mHandler = new Handler();
-    private Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            if (dialog != null) {
-                dialog.dismiss();
-            }
-        }
-    };
 
     private int getTotalHours() {
         int day = travelManager.getRouteEntity().getDay();
@@ -550,5 +520,16 @@ public class SelectSightFragment extends TTBaseFragment{
             newDayRouteEntity.setHotelIDList(hotelIDList);
             des.add(newDayRouteEntity);
         }
+    }
+
+    private ArrayList<Integer> getChangeSightIDList() {
+        ArrayList<Integer> sightEntityList = new ArrayList<>();
+        for (SightEntity sightEntity : tagSightEntityList) {
+            if (sightEntity.getSelect() == 0) {
+                continue;
+            }
+            sightEntityList.add(sightEntity.getPeerId());
+        }
+        return sightEntityList;
     }
 }

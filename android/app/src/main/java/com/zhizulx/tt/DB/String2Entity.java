@@ -2,11 +2,13 @@ package com.zhizulx.tt.DB;
 
 import android.util.Log;
 
+import com.zhizulx.tt.DB.entity.CityEntity;
 import com.zhizulx.tt.DB.entity.HotelEntity;
 import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.config.DBConstant;
 import com.zhizulx.tt.protobuf.IMBaseDefine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +17,20 @@ import java.util.List;
  */
 public class String2Entity {
     /**----enum 转化接口--*/
+    public static CityEntity getCityEntity(List<String> listString){
+        CityEntity cityEntity = new CityEntity();
+        cityEntity.setCityCode(listString.get(0));
+        cityEntity.setName(listString.get(1));
+        cityEntity.setIcon(listString.get(2));
+        List<String> picList = new ArrayList<>();
+        picList.add(listString.get(3));
+        picList.add(listString.get(4));
+        picList.add(listString.get(5));
+        cityEntity.setPicList(picList);
+        cityEntity.setDiscription(listString.get(6));
+        return cityEntity;
+    }
+
     public static HotelEntity getHotelEntity(List<String> listString){
         HotelEntity hotelEntity = new HotelEntity();
         hotelEntity.setPeerId(Integer.valueOf(listString.get(0)));

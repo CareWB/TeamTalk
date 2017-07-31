@@ -111,4 +111,8 @@
     <dimen name="offset_title_left">5dp</dimen>
     <dimen name="width_title_leftImg">30dp</dimen>
     <dimen name="title_text_size">15sp</dimen>
+    <dimen name="select_route_title_size">12sp</dimen>
+    <dimen name="select_route_hint_size">12sp</dimen>
+    <dimen name="map_sight_name">15sp</dimen>
+    <dimen name="detail_disp_day_title">12sp</dimen>
 </resources>

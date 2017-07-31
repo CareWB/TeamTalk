@@ -21,6 +21,7 @@ import com.zhizulx.tt.ui.base.TTBaseFragment;
 
 public class CollectFragment extends TTBaseFragment {
     private View curView = null;
+    private IMTravelManager travelManager;
     private RelativeLayout rlCollectStartTime;
     private EditText startNo;
     private EditText endNo;
@@ -34,7 +35,8 @@ public class CollectFragment extends TTBaseFragment {
             logger.d("config#onIMServiceConnected");
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
-
+                travelManager = imService.getTravelManager();
+                trace("050317", "collection in");
             }
         }
 
@@ -100,6 +102,7 @@ public class CollectFragment extends TTBaseFragment {
                         jump2DateSelect();
                         break;
                     case R.id.collect:
+
                         finishCollect();
                         break;
                 }
@@ -147,6 +150,13 @@ public class CollectFragment extends TTBaseFragment {
             getActivity().setResult(101, getActivity().getIntent());
             getActivity().finish();
             return;
+        }
+    }
+
+    private void trace(String code, String msg) {
+        if (travelManager != null) {
+            String myMsg = "[SelectTagFragment] " + msg;
+            travelManager.AppTrace(code, myMsg);
         }
     }
 }

@@ -13,27 +13,34 @@
         android:background="@drawable/detail_disp_day"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="@dimen/title_text_size"
+            android:textColor="@color/detail_disp_day"
+            android:gravity="center"
+            android:id="@+id/detail_disp_day" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="6dp"
-                android:textSize="@dimen/title_text_size"
-                android:textColor="@color/title"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:id="@+id/detail_disp_day" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/day_map"/>
+                android:id="@+id/detail_disp_day_show_in_map"
+                android:text="在地图上看"
+                android:textSize="@dimen/detail_disp_day_title"
+                android:textColor="@color/detail_disp_day_bk"
+                android:drawablePadding="4dp"
+                android:drawableRight="@drawable/detail_disp_day_pos_tag"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
