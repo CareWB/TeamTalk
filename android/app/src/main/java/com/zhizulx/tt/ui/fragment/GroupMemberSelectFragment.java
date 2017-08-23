@@ -174,7 +174,7 @@ public class GroupMemberSelectFragment extends MainFragment
         // 设置标题栏
         // todo eric
         setTopTitle(getString(R.string.choose_contact));
-        setTopRightText(getActivity().getString(R.string.confirm));
+        setTopRightText(getActivity().getString(R.string.login));
         topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

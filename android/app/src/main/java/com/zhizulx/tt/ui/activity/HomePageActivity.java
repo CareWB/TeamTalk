@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.bumptech.glide.Glide;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhizulx.tt.DB.entity.UserEntity;
+import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.imservice.event.LoginEvent;
@@ -50,6 +52,7 @@ public class HomePageActivity extends FragmentActivity {
     private UserEntity userEntity;
     private TextView name;
     private TextView sex;
+    private RelativeLayout topBar;
 
     private IMService imService;
 
@@ -96,6 +99,10 @@ public class HomePageActivity extends FragmentActivity {
             //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         mineIcon = (ImageView)findViewById(R.id.mine_icon);
+        topBar = (RelativeLayout)findViewById(R.id.home_page_top_status);
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) topBar.getLayoutParams();
+        int topHeight = SystemConfigSp.instance().getIntConfig(SystemConfigSp.SysCfgDimension.TOP_BAR_HEIGHT);
+        lp.setMargins(0, topHeight, 0, 0);
     }
 
     private void initButton() {

@@ -70,9 +70,9 @@ public class IMTravelManager extends IMManager {
             cityCodeName.put(code[index], name[index]);
             cityNameCode.put(name[index], code[index]);
         }
-        if (cityEntityList.size() == 0) {
+/*        if (cityEntityList.size() == 0) {
             initCityEntity();
-        }
+        }*/
     }
 
 
@@ -302,10 +302,12 @@ public class IMTravelManager extends IMManager {
                 Log.e("yuki", "onRspGetRandomRoute no route");
             } else {
                 if (configEntity.getSentence().equals("")) {
-                    routeEntityList.clear();
+                    List<RouteEntity> allRoute = new ArrayList<>();
                     for (IMBuddy.Route route : newQueryRadomRouteRsp.getRoutesList()) {
-                        routeEntityList.add(ProtoBuf2JavaBean.getRouteEntity(route));
+                        allRoute.add(ProtoBuf2JavaBean.getRouteEntity(route));
                     }
+                    routeEntityList.clear();
+                    routeEntityList.addAll(delSameCity(allRoute));
                     triggerEvent(new TravelEvent(TravelEvent.Event.QUERY_RANDOM_ROUTE_TAG_OK));
                 } else {
                     routeEntity = ProtoBuf2JavaBean.getRouteEntity(newQueryRadomRouteRsp.getRoutesList().get(0));
@@ -313,6 +315,14 @@ public class IMTravelManager extends IMManager {
                 }
             }
         }
+    }
+
+    private List<RouteEntity> delSameCity(List<RouteEntity> allRoute) {
+        Map<String, RouteEntity> routeEntityMap = new HashMap<>();
+        for (RouteEntity routeEntity : allRoute) {
+            routeEntityMap.put(routeEntity.getCityCode(), routeEntity);
+        }
+        return new ArrayList<RouteEntity>(routeEntityMap.values());
     }
 
     public void reqUpdateRandomRoute(List<Integer> sightIdList) {
@@ -393,34 +403,6 @@ public class IMTravelManager extends IMManager {
             entry.getValue().setSelect(0);
         }
     }
-
-    /*private void initCityEntity() {
-        List<String> xiamenPic = new ArrayList<>();
-        xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/574e9258d109b3de3cafd4a4cdbf6c81810a4ced.jpg");
-        xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/1ad5ad6eddc451da671ac9e0b4fd5266d11632c9.jpg");
-        xiamenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/f7246b600c33874494b2d1c6510fd9f9d72aa011.jpg");
-        String xiamenDescription = "        厦门是一个秀丽清新的城市，空气和阳光都很好。厦门大学的校园整洁优美，鼓浪屿有很多特色店铺，都是可以去看看的。厦门的街道很干净，慢节奏的生活很惬意。海鲜不错，当地小吃很棒。";
-
-        List<String> guangzhouPic = new ArrayList<>();
-        guangzhouPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/b812c8fcc3cec3fda532f9b3d188d43f869427e3.jpg");
-        guangzhouPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/9a504fc2d56285358b18fe8f90ef76c6a6ef63a7.jpg");
-        guangzhouPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/5bafa40f4bfbfbeddfe47e237af0f736afc31f28.jpg");
-        String guangzhouDescription = "        广州作为中国最发达的城市之一，交通还算方便。好玩的地方很多，珠江夜景很漂亮，上下九步行街十分美丽，有空的时候还是值得看看的。广州的小吃众多，早茶和粤菜都很有特色。";
-
-        List<String> shenzhenPic = new ArrayList<>();
-        shenzhenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/9922720e0cf3d7caa3c963d0f21fbe096b63a95d.jpg");
-        shenzhenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/3c6d55fbb2fb431613dbf8ab22a4462308f7d31f.jpg");
-        shenzhenPic.add("https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/lvpics/pic/item/78310a55b319ebc42c081e578626cffc1f17168f.jpg");
-        String shenzhenDescription = "        深圳人的生活节奏很快，非常美丽的城市。深圳的道路比较宽阔，交通方便，规划很好。这里可以感受大都市的繁华和繁忙。世界之窗是不错的地方，气候也很适合居住。经济高度发达。";
-
-        CityEntity xiamen = new CityEntity("XMN", "厦门", R.drawable.xiamen_icon, xiamenPic, xiamenDescription);
-        CityEntity guangzhou = new CityEntity("CAN", "广州", R.drawable.guangzhou_icon, guangzhouPic, guangzhouDescription);
-        CityEntity shenzhen = new CityEntity("SZX", "深圳", R.drawable.shenzhen_icon, shenzhenPic, shenzhenDescription);
-
-        cityEntityList.add(xiamen);
-        cityEntityList.add(guangzhou);
-        cityEntityList.add(shenzhen);
-    }*/
 
     private void initCityEntity() {
         cityEntityList.clear();

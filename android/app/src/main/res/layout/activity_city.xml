@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/base_bk"
+    android:background="@color/default_top_bk"
     tools:context="com.zhizulx.tt.ui.widget.city.CityActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_default_height"
+        android:id="@+id/activity_city_top"
         android:layout_marginTop="30dp">
 
         <ImageView
@@ -70,6 +71,7 @@
                 android:id="@+id/rv_sticky_example"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/base_bk"
                 android:scrollbars="none" />
 
         </FrameLayout>

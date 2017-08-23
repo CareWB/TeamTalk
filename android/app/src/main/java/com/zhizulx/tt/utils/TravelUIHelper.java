@@ -150,9 +150,9 @@ public class TravelUIHelper {
 	}
 
 	//跳转到设计方式选择页面
-	public static void openSelectDesignWayActivity(Context ctx) {
+	public static void openSelectDesignWayActivity(Context ctx, int emotion) {
 		Intent intent = new Intent(ctx, SelectDesignWayActivity.class);
-        //Intent intent = new Intent(ctx, FeedbackActivity.class);
+		intent.putExtra("emotion", emotion);
 		ctx.startActivity(intent);
 	}
 

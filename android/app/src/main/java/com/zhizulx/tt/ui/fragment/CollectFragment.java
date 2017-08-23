@@ -102,7 +102,6 @@ public class CollectFragment extends TTBaseFragment {
                         jump2DateSelect();
                         break;
                     case R.id.collect:
-
                         finishCollect();
                         break;
                 }

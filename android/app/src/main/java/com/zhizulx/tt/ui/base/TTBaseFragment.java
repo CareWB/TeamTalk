@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zhizulx.tools.ScreenTools;
+import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.ui.activity.SearchActivity;
 import com.zhizulx.tt.utils.Logger;
@@ -50,9 +51,13 @@ public abstract class TTBaseFragment extends Fragment {
 			//getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 		}
 
+
 		topContentView = (ViewGroup) LayoutInflater.from(getActivity()).inflate(R.layout.tt_fragment_base, null);
 
 		topBar = (ViewGroup) topContentView.findViewById(R.id.topbar);
+		LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) topBar.getLayoutParams();
+		int topHeight = SystemConfigSp.instance().getIntConfig(SystemConfigSp.SysCfgDimension.TOP_BAR_HEIGHT);
+		lp.setMargins(0, topHeight, 0, 0);
 		topTitleTxt = (TextView) topContentView.findViewById(R.id.base_fragment_title);
 		topLetTitleTxt = (TextView) topContentView.findViewById(R.id.left_txt);
 		topRightTitleTxt = (TextView) topContentView.findViewById(R.id.right_txt);

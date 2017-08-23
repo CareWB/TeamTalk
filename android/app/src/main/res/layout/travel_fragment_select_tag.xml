@@ -2,78 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_bk"
-    android:gravity="center_horizontal"
+    android:background="@drawable/homepage_bg"
+    android:gravity="right"
     android:orientation="vertical" >
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_gravity="left"
-        android:text="@string/select_tag_title"
-        android:textSize="@dimen/mian_title_size"
-        android:textColor="@color/title"/>
+        android:layout_marginTop="42dp"
+        android:layout_marginRight="92dp"
+        android:id="@+id/select_tag_high"
+        android:background="@drawable/select_tag_high" />
 
-    <RelativeLayout
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_travel_between_pad"
-        android:layout_marginBottom="@dimen/create_travel_between_pad"
-        android:id="@+id/select_tag_high">
+        android:layout_marginTop="72dp"
+        android:layout_marginRight="55dp"
+        android:id="@+id/select_tag_medium"
+        android:background="@drawable/select_tag_medium" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/select_tag_high"
-            android:id="@+id/select_tag_high_circle"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/select_tag_high_title"/>
-    </RelativeLayout>
-
-    <RelativeLayout
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/create_travel_between_pad"
-        android:id="@+id/select_tag_medium">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/select_tag_medium"
-            android:id="@+id/select_tag_medium_circle"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/select_tag_medium_title"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/select_tag_low">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/select_tag_low"
-            android:id="@+id/select_tag_low_circle"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/select_tag_low_title"/>
-    </RelativeLayout>
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="92dp"
+        android:id="@+id/select_tag_low"
+        android:background="@drawable/select_tag_low" />
 </LinearLayout>

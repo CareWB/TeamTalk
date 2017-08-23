@@ -60,7 +60,8 @@ public class TravelRouteAdapter extends RecyclerView.Adapter {
         TravelRouteViewHolder holder = (TravelRouteViewHolder) viewHolder;
         String avatarUrl = travelManager.getCityEntitybyCityCode(routeEntity.getCityCode()).getIcon();
         ImageUtil.GlideAvatar(ctx, avatarUrl, holder.city);
-        holder.title.setText(travelManager.getCityNameByCode(routeEntity.getCityCode())+routeEntity.getRouteType()+"之旅");
+        String routeType = routeEntity.getRouteType();
+        holder.title.setText(travelManager.getCityNameByCode(routeEntity.getCityCode())+routeType+"之旅");
         holder.days.setText(routeEntity.getDay() + "天");
         holder.cost.setText("约￥1000/人");
     }

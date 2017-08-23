@@ -18,6 +18,7 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.adapter.DayAdapter;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
+import com.zhizulx.tt.utils.ScreenUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -65,6 +66,7 @@ public class SelectDateFragment extends TTBaseFragment{
     private Date dEndDate;
     private Date today = new Date();
     private static final int MAX_DURATION = 5;
+    private int padLeft = 0;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -118,7 +120,8 @@ public class SelectDateFragment extends TTBaseFragment{
 	 */
 	private void initRes() {
 		// 设置标题栏
-		setTopTitle("往返日期");
+        padLeft = ScreenUtil.instance(getActivity()).dip2px(35);
+        setTopTitle("往返日期");
 		setTopLeftButton(R.drawable.tt_top_back);
 		topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -313,8 +316,12 @@ public class SelectDateFragment extends TTBaseFragment{
                 dEndDate = date;
                 strStartDate = sdf.format(dStartDate);
                 tvStartDate.setText(strStartDate);
+                tvStartDate.setPadding(padLeft,0,0,0);
+                tvStartDate.setBackgroundResource(R.drawable.calendar_go);
                 tvEndDate.setText("");
                 tvEndDate.setHint(getString(R.string.end_date_hint));
+                tvEndDate.setPadding(0,0,0,0);
+                tvEndDate.setBackgroundResource(R.drawable.not_select_date);
                 setSelectDateBk(dStartDate, dEndDate);
                 selectCnt = 1;
                 dEndDate = null;
@@ -322,8 +329,8 @@ public class SelectDateFragment extends TTBaseFragment{
                 return;
             }
             long duration = (date.getTime()-dStartDate.getTime())/(1000*60*60*24);
-            if (duration > 4) {
-                Toast.makeText(getActivity(), "暂不支持大于5天的行程", Toast.LENGTH_SHORT).show();
+            if (duration > 3) {
+                Toast.makeText(getActivity(), "暂不支持大于4天的行程", Toast.LENGTH_SHORT).show();
                 return;
             }
             dEndDate = date;
@@ -332,14 +339,20 @@ public class SelectDateFragment extends TTBaseFragment{
         if (selectCnt == 0) {
             strStartDate = sdf.format(dStartDate);
             tvStartDate.setText(strStartDate);
+            tvStartDate.setPadding(padLeft,0,0,0);
+            tvStartDate.setBackgroundResource(R.drawable.calendar_go);
             tvEndDate.setText("");
             tvEndDate.setHint(getString(R.string.end_date_hint));
+            tvEndDate.setPadding(0,0,0,0);
+            tvEndDate.setBackgroundResource(R.drawable.not_select_date);
             setSelectDateBk(dStartDate, dEndDate);
             selectCnt = 1;
         } else {
             strEndDate = sdf.format(dEndDate);
             setSelectDateBk(dStartDate, dEndDate);
             tvEndDate.setText(strEndDate);
+            tvEndDate.setPadding(padLeft,0,0,0);
+            tvEndDate.setBackgroundResource(R.drawable.calendar_back);
         }
         freshCalendar();
     }

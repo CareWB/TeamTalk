@@ -99,6 +99,16 @@
             android:id="@+id/rv_detail_disp_menu"/>
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/go_home"
+        android:id="@+id/detail_disp_go_home"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="342dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -130,7 +140,7 @@
             android:background="@drawable/detail_disp_adjust_bk"
             android:id="@+id/detail_disp_adjust_hotel" />
 
-        <TextView
+<!--        <TextView
             android:text="调整交通"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -138,7 +148,7 @@
             android:textColor="@color/title"
             android:textSize="@dimen/title_text_size"
             android:background="@drawable/detail_disp_adjust_bk"
-            android:id="@+id/detail_disp_adjust_traffic" />
+            android:id="@+id/detail_disp_adjust_traffic" />-->
     </LinearLayout>
 
     <LinearLayout

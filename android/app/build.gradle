@@ -16,9 +16,9 @@ android {
         multiDexEnabled true
         applicationId "com.zhizulx.tt"
         minSdkVersion 18
-        targetSdkVersion 24
-        versionCode 5
-        versionName "2.0.0"
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0.0"
 
         //启用renderscript
         renderscriptTargetApi = 18

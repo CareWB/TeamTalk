@@ -15,6 +15,7 @@ public class LocationEvent {
     private double dLongitude = 0.0;
     private double dLatitude = 0.0;
     private String cityName;
+    private String weather;
 
     public LocationEvent(Event event){
         this.event = event;
@@ -27,6 +28,8 @@ public class LocationEvent {
     public enum Event{
         FRESH_EVENT,
         GET_EVENT,
+        GET_WEATHER,
+        SEND_WEATHER
     }
 
     public double getLongitude() {
@@ -51,6 +54,14 @@ public class LocationEvent {
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
     }
 
     public Event getEvent() {

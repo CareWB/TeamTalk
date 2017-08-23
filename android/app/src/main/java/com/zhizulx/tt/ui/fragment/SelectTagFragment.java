@@ -1,14 +1,11 @@
 package com.zhizulx.tt.ui.fragment;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.zhizulx.tt.R;
@@ -16,7 +13,6 @@ import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.ui.base.TTBaseFragment;
-import com.zhizulx.tt.utils.FileUtil;
 import com.zhizulx.tt.utils.MonitorActivityBehavior;
 import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
@@ -29,15 +25,13 @@ public class SelectTagFragment extends TTBaseFragment {
     private MonitorActivityBehavior monitorActivityBehavior;
     private IMService imService;
     private IMTravelManager travelManager;
-    private RelativeLayout high;
-    private RelativeLayout medium;
-    private RelativeLayout low;
-    private ImageView highCircle;
-    private ImageView mediumCircle;
-    private ImageView lowCircle;
+    private ImageView high;
+    private ImageView medium;
+    private ImageView low;
     private List<String> highTags = new ArrayList<>();
     private List<String> mediumTags = new ArrayList<>();
     private List<String> lowTags = new ArrayList<>();
+    private int selectEmotion = 0;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -78,9 +72,6 @@ public class SelectTagFragment extends TTBaseFragment {
         super.onResume();
         monitorActivityBehavior = new MonitorActivityBehavior(getActivity());
         monitorActivityBehavior.storeBehavior(monitorActivityBehavior.START);
-        circleAnimation(highCircle, 3000);
-        circleAnimation(mediumCircle, 6000);
-        circleAnimation(lowCircle, 9000);
     }
 
     @Override
@@ -104,15 +95,9 @@ public class SelectTagFragment extends TTBaseFragment {
     private void initRes() {
         // 设置顶部标题栏
         hideTopBar();
-        high = (RelativeLayout)curView.findViewById(R.id.select_tag_high);
-        medium = (RelativeLayout)curView.findViewById(R.id.select_tag_medium);
-        low = (RelativeLayout)curView.findViewById(R.id.select_tag_low);
-        highCircle = (ImageView)curView.findViewById(R.id.select_tag_high_circle);
-        mediumCircle = (ImageView)curView.findViewById(R.id.select_tag_medium_circle);
-        lowCircle = (ImageView)curView.findViewById(R.id.select_tag_low_circle);
-        circleAnimation(highCircle, 3000);
-        circleAnimation(mediumCircle, 6000);
-        circleAnimation(lowCircle, 9000);
+        high = (ImageView)curView.findViewById(R.id.select_tag_high);
+        medium = (ImageView)curView.findViewById(R.id.select_tag_medium);
+        low = (ImageView)curView.findViewById(R.id.select_tag_low);
     }
 
     private void initBtn() {
@@ -126,28 +111,23 @@ public class SelectTagFragment extends TTBaseFragment {
                 final List<String> tags = new ArrayList<>();
                 switch (v.getId()) {
                     case R.id.select_tag_high:
+                        selectEmotion = 1;
                         tags.addAll(highTags);
-                        circleAnimation(highCircle, 500);
                         trace("010301", "select_tag_high");
                         break;
                     case R.id.select_tag_medium:
+                        selectEmotion = 2;
                         tags.addAll(mediumTags);
-                        circleAnimation(mediumCircle, 500);
                         trace("010302", "select_tag_medium");
                         break;
                     case R.id.select_tag_low:
+                        selectEmotion = 3;
                         tags.addAll(lowTags);
-                        circleAnimation(lowCircle, 500);
                         trace("010303", "select_tag_low");
                         break;
                 }
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        travelManager.getConfigEntity().setTags(tags);
-                        TravelUIHelper.openSelectDesignWayActivity(getActivity());
-                    }
-                },500);
+                travelManager.getConfigEntity().setTags(tags);
+                TravelUIHelper.openSelectDesignWayActivity(getActivity(), selectEmotion);
             }
         };
         high.setOnClickListener(selectTagListener);
@@ -167,15 +147,6 @@ public class SelectTagFragment extends TTBaseFragment {
 
     private void initTravelInfo() {
         travelManager.initDatePlace();
-    }
-
-    private void circleAnimation(ImageView icon, long time) {
-        ObjectAnimator oaAnimator = ObjectAnimator.ofFloat(icon, "rotation", 0.0F, 360.0F);
-        oaAnimator.setDuration(time);
-        oaAnimator.setInterpolator(null);
-        oaAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        oaAnimator.setRepeatMode(ValueAnimator.RESTART);
-        oaAnimator.start();
     }
 
     private void trace(String code, String msg) {

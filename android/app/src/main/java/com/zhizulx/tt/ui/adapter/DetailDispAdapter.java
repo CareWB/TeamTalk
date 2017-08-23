@@ -191,12 +191,10 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
                 TrafficViewHolder trafficViewHolder = (TrafficViewHolder) viewHolder;
                 if (detailDispEntity.getTitle().equals("飞机")) {
                     trafficViewHolder.selectResult.setBackgroundResource(R.drawable.detail_disp_traffic_plane);
-                    trafficViewHolder.lytrafficCollect.setBackgroundResource(R.drawable.detail_disp_traffic_select_plane);
                     trafficViewHolder.plane.setTextColor(ctx.getResources().getColor(R.color.price));
                     trafficViewHolder.train.setTextColor(ctx.getResources().getColor(R.color.not_clicked));
                 } else {
                     trafficViewHolder.selectResult.setBackgroundResource(R.drawable.detail_disp_traffic_train);
-                    trafficViewHolder.lytrafficCollect.setBackgroundResource(R.drawable.detail_disp_traffic_select_train);
                     trafficViewHolder.plane.setTextColor(ctx.getResources().getColor(R.color.not_clicked));
                     trafficViewHolder.train.setTextColor(ctx.getResources().getColor(R.color.price));
                 }
@@ -206,28 +204,18 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
                     case STATUS_DISP:
                         trafficViewHolder.selectResultMask.setVisibility(View.GONE);
                         trafficViewHolder.trafficTimeMask.setVisibility(View.GONE);
-                        trafficViewHolder.lytrafficCollect.setVisibility(View.GONE);
-                        trafficViewHolder.flTrafficDisp.setVisibility(View.VISIBLE);
                         break;
                     case STATUS_EDIT:
                         trafficViewHolder.selectResultMask.setVisibility(View.GONE);
                         trafficViewHolder.trafficTimeMask.setVisibility(View.GONE);
-                        trafficViewHolder.lytrafficCollect.setVisibility(View.VISIBLE);
-                        trafficViewHolder.flTrafficDisp.setVisibility(View.GONE);
                         break;
                     case STATUS_CANNOT_EDIT:
                         trafficViewHolder.selectResultMask.setVisibility(View.VISIBLE);
                         trafficViewHolder.trafficTimeMask.setVisibility(View.VISIBLE);
-                        trafficViewHolder.lytrafficCollect.setVisibility(View.GONE);
-                        trafficViewHolder.flTrafficDisp.setVisibility(View.VISIBLE);
                         break;
                 }
 
-/*                if (i == trafficEnd) {
-                    trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_end);
-                } else {
-                    trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_start);
-                }*/
+
                 if (detailDispEntity.getStatus() == TRAVEL_START) {
                     trafficViewHolder.lytrafficTime.setBackgroundResource(R.drawable.detail_disp_traffic_start);
                 } else {
@@ -327,8 +315,6 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
         public TextView plane;
         public TextView train;
         public ImageView selectResultMask;
-        public FrameLayout flTrafficDisp;
-        public LinearLayout lytrafficCollect;
         public LinearLayout lytrafficTime;
         public TextView trafficTime;
         public ImageView trafficTimeMask;
@@ -339,8 +325,6 @@ public class DetailDispAdapter extends RecyclerView.Adapter {
             selectResultMask = (ImageView) itemView.findViewById(R.id.detail_disp_traffic_select_result_mask);
             plane = (TextView) itemView.findViewById(R.id.detail_disp_traffic_plane);
             train = (TextView) itemView.findViewById(R.id.detail_disp_traffic_train);
-            flTrafficDisp = (FrameLayout) itemView.findViewById(R.id.fl_detail_disp_traffic_disp);
-            lytrafficCollect = (LinearLayout) itemView.findViewById(R.id.ly_detail_disp_traffic_collect);
             lytrafficTime = (LinearLayout) itemView.findViewById(R.id.detail_disp_traffic_time);
             trafficTime = (TextView) itemView.findViewById(R.id.detail_disp_traffic_time_result);
 

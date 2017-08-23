@@ -77,6 +77,6 @@ public class SystemConfigSp {
         MSFSSERVER,
         LOCAL_CITY,
         AVATAR_UPLOAD_URL,
-        DBInit
+        TOP_BAR_HEIGHT
     }
 }

@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.promeg.pinyinhelper.Pinyin;
@@ -42,6 +44,7 @@ public class CityActivity extends Activity implements MySlideView.onTouchListene
     private String city = "";
     private Intent intent;
     private TextView selectCityResult;
+    private RelativeLayout topBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +114,10 @@ public class CityActivity extends Activity implements MySlideView.onTouchListene
         adapter.setListener(this);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new StickyDecoration(getApplicationContext()));
+        topBar = (RelativeLayout)findViewById(R.id.activity_city_top);
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) topBar.getLayoutParams();
+        int topHeight = SystemConfigSp.instance().getIntConfig(SystemConfigSp.SysCfgDimension.TOP_BAR_HEIGHT);
+        lp.setMargins(0, topHeight, 0, 0);
     }
 
     @Override

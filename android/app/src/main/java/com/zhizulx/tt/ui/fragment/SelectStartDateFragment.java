@@ -111,7 +111,7 @@ public class SelectStartDateFragment extends TTBaseFragment{
 	 */
 	private void initRes() {
 		// 设置标题栏
-		setTopTitle("往返日期");
+		setTopTitle("出发日期");
         setTopLeftButton(R.drawable.tt_top_back);
         topLeftContainerLayout.setOnClickListener(new View.OnClickListener() {
             @Override

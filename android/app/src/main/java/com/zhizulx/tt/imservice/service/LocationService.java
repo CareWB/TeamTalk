@@ -11,10 +11,18 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.amap.api.services.weather.LocalWeatherForecastResult;
+import com.amap.api.services.weather.LocalWeatherLive;
+import com.amap.api.services.weather.LocalWeatherLiveResult;
+import com.amap.api.services.weather.WeatherSearch;
+import com.amap.api.services.weather.WeatherSearch.OnWeatherSearchListener;
+import com.amap.api.services.weather.WeatherSearchQuery;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
+import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.SysConstant;
 import com.zhizulx.tt.imservice.event.LocationEvent;
 import com.zhizulx.tt.utils.Logger;
+import com.zhizulx.tt.utils.ToastUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,7 +34,7 @@ import de.greenrobot.event.EventBus;
  * Created by yuki on 2017/4/1.
  */
 
-public class LocationService  extends Service implements AMapLocationListener {
+public class LocationService  extends Service implements AMapLocationListener, OnWeatherSearchListener {
     private Logger logger = Logger.getLogger(LocationService.class);
     private AMapLocationClient mlocationClient;
     //声明mLocationOption对象
@@ -36,8 +44,15 @@ public class LocationService  extends Service implements AMapLocationListener {
     private String cityName;
     private LocationEvent locationEvent = new LocationEvent(LocationEvent.Event.FRESH_EVENT);
 
+    private LocalWeatherLive weatherlive;
+    private WeatherSearchQuery mquery;
+    private WeatherSearch mweathersearch;
+    private String weather = "晴";
+    private LocationEvent weatherEvent = new LocationEvent(LocationEvent.Event.SEND_WEATHER);
+
     /**binder*/
     private LocationService.LocationServiceBinder binder = new LocationService.LocationServiceBinder();
+
     public class LocationServiceBinder extends Binder {
         public LocationService getService() {
             return LocationService.this;
@@ -130,6 +145,7 @@ public class LocationService  extends Service implements AMapLocationListener {
                 Date date = new Date(amapLocation.getTime());
                 df.format(date);//定位时间
                 sendLocation();
+                searchliveweather();
             } else {
                 //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
                 Log.e("AmapError","location Error, ErrCode:"
@@ -145,6 +161,9 @@ public class LocationService  extends Service implements AMapLocationListener {
             case GET_EVENT:
                 mlocationClient.startLocation();
                 break;
+            case GET_WEATHER:
+                sendWeather();
+                break;
         }
     }
 
@@ -156,5 +175,36 @@ public class LocationService  extends Service implements AMapLocationListener {
         Log.e("yukiLocal", "locationEvent"+dLongitude+dLatitude);
     }
 
+    private void sendWeather() {
+        weatherEvent.setWeather(weather);
+        EventBus.getDefault().postSticky(weatherEvent);
+    }
+
     /**-----------------get/set 的实体定义---------------------*/
+    @Override
+    public void onWeatherLiveSearched(LocalWeatherLiveResult weatherLiveResult, int rCode) {
+        if (rCode == 1000) {
+            if (weatherLiveResult != null && weatherLiveResult.getLiveResult() != null) {
+                weatherlive = weatherLiveResult.getLiveResult();
+                weather = weatherlive.getWeather();
+            }else {
+                ToastUtil.show(this, R.string.no_result);
+            }
+        }else {
+            ToastUtil.showerror(this, rCode);
+        }
+    }
+
+    @Override
+    public void onWeatherForecastSearched(LocalWeatherForecastResult localWeatherForecastResult, int i) {
+
+    }
+
+    private void searchliveweather() {
+        mquery = new WeatherSearchQuery(cityName, WeatherSearchQuery.WEATHER_TYPE_LIVE);//检索参数为城市和天气类型，实时天气为1、天气预报为2
+        mweathersearch=new WeatherSearch(this);
+        mweathersearch.setOnWeatherSearchListener(this);
+        mweathersearch.setQuery(mquery);
+        mweathersearch.searchWeatherAsyn(); //异步搜索
+    }
 }

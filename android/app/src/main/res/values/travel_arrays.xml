@@ -165,4 +165,13 @@
         <item>HET</item>
         <item>SZV</item>
     </string-array>
+    <string-array name="high_introduce">
+        <item>带上你的微笑，和我一起say hi ！</item>
+    </string-array>
+    <string-array name="medium_introduce">
+        <item>生活就像白开水，想不想来点刺激的？</item>
+    </string-array>
+    <string-array name="low_introduce">
+        <item>深呼吸、转一转，那都不是事儿。</item>
+    </string-array>
 </resources>

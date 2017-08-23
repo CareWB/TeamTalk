@@ -10,6 +10,7 @@ public class CityEntity {
     private List<String> picList = new ArrayList<>();
     private String discription;
     private int select;
+    private String validTags;
 
     public CityEntity() {
     }
@@ -69,5 +70,13 @@ public class CityEntity {
 
     public int getSelect() {
         return select;
+    }
+
+    public void setValidTags(String validTags) {
+        this.validTags = validTags;
+    }
+
+    public String getValidTags() {
+        return validTags;
     }
 }

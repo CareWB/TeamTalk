@@ -185,7 +185,7 @@ public class SelectSightFragment extends TTBaseFragment{
         selectFlag.put(R.id.select_comfort, "舒适");
         selectFlag.put(R.id.select_exploration, "探险");
         selectFlag.put(R.id.select_excite, "刺激");
-        selectFlag.put(R.id.select_encounter, "艳遇");
+        selectFlag.put(R.id.select_encounter, "邂逅");
 
         pop = (LinearLayout)curView.findViewById(R.id.select_sight_drop);
         pop.setOnClickListener(new View.OnClickListener() {

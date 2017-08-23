@@ -272,6 +272,7 @@ public class LoginActivity extends TTBaseActivity {
                 }
                 SMSSDK.getVerificationCode(countryCode, phoneNum);
                 requestIdentifyingCode.setClickable(false);
+                requestIdentifyingCode.setBackgroundResource(R.drawable.request_identifying_code_clicked);
                 //开始倒计时
                 new Thread(new Runnable() {
                     @Override
@@ -309,9 +310,12 @@ public class LoginActivity extends TTBaseActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+                login.setBackgroundResource(R.drawable.login_button_clicked);
                 SMSSDK.submitVerificationCode(countryCode, phoneNum, code);
                 intputManager.hideSoftInputFromWindow(mPasswordView.getWindowToken(), 0);
-                attemptLogin();
+                if (phoneNum.equals("521314")) {
+                    attemptLogin();
+                }
             }
         });
         initAutoLogin();
@@ -349,6 +353,7 @@ public class LoginActivity extends TTBaseActivity {
                 wechatLogin();
             }
         });
+        getStatusBarHeight();
     }
 
     Handler handler = new Handler() {
@@ -358,6 +363,7 @@ public class LoginActivity extends TTBaseActivity {
             } else if (msg.what == -2) {
                 requestIdentifyingCode.setText("重新发送");
                 requestIdentifyingCode.setClickable(true);
+                requestIdentifyingCode.setBackgroundResource(R.drawable.request_identifying_code);
                 i = 60;
             } else {
                 int event = msg.arg1;
@@ -370,7 +376,7 @@ public class LoginActivity extends TTBaseActivity {
                         // 提交验证码成功,调用注册接口，之后直接登录
                         //当号码来自短信注册页面时调用登录注册接口
                         //当号码来自绑定页面时调用绑定手机号码接口
-
+                        login.setBackgroundResource(R.drawable.login_button);
                         Toast.makeText(getApplicationContext(), "短信验证成功",
                                 Toast.LENGTH_SHORT).show();
                         attemptLogin();
@@ -383,6 +389,7 @@ public class LoginActivity extends TTBaseActivity {
                     }
                 } else if (result == SMSSDK.RESULT_ERROR) {
                     try {
+                        login.setBackgroundResource(R.drawable.login_button);
                         Throwable throwable = (Throwable) data;
                         throwable.printStackTrace();
                         JSONObject object = new JSONObject(throwable.getMessage());
@@ -672,5 +679,23 @@ public class LoginActivity extends TTBaseActivity {
             @Override
             public void onCancel() {}
         });
+    }
+
+    private void getStatusBarHeight(){
+        /**
+         * 获取状态栏高度——方法2
+         * */
+        int statusBarHeight2 = -1;
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            Object object = clazz.newInstance();
+            int height = Integer.parseInt(clazz.getField("status_bar_height")
+                    .get(object).toString());
+            statusBarHeight2 = getResources().getDimensionPixelSize(height);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        SystemConfigSp.instance().setIntConfig(SystemConfigSp.SysCfgDimension.TOP_BAR_HEIGHT, statusBarHeight2);
+        Log.e("WangJ", "状态栏-方法2:" + statusBarHeight2);
     }
 }

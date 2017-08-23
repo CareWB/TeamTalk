@@ -83,8 +83,8 @@
     <dimen name="detail_disp_sight_disp_rv_height">101dp</dimen>
     <dimen name="detail_disp_sight_disp_pad">5dp</dimen>
     <dimen name="top">40dp</dimen>
-    <dimen name="mine_icon_width">26dp</dimen>
-    <dimen name="mine_icon_length">16dp</dimen>
+    <dimen name="mine_icon_width">45dp</dimen>
+    <dimen name="mine_icon_length">57dp</dimen>
     <dimen name="left_menu_avatar">62dp</dimen>
     <dimen name="left_menu_avatar_top">70dp</dimen>
     <dimen name="left_menu_left">26dp</dimen>
@@ -99,8 +99,8 @@
     <dimen name="left_menu_icon_icon">28dp</dimen>
     <dimen name="mine_info_between">10dp</dimen>
     <dimen name="mine_info_change_avatar_pad">10dp</dimen>
-    <dimen name="login_logo_top">79dp</dimen>
-    <dimen name="login_logo_bottom">121dp</dimen>
+    <dimen name="login_logo_top">67dp</dimen>
+    <dimen name="login_logo_bottom">97dp</dimen>
     <dimen name="login_left_pad">10dp</dimen>
     <dimen name="login_title_content">32dp</dimen>
     <dimen name="login_vertical_pad">20dp</dimen>

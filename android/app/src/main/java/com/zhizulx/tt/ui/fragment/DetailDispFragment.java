@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,17 +64,18 @@ public class DetailDispFragment extends TTBaseFragment{
     private DetailDispAdapter detailDispAdapter;
     private List<DetailDispEntity> detailDispEntityList = new ArrayList<>();
     private RecyclerView rvMenu;
+    private ImageView goHome;
     private DetailDispMenuAdapter detailDispMenuAdapter;
     private TextView detailDispMenuDisp;
     private LinearLayout lyDetailDispMenu;
-    private List<String> day = new ArrayList<>();
+    private List<Integer> day = new ArrayList<>();
     private boolean move = false;
     private LinearLayoutManager layoutManagerResult;
     private int mIndex = 0;
     private LinearLayout lyDetailDispAdjust;
     private TextView detailDispAdjustSight;
     private TextView detailDispAdjustHotel;
-    private TextView detailDispAdjustTraffic;
+    //private TextView detailDispAdjustTraffic;
     private ImageView routeCollection;
     private TextView routeCost;
     private TextView routeStyle;
@@ -199,6 +201,9 @@ public class DetailDispFragment extends TTBaseFragment{
                         storeCollectRoute(startDate, startTrafficNo, endTrafficNo);
                         travelManager.reqCreateCollectRoute();
                         hideTopRightButton();
+                        Toast toast = Toast.makeText(getActivity(), "收藏成功，\"我的收藏\"中查看！", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER,0,0);
+                        toast.show();
                     }
                     break;
                 case 102:
@@ -252,13 +257,21 @@ public class DetailDispFragment extends TTBaseFragment{
         });
         rvDetailDisp = (RecyclerView)curView.findViewById(R.id.rv_detail_disp);
         rvMenu = (RecyclerView)curView.findViewById(R.id.rv_detail_disp_menu);
+        goHome = (ImageView)curView.findViewById(R.id.detail_disp_go_home);
+        goHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TravelUIHelper.openHomePageActivity(getActivity());
+                getActivity().finish();
+            }
+        });
         detailDispMenuDisp = (TextView)curView.findViewById(R.id.detail_disp_menu);
         lyDetailDispMenu = (LinearLayout)curView.findViewById(R.id.ly_detail_disp_menu);
 
         lyDetailDispAdjust = (LinearLayout)curView.findViewById(R.id.ly_detail_disp_adjust_disp);
         detailDispAdjustSight = (TextView)curView.findViewById(R.id.detail_disp_adjust_sight);
         detailDispAdjustHotel = (TextView)curView.findViewById(R.id.detail_disp_adjust_hotel);
-        detailDispAdjustTraffic = (TextView)curView.findViewById(R.id.detail_disp_adjust_traffic);
+        //detailDispAdjustTraffic = (TextView)curView.findViewById(R.id.detail_disp_adjust_traffic);
 
         lyTimeSelectWheel = (LinearLayout)curView.findViewById(R.id.ly_time_select_wheel);
         timeWheel = (WheelPicker)curView.findViewById(R.id.time_select_wheel);
@@ -308,9 +321,9 @@ public class DetailDispFragment extends TTBaseFragment{
                     case R.id.detail_disp_adjust_hotel:
                         adjustHotel();
                         break;
-                    case R.id.detail_disp_adjust_traffic:
+/*                    case R.id.detail_disp_adjust_traffic:
                         adjustTraffic();
-                        break;
+                        break;*/
                     case R.id.ly_detail_disp_adjust_disp:
                         lyDetailDispAdjust.setVisibility(View.GONE);
                         break;
@@ -320,7 +333,7 @@ public class DetailDispFragment extends TTBaseFragment{
         lyDetailDispAdjust.setOnClickListener(adjustListener);
         detailDispAdjustSight.setOnClickListener(adjustListener);
         detailDispAdjustHotel.setOnClickListener(adjustListener);
-        detailDispAdjustTraffic.setOnClickListener(adjustListener);
+        //detailDispAdjustTraffic.setOnClickListener(adjustListener);
 
         MonitorClickListener selectTimeListener = new MonitorClickListener(getActivity()) {
             @Override
@@ -414,7 +427,7 @@ public class DetailDispFragment extends TTBaseFragment{
             public void onTrafficClick(View v, final int position) {
                 switch (v.getId()) {
                     case R.id.detail_disp_traffic_select_result:
-                        getTrafficContent(detailDispEntityList.get(position).getDbID(), detailDispEntityList.get(position).getTitle());
+                        getTrafficContent(detailDispEntityList.get(position).getStatus(), detailDispEntityList.get(position).getTitle());
                         TravelUIHelper.openTrafficListActivity(getActivity(), trafficTitle, trafficUrl);
                         break;
                     case R.id.detail_disp_traffic_plane:
@@ -489,20 +502,20 @@ public class DetailDispFragment extends TTBaseFragment{
         return day;
     }
 
-    private List<String> rvDayInit() {
+    private List<Integer> rvDayInit() {
         day.clear();
         for (DetailDispEntity index : detailDispEntityList) {
             if (index.getType() == DAY) {
-                day.add(index.getTitle());
+                day.add(Integer.valueOf(index.getTitle()));
             }
         }
         return day;
     }
 
-    private void roll2Day(String targetDay) {
+    private void roll2Day(int targetDay) {
         int pos = 0;
         for (DetailDispEntity index : detailDispEntityList) {
-            if (index.getType() == DAY && index.getTitle().equals(targetDay)) {
+            if (index.getType() == DAY && index.getTitle().equals(String.valueOf(targetDay))) {
                 mIndex = pos;
                 moveToPosition(pos);
                 return;
@@ -594,7 +607,7 @@ public class DetailDispFragment extends TTBaseFragment{
         moveToPosition(firstHotel);
     }
 
-    private void adjustTraffic() {
+/*    private void adjustTraffic() {
         editing = true;
         for (DetailDispEntity index : detailDispEntityList) {
             if (index.getType() == TRAFFIC) {
@@ -606,7 +619,7 @@ public class DetailDispFragment extends TTBaseFragment{
         setTopRightButton(R.drawable.detail_disp_adjust_finish);
         lyDetailDispAdjust.setVisibility(View.GONE);
         detailDispAdapter.notifyDataSetChanged();
-    }
+    }*/
 
     private void adjustFinish() {
         editing = false;
@@ -627,7 +640,8 @@ public class DetailDispFragment extends TTBaseFragment{
             hideTopRightButton();
         }
         routeCost.setText("约"+String.valueOf(getTotalCost())+"元");
-        routeStyle.setText(routeEntity.getRouteType()+"路线");
+        String routeType = routeEntity.getRouteType();
+        routeStyle.setText(routeType+"路线");
         start = new DetailDispEntity();
         start.setType(TRAFFIC);
         start.setTitle(getTrafficType(routeEntity.getStartTrafficTool()));

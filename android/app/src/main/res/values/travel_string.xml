@@ -17,7 +17,7 @@
     <string name="route_comfort">舒适</string>
     <string name="route_exploration">探险</string>
     <string name="route_excite">刺激</string>
-    <string name="route_encounter">艳遇</string>
+    <string name="route_encounter">邂逅</string>
     <string name="travel_create">定制我的行程</string>
     <string name="create_route">定制行程</string>
     <string name="travel_share">分享行程</string>
@@ -78,7 +78,7 @@
     <string name="prompt_phone_number">请输入手机号</string>
     <string name="prompt_identifying_code">请输入验证码</string>
     <string name="request_identifying_code">获取验证码</string>
-    <string name="confirm">确定</string>
+    <string name="login">登录</string>
     <string name="no_result">对不起，没有搜索到相关数据！</string>
     <string name="plane">飞机</string>
     <string name="train">火车</string>
@@ -95,6 +95,6 @@
     <string name="feedback_picture_hint">图片（可选择，提供问题截图，最多3张）</string>
     <string name="feedback_confirm">确认提交</string>
     <string name="select_route_user_hint">小智：请小主赐教！</string>
-    <string name="select_route_user_title">小智推荐</string>
+    <string name="select_route_user_title">小智占卜</string>
     <string name="select_route_user_hint_example">例如：毕业、未知、流浪、放松、陌生...</string>
 </resources>

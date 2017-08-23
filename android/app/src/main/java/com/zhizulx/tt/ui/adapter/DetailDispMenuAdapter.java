@@ -29,10 +29,10 @@ public class DetailDispMenuAdapter extends RecyclerView.Adapter {
     }
 
     private Context ctx;
-    private List<String> list;
+    private List<Integer> list;
 
 
-    public DetailDispMenuAdapter(Context ctx, List<String> list) {
+    public DetailDispMenuAdapter(Context ctx, List<Integer> list) {
         this.ctx = ctx;
         this.list = list;
     }
@@ -50,7 +50,7 @@ public class DetailDispMenuAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         SelectCityResultViewHolder holder = (SelectCityResultViewHolder) viewHolder;
-        holder.menu.setText(list.get(i));
+        holder.menu.setText("第"+list.get(i)+"天");
     }
 
     @Override

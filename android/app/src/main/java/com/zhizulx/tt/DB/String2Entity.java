@@ -21,13 +21,14 @@ public class String2Entity {
         CityEntity cityEntity = new CityEntity();
         cityEntity.setCityCode(listString.get(0));
         cityEntity.setName(listString.get(1));
-        cityEntity.setIcon(listString.get(2));
+        cityEntity.setValidTags(listString.get(2));
+        cityEntity.setIcon(listString.get(3));
         List<String> picList = new ArrayList<>();
-        picList.add(listString.get(3));
         picList.add(listString.get(4));
         picList.add(listString.get(5));
+        picList.add(listString.get(6));
         cityEntity.setPicList(picList);
-        cityEntity.setDiscription(listString.get(6));
+        cityEntity.setDiscription(listString.get(7));
         return cityEntity;
     }
 

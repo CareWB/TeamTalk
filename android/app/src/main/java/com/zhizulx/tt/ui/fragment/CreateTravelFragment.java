@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zhizulx.tt.DB.entity.CityEntity;
 import com.zhizulx.tt.DB.entity.RouteEntity;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.event.TravelEvent;
@@ -62,20 +64,11 @@ public class CreateTravelFragment extends TTBaseFragment{
     private TextView endCity;
     private IMTravelManager travelManager;
 
-/*    private ImageView economicComfort;
-    private ImageView economicEfficiency;
-    private ImageView luxuryQuality;
-    private ImageView experienceCancel;
-    private LinearLayout lyExperiencePop;
-    private TextView createTravelExperience;
-    private PopupWindow mExperiencePopupWindow;
-    RelativeLayout experience;*/
-
-    private ImageView literature;
-    private ImageView comfort;
-    private ImageView exploration;
-    private ImageView excite;
-    private ImageView encounter;
+    private TextView literature;
+    private TextView comfort;
+    private TextView exploration;
+    private TextView excite;
+    private TextView encounter;
     private ImageView routeCancel;
     private LinearLayout lyRoutePop;
     private TextView createTravelRoute;
@@ -246,12 +239,6 @@ public class CreateTravelFragment extends TTBaseFragment{
         per_num_sub = (ImageButton)curView.findViewById(R.id.create_travel_per_num_sub);
         per_num = (TextView)curView.findViewById(R.id.create_travel_per_num);
 
-/*        mapExperience.put(R.id.create_travel_experience_economic_comfort, getString(R.string.economical_comfort));
-        mapExperience.put(R.id.create_travel_experience_economic_efficiency, getString(R.string.economical_efficiency));
-        mapExperience.put(R.id.create_travel_experience_luxury_quality, getString(R.string.luxury_quality));
-        createTravelExperience = (TextView)curView.findViewById(R.id.create_travel_experience);
-        createTravelExperience.setText(mapExperience.get(R.id.create_travel_experience_economic_comfort));*/
-
         mapRoute.put(R.id.create_travel_route_literature, getString(R.string.route_literature));
         mapRoute.put(R.id.create_travel_route_comfort, getString(R.string.route_comfort));
         mapRoute.put(R.id.create_travel_route_exploration, getString(R.string.route_exploration));
@@ -294,6 +281,7 @@ public class CreateTravelFragment extends TTBaseFragment{
                         break;*/
 
                     case R.id.rlcreate_travel_route:
+                        cityTagProcess();
                         mRoutePopupWindow.showAtLocation(getActivity().getLayoutInflater().inflate(R.layout.travel_fragment_create_travel, null), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                         break;
 
@@ -391,67 +379,13 @@ public class CreateTravelFragment extends TTBaseFragment{
         this.betweenTime.setText(date);
     }
 
-/*    private void initExperiencePopupWindow() {
-        View popupView = curView.inflate(getActivity(), R.layout.travel_select_experience_popup_window, null);
-        economicComfort = (ImageView) popupView.findViewById(R.id.create_travel_experience_economic_comfort);
-        economicEfficiency = (ImageView) popupView.findViewById(R.id.create_travel_experience_economic_efficiency);
-        luxuryQuality = (ImageView) popupView.findViewById(R.id.create_travel_experience_luxury_quality);
-        experienceCancel = (ImageView) popupView.findViewById(R.id.create_travel_experience_cancel);
-        lyExperiencePop = (LinearLayout) popupView.findViewById(R.id.ly_create_travel_experience_pop);
-        mExperiencePopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
-        mExperiencePopupWindow.setTouchable(true);
-        mExperiencePopupWindow.setOutsideTouchable(true);
-        mExperiencePopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
-        //mPopupWindow.setAnimationStyle(R.style.anim_menu_bottombar);
-
-        mExperiencePopupWindow.getContentView().setFocusableInTouchMode(true);
-        mExperiencePopupWindow.getContentView().setFocusable(true);
-        mExperiencePopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_MENU && event.getRepeatCount() == 0
-                        && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    if (mExperiencePopupWindow != null && mExperiencePopupWindow.isShowing()) {
-                        mExperiencePopupWindow.dismiss();
-                    }
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        View.OnClickListener popupListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.create_travel_experience_economic_comfort:
-                    case R.id.create_travel_experience_economic_efficiency:
-                    case R.id.create_travel_experience_luxury_quality:
-                        createTravelExperience.setText(mapExperience.get(v.getId()));
-                        mExperiencePopupWindow.dismiss();
-                        break;
-
-                    case R.id.ly_create_travel_experience_pop:
-                    case R.id.create_travel_experience_cancel:
-                        mExperiencePopupWindow.dismiss();
-                        break;
-                }
-            }
-        };
-        lyExperiencePop.setOnClickListener(popupListener);
-        economicComfort.setOnClickListener(popupListener);
-        economicEfficiency.setOnClickListener(popupListener);
-        luxuryQuality.setOnClickListener(popupListener);
-        experienceCancel.setOnClickListener(popupListener);
-    }*/
-
     private void initRoutePopupWindow() {
         View popupView = curView.inflate(getActivity(), R.layout.travel_select_route_popup_window, null);
-        literature = (ImageView) popupView.findViewById(R.id.create_travel_route_literature);
-        comfort = (ImageView) popupView.findViewById(R.id.create_travel_route_comfort);
-        exploration = (ImageView) popupView.findViewById(R.id.create_travel_route_exploration);
-        excite = (ImageView) popupView.findViewById(R.id.create_travel_route_excite);
-        encounter = (ImageView) popupView.findViewById(R.id.create_travel_route_encounter);
+        literature = (TextView) popupView.findViewById(R.id.create_travel_route_literature);
+        comfort = (TextView) popupView.findViewById(R.id.create_travel_route_comfort);
+        exploration = (TextView) popupView.findViewById(R.id.create_travel_route_exploration);
+        excite = (TextView) popupView.findViewById(R.id.create_travel_route_excite);
+        encounter = (TextView) popupView.findViewById(R.id.create_travel_route_encounter);
         routeCancel = (ImageView) popupView.findViewById(R.id.create_travel_route_cancel);
         lyRoutePop = (LinearLayout) popupView.findViewById(R.id.ly_create_travel_route_pop);
         mRoutePopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
@@ -479,12 +413,23 @@ public class CreateTravelFragment extends TTBaseFragment{
         MonitorClickListener popupListener = new MonitorClickListener(getActivity()) {
             @Override
             public void onMonitorClick(View v) {
+                String tags = "";
+                String cityCode = travelManager.getCityCodeByName(destination);
+                CityEntity cityEntity = travelManager.getCityEntitybyCityCode(cityCode);
+
                 switch (v.getId()) {
                     case R.id.create_travel_route_literature:
                     case R.id.create_travel_route_comfort:
                     case R.id.create_travel_route_exploration:
                     case R.id.create_travel_route_excite:
                     case R.id.create_travel_route_encounter:
+                        if (cityEntity != null) {
+                            tags = cityEntity.getValidTags();
+                            if (!tags.contains(mapRoute.get(v.getId()))) {
+                                Toast.makeText(getActivity(), "不支持的路线类型", Toast.LENGTH_SHORT).show();
+                                break;
+                            }
+                        }
                         createTravelRoute.setText(mapRoute.get(v.getId()));
                         routeType = mapRoute.get(v.getId());
                         travelManager.getConfigEntity().setRouteType(routeType);
@@ -565,6 +510,54 @@ public class CreateTravelFragment extends TTBaseFragment{
         if (travelManager != null) {
             String myMsg = "[SelectTagFragment] " + msg;
             travelManager.AppTrace(code, myMsg);
+        }
+    }
+
+    private void cityTagProcess() {
+        if (destination.equals("")) {
+            return;
+        }
+
+        String cityCode = travelManager.getCityCodeByName(destination);
+        CityEntity cityEntity = travelManager.getCityEntitybyCityCode(cityCode);
+        if (cityEntity == null) {
+            return;
+        }
+        literature.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+        literature.setTextColor(getResources().getColor(R.color.hint_color));
+        comfort.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+        comfort.setTextColor(getResources().getColor(R.color.hint_color));
+        exploration.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+        exploration.setTextColor(getResources().getColor(R.color.hint_color));
+        excite.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+        excite.setTextColor(getResources().getColor(R.color.hint_color));
+        encounter.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+        encounter.setTextColor(getResources().getColor(R.color.hint_color));
+
+        String validTag = cityEntity.getValidTags();
+        if (validTag.contains("文艺")) {
+            literature.getPaint().setFlags(0);
+            literature.setTextColor(getResources().getColor(R.color.first_title_color));
+        }
+
+        if (validTag.contains("舒适")) {
+            comfort.getPaint().setFlags(0);
+            comfort.setTextColor(getResources().getColor(R.color.first_title_color));
+        }
+
+        if (validTag.contains("探险")) {
+            exploration.getPaint().setFlags(0);
+            exploration.setTextColor(getResources().getColor(R.color.first_title_color));
+        }
+
+        if (validTag.contains("刺激")) {
+            excite.getPaint().setFlags(0);
+            excite.setTextColor(getResources().getColor(R.color.first_title_color));
+        }
+
+        if (validTag.contains("邂逅")) {
+            encounter.getPaint().setFlags(0);
+            encounter.setTextColor(getResources().getColor(R.color.first_title_color));
         }
     }
 }

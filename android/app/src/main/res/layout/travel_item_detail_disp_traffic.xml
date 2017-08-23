@@ -13,17 +13,16 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/detail_disp_traffic_point" />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="@dimen/detail_disp_top"
         android:layout_toStartOf="@+id/detail_disp_traffic_point">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fl_detail_disp_traffic_disp">
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -32,47 +31,51 @@
                 android:visibility="visible"
                 android:id="@+id/detail_disp_traffic_select_result"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/detail_disp_traffic_select_result_mask"
-                android:visibility="gone"
-                android:clickable="true"
-                android:id="@+id/detail_disp_traffic_select_result_mask"/>
-        </FrameLayout>
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="7dp"
+                android:background="@color/white"
+                android:id="@+id/ly_detail_disp_traffic_collect"
+                android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="@drawable/detail_disp_traffic_select_plane"
-            android:gravity="bottom"
-            android:paddingRight="7dp"
-            android:id="@+id/ly_detail_disp_traffic_collect"
-            android:orientation="horizontal">
+                <TextView
+                    android:text="飞机"
+                    android:layout_width="0dp"
+                    android:layout_height="33dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/content_s"
+                    android:textColor="@color/price"
+                    android:id="@+id/detail_disp_traffic_plane" />
 
-            <TextView
-                android:text="飞机"
-                android:layout_width="0dp"
-                android:layout_height="33dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="@dimen/content_s"
-                android:textColor="@color/price"
-                android:id="@+id/detail_disp_traffic_plane" />
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="23dp"
+                    android:background="@color/not_clicked"
+                    android:layout_gravity="center_vertical"/>
 
-            <TextView
-                android:text="火车"
-                android:layout_width="0dp"
-                android:layout_height="33dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="@dimen/content_s"
-                android:textColor="@color/not_clicked"
-                android:id="@+id/detail_disp_traffic_train" />
+                <TextView
+                    android:text="火车"
+                    android:layout_width="0dp"
+                    android:layout_height="33dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/content_s"
+                    android:textColor="@color/not_clicked"
+                    android:id="@+id/detail_disp_traffic_train" />
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:background="@color/translucent"
+            android:visibility="gone"
+            android:clickable="true"
+            android:id="@+id/detail_disp_traffic_select_result_mask"/>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="wrap_content"
